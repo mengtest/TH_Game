@@ -12,16 +12,7 @@ public static class GameInit
     {
         ResourceManager.Init();
         Singleton.Singleton.Init();
-        Net.NetHelper.Init();
-
-//        LoginMsg msg = new LoginMsg();
-//        msg.Code = 1000;
-//        msg.Msg = "hello";
-//        var str = msg.ToString();
-//        var bytes = System.Text.Encoding.Default.GetBytes(str);
-        
-        
-        
-//        LoginMsg.Parser.
+        //先暂时不启用网络连接相关的功能
+//        Net.NetHelper.Init();
     }
 }
