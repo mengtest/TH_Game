@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message DrawCardData
+{
+    int number = 1;
+}
+
+message DrawCardResult
+{
+    bool success = 1;
+}

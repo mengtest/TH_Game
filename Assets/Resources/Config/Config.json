@@ -1,0 +1,18 @@
+{
+  "version": "",
+  "application": "game",
+  "name": "THCardGame",
+  "host": "127.0.0.1",
+  "port": 9998,
+  "configs": {
+    "bgmVol": 50,
+    "chVol": 50,
+    "effVol": 50,
+    "language": "Chinese"
+  },
+  "user": {
+    "name": "",
+    "pwd": "",
+    "last_login_time":123456789
+  }
+}

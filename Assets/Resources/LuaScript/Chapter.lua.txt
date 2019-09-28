@@ -1,0 +1,13 @@
+
+local ue = CS.UnityEngine
+
+function button_down()
+    -- CS.UnityEngine.SceneManagement.SceneManager.LoadScene(1)
+    
+    local Test = CS.Tutorial.LuaCallCsTest
+    Test.Call()
+end
+
+function button_up()
+    
+end
