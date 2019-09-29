@@ -41,11 +41,7 @@ namespace Net
                 Debug.Log(_buf);
                 Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
                 //将取得的数据转成对象，然后交给NetHelper处理
-//                var msg = Util.Msg.FromString(System.Text.Encoding.UTF8.GetString(_buf));
-                Debug.Log(_buf);
-                Debug.Log(System.Text.Encoding.UTF8.GetString(_buf));
-//                var msg = LoginMsg.Parser.ParseFrom(bytes);
-//                Instance.ReceiveMsg(msg);
+                
                 //进入到循环当中
                 stream.BeginRead(_buf, 0, 1024, OnRead, stream);
             }
