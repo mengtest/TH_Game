@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using Google.Protobuf;
 using UnityEngine;
 
@@ -37,11 +39,23 @@ namespace Net
             {
                 var stream = ar.AsyncState as NetworkStream;
                 System.Diagnostics.Debug.Assert(stream != null, nameof(stream) + " != null");
+//                var buf = new byte[1024];
+//                var size = stream.Read(buf, 0, 1024);
+                byte[] usageBuf = new byte[38];
+                Buffer.BlockCopy(_buf, 0, usageBuf, 0, 38);
                 stream.EndRead(ar);
-                Debug.Log(_buf);
                 Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
-                //将取得的数据转成对象，然后交给NetHelper处理
-                
+                var str = Encoding.UTF8.GetString(usageBuf);
+//                str = str.Trim();
+                LoginMsg msg = new LoginMsg();
+                msg.Code = 1000;
+                msg.Msg = "hello world";
+                var bytes = msg.ToByteString();
+                var s = msg.ToString();
+                var data = LoginMsg.Parser.ParseJson(str);
+//                var byteStr = ByteString.CopyFromUtf8(str);
+//                var msg = LoginMsg.Parser.ParseFrom(byteStr);
+//                var msg = new LoginMsg();
                 //进入到循环当中
                 stream.BeginRead(_buf, 0, 1024, OnRead, stream);
             }
