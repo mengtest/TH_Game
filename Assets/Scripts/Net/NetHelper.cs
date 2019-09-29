@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Util;
 
 namespace Net
@@ -20,8 +21,12 @@ namespace Net
     //处理发送给服务器的数据，与解析服务器回传的数据的类
     public partial class NetHelper
     {
-        private partial class Client
+        private partial class Client : IDisposable
         {
+            public void Dispose()
+            {
+                Destroy();
+            }
         }
 
         private Client _connection;
