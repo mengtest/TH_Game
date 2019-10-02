@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using Global;
 using Google.Protobuf;
 using UnityEngine;
@@ -13,10 +15,15 @@ public static class GameInit
         ResourceManager.Init();
         Singleton.Singleton.Init();
         //先暂时不启用网络连接相关的功能
-        Net.NetHelper.Init();
+//        Net.NetHelper.Init();
+
+        Debug.Log(Add_int_int(100, 101));
 
 //        LoginMsg msg = new LoginMsg();
 //        msg.Code = 1000;
 //        msg.Msg = "hello ni hao a";
     }
+
+    [DllImport("UnityDll")]
+    public static extern int Add_int_int(int x, int y);
 }
