@@ -113,7 +113,6 @@
      <Compile Include="Assets\Scripts\Util\Localization.cs" />
      <Compile Include="Assets\Scripts\Util\ModelDialog.cs" />
      <Compile Include="Assets\Scripts\Util\Msg.cs" />
-     <Compile Include="Assets\Temp.cs" />
      <Compile Include="Assets\Timer\Example\TestTimerBehaviour.cs" />
      <Compile Include="Assets\Timer\Source\Timer.cs" />
      <Compile Include="Assets\Timer\Source\TimerExtensions.cs" />
