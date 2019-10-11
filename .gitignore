@@ -3621,3 +3621,13 @@ ProjectSettings/TimeManager.asset
 ProjectSettings/UnityConnectSettings.asset
 ProjectSettings/VFXManager.asset
 ProjectSettings/XRSettings.asset
+/Assets/Plugins/UnityDll.dll.meta
+*.meta
+/Library/Artifacts/00/002b6e113955fd9170ea7814405d69ae
+/Library
+/obj/Debug
+/Temp
+/Assembly-CSharp-Editor.csproj
+/Assembly-CSharp.csproj
+/THGame.sln
+/.vs/THGame/v15/Server/sqlite3
