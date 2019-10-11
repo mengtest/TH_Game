@@ -13,14 +13,18 @@ namespace EX
     [AddComponentMenu("yuki/UI/ButtonEX")]
     public class ButtonEx : Button
     {
-//    public delegate void PointerEventCallback(PointerEventData eventData);
-//
-//    public event PointerEventCallback onPointerEnter;
-//    public event PointerEventCallback onPointerExit;
-//
-//    //记录下当前的按钮的xy轴上的缩放
-//    private float _scaleX;
-//    private float _scaleY;
+        [Tooltip("点击这个按钮之后调用的函数名,函数需要在Functions中注册")] 
+        [SerializeField]
+        private string _clickFunction = null;
+        
+        public delegate void PointerEventCallback(PointerEventData eventData);
+
+//        public event PointerEventCallback onPointerEnter;
+//        public event PointerEventCallback onPointerExit;
+
+        //记录下当前的按钮的xy轴上的缩放
+        private float _scaleX;
+        private float _scaleY;
     
         [ContextMenu("初始化")]
         public void InitButtonEx()
@@ -38,25 +42,27 @@ namespace EX
         protected override void Start()
         {
             base.Start();
-        
-//        _scaleX = GetComponent<RectTransform>().localScale.x;
-//        _scaleY = GetComponent<RectTransform>().localScale.y;
-//        onPointerEnter = eventData =>
-//        {
-//            if (!interactable)
+
+            var localScale = transform.localScale;
+            _scaleX = localScale.x;
+            _scaleY = localScale.y;
+            
+//            onPointerEnter = eventData =>
 //            {
-//                return;
-//            }
-//            
-//            transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
-//            Sound.PlayEffect("Music/BtnClick");
-//        };
+//                if (!interactable)
+//                {
+//                    return;
+//                }
+//                
+//                transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
+//                Sound.PlayEffect("Music/BtnClick");
+//            };
 //
-//        onPointerExit = eventData =>
-//        {
-//            var rect = GetComponent<RectTransform>();
-//            rect.localScale = new Vector3(_scaleX, _scaleY);
-//        };
+//            onPointerExit = eventData =>
+//            {
+//                var rect = GetComponent<RectTransform>();
+//                rect.localScale = new Vector3(_scaleX, _scaleY);
+//            };
         
             onClick.AddListener(delegate
             {
@@ -64,6 +70,7 @@ namespace EX
             });
         }
 
+        //鼠标进入到按钮时，按钮放大
         public override void OnPointerEnter(PointerEventData eventData)
         {
             if (!interactable)
@@ -71,17 +78,18 @@ namespace EX
                 return;
             }
 
-            //做缩放会出现bug，所以暂时注释掉
-//        transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
+            //不知道之前的是什么bug
+            transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
             Sound.PlayEffect("Music/BtnClick");
 
             base.OnPointerEnter(eventData);
         }
 
-//    public override void OnPointerExit(PointerEventData eventData)
-//    {
-//        
-//        base.OnPointerExit(eventData);
-//    }
+        //鼠标移出按钮时，按钮回复原样
+        public override void OnPointerExit(PointerEventData eventData)
+        {
+            transform.localScale = new Vector3(_scaleX , _scaleY);
+            base.OnPointerExit(eventData);
+        }
     }
 }
