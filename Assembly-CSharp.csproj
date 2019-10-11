@@ -56,6 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Scripts\BattleScene\BattleBoard.cs" />
      <Compile Include="Assets\Scripts\BattleScene\BattleSceneScript.cs" />
      <Compile Include="Assets\Scripts\BattleScene\ChooserTargetScript.cs" />
@@ -178,6 +185,7 @@
      <None Include="Assets\Resources\LuaScript\Chapter.lua.txt" />
      <None Include="Assets\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
      <None Include="Assets\XLua\CHANGELOG.txt" />
      <None Include="Assets\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
@@ -387,6 +395,9 @@
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>D:/Game/THGame/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Game/THGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/unity/edit/2019.3.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -301,6 +301,12 @@
  <Reference Include="Newtonsoft.Json">
  <HintPath>D:/Game/THGame/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
  </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>D:/Game/THGame/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Game/THGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/Game/THGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>

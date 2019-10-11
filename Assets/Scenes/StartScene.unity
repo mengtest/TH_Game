@@ -437,6 +437,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _clickFunction: 
 --- !u!114 &806221460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +772,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _clickFunction: 
 --- !u!114 &1234001242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1146,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _clickFunction: 
 --- !u!114 &1765002185
 MonoBehaviour:
   m_ObjectHideFlags: 0
