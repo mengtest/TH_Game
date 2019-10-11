@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\BattleScene\SettingButton.cs" />
      <Compile Include="Assets\Scripts\BattleScene\SlotScript.cs" />
      <Compile Include="Assets\Scripts\Callbacks\Callbacks.cs" />
+     <Compile Include="Assets\Scripts\Callbacks\Functions.cs" />
      <Compile Include="Assets\Scripts\EX\AudioEX.cs" />
      <Compile Include="Assets\Scripts\EX\ButtonEx.cs" />
      <Compile Include="Assets\Scripts\EX\ButtonGroup.cs" />
