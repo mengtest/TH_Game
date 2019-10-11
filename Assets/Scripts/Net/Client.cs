@@ -41,8 +41,8 @@ namespace Net
                 var stream = ar.AsyncState as NetworkStream;
                 System.Diagnostics.Debug.Assert(stream != null, nameof(stream) + " != null");
                 var str = Encoding.UTF8.GetString(_buf);
-                char[] usageBuf = new char[18];
-                Buffer.BlockCopy(str.ToCharArray(), 0, usageBuf, 0, 18);
+                char[] usageBuf = new char[15];
+                Buffer.BlockCopy(str.ToCharArray(), 0, usageBuf, 0, 15);
                 stream.EndRead(ar);
                 Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
 //                var str = Encoding.UTF8.GetString(usageBuf);
@@ -57,7 +57,12 @@ namespace Net
 //                var msg = LoginMsg.Parser.ParseFrom(byteStr);
 //                var msg = new LoginMsg();
                 //进入到循环当中
-                stream.BeginRead(_buf, 0, 1024, OnRead, stream);
+                var res = stream.BeginRead(_buf, 0, 1024, OnRead, stream);
+            }
+
+            public void OnRead()
+            {
+                
             }
 
             //这个是读取json的版本

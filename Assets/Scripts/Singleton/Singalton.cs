@@ -8,7 +8,7 @@
 
         public static Singleton Instance => _instance;
 
-        public global::Singleton.Singleton.Local GetLocal()
+        public Local GetLocal()
         {
             return _local;
         }
