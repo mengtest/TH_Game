@@ -7,7 +7,7 @@ namespace Singleton
 {
     public partial class Singleton
     {
-        public class Language
+        public class Local
         {
             //这个值就是英文，同时也是文件名，会根据这个值去读取不同的文件
             private string _currentLanguage;
@@ -26,7 +26,7 @@ namespace Singleton
                 get => _currentLanguage;
             }
 
-            public Language()
+            public Local()
             {
                 CurrentLanguage = DefaultLang;
             }

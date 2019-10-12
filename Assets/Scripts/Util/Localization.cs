@@ -13,7 +13,7 @@ namespace Util
             //对该组件下的所有为text的组件做出多语言处理
             foreach (var child in GetComponentsInChildren<Text>())
             {
-                child.text = Singleton.Singleton.Instance.GetLocal().GetWord(child.text);
+                child.text = Singleton.Singleton.Instance.Language.GetWord(child.text);
             }
 
             //对一些组件做出特殊处理
@@ -22,7 +22,7 @@ namespace Util
             {
                 foreach (var option in dropDown.options)
                 {
-                    option.text = Singleton.Singleton.Instance.GetLocal().GetWord(option.text);
+                    option.text = Singleton.Singleton.Instance.Language.GetWord(option.text);
                 }
             }
 
@@ -31,7 +31,7 @@ namespace Util
             {
                 foreach (var option in dropDown.options)
                 {
-                    option.text = Singleton.Singleton.Instance.GetLocal().GetWord(option.text);
+                    option.text = Singleton.Singleton.Instance.Language.GetWord(option.text);
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace Util
             //对该组件下的所有为text的组件做出多语言处理
             foreach (var child in GetComponentsInChildren<Text>())
             {
-                child.text = Singleton.Singleton.Instance.GetLocal().GetWord(child.text);
+                child.text = Singleton.Singleton.Instance.Language.GetWord(child.text);
             }
 
             //对一些组件做出特殊处理
@@ -50,7 +50,7 @@ namespace Util
             {
                 foreach (var option in dropDown.options)
                 {
-                    option.text = Singleton.Singleton.Instance.GetLocal().GetWord(option.text);
+                    option.text = Singleton.Singleton.Instance.Language.GetWord(option.text);
                 }
             }
 
@@ -59,7 +59,7 @@ namespace Util
             {
                 foreach (var option in dropDown.options)
                 {
-                    option.text = Singleton.Singleton.Instance.GetLocal().GetWord(option.text);
+                    option.text = Singleton.Singleton.Instance.Language.GetWord(option.text);
                 }
             }
         }
