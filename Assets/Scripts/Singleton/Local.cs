@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Singleton
 {
-    partial class Singleton
+    public partial class Singleton
     {
-        public class Local
+        public class Language
         {
             //这个值就是英文，同时也是文件名，会根据这个值去读取不同的文件
             private string _currentLanguage;
@@ -26,15 +26,15 @@ namespace Singleton
                 get => _currentLanguage;
             }
 
-            public Local()
+            public Language()
             {
-                _words = new Dictionary<string, string>();
                 CurrentLanguage = DefaultLang;
             }
 
             //重新加载文件
             private void ReadFile()
             {
+                _words = new Dictionary<string, string>();
                 TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);
                 var doc = new XmlDocument();
                 doc.LoadXml(text.text);
@@ -42,19 +42,19 @@ namespace Singleton
                 {
                     foreach (XmlNode words in doc.ChildNodes)
                     {
-                        if (words.Name == "words")
+                        //读取words与sentences下面所有的节点，其名称即为key，值为value
+                        if (words.Name == "words" || words.Name == "sentences")
                         {
                             foreach (XmlNode word in words.ChildNodes)
                             {
-                                _words.Add(word["key"]?.InnerText.ToLower() ?? throw new Exception("属性key为空"), 
-                                    word["value"]?.InnerText);
+                                _words.Add(word.Name.ToLower(), word.InnerText);
                             }
                         }
                     }
                 }
             }
 
-            //获取到key对应的值，如果没有对应的值，则返回key
+            //获取到key对应的值，如果没有对应的值，则返回小写的key
             //convert为是否需要转化成小写
             public string GetWord(string key,bool convert = true)
             {
@@ -68,6 +68,10 @@ namespace Singleton
             //获取key对应的值，不会为空
             public string FindWord(string key)
             {
+                if (!_words.ContainsKey(key))
+                {
+                    throw new Exception("无效的键");
+                }
                 return _words[key];
             }
 
