@@ -13,21 +13,23 @@ namespace Global
         //是否需要加载loading界面
         public static void NavigateTo(string name, bool loading = true)
         {
-            _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);   
-
-//            //序号为2的场景就是loading场景，加载loading场景之后再异步加载我们需要的场景
-//            SceneManager.LoadScene(2);
-//
-//            //实际情况下，感觉这样做就已经达到了需要的效果了
-//            SceneManager.LoadSceneAsync(name).allowSceneActivation = true;
-
-            //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
+            _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
             if (!name.Contains("/"))
             {
                 name = "Scenes/" + name;
             }
 
-            NavigateTo(name, 5);
+            SceneManager.LoadScene(name);
+            //            //序号为2的场景就是loading场景，加载loading场景之后再异步加载我们需要的场景
+            //            SceneManager.LoadScene(2);
+            //
+            //            //实际情况下，感觉这样做就已经达到了需要的效果了
+            //            SceneManager.LoadSceneAsync(name).allowSceneActivation = true;
+
+            //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
+
+
+//            NavigateTo(name, 5);
         }
 
         //跳转到id场景中

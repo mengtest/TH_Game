@@ -1,10 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using Global;
 
 namespace Callbacks
 {
     public static class Functions
     {
+        public enum CallbackType
+        {
+            BUTTON,
+        }
+
+        public static void Init()
+        {
+            AddFunction("NavigateToMainScene", () => { Navigator.NavigateTo("MainScene"); });
+        }
+
         //获取到一个被注册的函数，并且获取之后删除掉对应的引用
         public static Action GetFunctionOnce(string funName)
         {

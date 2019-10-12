@@ -8,10 +8,7 @@
 
         public static Singleton Instance => _instance;
 
-        public Local GetLocal()
-        {
-            return _local;
-        }
+        public Local Language => _local;
 
         //对象的初始化
         public static bool Init()
@@ -26,7 +23,6 @@
         }
 
         private static Singleton _instance;
-
         private Local _local;
     }
 }

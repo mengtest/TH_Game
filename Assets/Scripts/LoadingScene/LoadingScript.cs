@@ -23,7 +23,7 @@ namespace LoadingScene
         {
             _index = 0;
         
-            _primText = Singleton.Singleton.Instance.GetLocal().GetWord(_text.text);
+            _primText = Singleton.Singleton.Instance.Language.GetWord(_text.text);
 
             //unity提供的延迟调用
             Invoke(nameof(Timer), 0.5f);

@@ -13,7 +13,7 @@ namespace SettingScene
         {
             //选择不同的项会直接修改当前的语言
             //但是不会立刻反应出
-            global::Singleton.Singleton.Instance.GetLocal().CurrentLanguage = Config.Load().Language[GetComponent<Dropdown>().value];
+            global::Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[GetComponent<Dropdown>().value];
         }
 
         //除了切换语言外，这里还做了一次场景的刷新
@@ -21,7 +21,7 @@ namespace SettingScene
         {
             //选择不同的项会直接修改当前的语言
             //但是不会立刻反应出
-            global::Singleton.Singleton.Instance.GetLocal().CurrentLanguage = Config.Load().Language[value];
+            global::Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[value];
 
             //重新加载当前的场景
             //充当刷新的作用，刷新语言
@@ -40,7 +40,7 @@ namespace SettingScene
             dropDown.AddOptions(config.Language);
 
             //将下拉列表选择的值设置为当前的语言
-            dropDown.value = config.Language.BinarySearch(global::Singleton.Singleton.Instance.GetLocal().CurrentLanguage);
+            dropDown.value = config.Language.BinarySearch(global::Singleton.Singleton.Instance.Language.CurrentLanguage);
 
             //先移除所有的事件监听器
             dropDown.onValueChanged.RemoveAllListeners();
