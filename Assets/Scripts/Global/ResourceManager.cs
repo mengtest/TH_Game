@@ -25,11 +25,8 @@ namespace Global
         public LocalConfig Config => _tempConfig;
         public Save Save => _save;
         public Cards Cards => _cards;
-        
         public Chapters Chapters => _chapters;
-
         public static ResourceManager Instance => _loader;
-
         public static bool Init()
         {
             if (_loader == null)

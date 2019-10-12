@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using Callbacks;
 using Global;
 using Google.Protobuf;
 using UnityEngine;
@@ -16,6 +17,7 @@ public static class GameInit
         Singleton.Singleton.Init();
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
+        Functions.Init();
 
         Debug.Log(Add_int_int(100, 101));
 

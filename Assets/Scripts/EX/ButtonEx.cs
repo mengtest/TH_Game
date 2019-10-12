@@ -1,4 +1,6 @@
-﻿using Manager;
+﻿using Callbacks;
+using Manager;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,13 +13,18 @@ namespace EX
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasRenderer))]
     [AddComponentMenu("yuki/UI/ButtonEX")]
+//    [CustomEditor(typeof(ButtonEx),true)]
     public class ButtonEx : Button
     {
         [Tooltip("点击这个按钮之后调用的函数名,函数需要在Functions中注册")] 
         [SerializeField]
         private string _clickFunction = null;
-        
-        public delegate void PointerEventCallback(PointerEventData eventData);
+
+        [Tooltip("当前回调事件的类型")]
+        [SerializeField]
+        private Callbacks.Functions.CallbackType _type = Functions.CallbackType.BUTTON;
+
+//        public delegate void PointerEventCallback(PointerEventData eventData);
 
 //        public event PointerEventCallback onPointerEnter;
 //        public event PointerEventCallback onPointerExit;
