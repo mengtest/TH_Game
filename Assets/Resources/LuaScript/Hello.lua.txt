@@ -31,5 +31,3 @@ function main()
     ins:start()
     ins:sayHello()
 end
-
---main()

@@ -16,6 +16,16 @@ namespace Callbacks
             AddFunction("NavigateToMainScene", () => { Navigator.NavigateTo("MainScene"); });
         }
 
+        public static void LoadScript()
+        {
+            
+        }
+
+        public static void ClearScriptFunction()
+        {
+            
+        }
+
         //获取到一个被注册的函数，并且获取之后删除掉对应的引用
         public static Action GetFunctionOnce(string funName)
         {

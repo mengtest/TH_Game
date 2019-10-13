@@ -18,14 +18,17 @@ namespace EX
     {
         [Tooltip("点击这个按钮之后调用的函数名,函数需要在Functions中注册")] 
         [SerializeField]
-        private string _clickFunction = null;
+        private string _clickFunction = "";
 
         [Tooltip("当前回调事件的类型")]
         [SerializeField]
         private Callbacks.Functions.CallbackType _type = Functions.CallbackType.BUTTON;
 
+        [Tooltip("是否自动注册当前组件对应名称的回调函数")]
+        [SerializeField]
+        private bool _autoRegisterCallback = true;
+        
 //        public delegate void PointerEventCallback(PointerEventData eventData);
-
 //        public event PointerEventCallback onPointerEnter;
 //        public event PointerEventCallback onPointerExit;
 
@@ -37,19 +40,22 @@ namespace EX
         public void InitButtonEx()
         {
             var color = new ColorBlock();
-            color.colorMultiplier = colors.colorMultiplier;
-            color.disabledColor = colors.disabledColor;
-            color.fadeDuration = colors.fadeDuration;
+            var oriColor = colors;
+            color.colorMultiplier = oriColor.colorMultiplier;
+            color.disabledColor = oriColor.disabledColor;
+            color.fadeDuration = oriColor.fadeDuration;
             color.highlightedColor = new Color(200, 200, 200);
-            color.normalColor = colors.normalColor;
+            color.normalColor = oriColor.normalColor;
             color.pressedColor = new Color(150, 150, 150);
-            color.selectedColor = colors.selectedColor;
+            color.selectedColor = oriColor.selectedColor;
+            oriColor = color;
+            colors = oriColor;
         }
     
         protected override void Start()
         {
             base.Start();
-
+            
             var localScale = transform.localScale;
             _scaleX = localScale.x;
             _scaleY = localScale.y;
@@ -70,7 +76,10 @@ namespace EX
 //                var rect = GetComponent<RectTransform>();
 //                rect.localScale = new Vector3(_scaleX, _scaleY);
 //            };
-        
+
+            //如果自动注册为true
+            RegisterCallback();
+
             onClick.AddListener(delegate
             {
                 Sound.PlayEffect("Music/BtnClick");
@@ -97,6 +106,28 @@ namespace EX
         {
             transform.localScale = new Vector3(_scaleX , _scaleY);
             base.OnPointerExit(eventData);
+        }
+
+        private void RegisterCallback()
+        {
+            if (_autoRegisterCallback)
+            {
+                string funName = null;
+                //且这个字符串为空的话，那么会直接取得当前节点的name
+                if (string.IsNullOrEmpty(_clickFunction))
+                {
+                    funName = gameObject.name;
+                }
+                else
+                {
+                    funName = _clickFunction;
+                }
+
+                onClick.AddListener(() =>
+                {
+                    Functions.GetFunction(funName)?.Invoke();
+                });
+            }
         }
     }
 }

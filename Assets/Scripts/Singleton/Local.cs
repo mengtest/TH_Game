@@ -28,12 +28,15 @@ namespace Singleton
 
             public Local()
             {
+                _words = new Dictionary<string, string>();
                 CurrentLanguage = DefaultLang;
             }
 
             //重新加载文件
             private void ReadFile()
             {
+                return;
+
                 _words = new Dictionary<string, string>();
                 TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);
                 var doc = new XmlDocument();
