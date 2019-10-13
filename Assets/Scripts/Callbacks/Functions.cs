@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Global;
+using UnityEngine;
+using XLua;
 
 namespace Callbacks
 {
@@ -18,7 +20,15 @@ namespace Callbacks
 
         public static void LoadScript()
         {
+            var script = Resources.Load<TextAsset>("LuaScript/Functions.lua");
+            LuaEnv env = new LuaEnv();
+            env.DoString(script.text);
+
+            var functions = env.Global.Get<LuaTable>("Button");
+            var func = functions.Get<Action>("StartButtonClick");
+            func();
             
+//            env.Dispose();
         }
 
         public static void ClearScriptFunction()

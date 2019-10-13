@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LoadingScene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XLua;
+using Object = UnityEngine.Object;
 
 namespace Global
 {
+    [LuaCallCSharp]
     public static class Navigator
     {
         private static Stack<int> _sceneStack = new Stack<int>();
@@ -30,6 +34,11 @@ namespace Global
 
 
 //            NavigateTo(name, 5);
+        }
+
+        public static void NavigateTo(string name, int id)
+        {
+            Debug.Log($"{name},{id}");
         }
 
         //跳转到id场景中

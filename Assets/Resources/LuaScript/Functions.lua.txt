@@ -7,5 +7,5 @@
 Button = {}
 
 Button.StartButtonClick = function()
-    print("hello lua!")
+    CS.Global.Navigator.NavigateTo("hello", 1000)
 end
