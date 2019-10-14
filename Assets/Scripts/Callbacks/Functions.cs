@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using LuaEngine;
+using LuaFramework;
 using UnityEngine;
 using XLua;
 
@@ -20,14 +20,14 @@ namespace Callbacks
 
         private static LuaTable GetTable(string name)
         {
-            return LuaEngine.LuaEngine.Instance().SubInstance(EngineName).Global.Get<LuaTable>(name);
+            return LuaEngine.Instance().SubInstance(EngineName).Global.Get<LuaTable>(name);
         }
 
         //lua引擎初始化
         private static void LuaEngineInit()
         {
             var script = Resources.Load<TextAsset>("LuaScript/Functions.lua");
-            var engine = LuaEngine.LuaEngine.Instance().SubInstance(EngineName);
+            var engine = LuaEngine.Instance().SubInstance(EngineName);
             engine.DoString(script.text);
         }
         
