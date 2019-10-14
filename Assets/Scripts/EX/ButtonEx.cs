@@ -1,4 +1,5 @@
-﻿using Callbacks;
+﻿using System;
+using Callbacks;
 using LuaFramework;
 using Manager;
 using UnityEngine;
@@ -13,20 +14,10 @@ namespace EX
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasRenderer))]
     [AddComponentMenu("yuki/UI/ButtonEX")]
-//    [CustomEditor(typeof(ButtonEx),true)]
-    public class ButtonEx : Button, ILuaSupporter
+    public class ButtonEx : Button, ILuaSupporter<ButtonEx>
     {
-        [Tooltip("点击这个按钮之后调用的函数名,函数需要在Functions中注册")] 
         [SerializeField]
-        private string _clickFunction = "";
-        
-        [Tooltip("是否自动注册当前组件对应名称的回调函数,如果clickFunction字段为空,那么会根据当前对象的名称去加载回调函数,会自动添加Callback")]
-        [SerializeField]
-        private bool _autoRegisterCallback = true;
-
-        [Tooltip("当前回调事件的类型")]
-        [SerializeField]
-        private ComponentType _type = ComponentType.Button;
+        private LuaSupporter<ButtonEx> _supporter;
         
 //        public delegate void PointerEventCallback(PointerEventData eventData);
 //        public event PointerEventCallback onPointerEnter;
@@ -51,7 +42,12 @@ namespace EX
             oriColor = color;
             colors = oriColor;
         }
-    
+
+        protected override void Awake()
+        {
+            _supporter = new LuaSupporter<ButtonEx>();
+        }
+
         protected override void Start()
         {
             base.Start();
@@ -78,11 +74,16 @@ namespace EX
 //            };
 
             //如果自动注册为true
-            RegisterCallback();
+            
 
-            onClick.AddListener(delegate
+            var callback = new Action(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
+            });
+            callback +=  Functions.GetFunction(_supporter.GetWord());
+            onClick.AddListener(delegate
+            {
+                callback.Invoke();
             });
         }
 
@@ -108,43 +109,39 @@ namespace EX
             base.OnPointerExit(eventData);
         }
 
-        private void RegisterCallback()
-        {
-            if (_autoRegisterCallback)
-            {
-                //且这个字符串为空的话，那么会直接取得当前节点的name
-                if (string.IsNullOrEmpty(_clickFunction))
-                {
-                    _clickFunction = gameObject.name + "Callback";
-                }
-
-                this.Register();
-                
-                onClick.AddListener(() =>
-                {
-//                    Functions.GetFunction(funName)?.Invoke();
-                });
-            }
-        }
+//        private void RegisterCallback()
+//        {
+//            
+//        }
 
         public ComponentType GetEnumType()
         {
-            return _type;
+            return _supporter.GetEnumType();
         }
 
         public void SetType(ComponentType type)
         {
-            _type = type;
+            _supporter.SetType(type);
         }
 
         public string GetWord()
         {
-            return _clickFunction;
+            return _supporter.GetWord();
         }
 
         public void SetWord(string word)
         {
-            _clickFunction = word;
+            _supporter.SetWord(word);
+        }
+
+        public string GetFuncName()
+        {
+            return _supporter.GetFuncName();
+        }
+
+        public void RegisterCallback()
+        {
+            _supporter.RegisterCallback();
         }
     }
 }

@@ -30,13 +30,16 @@ namespace Callbacks
             var engine = LuaEngine.Instance().SubInstance(EngineName);
             engine.DoString(script.text);
         }
-        
-        public static void Register(this ILuaSupporter supporter)
+
+        public static void Register(string name, Action callback)
         {
-            Debug.Log(supporter.GetEnumType().ToString());
-            var func = GetTable(supporter.GetEnumType().ToString()).Get<Action>(supporter.GetWord());
-            
-            func();
+            _callbacks.Add(name, callback);
+        }
+        
+        public static void Register<T>(this ILuaSupporter<T> supporter) where  T : MonoBehaviour
+        {
+            var func = GetTable(supporter.GetEnumType().ToString()).Get<Action>(supporter.GetFuncName());
+            Register(supporter.GetFuncName(), func);
         }
 
         public static void ClearScriptFunction()

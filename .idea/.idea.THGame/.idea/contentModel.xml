@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\jauok\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\jauok\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.-643784631.00" t="ExcludeRecursive" />
-    <e p="F:\Code\THGame" t="IncludeRecursive">
+    <e p="C:\Users\yuki\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\yuki\.Rider2019.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\yuki\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\yuki\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.1604979980.00" t="ExcludeRecursive" />
+    <e p="D:\Game\THGame" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -25,7 +27,7 @@
           <e p="ButtonExEdit.cs" t="Include" />
           <e p="EditorExtend.cs" t="Include" />
         </e>
-        <e p="LuaIde" t="Include">
+        <e p="luaIde" t="Include">
           <e p="readme.txt" t="Include" />
         </e>
         <e p="Resources" t="Include">
@@ -315,7 +317,7 @@
                 <e p="LinkXmlGen.cs" t="Include" />
                 <e p="LinkXmlGen.tpl.txt" t="Include" />
               </e>
-              <e p="LuaIde" t="Include">
+              <e p="luaIde" t="Include">
                 <e p="LuaIdeApi.cs" t="Include" />
                 <e p="LuaIdeApi.tpl.txt" t="Include" />
                 <e p="LuaIdeClassDoc.cs" t="Include" />
