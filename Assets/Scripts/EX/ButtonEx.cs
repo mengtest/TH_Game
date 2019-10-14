@@ -45,6 +45,7 @@ namespace EX
 
         protected override void Awake()
         {
+            //在这里，该有的属性都已经被初始化了比较重要的有Name这种
             _supporter = new LuaSupporter<ButtonEx>();
             
         }
