@@ -437,9 +437,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _clickFunction: 
-  _type: 0
+  _clickFunction: SettingButtonCallback
   _autoRegisterCallback: 1
+  _type: 0
 --- !u!114 &806221460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,9 +774,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _clickFunction: 
-  _type: 0
+  _clickFunction: ExitButtonCallback
   _autoRegisterCallback: 1
+  _type: 0
 --- !u!114 &1234001242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,9 +1138,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  _clickFunction: NavigateToMainScene
-  _type: 0
+  _clickFunction: StartButtonCallback
   _autoRegisterCallback: 1
+  _type: 0
 --- !u!114 &1765002186
 MonoBehaviour:
   m_ObjectHideFlags: 0
