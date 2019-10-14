@@ -46,8 +46,11 @@ namespace EX
         protected override void Awake()
         {
             _supporter = new LuaSupporter<ButtonEx>();
+            
         }
 
+        //attribute相关的内容可以参考这类文章
+        //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
             base.Start();
