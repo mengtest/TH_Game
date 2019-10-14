@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,14 +17,14 @@ namespace EX
 
         public void InsertButton(Button button, Action action)
         {
-
+//            _buttons.Add(button, action);
         }
 
         private void Start()
         {
             if (_single)
             {
-                
+
             }
         }
     }

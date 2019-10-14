@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\yuki\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\yuki\.Rider2019.2\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\yuki\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\yuki\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.1604979980.00" t="ExcludeRecursive" />
-    <e p="D:\Game\THGame" t="IncludeRecursive">
+    <e p="C:\Users\jauok\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jauok\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.-643784631.00" t="ExcludeRecursive" />
+    <e p="F:\Code\THGame" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -27,6 +25,9 @@
           <e p="ButtonExEdit.cs" t="Include" />
           <e p="EditorExtend.cs" t="Include" />
         </e>
+        <e p="LuaIde" t="Include">
+          <e p="readme.txt" t="Include" />
+        </e>
         <e p="Resources" t="Include">
           <e p="config" t="Include">
             <e p="Language.xml" t="Include" />
@@ -44,6 +45,7 @@
             <e p="Chapter.lua.txt" t="Include" />
             <e p="Functions.lua.txt" t="Include" />
             <e p="Hello.lua.txt" t="Include" />
+            <e p="LuaDebug.lua.txt" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -92,7 +94,6 @@
           <e p="GameInit.cs" t="Include" />
           <e p="Global" t="Include">
             <e p="Config.cs" t="Include" />
-            <e p="Global.cs" t="Include" />
             <e p="Navigator.cs" t="Include" />
             <e p="ResourceManager.cs" t="Include" />
           </e>
@@ -100,6 +101,7 @@
             <e p="LoadingScript.cs" t="Include" />
           </e>
           <e p="LuaEngine" t="Include">
+            <e p="ILuaSupporter.cs" t="Include" />
             <e p="LuaEngine.cs" t="Include" />
           </e>
           <e p="MainScene" t="Include">
@@ -152,6 +154,7 @@
             <e p="Msg.cs" t="Include" />
           </e>
         </e>
+        <e p="smcs.rsp" t="Include" />
         <e p="Timer" t="Include">
           <e p="Example" t="Include">
             <e p="TestTimerBehaviour.cs" t="Include" />
@@ -309,6 +312,12 @@
               <e p="LinkXmlGen" t="Include">
                 <e p="LinkXmlGen.cs" t="Include" />
                 <e p="LinkXmlGen.tpl.txt" t="Include" />
+              </e>
+              <e p="LuaIde" t="Include">
+                <e p="LuaIdeApi.cs" t="Include" />
+                <e p="LuaIdeApi.tpl.txt" t="Include" />
+                <e p="LuaIdeClassDoc.cs" t="Include" />
+                <e p="LuaIdeInfo.cs" t="Include" />
               </e>
               <e p="Template" t="Include">
                 <e p="LuaClassWrap.tpl.txt" t="Include" />

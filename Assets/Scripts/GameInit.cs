@@ -19,7 +19,7 @@ public static class GameInit
         Net.NetHelper.Init();
         Functions.Init();
         
-        Functions.LoadScript();
+//        Functions.LoadScript();
 
         Debug.Log(Add_int_int(100, 101));
 

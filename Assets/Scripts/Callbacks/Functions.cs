@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Global;
+using LuaEngine;
 using UnityEngine;
 using XLua;
 
@@ -8,27 +8,35 @@ namespace Callbacks
 {
     public static class Functions
     {
-        public enum CallbackType
-        {
-            BUTTON,
-        }
+        private static string EngineName = "Functions";
+        private static Dictionary<string, Action> _callbacks = new Dictionary<string, Action>();
 
         public static void Init()
         {
-            AddFunction("NavigateToMainScene", () => { Navigator.NavigateTo("MainScene"); });
+            LuaEngineInit();
+            
+//            AddFunction("NavigateToMainScene", () => { Navigator.NavigateTo("MainScene"); });
         }
 
-        public static void LoadScript()
+        private static LuaTable GetTable(string name)
+        {
+            return LuaEngine.LuaEngine.Instance().SubInstance(EngineName).Global.Get<LuaTable>(name);
+        }
+
+        //lua引擎初始化
+        private static void LuaEngineInit()
         {
             var script = Resources.Load<TextAsset>("LuaScript/Functions.lua");
-            LuaEnv env = new LuaEnv();
-            env.DoString(script.text);
-
-            var functions = env.Global.Get<LuaTable>("Button");
-            var func = functions.Get<Action>("StartButtonClick");
-            func();
+            var engine = LuaEngine.LuaEngine.Instance().SubInstance(EngineName);
+            engine.DoString(script.text);
+        }
+        
+        public static void Register(this ILuaSupporter supporter)
+        {
+            Debug.Log(supporter.GetEnumType().ToString());
+            var func = GetTable(supporter.GetEnumType().ToString()).Get<Action>(supporter.GetWord());
             
-//            env.Dispose();
+            func();
         }
 
         public static void ClearScriptFunction()
@@ -84,7 +92,5 @@ namespace Callbacks
                 _callbacks.Add(funName, callback);
             }
         }
-
-        private static Dictionary<string, Action> _callbacks = new Dictionary<string, Action>();
     }
 }
