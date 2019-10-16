@@ -4,18 +4,9 @@ using UnityEngine;
 
 namespace LuaFramework
 {
-    public enum ComponentType
-    {
-        Button,
-    }
-
     //这里的泛型主要是用于获取lua绑定时能够做出类型转换
-    public interface ILuaSupporter<T> where T : MonoBehaviour
+    public interface ILuaSupporter
     {
-        ComponentType GetEnumType();
-
-        void SetType(ComponentType type);
-
         string GetWord();
 
         void SetWord(string word);
@@ -25,8 +16,9 @@ namespace LuaFramework
     
     //好像是因为这里有泛型，所以导致了无法在editor中显示
     [Serializable]
-    public class LuaSupporter<T> : ILuaSupporter<T> where T : MonoBehaviour
+    public class LuaSupporter : ILuaSupporter
     {
+        //在editor中输入的函数名
         [Tooltip("点击这个按钮之后调用的函数名,函数需要在Functions中注册")] 
         [SerializeField]
         protected string _clickFunction = "";
@@ -35,10 +27,7 @@ namespace LuaFramework
         [SerializeField]
         protected bool _autoRegisterCallback = true;
 
-        [Tooltip("当前回调事件的类型")]
-        [SerializeField]
-        protected ComponentType _type = ComponentType.Button;
-
+        //真正去调用的函数名
         protected string _funcName;
 
         public bool AutoRegister()
@@ -49,16 +38,6 @@ namespace LuaFramework
         public void AutoRegister(bool register)
         {
             _autoRegisterCallback = register;
-        }
-
-        public ComponentType GetEnumType()
-        {
-            return _type;
-        }
-
-        public void SetType(ComponentType type)
-        {
-            _type = type;
         }
 
         public string GetWord()
@@ -80,15 +59,12 @@ namespace LuaFramework
         {
             if (AutoRegister())
             {
-                var be = this as T;
-                if (be == null)
-                {
-                    throw new Exception("错误的类型转换");
-                }
+                //这个地方可以使用dynamic实现，个人觉得这种实现不是很好
+                
                 //且这个字符串为空的话，那么会直接取得当前节点的name
                 if (string.IsNullOrEmpty(GetWord()))
                 {
-                    _funcName = be.name + "Callback";
+//                    _funcName = be.name + "Callback";
                 }
                 
                 this.Register();

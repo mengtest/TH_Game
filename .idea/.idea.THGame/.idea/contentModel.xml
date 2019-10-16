@@ -59,6 +59,7 @@
           </e>
           <e p="Callbacks" t="Include">
             <e p="Callbacks.cs" t="Include" />
+            <e p="FunctionPart.cs" t="Include" />
             <e p="Functions.cs" t="Include" />
           </e>
           <e p="Entity" t="Include">

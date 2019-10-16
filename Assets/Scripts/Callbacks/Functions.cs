@@ -6,7 +6,7 @@ using XLua;
 
 namespace Callbacks
 {
-    public static class Functions
+    public static partial class Functions
     {
         private static string EngineName = "Functions";
         private static Dictionary<string, Action> _callbacks = new Dictionary<string, Action>();
@@ -34,12 +34,6 @@ namespace Callbacks
         public static void Register(string name, Action callback)
         {
             _callbacks.Add(name, callback);
-        }
-        
-        public static void Register<T>(this ILuaSupporter<T> supporter) where  T : MonoBehaviour
-        {
-            var func = GetTable(supporter.GetEnumType().ToString()).Get<Action>(supporter.GetFuncName());
-            Register(supporter.GetFuncName(), func);
         }
 
         public static void ClearScriptFunction()

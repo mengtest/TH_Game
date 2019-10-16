@@ -6,6 +6,8 @@ end
 
 Button.SettingButtonCallback = function()
     CS.Global.Navigator.NavigateTo("SettingScene", true)
+
+    -- CS.Global.Navigator.NavigateTo()
 end
 
 Button.ExitButtonCallback = function()

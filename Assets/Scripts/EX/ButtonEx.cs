@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Callbacks;
 using LuaFramework;
 using Manager;
@@ -14,10 +15,10 @@ namespace EX
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasRenderer))]
     [AddComponentMenu("yuki/UI/ButtonEX")]
-    public class ButtonEx : Button, ILuaSupporter<ButtonEx>
+    public class ButtonEx : Button, ILuaSupporter
     {
         [SerializeField]
-        private LuaSupporter<ButtonEx> _supporter;
+        private LuaSupporter _supporter;
         
 //        public delegate void PointerEventCallback(PointerEventData eventData);
 //        public event PointerEventCallback onPointerEnter;
@@ -45,9 +46,7 @@ namespace EX
 
         protected override void Awake()
         {
-            //在这里，该有的属性都已经被初始化了比较重要的有Name这种
-            _supporter = new LuaSupporter<ButtonEx>();
-            
+//            _supporter = new LuaSupporter();
         }
 
         //attribute相关的内容可以参考这类文章
@@ -79,7 +78,6 @@ namespace EX
 
             //如果自动注册为true
             
-
             var callback = new Action(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
@@ -111,21 +109,6 @@ namespace EX
         {
             transform.localScale = new Vector3(_scaleX , _scaleY);
             base.OnPointerExit(eventData);
-        }
-
-//        private void RegisterCallback()
-//        {
-//            
-//        }
-
-        public ComponentType GetEnumType()
-        {
-            return _supporter.GetEnumType();
-        }
-
-        public void SetType(ComponentType type)
-        {
-            _supporter.SetType(type);
         }
 
         public string GetWord()

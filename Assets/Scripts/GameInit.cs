@@ -18,16 +18,10 @@ public static class GameInit
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
         Functions.Init();
-        
-//        Functions.LoadScript();
 
-        Debug.Log(Add_int_int(100, 101));
-
-//        LoginMsg msg = new LoginMsg();
-//        msg.Code = 1000;
-//        msg.Msg = "hello ni hao a";
+//        Debug.Log(Add_int_int(100, 101));
     }
 
-    [DllImport("UnityDll")]
-    public static extern int Add_int_int(int x, int y);
+//    [DllImport("UnityDll")]
+//    public static extern int Add_int_int(int x, int y);
 }
