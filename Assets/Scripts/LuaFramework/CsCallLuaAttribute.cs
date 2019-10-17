@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.Remoting.Messaging;
@@ -6,11 +8,26 @@ using UnityEngine;
 
 namespace LuaFramework
 {
+    public enum MappingMethod
+    {
+        Include,
+        Exclude,
+        All,
+    }
+    
+    struct InfoStruct
+    {
+        public string Path;
+        public MappingMethod Method;
+        public string[] Methods;
+    }
+    
     class CsCallLuaSink : IMessageSink
     {
-        public CsCallLuaSink(IMessageSink msg)
+        public CsCallLuaSink(IMessageSink msg, InfoStruct info)
         {
             NextSink = msg;
+            _info = info;
         }
         
         public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink)
@@ -27,7 +44,6 @@ namespace LuaFramework
             return ret;
         }
         
-        //如果调用有返回值的，会插入到调用函数前面
         private void PreProgress(IMessage msg)
         {
             
@@ -36,17 +52,44 @@ namespace LuaFramework
         //如果调用没有返回值的，会插入到调用函数后面
         private void PostProgress(IMessage msg, IMessage retMsg)
         {
+            IMethodCallMessage call = msg as IMethodCallMessage;
             
+        }
+        
+        public IMessageSink NextSink { get; }
+
+        private InfoStruct _info;
+    }
+
+    class CsCallLuaSinkExclude : IMessageSink
+    {
+        public CsCallLuaSinkExclude(IMessageSink msg, InfoStruct info)
+        {
+            NextSink = msg;
+            _info = info;
+        }
+        
+        public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink)
+        {
+            return null;
+        }
+
+        public IMessage SyncProcessMessage(IMessage msg)
+        {
+            throw new NotImplementedException();
         }
 
         public IMessageSink NextSink { get; }
+
+        private InfoStruct _info;
     }
     
     class CsCallLuaProperty : IContextProperty,IContributeObjectSink
     {
-        public CsCallLuaProperty()
+        public CsCallLuaProperty(InfoStruct info)
         {
             Name = "CsCallLuaProperty";
+            _info = info;
         }
         
         public void Freeze(Context newContext)
@@ -62,29 +105,53 @@ namespace LuaFramework
 
         public IMessageSink GetObjectSink(MarshalByRefObject obj, IMessageSink nextSink)
         {
-            return new CsCallLuaSink(nextSink);
+            if (_info.Method == MappingMethod.Exclude)
+            {
+                return new CsCallLuaSinkExclude(nextSink, _info);
+            }
+            return new CsCallLuaSink(nextSink, _info);
         }
         
         public string Name { get; }
+
+        private InfoStruct _info;
     }
     
-    [AttributeUsage(AttributeTargets.Class,
-        AllowMultiple = false,
-        Inherited = true
-    )]
+    [AttributeUsage(AttributeTargets.Class)]
     public class CsCallLuaAttribute : ContextAttribute
     {
         //需要映射的文件路径
-        public CsCallLuaAttribute(string filePath) : base("MyCsCallLuaContext")
+        //映射的方式，   是包含所给list，不包含所给list，或者全部包含
+        public CsCallLuaAttribute(string filePath, MappingMethod method = MappingMethod.All, string[] list = null) 
+            : base("MyCsCallLuaContext")
         {
-            Path = filePath;
+            _info = new InfoStruct {Path = filePath,
+                Method = method,
+                Methods = list};
         }
 
         public override void GetPropertiesForNewContext(IConstructionCallMessage ctorMsg)
         {
-            ctorMsg.ContextProperties.Add(new CsCallLuaProperty());
+            //文件不存在，直接返回
+//            if (!File.Exists(_info.Path))
+//            {
+//                return;
+//            }
+
+            //感觉需要通过配置文件去配置根目录
+            string root = "";
+            var txt = Resources.Load<TextAsset>(root + _info.Path);
+
+
+            //映射方法为空，直接返回
+            if ((_info.Methods == null || _info.Methods.Length == 0) && _info.Method == MappingMethod.Include)
+            {
+                return;
+            }
+            
+            ctorMsg.ContextProperties.Add(new CsCallLuaProperty(_info));
         }
 
-        public string Path { get; set; }
+        private InfoStruct _info;
     }
 }
