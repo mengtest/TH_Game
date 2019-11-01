@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message LoginMsg
-{
-    int32 code = 1;
-    string msg = 2;
-}

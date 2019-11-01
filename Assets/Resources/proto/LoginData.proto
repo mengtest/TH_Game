@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message LoginData
-{
-    string username = 1;
-    string userpwd = 2;
-}
