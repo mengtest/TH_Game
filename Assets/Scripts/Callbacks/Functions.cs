@@ -14,21 +14,22 @@ namespace Callbacks
         public static void Init()
         {
             LuaEngineInit();
-            
 //            AddFunction("NavigateToMainScene", () => { Navigator.NavigateTo("MainScene"); });
         }
 
         private static LuaTable GetTable(string name)
         {
-            return LuaEngine.Instance().SubInstance(EngineName).Global.Get<LuaTable>(name);
+//            return LuaEngine.Instance().SubInstance(EngineName).Global.Get<LuaTable>(name);
+            return null;
         }
 
         //lua引擎初始化
         private static void LuaEngineInit()
         {
             var script = Resources.Load<TextAsset>("LuaScript/Functions.lua");
-            var engine = LuaEngine.Instance().SubInstance(EngineName);
-            engine.DoString(script.text);
+//            var engine = LuaEngine.Instance().SubInstance(EngineName);
+//            engine.DoString(script.text);
+            
         }
 
         public static void Register(string name, Action callback)
@@ -67,7 +68,6 @@ namespace Callbacks
         {
             if (_callbacks.ContainsKey(funName))
             {
-//                throw new Exception("无法重复添加同名的函数");
                 return false;
             }
             else

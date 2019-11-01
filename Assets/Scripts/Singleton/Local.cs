@@ -35,7 +35,7 @@ namespace Singleton
             //重新加载文件
             private void ReadFile()
             {
-                return;
+//                return;
 
                 _words = new Dictionary<string, string>();
                 TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);

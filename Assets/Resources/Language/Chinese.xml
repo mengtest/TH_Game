@@ -1,53 +1,19 @@
 <words>
-    <word>
-        <key>GameTitle</key>
-        <value>东方卡牌游戏</value>
-    </word>
-    <word>
-        <key>GameStart</key>
-        <value>开始游戏</value>
-    </word>
-    <word>
-        <key>GameSetting</key>
-        <value>游戏设置</value>
-    </word>
-    <word>
-        <key>GameExit</key>
-        <value>退出游戏</value>
-    </word>
-    <word>
-        <key>Setting</key>
-        <value>设置</value>
-    </word>
-    <word>
-        <key>Language</key>
-        <value>语言</value>
-    </word>
-    <word>
-        <key>Chinese</key>
-        <value>中文</value>
-    </word>
-    <word>
-        <key>English</key>
-        <value>English</value>
-    </word>
-    <word>
-        <key>Reset</key>
-        <value>恢复默认</value>
-    </word>
-    <word>
-        <key>Cancel</key>
-        <value>取消</value>
-    </word>
-    <word>
-        <key>Confirm</key>
-        <value>确认</value>
-    </word>
-    <word>
-        <key>Loading</key>
-        <value>开始游戏</value>
-    </word>
-    <word>
+    <GameTitle>东方卡牌游戏</GameTitle>
+    <GameStart>开始游戏</GameStart>
+    <GameSetting>游戏设置</GameSetting>
+    <GameExit>退出游戏</GameExit>
+    <Setting>设置</Setting>
+    <Language>语言</Language>
+    <Chinese>中文</Chinese>
+    <English>English</English>
+    <Reset>恢复默认</Reset>
+    <Cancel>取消</Cancel>
+    <Confirm>确认</Confirm>
+    <Loading>加载中</Loading>
+    <!-- <GameTitle>东方卡牌游戏</GameTitle> -->
+
+    <!-- <word>
         <key>Ok</key>
         <value>是</value>
     </word>
@@ -202,5 +168,5 @@
     <word>
         <key>Dialog_ExitGame</key>
         <value>是否要退出游戏?</value>
-    </word>
+    </word> -->
 </words>
