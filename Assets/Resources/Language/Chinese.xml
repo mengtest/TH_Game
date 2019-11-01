@@ -11,7 +11,7 @@
     <Cancel>取消</Cancel>
     <Confirm>确认</Confirm>
     <Loading>加载中</Loading>
-    <Ok>是</OK>
+    <Ok>是</Ok>
     <Apply>应用</Apply>
     <BGMVol>背景音效</BGMVol>
     <EFFVol>特效音效</EFFVol>
@@ -38,6 +38,4 @@
     <Chapter12>第十二章</Chapter12>
     <Chapter13>第十三章</Chapter13>
 </words>
-<sentances>
-    <Dialog_ExitGame>是否要退出游戏?</Dialog_ExitGame>
-</sentances>
+

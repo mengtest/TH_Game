@@ -11,7 +11,7 @@
     <Cancel>cancel</Cancel>
     <Confirm>confirm</Confirm>
     <Loading>loading</Loading>
-    <Ok>ok</OK>
+    <Ok>ok</Ok>
     <Apply>apply</Apply>
     <BGMVol>background</BGMVol>
     <EFFVol>effect</EFFVol>
@@ -38,6 +38,4 @@
     <Chapter12>Chapter 12</Chapter12>
     <Chapter13>Chapter 13</Chapter13>
 </words>
-<sentances>
-    <Dialog_ExitGame>Your game will end without save?</Dialog_ExitGame>
-</sentances>
+

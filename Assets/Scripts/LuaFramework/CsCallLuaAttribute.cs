@@ -125,14 +125,17 @@ namespace LuaFramework
         public CsCallLuaAttribute(string filePath, MappingMethod method = MappingMethod.All, string[] list = null) 
             : base("MyCsCallLuaContext")
         {
-            _info = new InfoStruct {Path = filePath,
+            _info = new InfoStruct {
+                Path = filePath,
                 Method = method,
-                Methods = list};
+                Methods = list
+            };
         }
 
         public override void GetPropertiesForNewContext(IConstructionCallMessage ctorMsg)
         {
             //文件不存在，直接返回
+            //这里有一个问题，如果直接返回的话， 在使用反射的时候回报错
 //            if (!File.Exists(_info.Path))
 //            {
 //                return;
@@ -141,7 +144,6 @@ namespace LuaFramework
             //感觉需要通过配置文件去配置根目录
             string root = "";
             var txt = Resources.Load<TextAsset>(root + _info.Path);
-
 
             //映射方法为空，直接返回
             if ((_info.Methods == null || _info.Methods.Length == 0) && _info.Method == MappingMethod.Include)
