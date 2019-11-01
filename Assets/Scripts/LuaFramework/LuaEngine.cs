@@ -39,11 +39,15 @@ namespace LuaFramework
             return _env;
         }
 
+        //加载整个文件，后面会根据id将lua函数映射到C#函数
+        //path为lua文件路径,id为文件名
         public void LoadFile(string path)
         {
             _env.DoString(Resources.Load<TextAsset>(path).text);
         }
         
+        //加载整个文件，后面会根据id将lua函数映射到C#函数
+        //path为lua文件路径,id为文件名
         public void LoadFile(string path,string name)
         {
             
