@@ -60,13 +60,20 @@ namespace LuaFramework
             if (AutoRegister())
             {
                 //这个地方可以使用dynamic实现，个人觉得这种实现不是很好
-                
+                dynamic obj = this;
                 //且这个字符串为空的话，那么会直接取得当前节点的name
                 if (string.IsNullOrEmpty(GetWord()))
                 {
-//                    _funcName = be.name + "Callback";
+                    try
+                    {
+                        _funcName = obj.name + "Callback";
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
                 }
-                
                 this.Register();
             }
         }

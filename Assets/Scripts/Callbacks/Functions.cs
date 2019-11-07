@@ -27,9 +27,6 @@ namespace Callbacks
         private static void LuaEngineInit()
         {
             var script = Resources.Load<TextAsset>("LuaScript/Functions.lua");
-//            var engine = LuaEngine.Instance().SubInstance(EngineName);
-//            engine.DoString(script.text);
-            
         }
 
         public static void Register(string name, Action callback)

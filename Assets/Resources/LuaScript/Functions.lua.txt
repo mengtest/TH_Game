@@ -1,16 +1,19 @@
-﻿Button = {}
+﻿--require"luaIde.xluaApi"
+--require"xluaApi"
+Button = {}
 
 Button.StartButtonCallback = function()
+    --点击开始游戏按钮之后跳转到游戏的第一个场景中
     CS.Global.Navigator.NavigateTo("hello", 1000)
 end
 
 Button.SettingButtonCallback = function()
+    --点击设置按钮之后跳转到设置场景
     CS.Global.Navigator.NavigateTo("SettingScene", true)
-
-    -- CS.Global.Navigator.NavigateTo()
 end
 
 Button.ExitButtonCallback = function()
+    --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
     CS.UnityEngine.Debug.Log("退出游戏")
     CS.UnityEngine.Application.Quit()
 end

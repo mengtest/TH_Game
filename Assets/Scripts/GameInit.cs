@@ -18,7 +18,9 @@ public static class GameInit
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
         Functions.Init();
-
+//        ConsoleOut.Init();
+        ConsoleOut.Init();
+        
 //        Debug.Log(Add_int_int(100, 101));
     }
 
