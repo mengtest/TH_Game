@@ -5,7 +5,7 @@ namespace Callbacks
 {
     partial class Functions
     {
-        //action表示1返回值
+        //下划线前面的数字表示返回值的个数，后面的数字表示参数个数
         public delegate TR Action1<out TR>();
         public delegate TR Action1_1<in TP, out TR>(TP p1);
         public delegate TR1 Action1_2<in TP, in TP2, out TR1>(TP p1,TP2 r2);
@@ -15,7 +15,7 @@ namespace Callbacks
         public delegate TR1 Action2_1<in TP, out TR1, TR2>(TP p1, out TR2 r2);
         public delegate TR1 Action2_2<in TP1, in TP2, out TR1, TR2>(TP1 tp1, TP2 tp2, out TR2 tr2);
         public delegate TR1 Action2_3<in TP1,in TP2,in TP3, out TR1, TR2>(TP1 tp1,TP2 tp2,TP3 tp3,out TR2 r2);
-        public delegate TR1 Action3_1<in TP, out TR1, TR2, TR3>(TP p1, out TR2 r2);
+        public delegate TR1 Action3_1<in TP, out TR1, TR2, TR3>(TP p1, out TR2 r2, out TR3 r3);
         public delegate TR1 Action3_2<in TP1, in TP2, out TR1, TR2, TR3>(TP1 tp1, TP2 tp2, out TR2 tr2, out TR3 r3);
         public delegate TR1 Action3_3<in TP1, in TP2, in TP3, out TR1, TR2, TR3>(TP1 tp1, TP2 tp2, TP3 tp3, out TR2 r2,
             out TR3 r3);
@@ -24,6 +24,9 @@ namespace Callbacks
         {
             var func = GetTable("Button").Get<Action>(supporter.GetFuncName());
             Register(supporter.GetFuncName(), func);
+            
+            //目前的设想是根据event的实际情况通过反射去取得参数的个数，然后再去调用对应的函数
+            
         }
 
         public static void Register(string name)

@@ -1,5 +1,6 @@
 ﻿using Global;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace StartScene
 {

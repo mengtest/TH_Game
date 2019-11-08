@@ -21,6 +21,9 @@ public static class GameInit
 //        ConsoleOut.Init();
         ConsoleOut.Init();
         
+//        var go = new GameObject();
+//        go.AddComponent<UnityEngine.UI.InputField>().onValueChanged.Invoke();
+        
 //        Debug.Log(Add_int_int(100, 101));
     }
 

@@ -1,7 +1,6 @@
 ﻿using Global;
 using UnityEngine;
 using UnityEngine.UI;
-using Singleton = Singleton.Singleton;
 
 namespace SettingScene
 {
@@ -9,23 +8,21 @@ namespace SettingScene
     {
         //默认情况下使用的是这个回调，可以在这个组件被加载的时候切换语言
         //为了避免出现死循环，这里不刷新场景
-        public void LanguageChange()
-        {
-            //选择不同的项会直接修改当前的语言
-            //但是不会立刻反应出
-            global::Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[GetComponent<Dropdown>().value];
-        }
+//        public void LanguageChange()
+//        {
+//            //选择不同的项会直接修改当前的语言
+//            //但是不会立刻反应出
+//            Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[GetComponent<Dropdown>().value];
+//        }
 
         //除了切换语言外，这里还做了一次场景的刷新
-        public void Refresh(int value)
+        private void Refresh(int value)
         {
             //选择不同的项会直接修改当前的语言
-            //但是不会立刻反应出
-            global::Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[value];
+            Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[value];
 
             //重新加载当前的场景
             //充当刷新的作用，刷新语言
-            //大概是因为每次加载这个场景都会修改一次
             Navigator.Refresh();
         }
 
@@ -40,7 +37,7 @@ namespace SettingScene
             dropDown.AddOptions(config.Language);
 
             //将下拉列表选择的值设置为当前的语言
-            dropDown.value = config.Language.BinarySearch(global::Singleton.Singleton.Instance.Language.CurrentLanguage);
+            dropDown.value = config.Language.BinarySearch(Singleton.Singleton.Instance.Language.CurrentLanguage);
 
             //先移除所有的事件监听器
             dropDown.onValueChanged.RemoveAllListeners();

@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
+using Functions = Callbacks.Functions;
 using Image = UnityEngine.UI.Image;
 
 namespace EX
