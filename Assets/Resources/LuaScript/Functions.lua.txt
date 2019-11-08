@@ -1,10 +1,9 @@
-﻿--require"luaIde.xluaApi"
---require"xluaApi"
-Button = {}
+﻿Button = {}
 
 Button.StartButtonCallback = function()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
-    CS.Global.Navigator.NavigateTo("hello", 1000)
+    -- CS.Global.Navigator.NavigateTo("hello", 1000)
+    CS.UnityEngine.Debug.Log("你点击了开始游戏按钮")
 end
 
 Button.SettingButtonCallback = function()

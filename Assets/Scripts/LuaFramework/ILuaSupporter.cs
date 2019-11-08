@@ -71,8 +71,11 @@ namespace LuaFramework
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
-                        throw;
                     }
+                }
+                else
+                {
+                    _funcName = _clickFunction + "Callback";
                 }
                 this.Register();
             }

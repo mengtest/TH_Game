@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using XLua;
 
@@ -10,10 +8,8 @@ namespace LuaFramework
     public class LuaEngine : IDisposable
     {
         private static LuaEngine _engine;
-//        private static Mutex _instanceMtx = new Mutex();
         private LuaEnv _env;
         private static Dictionary<string, LuaEngine> _subInstances;
-//        private Mutex _mtx;
 
         public static LuaEngine MainInstance
         {
@@ -21,14 +17,8 @@ namespace LuaFramework
             {
                 if (_engine == null)
                 {
-//                    _instanceMtx.WaitOne();
-//                    if (_engine == null)
-//                    {
-                        _engine = new LuaEngine();
-                        _subInstances = new Dictionary<string, LuaEngine>();
-//                        _engine._mtx = new Mutex();
-//                    }
-//                    _instanceMtx.ReleaseMutex();
+                    _engine = new LuaEngine();
+                    _subInstances = new Dictionary<string, LuaEngine>();
                 }
                 return _engine;
             }
@@ -44,9 +34,7 @@ namespace LuaFramework
             else
             {
                 eng = new LuaEngine();
-//                _mtx.WaitOne();
                 _subInstances.Add(name, eng);
-//                _mtx.ReleaseMutex();
             }
             return eng;
         }
@@ -54,7 +42,7 @@ namespace LuaFramework
         private LuaEngine()
         {
             _env = new LuaEnv();
-        }
+        }  
 
         public LuaEnv Get()
         {
@@ -66,7 +54,7 @@ namespace LuaFramework
         public void LoadFile(string path)
         {
             _env.DoString(Resources.Load<TextAsset>(path).text);
-            
+//            _env.Global.Get();
         }
 
         public void Dispose()
