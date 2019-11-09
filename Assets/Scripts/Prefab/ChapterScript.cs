@@ -1,6 +1,6 @@
 ﻿using System;
 using Game.Entity.Chapters;
-using Global;
+using L;
 using Prefab;
 using UnityEditor;
 using UnityEngine;

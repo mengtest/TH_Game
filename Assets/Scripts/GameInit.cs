@@ -1,6 +1,6 @@
-﻿using Global;
-using LuaFramework;
+﻿using LuaFramework;
 using UnityEngine;
+using L;
 
 //游戏开始的时候，各种必要的资源等的初始化
 public static class GameInit

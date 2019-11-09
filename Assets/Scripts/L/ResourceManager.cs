@@ -7,7 +7,7 @@ using Game.Entity.Save;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Global
+namespace L
 {
     //资源管理器
     public class ResourceManager

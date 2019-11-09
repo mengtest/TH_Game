@@ -1,4 +1,4 @@
-﻿using Global;
+﻿using L;
 using Manager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,7 @@ namespace SettingScene
         private void ApplyButtonCallback()
         {
             Sound.PlayEffect("Music/BtnClick");
-            Navigator.NavigateTo("StartScene");
+            L.Navigator.NavigateTo("StartScene");
         }
 
         //在start之前，awake之后调用

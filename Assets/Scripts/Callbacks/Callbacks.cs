@@ -1,5 +1,4 @@
-﻿using Global;
-using Net;
+﻿using Net;
 using UnityEngine;
 using Util;
 
@@ -11,13 +10,13 @@ namespace Callbacks
         //开始场景中的开始游戏按钮
         public void StartSceneStartGameButtonCallback()
         {
-            Navigator.NavigateTo(1);
+            L.Navigator.NavigateTo(1);
         }
     
         //开始场景中的设置按钮的回调
         public void StartSceneSettingButtonCallback()
         {
-            Navigator.NavigateTo("SettingScene");
+            L.Navigator.NavigateTo("SettingScene");
         }
 
         //开始场景中的退出按钮的回调
@@ -35,7 +34,7 @@ namespace Callbacks
         //设置场景中的确认按钮的回调
         public void SettingSceneConfirmButtonCallback()
         {
-            Navigator.NavigateTo(0);
+            L.Navigator.NavigateTo(0);
         }
 
         //设置场景中的取消按钮的回调
@@ -46,7 +45,7 @@ namespace Callbacks
 
         public void StorySceneReturnButton()
         {
-            Navigator.Return();
+            L.Navigator.Return();
         }
 
         //开始场景中的重置按钮的回调

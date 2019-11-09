@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using XLua;
 using Object = UnityEngine.Object;
 
-namespace Global
+namespace L
 {
     [LuaCallCSharp]
     public static class Navigator
@@ -31,8 +31,6 @@ namespace Global
             //            SceneManager.LoadSceneAsync(name).allowSceneActivation = true;
 
             //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
-
-
 //            NavigateTo(name, 5);
         }
 

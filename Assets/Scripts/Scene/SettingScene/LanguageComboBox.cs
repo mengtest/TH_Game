@@ -1,4 +1,4 @@
-﻿using Global;
+﻿using L;
 using UnityEngine;
 using UnityEngine.UI;
 

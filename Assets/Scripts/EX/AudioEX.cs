@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 
@@ -149,6 +150,8 @@ namespace EX
             _audio.clip = clip;
             _audio.Play();
             _index++;
+
+//            _audio.play
 
             //上一首歌播放完之后播放下一首
             Invoke(nameof(PlayNextSound), clip.length + 1);

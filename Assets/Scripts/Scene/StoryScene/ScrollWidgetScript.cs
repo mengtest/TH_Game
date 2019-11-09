@@ -1,5 +1,5 @@
 ﻿using EX;
-using Global;
+using L;
 using Prefab;
 using UnityEngine;
 using UnityEngine.UI;

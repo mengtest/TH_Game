@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-namespace Global
+namespace L
 {
     public class ConsoleOut : TextWriter
     {
