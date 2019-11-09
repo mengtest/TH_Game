@@ -41,16 +41,14 @@ namespace EX
 
         protected override void Awake()
         {
-            Console.Write("123123"+name);
+            //在awake中注册当前的脚本的回调函数
+            RegisterCallback();
         }
 
         //attribute相关的内容可以参考这类文章
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
-//            Console.Write(name);
-            RegisterCallback();
-            
             base.Start();
             
             var localScale = transform.localScale;
@@ -76,14 +74,13 @@ namespace EX
 
             //如果自动注册为true
             
-            Debug.Log(name);
+         
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
                 Functions.GetAction(this).Invoke();
             });
             onClick.AddListener(callback);
-            Debug.Log(name);
         }
 
         //鼠标进入到按钮时，按钮放大

@@ -11,17 +11,7 @@ namespace LuaFramework
         private LuaEnv _env;
         private static Dictionary<string, LuaEngine> _subInstances;
 
-        public static LuaEngine MainInstance
-        {
-            get
-            {
-                if (_engine == null)
-                {
-                    Init();    
-                }
-                return _engine;
-            }
-        }
+        public static LuaEngine MainInstance => _engine;
 
         public static void Init()
         {
