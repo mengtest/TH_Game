@@ -18,10 +18,6 @@ namespace EX
     {
         [SerializeField]
         private LuaSupporter _supporter;
-        
-//        public delegate void PointerEventCallback(PointerEventData eventData);
-//        public event PointerEventCallback onPointerEnter;
-//        public event PointerEventCallback onPointerExit;
 
         //记录下当前的按钮的xy轴上的缩放
         private float _scaleX;

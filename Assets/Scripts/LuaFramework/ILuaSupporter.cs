@@ -56,18 +56,18 @@ namespace LuaFramework
                 //这个地方可以使用dynamic实现，个人觉得这种实现不是很好
 //                dynamic obj = this;
                 //且这个字符串为空的话，那么会直接取得当前节点的name
-                if (string.IsNullOrEmpty(GetWord()))
-                {
-                    try
-                    {
-//                        _clickFunction = _host.name;
-//                         = obj.name + "Callback";
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                    }
-                }
+//                if (string.IsNullOrEmpty(GetWord()))
+//                {
+//                    try
+//                    {
+////                        _clickFunction = _host.name;
+////                         = obj.name + "Callback";
+//                    }
+//                    catch (Exception e)
+//                    {
+//                        Console.WriteLine(e);
+//                    }
+//                }
 //                else
 //                {
 //                    _funcName = _clickFunction + "Callback";

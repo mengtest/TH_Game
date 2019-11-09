@@ -8,17 +8,9 @@ namespace LuaFramework
     {
         private static Dictionary<string, object> _actions = new Dictionary<string, object>();
 
-//        public Functions()
-//        {
-//            _actions = new Dictionary<string, object>();
-//        }
-        
         public static void Register(this ILuaSupporter supporter)
         {
-//            var func = GetTable("Button").Get<Action>(supporter.GetFuncName());
             GetAction(supporter);
-//            Register(supporter.GetWord(), f);
-            //目前的设想是根据event的实际情况通过反射去取得参数的个数，然后再去调用对应的函数
         }
 
         public static Action<T> GetAction<T>(ILuaSupporter supporter/*,string name*/)

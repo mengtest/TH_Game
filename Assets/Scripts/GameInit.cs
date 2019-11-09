@@ -1,4 +1,5 @@
 ﻿using Global;
+using LuaFramework;
 using UnityEngine;
 
 //游戏开始的时候，各种必要的资源等的初始化
@@ -14,7 +15,7 @@ public static class GameInit
         Net.NetHelper.Init();
 //        Functions.Init();
         ConsoleOut.Init();
-//        LuaEngine.Init();
+        LuaEngine.Init();
 
 //        Debug.Log(Add_int_int(100, 101));
     }
