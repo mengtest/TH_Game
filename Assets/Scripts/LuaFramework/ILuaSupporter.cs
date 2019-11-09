@@ -11,7 +11,7 @@ namespace LuaFramework
 
         void SetWord(string word);
 
-//        string GetFuncName();
+        string GetFuncName();
     }
     
     //好像是因为这里有泛型，所以导致了无法在editor中显示
@@ -27,7 +27,7 @@ namespace LuaFramework
         [SerializeField]
         protected bool _autoRegisterCallback = true;
 
-        protected MonoBehaviour _host;
+        protected string _callname = "";
 
         public bool AutoRegister()
         {
@@ -49,29 +49,23 @@ namespace LuaFramework
             _clickFunction = word;
         }
 
-        public void RegisterCallback()
+        public string GetFuncName()
+        {
+            return _callname;
+        }
+
+        public void RegisterCallback(string str)
         {
             if (AutoRegister())
             {
-                //这个地方可以使用dynamic实现，个人觉得这种实现不是很好
-//                dynamic obj = this;
-                //且这个字符串为空的话，那么会直接取得当前节点的name
-//                if (string.IsNullOrEmpty(GetWord()))
-//                {
-//                    try
-//                    {
-////                        _clickFunction = _host.name;
-////                         = obj.name + "Callback";
-//                    }
-//                    catch (Exception e)
-//                    {
-//                        Console.WriteLine(e);
-//                    }
-//                }
-//                else
-//                {
-//                    _funcName = _clickFunction + "Callback";
-//                }
+                if (string.IsNullOrEmpty(GetWord()))
+                {
+                    _callname = str + "Callback";
+                }
+                else
+                {
+                    _callname = _clickFunction + "Callback";
+                }
                 this.Register();
             }
         }

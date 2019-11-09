@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿﻿using Manager;
 using UnityEngine;
 
 namespace BattleScene

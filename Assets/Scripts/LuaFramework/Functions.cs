@@ -19,10 +19,10 @@ namespace LuaFramework
             //尝试着获取一个Button域下面的回调函数
             var eng = LuaEngine.MainInstance;
             var f = eng.GetSubInstance("functions").Get().Global
-                .GetInPath<Action<T>>($"Button.{supporter.GetWord()}Callback");
-            if (f != null && !_actions.ContainsKey(supporter.GetWord()))
+                .GetInPath<Action<T>>($"Button.{supporter.GetFuncName()}");
+            if (f != null && !_actions.ContainsKey(supporter.GetFuncName()))
             {
-                _actions.Add(supporter.GetWord(), f);
+                _actions.Add(supporter.GetFuncName(), f);
             }
             return f;
         }
@@ -33,10 +33,10 @@ namespace LuaFramework
             //尝试着获取一个Button域下面的回调函数
             var eng = LuaEngine.MainInstance;
             var f = eng.GetSubInstance("functions").Get().Global
-                .GetInPath<Action>($"Button.{supporter.GetWord()}Callback");
-            if (f != null && !_actions.ContainsKey(supporter.GetWord()))
+                .GetInPath<Action>($"Button.{supporter.GetFuncName()}");
+            if (f != null && !_actions.ContainsKey(supporter.GetFuncName()))
             {
-                _actions.Add(supporter.GetWord(), f);
+                _actions.Add(supporter.GetFuncName(), f);
             }
             return f;
         }

@@ -16,7 +16,7 @@ namespace EX
     [AddComponentMenu("yuki/UI/ButtonEX")]
     public class ButtonEx : Button, ILuaSupporter
     {
-        [SerializeField]
+        [SerializeField] 
         private LuaSupporter _supporter;
 
         //记录下当前的按钮的xy轴上的缩放
@@ -42,13 +42,15 @@ namespace EX
         protected override void Awake()
         {
             //在awake中注册当前的脚本的回调函数
-            RegisterCallback();
+            
         }
 
         //attribute相关的内容可以参考这类文章
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
+            RegisterCallback();
+            
             base.Start();
             
             var localScale = transform.localScale;
@@ -74,11 +76,10 @@ namespace EX
 
             //如果自动注册为true
             
-         
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
-                Functions.GetAction(this).Invoke();
+                Functions.GetAction(this)?.Invoke();
             });
             onClick.AddListener(callback);
         }
@@ -116,7 +117,12 @@ namespace EX
 
         public void RegisterCallback()
         {
-            _supporter.RegisterCallback();
+            _supporter.RegisterCallback(name);
+        }
+
+        public string GetFuncName()
+        {
+            return _supporter.GetFuncName();
         }
     }
 }

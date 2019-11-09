@@ -9,8 +9,11 @@ namespace StartScene
         {
             var dialog = new ModelDialog("Dialog_ExitGame", 
                 "Ok", 
-                "Cancel", 
-                () => { Application.Quit(0); });
+                "Cancel",
+                () =>
+                {
+                    Application.Quit(0);
+                });
             dialog.ShowDialog();
         }
     }

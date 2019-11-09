@@ -47,14 +47,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="BattleScene" t="Include">
-            <e p="BattleBoard.cs" t="Include" />
-            <e p="BattleSceneScript.cs" t="Include" />
-            <e p="ChooserTargetScript.cs" t="Include" />
-            <e p="PauseButton.cs" t="Include" />
-            <e p="SettingButton.cs" t="Include" />
-            <e p="SlotScript.cs" t="Include" />
-          </e>
           <e p="Callbacks" t="Include">
             <e p="Callbacks.cs" t="Include" />
             <e p="FunctionPart.cs" t="Include" />
@@ -97,18 +89,11 @@
             <e p="Navigator.cs" t="Include" />
             <e p="ResourceManager.cs" t="Include" />
           </e>
-          <e p="LoadingScene" t="Include">
-            <e p="LoadingScript.cs" t="Include" />
-          </e>
           <e p="LuaFramework" t="Include">
             <e p="CsCallLuaAttribute.cs" t="Include" />
             <e p="Functions.cs" t="Include" />
             <e p="ILuaSupporter.cs" t="Include" />
             <e p="LuaEngine.cs" t="Include" />
-          </e>
-          <e p="MainScene" t="Include">
-            <e p="MainSceneBGM.cs" t="Include" />
-            <e p="StoryButton.cs" t="Include" />
           </e>
           <e p="Manager" t="Include">
             <e p="Sound.cs" t="Include" />
@@ -126,28 +111,35 @@
           <e p="Refactor" t="Include">
             <e p="ResourceManager.cs" t="Include" />
           </e>
-          <e p="SettingScene" t="Include">
-            <e p="ButtonLayout.cs" t="Include" />
-            <e p="ConfirmButton.cs" t="Include" />
-            <e p="LanguageComboBox.cs" t="Include" />
-            <e p="SettingTitle.cs" t="Include" />
+          <e p="Scene" t="Include">
+            <e p="BattleScene" t="Include">
+              <e p="BattleBoard.cs" t="Include" />
+              <e p="BattleSceneScript.cs" t="Include" />
+              <e p="ChooserTargetScript.cs" t="Include" />
+              <e p="PauseButton.cs" t="Include" />
+              <e p="SlotScript.cs" t="Include" />
+            </e>
+            <e p="LoadingScene" t="Include">
+              <e p="LoadingScript.cs" t="Include" />
+            </e>
+            <e p="MainScene" t="Include">
+              <e p="MainSceneBGM.cs" t="Include" />
+            </e>
+            <e p="SettingScene" t="Include">
+              <e p="ButtonLayout.cs" t="Include" />
+              <e p="LanguageComboBox.cs" t="Include" />
+            </e>
+            <e p="StartScene" t="Include">
+              <e p="Background.cs" t="Include" />
+              <e p="ExitButton.cs" t="Include" />
+            </e>
+            <e p="StoryScene" t="Include">
+              <e p="ScrollWidgetScript.cs" t="Include" />
+            </e>
           </e>
           <e p="Singleton" t="Include">
             <e p="Local.cs" t="Include" />
             <e p="Singalton.cs" t="Include" />
-          </e>
-          <e p="StartScene" t="Include">
-            <e p="Background.cs" t="Include" />
-            <e p="ButtonsScript.cs" t="Include" />
-            <e p="ContinueButton.cs" t="Include" />
-            <e p="ExitButton.cs" t="Include" />
-            <e p="GameTitle.cs" t="Include" />
-            <e p="SettingButton.cs" t="Include" />
-            <e p="StartButton.cs" t="Include" />
-          </e>
-          <e p="StoryScene" t="Include">
-            <e p="ReturnButton.cs" t="Include" />
-            <e p="ScrollWidgetScript.cs" t="Include" />
           </e>
           <e p="Util" t="Include">
             <e p="EventListenerManager.cs" t="Include" />
