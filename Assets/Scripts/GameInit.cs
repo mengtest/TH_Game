@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net.Sockets;
-using System.Runtime.InteropServices;
-using Callbacks;
-using Global;
-using Google.Protobuf;
+﻿using Global;
 using UnityEngine;
 
 //游戏开始的时候，各种必要的资源等的初始化
@@ -17,13 +12,10 @@ public static class GameInit
         Singleton.Singleton.Init();
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
-        Functions.Init();
-//        ConsoleOut.Init();
+//        Functions.Init();
         ConsoleOut.Init();
-        
-//        var go = new GameObject();
-//        go.AddComponent<UnityEngine.UI.InputField>().onValueChanged.Invoke();
-        
+//        LuaEngine.Init();
+
 //        Debug.Log(Add_int_int(100, 101));
     }
 

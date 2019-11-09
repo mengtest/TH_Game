@@ -7,6 +7,11 @@ namespace Global
 {
     public class ConsoleOut : TextWriter
     {
+        public ConsoleOut()
+        {
+            Encoding = Encoding.UTF8;
+        }
+
         public override Encoding Encoding { get; }
 
         public override void Write(string value)

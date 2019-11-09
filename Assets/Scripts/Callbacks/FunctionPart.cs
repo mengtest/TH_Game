@@ -22,8 +22,8 @@ namespace Callbacks
         
         public static void Register(this ILuaSupporter supporter)
         {
-            var func = GetTable("Button").Get<Action>(supporter.GetFuncName());
-            Register(supporter.GetFuncName(), func);
+//            var func = GetTable("Button").Get<Action>(supporter.GetFuncName());
+//            Register(supporter.GetFuncName(), func);
             
             //目前的设想是根据event的实际情况通过反射去取得参数的个数，然后再去调用对应的函数
             

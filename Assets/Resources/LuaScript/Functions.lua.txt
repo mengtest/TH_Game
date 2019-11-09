@@ -8,7 +8,9 @@ end
 
 Button.SettingButtonCallback = function()
     --点击设置按钮之后跳转到设置场景
-    CS.Global.Navigator.NavigateTo("SettingScene", true)
+    -- CS.Global.Navigator.NavigateTo("SettingScene", true)
+
+    CS.UnityEngine.Debug.Log("你点击了设置按钮")
 end
 
 Button.ExitButtonCallback = function()

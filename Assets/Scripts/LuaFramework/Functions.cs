@@ -1,18 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LuaFramework
 {
     //通过lua读取到的所有方法，委托等
-    public class Functions
+    public static class Functions
     {
-//        public delegate void Funcs(string arg);
-//        public delegate void Funci(int arg);
-//        public delegate void Funcb(bool arg);
-//        public delegate void Func();
+        private static Dictionary<string, object> _actions = new Dictionary<string, object>();
 
-        public Action<T> GetAction<T>(string name)
+//        public Functions()
+//        {
+//            _actions = new Dictionary<string, object>();
+//        }
+        
+        public static void Register(this ILuaSupporter supporter)
         {
-            return null;
+//            var func = GetTable("Button").Get<Action>(supporter.GetFuncName());
+            GetAction(supporter);
+//            Register(supporter.GetWord(), f);
+            //目前的设想是根据event的实际情况通过反射去取得参数的个数，然后再去调用对应的函数
+        }
+
+        public static Action<T> GetAction<T>(ILuaSupporter supporter/*,string name*/)
+        {
+            //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
+            //尝试着获取一个Button域下面的回调函数
+            var eng = LuaEngine.MainInstance;
+            var f = eng.GetSubInstance("functions").Get().Global
+                .GetInPath<Action<T>>($"Button.{supporter.GetWord()}Callback");
+            if (f != null && !_actions.ContainsKey(supporter.GetWord()))
+            {
+                _actions.Add(supporter.GetWord(), f);
+            }
+            return f;
+        }
+        
+        public static Action GetAction(ILuaSupporter supporter/*,string name*/)
+        {
+            //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
+            //尝试着获取一个Button域下面的回调函数
+            var eng = LuaEngine.MainInstance;
+            var f = eng.GetSubInstance("functions").Get().Global
+                .GetInPath<Action>($"Button.{supporter.GetWord()}Callback");
+            if (f != null && !_actions.ContainsKey(supporter.GetWord()))
+            {
+                _actions.Add(supporter.GetWord(), f);
+            }
+            return f;
         }
     }
 }

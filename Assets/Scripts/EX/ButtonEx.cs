@@ -1,13 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
-using Callbacks;
 using LuaFramework;
 using Manager;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
-using Functions = Callbacks.Functions;
 using Image = UnityEngine.UI.Image;
 
 namespace EX
@@ -47,15 +45,18 @@ namespace EX
 
         protected override void Awake()
         {
-//            _supporter = new LuaSupporter();
+            Console.Write("123123"+name);
         }
 
         //attribute相关的内容可以参考这类文章
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
+//            Console.Write(name);
+            RegisterCallback();
+            
             base.Start();
-
+            
             var localScale = transform.localScale;
             _scaleX = localScale.x;
             _scaleY = localScale.y;
@@ -79,15 +80,14 @@ namespace EX
 
             //如果自动注册为true
             
-            var callback = new Action(() =>
+            Debug.Log(name);
+            var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
+                Functions.GetAction(this).Invoke();
             });
-            callback +=  Functions.GetFunction(_supporter.GetWord());
-            onClick.AddListener(delegate
-            {
-                callback.Invoke();
-            });
+            onClick.AddListener(callback);
+            Debug.Log(name);
         }
 
         //鼠标进入到按钮时，按钮放大
@@ -101,7 +101,6 @@ namespace EX
             //不知道之前的是什么bug
             transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
             Sound.PlayEffect("Music/BtnClick");
-
             base.OnPointerEnter(eventData);
         }
 
@@ -120,11 +119,6 @@ namespace EX
         public void SetWord(string word)
         {
             _supporter.SetWord(word);
-        }
-
-        public string GetFuncName()
-        {
-            return _supporter.GetFuncName();
         }
 
         public void RegisterCallback()

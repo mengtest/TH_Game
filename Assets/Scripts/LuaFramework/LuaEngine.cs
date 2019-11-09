@@ -17,10 +17,26 @@ namespace LuaFramework
             {
                 if (_engine == null)
                 {
-                    _engine = new LuaEngine();
-                    _subInstances = new Dictionary<string, LuaEngine>();
+                    Init();    
                 }
                 return _engine;
+            }
+        }
+
+        public static void Init()
+        {
+            if (_engine == null)
+            {
+                _engine = new LuaEngine();
+                _subInstances = new Dictionary<string, LuaEngine>();
+            }
+            
+            //一些准备工作
+            if (!_subInstances.ContainsKey("functions"))
+            {
+                var env = new LuaEngine();
+                _subInstances.Add("functions", env);
+                env.LoadFile("LuaScript/Functions.lua");
             }
         }
 
@@ -54,7 +70,6 @@ namespace LuaFramework
         public void LoadFile(string path)
         {
             _env.DoString(Resources.Load<TextAsset>(path).text);
-//            _env.Global.Get();
         }
 
         public void Dispose()
