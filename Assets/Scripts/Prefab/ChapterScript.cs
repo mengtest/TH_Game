@@ -1,27 +1,28 @@
 ﻿using System;
 using Game.Entity.Chapters;
-using L;
-using Prefab;
-using UnityEditor;
+//using L;
+//using Prefab;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using XLua;
-using Object = UnityEngine.Object;
+using static Global;
+//using XLua;
+//using Object = UnityEngine.Object;
 
-namespace Tutorial
-{
-        [LuaCallCSharp]
-        public class LuaCallCsTest
-        {
-            public static void Call()
-            {
-                var obj = ChapterScript.CreateChapter(null);
-                obj.transform.SetParent(Object.FindObjectOfType<Canvas>().transform);
-                obj.transform.position = new Vector3();
-                obj.transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-}
+//namespace Tutorial
+//{
+//        [LuaCallCSharp]
+//        public class LuaCallCsTest
+//        {
+//            public static void Call()
+//            {
+//                var obj = ChapterScript.CreateChapter(null);
+//                obj.transform.SetParent(Object.FindObjectOfType<Canvas>().transform);
+//                obj.transform.position = new Vector3();
+//                obj.transform.localScale = new Vector3(1, 1, 1);
+//            }
+//        }
+//}
 
 namespace Prefab
 {
@@ -64,7 +65,7 @@ namespace Prefab
                 var obj = ins.GetComponent<ChapterScript>();
                 obj.AddButtonClickEvent(() =>
                 {
-                    Navigator.NavigateTo(chapterInfo.Scene);
+                    NavigateTo(chapterInfo.Scene);
                 });
                 
                 obj.BackgroundImage.sprite = Resources.Load<Sprite>(chapterInfo.Img);

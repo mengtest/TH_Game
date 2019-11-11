@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class Global
+public static partial class Global
 {
     public enum Level
     {

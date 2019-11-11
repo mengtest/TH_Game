@@ -1,6 +1,6 @@
 {
   "version": "",
-  "application": "THCardGame",
+  "application": "game",
   "name": "THCardGame",
   "host": "127.0.0.1",
   "port": 9998,
@@ -10,9 +10,16 @@
     "effVol": 50,
     "language": "Chinese"
   },
-  "user": {
+  "video_config": {
+    "width": 1920,
+    "height": 1080,
+    "full_screen": true,
+    "no_boarder": true
+  },
+  "user_config": {
+    "uid": 11111111111,
     "name": "",
-    "pwd": "",
-    "last_login_time":123456789
+    "pwd": "这个字段会加密处理",
+    "last_login_time":"1231231231123"
   }
 }

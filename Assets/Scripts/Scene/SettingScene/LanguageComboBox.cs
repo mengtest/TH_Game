@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SettingScene
+namespace Scene.SettingScene
 {
     public class LanguageComboBox : MonoBehaviour
     {
@@ -19,11 +19,11 @@ namespace SettingScene
         private void Refresh(int value)
         {
             //选择不同的项会直接修改当前的语言
-            Singleton.Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[value];
+            Singleton.Instance.Language.CurrentLanguage = Config.Load().Language[value];
 
             //重新加载当前的场景
             //充当刷新的作用，刷新语言
-            Navigator.Refresh();
+            Global.Refresh();
         }
 
         // Start is called before the first frame update
@@ -37,7 +37,7 @@ namespace SettingScene
             dropDown.AddOptions(config.Language);
 
             //将下拉列表选择的值设置为当前的语言
-            dropDown.value = config.Language.BinarySearch(Singleton.Singleton.Instance.Language.CurrentLanguage);
+            dropDown.value = config.Language.BinarySearch(Singleton.Instance.Language.CurrentLanguage);
 
             //先移除所有的事件监听器
             dropDown.onValueChanged.RemoveAllListeners();

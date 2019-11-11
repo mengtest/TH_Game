@@ -10,11 +10,9 @@ public static class GameInit
     public static void ApplicationInit()
     {
         ResourceManager.Init();
-        Singleton.Singleton.Init();
+        Singleton.Init();
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
-//        Functions.Init();
-        ConsoleOut.Init();
         LuaEngine.Init();
 
 //        Debug.Log(Add_int_int(100, 101));

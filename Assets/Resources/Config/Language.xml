@@ -1,4 +1,4 @@
 <languages>
-    <language id="0" value="Chinese"></language>
-    <language id="1" value="English"></language>
+    <language id="0" value="Chinese">中文</language>
+    <language id="1" value="English">English</language>
 </languages>

@@ -18,6 +18,7 @@ namespace L
         //在构造这个对象的时候，完成配置文件的读取，这里会读取语言文件夹下面所有的文件
         private Config()
         {
+            _languages = new List<string>();
             //获取到这个目录下所有的文件
             var dir = new DirectoryInfo("Assets/Resources/Language");
             var files = dir.GetFiles("*.xml");
@@ -29,6 +30,6 @@ namespace L
             }
         }
 
-        private List<string> _languages = new List<string>();
+        private List<string> _languages;
     }
 }

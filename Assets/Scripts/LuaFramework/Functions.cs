@@ -17,6 +17,11 @@ namespace LuaFramework
         {
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
+            
+#if UNITY_EDITOR
+            return null;
+#endif
+            
             var eng = LuaEngine.MainInstance;
             var f = eng.GetSubInstance("functions").Get().Global
                 .GetInPath<Action<T>>($"Button.{supporter.GetFuncName()}");
@@ -31,6 +36,9 @@ namespace LuaFramework
         {
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
+#if UNITY_EDITOR
+            return null;
+#endif
             var eng = LuaEngine.MainInstance;
             var f = eng.GetSubInstance("functions").Get().Global
                 .GetInPath<Action>($"Button.{supporter.GetFuncName()}");
