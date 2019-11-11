@@ -1,5 +1,4 @@
 ﻿using EX;
-using L;
 using Prefab;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,7 +56,7 @@ namespace StoryScene
         private void ContentInit()
         {
             var view = GetComponent<ScrollViewEx>();
-            var array = ResourceManager.Instance.Chapters.ChaptersChapters;
+            var array = Global.ResourceManager.Instance.Chapters.ChaptersChapters;
             Transform[] trans = new Transform[array.Length];
             for (int index = 0; index < array.Length; index++)
             {

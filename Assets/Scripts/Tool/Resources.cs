@@ -5,11 +5,9 @@ using Game.Entity.Chapters;
 using Game.Entity.Config;
 using Game.Entity.Save;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace L
+partial class Global
 {
-    //资源管理器
     public class ResourceManager
     {
         private static ResourceManager _loader;
@@ -105,7 +103,7 @@ namespace L
         private bool ResourcesInit()
         {
             //存档资源的初始化
-            _save = Save.FromJson(Resources.Load<TextAsset>("Json/Save").text);
+            _save = Save.FromJson(Resources.Load<TextAsset>("Json/Saves").text);
             //卡片资源初始化
             //_cards = Cards.FromJson(Resources.Load<TextAsset>("Json/Cards").text);
             _cards = Cards.CreateCard();

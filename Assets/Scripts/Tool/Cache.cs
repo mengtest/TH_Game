@@ -51,15 +51,6 @@ partial class Global
 
         public static void AddStorage(string[] keys, object[] values)
         {
-//            if (_cache.ContainsKey(key))
-//            {
-//                _cache[key] = value;
-//            }
-//            else
-//            {
-//                _cache.Add(key, value);
-//            }
-
             if (keys.Length != values.Length)
             {
                 throw new Exception("批量添加缓存时键值的数量必须相等");
