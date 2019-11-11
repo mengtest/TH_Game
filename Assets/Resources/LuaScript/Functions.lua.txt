@@ -18,5 +18,7 @@ Button.ExitButtonCallback = function()
     CS.UnityEngine.Debug.Log("退出游戏")
     CS.UnityEngine.Application.Quit()
 
+    
+    local go = CS.UnityEngine.GameObject("hello")
     -- CS.System.
 end
