@@ -16,7 +16,17 @@ partial class Global
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            SceneManager.LoadScene("Scenes/LoadingScene");
+            var asyn = SceneManager.LoadSceneAsync("Scenes/LoadingScene");
+            asyn.completed += delegate(AsyncOperation operation) 
+            {
+                if (operation.isDone)
+                {
+//                    var list = SceneManager.GetActiveScene().GetRootGameObjects();
+                    var go = new GameObject("loading_supporter");
+                    var cp = go.AddComponent<LoadingScript>();
+                    cp.NavigateTo(name);
+                }
+            };
         }
         else
         {

@@ -7,7 +7,6 @@ partial class Global
     {
         private static Dictionary<string, object> _cache = new Dictionary<string, object>();
 
-
         public static T GetStorage<T>(string key)
         {
             if (_cache.ContainsKey(key))
@@ -23,7 +22,7 @@ partial class Global
             }
         }
 
-        public static object AddStorage(string key)
+        public static object GetStorage(string key)
         {
             if (_cache.ContainsKey(key))
             {

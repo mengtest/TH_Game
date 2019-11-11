@@ -97,9 +97,6 @@
           <e p="Manager" t="Include">
             <e p="Sound.cs" t="Include" />
           </e>
-          <e p="Module" t="Include">
-            <e p="Navigator.cs" t="Include" />
-          </e>
           <e p="Net" t="Include">
             <e p="Client.cs" t="Include" />
             <e p="NetHelper.cs" t="Include" />
@@ -147,7 +144,10 @@
           <e p="Singleton" t="Include">
             <e p="Local.cs" t="Include" />
           </e>
-          <e p="Tool" t="Include" />
+          <e p="Tool" t="Include">
+            <e p="Cache.cs" t="Include" />
+            <e p="Navigator.cs" t="Include" />
+          </e>
           <e p="Util" t="Include">
             <e p="EventListenerManager.cs" t="Include" />
             <e p="Localization.cs" t="Include" />

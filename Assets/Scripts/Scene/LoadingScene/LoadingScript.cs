@@ -31,8 +31,8 @@ namespace LoadingScene
 
         public void NavigateTo(int id)
         {
-            this._nextSceneId = id;
-            this._nextSceneName = null;
+            _nextSceneId = id;
+            _nextSceneName = null;
 
             Invoke(nameof(Load), 10);
         
@@ -58,8 +58,8 @@ namespace LoadingScene
 
         public void NavigateTo(string name)
         {
-            this._nextSceneName = name;
-            this._nextSceneId = -1;
+            _nextSceneName = name;
+            _nextSceneId = -1;
 
             Invoke(nameof(Load), 5);
         }
