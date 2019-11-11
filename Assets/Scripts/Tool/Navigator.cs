@@ -3,7 +3,6 @@ using LoadingScene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 partial class Global
 {
     private static Stack<int> _sceneStack = new Stack<int>();
@@ -13,19 +12,29 @@ partial class Global
     public static void NavigateTo(string name, bool loading = true)
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
-        if (!name.Contains("/"))
+        
+        if (loading)
         {
-            name = "Scenes/" + name;
+            //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
+            SceneManager.LoadScene("Scenes/LoadingScene");
         }
+        else
+        {
+            //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
+            if (!name.Contains("/"))
+            {
+                name = "Scenes/" + name;
+            }
 
-        SceneManager.LoadScene(name);
+            SceneManager.LoadSceneAsync(name);
+        }
+        
         //            //序号为2的场景就是loading场景，加载loading场景之后再异步加载我们需要的场景
         //            SceneManager.LoadScene(2);
         //
         //            //实际情况下，感觉这样做就已经达到了需要的效果了
         //            SceneManager.LoadSceneAsync(name).allowSceneActivation = true;
-
-        //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
+        
 //            NavigateTo(name, 5);
     }
 
@@ -65,7 +74,8 @@ partial class Global
         else
         {
             //否则的话回提示是否退出游戏
-//                NavigateTo("Scenes/Game/MainScene");
+//            NavigateTo("Scenes/MainScene");
+            //打开提示是否要退出游戏的对话框
         }
     }
 
@@ -73,7 +83,7 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
         //这个就是人为的添加延迟，让loading效果更明显
-        SceneManager.LoadSceneAsync(2).completed += delegate (AsyncOperation operation)
+        SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += delegate (AsyncOperation operation)
         {
             operation.allowSceneActivation = true;
             Object.FindObjectOfType<LoadingScript>().NavigateTo(id);

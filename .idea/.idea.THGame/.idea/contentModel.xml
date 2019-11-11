@@ -147,6 +147,7 @@
           <e p="Singleton" t="Include">
             <e p="Local.cs" t="Include" />
           </e>
+          <e p="Tool" t="Include" />
           <e p="Util" t="Include">
             <e p="EventListenerManager.cs" t="Include" />
             <e p="Localization.cs" t="Include" />
