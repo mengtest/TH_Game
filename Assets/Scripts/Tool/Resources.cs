@@ -25,15 +25,15 @@ partial class Global
         public Cards Cards => _cards;
         public Chapters Chapters => _chapters;
         public static ResourceManager Instance => _loader;
-        public static bool Init()
+        public static void Init()
         {
             if (_loader == null)
             {
                 _loader = new ResourceManager();
                 _loader.ResourcesInit();
-                return true;
+                // return true;
             }
-            return false;
+            // return false;
         }
 
         //清除缓存
@@ -112,7 +112,7 @@ partial class Global
             _config = LocalConfig.FromJson(res);
             _tempConfig = LocalConfig.FromJson(res);
             //章节信息的初始化
-            _chapters = Chapters.FromJson(Resources.Load<TextAsset>("Json/chapters").text);
+            _chapters = Chapters.FromJson(Resources.Load<TextAsset>("Json/Chapters").text);
             //用于存储临时的资源，在loading场景中去加载，所有资源加载完成之后
             _resourcesMap = new Dictionary<string, Object>();
             

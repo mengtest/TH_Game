@@ -27,28 +27,30 @@ namespace Manager
         }
         
         
-        public static void PlayBgm(string resourcePath, bool loop = true)
+        public static void PlayBgm(string resource, bool loop = true)
         {
-            Play(resourcePath, 0.2f, loop);
+            Play(resource, 0.2f, loop);
         }
 
-        public static void PlayEffect(string resourcePath, bool loop = false)
+        public static void PlayEffect(string resource, bool loop = false)
         {
-            Play(resourcePath, 0.5f, loop);
+            Play(resource, 0.5f, loop);
         }
 
-        public static void PlayCharacterVoice(string resourcePath, bool loop = false)
+        public static void PlayCharacterVoice(string resource, bool loop = false)
         {
-            Play(resourcePath, 0.5f, loop);
+            Play(resource, 0.5f, loop);
         }
 
         private static void Play(string[] resources,float vol, bool loop)
         {
-            var sound = new GameObject("Sound");
+            var sound = new GameObject("SoundList");
             SceneManager.MoveGameObjectToScene(sound.gameObject, SceneManager.GetActiveScene());
             var audioEx = sound.AddComponent<AudioEx>();
 
             audioEx.PlayList(resources, vol, loop);
+
+            //播放列表里头的所有音频文件时，不需要去停止
         }
 
         //播放音效

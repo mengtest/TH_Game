@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace L
+namespace Local
 {
     //这个类并不是单例类，原因是，只有在选择语言的地方才会需要用到这个类
     //所以在需要的时候去创建一个对象就好了，并不需要一直浪费内存作为一个单例
