@@ -57,18 +57,44 @@ namespace Pool
 
         public object Get()
         {
-            var temp = _objects.ElementAt(0);
-            //如果这个值正在被使用，则
-            if (temp.Second)
+            foreach (var pair in _objects)
             {
-                
+                if (!pair.Second)
+                {
+                    pair.Second = true;
+                    return pair.First;
+                }
             }
-            return temp.First;
+            return null;
         }
 
         public object GetUnique()
         {
-            //这个对象的所有权不再归对象池所有
+            int index = 0;
+            //找出第一个没有被使用的对象的下标
+            foreach (var pair in _objects)
+            {
+                if (!pair.Second)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            //如果下标越界，则返回空
+            if (index >= _objects.Count)
+            {
+                return null;
+            }
+            
+            //将目标对象前面的对象移动到队列尾部
+            for (int i = 0; i < index; i++)
+            {
+                var value = _objects.Dequeue();
+                _objects.Enqueue(value);
+            }
+                
+            //返回目标对象
             return _objects.Dequeue().First;
         }
     }

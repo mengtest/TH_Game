@@ -42,7 +42,6 @@ namespace EX
         protected override void Awake()
         {
             //在awake中注册当前的脚本的回调函数
-            
         }
 
         //attribute相关的内容可以参考这类文章
