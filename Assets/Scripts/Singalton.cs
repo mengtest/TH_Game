@@ -6,12 +6,12 @@
 
     public static Singleton Instance => _instance;
 
-    public Local Language => _local;
+    public Words Language => _words;
 
     //对象的初始化
     public static void Init()
     {
-        _instance = new Singleton {_local = new Local()};
+        _instance = new Singleton {_words = new Words()};
     }
 
     private Singleton()
@@ -20,5 +20,5 @@
     }
 
     private static Singleton _instance;
-    private Local _local;
+    private Words _words;
 }

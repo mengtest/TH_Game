@@ -5,7 +5,7 @@ using UnityEngine;
 
 public partial class Singleton
 {
-    public class Local
+    public class Words
     {
         //这个值就是英文，同时也是文件名，会根据这个值去读取不同的文件
         private string _currentLanguage;
@@ -24,7 +24,7 @@ public partial class Singleton
             get => _currentLanguage;
         }
 
-        public Local()
+        public Words()
         {
             _words = new Dictionary<string, string>();
             CurrentLanguage = DefaultLang;
@@ -33,8 +33,6 @@ public partial class Singleton
         //重新加载文件
         private void ReadFile()
         {
-//                return;
-
             _words = new Dictionary<string, string>();
             TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);
             var doc = new XmlDocument();
@@ -48,7 +46,14 @@ public partial class Singleton
                     {
                         foreach (XmlNode word in words.ChildNodes)
                         {
-                            _words.Add(word.Name.ToLower(), word.InnerText);
+                            if (_words.ContainsKey(word.Name.ToLower()))
+                            {
+                                _words[word.Name.ToLower()] = word.InnerText;
+                            }
+                            else
+                            {
+                                _words.Add(word.Name.ToLower(), word.InnerText);
+                            }
                         }
                     }
                 }
