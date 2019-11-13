@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pool
 {
     public class BasePool<T> : IPool where T : class, new()
     {
-        private Queue<KeyValuePair<int, T>> _objects;
+        private Queue<Pair<T, bool>> _objects;
         private int _maxSize;
 
         public BasePool(int maxSize)
         {
             _maxSize = maxSize;
-            _objects = new Queue<KeyValuePair<int, T>>();
+            _objects = new Queue<Pair<T, bool>>();
         }
 
         public object Create()
-        {
-            return Create(-1);
-        }
-
-        //使用对象池创建一个对象，如果对象池已满，则返回空
-        public object Create(int key)
         {
             if (_objects.Count == _maxSize)
             {
@@ -28,11 +23,11 @@ namespace Pool
             }
             
             T t = new T();
-            Add(key, t);
+            _objects.Enqueue(new Pair<T, bool>(t, false));
             return t;
         }
 
-        public bool Store(int key, object value)
+        public bool Store(object value)
         {
             if (value.GetType() != typeof(T))
             {
@@ -44,45 +39,37 @@ namespace Pool
                 return false;
             }
 
-            Add(key, value);
+            _objects.Enqueue(new Pair<T, bool>((T) value, false));
             return true;
         }
-
-        public bool Store(object value)
-        {
-            return Store(-1, value);
-        }
-
-        public void Destory(int key, bool release = false)
-        {
-            
-        }
-
-        public void Destory(bool release = false)
-        {
-//            throw new NotImplementedException();
-        }
-
-        public object Get(int key)
-        {
-//            throw new NotImplementedException();
-            return null;
-        }
-
-        public void Get()
-        {
-//            throw new NotImplementedException();
-        }
-
-        //类型正确，切保证一定会能够入队成功的时候直接调用这个
-        private void Add(int key, object value)
-        {
-            _objects.Enqueue(new KeyValuePair<int, T>(key, (T) value));
-        }
         
-        public void Store(int key, T value)
+        public void Destory(object value)
         {
-            
+            //使用权归还给对象池
+            for (int i = 0; i < _objects.Count; i++)
+            {
+                if (_objects.ElementAt(i).First.GetHashCode() == value.GetHashCode())
+                {
+                    _objects.ElementAt(i).Second = false;
+                }
+            }
+        }
+
+        public object Get()
+        {
+            var temp = _objects.ElementAt(0);
+            //如果这个值正在被使用，则
+            if (temp.Second)
+            {
+                
+            }
+            return temp.First;
+        }
+
+        public object GetUnique()
+        {
+            //这个对象的所有权不再归对象池所有
+            return _objects.Dequeue().First;
         }
     }
 }

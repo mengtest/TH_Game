@@ -7,7 +7,7 @@ namespace Pool
         public ObjectPool(int maxSize) 
             : base(maxSize)
         {
-            
+
         }
     }
 }

@@ -3,19 +3,30 @@
     public interface IPool
     {
         object Create();
-        
-        object Create(int key);
 
-        bool Store(int key, object value);
-        
         bool Store(object value);
 
-        void Destory(int key, bool release = false);
-        
-        void Destory(bool release = false);
+        void Destory(object value);
 
-        object Get(int key);
+        object Get();
 
-        void Get();
+        object GetUnique();
+    }
+
+//    public interface Impl
+//    {
+//        
+//    }
+
+    class Pair<TFirst, TSecond>
+    {
+        public TFirst First { get; set; }
+        public TSecond Second { get; set; }
+
+        public Pair(TFirst f, TSecond s)
+        {
+            First = f;
+            Second = s;
+        }
     }
 }
