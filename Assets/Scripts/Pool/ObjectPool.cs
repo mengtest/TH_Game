@@ -1,7 +1,13 @@
-﻿namespace Pool
+﻿using UnityEngine;
+
+namespace Pool
 {
-//    public class ObjectPool<T>: IPool where T:class, new()
-//    {
-//        
-//    }
+    public class ObjectPool : BasePool<GameObject>
+    {
+        public ObjectPool(int maxSize) 
+            : base(maxSize)
+        {
+            
+        }
+    }
 }

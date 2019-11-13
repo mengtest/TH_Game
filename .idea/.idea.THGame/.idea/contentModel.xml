@@ -100,8 +100,10 @@
             <e p="NetHelper.cs" t="Include" />
           </e>
           <e p="Pool" t="Include">
+            <e p="BasePool.cs" t="Include" />
             <e p="IPool.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />
+            <e p="PoolManager.cs" t="Include" />
           </e>
           <e p="Prefab" t="Include">
             <e p="CardDescriptionScript.cs" t="Include" />

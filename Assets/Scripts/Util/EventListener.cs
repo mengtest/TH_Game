@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using UnityEngine.Events;
 
 namespace Util
 {
@@ -7,9 +9,8 @@ namespace Util
     {
         private static EventListener _instance = null;
         public static EventListener Instance => _instance;
-        private Dictionary<int, Action> _action;
-//        private Dictionary<int, Action<>>
-        
+        private Dictionary<int, UnityAction> _action;
+
         private EventListener()
         {
             
@@ -19,7 +20,10 @@ namespace Util
         {
             _instance = new EventListener();
         }
-        
-//        public 
+
+        public void Register(int code, UnityAction action)
+        {
+            
+        }
     }
 }
