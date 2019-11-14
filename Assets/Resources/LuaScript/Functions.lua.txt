@@ -15,6 +15,16 @@ end
 
 Button.ExitButtonCallback = function()
     --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
-    CS.UnityEngine.Debug.Log("退出游戏")
-    CS.UnityEngine.Application.Quit()
+    -- CS.UnityEngine.Debug.Log("退出游戏")
+    -- CS.UnityEngine.Application.Quit()
+
+    --- @type [luaIde#CS.Util.ModelDialog]
+    local dialog = CS.Util.ModelDialog("这是一个模态对话框", "知道了", "gun", function()
+        CS.Global.Log("你点击了知道了")
+    end, function()
+        CS.Global.Log("你点击了gun")
+    end)
+
+    dialog:ShowDialog()
+    
 end
