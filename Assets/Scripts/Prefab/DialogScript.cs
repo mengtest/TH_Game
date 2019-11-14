@@ -14,31 +14,22 @@ namespace Prefab
         public Button _okBtn;
         public Button _cancelBtn;
 
-        public void SetText(string text)
+        public string MainText
         {
-            if (text == null)
-            {
-                text = "";
-            }
-            this._text.text = text;
+            get => _text.text;
+            set => _text.text = value;
         }
 
-        public void SetOkText(string text)
+        public string OkText
         {
-            if (text == null)
-            {
-                text = "";
-            }
-            this._okBtn.GetComponentInChildren<Text>().text = text;
+            get => _okBtn.GetComponentInChildren<Text>().text;
+            set => _okBtn.GetComponentInChildren<Text>().text = value;
         }
 
-        public void SetCancelText(string text)
+        public string CancelText
         {
-            if (text == null)
-            {
-                text = "";
-            }
-            this._cancelBtn.GetComponentInChildren<Text>().text = text;
+            get => _cancelBtn.GetComponentInChildren<Text>().text;
+            set => _cancelBtn.GetComponentInChildren<Text>().text = value;
         }
 
         private void CancelCallback()

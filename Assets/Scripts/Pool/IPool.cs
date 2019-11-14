@@ -1,5 +1,8 @@
-﻿namespace Pool
+﻿using XLua;
+
+namespace Pool
 {
+    [LuaCallCSharp]
     public interface IPool
     {
         //创建一个对象，创建失败会返回空

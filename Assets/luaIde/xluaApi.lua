@@ -1,4 +1,33 @@
-﻿CS.System.Object = {}
+﻿--@SuperType [luaIde#CS.System.Object]
+CS.Global = {}
+--[[
+	@str CS.System.String
+	@level CS.Global.Level
+--]]
+function CS.Global:Log(str,level) end
+--[[
+	@self CS.UnityEngine.Component
+--]]
+function CS.Global:Translate(self) end
+--[[
+	@name CS.System.String
+	@loading CS.System.Boolean
+--]]
+function CS.Global:NavigateTo(name,loading) end
+--[[
+	@name CS.System.String
+	@id CS.System.Int32
+--]]
+function CS.Global:NavigateTo(name,id) end
+--[[
+	@id CS.System.Int32
+	@loading CS.System.Boolean
+--]]
+function CS.Global:NavigateTo(id,loading) end
+function CS.Global:Refresh() end
+function CS.Global:Return() end
+
+CS.System.Object = {}
 --[[
 	@return [luaIde#CS.System.Object]
 ]]
@@ -4337,6 +4366,121 @@ function CS.UnityEngine.Debug:LogAssertionFormat(context,format,args) end
 --]]
 function CS.UnityEngine.Debug:Assert(condition,format,args) end
 
+--@SuperType [luaIde#CS.System.Object]
+CS.Tutorial.BaseClass = {}
+--[[
+	@return [luaIde#CS.Tutorial.BaseClass]
+]]
+function CS.Tutorial.BaseClass() end
+--[[
+	CS.System.Int32
+	 Get 	 Set 
+--]]
+CS.Tutorial.BaseClass.BMF = nil
+--[[
+	CS.System.Int32
+	 Get 	 Set 
+--]]
+CS.Tutorial.BaseClass.BSF = nil
+function CS.Tutorial.BaseClass:BSFunc() end
+function CS.Tutorial.BaseClass:BMFunc() end
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.Tutorial.TestEnum = {}
+--[[
+	CS.Tutorial.TestEnum
+	 Get 	 Set 
+--]]
+CS.Tutorial.TestEnum.E1 = 0
+--[[
+	CS.Tutorial.TestEnum
+	 Get 	 Set 
+--]]
+CS.Tutorial.TestEnum.E2 = 1
+
+--@SuperType [luaIde#CS.Tutorial.BaseClass]
+CS.Tutorial.DerivedClass = {}
+--[[
+	@return [luaIde#CS.Tutorial.DerivedClass]
+]]
+function CS.Tutorial.DerivedClass() end
+--[[
+	CS.System.Int32
+	 Get 	 Set 
+--]]
+CS.Tutorial.DerivedClass.DMF = nil
+--[[
+	CS.System.Action`1{{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	 Get 	 Set 
+--]]
+CS.Tutorial.DerivedClass.TestDelegate = nil
+function CS.Tutorial.DerivedClass:DMFunc() end
+--[[
+	@p1 CS.Tutorial.Param1
+	@p2 CS.System.Int32&
+	@p3 CS.System.String&
+	@luafunc CS.System.Action
+	@csfunc CS.System.Action&
+	return CS.System.Double
+--]]
+function CS.Tutorial.DerivedClass:ComplexFunc(p1,p2,p3,luafunc,csfunc) end
+--[[
+	@i CS.System.Int32
+--]]
+function CS.Tutorial.DerivedClass:TestFunc(i) end
+--[[
+	@i CS.System.String
+--]]
+function CS.Tutorial.DerivedClass:TestFunc(i) end
+--[[
+	@a CS.Tutorial.DerivedClass
+	@b CS.Tutorial.DerivedClass
+	@return [luaIde#CS.Tutorial.DerivedClass]
+--]]
+function CS.Tutorial.DerivedClass:op_Addition(a,b) end
+--[[
+	@a CS.System.Int32
+	@b CS.System.String
+	@c CS.System.String
+--]]
+function CS.Tutorial.DerivedClass:DefaultValueFunc(a,b,c) end
+--[[
+	@a CS.System.Int32
+	@strs CS.System.String{}
+--]]
+function CS.Tutorial.DerivedClass:VariableParamsFunc(a,strs) end
+--[[
+	@e CS.Tutorial.TestEnum
+	return CS.Tutorial.TestEnum
+--]]
+function CS.Tutorial.DerivedClass:EnumTestFunc(e) end
+--[[
+	@value CS.System.Action
+--]]
+function CS.Tutorial.DerivedClass:add_TestEvent(value) end
+--[[
+	@value CS.System.Action
+--]]
+function CS.Tutorial.DerivedClass:remove_TestEvent(value) end
+function CS.Tutorial.DerivedClass:CallEvent() end
+--[[
+	@n CS.System.Int64
+	return CS.System.UInt64
+--]]
+function CS.Tutorial.DerivedClass:TestLong(n) end
+function CS.Tutorial.DerivedClass:GetCalc() end
+
+CS.Tutorial.ICalc = {}
+--[[
+	@a CS.System.Int32
+	@b CS.System.Int32
+	return CS.System.Int32
+--]]
+function CS.Tutorial.ICalc:add(a,b) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.Tutorial.DerivedClassExtensions = {}
+
 --@SuperType [luaIde#CS.UnityEngine.MonoBehaviour]
 CS.XLuaTest.LuaBehaviour = {}
 --[[
@@ -4524,147 +4668,109 @@ function CS.XLuaTest.Foo() end
 CS.XLuaTest.FooExtension = {}
 
 --@SuperType [luaIde#CS.System.Object]
-CS.Tutorial.LuaCallCsTest = {}
+CS.Util.ModelDialog = {}
 --[[
-	@return [luaIde#CS.Tutorial.LuaCallCsTest]
+	@return [luaIde#CS.Util.ModelDialog]
 ]]
-function CS.Tutorial.LuaCallCsTest() end
-function CS.Tutorial.LuaCallCsTest:Call() end
+function CS.Util.ModelDialog() end
+--[[
+	@text CS.System.String
+	@okText CS.System.String
+	@cancelText CS.System.String
+	@okCallback CS.Util.ModelDialog.ButtonCallback
+	@cancelCallback CS.Util.ModelDialog.ButtonCallback
+	@return [luaIde#CS.Util.ModelDialog]
+]]
+function CS.Util.ModelDialog(text,okText,cancelText,okCallback,cancelCallback) end
+--[[
+	@value CS.Util.ModelDialog.ButtonCallback
+--]]
+function CS.Util.ModelDialog:add_OkBtnCallback(value) end
+--[[
+	@value CS.Util.ModelDialog.ButtonCallback
+--]]
+function CS.Util.ModelDialog:remove_OkBtnCallback(value) end
+--[[
+	@value CS.Util.ModelDialog.ButtonCallback
+--]]
+function CS.Util.ModelDialog:add_CancelBtnCallback(value) end
+--[[
+	@value CS.Util.ModelDialog.ButtonCallback
+--]]
+function CS.Util.ModelDialog:remove_CancelBtnCallback(value) end
+--[[
+	@text CS.System.String
+--]]
+function CS.Util.ModelDialog:SetText(text) end
+--[[
+	@text CS.System.String
+--]]
+function CS.Util.ModelDialog:SetOkText(text) end
+--[[
+	@text CS.System.String
+--]]
+function CS.Util.ModelDialog:SetCancelText(text) end
+function CS.Util.ModelDialog:ShowDialog() end
+
+CS.Pool.IPool = {}
+function CS.Pool.IPool:Create() end
+--[[
+	@value CS.System.Object
+	return CS.System.Boolean
+--]]
+function CS.Pool.IPool:Store(value) end
+--[[
+	@value CS.System.Object
+--]]
+function CS.Pool.IPool:Destory(value) end
+function CS.Pool.IPool:Get() end
+function CS.Pool.IPool:GetUnique() end
+function CS.Pool.IPool:Size() end
+function CS.Pool.IPool:AutoResize() end
+--[[
+	@size CS.System.Int32
+	return CS.System.Boolean
+--]]
+function CS.Pool.IPool:Expand(size) end
 
 --@SuperType [luaIde#CS.System.Object]
-CS.Tutorial.BaseClass = {}
+CS.Pool.ObjectPool = {}
 --[[
-	@return [luaIde#CS.Tutorial.BaseClass]
+	@maxSize CS.System.Int32
+	@return [luaIde#CS.Pool.ObjectPool]
 ]]
-function CS.Tutorial.BaseClass() end
+function CS.Pool.ObjectPool(maxSize) end
 --[[
-	CS.System.Int32
-	 Get 	 Set 
+	@p CS.UnityEngine.Object
+	@return [luaIde#CS.System.Object]
 --]]
-CS.Tutorial.BaseClass.BMF = nil
+function CS.Pool.ObjectPool:Create(p) end
+function CS.Pool.ObjectPool:Create() end
 --[[
-	CS.System.Int32
-	 Get 	 Set 
+	@value CS.System.Object
+	return CS.System.Boolean
 --]]
-CS.Tutorial.BaseClass.BSF = nil
-function CS.Tutorial.BaseClass:BSFunc() end
-function CS.Tutorial.BaseClass:BMFunc() end
-
---@SuperType [luaIde#CS.System.Enum]
-CS.Tutorial.TestEnum = {}
+function CS.Pool.ObjectPool:Store(value) end
 --[[
-	CS.Tutorial.TestEnum
-	 Get 	 Set 
+	@value CS.System.Object
 --]]
-CS.Tutorial.TestEnum.E1 = 0
+function CS.Pool.ObjectPool:Destory(value) end
+function CS.Pool.ObjectPool:Get() end
+function CS.Pool.ObjectPool:GetUnique() end
+function CS.Pool.ObjectPool:Size() end
+function CS.Pool.ObjectPool:AutoResize() end
 --[[
-	CS.Tutorial.TestEnum
-	 Get 	 Set 
+	@size CS.System.Int32
+	return CS.System.Boolean
 --]]
-CS.Tutorial.TestEnum.E2 = 1
-
---@SuperType [luaIde#CS.Tutorial.BaseClass]
-CS.Tutorial.DerivedClass = {}
---[[
-	@return [luaIde#CS.Tutorial.DerivedClass]
-]]
-function CS.Tutorial.DerivedClass() end
---[[
-	CS.System.Int32
-	 Get 	 Set 
---]]
-CS.Tutorial.DerivedClass.DMF = nil
---[[
-	CS.System.Action`1{{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
-	 Get 	 Set 
---]]
-CS.Tutorial.DerivedClass.TestDelegate = nil
-function CS.Tutorial.DerivedClass:DMFunc() end
---[[
-	@p1 CS.Tutorial.Param1
-	@p2 CS.System.Int32&
-	@p3 CS.System.String&
-	@luafunc CS.System.Action
-	@csfunc CS.System.Action&
-	return CS.System.Double
---]]
-function CS.Tutorial.DerivedClass:ComplexFunc(p1,p2,p3,luafunc,csfunc) end
---[[
-	@i CS.System.Int32
---]]
-function CS.Tutorial.DerivedClass:TestFunc(i) end
---[[
-	@i CS.System.String
---]]
-function CS.Tutorial.DerivedClass:TestFunc(i) end
---[[
-	@a CS.Tutorial.DerivedClass
-	@b CS.Tutorial.DerivedClass
-	@return [luaIde#CS.Tutorial.DerivedClass]
---]]
-function CS.Tutorial.DerivedClass:op_Addition(a,b) end
---[[
-	@a CS.System.Int32
-	@b CS.System.String
-	@c CS.System.String
---]]
-function CS.Tutorial.DerivedClass:DefaultValueFunc(a,b,c) end
---[[
-	@a CS.System.Int32
-	@strs CS.System.String{}
---]]
-function CS.Tutorial.DerivedClass:VariableParamsFunc(a,strs) end
---[[
-	@e CS.Tutorial.TestEnum
-	return CS.Tutorial.TestEnum
---]]
-function CS.Tutorial.DerivedClass:EnumTestFunc(e) end
---[[
-	@value CS.System.Action
---]]
-function CS.Tutorial.DerivedClass:add_TestEvent(value) end
---[[
-	@value CS.System.Action
---]]
-function CS.Tutorial.DerivedClass:remove_TestEvent(value) end
-function CS.Tutorial.DerivedClass:CallEvent() end
---[[
-	@n CS.System.Int64
-	return CS.System.UInt64
---]]
-function CS.Tutorial.DerivedClass:TestLong(n) end
-function CS.Tutorial.DerivedClass:GetCalc() end
-
-CS.Tutorial.ICalc = {}
---[[
-	@a CS.System.Int32
-	@b CS.System.Int32
-	return CS.System.Int32
---]]
-function CS.Tutorial.ICalc:add(a,b) end
+function CS.Pool.ObjectPool:Expand(size) end
 
 --@SuperType [luaIde#CS.System.Object]
-CS.Tutorial.DerivedClassExtensions = {}
-
---@SuperType [luaIde#CS.System.Object]
-CS.Global.Navigator = {}
+CS.Pool.PoolManager = {}
 --[[
-	@name CS.System.String
-	@loading CS.System.Boolean
---]]
-function CS.Global.Navigator:NavigateTo(name,loading) end
---[[
-	@name CS.System.String
-	@id CS.System.Int32
---]]
-function CS.Global.Navigator:NavigateTo(name,id) end
---[[
-	@id CS.System.Int32
-	@loading CS.System.Boolean
---]]
-function CS.Global.Navigator:NavigateTo(id,loading) end
-function CS.Global.Navigator:Refresh() end
-function CS.Global.Navigator:Return() end
+	@return [luaIde#CS.Pool.PoolManager]
+]]
+function CS.Pool.PoolManager() end
 
 --@SuperType [luaIde#CS.System.Enum]
 CS.Tutorial.DerivedClass.TestEnumInner = {}

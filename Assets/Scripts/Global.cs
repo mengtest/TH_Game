@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using XLua;
 
+[LuaCallCSharp]
 public static partial class Global
 {
     public enum Level

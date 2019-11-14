@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using XLua;
 
 namespace Pool
 {
+    [LuaCallCSharp]
     public class BasePool<T> : IPool where T : class, new()
     {
         private Queue<Pair<T, bool>> _objects;

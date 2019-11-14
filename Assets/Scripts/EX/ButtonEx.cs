@@ -1,12 +1,13 @@
-﻿using System;
-using LuaFramework;
+﻿using LuaFramework;
 using Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
+using static Global;
 
 namespace EX
 {

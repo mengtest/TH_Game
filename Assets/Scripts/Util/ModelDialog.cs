@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using XLua;
 using Object = UnityEngine.Object;
 
 namespace Util
 {
+    [LuaCallCSharp]
+    //模态对话框
     public class ModelDialog
     {
         public delegate void ButtonCallback();
@@ -14,9 +18,13 @@ namespace Util
         public event ButtonCallback OkBtnCallback;
         public event ButtonCallback CancelBtnCallback;
 
+        //对话框所显示的主要的文本
         private string _mainText;
+        //ok按钮显示的文本
         private string _okText;
+        //cancel按钮显示的文本
         private string _cancelText;
+        //对话框脚本
         private DialogScript _dialog;
 
         public ModelDialog()
@@ -24,7 +32,8 @@ namespace Util
 
         }
 
-        public ModelDialog(string text, string okText = null, string cancelText = null, ButtonCallback okCallback = null,
+        public ModelDialog(string text, string okText = null, string cancelText = null, 
+            ButtonCallback okCallback = null,
             ButtonCallback cancelCallback = null)
         {
             _mainText = text;
@@ -61,19 +70,39 @@ namespace Util
             _cancelText = text;
         }
 
-        public void ShowDialog()
+        private void DisableAllCanvas()
         {
             //当创建这个窗口的时候，屏蔽掉之前的所有的UI的事件
-            foreach (var objs in SceneManager.GetActiveScene().GetRootGameObjects())
+            foreach (var child in SceneManager.GetActiveScene().GetRootGameObjects())
             {
-                if (objs.GetComponent<Canvas>() != null)
+                foreach (var go in child.GetComponentsInChildren<GraphicRaycaster>())
                 {
-                    objs.GetComponent<GraphicRaycaster>().enabled = false;
+                    go.enabled = false;
                 }
             }
+        }
+
+        private void RecoverAllCanvas()
+        {
+            //在点击按钮之后将所有的GraphicRaycaster设置为true
+            //但是原来的状态并不一定是true
+            //如果使用集合全部存入，也有被删除的可能，所以就直接设置成true
+            foreach (var child in SceneManager.GetActiveScene().GetRootGameObjects())
+            {
+                foreach (var go in child.GetComponentsInChildren<GraphicRaycaster>())
+                {
+                    go.enabled = true;
+                }
+            }
+        }
+        
+
+        public void ShowDialog()
+        {
+            DisableAllCanvas();
 
             //创建canvas
-            var layer= new GameObject("ModelDialogLayer");
+            var layer = new GameObject("ModelDialogLayer");
             var canvas = layer.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             layer.AddComponent<CanvasScaler>();
@@ -88,21 +117,12 @@ namespace Util
             obj.GetComponent<RectTransform>().SetParent(canvas.GetComponent<Transform>());
             obj.GetComponent<RectTransform>().localPosition = new Vector3(0, 0);
             _dialog = obj.GetComponent<DialogScript>();
-            _dialog.SetText(_mainText);
-            _dialog.SetOkText(_okText);
-            _dialog.SetCancelText(_cancelText);
+            _dialog.MainText = _mainText;
+            _dialog.OkText = _okText;
+            _dialog.CancelText = _cancelText;
             _dialog.CancelButtonCallback += () =>
             {
-                //在点击按钮之后将所有的GraphicRaycaster设置为true
-                //但是原来的状态并不一定是true
-                //如果使用集合全部存入，也有被删除的可能，所以就直接设置成true
-                foreach (var objs in SceneManager.GetActiveScene().GetRootGameObjects())
-                {
-                    if (objs.GetComponent<Canvas>() != null)
-                    {
-                        objs.GetComponent<GraphicRaycaster>().enabled = true;
-                    }
-                }
+                RecoverAllCanvas();
 
                 CancelBtnCallback?.Invoke();
                 Object.Destroy(layer);
@@ -110,13 +130,7 @@ namespace Util
 
             _dialog.OkButtonCallback += () =>
             {
-                foreach (var objs in SceneManager.GetActiveScene().GetRootGameObjects())
-                {
-                    if (objs.GetComponent<Canvas>() != null)
-                    {
-                        objs.GetComponent<GraphicRaycaster>().enabled = true;
-                    }
-                }
+                RecoverAllCanvas();
 
                 OkBtnCallback?.Invoke();
                 Object.Destroy(layer);

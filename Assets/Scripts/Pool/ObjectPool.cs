@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using XLua;
 using Object = UnityEngine.Object;
 
 namespace Pool
 {
+    [LuaCallCSharp]
     public class ObjectPool : IPool
     {
         private Queue<GameObject> _objects;
@@ -145,7 +147,6 @@ namespace Pool
             return index;
         }
         
-
         public bool Expand(int size)
         {
             return false;
