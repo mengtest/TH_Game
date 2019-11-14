@@ -97,5 +97,25 @@ namespace Pool
             //返回目标对象
             return _objects.Dequeue().First;
         }
+
+        public int Size()
+        {
+//            throw new NotImplementedException();
+            return 0;
+        }
+        
+
+        public int AutoResize()
+        {
+//            throw new NotImplementedException();
+            return 0;
+        }
+        
+
+        public bool Expand(int size)
+        {
+//            throw new NotImplementedException();
+            return false;
+        }
     }
 }

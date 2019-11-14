@@ -17,9 +17,4 @@ Button.ExitButtonCallback = function()
     --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
     CS.UnityEngine.Debug.Log("退出游戏")
     CS.UnityEngine.Application.Quit()
-
-    -- CS.UnityEngine.Resources.load
-    
-    -- local go = CS.UnityEngine.GameObject("hello")
-    -- CS.System.
 end

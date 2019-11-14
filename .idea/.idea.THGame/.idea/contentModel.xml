@@ -146,6 +146,7 @@
           </e>
           <e p="Tool" t="Include">
             <e p="Cache.cs" t="Include" />
+            <e p="Error.cs" t="Include" />
             <e p="Helper.cs" t="Include" />
             <e p="Navigator.cs" t="Include" />
             <e p="Resources.cs" t="Include" />
