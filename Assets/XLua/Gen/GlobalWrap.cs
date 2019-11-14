@@ -177,17 +177,6 @@ namespace XLua.CSObjectWrap
                     
                     return 0;
                 }
-                if(gen_param_count == 2&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
-                {
-                    string _name = LuaAPI.lua_tostring(L, 1);
-                    int _id = LuaAPI.xlua_tointeger(L, 2);
-                    
-                    Global.NavigateTo( _name, _id );
-                    
-                    
-                    
-                    return 0;
-                }
                 
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);

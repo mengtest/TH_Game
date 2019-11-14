@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using LoadingScene;
+using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,19 +26,23 @@ partial class Global
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
             var layer = Object.Instantiate(Resources.Load<GameObject>("Prefab/LoadingLayer"));
             SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
-            SceneManager.LoadSceneAsync(name);
+
+            layer.GetComponent<LoadingLayerScript>().StartCoroutine(LoadScene(name));
+
+//            var asyn = SceneManager.LoadSceneAsync(name);
+//            asyn.allowSceneActivation = false;
+//            Timer.Register(5.0f, () =>
+//            {
+//                Log($"{name}加载完成");
+//                asyn.allowSceneActivation = true;
+//            });
         }
         else
         {
             SceneManager.LoadScene(name);
         }
     }
-
-    public static void NavigateTo(string name, int id)
-    {
-        Debug.Log($"{name},{id}");
-    }
-
+    
     //跳转到id场景中
     //是否需要加载loading界面
     public static void NavigateTo(int id, bool loading = true)
@@ -62,6 +68,16 @@ partial class Global
             SceneManager.LoadScene(id);
         }
     }
+    
+    private static IEnumerator LoadScene(string sceneName)
+    {
+        yield return SceneManager.LoadSceneAsync(sceneName);
+    }
+    
+    private static IEnumerator LoadScene(int sceneId)
+    {
+        yield return SceneManager.LoadSceneAsync(sceneId);
+    }
 
     //刷新当前场景
     public static void Refresh()
@@ -80,31 +96,7 @@ partial class Global
         }
         else
         {
-            //否则的话回提示是否退出游戏
-//            NavigateTo("Scenes/MainScene");
-            //打开提示是否要退出游戏的对话框
+            
         }
     }
-
-//    static void NavigateTo(int id, float cacheTime)
-//    {
-//        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
-//        //这个就是人为的添加延迟，让loading效果更明显
-//        SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += delegate (AsyncOperation operation)
-//        {
-//            operation.allowSceneActivation = true;
-//            Object.FindObjectOfType<LoadingScript>().NavigateTo(id);
-//        };
-//    }
-//    
-//    static void NavigateTo(string name, float cacheTime)
-//    {
-//        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
-//        //这个就是人为的添加延迟，让loading效果更明显
-//        SceneManager.LoadSceneAsync(2).completed += delegate (AsyncOperation operation)
-//        {
-//            operation.allowSceneActivation = true;
-//            Object.FindObjectOfType<LoadingScript>().NavigateTo(name);
-//        };
-//    }
 }

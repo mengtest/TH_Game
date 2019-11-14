@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Prefab
 {
@@ -49,7 +51,31 @@ namespace Prefab
                     break;
             }
 
+            count++;
             Invoke(nameof(Timer), 0.5f);
         }
+
+//        public void LoadResources(string[] resources, Action<Object[]> callback)
+//        {
+//            int index = 0;
+//            foreach (var resource in resources)
+//            {
+//                var res = Resources.LoadAsync(resource);
+//                res.completed += operation =>
+//                {
+//                    index++;
+//                    if (index == resources.Length)
+//                    {
+//                        
+//                    }
+//                };
+//            }
+//            StartCoroutine(nameof(LoadResources));
+//        }
+//
+//        public void LoadResources(string resources)
+//        {
+//            
+//        }
     }
 }
