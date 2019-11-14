@@ -109,6 +109,7 @@
             <e p="CardDescriptionScript.cs" t="Include" />
             <e p="ChapterScript.cs" t="Include" />
             <e p="DialogScript.cs" t="Include" />
+            <e p="LoadingLayerScript.cs" t="Include" />
             <e p="LoginDialogScript.cs" t="Include" />
           </e>
           <e p="Refactor" t="Include">

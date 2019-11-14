@@ -69,7 +69,7 @@ namespace Callbacks
 
         public void SendMsg()
         {
-            NetHelper.Instance.Login("123123123", "2333333");
+//            NetHelper.Instance.Login("123123123", "2333333");
         }
     }
 }

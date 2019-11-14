@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Prefab;
+﻿using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,7 +27,7 @@ namespace Util
 
         public ModelDialog()
         {
-
+            
         }
 
         public ModelDialog(string text, string okText = null, string cancelText = null, 
@@ -43,7 +41,7 @@ namespace Util
             }
             if (cancelText?.Length > 0)
             {
-                _cancelText = okText;
+                _cancelText = cancelText;
             }
             if (okCallback != null)
             {

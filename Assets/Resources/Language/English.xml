@@ -37,5 +37,9 @@
     <Chapter11>Chapter 11</Chapter11>
     <Chapter12>Chapter 12</Chapter12>
     <Chapter13>Chapter 13</Chapter13>
+    <UserNameLabel>user</UserNameLabel>
+    <UserPwdLabel>pwd</UserPwdLabel>
+    <UserNameInputPlaceholder>your phone or email and more...</UserNameInputPlaceholder>
+    <UserPwdInputPlaceholder>........</UserPwdInputPlaceholder>
 </words>
 

@@ -2,29 +2,27 @@
 
 Button.StartButtonCallback = function()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
-    -- CS.Global.Navigator.NavigateTo("hello", 1000)
-    CS.UnityEngine.Debug.Log("你点击了开始游戏按钮")
+    CS.Global.NavigateTo("MainScene", true)
+    -- CS.UnityEngine.Debug.Log("你点击了开始游戏按钮")
 end
 
 Button.SettingButtonCallback = function()
     --点击设置按钮之后跳转到设置场景
-    -- CS.Global.Navigator.NavigateTo("SettingScene", true)
+    CS.Global.NavigateTo("SettingScene", false)
 
-    CS.UnityEngine.Debug.Log("你点击了设置按钮")
+    -- CS.UnityEngine.Debug.Log("你点击了设置按钮")
 end
 
 Button.ExitButtonCallback = function()
     --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
-    -- CS.UnityEngine.Debug.Log("退出游戏")
-    -- CS.UnityEngine.Application.Quit()
-
-    --- @type [luaIde#CS.Util.ModelDialog]
-    local dialog = CS.Util.ModelDialog("这是一个模态对话框", "知道了", "gun", function()
-        CS.Global.Log("你点击了知道了")
+    --@RefType [luaIde#CS.Util.ModelDialog]
+    local dialog = CS.Util.ModelDialog("是否要退出游戏？", "是", "否", function()
+        CS.Global.Log("你点击了是")
+        CS.UnityEngine.Application.Quit(0)
+        CS.Global.Log("退出游戏")
     end, function()
-        CS.Global.Log("你点击了gun")
+        CS.UnityEngine.SceneManagement.SceneManager.LoadScene(2)
+        CS.Global.Log("你点击了否")
     end)
-
     dialog:ShowDialog()
-    
 end

@@ -21,10 +21,8 @@ partial class Global
             {
                 if (operation.isDone)
                 {
-//                    var list = SceneManager.GetActiveScene().GetRootGameObjects();
-                    var go = new GameObject("loading_supporter");
-                    var cp = go.AddComponent<LoadingScript>();
-                    cp.NavigateTo(name);
+//                    var go = new GameObject("loading_supporter");
+                    SceneManager.LoadSceneAsync(name);
                 }
             };
         }
@@ -38,14 +36,6 @@ partial class Global
 
             SceneManager.LoadSceneAsync(name);
         }
-        
-        //            //序号为2的场景就是loading场景，加载loading场景之后再异步加载我们需要的场景
-        //            SceneManager.LoadScene(2);
-        //
-        //            //实际情况下，感觉这样做就已经达到了需要的效果了
-        //            SceneManager.LoadSceneAsync(name).allowSceneActivation = true;
-        
-//            NavigateTo(name, 5);
     }
 
     public static void NavigateTo(string name, int id)
@@ -57,12 +47,11 @@ partial class Global
     //是否需要加载loading界面
     public static void NavigateTo(int id, bool loading = true)
     {
-        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);   
-        
-//            SceneManager.LoadScene(2);
-//
-//            //实际情况下，感觉这样做就已经达到了需要的效果了
-//            SceneManager.LoadSceneAsync(id).allowSceneActivation = true;
+        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
+        if (loading)
+        {
+            
+        }
 
         NavigateTo(id, 5);
     }
@@ -70,6 +59,7 @@ partial class Global
     //刷新当前场景
     public static void Refresh()
     {
+        //直接重新加载当前的场景一次，不会被添加到场景栈中
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

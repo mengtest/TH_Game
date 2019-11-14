@@ -27,6 +27,7 @@
       <Path>Logs</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
+      <Path>output</Path>
     </explicitExcludes>
   </component>
 </project>
