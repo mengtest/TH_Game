@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Prefab
@@ -13,6 +14,17 @@ namespace Prefab
         {
             _text = GetComponentInChildren<Text>();
             _t = _text.text;
+
+            foreach (var child in SceneManager.GetActiveScene().GetRootGameObjects())
+            {
+                if (child.GetComponent<Camera>() == null && child.name != "TimerManager")
+                {
+                    child.SetActive(false);
+                }
+            }
+
+            gameObject.SetActive(true);
+            
             Invoke(nameof(Timer), 0.5f);
         }
 

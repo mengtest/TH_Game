@@ -13,28 +13,22 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
         
+        //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
+        if (!name.Contains("/"))
+        {
+            name = "Scenes/" + name;
+        }
+        
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            var asyn = SceneManager.LoadSceneAsync("Scenes/LoadingScene");
-            asyn.completed += delegate(AsyncOperation operation) 
-            {
-                if (operation.isDone)
-                {
-//                    var go = new GameObject("loading_supporter");
-                    SceneManager.LoadSceneAsync(name);
-                }
-            };
+            var layer = Object.Instantiate(Resources.Load<GameObject>("Prefab/LoadingLayer"));
+            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
+            SceneManager.LoadSceneAsync(name);
         }
         else
         {
-            //如果传入的名字当中没有/的话，说明是相对路径，这里会从Scenes文件夹下面去寻找这个场景
-            if (!name.Contains("/"))
-            {
-                name = "Scenes/" + name;
-            }
-
-            SceneManager.LoadSceneAsync(name);
+            SceneManager.LoadScene(name);
         }
     }
 
@@ -48,12 +42,25 @@ partial class Global
     public static void NavigateTo(int id, bool loading = true)
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
+
         if (loading)
         {
-            
+            //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
+            var layer = Object.Instantiate(Resources.Load<GameObject>("Prefab/LoadingLayer"));
+            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
+            var asyn = SceneManager.LoadSceneAsync(id);
+            asyn.completed += delegate(AsyncOperation operation)
+            {
+                if (operation.isDone)
+                {
+                    Log($"id为{id}的场景加载完成");
+                }
+            };
         }
-
-        NavigateTo(id, 5);
+        else
+        {
+            SceneManager.LoadScene(id);
+        }
     }
 
     //刷新当前场景
@@ -79,25 +86,25 @@ partial class Global
         }
     }
 
-    static void NavigateTo(int id, float cacheTime)
-    {
-        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
-        //这个就是人为的添加延迟，让loading效果更明显
-        SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += delegate (AsyncOperation operation)
-        {
-            operation.allowSceneActivation = true;
-            Object.FindObjectOfType<LoadingScript>().NavigateTo(id);
-        };
-    }
-    
-    static void NavigateTo(string name, float cacheTime)
-    {
-        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
-        //这个就是人为的添加延迟，让loading效果更明显
-        SceneManager.LoadSceneAsync(2).completed += delegate (AsyncOperation operation)
-        {
-            operation.allowSceneActivation = true;
-            Object.FindObjectOfType<LoadingScript>().NavigateTo(name);
-        };
-    }
+//    static void NavigateTo(int id, float cacheTime)
+//    {
+//        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
+//        //这个就是人为的添加延迟，让loading效果更明显
+//        SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += delegate (AsyncOperation operation)
+//        {
+//            operation.allowSceneActivation = true;
+//            Object.FindObjectOfType<LoadingScript>().NavigateTo(id);
+//        };
+//    }
+//    
+//    static void NavigateTo(string name, float cacheTime)
+//    {
+//        _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
+//        //这个就是人为的添加延迟，让loading效果更明显
+//        SceneManager.LoadSceneAsync(2).completed += delegate (AsyncOperation operation)
+//        {
+//            operation.allowSceneActivation = true;
+//            Object.FindObjectOfType<LoadingScript>().NavigateTo(name);
+//        };
+//    }
 }
