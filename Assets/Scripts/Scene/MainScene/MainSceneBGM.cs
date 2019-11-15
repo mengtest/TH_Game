@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace MainScene
+namespace Scene.MainScene
 {
-    public class MainSceneBGM : MonoBehaviour
+    public class MainSceneBgm : MonoBehaviour
     {
         // Start is called before the first frame update
         void Awake()

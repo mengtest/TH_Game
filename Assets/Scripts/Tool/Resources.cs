@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using Entity.Card.Extend;
 using Entity.Chapters;
 using Entity.Config;
@@ -19,7 +18,6 @@ partial class Global
         private LocalConfig _tempConfig;
         //所有的章节信息，可能还会有扩展
         private Chapters _chapters;
-        private Dictionary<string, Object> _resourcesMap;
         public LocalConfig Config => _tempConfig;
         public Save Save => _save;
         public Cards Cards => _cards;
@@ -34,76 +32,11 @@ partial class Global
             }
         }
 
-        //清除缓存
-        public void ClearCache()
-        {
-            _resourcesMap.Clear();
-        }
-
-        //加载资源
-        public void Load(string[] resources)
-        {
-            foreach (var res in resources)
-            {
-                _resourcesMap.Add(res, UnityEngine.Resources.Load(res));
-            }
-        }
-
-        //加载资源
-        public void Load(string resource)
-        {
-            _resourcesMap.Add(resource, UnityEngine.Resources.Load(resource));
-        }
-
-        //获取资源，取得之后会删除
-        public Object Require(string resource)
-        {
-            Object ins = null;
-            if (_resourcesMap.ContainsKey(resource))
-            {
-                ins = _resourcesMap[resource];
-                _resourcesMap.Remove(resource);
-            }
-            return ins;
-        }
-        
-        //获取资源，取得之后会删除
-        public T Require<T>(string resource) where T : Object
-        {
-            T ins = null;
-            if (_resourcesMap.ContainsKey(resource))
-            {
-                ins = _resourcesMap[resource] as T;
-                _resourcesMap.Remove(resource);
-            }
-            return ins;
-        }
-        
-        //获取资源，取得之后会删除
-        public Object[] Require(string[] resources)
-        {
-            Object[] ins = new Object[resources.Length];
-            for (int index = 0; index < ins.Length; index++)
-            {
-                if (_resourcesMap.ContainsKey(resources[index]))
-                {
-                    ins[index] = _resourcesMap[resources[index]];
-                    _resourcesMap.Remove(resources[index]);
-                }
-                else
-                {
-                    ins[index] = null;
-                }
-            }
-            return ins;
-        }
-
         private bool ResourcesInit()
         {
             //存档资源的初始化
             _save = Save.FromJson(UnityEngine.Resources.Load<TextAsset>("Json/Saves").text);
             //卡片资源初始化
-            //_cards = Cards.FromJson(Resources.Load<TextAsset>("Json/Cards").text);
             _cards = Cards.CreateCard();
             //读取配置文件
             var res = UnityEngine.Resources.Load<TextAsset>("Config/Config").text;
@@ -111,9 +44,7 @@ partial class Global
             _tempConfig = LocalConfig.FromJson(res);
             //章节信息的初始化
             _chapters = Chapters.FromJson(UnityEngine.Resources.Load<TextAsset>("Json/Chapters").text);
-            //用于存储临时的资源，在loading场景中去加载，所有资源加载完成之后
-            _resourcesMap = new Dictionary<string, Object>();
-            
+
             return true;
         }
 

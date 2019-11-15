@@ -125,7 +125,6 @@
               <e p="LanguageComboBox.cs" t="Include" />
             </e>
             <e p="StartScene" t="Include">
-              <e p="Background.cs" t="Include" />
               <e p="ExitButton.cs" t="Include" />
             </e>
             <e p="StoryScene" t="Include">

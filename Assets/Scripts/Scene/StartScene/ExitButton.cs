@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Util;
 
-namespace StartScene
+namespace Scene.StartScene
 {
     public class ExitButton : MonoBehaviour
     {

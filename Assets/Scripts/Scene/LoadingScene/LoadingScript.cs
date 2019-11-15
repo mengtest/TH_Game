@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //载入场景
-namespace LoadingScene
+namespace Scene.LoadingScene
 {
     public class LoadingScript : MonoBehaviour
     {

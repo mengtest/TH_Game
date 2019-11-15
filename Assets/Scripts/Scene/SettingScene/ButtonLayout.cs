@@ -1,9 +1,9 @@
-﻿using static Global;
-using Manager;
+﻿using Manager;
 using UnityEngine;
 using UnityEngine.UI;
+using static Global;
 
-namespace SettingScene
+namespace Scene.SettingScene
 {
     //按钮的布局脚本
     public class ButtonLayout : MonoBehaviour

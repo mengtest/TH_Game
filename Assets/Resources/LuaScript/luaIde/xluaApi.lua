@@ -1,4 +1,4 @@
-﻿--@SuperType [luaIde#CS.System.Object]
+﻿﻿--@SuperType [luaIde#CS.System.Object]
 CS.Global = {}
 --[[
 	@str CS.System.String
