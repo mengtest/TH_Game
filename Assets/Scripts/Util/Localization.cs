@@ -9,7 +9,7 @@ namespace Util
     {
         void Start()
         {
-            Translate(this);
+            Translater.Translate(this);
         }
     }
 }
