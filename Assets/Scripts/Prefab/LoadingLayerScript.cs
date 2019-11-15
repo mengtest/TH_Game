@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 namespace Prefab
 {
@@ -11,13 +11,18 @@ namespace Prefab
         private Text _text;
         private string _t;
         private int _count = 0;
-        
-        private void Start()
+        private AsyncOperation _async;
+
+        private void Awake()
         {
             _text = GetComponentInChildren<Text>();
-            _t = _text.text;
+        }
 
+        private void Start()
+        {
+            _t = _text.text;
             Invoke(nameof(Timer), 0.5f);
+            StartCoroutine(LoadScene("Scenes/MainScene"));
         }
 
         private void Timer()
@@ -43,6 +48,20 @@ namespace Prefab
 
             _count++;
             Invoke(nameof(Timer), 0.5f);
+        }
+
+        private IEnumerator LoadScene(string sceneName)
+        {
+            yield return new WaitForEndOfFrame();
+            _async = SceneManager.LoadSceneAsync(sceneName);
+            yield return _async;
+        }
+    
+        private IEnumerator LoadScene(int sceneId)
+        {
+            yield return new WaitForEndOfFrame();
+            _async = SceneManager.LoadSceneAsync(sceneId);
+            yield return _async;
         }
     }
 }
