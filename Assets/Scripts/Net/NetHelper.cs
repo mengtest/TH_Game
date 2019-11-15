@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using Util;
 
 namespace Net
@@ -44,7 +43,7 @@ namespace Net
         private NetHelper()
         {
             //初始化的时候会去读取配置文件，从配置文件中读取到ip、端口等信息
-            _connection = new Client("127.0.0.1", 9998);
+            //_connection = new Client("127.0.0.1", 9998);
         }
 
         //接收服务器回传的消息并解析
@@ -59,11 +58,18 @@ namespace Net
         }
 
         //登入
-        public void Login(string username,string userpwd)
+        public void Login(string username, string userpwd, Listener.AsyncCall action)
         {
-//            LoginData data = new LoginData {Username = username, Userpwd = userpwd};
-//            var msg = new Util.Msg(101, data);
-//            _connection.Send(msg);
+            // 发送消息
+            // SendMsg(username, userpwd)
+            if (username == "yuki1432" && userpwd == "abcd1234123")
+            {
+                Listener.Instance.Register(1, action);
+                Timer.Register(5, () =>
+                {
+                    Listener.Instance.Call(1, true, 400);
+                });
+            }
         }
 
         //登出

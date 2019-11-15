@@ -4659,6 +4659,26 @@ function CS.XLuaTest.Foo() end
 CS.XLuaTest.FooExtension = {}
 
 --@SuperType [luaIde#CS.System.Object]
+CS.Util.Listener = {}
+--[[
+	@RefType [luaIde#CS.Util.Listener]
+	 Get 
+--]]
+CS.Util.Listener.Instance = nil
+function CS.Util.Listener:Init() end
+--[[
+	@code CS.System.Int32
+	@action CS.Util.Listener.AsyncCall
+--]]
+function CS.Util.Listener:Register(code,action) end
+--[[
+	@code CS.System.Int32
+	@b CS.System.Boolean
+	@c CS.System.Int32
+--]]
+function CS.Util.Listener:Call(code,b,c) end
+
+--@SuperType [luaIde#CS.System.Object]
 CS.Util.ModelDialog = {}
 --[[
 	@return [luaIde#CS.Util.ModelDialog]
@@ -4763,13 +4783,34 @@ CS.Pool.PoolManager = {}
 ]]
 function CS.Pool.PoolManager() end
 
---@SuperType [luaIde#CS.UnityEngine.MonoBehaviour]
-CS.Callbacks.Callbacks = {}
+--@SuperType [luaIde#CS.System.Object]
+CS.Net.NetHelper = {}
 --[[
-	@return [luaIde#CS.Callbacks.Callbacks]
-]]
-function CS.Callbacks.Callbacks() end
-function CS.Callbacks.Callbacks:AlertLoginDialog() end
+	@RefType [luaIde#CS.Net.NetHelper]
+	 Get 
+--]]
+CS.Net.NetHelper.Instance = nil
+function CS.Net.NetHelper:Init() end
+--[[
+	@msg CS.Util.Msg
+--]]
+function CS.Net.NetHelper:ReceiveMsg(msg) end
+--[[
+	@username CS.System.String
+	@userpwd CS.System.String
+	@action CS.Util.Listener.AsyncCall
+--]]
+function CS.Net.NetHelper:Login(username,userpwd,action) end
+function CS.Net.NetHelper:Logout() end
+function CS.Net.NetHelper:DrawCard() end
+function CS.Net.NetHelper:Connect() end
+function CS.Net.NetHelper:Disconnect() end
+function CS.Net.NetHelper:Update() end
+--[[
+	@version CS.System.String
+	return CS.System.Boolean
+--]]
+function CS.Net.NetHelper:CheckVersion(version) end
 
 --@SuperType [luaIde#CS.System.Enum]
 CS.Tutorial.DerivedClass.TestEnumInner = {}

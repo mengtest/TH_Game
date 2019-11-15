@@ -5,9 +5,11 @@ using System.Net.Sockets;
 using System.Text;
 using Google.Protobuf;
 using UnityEngine;
+using XLua;
 
 namespace Net
 {
+    [LuaCallCSharp]
     //与服务器连接，并传输与接收数据
     partial class NetHelper
     {

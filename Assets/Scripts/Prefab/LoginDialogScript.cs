@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.Versioning;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using XLua;
 
 namespace Prefab
 {
@@ -20,9 +23,28 @@ namespace Prefab
         
         private void Start()
         {
-            _confirm.onClick.AddListener(ConfirmBtnCallback);
+            LuaEnv env = new LuaEnv();
+            var table = env.NewTable();
+            var meta = env.NewTable();
+            meta.Set("__index", env.Global);
+            table.SetMetaTable(meta);
+            table.Set("nameInput", _name);
+            table.Set("pwdInput", _pwd);
+            meta.Dispose();
+            table.Set("self", this);
+            env.DoString(
+                Resources.Load<TextAsset>("LuaScript/UIS/LoginDialog.lua").text,
+                "LuaScript/LoginDialog.lua",
+                table);
             
-            _cancel.onClick.AddListener(CancelBtnCallback);
+            UnityAction confirmBtnCallback = null;
+            UnityAction cancelBtnCallback = null;
+            
+            table.Get("ConfirmButton", out confirmBtnCallback);
+            table.Get("CancelButton", out cancelBtnCallback);
+            
+            _confirm.onClick.AddListener(confirmBtnCallback);
+            _cancel.onClick.AddListener(cancelBtnCallback);
         }
 
         private void ConfirmBtnCallback()

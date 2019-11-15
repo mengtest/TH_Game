@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 2149455598973005191}
   - component: {fileID: 2149455598973005186}
   - component: {fileID: 2149455598973005185}
-  - component: {fileID: 2149455598973005184}
+  - component: {fileID: 2222890485612445976}
   m_Layer: 5
   m_Name: ConfirmBtn
   m_TagString: Untagged
@@ -508,17 +508,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2149455598973005184
+--- !u!114 &2222890485612445976
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7647856561029594366, guid: d8280831eb5fefe4fb6956290bded011,
-    type: 3}
-  m_PrefabInstance: {fileID: 2149455599270886145}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2149455598973005190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a66d3fc729640540b942f39cecb95d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -552,6 +551,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _supporter:
+    _functionName: LoginButton
+    _autoRegister: 1
 --- !u!1 &2149455599109890539
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e399add2af984119bca6ea265f1ab2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirm: {fileID: 2149455598973005184}
+  _confirm: {fileID: 2222890485612445976}
   _cancel: {fileID: 2149455598553728045}
   _name: {fileID: 2149455600245486545}
   _pwd: {fileID: 2149455598759138676}
@@ -1537,5 +1539,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d8280831eb5fefe4fb6956290bded011, type: 3}

@@ -44,7 +44,6 @@ partial class Global
             _tempConfig = LocalConfig.FromJson(res);
             //章节信息的初始化
             _chapters = Chapters.FromJson(UnityEngine.Resources.Load<TextAsset>("Json/Chapters").text);
-
             return true;
         }
 
@@ -63,13 +62,13 @@ partial class Global
         //修改存档
         public void ModifySave()
         {
-
+            
         }
 
         //删除存档
         public void DeleteSave()
         {
-
+            
         }
 
         //保存配置文件，写入文件
@@ -94,7 +93,7 @@ partial class Global
         public void ApplyConfig()
         {
             //主要就是将临时的配置文件信息应用到真正的配置文件中
-
+            
         }
 
         //修改配置文件，但是不做保存

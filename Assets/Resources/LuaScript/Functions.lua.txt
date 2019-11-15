@@ -6,7 +6,9 @@ Button.StartButtonCallback = function()
     -- CS.UnityEngine.Debug.Log("你点击了开始游戏按钮")
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
+    --@RefType [luaIde#CS.UnityEngine.GameObject]
     local obj = CS.UnityEngine.GameObject.Instantiate(go)
+    CS.Global.Translater.Translate(obj:GetComponent("Canvas"))
     CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
 end
 
@@ -28,4 +30,8 @@ Button.ExitButtonCallback = function()
         CS.Global.Log("你点击了否")
     end)
     dialog:ShowDialog()
+end
+
+Button.LoginButtonCallback = function()
+    CS.Global.Log("你点击了登入按钮")
 end
