@@ -13,9 +13,7 @@ function ConfirmButton()
     end
 
     CS.Net.NetHelper.Instance:Login("yuki1432", "abcd1234123", function(a, b)
-        -- local t = unpack(...)
         CS.Global.Log("结果是"..tostring(a).."，code是"..b)
-        -- CS.Global.Log("123123123123")
     end)    
 
     -- if nameInput.text == "yuki1432" and pwdInput.text == "abcd1234123" then
