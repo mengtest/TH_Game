@@ -1,11 +1,13 @@
 ﻿using System;
-using Game.Entity.Chapters;
+using Entity.Chapters;
 //using L;
 //using Prefab;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using static Global;
+using Resources = UnityEngine.Resources;
+
 //using XLua;
 //using Object = UnityEngine.Object;
 

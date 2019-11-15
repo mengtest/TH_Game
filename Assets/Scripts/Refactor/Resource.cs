@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Refactor
 {
     //所有与本地资源打交道的全部存放在这个类里头完成
-    public class ResourceManager
+    public class Resource
     {
         public static Object LoadRes(string name)
         {
@@ -19,8 +19,6 @@ namespace Refactor
 ////                AssetBundle.LoadFromFile(info.FullName).LoadAsset("");
 //            }
 //            return res;
-
-
 
             return Resources.Load(name);
         }

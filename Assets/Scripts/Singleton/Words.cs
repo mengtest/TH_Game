@@ -33,7 +33,10 @@ public partial class Singleton
         //重新加载文件
         private void ReadFile()
         {
-            _words = new Dictionary<string, string>();
+            if (_words == null)
+            {
+                _words = new Dictionary<string, string>();
+            }
             TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);
             var doc = new XmlDocument();
             doc.LoadXml(text.text);
@@ -46,6 +49,9 @@ public partial class Singleton
                     {
                         foreach (XmlNode word in words.ChildNodes)
                         {
+                            //如果不存在这个key，则直接新建，
+                            //否则修改原来的值
+                            //可以在某种语言缺失键的情况下，使用上次使用的语言中的键值
                             if (_words.ContainsKey(word.Name.ToLower()))
                             {
                                 _words[word.Name.ToLower()] = word.InnerText;
@@ -60,7 +66,7 @@ public partial class Singleton
             }
         }
 
-        //获取到key对应的值，如果没有对应的值，则返回小写的key
+        //获取到key对应的值，如果没有对应的值，则直接返回小写的key
         //convert为是否需要转化成小写
         public string GetWord(string key,bool convert = true)
         {

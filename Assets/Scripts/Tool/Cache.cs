@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Pool;
 
 partial class Global
 {
     public static class Cache
     {
         private static Dictionary<string, object> _cache = new Dictionary<string, object>();
+        private static Pair<int, string> _nextScene = new Pair<int, string>(-1, "");
 
         public static T GetStorage<T>(string key)
         {
@@ -105,6 +107,28 @@ partial class Global
             {
                 _cache.Remove(key);
             }
+        }
+
+        public static void SetSceneParam(int id)
+        {
+            _nextScene.First = id;
+            _nextScene.Second = "";
+        }
+
+        public static void SetSceneParam(string name)
+        {
+            _nextScene.First = -1;
+            _nextScene.Second = name;
+        }
+
+        public static int GetNextSceneId()
+        {
+            return _nextScene.First;
+        }
+
+        public static string GetNextSceneName()
+        {
+            return _nextScene.Second;
         }
     }
 }

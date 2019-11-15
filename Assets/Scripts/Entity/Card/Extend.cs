@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Entity.Card
+namespace Entity.Card
 {
     namespace Extend
     {
@@ -83,7 +83,7 @@ namespace Game.Entity.Card
 
             private Dictionary<string, Card> _cardArray;
 
-            public Cards(Game.Entity.Card.Cards cards)
+            public Cards(global::Entity.Card.Cards cards)
             {
                 _cardArray = new Dictionary<string, Card>();
 
@@ -124,7 +124,7 @@ namespace Game.Entity.Card
 
             public static Cards CreateCard()
             {
-                var cards = Game.Entity.Card.Cards.FromJson(Resources.Load<TextAsset>("Json/Cards").text);
+                var cards = global::Entity.Card.Cards.FromJson(Resources.Load<TextAsset>("Json/Cards").text);
                 var res =  new Cards(cards);
                 return res;
             }

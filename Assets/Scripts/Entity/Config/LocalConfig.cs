@@ -2,7 +2,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Game.Entity.Config
+namespace Entity.Config
 {
 
     public partial class LocalConfig

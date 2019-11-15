@@ -9,7 +9,7 @@ public static class GameInit
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void ApplicationInit()
     {
-        ResourceManager.Init();
+        Global.Resources.Init();
         Singleton.Init();
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();

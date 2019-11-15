@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using LoadingScene;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +7,7 @@ using UnityEngine.SceneManagement;
 partial class Global
 {
     private static Stack<int> _sceneStack = new Stack<int>();
+    private static AsyncOperation _async;
 
     //跳转到name场景中
     //是否需要加载loading界面
@@ -24,21 +24,19 @@ partial class Global
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            var layer = Object.Instantiate(Resources.Load<GameObject>("Prefab/LoadingLayer"));
-            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
+//            var layer = Object.Instantiate(UnityEngine.Resources.Load<GameObject>("Prefab/LoadingLayer"));
+//            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
+//            layer.GetComponent<LoadingLayerScript>().StartCoroutine(LoadScene(name));
 
-            layer.GetComponent<LoadingLayerScript>().StartCoroutine(LoadScene(name));
-
-//            var asyn = SceneManager.LoadSceneAsync(name);
-//            asyn.allowSceneActivation = false;
-//            Timer.Register(5.0f, () =>
-//            {
-//                Log($"{name}加载完成");
-//                asyn.allowSceneActivation = true;
-//            });
+//            Cache.SetSceneParam(name);
+            SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
+            {
+                SceneManager.LoadSceneAsync(name);
+            };
         }
         else
         {
+            
             SceneManager.LoadScene(name);
         }
     }
@@ -52,15 +50,13 @@ partial class Global
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            var layer = Object.Instantiate(Resources.Load<GameObject>("Prefab/LoadingLayer"));
-            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
-            var asyn = SceneManager.LoadSceneAsync(id);
-            asyn.completed += delegate(AsyncOperation operation)
+//            var layer = Object.Instantiate(UnityEngine.Resources.Load<GameObject>("Prefab/LoadingLayer"));
+//            SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
+            
+//            Cache.SetSceneParam(id);
+            SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
             {
-                if (operation.isDone)
-                {
-                    Log($"id为{id}的场景加载完成");
-                }
+                SceneManager.LoadSceneAsync(id);
             };
         }
         else
@@ -71,12 +67,16 @@ partial class Global
     
     private static IEnumerator LoadScene(string sceneName)
     {
-        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield return new WaitForEndOfFrame();
+        _async = SceneManager.LoadSceneAsync(sceneName);
+        yield return _async;
     }
     
     private static IEnumerator LoadScene(int sceneId)
     {
-        yield return SceneManager.LoadSceneAsync(sceneId);
+        yield return new WaitForEndOfFrame();
+        _async = SceneManager.LoadSceneAsync(sceneId);
+        yield return _async;
     }
 
     //刷新当前场景

@@ -14,17 +14,8 @@ partial class Global
             }
 
             //对一些组件做出特殊处理
-            var dropDown = self.GetComponent<Dropdown>();
-            if (dropDown != null)
-            {
-                foreach (var option in dropDown.options)
-                {
-                    option.text = Singleton.Instance.Language.GetWord(option.text);
-                }
-            }
-
-            dropDown = self.GetComponentInChildren<Dropdown>();
-            if (dropDown != null)
+            var dropDowns = self.GetComponentsInChildren<Dropdown>();
+            foreach (var dropDown in dropDowns)
             {
                 foreach (var option in dropDown.options)
                 {
@@ -37,5 +28,7 @@ partial class Global
         {
             
         }
+
+//        private static 
     }
 }

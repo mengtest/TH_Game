@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Game.Entity.Save
+namespace Entity.Save
 {
     public partial class Save
     {

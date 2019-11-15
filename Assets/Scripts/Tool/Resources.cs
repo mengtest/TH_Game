@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Game.Entity.Card.Extend;
-using Game.Entity.Chapters;
-using Game.Entity.Config;
-using Game.Entity.Save;
+using Entity.Card.Extend;
+using Entity.Chapters;
+using Entity.Config;
+using Entity.Save;
 using UnityEngine;
 
 partial class Global
 {
-    public class ResourceManager
+    public class Resources
     {
-        private static ResourceManager _loader;
+        private static Resources _loader;
         private Save _save;
         private Cards _cards;
         //真正的配置信息
@@ -24,16 +24,14 @@ partial class Global
         public Save Save => _save;
         public Cards Cards => _cards;
         public Chapters Chapters => _chapters;
-        public static ResourceManager Instance => _loader;
+        public static Resources Instance => _loader;
         public static void Init()
         {
             if (_loader == null)
             {
-                _loader = new ResourceManager();
+                _loader = new Resources();
                 _loader.ResourcesInit();
-                // return true;
             }
-            // return false;
         }
 
         //清除缓存
@@ -47,14 +45,14 @@ partial class Global
         {
             foreach (var res in resources)
             {
-                _resourcesMap.Add(res, Resources.Load(res));
+                _resourcesMap.Add(res, UnityEngine.Resources.Load(res));
             }
         }
 
         //加载资源
         public void Load(string resource)
         {
-            _resourcesMap.Add(resource, Resources.Load(resource));
+            _resourcesMap.Add(resource, UnityEngine.Resources.Load(resource));
         }
 
         //获取资源，取得之后会删除
@@ -72,7 +70,7 @@ partial class Global
         //获取资源，取得之后会删除
         public T Require<T>(string resource) where T : Object
         {
-            T ins = default(T);
+            T ins = null;
             if (_resourcesMap.ContainsKey(resource))
             {
                 ins = _resourcesMap[resource] as T;
@@ -103,16 +101,16 @@ partial class Global
         private bool ResourcesInit()
         {
             //存档资源的初始化
-            _save = Save.FromJson(Resources.Load<TextAsset>("Json/Saves").text);
+            _save = Save.FromJson(UnityEngine.Resources.Load<TextAsset>("Json/Saves").text);
             //卡片资源初始化
             //_cards = Cards.FromJson(Resources.Load<TextAsset>("Json/Cards").text);
             _cards = Cards.CreateCard();
             //读取配置文件
-            var res = Resources.Load<TextAsset>("Config/Config").text;
+            var res = UnityEngine.Resources.Load<TextAsset>("Config/Config").text;
             _config = LocalConfig.FromJson(res);
             _tempConfig = LocalConfig.FromJson(res);
             //章节信息的初始化
-            _chapters = Chapters.FromJson(Resources.Load<TextAsset>("Json/Chapters").text);
+            _chapters = Chapters.FromJson(UnityEngine.Resources.Load<TextAsset>("Json/Chapters").text);
             //用于存储临时的资源，在loading场景中去加载，所有资源加载完成之后
             _resourcesMap = new Dictionary<string, Object>();
             
@@ -184,10 +182,10 @@ partial class Global
         public void ResetConfig()
         {
             //读取默认的配置文件
-            _tempConfig = LocalConfig.FromJson(Resources.Load<TextAsset>("Config/DefaultConfig").text);
+            _tempConfig = LocalConfig.FromJson(UnityEngine.Resources.Load<TextAsset>("Config/DefaultConfig").text);
         }
 
-        private ResourceManager()
+        private Resources()
         {
 
         }

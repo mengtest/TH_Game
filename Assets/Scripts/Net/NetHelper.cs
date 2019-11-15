@@ -50,9 +50,9 @@ namespace Net
         //接收服务器回传的消息并解析
         public void ReceiveMsg(Msg msg)
         {
-            var res = LoginMsg.Parser.ParseJson(msg.Msg_);
-            Debug.Log(res.Code);
-            Debug.Log(res.Msg);
+//            var res = LoginMsg.Parser.ParseJson(msg.Msg_);
+//            Debug.Log(res.Code);
+//            Debug.Log(res.Msg);
 //            LoginMsg.Parser.ParseFrom()
 //            Debug.Log(data.Code);
 //            Debug.Log(data.Msg);
@@ -61,9 +61,9 @@ namespace Net
         //登入
         public void Login(string username,string userpwd)
         {
-            LoginData data = new LoginData {Username = username, Userpwd = userpwd};
-            var msg = new Util.Msg(101, data);
-            _connection.Send(msg);
+//            LoginData data = new LoginData {Username = username, Userpwd = userpwd};
+//            var msg = new Util.Msg(101, data);
+//            _connection.Send(msg);
         }
 
         //登出

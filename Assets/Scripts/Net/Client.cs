@@ -52,8 +52,12 @@ namespace Net
 //                msg.Msg = "hello world";
 //                var bytes = msg.ToByteString();
 //                var s = msg.ToString();
-                var data = LoginMsg.Parser.ParseFrom(Encoding.UTF8.GetBytes(usageBuf));
-//                var byteStr = ByteString.CopyFromUtf8(str);
+
+
+//                var data = LoginMsg.Parser.ParseFrom(Encoding.UTF8.GetBytes(usageBuf));
+
+                
+                //                var byteStr = ByteString.CopyFromUtf8(str);
 //                var msg = LoginMsg.Parser.ParseFrom(byteStr);
 //                var msg = new LoginMsg();
                 //进入到循环当中
