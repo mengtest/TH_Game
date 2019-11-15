@@ -1,0 +1,37 @@
+function ConfirmButton()
+    local name = nameInput.text
+    local pwd = pwdInput.text
+
+    if #name == 0 then
+        CS.Global.Log("用户名不能为空")
+        return
+    end
+
+    if #pwd == 0 then
+        CS.Global.Log("请输入密码")
+        return
+    end
+
+    CS.Net.NetHelper.Instance:Login("yuki1432", "abcd1234123", function(a, b)
+        -- local t = unpack(...)
+        CS.Global.Log("结果是"..tostring(a).."，code是"..b)
+        -- CS.Global.Log("123123123123")
+    end)    
+
+    -- if nameInput.text == "yuki1432" and pwdInput.text == "abcd1234123" then
+    --     CS.Global.Log("用户名密码正确，正在登入...")
+    --     -- 发送消息到服务器，验证用户名密码是否正确
+
+    --     -- 如果正确，则登入到游戏中
+
+    --     -- 如果不正确则，提示
+    -- else
+    --     CS.Global.Log("用户名或密码不正确")
+    -- end
+
+    CS.UnityEngine.Object.Destroy(self)
+end
+
+function CancelButton()
+    CS.UnityEngine.Object.Destroy(self)
+end
