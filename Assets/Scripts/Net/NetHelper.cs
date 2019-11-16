@@ -1,4 +1,5 @@
 ﻿using System;
+using LuaFramework;
 using Util;
 
 namespace Net
@@ -58,13 +59,13 @@ namespace Net
         }
 
         //登入
-        public void Login(string username, string userpwd, Listener.AsyncCall action)
+        public void Login(string username, string userpwd, string callName)
         {
             // 发送消息
             // SendMsg(username, userpwd)
             if (username == "yuki1432" && userpwd == "abcd1234123")
             {
-                Listener.Instance.Register(1, action);
+//                Listener.Instance.Register(1, LuaEngine.MainInstance.Get());
                 Timer.Register(5, () =>
                 {
                     Listener.Instance.Call(1, true, 400);

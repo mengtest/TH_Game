@@ -17,17 +17,13 @@ namespace LuaFramework
         {
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
-            
-//#if UNITY_EDITOR
-//            return null;
-//#endif
 
             var eng = LuaEngine.MainInstance;
             if (eng == null)
             {
                 return null;
             }
-            var f = eng.GetSubInstance("functions").Get().Global
+            var f = eng.GetTable("functions")
                 .GetInPath<Action<T>>($"Button.{supporter.GetFuncName()}");
             if (f != null && !_actions.ContainsKey(supporter.GetFuncName()))
             {
@@ -40,17 +36,13 @@ namespace LuaFramework
         {
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
-            
-//#if UNITY_EDITOR
-//            return null;
-//#endif
-            
+
             var eng = LuaEngine.MainInstance;
             if (eng == null)
             {
                 return null;
             }
-            var f = eng.GetSubInstance("functions").Get().Global
+            var f = eng.GetTable("functions")
                 .GetInPath<Action>($"Button.{supporter.GetFuncName()}");
             if (f != null && !_actions.ContainsKey(supporter.GetFuncName()))
             {

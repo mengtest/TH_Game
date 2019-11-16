@@ -12,9 +12,7 @@ function ConfirmButton()
         return
     end
 
-    CS.Net.NetHelper.Instance:Login("yuki1432", "abcd1234123", function(a, b)
-        CS.Global.Log("结果是"..tostring(a).."，code是"..b)
-    end)    
+    CS.Net.NetHelper.Instance:Login("yuki1432", "abcd1234123", "loginCallback")    
 
     -- if nameInput.text == "yuki1432" and pwdInput.text == "abcd1234123" then
     --     CS.Global.Log("用户名密码正确，正在登入...")
@@ -28,6 +26,10 @@ function ConfirmButton()
     -- end
 
     CS.UnityEngine.Object.Destroy(self)
+end
+
+function loginCallback(res, code)
+    CS.Global.Log(tostring(res)..",code is:"..code)
 end
 
 function CancelButton()

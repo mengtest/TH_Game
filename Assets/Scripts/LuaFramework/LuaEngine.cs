@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using XLua;
+using XLua.LuaDLL;
+using XLuaTest;
 
 namespace LuaFramework
 {
@@ -9,7 +12,7 @@ namespace LuaFramework
     {
         private static LuaEngine _engine;
         private LuaEnv _env;
-        private static Dictionary<string, LuaEngine> _subInstances;
+        private Dictionary<string, LuaTable> _luaTables;
 
         public static LuaEngine MainInstance => _engine;
 
@@ -18,31 +21,33 @@ namespace LuaFramework
             if (_engine == null)
             {
                 _engine = new LuaEngine();
-                _subInstances = new Dictionary<string, LuaEngine>();
+                _engine._luaTables = new Dictionary<string, LuaTable>();
             }
             
             //一些准备工作
-            if (!_subInstances.ContainsKey("functions"))
+            if (!_engine._luaTables.ContainsKey("functions"))
             {
-                var env = new LuaEngine();
-                _subInstances.Add("functions", env);
-                env.LoadFile("LuaScript/Functions.lua");
+                _engine.LoadFile("LuaScript/Functions.lua", "functions");
             }
         }
 
-        public LuaEngine GetSubInstance(string name)
+        public LuaTable GetTable(string key)
         {
-            LuaEngine eng = null;
-            if (_subInstances.ContainsKey(name))
+            return _luaTables.ContainsKey(key) ? _luaTables[key] : null;
+        }
+        
+
+        public void AddTable(string key, LuaTable table)
+        {
+            if (_luaTables.ContainsKey(key))
             {
-                eng = _subInstances[name];
+                _luaTables[key].Dispose();
+                _luaTables[key] = table;
             }
             else
             {
-                eng = new LuaEngine();
-                _subInstances.Add(name, eng);
+                _luaTables.Add(key, table);
             }
-            return eng;
         }
 
         private LuaEngine()
@@ -57,9 +62,81 @@ namespace LuaFramework
 
         //加载整个文件，后面会根据id将lua函数映射到C#函数
         //path为lua文件路径,id为文件名
-        public void LoadFile(string path)
+        public LuaTable LoadFile(string path, string name)
         {
-            _env.DoString(Resources.Load<TextAsset>(path).text);
+            var table = _env.NewTable();
+            var meta = _env.NewTable();
+            meta.Set("__index", _env.Global);
+            table.SetMetaTable(meta);
+            meta.Dispose();
+            _env.DoString(
+                Resources.Load<TextAsset>(path).text,
+                name,
+                table);
+            if (_luaTables.ContainsKey(name))
+            {
+                _luaTables[name].Dispose();
+                _luaTables[name] = table;
+            }
+            else
+            {
+                _luaTables.Add(name, table);
+            }
+            return table;
+        }
+        
+        public LuaTable LoadFile(string path, string name ,MonoBehaviour self)
+        {
+            var table = _env.NewTable();
+            var meta = _env.NewTable();
+            meta.Set("__index", _env.Global);
+            table.SetMetaTable(meta);
+            meta.Dispose();
+            table.Set("self", self);
+            _env.DoString(
+                Resources.Load<TextAsset>(path).text,
+                name,
+                table);
+            if (_luaTables.ContainsKey(name))
+            {
+                _luaTables[name].Dispose();
+                _luaTables[name] = table;
+            }
+            else
+            {
+                _luaTables.Add(name, table);
+            }
+            return table;
+        }
+        
+        public LuaTable LoadFile(string path, string name, MonoBehaviour self, Injection[] injections)
+        {
+            var table = _env.NewTable();
+            var meta = _env.NewTable();
+            meta.Set("__index", _env.Global);
+            table.SetMetaTable(meta);
+            meta.Dispose();
+            table.Set("self", self);
+
+            foreach (var injection in injections)
+            {
+                table.Set(injection.name, injection.value);
+            }
+            
+            _env.DoString(
+                Resources.Load<TextAsset>(path).text,
+                name,
+                table);
+            if (_luaTables.ContainsKey(name))
+            {
+                _luaTables[name].Dispose();
+                _luaTables[name] = table;
+            }
+            else
+            {
+                _luaTables.Add(name, table);
+            }
+            return table;
         }
 
         public void Dispose()
