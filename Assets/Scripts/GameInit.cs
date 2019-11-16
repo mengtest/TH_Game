@@ -1,5 +1,6 @@
 ﻿using LuaFramework;
 using UnityEngine;
+using Util;
 using static Global;
 
 //游戏开始的时候，各种必要的资源等的初始化
@@ -14,6 +15,7 @@ public static class GameInit
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
         LuaEngine.Init();
+        Listener.Init();
 
 //        Debug.Log(Add_int_int(100, 101));
     }

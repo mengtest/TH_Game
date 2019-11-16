@@ -14,7 +14,7 @@ namespace LuaFramework
         private LuaEnv _env;
         private Dictionary<string, LuaTable> _luaTables;
 
-        public static LuaEngine MainInstance => _engine;
+        public static LuaEngine Instance => _engine;
 
         public static void Init()
         {
@@ -109,7 +109,7 @@ namespace LuaFramework
             return table;
         }
         
-        public LuaTable LoadFile(string path, string name, MonoBehaviour self, Injection[] injections)
+        public LuaTable LoadFile(string path, string name, MonoBehaviour self, Global.KeyValueStruct[] values)
         {
             var table = _env.NewTable();
             var meta = _env.NewTable();
@@ -118,9 +118,9 @@ namespace LuaFramework
             meta.Dispose();
             table.Set("self", self);
 
-            foreach (var injection in injections)
+            foreach (var injection in values)
             {
-                table.Set(injection.name, injection.value);
+                table.Set(injection.Name, injection.Value);
             }
             
             _env.DoString(

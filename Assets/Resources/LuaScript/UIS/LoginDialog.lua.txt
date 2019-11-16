@@ -1,6 +1,22 @@
+function unpack(...)
+    local t = {}
+    unpack_1(t, ...)
+    return t
+end
+
+function unpack_1(t, a, ... )
+    table.insert(t, a)
+    if ... == nil then
+        return
+    end
+    unpack_1(t, ...)
+end
+
 function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
+
+    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")  
 
     if #name == 0 then
         CS.Global.Log("用户名不能为空")
@@ -12,7 +28,7 @@ function ConfirmButton()
         return
     end
 
-    CS.Net.NetHelper.Instance:Login("yuki1432", "abcd1234123", "loginCallback")    
+      
 
     -- if nameInput.text == "yuki1432" and pwdInput.text == "abcd1234123" then
     --     CS.Global.Log("用户名密码正确，正在登入...")
@@ -28,8 +44,10 @@ function ConfirmButton()
     CS.UnityEngine.Object.Destroy(self)
 end
 
-function loginCallback(res, code)
-    CS.Global.Log(tostring(res)..",code is:"..code)
+function loginCallback(...)
+    local arg = unpack(...)
+    CS.Global.Log(tostring(arg[1])..",code is:"..arg[2])
+    CS.Global.Log(arg[3])
 end
 
 function CancelButton()

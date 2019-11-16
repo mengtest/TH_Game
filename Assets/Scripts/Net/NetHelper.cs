@@ -1,19 +1,12 @@
 ﻿using System;
 using LuaFramework;
 using Util;
+using XLua;
 
 namespace Net
 {
     public struct ErrorCode
     {
-//        public enum ErrorType 
-           //        {
-           //            Timeout,                    //连接超时
-           //            IncorrectUsername,            //错误的用户名
-           //            IncorrectUserpwd,            //错误的密码
-           //            NamePwdNotPair,                //账号密码
-           //        }
-        
         public long CodeId;
         public string CodeMsg;
     }
@@ -29,11 +22,16 @@ namespace Net
             }
         }
 
-        private Client _connection;
+        private static Client _connection;
         
         private static NetHelper _instance = null;
+        
+        
 
-        public static NetHelper Instance => _instance;
+        public static NetHelper GetInstance()
+        {
+            return _instance;
+        }
 
         public static bool Init()
         {
@@ -58,6 +56,8 @@ namespace Net
 //            Debug.Log(data.Msg);
         }
 
+//        public delegate void Callback(params object[] para);
+        
         //登入
         public void Login(string username, string userpwd, string callName)
         {
@@ -65,10 +65,13 @@ namespace Net
             // SendMsg(username, userpwd)
             if (username == "yuki1432" && userpwd == "abcd1234123")
             {
-//                Listener.Instance.Register(1, LuaEngine.MainInstance.Get());
+                var act = LuaEngine.Instance.GetTable("LoginDialog").Get<LuaFunction>(callName);
+//                act.Call(true, 1000);
+                Listener.Instance.Register(1, act);
+                //模拟异步的情景
                 Timer.Register(5, () =>
                 {
-                    Listener.Instance.Call(1, true, 400);
+                    Listener.Instance.Call(1, true, 400, "你好啊");
                 });
             }
         }

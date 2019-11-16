@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.Versioning;
+using LuaFramework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using XLua;
+using XLuaTest;
 
 namespace Prefab
 {
@@ -23,19 +25,12 @@ namespace Prefab
         
         private void Start()
         {
-            LuaEnv env = new LuaEnv();
-            var table = env.NewTable();
-            var meta = env.NewTable();
-            meta.Set("__index", env.Global);
-            table.SetMetaTable(meta);
-            table.Set("nameInput", _name);
-            table.Set("pwdInput", _pwd);
-            meta.Dispose();
-            table.Set("self", this);
-            env.DoString(
-                Resources.Load<TextAsset>("LuaScript/UIS/LoginDialog.lua").text,
-                "LuaScript/LoginDialog.lua",
-                table);
+            var kv = new Global.KeyValueStruct[]
+            {
+                new Global.KeyValueStruct() {Name = "nameInput", Value = _name},
+                new Global.KeyValueStruct() {Name = "pwdInput", Value = _pwd},
+            };
+            var table = LuaEngine.Instance.LoadFile("LuaScript/UIS/LoginDialog.lua", "LoginDialog", this, kv);
             
             UnityAction confirmBtnCallback = null;
             UnityAction cancelBtnCallback = null;

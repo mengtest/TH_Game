@@ -18,7 +18,7 @@ namespace LuaFramework
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
 
-            var eng = LuaEngine.MainInstance;
+            var eng = LuaEngine.Instance;
             if (eng == null)
             {
                 return null;
@@ -37,7 +37,7 @@ namespace LuaFramework
             //实际使用的时候应该是根据调用这个函数的对象的实际类型来获取到指定的域
             //尝试着获取一个Button域下面的回调函数
 
-            var eng = LuaEngine.MainInstance;
+            var eng = LuaEngine.Instance;
             if (eng == null)
             {
                 return null;

@@ -7,18 +7,16 @@ namespace Util
     [LuaCallCSharp]
     public class Listener
     {
-        [LuaCallCSharp]
-        public delegate void AsyncCall(bool b, int c);
-
-//        public Action<bool, int>;
+        [CSharpCallLua]
+        public delegate void AsyncCall(params object[] para);
         
         private static Listener _instance = null;
         public static Listener Instance => _instance;
-        private Dictionary<int, Queue<AsyncCall>> _actions;
+        private Dictionary<int, Queue<LuaFunction>> _actions;
 
         private Listener()
         {
-            _actions = new Dictionary<int, Queue<AsyncCall>>();
+            _actions = new Dictionary<int, Queue<LuaFunction>>();
         }
 
         public static void Init()
@@ -30,7 +28,7 @@ namespace Util
         }
 
         //消息编号，
-        public void Register(int code, AsyncCall action)
+        public void Register(int code, LuaFunction action)
         {
             if (_actions.ContainsKey(code))
             {
@@ -38,13 +36,13 @@ namespace Util
             }
             else
             {
-                var l = new Queue<AsyncCall>();
+                var l = new Queue<LuaFunction>();
                 l.Enqueue(action);
                 _actions.Add(code, l);
             }
         }
 
-        public void Call(int code, bool b, int c)
+        public void Call(int code, object o1, object o2, object o3)
         {
             if (_actions.ContainsKey(code))
             {
@@ -52,7 +50,7 @@ namespace Util
                 if (l.Count > 0)
                 {
                     var act = l.Dequeue();
-                    act.Invoke(b, c);
+                    act.Call(o1, o2, o3);
                 }
             }
         }
