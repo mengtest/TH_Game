@@ -61,17 +61,24 @@ namespace Net
         //登入
         public void Login(string username, string userpwd, string callName)
         {
+            var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
+//                act.Call(true, 1000);
+            Listener.Instance.Register(1, act);
             // 发送消息
             // SendMsg(username, userpwd)
             if (username == "yuki1432" && userpwd == "abcd1234123")
             {
-                var act = LuaEngine.Instance.GetTable("LoginDialog").Get<LuaFunction>(callName);
-//                act.Call(true, 1000);
-                Listener.Instance.Register(1, act);
                 //模拟异步的情景
                 Timer.Register(5, () =>
                 {
-                    Listener.Instance.Call(1, true, 400, "你好啊");
+                    Listener.Instance.Call(1, true, 400, "");
+                });
+            }
+            else
+            {
+                Timer.Register(5, () =>
+                {
+                    Listener.Instance.Call(1, false, 401, "用户名或者密码错误");
                 });
             }
         }

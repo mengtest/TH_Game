@@ -1,22 +1,8 @@
-function unpack(...)
-    local t = {}
-    unpack_1(t, ...)
-    return t
-end
-
-function unpack_1(t, a, ... )
-    table.insert(t, a)
-    if ... == nil then
-        return
-    end
-    unpack_1(t, ...)
-end
-
 function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
 
-    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")  
+    -- print(self.gameObject)
 
     if #name == 0 then
         CS.Global.Log("用户名不能为空")
@@ -28,26 +14,27 @@ function ConfirmButton()
         return
     end
 
-      
-
-    -- if nameInput.text == "yuki1432" and pwdInput.text == "abcd1234123" then
-    --     CS.Global.Log("用户名密码正确，正在登入...")
-    --     -- 发送消息到服务器，验证用户名密码是否正确
-
-    --     -- 如果正确，则登入到游戏中
-
-    --     -- 如果不正确则，提示
-    -- else
-    --     CS.Global.Log("用户名或密码不正确")
-    -- end
-
-    CS.UnityEngine.Object.Destroy(self)
+    CS.Global.Log(name)
+    CS.Global.Log(pwd)
+    CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 end
 
-function loginCallback(...)
-    local arg = unpack(...)
-    CS.Global.Log(tostring(arg[1])..",code is:"..arg[2])
-    CS.Global.Log(arg[3])
+function loginCallback(a, b, c)
+    local go = self.gameObject
+    go:Destroy(go)
+    do
+        return
+    end
+
+
+    -- CS.Global.Log(self.name)
+    if a == true then
+        CS.Global.Log("登入成功！")
+        --@RefType [luaIde#CS.UnityEngine.GameObject]
+        
+    else 
+        CS.Global.Log(c)
+    end
 end
 
 function CancelButton()

@@ -30,10 +30,13 @@ namespace Prefab
                 new Global.KeyValueStruct() {Name = "nameInput", Value = _name},
                 new Global.KeyValueStruct() {Name = "pwdInput", Value = _pwd},
             };
+            
             var table = LuaEngine.Instance.LoadFile("LuaScript/UIS/LoginDialog.lua", "LoginDialog", this, kv);
             
             UnityAction confirmBtnCallback = null;
             UnityAction cancelBtnCallback = null;
+            
+//            GameObject.Destroy();
             
             table.Get("ConfirmButton", out confirmBtnCallback);
             table.Get("CancelButton", out cancelBtnCallback);
