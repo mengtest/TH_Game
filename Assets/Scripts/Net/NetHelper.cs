@@ -55,28 +55,26 @@ namespace Net
 //            Debug.Log(data.Code);
 //            Debug.Log(data.Msg);
         }
-
-//        public delegate void Callback(params object[] para);
         
         //登入
+        //在登入模块中，可以在用户输入完用户名之后就发送消息，获取到对应的密码，然后再用户点击确认之后再去验证是否登入成功
         public void Login(string username, string userpwd, string callName)
         {
             var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
-//                act.Call(true, 1000);
             Listener.Instance.Register(1, act);
             // 发送消息
-            // SendMsg(username, userpwd)
+            // 这里采用异步的方式来模拟发送消息的过程
             if (username == "yuki1432" && userpwd == "abcd1234123")
             {
                 //模拟异步的情景
-                Timer.Register(5, () =>
+                Timer.Register(1, () =>
                 {
                     Listener.Instance.Call(1, true, 400, "");
                 });
             }
             else
             {
-                Timer.Register(5, () =>
+                Timer.Register(1, () =>
                 {
                     Listener.Instance.Call(1, false, 401, "用户名或者密码错误");
                 });

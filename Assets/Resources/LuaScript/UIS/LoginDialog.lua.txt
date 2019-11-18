@@ -20,12 +20,11 @@ function ConfirmButton()
 end
 
 function loginCallback(a, b, c)
-    local go = self.gameObject
-    go:Destroy(go)
-    do
-        return
-    end
-
+    -- local go = self.gameObject
+    -- go:Destroy(go)
+    -- do
+    --     return
+    -- end
 
     -- CS.Global.Log(self.name)
     if a == true then

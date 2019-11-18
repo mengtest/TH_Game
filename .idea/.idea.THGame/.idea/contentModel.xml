@@ -85,6 +85,7 @@
             <e p="CsCallLuaAttribute.cs" t="Include" />
             <e p="Functions.cs" t="Include" />
             <e p="ILuaSupporter.cs" t="Include" />
+            <e p="LuaClass.cs" t="Include" />
             <e p="LuaEngine.cs" t="Include" />
           </e>
           <e p="Manager" t="Include">
