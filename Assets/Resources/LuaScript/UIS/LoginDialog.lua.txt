@@ -30,7 +30,6 @@ function loginCallback(a, b, c)
     if a == true then
         CS.Global.Log("登入成功！")
         --@RefType [luaIde#CS.UnityEngine.GameObject]
-        
     else 
         CS.Global.Log(c)
     end

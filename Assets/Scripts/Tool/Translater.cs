@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 partial class Global
 {
-    public static class Translater
+    public static class Translator
     {
         public static void Translate(Component self)
         {
