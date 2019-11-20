@@ -8,7 +8,7 @@ Button.StartButtonCallback = function()
     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local obj = CS.UnityEngine.GameObject.Instantiate(go)
-    CS.Global.Translater.Translate(obj:GetComponent("Canvas"))
+    CS.Global.Translator.Translate(obj:GetComponent("Canvas"))
     CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
 end
 

@@ -29,6 +29,7 @@ function loginCallback(a, b, c)
     -- CS.Global.Log(self.name)
     if a == true then
         CS.Global.Log("登入成功！")
+        self.gameObject:SetActive(false)
         --@RefType [luaIde#CS.UnityEngine.GameObject]
     else 
         CS.Global.Log(c)
