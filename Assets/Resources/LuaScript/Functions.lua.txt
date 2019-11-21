@@ -1,4 +1,5 @@
 ﻿Button = {}
+DropDown = {}
 
 Button.StartButtonCallback = function()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中

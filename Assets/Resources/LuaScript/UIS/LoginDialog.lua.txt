@@ -30,7 +30,13 @@ function loginCallback(a, b, c)
     if a == true then
         CS.Global.Log("登入成功！")
         self.gameObject:SetActive(false)
-        --@RefType [luaIde#CS.UnityEngine.GameObject]
+        -- CS.Global.NavigateTo("MainScene", true)
+        
+        for k, s in ipairs(CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene():GetRootGameObjects()) do
+            if s.name == "Canvas" then
+                s:SetActive(false)
+            end
+        end
     else 
         CS.Global.Log(c)
     end
