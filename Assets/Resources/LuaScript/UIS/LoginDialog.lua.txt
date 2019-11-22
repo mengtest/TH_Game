@@ -19,7 +19,7 @@ function ConfirmButton()
     CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 end
 
-function loginCallback(a, b, c)
+function loginCallback(res, type, msg)
     -- local go = self.gameObject
     -- go:Destroy(go)
     -- do
@@ -27,12 +27,11 @@ function loginCallback(a, b, c)
     -- end
 
     -- CS.Global.Log(self.name)
-    if a == true then
+    if res == true then
         CS.Global.Log("登入成功！")
         --@RefType [luaIde#CS.UnityEngine.GameObject]
-        
-    else 
-        CS.Global.Log(c)
+    else
+        CS.Global.Log(msg)
     end
 end
 
