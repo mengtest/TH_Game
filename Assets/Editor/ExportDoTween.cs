@@ -22,7 +22,7 @@ namespace Editor
             typeof(DG.Tweening.ScrambleMode),
             typeof(DG.Tweening.TweenType),
             typeof(DG.Tweening.UpdateType),
-
+            typeof(DG.Tweening.DOTweenModuleUI),
             typeof(DG.Tweening.DOTween),
             typeof(DG.Tweening.DOVirtual),
             typeof(DG.Tweening.EaseFactory),

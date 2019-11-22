@@ -1,4 +1,5 @@
-﻿Button = {}
+﻿local tb = require"global.global"
+Button = {}
 DropDown = {}
 
 Button.StartButtonCallback = function()
@@ -11,12 +12,18 @@ Button.StartButtonCallback = function()
     local obj = CS.UnityEngine.GameObject.Instantiate(go)
     CS.Global.Translator.Translate(obj:GetComponent("Canvas"))
     CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
+    -- CS.UnityEngine.GameObject.Destroy(obj)
+    tb.closeDialogThread = coroutine.create(function()
+        CS.UnityEngine.GameObject.Destroy(obj)
+    end)
+    print(type(tb))
+    print(type(tb.closeDialogThread))
+    -- coroutine.resume(tb.closeDialogThread)
 end
 
 Button.SettingButtonCallback = function()
     --点击设置按钮之后跳转到设置场景
     CS.Global.NavigateTo("SettingScene", false)
-    -- CS.UnityEngine.Debug.Log("你点击了设置按钮")
 end
 
 Button.ExitButtonCallback = function()

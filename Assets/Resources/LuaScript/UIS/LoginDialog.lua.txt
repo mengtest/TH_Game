@@ -1,34 +1,37 @@
+local tb = require"global.global"
+
 function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
 
     if #name == 0 then
-        CS.Global.Log("用户名不能为空")
+        CS.Global.Log("没有账号我怎么知道您是哪位？")
         return
     end
 
     if #pwd == 0 then
-        CS.Global.Log("请输入密码")
+        CS.Global.Log("您是否忘记输入密码？")
         return
     end
 
-    CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
+    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")
 end
 
 function CancelButton()
-    CS.UnityEngine.Object.Destroy(self)
+    -- CS.UnityEngine.Object.Destroy(self)
+    -- self.gameObject.SetActive(false)
+    coroutine.resume(tb.closeDialogThread)
 end
 
 function loginCallback(res, type, msg)
-    -- local go = self.gameObject
-    -- go:Destroy(go)
-    -- do
-    --     return
-    -- end
+    -- local canvas = CS.Global.GetCurCanvas(self)
+    -- canvas:GetComponent(typeof(CS.UnityEngine.CanvasGroup)):DOFade(0, 3)
+    -- print(.name)
+    -- self.transform:DOMove(CS.UnityEngine.Vector3(200, 200, 200), 3)
 
-    -- CS.Global.Log(self.name)
     if res == true then
-        CS.Global.Log("登入成功！")
+        coroutine.resume(tb.closeDialogThread)
+        CS.Global.Log("登入成功")
     else
         CS.Global.Log(msg)
     end

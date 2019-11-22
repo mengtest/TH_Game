@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using UnityEngine;
 using XLua;
@@ -22,6 +23,8 @@ namespace LuaFramework
             {
                 _engine = new LuaEngine();
                 _engine._luaTables = new Dictionary<string, LuaTable>();
+                
+
             }
             
             //一些准备工作
@@ -53,7 +56,23 @@ namespace LuaFramework
         private LuaEngine()
         {
             _env = new LuaEnv();
-        }  
+            _env.AddLoader(CustomLoaderMethod);
+        } 
+        
+        private byte[] CustomLoaderMethod(ref string fileName)
+        {
+//            Debug.Log(fileName);
+            //找到指定文件  
+            fileName = Application.dataPath + "/Resources/LuaScript/" + fileName.Replace('.', '/') + ".lua";
+            if (File.Exists(fileName))
+            {
+                return File.ReadAllBytes(fileName);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public LuaEnv Get()
         {

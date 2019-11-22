@@ -1335,6 +1335,7 @@ GameObject:
   - component: {fileID: 2100853107618341483}
   - component: {fileID: 9105351978002776261}
   - component: {fileID: 1986356724498793289}
+  - component: {fileID: 8300057672572381363}
   m_Layer: 5
   m_Name: LoginDialog
   m_TagString: Untagged
@@ -1381,7 +1382,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &9105351978002776261
 MonoBehaviour:
@@ -1422,6 +1423,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &8300057672572381363
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957496835842013282}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7847859466441621438
 GameObject:
   m_ObjectHideFlags: 0

@@ -241,6 +241,7 @@
             <e p="DelegatesGensBridge.cs" t="Include" />
             <e p="DGTweeningCoreABSSequentiableWrap.cs" t="Include" />
             <e p="DGTweeningCoreTweenerCore3UnityEngineVector3UnityEngineVector3DGTweeningPluginsOptionsVectorOptionsWrap.cs" t="Include" />
+            <e p="DGTweeningDOTweenModuleUIWrap.cs" t="Include" />
             <e p="DGTweeningDOTweenWrap.cs" t="Include" />
             <e p="DGTweeningDOVirtualWrap.cs" t="Include" />
             <e p="DGTweeningEaseFactoryWrap.cs" t="Include" />

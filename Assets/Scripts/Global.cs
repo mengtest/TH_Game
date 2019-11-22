@@ -50,4 +50,16 @@ public static partial class Global
         }
         return null;
     }
+
+    public static Canvas GetCurCanvas(GameObject go)
+    {
+        return go.transform.root.GetComponent<Canvas>();
+    }
+
+    public static Canvas GetCurCanvas(Component comp)
+    {
+        return GetCurCanvas(comp.gameObject);
+    }
+    
+    
 }

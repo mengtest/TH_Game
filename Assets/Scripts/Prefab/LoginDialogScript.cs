@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DG.Tweening;
 using LuaFramework;
 using UnityEngine;
 using UnityEngine.Events;
@@ -37,12 +37,17 @@ namespace Prefab
             
             _confirm.onClick.AddListener(confirmBtnCallback);
             _cancel.onClick.AddListener(cancelBtnCallback);
+            
+
+//            transform.DOMove(new Vector3(200, 200, 200), 5);
+
+//            Global.GetCurCanvas(this).GetComponent<CanvasGroup>().DOFade()
         }
 
-        public void RegCallback(Action<bool> callback)
-        {
-            
-        }
+//        public void RegCallback(Action<bool> callback)
+//        {
+//            
+//        }
 
 //        private void ConfirmBtnCallback()
 //        {
