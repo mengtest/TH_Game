@@ -1,10 +1,20 @@
 ﻿--@SuperType [luaIde#CS.System.Object]
 CS.Global = {}
 --[[
+	CS.UnityEngine.SceneManagement.Scene
+	 Get 
+--]]
+CS.Global.Scene = nil
+--[[
 	@str CS.System.String
 	@level CS.Global.Level
 --]]
 function CS.Global:Log(str,level) end
+--[[
+	@name CS.System.String
+	@return [luaIde#CS.UnityEngine.GameObject]
+--]]
+function CS.Global:GetRootObject(name) end
 --[[
 	@name CS.System.String
 	@loading CS.System.Boolean
@@ -4673,10 +4683,11 @@ function CS.Util.Listener:Init() end
 function CS.Util.Listener:Register(code,action) end
 --[[
 	@code CS.System.Int32
-	@b CS.System.Boolean
-	@c CS.System.Int32
+	@o1 CS.System.Object
+	@o2 CS.System.Object
+	@o3 CS.System.Object
 --]]
-function CS.Util.Listener:Call(code,b,c) end
+function CS.Util.Listener:Call(code,o1,o2,o3) end
 
 --@SuperType [luaIde#CS.System.Object]
 CS.Util.ModelDialog = {}
@@ -4785,11 +4796,7 @@ function CS.Pool.PoolManager() end
 
 --@SuperType [luaIde#CS.System.Object]
 CS.Net.NetHelper = {}
---[[
-	@RefType [luaIde#CS.Net.NetHelper]
-	 Get 
---]]
-CS.Net.NetHelper.Instance = nil
+function CS.Net.NetHelper:GetInstance() end
 function CS.Net.NetHelper:Init() end
 --[[
 	@msg CS.Util.Msg
@@ -4798,9 +4805,9 @@ function CS.Net.NetHelper:ReceiveMsg(msg) end
 --[[
 	@username CS.System.String
 	@userpwd CS.System.String
-	@action CS.Util.Listener.AsyncCall
+	@callName CS.System.String
 --]]
-function CS.Net.NetHelper:Login(username,userpwd,action) end
+function CS.Net.NetHelper:Login(username,userpwd,callName) end
 function CS.Net.NetHelper:Logout() end
 function CS.Net.NetHelper:DrawCard() end
 function CS.Net.NetHelper:Connect() end
@@ -4824,4 +4831,1331 @@ CS.Tutorial.DerivedClass.TestEnumInner.E3 = 0
 	 Get 	 Set 
 --]]
 CS.Tutorial.DerivedClass.TestEnumInner.E4 = 1
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.AutoPlay = {}
+--[[
+	CS.DG.Tweening.AutoPlay
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AutoPlay.None = 0
+--[[
+	CS.DG.Tweening.AutoPlay
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AutoPlay.AutoPlaySequences = 1
+--[[
+	CS.DG.Tweening.AutoPlay
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AutoPlay.AutoPlayTweeners = 2
+--[[
+	CS.DG.Tweening.AutoPlay
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AutoPlay.All = 3
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.AxisConstraint = {}
+--[[
+	CS.DG.Tweening.AxisConstraint
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AxisConstraint.None = 0
+--[[
+	CS.DG.Tweening.AxisConstraint
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AxisConstraint.X = 2
+--[[
+	CS.DG.Tweening.AxisConstraint
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AxisConstraint.Y = 4
+--[[
+	CS.DG.Tweening.AxisConstraint
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AxisConstraint.Z = 8
+--[[
+	CS.DG.Tweening.AxisConstraint
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.AxisConstraint.W = 16
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.Ease = {}
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.Unset = 0
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.Linear = 1
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InSine = 2
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutSine = 3
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutSine = 4
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InQuad = 5
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutQuad = 6
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutQuad = 7
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InCubic = 8
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutCubic = 9
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutCubic = 10
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InQuart = 11
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutQuart = 12
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutQuart = 13
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InQuint = 14
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutQuint = 15
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutQuint = 16
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InExpo = 17
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutExpo = 18
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutExpo = 19
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InCirc = 20
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutCirc = 21
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutCirc = 22
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InElastic = 23
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutElastic = 24
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutElastic = 25
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InBack = 26
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutBack = 27
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutBack = 28
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InBounce = 29
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutBounce = 30
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutBounce = 31
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.Flash = 32
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InFlash = 33
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.OutFlash = 34
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.InOutFlash = 35
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.INTERNAL_Zero = 36
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Ease.INTERNAL_Custom = 37
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.LogBehaviour = {}
+--[[
+	CS.DG.Tweening.LogBehaviour
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LogBehaviour.Default = 0
+--[[
+	CS.DG.Tweening.LogBehaviour
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LogBehaviour.Verbose = 1
+--[[
+	CS.DG.Tweening.LogBehaviour
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LogBehaviour.ErrorsOnly = 2
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.LoopType = {}
+--[[
+	CS.DG.Tweening.LoopType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LoopType.Restart = 0
+--[[
+	CS.DG.Tweening.LoopType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LoopType.Yoyo = 1
+--[[
+	CS.DG.Tweening.LoopType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.LoopType.Incremental = 2
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.PathMode = {}
+--[[
+	CS.DG.Tweening.PathMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathMode.Ignore = 0
+--[[
+	CS.DG.Tweening.PathMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathMode.Full3D = 1
+--[[
+	CS.DG.Tweening.PathMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathMode.TopDown2D = 2
+--[[
+	CS.DG.Tweening.PathMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathMode.Sidescroller2D = 3
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.PathType = {}
+--[[
+	CS.DG.Tweening.PathType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathType.Linear = 0
+--[[
+	CS.DG.Tweening.PathType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathType.CatmullRom = 1
+--[[
+	CS.DG.Tweening.PathType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.PathType.CubicBezier = 2
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.RotateMode = {}
+--[[
+	CS.DG.Tweening.RotateMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.RotateMode.Fast = 0
+--[[
+	CS.DG.Tweening.RotateMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.RotateMode.FastBeyond360 = 1
+--[[
+	CS.DG.Tweening.RotateMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.RotateMode.WorldAxisAdd = 2
+--[[
+	CS.DG.Tweening.RotateMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.RotateMode.LocalAxisAdd = 3
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.ScrambleMode = {}
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.None = 0
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.All = 1
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.Uppercase = 2
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.Lowercase = 3
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.Numerals = 4
+--[[
+	CS.DG.Tweening.ScrambleMode
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.ScrambleMode.Custom = 5
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.TweenType = {}
+--[[
+	CS.DG.Tweening.TweenType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.TweenType.Tweener = 0
+--[[
+	CS.DG.Tweening.TweenType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.TweenType.Sequence = 1
+--[[
+	CS.DG.Tweening.TweenType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.TweenType.Callback = 2
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.DG.Tweening.UpdateType = {}
+--[[
+	CS.DG.Tweening.UpdateType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.UpdateType.Normal = 0
+--[[
+	CS.DG.Tweening.UpdateType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.UpdateType.Late = 1
+--[[
+	CS.DG.Tweening.UpdateType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.UpdateType.Fixed = 2
+--[[
+	CS.DG.Tweening.UpdateType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.UpdateType.Manual = 3
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.DOTween = {}
+--[[
+	@return [luaIde#CS.DG.Tweening.DOTween]
+]]
+function CS.DG.Tweening.DOTween() end
+--[[
+	CS.DG.Tweening.LogBehaviour
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.logBehaviour = nil
+--[[
+	CS.System.String
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.Version = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.useSafeMode = nil
+--[[
+	CS.DG.Tweening.Core.Enums.NestedTweenFailureBehaviour
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.nestedTweenFailureBehaviour = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.showUnityEditorReport = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.timeScale = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.useSmoothDeltaTime = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.maxSmoothUnscaledTime = nil
+--[[
+	CS.System.Func`3{{UnityEngine.LogType, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.onWillLog = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.drawGizmos = nil
+--[[
+	CS.DG.Tweening.UpdateType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultUpdateType = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultTimeScaleIndependent = nil
+--[[
+	CS.DG.Tweening.AutoPlay
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultAutoPlay = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultAutoKill = nil
+--[[
+	CS.DG.Tweening.LoopType
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultLoopType = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultRecyclable = nil
+--[[
+	CS.DG.Tweening.Ease
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultEaseType = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultEaseOvershootOrAmplitude = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.defaultEasePeriod = nil
+--[[
+	CS.DG.Tweening.Core.DOTweenComponent
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.DOTween.instance = nil
+--[[
+	@recycleAllByDefault CS.System.Nullable`1{{System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@useSafeMode CS.System.Nullable`1{{System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@logBehaviour CS.System.Nullable`1{{DG.Tweening.LogBehaviour, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.DG.Tweening.IDOTweenInit
+--]]
+function CS.DG.Tweening.DOTween:Init(recycleAllByDefault,useSafeMode,logBehaviour) end
+--[[
+	@tweenersCapacity CS.System.Int32
+	@sequencesCapacity CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:SetTweensCapacity(tweenersCapacity,sequencesCapacity) end
+--[[
+	@destroy CS.System.Boolean
+--]]
+function CS.DG.Tweening.DOTween:Clear(destroy) end
+function CS.DG.Tweening.DOTween:ClearCachedTweens() end
+function CS.DG.Tweening.DOTween:Validate() end
+--[[
+	@deltaTime CS.System.Single
+	@unscaledDeltaTime CS.System.Single
+--]]
+function CS.DG.Tweening.DOTween:ManualUpdate(deltaTime,unscaledDeltaTime) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.Single
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.FloatOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.Double
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.NoOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.Int32
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.NoOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.UInt32
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.UintOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.Int64
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.NoOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.UInt64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.UInt64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.UInt64
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.UInt64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.UInt64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.NoOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@endValue CS.System.String
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089},{DG.Tweening.Plugins.Options.StringOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Vector2
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Vector3
+	@duration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Vector4
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Vector3
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.QuaternionOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Color
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.ColorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Rect, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Rect, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.Rect
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Rect, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Rect, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.RectOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.RectOffset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.RectOffset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.UnityEngine.RectOffset
+	@duration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.DOTween:To(getter,setter,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.System.Single
+	@duration CS.System.Single
+	@axisConstraint CS.DG.Tweening.AxisConstraint
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.DOTween:ToAxis(getter,setter,endValue,duration,axisConstraint) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValue CS.System.Single
+	@duration CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.ColorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:ToAlpha(getter,setter,endValue,duration) end
+--[[
+	@setter CS.DG.Tweening.Core.DOSetter`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@startValue CS.System.Single
+	@endValue CS.System.Single
+	@duration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.DOTween:To(setter,startValue,endValue,duration) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@direction CS.UnityEngine.Vector3
+	@duration CS.System.Single
+	@vibrato CS.System.Int32
+	@elasticity CS.System.Single
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3{}, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.Vector3ArrayOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:Punch(getter,setter,direction,duration,vibrato,elasticity) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@duration CS.System.Single
+	@strength CS.System.Single
+	@vibrato CS.System.Int32
+	@randomness CS.System.Single
+	@ignoreZAxis CS.System.Boolean
+	@fadeOut CS.System.Boolean
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3{}, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.Vector3ArrayOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:Shake(getter,setter,duration,strength,vibrato,randomness,ignoreZAxis,fadeOut) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@duration CS.System.Single
+	@strength CS.UnityEngine.Vector3
+	@vibrato CS.System.Int32
+	@randomness CS.System.Single
+	@fadeOut CS.System.Boolean
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3{}, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.Vector3ArrayOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:Shake(getter,setter,duration,strength,vibrato,randomness,fadeOut) end
+--[[
+	@getter CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@setter CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@endValues CS.UnityEngine.Vector3{}
+	@durations CS.System.Single{}
+	return CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3{}, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.Vector3ArrayOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:ToArray(getter,setter,endValues,durations) end
+function CS.DG.Tweening.DOTween:Sequence() end
+--[[
+	@withCallbacks CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:CompleteAll(withCallbacks) end
+--[[
+	@targetOrId CS.System.Object
+	@withCallbacks CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Complete(targetOrId,withCallbacks) end
+function CS.DG.Tweening.DOTween:FlipAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Flip(targetOrId) end
+--[[
+	@to CS.System.Single
+	@andPlay CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:GotoAll(to,andPlay) end
+--[[
+	@targetOrId CS.System.Object
+	@to CS.System.Single
+	@andPlay CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Goto(targetOrId,to,andPlay) end
+--[[
+	@complete CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:KillAll(complete) end
+--[[
+	@complete CS.System.Boolean
+	@idsOrTargetsToExclude CS.System.Object{}
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:KillAll(complete,idsOrTargetsToExclude) end
+--[[
+	@targetOrId CS.System.Object
+	@complete CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Kill(targetOrId,complete) end
+function CS.DG.Tweening.DOTween:PauseAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Pause(targetOrId) end
+function CS.DG.Tweening.DOTween:PlayAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Play(targetOrId) end
+--[[
+	@target CS.System.Object
+	@id CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Play(target,id) end
+function CS.DG.Tweening.DOTween:PlayBackwardsAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:PlayBackwards(targetOrId) end
+--[[
+	@target CS.System.Object
+	@id CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:PlayBackwards(target,id) end
+function CS.DG.Tweening.DOTween:PlayForwardAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:PlayForward(targetOrId) end
+--[[
+	@target CS.System.Object
+	@id CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:PlayForward(target,id) end
+--[[
+	@includeDelay CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:RestartAll(includeDelay) end
+--[[
+	@targetOrId CS.System.Object
+	@includeDelay CS.System.Boolean
+	@changeDelayTo CS.System.Single
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Restart(targetOrId,includeDelay,changeDelayTo) end
+--[[
+	@target CS.System.Object
+	@id CS.System.Object
+	@includeDelay CS.System.Boolean
+	@changeDelayTo CS.System.Single
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Restart(target,id,includeDelay,changeDelayTo) end
+--[[
+	@includeDelay CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:RewindAll(includeDelay) end
+--[[
+	@targetOrId CS.System.Object
+	@includeDelay CS.System.Boolean
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:Rewind(targetOrId,includeDelay) end
+function CS.DG.Tweening.DOTween:SmoothRewindAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:SmoothRewind(targetOrId) end
+function CS.DG.Tweening.DOTween:TogglePauseAll() end
+--[[
+	@targetOrId CS.System.Object
+	return CS.System.Int32
+--]]
+function CS.DG.Tweening.DOTween:TogglePause(targetOrId) end
+--[[
+	@targetOrId CS.System.Object
+	@alsoCheckIfIsPlaying CS.System.Boolean
+	return CS.System.Boolean
+--]]
+function CS.DG.Tweening.DOTween:IsTweening(targetOrId,alsoCheckIfIsPlaying) end
+function CS.DG.Tweening.DOTween:TotalPlayingTweens() end
+--[[
+	@fillableList CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:PlayingTweens(fillableList) end
+--[[
+	@fillableList CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:PausedTweens(fillableList) end
+--[[
+	@id CS.System.Object
+	@playingOnly CS.System.Boolean
+	@fillableList CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:TweensById(id,playingOnly,fillableList) end
+--[[
+	@target CS.System.Object
+	@playingOnly CS.System.Boolean
+	@fillableList CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.System.Collections.Generic.List`1{{DG.Tweening.Tween, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+--]]
+function CS.DG.Tweening.DOTween:TweensByTarget(target,playingOnly,fillableList) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.DOVirtual = {}
+--[[
+	@from CS.System.Single
+	@to CS.System.Single
+	@duration CS.System.Single
+	@onVirtualUpdate CS.DG.Tweening.TweenCallback`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.DOVirtual:Float(from,to,duration,onVirtualUpdate) end
+--[[
+	@from CS.System.Single
+	@to CS.System.Single
+	@lifetimePercentage CS.System.Single
+	@easeType CS.DG.Tweening.Ease
+	return CS.System.Single
+--]]
+function CS.DG.Tweening.DOVirtual:EasedValue(from,to,lifetimePercentage,easeType) end
+--[[
+	@from CS.System.Single
+	@to CS.System.Single
+	@lifetimePercentage CS.System.Single
+	@easeType CS.DG.Tweening.Ease
+	@overshoot CS.System.Single
+	return CS.System.Single
+--]]
+function CS.DG.Tweening.DOVirtual:EasedValue(from,to,lifetimePercentage,easeType,overshoot) end
+--[[
+	@from CS.System.Single
+	@to CS.System.Single
+	@lifetimePercentage CS.System.Single
+	@easeType CS.DG.Tweening.Ease
+	@amplitude CS.System.Single
+	@period CS.System.Single
+	return CS.System.Single
+--]]
+function CS.DG.Tweening.DOVirtual:EasedValue(from,to,lifetimePercentage,easeType,amplitude,period) end
+--[[
+	@from CS.System.Single
+	@to CS.System.Single
+	@lifetimePercentage CS.System.Single
+	@easeCurve CS.UnityEngine.AnimationCurve
+	return CS.System.Single
+--]]
+function CS.DG.Tweening.DOVirtual:EasedValue(from,to,lifetimePercentage,easeCurve) end
+--[[
+	@delay CS.System.Single
+	@callback CS.DG.Tweening.TweenCallback
+	@ignoreTimeScale CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Tween]
+--]]
+function CS.DG.Tweening.DOVirtual:DelayedCall(delay,callback,ignoreTimeScale) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.EaseFactory = {}
+--[[
+	@return [luaIde#CS.DG.Tweening.EaseFactory]
+]]
+function CS.DG.Tweening.EaseFactory() end
+--[[
+	@motionFps CS.System.Int32
+	@ease CS.System.Nullable`1{{DG.Tweening.Ease, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	return CS.DG.Tweening.EaseFunction
+--]]
+function CS.DG.Tweening.EaseFactory:StopMotion(motionFps,ease) end
+--[[
+	@motionFps CS.System.Int32
+	@animCurve CS.UnityEngine.AnimationCurve
+	return CS.DG.Tweening.EaseFunction
+--]]
+function CS.DG.Tweening.EaseFactory:StopMotion(motionFps,animCurve) end
+--[[
+	@motionFps CS.System.Int32
+	@customEase CS.DG.Tweening.EaseFunction
+	return CS.DG.Tweening.EaseFunction
+--]]
+function CS.DG.Tweening.EaseFactory:StopMotion(motionFps,customEase) end
+
+--@SuperType [luaIde#CS.DG.Tweening.Tween]
+CS.DG.Tweening.Tweener = {}
+--[[
+	@newStartValue CS.System.Object
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Tweener:ChangeStartValue(newStartValue,newDuration) end
+--[[
+	@newEndValue CS.System.Object
+	@newDuration CS.System.Single
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Tweener:ChangeEndValue(newEndValue,newDuration,snapStartValue) end
+--[[
+	@newEndValue CS.System.Object
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Tweener:ChangeEndValue(newEndValue,snapStartValue) end
+--[[
+	@newStartValue CS.System.Object
+	@newEndValue CS.System.Object
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Tweener:ChangeValues(newStartValue,newEndValue,newDuration) end
+
+--@SuperType [luaIde#CS.DG.Tweening.Core.ABSSequentiable]
+CS.DG.Tweening.Tween = {}
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.isRelative = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.active = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.fullPosition = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.playedOnce = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.position = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.timeScale = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.isBackwards = nil
+--[[
+	@RefType [luaIde#CS.System.Object]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.id = nil
+--[[
+	CS.System.String
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.stringId = nil
+--[[
+	CS.System.Int32
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.intId = nil
+--[[
+	@RefType [luaIde#CS.System.Object]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.target = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onPlay = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onPause = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onRewind = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onUpdate = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onStepComplete = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onComplete = nil
+--[[
+	CS.DG.Tweening.TweenCallback
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onKill = nil
+--[[
+	CS.DG.Tweening.TweenCallback`1{{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.onWaypointChange = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.easeOvershootOrAmplitude = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Tween.easePeriod = nil
+
+--@SuperType [luaIde#CS.DG.Tweening.Tween]
+CS.DG.Tweening.Sequence = {}
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.TweenParams = {}
+--[[
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+]]
+function CS.DG.Tweening.TweenParams() end
+--[[
+	@RefType [luaIde#CS.DG.Tweening.TweenParams]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.TweenParams.Params = nil
+function CS.DG.Tweening.TweenParams:Clear() end
+--[[
+	@autoKillOnCompletion CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetAutoKill(autoKillOnCompletion) end
+--[[
+	@id CS.System.Object
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetId(id) end
+--[[
+	@target CS.System.Object
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetTarget(target) end
+--[[
+	@loops CS.System.Int32
+	@loopType CS.System.Nullable`1{{DG.Tweening.LoopType, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetLoops(loops,loopType) end
+--[[
+	@ease CS.DG.Tweening.Ease
+	@overshootOrAmplitude CS.System.Nullable`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@period CS.System.Nullable`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetEase(ease,overshootOrAmplitude,period) end
+--[[
+	@animCurve CS.UnityEngine.AnimationCurve
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetEase(animCurve) end
+--[[
+	@customEase CS.DG.Tweening.EaseFunction
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetEase(customEase) end
+--[[
+	@recyclable CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetRecyclable(recyclable) end
+--[[
+	@isIndependentUpdate CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetUpdate(isIndependentUpdate) end
+--[[
+	@updateType CS.DG.Tweening.UpdateType
+	@isIndependentUpdate CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetUpdate(updateType,isIndependentUpdate) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnStart(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnPlay(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnRewind(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnUpdate(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnStepComplete(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnComplete(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnKill(action) end
+--[[
+	@action CS.DG.Tweening.TweenCallback`1{{System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:OnWaypointChange(action) end
+--[[
+	@delay CS.System.Single
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetDelay(delay) end
+--[[
+	@isRelative CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetRelative(isRelative) end
+--[[
+	@isSpeedBased CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.TweenParams]
+--]]
+function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.Core.ABSSequentiable = {}
+
+--@SuperType [luaIde#CS.DG.Tweening.Tweener]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
+--[[
+	@RefType [luaIde#CS.UnityEngine.Vector3]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].startValue = nil
+--[[
+	@RefType [luaIde#CS.UnityEngine.Vector3]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].endValue = nil
+--[[
+	@RefType [luaIde#CS.UnityEngine.Vector3]
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].changeValue = nil
+--[[
+	CS.DG.Tweening.Plugins.Options.VectorOptions
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].plugOptions = nil
+--[[
+	CS.DG.Tweening.Core.DOGetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].getter = nil
+--[[
+	CS.DG.Tweening.Core.DOSetter`1{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	 Get 	 Set 
+--]]
+CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].setter = nil
+--[[
+	@newStartValue CS.System.Object
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeStartValue(newStartValue,newDuration) end
+--[[
+	@newEndValue CS.System.Object
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeEndValue(newEndValue,snapStartValue) end
+--[[
+	@newEndValue CS.System.Object
+	@newDuration CS.System.Single
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeEndValue(newEndValue,newDuration,snapStartValue) end
+--[[
+	@newStartValue CS.System.Object
+	@newEndValue CS.System.Object
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Tweener]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeValues(newStartValue,newEndValue,newDuration) end
+--[[
+	@newStartValue CS.UnityEngine.Vector3
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeStartValue(newStartValue,newDuration) end
+--[[
+	@newEndValue CS.UnityEngine.Vector3
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeEndValue(newEndValue,snapStartValue) end
+--[[
+	@newEndValue CS.UnityEngine.Vector3
+	@newDuration CS.System.Single
+	@snapStartValue CS.System.Boolean
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeEndValue(newEndValue,newDuration,snapStartValue) end
+--[[
+	@newStartValue CS.UnityEngine.Vector3
+	@newEndValue CS.UnityEngine.Vector3
+	@newDuration CS.System.Single
+	@return [luaIde#CS.DG.Tweening.Core.TweenerCore`3{{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null},{DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}}]
+--]]
+function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeValues(newStartValue,newEndValue,newDuration) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.TweenExtensions = {}
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.TweenSettingsExtensions = {}
+
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.ShortcutExtensions = {}
 

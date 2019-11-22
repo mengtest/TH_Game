@@ -2,8 +2,6 @@ function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
 
-    -- print(self.gameObject)
-
     if #name == 0 then
         CS.Global.Log("用户名不能为空")
         return
@@ -14,9 +12,11 @@ function ConfirmButton()
         return
     end
 
-    CS.Global.Log(name)
-    CS.Global.Log(pwd)
     CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
+end
+
+function CancelButton()
+    CS.UnityEngine.Object.Destroy(self)
 end
 
 function loginCallback(res, type, msg)
@@ -29,12 +29,8 @@ function loginCallback(res, type, msg)
     -- CS.Global.Log(self.name)
     if res == true then
         CS.Global.Log("登入成功！")
-        --@RefType [luaIde#CS.UnityEngine.GameObject]
     else
         CS.Global.Log(msg)
     end
 end
 
-function CancelButton()
-    CS.UnityEngine.Object.Destroy(self)
-end

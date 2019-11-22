@@ -147,7 +147,7 @@ namespace Assets.XLua.Src.Editor.LuaIde
                    
             }
             DirectoryInfo dirinfo = new DirectoryInfo(Application.dataPath);
-            string dir = dirinfo.FullName + "/luaIde/";
+            string dir = dirinfo.FullName + "/Resources/LuaScript/luaIde/";
             if (!Directory.Exists(dir))
             { 
                 Directory.CreateDirectory(dir);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\yuki\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\yuki\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.1604979980.00" t="ExcludeRecursive" />
-    <e p="D:\Game\THGame" t="IncludeRecursive">
+    <e p="C:\Users\jauok\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jauok\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_THGame.-643784631.00" t="ExcludeRecursive" />
+    <e p="F:\Code\THGame" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -24,6 +24,7 @@
         <e p="Editor" t="Include">
           <e p="ButtonExEdit.cs" t="Include" />
           <e p="EditorExtend.cs" t="Include" />
+          <e p="ExportDoTween.cs" t="Include" />
         </e>
         <e p="luaIde" t="Include">
           <e p="readme.txt" t="Include" />
@@ -45,6 +46,9 @@
             <e p="Callbacks.lua.txt" t="Include" />
             <e p="Functions.lua.txt" t="Include" />
             <e p="LuaDebug.lua.txt" t="Include" />
+            <e p="luaIde" t="Include">
+              <e p="readme.txt" t="Include" />
+            </e>
             <e p="UIS" t="Include">
               <e p="LoginDialog.lua.txt" t="Include" />
             </e>
@@ -235,6 +239,18 @@
           </e>
           <e p="Gen" t="Include">
             <e p="DelegatesGensBridge.cs" t="Include" />
+            <e p="DGTweeningCoreABSSequentiableWrap.cs" t="Include" />
+            <e p="DGTweeningCoreTweenerCore3UnityEngineVector3UnityEngineVector3DGTweeningPluginsOptionsVectorOptionsWrap.cs" t="Include" />
+            <e p="DGTweeningDOTweenWrap.cs" t="Include" />
+            <e p="DGTweeningDOVirtualWrap.cs" t="Include" />
+            <e p="DGTweeningEaseFactoryWrap.cs" t="Include" />
+            <e p="DGTweeningSequenceWrap.cs" t="Include" />
+            <e p="DGTweeningShortcutExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenerWrap.cs" t="Include" />
+            <e p="DGTweeningTweenExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenParamsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenSettingsExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenWrap.cs" t="Include" />
             <e p="EnumWrap.cs" t="Include" />
             <e p="GlobalWrap.cs" t="Include" />
             <e p="link.xml" t="Include" />

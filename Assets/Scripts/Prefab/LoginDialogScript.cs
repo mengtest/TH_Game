@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Runtime.Versioning;
 using LuaFramework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using XLua;
-using XLuaTest;
 
 namespace Prefab
 {
@@ -25,6 +22,8 @@ namespace Prefab
         
         private void Start()
         {
+            _pwd.contentType = InputField.ContentType.Password;
+            
             var kv = new Global.KeyValueStruct[]
             {
                 new Global.KeyValueStruct() {Name = "nameInput", Value = _name},
@@ -32,14 +31,9 @@ namespace Prefab
             };
             
             var table = LuaEngine.Instance.LoadFile("LuaScript/UIS/LoginDialog.lua", "LoginDialog", this, kv);
-            
-            UnityAction confirmBtnCallback = null;
-            UnityAction cancelBtnCallback = null;
-            
-//            GameObject.Destroy();
-            
-            table.Get("ConfirmButton", out confirmBtnCallback);
-            table.Get("CancelButton", out cancelBtnCallback);
+
+            table.Get("ConfirmButton", out UnityAction confirmBtnCallback);
+            table.Get("CancelButton", out UnityAction cancelBtnCallback);
             
             _confirm.onClick.AddListener(confirmBtnCallback);
             _cancel.onClick.AddListener(cancelBtnCallback);

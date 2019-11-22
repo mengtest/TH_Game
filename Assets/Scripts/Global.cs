@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using XLua;
 
+
+//包含有各种全局的结构，工具函数等
 [LuaCallCSharp]
 public static partial class Global
 {
@@ -32,5 +35,19 @@ public static partial class Global
                 Debug.Log(str);
                 break;
         }
+    }
+
+    public static UnityEngine.SceneManagement.Scene Scene => SceneManager.GetActiveScene();
+
+    public static GameObject GetRootObject(string name)
+    {
+        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            if (go.name == name)
+            {
+                return go;
+            }
+        }
+        return null;
     }
 }

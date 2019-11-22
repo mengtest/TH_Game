@@ -93,7 +93,6 @@ namespace Util
                 }
             }
         }
-        
 
         public void ShowDialog()
         {
