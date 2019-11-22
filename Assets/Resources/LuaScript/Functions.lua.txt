@@ -16,14 +16,26 @@ Button.StartButtonCallback = function()
 
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local txt = CS.UnityEngine.GameObject("continue")
-        print(txt.name)
+        -- print(txt.name)
         local text = txt:AddComponent(typeof(CS.UnityEngine.UI.Text))
         text.text = "按任意键开始游戏"
-        text.font = CS.UnityEngine.Font("Arial")
+        text.font = CS.UnityEngine.Font.CreateDynamicFontFromOSFont("Arial", 45)
         text.fontSize = 45
+        txt:GetComponent(typeof(CS.UnityEngine.RectTransform)).sizeDelta = CS.UnityEngine.Vector2(700, 100)
+        --@RefType [CS.UnityEngine.Transform]
+        text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
+        text.color = CS.UnityEngine.Color.yellow;
+        text:DOFade(0.7, 1.5)
+        text.transform:DOScale(1.5, 2)
+        text:DOPlay()
+        text:DOPlayForward()
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local back = CS.Global.GetRootObject("BackCanvas")
         txt.transform:SetParent(back.transform)
+
+        txt.transform.localPosition = CS.UnityEngine.Vector3(0, -150, 0)
+
+
     end)
 end
 

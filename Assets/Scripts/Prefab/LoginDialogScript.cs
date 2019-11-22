@@ -34,12 +34,26 @@ namespace Prefab
 
             table.Get("ConfirmButton", out UnityAction confirmBtnCallback);
             table.Get("CancelButton", out UnityAction cancelBtnCallback);
+
+            
+//            this.transform.DOScale()
+//            this.do
+//            var que = DOTween.Sequence();
+//            que.Append(DOTween.)
+//            GetComponent<Text>().transform.DOScale()
+//            cancelBtnCallback += () =>
+//            {
+//                var go = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Continue"));
+//                go.transform.localPosition = Vector3.zero;
+//            };
             
             _confirm.onClick.AddListener(confirmBtnCallback);
             _cancel.onClick.AddListener(cancelBtnCallback);
-            
+
+//            this.GetComponent<RectTransform>().rect.Set(0, 0, 500, 200);
+
 //            this.gameObject.AddComponent<Text>().font = new Font("Arial");
-            
+
 
 //            transform.DOMove(new Vector3(200, 200, 200), 5);
 
