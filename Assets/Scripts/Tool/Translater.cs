@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 partial class Global
 {
-    public static class Translater
+    public static class Translator
     {
         public static void Translate(Component self)
         {
@@ -24,11 +24,9 @@ partial class Global
             }
         }
 
-        public static void Register()
+        public static void Register(string key, Component self)
         {
             
         }
-
-//        private static 
     }
 }
