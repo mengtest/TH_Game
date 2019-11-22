@@ -38,6 +38,8 @@ namespace Prefab
             _confirm.onClick.AddListener(confirmBtnCallback);
             _cancel.onClick.AddListener(cancelBtnCallback);
             
+//            this.gameObject.AddComponent<Text>().font = new Font("Arial");
+            
 
 //            transform.DOMove(new Vector3(200, 200, 200), 5);
 

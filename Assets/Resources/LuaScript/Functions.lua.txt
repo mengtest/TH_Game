@@ -4,8 +4,6 @@ DropDown = {}
 
 Button.StartButtonCallback = function()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
-    -- CS.Global.NavigateTo("MainScene", true)
-    -- CS.UnityEngine.Debug.Log("你点击了开始游戏按钮")
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
     --@RefType [luaIde#CS.UnityEngine.GameObject]
@@ -15,10 +13,18 @@ Button.StartButtonCallback = function()
     -- CS.UnityEngine.GameObject.Destroy(obj)
     tb.closeDialogThread = coroutine.create(function()
         CS.UnityEngine.GameObject.Destroy(obj)
+
+        --@RefType [luaIde#CS.UnityEngine.GameObject]
+        local txt = CS.UnityEngine.GameObject("continue")
+        print(txt.name)
+        local text = txt:AddComponent(typeof(CS.UnityEngine.UI.Text))
+        text.text = "按任意键开始游戏"
+        text.font = CS.UnityEngine.Font("Arial")
+        text.fontSize = 45
+        --@RefType [luaIde#CS.UnityEngine.GameObject]
+        local back = CS.Global.GetRootObject("BackCanvas")
+        txt.transform:SetParent(back.transform)
     end)
-    print(type(tb))
-    print(type(tb.closeDialogThread))
-    -- coroutine.resume(tb.closeDialogThread)
 end
 
 Button.SettingButtonCallback = function()
