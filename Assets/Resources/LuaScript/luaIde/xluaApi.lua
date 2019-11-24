@@ -38,6 +38,74 @@ function CS.Global:NavigateTo(id,loading) end
 function CS.Global:Refresh() end
 function CS.Global:Return() end
 
+--@SuperType [luaIde#CS.System.Object]
+CS.Timer = {}
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.Timer.duration = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.Timer.isLooped = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.Timer.isCompleted = nil
+--[[
+	CS.System.Boolean
+	 Get 	 Set 
+--]]
+CS.Timer.usesRealTime = nil
+--[[
+	CS.System.Boolean
+	 Get 
+--]]
+CS.Timer.isPaused = nil
+--[[
+	CS.System.Boolean
+	 Get 
+--]]
+CS.Timer.isCancelled = nil
+--[[
+	CS.System.Boolean
+	 Get 
+--]]
+CS.Timer.isDone = nil
+--[[
+	@duration CS.System.Single
+	@onComplete CS.System.Action
+	@onUpdate CS.System.Action`1{{System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089}}
+	@isLooped CS.System.Boolean
+	@useRealTime CS.System.Boolean
+	@autoDestroyOwner CS.UnityEngine.MonoBehaviour
+	@return [luaIde#CS.Timer]
+--]]
+function CS.Timer:Register(duration,onComplete,onUpdate,isLooped,useRealTime,autoDestroyOwner) end
+--[[
+	@timer CS.Timer
+--]]
+function CS.Timer:Cancel(timer) end
+--[[
+	@timer CS.Timer
+--]]
+function CS.Timer:Pause(timer) end
+--[[
+	@timer CS.Timer
+--]]
+function CS.Timer:Resume(timer) end
+function CS.Timer:CancelAllRegisteredTimers() end
+function CS.Timer:Cancel() end
+function CS.Timer:Pause() end
+function CS.Timer:Resume() end
+function CS.Timer:GetTimeElapsed() end
+function CS.Timer:GetTimeRemaining() end
+function CS.Timer:GetRatioComplete() end
+function CS.Timer:GetRatioRemaining() end
+
 CS.System.Object = {}
 --[[
 	@return [luaIde#CS.System.Object]

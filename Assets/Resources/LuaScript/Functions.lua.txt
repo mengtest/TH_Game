@@ -11,9 +11,9 @@ Button.StartButtonCallback = function()
     CS.Global.Translator.Translate(obj:GetComponent("Canvas"))
     CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
     -- CS.UnityEngine.GameObject.Destroy(obj)
+    -- 创建一个
     tb.closeDialogThread = coroutine.create(function()
         CS.UnityEngine.GameObject.Destroy(obj)
-
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local txt = CS.UnityEngine.GameObject("continue")
         -- print(txt.name)
@@ -24,7 +24,7 @@ Button.StartButtonCallback = function()
         txt:GetComponent(typeof(CS.UnityEngine.RectTransform)).sizeDelta = CS.UnityEngine.Vector2(700, 100)
         --@RefType [CS.UnityEngine.Transform]
         text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
-        text.color = CS.UnityEngine.Color.yellow;
+        text.color = CS.UnityEngine.Color.yellow
         text:DOFade(0.7, 1.5)
         text.transform:DOScale(1.5, 2)
         text:DOPlay()
@@ -32,15 +32,16 @@ Button.StartButtonCallback = function()
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local back = CS.Global.GetRootObject("BackCanvas")
         txt.transform:SetParent(back.transform)
-
         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -150, 0)
+    end)
 
-
+    tb.closeDialogThread2 = coroutine.create(function()
+        CS.UnityEngine.GameObject.Destroy(obj)
     end)
 end
 
 Button.SettingButtonCallback = function()
-    --点击设置按钮之后跳转到设置场景
+    -- 点击设置按钮之后跳转到设置场景
     CS.Global.NavigateTo("SettingScene", false)
 end
 

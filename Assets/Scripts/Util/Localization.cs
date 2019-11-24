@@ -11,8 +11,6 @@ namespace Util
         void Start()
         {
             Translator.Translate(this);
-//            GetComponent<CanvasGroup>().DOFade(0, 2)
-//            transform.DOMove(new Vector3(200, 200, 200), 5);
         }
     }
 }

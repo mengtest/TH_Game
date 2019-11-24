@@ -8,30 +8,25 @@ function ConfirmButton()
         CS.Global.Log("没有账号我怎么知道您是哪位？")
         return
     end
-
     if #pwd == 0 then
         CS.Global.Log("您是否忘记输入密码？")
         return
     end
-
-    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")
+    
+    CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 end
 
 function CancelButton()
-    -- CS.UnityEngine.Object.Destroy(self)
-    -- self.gameObject.SetActive(false)
-    coroutine.resume(tb.closeDialogThread)
+    coroutine.resume(tb.closeDialogThread2)
 end
 
 function loginCallback(res, type, msg)
-    -- local canvas = CS.Global.GetCurCanvas(self)
-    -- canvas:GetComponent(typeof(CS.UnityEngine.CanvasGroup)):DOFade(0, 3)
-    -- print(.name)
-    -- self.transform:DOMove(CS.UnityEngine.Vector3(200, 200, 200), 3)
-
     if res == true then
         coroutine.resume(tb.closeDialogThread)
         CS.Global.Log("登入成功")
+        CS.Timer.Register(2, function()
+            CS.Global.NavigateTo("MainScene", true)
+        end)
     else
         CS.Global.Log(msg)
     end
