@@ -1,7 +1,6 @@
 ﻿using LuaFramework;
 using UnityEngine;
 using Util;
-using static Global;
 
 //游戏开始的时候，各种必要的资源等的初始化
 public static class GameInit
@@ -16,6 +15,7 @@ public static class GameInit
         Net.NetHelper.Init();
         LuaEngine.Init();
         Listener.Init();
+        Pool.Init();
 
 //        Debug.Log(Add_int_int(100, 101));
     }

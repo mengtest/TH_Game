@@ -24,10 +24,10 @@ namespace Prefab
         {
             _pwd.contentType = InputField.ContentType.Password;
             
-            var kv = new Global.KeyValueStruct[]
+            var kv = new Global.Injection[]
             {
-                new Global.KeyValueStruct() {Name = "nameInput", Value = _name},
-                new Global.KeyValueStruct() {Name = "pwdInput", Value = _pwd},
+                new Global.Injection() {Name = "nameInput", Value = _name},
+                new Global.Injection() {Name = "pwdInput", Value = _pwd},
             };
             
             var table = LuaEngine.Instance.LoadFile("LuaScript/UIS/LoginDialog.lua", "LoginDialog", this, kv);
