@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using Util.pool;
 using Object = UnityEngine.Object;
@@ -8,90 +10,80 @@ namespace Util
 {
     namespace pool
     {
-        interface IObjectHolder
+        public interface IPool
         {
-            GameObject Get();
-            void Add(GameObject go);
+            GameObject GetItem();
+            void AddItem(GameObject item);
             int Count();
+            GameObject Create();
+            void Destroy(GameObject go);
+//            IPool(Func<GameObject> creator, Action<GameObject> deleter);
         }
-
-        public class GameObjectPool
+        
+        public class GameObjectPool : IPool
         {
-            class ObjectHolder: IObjectHolder
+            private Queue<GameObject> _gos;
+            public delegate GameObject Operator(GameObject go);
+            public delegate GameObject Creator();
+            private event Creator creator;
+            private event Operator deleter;
+            private event Operator getter;
+            private event Operator setter;
+            
+            public static IPool CreatePool(Creator creator, Operator deleter, Operator getter = null,Operator setter = null)
             {
-                private readonly Queue<GameObject> _gos = new Queue<GameObject>();
-                
-                public GameObject Get()
+                var pool = new GameObjectPool
                 {
-                    if (_gos.Count > 0)
-                    {
-                        return _gos.Dequeue();
-                    }
-                    return null;
-                }
-
-                public void Add(GameObject go)
-                {
-                    _gos.Enqueue(go);
-                }
-
-                public int Count()
-                {
-                    return _gos.Count;
-                }
+                    creator = creator, 
+                    deleter = deleter, 
+                    getter = getter, 
+                    setter = setter
+                };
+                return pool;
             }
             
-            private IObjectHolder _gos;
-            private int _max;
-            public string Name { get; set; }
-
-            public GameObjectPool(string name, int max)
+            public GameObjectPool()
             {
-                _gos = new ObjectHolder();
-                _max = max;
-                Name = name;
-            }
-            
-            public virtual GameObject CreateObject()
-            {
-                var go = new GameObject(Name + " Clone");
-                go.transform.position = Vector3.zero;
-                _gos.Add(go);
-                return go;
+                _gos = new Queue<GameObject>();
             }
 
             public GameObject GetItem()
             {
-                if (_gos.Count() > 0)
+                GameObject go = null;
+                if (_gos.Count > 0)
                 {
-                    return _gos.Get();
+                    go = _gos.Dequeue();
                 }
-                return null;
+                return getter?.Invoke(go);
             }
 
-            public bool Store(GameObject go)
+            public void AddItem(GameObject item)
             {
-                if (_gos.Count() > _max)
+                _gos.Enqueue(setter == null ? item : setter(item));
+            }
+
+            public int Count()
+            {
+                return _gos.Count;
+            }
+
+            public virtual GameObject Create()
+            {
+                return creator?.Invoke();
+            }
+
+            public virtual void Destroy(GameObject go)
+            {
+                if (deleter != null)
                 {
-                    throw new Exception($"对象池{Name}存储的对象超过上限");
-                }
-                
-                if (_gos.Count() == _max)
-                {
-                    return false;
+                    deleter(go);
                 }
                 else
                 {
-                    _gos.Add(go);
-                    return true;
+                    Object.Destroy(go);
                 }
             }
-
-            public virtual void Destory(GameObject go)
-            {
-                Object.Destroy(go);
-            }
-        }    
+        }
     }
 
     public class Pool
@@ -100,12 +92,27 @@ namespace Util
 
         // 一般对象就使用一个队列来模拟一个对象池
         private Dictionary<string, Queue<object>> _pools;
-        private List<GameObjectPool> _gameObjectPools;
+        private Dictionary<string, GameObjectPool> _gameObjectPools;
 
         private Pool()
         {
             _pools = new Dictionary<string, Queue<object>>();
-            _gameObjectPools = new List<GameObjectPool>();
+            _gameObjectPools = new Dictionary<string, GameObjectPool>();
+        }
+
+        public static void AddPool(string sign, GameObjectPool pool)
+        {
+            if (_instance._gameObjectPools.ContainsKey(sign))
+            {
+                var p = _instance._gameObjectPools[sign];
+                GameObject go = p.GetItem();
+                for (; go != null ;)
+                {
+                    p.Destroy(go);
+                    go = p.GetItem();
+                }
+                _instance._gameObjectPools[sign] = pool;
+            }
         }
 
         //获取到sign对应的对象，如果没有返回null
@@ -117,7 +124,6 @@ namespace Util
                     ? _instance._pools[sign].Dequeue() as T
                     : default;
             }
-
             return default;
         }
 
@@ -192,29 +198,25 @@ namespace Util
 
         public static GameObject GetItem(string sign)
         {
-            return _instance._gameObjectPools.Find((go) => sign == go.Name).GetItem();
+            if (_instance._gameObjectPools.ContainsKey(sign))
+            {
+                return _instance._gameObjectPools[sign].GetItem();
+            }
+            return null;
         }
 
         public static GameObject GetItemByFunc(string sign, Func<GameObject> function)
         {
-            var res = _instance._gameObjectPools.Find((go) => sign == go.Name);
-            if (res != null)
+            GameObject item = null;
+            if (_instance._gameObjectPools.ContainsKey(sign))
             {
-                var returnObj = res.GetItem();
-                if (returnObj != null)
-                {
-                    return returnObj;
-                }
-                else
-                {
-                    return function();
-                }
+                item = _instance._gameObjectPools[sign].GetItem();
             }
             else
             {
-                _instance._gameObjectPools.Add(new GameObjectPool(sign, 10));
-                return function();
+                _instance._gameObjectPools.Add(sign, new GameObjectPool());
             }
+            return item == null ? function() : item;
         }
         
         public static void Init()
