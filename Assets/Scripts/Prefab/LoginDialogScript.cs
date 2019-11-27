@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using LuaFramework;
+﻿using LuaFramework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,9 +18,13 @@ namespace Prefab
         
         [SerializeField]
         private InputField _pwd;
+
+        [SerializeField]
+        private LuaClass _luaClass;
         
         private void Start()
         {
+            _name.contentType = InputField.ContentType.Standard;
             _pwd.contentType = InputField.ContentType.Password;
             
             var kv = new Global.Injection[]
@@ -35,36 +38,10 @@ namespace Prefab
             table.Get("ConfirmButton", out UnityAction confirmBtnCallback);
             table.Get("CancelButton", out UnityAction cancelBtnCallback);
 
-            
-//            this.transform.DOScale()
-//            this.do
-//            var que = DOTween.Sequence();
-//            que.Append(DOTween.)
-//            GetComponent<Text>().transform.DOScale()
-//            cancelBtnCallback += () =>
-//            {
-//                var go = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Continue"));
-//                go.transform.localPosition = Vector3.zero;
-//            };
-            
             _confirm.onClick.AddListener(confirmBtnCallback);
             _cancel.onClick.AddListener(cancelBtnCallback);
-
-//            this.GetComponent<RectTransform>().rect.Set(0, 0, 500, 200);
-
-//            this.gameObject.AddComponent<Text>().font = new Font("Arial");
-
-
-//            transform.DOMove(new Vector3(200, 200, 200), 5);
-
-//            Global.GetCurCanvas(this).GetComponent<CanvasGroup>().DOFade()
         }
-
-//        public void RegCallback(Action<bool> callback)
-//        {
-//            
-//        }
-
+        
 //        private void ConfirmBtnCallback()
 //        {
 //            string username = _name.text;

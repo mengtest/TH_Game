@@ -104,7 +104,7 @@ namespace LuaFramework
             return table;
         }
         
-        public LuaTable LoadFile(string path, string name ,MonoBehaviour self)
+        public LuaTable LoadFile(string path, string name ,object self)
         {
             var table = _env.NewTable();
             var meta = _env.NewTable();
@@ -128,7 +128,7 @@ namespace LuaFramework
             return table;
         }
         
-        public LuaTable LoadFile(string path, string name, MonoBehaviour self, Global.Injection[] values)
+        public LuaTable LoadFile(string path, string name, object self, Global.Injection[] values)
         {
             var table = _env.NewTable();
             var meta = _env.NewTable();
