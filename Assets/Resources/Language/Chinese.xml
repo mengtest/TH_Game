@@ -39,7 +39,7 @@
     <Chapter13>第十三章</Chapter13>
     <UserNameLabel>账号</UserNameLabel>
     <UserPwdLabel>密码</UserPwdLabel>
-    <UserNameInputPlaceholder>请输入手机号或者邮箱等...</UserNameInputPlaceholder>
-    <UserPwdInputPlaceholder>........</UserPwdInputPlaceholder>
+    <UserNameInputPlaceholder>请输入账号...</UserNameInputPlaceholder>
+    <UserPwdInputPlaceholder>请输入密码...</UserPwdInputPlaceholder>
 </words>
 

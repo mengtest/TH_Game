@@ -3,7 +3,6 @@ using XLua;
 
 namespace LuaFramework
 {
-
     [System.Serializable]
     public class LuaClass
     {
@@ -58,6 +57,7 @@ namespace LuaFramework
         public LuaClass Get<T>(string funName, out T value)
         {
             _tb.Get(funName, out value);
+            //返回自身，以便于链式调用
             return this;
         }
     }
