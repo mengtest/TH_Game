@@ -15,7 +15,7 @@ namespace LuaFramework
         Func,
     }
     
-    public class LuaEngine : MonoBehaviour, IDisposable
+    public class LuaEngine : /*MonoBehaviour,*/ IDisposable
     {
         private static LuaEngine _engine;
         private LuaEnv _env;
@@ -23,11 +23,11 @@ namespace LuaFramework
 
         public static LuaEngine Instance => _engine;
         
-        [SerializeField]
-        private GameObject[] _objects;
+//        [SerializeField]
+//        private GameObject[] _objects;
 
-        [SerializeField]
-        private MonoBehaviour[] _behaviours;
+//        [SerializeField]
+//        private MonoBehaviour[] _behaviours;
 
         public static void Init()
         {

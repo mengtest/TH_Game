@@ -30,18 +30,19 @@ Button.StartButtonCallback = function()
         text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
         -- 修改文本的颜色
         text.color = CS.UnityEngine.Color.yellow
-        -- 渐隐
-        local fade = text:DOFade(0.7, 1.1)
-        -- 渐放大
-        -- local scalue = text.transform:DOScale(1.5, 2)
-        local defade = text:DOFade(1, 1.1)
-        local seq = CS.DG.DOTween.Sequence()
+
+        local fade = text:DOFade(0.4, 2)
+        local defade = text:DOFade(1, 2)
+        local scale = text.transform:DOScale(CS.UnityEngine.Vector3(0.9, 0.9, 0.9), 2)
+        local descale = text.transform:DOScale(CS.UnityEngine.Vector3(1, 1, 1), 2)
+        local seq = CS.DG.Tweening.DOTween.Sequence()
         seq:Append(fade)
+        seq:Join(scale)
         seq:Append(defade)
+        seq:Join(descale)
         seq:SetLoops(-1)
-        seq:DOPlay()
-        -- text:DOPlay()
-        -- text:DOPlayForward()
+        seq:Play()
+
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local back = CS.Global.GetRootObject("BackCanvas")
         -- 将这个文本添加到BackCanvas的子节点中
