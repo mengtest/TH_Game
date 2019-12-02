@@ -1,0 +1,5 @@
+local GlobalTb = {
+
+}
+
+return GlobalTb
