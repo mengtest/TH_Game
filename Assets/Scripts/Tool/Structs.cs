@@ -14,6 +14,7 @@ partial class Global
         }
     }
 
+    [System.Serializable]
     public struct Injection
     {
         public string Name;

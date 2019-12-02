@@ -59,13 +59,13 @@ namespace LuaFramework
             return _callname;
         }
 
-        public void RegisterCallback(string str)
+        public void RegisterCallback(MonoBehaviour self)
         {
             if (AutoRegister())
             {
                 if (string.IsNullOrEmpty(GetWord()))
                 {
-                    _callname = str + "Callback";
+                    _callname = self.name + "Callback";
                 }
                 else
                 {

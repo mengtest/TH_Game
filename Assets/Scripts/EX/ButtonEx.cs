@@ -3,7 +3,6 @@ using Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
@@ -15,7 +14,7 @@ namespace EX
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasRenderer))]
     [AddComponentMenu("yuki/UI/ButtonEX")]
-    public class ButtonEx : Button, ILuaSupporter
+    public class ButtonEx : Button
     {
         [SerializeField] 
         private LuaSupporter _supporter;
@@ -39,47 +38,25 @@ namespace EX
             oriColor = color;
             colors = oriColor;
         }
-
-        protected override void Awake()
-        {
-            //在awake中注册当前的脚本的回调函数
-        }
-
+        
         //attribute相关的内容可以参考这类文章
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
-            RegisterCallback();
+            _supporter.RegisterCallback(this);
             
             base.Start();
             
             var localScale = transform.localScale;
             _scaleX = localScale.x;
             _scaleY = localScale.y;
-            
-//            onPointerEnter = eventData =>
-//            {
-//                if (!interactable)
-//                {
-//                    return;
-//                }
-//                
-//                transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
-//                Sound.PlayEffect("Music/BtnClick");
-//            };
-//
-//            onPointerExit = eventData =>
-//            {
-//                var rect = GetComponent<RectTransform>();
-//                rect.localScale = new Vector3(_scaleX, _scaleY);
-//            };
 
             //如果自动注册为true
             
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
-                Functions.GetAction(this)?.Invoke();
+                Functions.GetAction(this._supporter)?.Invoke();
             });
             onClick.AddListener(callback);
         }
@@ -103,26 +80,6 @@ namespace EX
         {
             transform.localScale = new Vector3(_scaleX , _scaleY);
             base.OnPointerExit(eventData);
-        }
-
-        public string GetWord()
-        {
-            return _supporter.GetWord();
-        }
-
-        public void SetWord(string word)
-        {
-            _supporter.SetWord(word);
-        }
-
-        public void RegisterCallback()
-        {
-            _supporter.RegisterCallback(name);
-        }
-
-        public string GetFuncName()
-        {
-            return _supporter.GetFuncName();
         }
     }
 }

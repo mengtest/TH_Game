@@ -18,7 +18,7 @@ namespace LuaFramework
         
         private LuaTable _tb;
 
-        protected virtual void Ref(MonoBehaviour self)
+        public virtual void Ref(MonoBehaviour self)
         {
             //如果路径为空，则不会注册该对象
             if (string.IsNullOrEmpty(_filePath) || string.IsNullOrEmpty(_name))
@@ -34,7 +34,7 @@ namespace LuaFramework
             _tb = LuaEngine.Instance.LoadFile(_filePath, _name, self, _injections);
         }
         
-        protected virtual void Ref(GameObject self)
+        public virtual void Ref(GameObject self)
         {
             //如果路径为空，则不会注册该对象
             if (string.IsNullOrEmpty(_filePath) || string.IsNullOrEmpty(_name))
@@ -55,9 +55,10 @@ namespace LuaFramework
             return _tb.Get<T>(funName);
         }
         
-        public void Get<T>(string funName, out T value)
+        public LuaClass Get<T>(string funName, out T value)
         {
             _tb.Get(funName, out value);
+            return this;
         }
     }
 }
