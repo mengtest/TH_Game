@@ -1,21 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 using UnityEngine;
 using XLua;
-using XLua.LuaDLL;
-using XLuaTest;
 
 namespace LuaFramework
 {
-    public class LuaEngine : IDisposable
+    [Serializable]
+    public enum LuaType
+    {
+        [Tooltip("读取整个lua文件，将对应的对象注册为lua的对象")]
+        Class,
+        [Tooltip("读取lua文件中的某个函数")]
+        Func,
+    }
+    
+    public class LuaEngine : MonoBehaviour, IDisposable
     {
         private static LuaEngine _engine;
         private LuaEnv _env;
         private Dictionary<string, LuaTable> _luaTables;
 
         public static LuaEngine Instance => _engine;
+        
+        [SerializeField]
+        private GameObject[] _objects;
+
+        [SerializeField]
+        private MonoBehaviour[] _behaviours;
 
         public static void Init()
         {
@@ -23,8 +35,6 @@ namespace LuaFramework
             {
                 _engine = new LuaEngine();
                 _engine._luaTables = new Dictionary<string, LuaTable>();
-                
-
             }
             
             //一些准备工作
@@ -39,7 +49,6 @@ namespace LuaFramework
             return _luaTables.ContainsKey(key) ? _luaTables[key] : null;
         }
         
-
         public void AddTable(string key, LuaTable table)
         {
             if (_luaTables.ContainsKey(key))
@@ -61,7 +70,6 @@ namespace LuaFramework
         
         private byte[] CustomLoaderMethod(ref string fileName)
         {
-//            Debug.Log(fileName);
             //找到指定文件  
             fileName = Application.dataPath + "/Resources/LuaScript/" + fileName.Replace('.', '/') + ".lua";
             if (File.Exists(fileName))
