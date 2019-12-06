@@ -9,6 +9,10 @@ namespace Game
         string GetName();
 
         int GetId();
+
+        int LastTime();
+
+        int RestTime();
         
         
     }
