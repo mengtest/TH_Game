@@ -26,6 +26,10 @@ function CS.Global:GetCurCanvas(go) end
 --]]
 function CS.Global:GetCurCanvas(comp) end
 --[[
+	@text CS.System.String
+--]]
+function CS.Global:Alert(text) end
+--[[
 	@name CS.System.String
 	@loading CS.System.Boolean
 --]]
@@ -4766,6 +4770,25 @@ function CS.Util.Listener:Register(code,action) end
 	@o3 CS.System.Object
 --]]
 function CS.Util.Listener:Call(code,o1,o2,o3) end
+--[[
+	@type CS.System.String
+	@call CS.Util.Listener.AsyncCall
+	@signal CS.System.Int32
+--]]
+function CS.Util.Listener:On(type,call,signal) end
+--[[
+	@type CS.System.String
+	@signal CS.System.Int32
+	@o1 CS.System.Object
+	@o2 CS.System.Object
+	@o3 CS.System.Object
+--]]
+function CS.Util.Listener:Event(type,signal,o1,o2,o3) end
+--[[
+	@type CS.System.String
+	@signal CS.System.Int32
+--]]
+function CS.Util.Listener:Off(type,signal) end
 
 --@SuperType [luaIde#CS.System.Object]
 CS.Util.ModelDialog = {}
@@ -4812,65 +4835,95 @@ function CS.Util.ModelDialog:SetOkText(text) end
 function CS.Util.ModelDialog:SetCancelText(text) end
 function CS.Util.ModelDialog:ShowDialog() end
 
-CS.Pool.IPool = {}
-function CS.Pool.IPool:Create() end
+--@SuperType [luaIde#CS.System.Object]
+CS.Util.Pool = {}
 --[[
+	@sign CS.System.String
+	@pool CS.Util.pool.IPool
+--]]
+function CS.Util.Pool:AddPool(sign,pool) end
+--[[
+	@sign CS.System.String
+--]]
+function CS.Util.Pool:ClearSign(sign) end
+--[[
+	@sign CS.System.String
 	@value CS.System.Object
-	return CS.System.Boolean
 --]]
-function CS.Pool.IPool:Store(value) end
+function CS.Util.Pool:Store(sign,value) end
+function CS.Util.Pool:ClearAll() end
 --[[
-	@value CS.System.Object
+	@sign CS.System.String
+	@return [luaIde#CS.UnityEngine.GameObject]
 --]]
-function CS.Pool.IPool:Destory(value) end
-function CS.Pool.IPool:Get() end
-function CS.Pool.IPool:GetUnique() end
-function CS.Pool.IPool:Size() end
-function CS.Pool.IPool:AutoResize() end
+function CS.Util.Pool:GetItem(sign) end
 --[[
-	@size CS.System.Int32
-	return CS.System.Boolean
+	@sign CS.System.String
+	@function CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@return [luaIde#CS.UnityEngine.GameObject]
 --]]
-function CS.Pool.IPool:Expand(size) end
+function CS.Util.Pool:GetItemByFunc(sign,func) end
+function CS.Util.Pool:Init() end
+
+CS.Util.pool.IPool = {}
+function CS.Util.pool.IPool:GetItem() end
+--[[
+	@item CS.UnityEngine.GameObject
+--]]
+function CS.Util.pool.IPool:AddItem(item) end
+function CS.Util.pool.IPool:Count() end
+function CS.Util.pool.IPool:Create() end
+--[[
+	@go CS.UnityEngine.GameObject
+--]]
+function CS.Util.pool.IPool:Destroy(go) end
+function CS.Util.pool.IPool:Clear() end
 
 --@SuperType [luaIde#CS.System.Object]
-CS.Pool.ObjectPool = {}
+CS.Util.pool.DefaultPool = {}
 --[[
-	@maxSize CS.System.Int32
-	@return [luaIde#CS.Pool.ObjectPool]
+	@return [luaIde#CS.Util.pool.DefaultPool]
 ]]
-function CS.Pool.ObjectPool(maxSize) end
+function CS.Util.pool.DefaultPool() end
+function CS.Util.pool.DefaultPool:GetItem() end
 --[[
-	@p CS.UnityEngine.Object
-	@return [luaIde#CS.System.Object]
+	@item CS.UnityEngine.GameObject
 --]]
-function CS.Pool.ObjectPool:Create(p) end
-function CS.Pool.ObjectPool:Create() end
+function CS.Util.pool.DefaultPool:AddItem(item) end
+function CS.Util.pool.DefaultPool:Count() end
+function CS.Util.pool.DefaultPool:Create() end
 --[[
-	@value CS.System.Object
-	return CS.System.Boolean
+	@go CS.UnityEngine.GameObject
 --]]
-function CS.Pool.ObjectPool:Store(value) end
---[[
-	@value CS.System.Object
---]]
-function CS.Pool.ObjectPool:Destory(value) end
-function CS.Pool.ObjectPool:Get() end
-function CS.Pool.ObjectPool:GetUnique() end
-function CS.Pool.ObjectPool:Size() end
-function CS.Pool.ObjectPool:AutoResize() end
---[[
-	@size CS.System.Int32
-	return CS.System.Boolean
---]]
-function CS.Pool.ObjectPool:Expand(size) end
+function CS.Util.pool.DefaultPool:Destroy(go) end
+function CS.Util.pool.DefaultPool:Clear() end
 
 --@SuperType [luaIde#CS.System.Object]
-CS.Pool.PoolManager = {}
+CS.Util.pool.GameObjectPool = {}
 --[[
-	@return [luaIde#CS.Pool.PoolManager]
+	@return [luaIde#CS.Util.pool.GameObjectPool]
 ]]
-function CS.Pool.PoolManager() end
+function CS.Util.pool.GameObjectPool() end
+--[[
+	@creator CS.Util.pool.GameObjectPool.Creator
+	@deleter CS.Util.pool.GameObjectPool.Operator
+	@getter CS.Util.pool.GameObjectPool.Operator
+	@setter CS.Util.pool.GameObjectPool.Operator
+	@return [luaIde#CS.Util.pool.IPool]
+--]]
+function CS.Util.pool.GameObjectPool:CreatePool(creator,deleter,getter,setter) end
+function CS.Util.pool.GameObjectPool:GetItem() end
+--[[
+	@item CS.UnityEngine.GameObject
+--]]
+function CS.Util.pool.GameObjectPool:AddItem(item) end
+function CS.Util.pool.GameObjectPool:Count() end
+function CS.Util.pool.GameObjectPool:Create() end
+--[[
+	@go CS.UnityEngine.GameObject
+--]]
+function CS.Util.pool.GameObjectPool:Destroy(go) end
+function CS.Util.pool.GameObjectPool:Clear() end
 
 --@SuperType [luaIde#CS.System.Object]
 CS.Net.NetHelper = {}
@@ -4896,6 +4949,11 @@ function CS.Net.NetHelper:Update() end
 	return CS.System.Boolean
 --]]
 function CS.Net.NetHelper:CheckVersion(version) end
+
+CS.Game.IPlayer = {}
+function CS.Game.IPlayer:GetName() end
+function CS.Game.IPlayer:GetId() end
+function CS.Game.IPlayer:GetUserName() end
 
 --@SuperType [luaIde#CS.System.Enum]
 CS.Tutorial.DerivedClass.TestEnumInner = {}
@@ -6144,7 +6202,7 @@ function CS.DG.Tweening.TweenParams:SetRelative(isRelative) end
 function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 
 --@SuperType [luaIde#CS.System.Object]
--- CS.DG.Tweening.Core.ABSSequentiable = {}
+CS.DG.Tweening.Core.ABSSequentiable = {}
 
 -- --@SuperType [luaIde#CS.DG.Tweening.Tweener]
 -- CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
@@ -6231,12 +6289,12 @@ function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 -- --]]
 -- function CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]:ChangeValues(newStartValue,newEndValue,newDuration) end
 
--- --@SuperType [luaIde#CS.System.Object]
--- CS.DG.Tweening.TweenExtensions = {}
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.TweenExtensions = {}
 
--- --@SuperType [luaIde#CS.System.Object]
--- CS.DG.Tweening.TweenSettingsExtensions = {}
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.TweenSettingsExtensions = {}
 
--- --@SuperType [luaIde#CS.System.Object]
--- CS.DG.Tweening.ShortcutExtensions = {}
+--@SuperType [luaIde#CS.System.Object]
+CS.DG.Tweening.ShortcutExtensions = {}
 

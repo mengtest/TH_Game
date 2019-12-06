@@ -22,12 +22,6 @@ namespace LuaFramework
         private Dictionary<string, LuaTable> _luaTables;
 
         public static LuaEngine Instance => _engine;
-        
-//        [SerializeField]
-//        private GameObject[] _objects;
-
-//        [SerializeField]
-//        private MonoBehaviour[] _behaviours;
 
         public static void Init()
         {

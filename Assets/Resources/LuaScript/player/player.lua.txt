@@ -1,0 +1,14 @@
+﻿--@SuperType [luaIde#CS.Game.IPlayer]
+Player = {}
+
+function Player:GetId()
+    return 100
+end
+
+function Player:GetName()
+    return "我叫lua"
+end
+
+function Player:GetUserName()
+    return "233333"
+end

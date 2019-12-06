@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +9,13 @@ namespace EX
     //播放帧动画的类
     public class AnimationEx: MonoBehaviour
     {
+        public enum State
+        {
+            PAUSE,
+            PLAY,
+            NULL,
+        }
+        
         [SerializeField]
         private Sprite[] _frames;
 
@@ -23,8 +29,8 @@ namespace EX
         
         private int _loop = 0;
         private int _times = 0;
-        private float _interval;
-        private bool _pause;
+        private float _interval = 1;
+        private State _pause = State.NULL;
 
         //加载图片
         public void LoadImages([NotNull] string[] paths)
@@ -50,14 +56,14 @@ namespace EX
             if (frame >= 0 && frame < this._frames.Length)
             {
                 //将动画停止到对应的帧
-                this._pause = true;
-                this._curFrameIndex = frame;
-                this._image.sprite = _frames[frame];
+                _pause = State.PAUSE;
+                _curFrameIndex = frame;
+                _image.sprite = _frames[frame];
             }
             else
             {
                 //暂停当前动画的播放
-                this._pause = true;    
+                _pause = State.PAUSE;
             }
         }
 
@@ -74,12 +80,22 @@ namespace EX
             _times = 0;
             _interval = interval;
             _callback = callback;
+            _pause = State.PLAY;
             Invoke(nameof(PlayFrame), delay);
         }
 
+        public void Continue()
+        {
+            if (_pause != State.NULL)
+            {
+                _pause = 0;
+                PlayFrame();    
+            }
+        }
+        
         private void PlayFrame()
         {
-            if (this._pause)
+            if (_pause == State.PAUSE)
             {
                 return;
             }

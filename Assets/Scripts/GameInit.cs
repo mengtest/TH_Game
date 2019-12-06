@@ -1,4 +1,5 @@
-﻿using LuaFramework;
+﻿using Game;
+using LuaFramework;
 using UnityEngine;
 using Util;
 
@@ -16,8 +17,20 @@ public static class GameInit
         LuaEngine.Init();
         Listener.Init();
         Pool.Init();
+        
+        var _env = new XLua.LuaEnv();
+        var table = _env.NewTable();
+        var meta = _env.NewTable();
+        meta.Set("__index", _env.Global);
+        table.SetMetaTable(meta);
+        meta.Dispose();
+        _env.DoString(
+            Resources.Load<TextAsset>("LuaScript/player/player.lua").text,
+            "xlua",
+            table);
 
-//        Debug.Log(Add_int_int(100, 101));
+        var player = table.Get<IPlayer>("Player");
+        Global.Log(player.GetName());
     }
 
 //    [DllImport("UnityDll")]

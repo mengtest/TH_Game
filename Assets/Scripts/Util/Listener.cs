@@ -28,7 +28,7 @@ namespace Util
             }
         }
 
-        //消息编号，
+        //注册消息，就是单一回调，触发之后就会删除
         public void Register(int code, AsyncCall action)
         {
             if (_actions.ContainsKey(code))
@@ -43,6 +43,7 @@ namespace Util
             }
         }
 
+        //触发一个单一回调的事件，触发完后直接删除
         public void Call(int code, object o1, object o2, object o3)
         {
             if (_actions.ContainsKey(code))
@@ -54,6 +55,23 @@ namespace Util
                     act.Invoke(o1, o2, o3);
                 }
             }
+        }
+
+        //注册事件
+        public void On(string type, AsyncCall call, int signal = 0)
+        {
+            
+        }
+        
+        //调用事件
+        public void Event(string type, int signal = 0 ,object o1 = null, object o2 = null, object o3 = null)
+        {
+            
+        }
+
+        public void Off(string type, int signal = 0)
+        {
+            
         }
     }
 }
