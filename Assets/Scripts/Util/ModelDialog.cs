@@ -128,7 +128,6 @@ namespace Util
             _dialog.OkButtonCallback += () =>
             {
                 RecoverAllCanvas();
-
                 OkBtnCallback?.Invoke();
                 Object.Destroy(layer);
             };

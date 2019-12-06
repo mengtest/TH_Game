@@ -71,6 +71,5 @@ namespace Manager
                 Timer.Register(clip.length + 1, () => { Object.Destroy(sound); });
             }
         }
-
     }
 }

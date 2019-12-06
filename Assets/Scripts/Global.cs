@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Util;
 using XLua;
 
 
@@ -60,6 +61,9 @@ public static partial class Global
     {
         return GetCurCanvas(comp.gameObject);
     }
-    
-    
+
+    public static void Alert(string text)
+    {
+        new ModelDialog(text).ShowDialog();
+    }
 }
