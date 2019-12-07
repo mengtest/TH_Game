@@ -45,7 +45,7 @@ namespace EX
         protected override void Start()
         {
             _supporter.RegisterCallback(this);
-            
+
             base.Start();
             
             var localScale = transform.localScale;
