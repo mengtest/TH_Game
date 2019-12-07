@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace EX
 {
-    [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Image))]
     //播放帧动画的类
     public class AnimationEx: MonoBehaviour
     {
@@ -45,15 +45,19 @@ namespace EX
             }
         }
 
+        public void LoadImages([NotNull] string path)
+        {
+            if (path[path.Length - 1] != '/')
+            {
+                throw new Exception("无法为单张图片播放动画");
+            }
+            
+//            Resources.load
+        }
+
         private void Awake()
         {
             _image = GetComponent<Image>();
-        }
-
-        private void Start()
-        {
-//            this.Play();
-            
         }
 
         //将该动画停止到第几帧
