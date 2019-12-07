@@ -88,7 +88,7 @@ namespace EX
             var s = Sprite.Create(textures[0], 
                 new Rect(0, 0, textures[0].width, textures[0].height),
                 new Vector2(1, 1));
-            s.name = "o";
+//            s.name = "o";
             GetComponent<Image>().sprite = s;
 
             var sps = new SpriteState();
@@ -98,7 +98,7 @@ namespace EX
                 sps.pressedSprite = Sprite.Create(t, 
                     new Rect(0, 0, t.width, t.height),
                     new Vector2(1, 1));
-                sps.pressedSprite.name = "1";
+//                sps.pressedSprite.name = "1";
             }
 
             if (textures.Length >=3)
@@ -107,12 +107,12 @@ namespace EX
                 sps.highlightedSprite = Sprite.Create(t, 
                     new Rect(0, 0, t.width, t.height),
                     new Vector2(1, 1));
-                sps.highlightedSprite.name = "2";
+//                sps.highlightedSprite.name = "2";
             }
 
-            this.spriteState = sps;
-            this._spliced = true;
-            this.GetComponent<Image>().SetNativeSize();
+            spriteState = sps;
+            _spliced = true;
+            GetComponent<Image>().SetNativeSize();
         }
     }
 }

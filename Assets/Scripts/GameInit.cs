@@ -18,19 +18,19 @@ public static class GameInit
         Listener.Init();
         Pool.Init();
         
-        var _env = new XLua.LuaEnv();
-        var table = _env.NewTable();
-        var meta = _env.NewTable();
-        meta.Set("__index", _env.Global);
-        table.SetMetaTable(meta);
-        meta.Dispose();
-        _env.DoString(
-            Resources.Load<TextAsset>("LuaScript/player/player.lua").text,
-            "xlua",
-            table);
-
-        var player = table.Get<IPlayer>("Player");
-        Global.Log(player.GetName());
+//        var _env = new XLua.LuaEnv();
+//        var table = _env.NewTable();
+//        var meta = _env.NewTable();
+//        meta.Set("__index", _env.Global);
+//        table.SetMetaTable(meta);
+//        meta.Dispose();
+//        _env.DoString(
+//            Resources.Load<TextAsset>("LuaScript/player/player.lua").text,
+//            "xlua",
+//            table);
+//
+//        var player = table.Get<IPlayer>("Player");
+//        Global.Log(player.GetName());
     }
 
 //    [DllImport("UnityDll")]

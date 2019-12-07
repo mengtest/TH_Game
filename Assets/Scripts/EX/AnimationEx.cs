@@ -50,6 +50,12 @@ namespace EX
             _image = GetComponent<Image>();
         }
 
+        private void Start()
+        {
+//            this.Play();
+            
+        }
+
         //将该动画停止到第几帧
         public void Pause(int frame = -1)
         {
@@ -101,6 +107,7 @@ namespace EX
             }
             //当前播放对应的帧
             _image.sprite = _frames[_curFrameIndex];
+            _image.SetNativeSize();
             _curFrameIndex++;
             //如果帧数超过动画的总数，重回第一帧，播放次数加一
             if (_curFrameIndex >= _frames.Length)
