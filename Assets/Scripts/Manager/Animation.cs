@@ -7,8 +7,6 @@ namespace Manager
 {
     public class Animation
     {
-        
-        
         public static void Play(string[] paths, float interval, int loop = 1, float delay = 0, Action callback = null)
         {
             var obj = new GameObject("animation");
