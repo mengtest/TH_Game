@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using XLua;
 
 partial class Global
 {
+    [System.Serializable]
+    [LuaCallCSharp]
     public struct Pair<TKey, TValue>
     {
         public TKey First;

@@ -4757,6 +4757,16 @@ CS.Util.Listener = {}
 	 Get 
 --]]
 CS.Util.Listener.Instance = nil
+--[[
+	CS.System.String
+	 Get 	 Set 
+--]]
+CS.Util.Listener.CLICK = nil
+--[[
+	CS.System.String
+	 Get 	 Set 
+--]]
+CS.Util.Listener.KEYBOARD = nil
 function CS.Util.Listener:Init() end
 --[[
 	@code CS.System.Int32
@@ -4771,11 +4781,11 @@ function CS.Util.Listener:Register(code,action) end
 --]]
 function CS.Util.Listener:Call(code,o1,o2,o3) end
 --[[
-	@type CS.System.String
-	@call CS.Util.Listener.AsyncCall
-	@signal CS.System.Int32
+	@predicate CS.Util.Listener.Predicate
+	@callback CS.System.Action
+	@signal CS.System.String
 --]]
-function CS.Util.Listener:On(type,call,signal) end
+function CS.Util.Listener:On(predicate,callback,signal) end
 --[[
 	@type CS.System.String
 	@signal CS.System.Int32
@@ -4862,7 +4872,7 @@ function CS.Util.Pool:GetItem(sign) end
 	@function CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
 	@return [luaIde#CS.UnityEngine.GameObject]
 --]]
-function CS.Util.Pool:GetItemByFunc(sign,func) end
+function CS.Util.Pool:GetItemByFunc(sign,fun) end
 function CS.Util.Pool:Init() end
 
 CS.Util.pool.IPool = {}
@@ -4950,10 +4960,76 @@ function CS.Net.NetHelper:Update() end
 --]]
 function CS.Net.NetHelper:CheckVersion(version) end
 
+--@SuperType [luaIde#CS.System.Object]
+CS.Manager.Animation = {}
+--[[
+	@paths CS.System.String{}
+	@interval CS.System.Single
+	@id CS.System.Int32&
+	@loop CS.System.Int32
+	@delay CS.System.Single
+	@callback CS.System.Action
+	@return [luaIde#CS.UnityEngine.GameObject]
+--]]
+function CS.Manager.Animation:Play(paths,interval,id,loop,delay,callback) end
+--[[
+	@path CS.System.String
+	@interval CS.System.Single
+	@start CS.System.Int32
+	@end_ CS.System.Int32
+	@id CS.System.Int32&
+	@loop CS.System.Int32
+	@delay CS.System.Single
+	@callback CS.System.Action
+	@return [luaIde#CS.UnityEngine.GameObject]
+--]]
+function CS.Manager.Animation:Play(path,interval,start,end_,id,loop,delay,callback) end
+--[[
+	@path CS.System.String
+	@interval CS.System.Single
+	@id CS.System.Int32&
+	@loop CS.System.Int32
+	@delay CS.System.Single
+	@callback CS.System.Action
+	@return [luaIde#CS.UnityEngine.GameObject]
+--]]
+function CS.Manager.Animation:Play(path,interval,id,loop,delay,callback) end
+--[[
+	@id CS.System.Int32
+	@index CS.System.Int32
+--]]
+function CS.Manager.Animation:PauseTo(id,index) end
+--[[
+	@id CS.System.Int32
+--]]
+function CS.Manager.Animation:Stop(id) end
+--[[
+	@id CS.System.Int32
+--]]
+function CS.Manager.Animation:Continue(id) end
+
+CS.Game.IBuff = {}
+function CS.Game.IBuff:GetName() end
+function CS.Game.IBuff:GetId() end
+function CS.Game.IBuff:LastTime() end
+function CS.Game.IBuff:RestTime() end
+
+CS.Game.ICard = {}
+
 CS.Game.IPlayer = {}
 function CS.Game.IPlayer:GetName() end
 function CS.Game.IPlayer:GetId() end
 function CS.Game.IPlayer:GetUserName() end
+
+CS.Game.ISkill = {}
+function CS.Game.ISkill:GetName() end
+function CS.Game.ISkill:GetId() end
+function CS.Game.ISkill:Execute() end
+--[[
+	@card CS.Game.ICard
+	@return [luaIde#CS.Game.ISkill]
+--]]
+function CS.Game.ISkill:BindTarget(card) end
 
 --@SuperType [luaIde#CS.System.Enum]
 CS.Tutorial.DerivedClass.TestEnumInner = {}
@@ -6204,7 +6280,7 @@ function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 --@SuperType [luaIde#CS.System.Object]
 CS.DG.Tweening.Core.ABSSequentiable = {}
 
--- --@SuperType [luaIde#CS.DG.Tweening.Tweener]
+--@SuperType [luaIde#CS.DG.Tweening.Tweener]
 -- CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
 -- --[[
 -- 	@RefType [luaIde#CS.UnityEngine.Vector3]

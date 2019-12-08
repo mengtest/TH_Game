@@ -5,17 +5,17 @@ function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
 
-    if #name == 0 then
-        CS.Global.Log("没有账号我怎么知道您是哪位？")
-        return
-    end
+    -- if #name == 0 then
+    --     CS.Global.Log("没有账号我怎么知道您是哪位？")
+    --     return
+    -- end
     
-    if #pwd == 0 then
-        CS.Global.Log("您是否忘记输入密码？")
-        return
-    end
+    -- if #pwd == 0 then
+    --     CS.Global.Log("您是否忘记输入密码？")
+    --     return
+    -- end
     
-    CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
+    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")
 end
 
 function CancelButton()

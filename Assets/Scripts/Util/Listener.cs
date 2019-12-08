@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Lib;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using XLua;
 
 namespace Util
@@ -7,6 +10,9 @@ namespace Util
     [LuaCallCSharp]
     public class Listener
     {
+        public const string CLICK = "click";
+        public const string KEYBOARD = "keyboard";
+
         //所有回调函数均为三参数
         [CSharpCallLua]
         public delegate void AsyncCall(object o1, object o2, object o3);
@@ -14,6 +20,7 @@ namespace Util
         private static Listener _instance = null;
         public static Listener Instance => _instance;
         private Dictionary<int, Queue<AsyncCall>> _actions;
+        private GameObject _eventListener;
 
         private Listener()
         {
@@ -61,6 +68,27 @@ namespace Util
         public void On(string type, AsyncCall call, int signal = 0)
         {
             
+        }
+
+        [LuaCallCSharp]
+        public delegate bool Predicate();
+        [LuaCallCSharp]
+        public delegate void Callback();
+        
+        public void On(LuaFunction predicate, Callback callback, string signal)
+        {
+            Debug.Log("222222222222222222");
+            if (predicate == null || callback == null)
+            {
+                return;
+            }
+            if (_eventListener == null)
+            {
+                _eventListener = new GameObject("EventListener");
+                _eventListener.AddComponent<EventListener>();
+                SceneManager.MoveGameObjectToScene(_eventListener, SceneManager.GetActiveScene());
+            }
+            _eventListener.GetComponent<EventListener>().Reg(signal, predicate, callback);
         }
         
         //调用事件

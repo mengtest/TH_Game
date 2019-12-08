@@ -1,5 +1,5 @@
 ﻿local tb = require"global.global"
-local json = require"json"
+local json = require"lib.json"
 
 Button = {}
 DropDown = {}
@@ -49,7 +49,14 @@ Button.StartButtonCallback = function()
         -- 将这个文本添加到BackCanvas的子节点中
         txt.transform:SetParent(back.transform)
         -- 修改文本的坐标为中间偏下的位置
-        txt.transform.localPosition = CS.UnityEngine.Vector3(0, -150, 0)
+        txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
+
+        CS.Util.Listener.Instance:On(function()
+            print("123123123123")
+            return true
+        end, function()
+            print("123123")
+        end, "2333")
     end)
 
     -- 点击取消的回调
