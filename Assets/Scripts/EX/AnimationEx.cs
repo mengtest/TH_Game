@@ -51,8 +51,8 @@ namespace EX
             {
                 throw new Exception("无法为单张图片播放动画");
             }
-            
-//            Resources.load
+
+            _frames = Resources.LoadAll<Sprite>(path);
         }
 
         private void Awake()

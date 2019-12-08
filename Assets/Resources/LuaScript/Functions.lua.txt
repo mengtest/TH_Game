@@ -1,4 +1,5 @@
 ﻿local tb = require"global.global"
+local json = require"json"
 
 Button = {}
 DropDown = {}
@@ -17,7 +18,6 @@ Button.StartButtonCallback = function()
         CS.UnityEngine.GameObject.Destroy(obj)
         --@RefType [luaIde#CS.UnityEngine.GameObject]
         local txt = CS.UnityEngine.GameObject("continue")
-        
         -- 创建一段文本，类似于崩三中开始游戏中那段文本的特效
         local text = txt:AddComponent(typeof(CS.UnityEngine.UI.Text))
         text.text = "按任意键开始游戏"
