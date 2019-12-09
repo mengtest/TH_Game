@@ -51,12 +51,11 @@ Button.StartButtonCallback = function()
         -- 修改文本的坐标为中间偏下的位置
         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
 
-        CS.Util.Listener.Instance:On(function()
-            print("123123123123")
-            return true
-        end, function()
-            print("123123")
-        end, "2333")
+        CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.Mouse0, function()
+            -- seq:DOPause()
+            CS.Global.NavigateTo("MainScene", true)
+        end)
+        -- print(123)
     end)
 
     -- 点击取消的回调

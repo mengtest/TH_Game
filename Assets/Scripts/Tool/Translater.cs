@@ -23,10 +23,5 @@ partial class Global
                 }
             }
         }
-
-        public static void Register(string key, Component self)
-        {
-            
-        }
     }
 }

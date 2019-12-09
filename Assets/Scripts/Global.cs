@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Prefab;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
@@ -65,5 +68,26 @@ public static partial class Global
     public static void Alert(string text)
     {
         new ModelDialog(text).ShowDialog();
+    }
+
+    public static Canvas[] GetCanvas()
+    {
+        List<Canvas> list = new List<Canvas>();
+        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            list.AddRange(go.GetComponentsInChildren<Canvas>());
+        }
+        return list.ToArray();
+    }
+
+    public const float TOAST_SHORT = 1.5f;
+    public const float TOAST_LONG = 3.0f;
+    
+    public static void MakeToast(string text, float time)
+    {
+        var obj = UnityEngine.Resources.Load<GameObject>("Prefab/Toast");
+        var toast = Object.Instantiate(obj, GetCurCanvas(GetRootObject("UICanvas")).transform, true);
+        toast.transform.localPosition = new Vector3(0, -350);
+        toast.GetComponent<ToastScript>().Make(text, time);
     }
 }

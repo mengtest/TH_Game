@@ -6,6 +6,16 @@ CS.Global = {}
 --]]
 CS.Global.Scene = nil
 --[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.Global.TOAST_SHORT = nil
+--[[
+	CS.System.Single
+	 Get 	 Set 
+--]]
+CS.Global.TOAST_LONG = nil
+--[[
 	@str CS.System.String
 	@level CS.Global.Level
 --]]
@@ -29,6 +39,12 @@ function CS.Global:GetCurCanvas(comp) end
 	@text CS.System.String
 --]]
 function CS.Global:Alert(text) end
+function CS.Global:GetCanvas() end
+--[[
+	@text CS.System.String
+	@time CS.System.Single
+--]]
+function CS.Global:MakeToast(text,time) end
 --[[
 	@name CS.System.String
 	@loading CS.System.Boolean
@@ -4757,16 +4773,6 @@ CS.Util.Listener = {}
 	 Get 
 --]]
 CS.Util.Listener.Instance = nil
---[[
-	CS.System.String
-	 Get 	 Set 
---]]
-CS.Util.Listener.CLICK = nil
---[[
-	CS.System.String
-	 Get 	 Set 
---]]
-CS.Util.Listener.KEYBOARD = nil
 function CS.Util.Listener:Init() end
 --[[
 	@code CS.System.Int32
@@ -4781,11 +4787,38 @@ function CS.Util.Listener:Register(code,action) end
 --]]
 function CS.Util.Listener:Call(code,o1,o2,o3) end
 --[[
-	@predicate CS.Util.Listener.Predicate
-	@callback CS.System.Action
 	@signal CS.System.String
+	@callback CS.Util.Listener.Callback
 --]]
-function CS.Util.Listener:On(predicate,callback,signal) end
+function CS.Util.Listener:Inject(signal,callback) end
+--[[
+	@signal CS.System.String
+	@click CS.System.Int32
+	@callback CS.Util.Listener.Callback
+	@once CS.System.Boolean
+--]]
+function CS.Util.Listener:On(signal,click,callback,once) end
+--[[
+	@signal CS.System.String
+	@code CS.Lib.KeyCode
+	@callback CS.Util.Listener.Callback
+	@once CS.System.Boolean
+--]]
+function CS.Util.Listener:On(signal,code,callback,once) end
+--[[
+	@type CS.System.String
+	@call CS.Util.Listener.AsyncCall
+	@signal CS.System.Int32
+	@once CS.System.Boolean
+--]]
+function CS.Util.Listener:On(type,call,signal,once) end
+--[[
+	@predicate CS.Util.Listener.Predicate
+	@callback CS.Util.Listener.Callback
+	@signal CS.System.String
+	@once CS.System.Boolean
+--]]
+function CS.Util.Listener:On(predicate,callback,signal,once) end
 --[[
 	@type CS.System.String
 	@signal CS.System.Int32
@@ -5007,6 +5040,1639 @@ function CS.Manager.Animation:Stop(id) end
 	@id CS.System.Int32
 --]]
 function CS.Manager.Animation:Continue(id) end
+
+--@SuperType [luaIde#CS.System.Enum]
+CS.Lib.KeyCode = {}
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.None = 0
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Backspace = 8
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Tab = 9
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Clear = 12
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Return = 13
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Pause = 19
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Escape = 27
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Space = 32
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Exclaim = 33
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.DoubleQuote = 34
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Hash = 35
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Dollar = 36
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Percent = 37
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Ampersand = 38
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Quote = 39
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftParen = 40
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightParen = 41
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Asterisk = 42
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Plus = 43
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Comma = 44
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Minus = 45
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Period = 46
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Slash = 47
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha0 = 48
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha1 = 49
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha2 = 50
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha3 = 51
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha4 = 52
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha5 = 53
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha6 = 54
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha7 = 55
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha8 = 56
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Alpha9 = 57
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Colon = 58
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Semicolon = 59
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Less = 60
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Equals = 61
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Greater = 62
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Question = 63
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.At = 64
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftBracket = 91
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Backslash = 92
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightBracket = 93
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Caret = 94
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Underscore = 95
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.BackQuote = 96
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.A = 97
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.B = 98
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.C = 99
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.D = 100
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.E = 101
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F = 102
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.G = 103
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.H = 104
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.I = 105
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.J = 106
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.K = 107
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.L = 108
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.M = 109
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.N = 110
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.O = 111
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.P = 112
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Q = 113
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.R = 114
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.S = 115
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.T = 116
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.U = 117
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.V = 118
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.W = 119
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.X = 120
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Y = 121
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Z = 122
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftCurlyBracket = 123
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Pipe = 124
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightCurlyBracket = 125
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Tilde = 126
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Delete = 127
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad0 = 256
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad1 = 257
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad2 = 258
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad3 = 259
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad4 = 260
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad5 = 261
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad6 = 262
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad7 = 263
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad8 = 264
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Keypad9 = 265
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadPeriod = 266
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadDivide = 267
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadMultiply = 268
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadMinus = 269
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadPlus = 270
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadEnter = 271
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.KeypadEquals = 272
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.UpArrow = 273
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.DownArrow = 274
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightArrow = 275
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftArrow = 276
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Insert = 277
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Home = 278
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.End = 279
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.PageUp = 280
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.PageDown = 281
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F1 = 282
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F2 = 283
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F3 = 284
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F4 = 285
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F5 = 286
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F6 = 287
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F7 = 288
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F8 = 289
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F9 = 290
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F10 = 291
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F11 = 292
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F12 = 293
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F13 = 294
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F14 = 295
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.F15 = 296
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Numlock = 300
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.CapsLock = 301
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.ScrollLock = 302
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightShift = 303
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftShift = 304
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightControl = 305
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftControl = 306
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightAlt = 307
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftAlt = 308
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightApple = 309
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightCommand = 309
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftApple = 310
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftCommand = 310
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.LeftWindows = 311
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.RightWindows = 312
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.AltGr = 313
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Help = 315
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Print = 316
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.SysReq = 317
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Break = 318
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Menu = 319
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse0 = 323
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse1 = 324
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse2 = 325
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse3 = 326
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse4 = 327
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse5 = 328
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Mouse6 = 329
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton0 = 330
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton1 = 331
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton2 = 332
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton3 = 333
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton4 = 334
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton5 = 335
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton6 = 336
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton7 = 337
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton8 = 338
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton9 = 339
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton10 = 340
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton11 = 341
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton12 = 342
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton13 = 343
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton14 = 344
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton15 = 345
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton16 = 346
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton17 = 347
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton18 = 348
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.JoystickButton19 = 349
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button0 = 350
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button1 = 351
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button2 = 352
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button3 = 353
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button4 = 354
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button5 = 355
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button6 = 356
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button7 = 357
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button8 = 358
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button9 = 359
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button10 = 360
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button11 = 361
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button12 = 362
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button13 = 363
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button14 = 364
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button15 = 365
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button16 = 366
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button17 = 367
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button18 = 368
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick1Button19 = 369
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button0 = 370
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button1 = 371
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button2 = 372
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button3 = 373
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button4 = 374
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button5 = 375
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button6 = 376
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button7 = 377
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button8 = 378
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button9 = 379
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button10 = 380
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button11 = 381
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button12 = 382
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button13 = 383
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button14 = 384
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button15 = 385
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button16 = 386
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button17 = 387
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button18 = 388
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick2Button19 = 389
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button0 = 390
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button1 = 391
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button2 = 392
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button3 = 393
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button4 = 394
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button5 = 395
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button6 = 396
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button7 = 397
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button8 = 398
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button9 = 399
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button10 = 400
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button11 = 401
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button12 = 402
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button13 = 403
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button14 = 404
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button15 = 405
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button16 = 406
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button17 = 407
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button18 = 408
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick3Button19 = 409
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button0 = 410
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button1 = 411
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button2 = 412
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button3 = 413
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button4 = 414
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button5 = 415
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button6 = 416
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button7 = 417
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button8 = 418
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button9 = 419
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button10 = 420
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button11 = 421
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button12 = 422
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button13 = 423
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button14 = 424
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button15 = 425
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button16 = 426
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button17 = 427
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button18 = 428
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick4Button19 = 429
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button0 = 430
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button1 = 431
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button2 = 432
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button3 = 433
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button4 = 434
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button5 = 435
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button6 = 436
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button7 = 437
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button8 = 438
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button9 = 439
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button10 = 440
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button11 = 441
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button12 = 442
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button13 = 443
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button14 = 444
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button15 = 445
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button16 = 446
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button17 = 447
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button18 = 448
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick5Button19 = 449
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button0 = 450
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button1 = 451
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button2 = 452
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button3 = 453
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button4 = 454
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button5 = 455
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button6 = 456
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button7 = 457
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button8 = 458
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button9 = 459
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button10 = 460
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button11 = 461
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button12 = 462
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button13 = 463
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button14 = 464
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button15 = 465
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button16 = 466
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button17 = 467
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button18 = 468
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick6Button19 = 469
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button0 = 470
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button1 = 471
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button2 = 472
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button3 = 473
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button4 = 474
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button5 = 475
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button6 = 476
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button7 = 477
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button8 = 478
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button9 = 479
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button10 = 480
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button11 = 481
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button12 = 482
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button13 = 483
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button14 = 484
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button15 = 485
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button16 = 486
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button17 = 487
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button18 = 488
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick7Button19 = 489
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button0 = 490
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button1 = 491
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button2 = 492
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button3 = 493
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button4 = 494
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button5 = 495
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button6 = 496
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button7 = 497
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button8 = 498
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button9 = 499
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button10 = 500
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button11 = 501
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button12 = 502
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button13 = 503
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button14 = 504
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button15 = 505
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button16 = 506
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button17 = 507
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button18 = 508
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.Joystick8Button19 = 509
 
 CS.Game.IBuff = {}
 function CS.Game.IBuff:GetName() end

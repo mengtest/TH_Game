@@ -1,1 +1,1 @@
-﻿D:/Game/THGame/Assets/Xlua/Src/Editor/LuaIde/LuaIdeApi.tpl.txt
+﻿F:/Code/THGame/Assets/Xlua/Src/Editor/LuaIde/LuaIdeApi.tpl.txt
