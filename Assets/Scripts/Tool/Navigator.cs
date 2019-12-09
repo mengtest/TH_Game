@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Util;
 
 partial class Global
 {
@@ -21,11 +22,10 @@ partial class Global
             name = "Scenes/" + name;
         }
 
+        Listener.Instance.Event("scene_changed");
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            //Cache.SetSceneParam(name);
-//            SceneManager.MoveGameObjectToScene();
             SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
             {
                 SceneManager.LoadSceneAsync(name);
@@ -44,6 +44,7 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
 
+        Listener.Instance.Event("scene_changed");
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
@@ -64,6 +65,7 @@ partial class Global
     public static void Refresh()
     {
         //直接重新加载当前的场景一次，不会被添加到场景栈中
+        Listener.Instance.Event("scene_refreshed");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

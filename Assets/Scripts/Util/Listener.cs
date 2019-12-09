@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using Lib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,14 +13,6 @@ namespace Util
     [LuaCallCSharp]
     public class Listener
     {
-        public enum EventType
-        {
-            CLICK,
-            KEYBOARD,
-            CONTROLLER,
-            CUSTOM,
-        }
-
         [LuaCallCSharp]
         [CSharpCallLua]
         public delegate bool Predicate();
@@ -33,6 +27,7 @@ namespace Util
         private static Listener _instance = null;
         public static Listener Instance => _instance;
         private Dictionary<int, Queue<AsyncCall>> _actions;
+        private Dictionary<string, List<Global.Pair<int, AsyncCall>>> _events;
         private GameObject _eventListener;
 
         private Listener()
@@ -45,6 +40,13 @@ namespace Util
             if (_instance == null)
             {
                 _instance = new Listener();
+                _instance._events = new Dictionary<string, List<Global.Pair<int, AsyncCall>>>();
+                if (_instance._eventListener == null)
+                {
+                    _instance._eventListener = new GameObject("EventListener");
+                    _instance._eventListener.AddComponent<EventListener>();
+                    SceneManager.MoveGameObjectToScene(_instance._eventListener, SceneManager.GetActiveScene());
+                }
             }
         }
 
@@ -79,11 +81,9 @@ namespace Util
 
         private void ListenerInit()
         {
-            if (_eventListener == null)
+            if (_eventListener.transform.parent == null)
             {
-                _eventListener = new GameObject("EventListener");
-                _eventListener.AddComponent<EventListener>();
-                SceneManager.MoveGameObjectToScene(_eventListener, SceneManager.GetActiveScene());
+                
             }
         }
 
@@ -93,12 +93,7 @@ namespace Util
             _eventListener.GetComponent<EventListener>().Reg(signal, callback, false);
         }
         
-        //按键，鼠标等相关的事件监听器,signal为其唯一标识符
-//        public void On(string signal, int click, Callback callback, bool once = true)
-//        {
-//            Debug.Log("123123");
-//        }
-
+        //键盘，鼠标等相关的事件注册
         public void On(string signal, KeyCode code, Callback callback, bool once = true)
         {
             ListenerInit();
@@ -113,9 +108,13 @@ namespace Util
         }
 
         //signal标识这个事件是否有唯一标识符，0表示没有
-        public void On(string type, AsyncCall call, int signal = 0, bool once = true)
+        public void On(string type, int signal, AsyncCall call)
         {
-            
+            if (!_events.ContainsKey(type))
+            {
+                _events[type] = new List<Global.Pair<int, AsyncCall>>();
+            }
+            _events[type].Add(new Global.Pair<int, AsyncCall>(signal, call));
         }
 
         //谓词监听器，满足自定义条件则自动触发
@@ -125,20 +124,56 @@ namespace Util
             {
                 return;
             }
-            ListenerInit();
             _eventListener.GetComponent<EventListener>().Reg(signal, predicate, callback, once);
         }
 
         //调用事件
         public void Event(string type, int signal = 0 ,object o1 = null, object o2 = null, object o3 = null)
         {
-            
+            if (_events.ContainsKey(type))
+            {
+                if (signal != 0)
+                {
+                    for (int i = 0; i < _events[type].Count; i++)
+                    {
+                        var e = _events[type].ElementAt(i);
+                        if (e.First == signal)
+                        {
+                            e.Second.Invoke(o1, o2, o3);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < _events[type].Count; i++)
+                    {
+                        var e = _events[type].ElementAt(i);
+                        e.Second.Invoke(o1, o2, o3);
+                    }
+                }
+            }
         }
-
-        //
+        
         public void Off(string type, int signal = 0)
         {
-            
+            if (_events.ContainsKey(type))
+            {
+                if (signal != 0)
+                {
+                    for (int i = 0; i < _events[type].Count; i++)
+                    {
+                        var e = _events[type].ElementAt(i);
+                        if (e.First == signal)
+                        {
+                            _events[type].RemoveAt(i);
+                        }
+                    }
+                }
+                else
+                {
+                    _events.Remove(type);
+                }
+            }
         }
     }
 }

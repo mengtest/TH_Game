@@ -52,7 +52,7 @@ Button.StartButtonCallback = function()
         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
 
         CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.Mouse0, function()
-            -- seq:DOPause()
+            seq:Kill()
             CS.Global.NavigateTo("MainScene", true)
         end)
         -- print(123)

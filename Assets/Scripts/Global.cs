@@ -80,8 +80,8 @@ public static partial class Global
         return list.ToArray();
     }
 
-    public const float TOAST_SHORT = 1.5f;
-    public const float TOAST_LONG = 3.0f;
+    public const float ToastShort = 1.5f;
+    public const float ToastLong = 3.0f;
     
     public static void MakeToast(string text, float time)
     {

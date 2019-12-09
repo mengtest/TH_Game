@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Threading;
 using UnityEngine;
 using Util;
@@ -1316,11 +1318,9 @@ namespace Lib
         Joystick8Button19 = 509, // 0x000001FD
     }
     
-    
     public class EventListener : MonoBehaviour
     {
         private Dictionary<string, Listener.Callback> _eventList = new Dictionary<string, Listener.Callback>();
-        private Mutex m = new Mutex();
 
         public void Reg(string type, Listener.Callback callback, bool once)
         {
@@ -1340,8 +1340,7 @@ namespace Lib
                 _eventList.Add(type, callback);
             }
         }
-        
-        
+
         public void Reg(string type, Listener.Predicate predicate, Listener.Callback callback, bool once)
         {
             if (once)
@@ -1375,21 +1374,14 @@ namespace Lib
 
         public void Remove(string type)
         {
-            m.WaitOne();
             if (_eventList.ContainsKey(type))
             {
                 _eventList.Remove(type);
             }
-            m.ReleaseMutex();
         }
         
         private void Update()
         {
-//            foreach (var action in _eventList)
-//            {
-//                action.Value.Invoke();
-//            }
-
             for (int i = 0; i < _eventList.Count; i++)
             {
                 _eventList.ElementAt(i).Value.Invoke();
