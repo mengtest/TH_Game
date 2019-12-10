@@ -75,14 +75,15 @@ namespace Manager
             var obj = new GameObject("animation");
             var ani = obj.AddComponent<AnimationEx>();
 
-            string[] paths = new String[end - start];
+            string[] paths = new String[end - start + 1];
 
-            for (int i = start; i < end; i++)
+            for (int count = 0, i = start; i <= end; i++)
             {
-                paths[i] = $"{path}{i}";
+                paths[count] = $"{path}{i}";
+                count++;
             }
             
-            ani.LoadImages(path);
+            ani.LoadImages(paths);
             var index = GetId();
             id = index;
             if (callback != null)
@@ -103,7 +104,7 @@ namespace Manager
             }
             ani.Play(delay, interval, loop, callback);
             
-            _list.Append(new Global.Pair<int, AnimationEx>(id, ani));
+            _list.AddLast(new Global.Pair<int, AnimationEx>(id, ani));
             return obj;
         }
         
@@ -138,7 +139,7 @@ namespace Manager
             }
             ani.Play(delay, interval, loop, callback);
             
-            _list.Append(new Global.Pair<int, AnimationEx>(id, ani));
+            _list.AddLast(new Global.Pair<int, AnimationEx>(id, ani));
             return obj;
         }
 

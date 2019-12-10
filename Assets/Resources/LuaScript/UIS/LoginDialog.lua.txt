@@ -17,6 +17,13 @@ function ConfirmButton()
     
     -- CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 
+    -- local animaId
+    --@RefType [luaIde#CS.UnityEngine.GameObject]
+    local ani, animaId = CS.Manager.Animation.Play("Effect/loading/", 0.1, 13, 24, -1, 0, nil)
+    ani.transform:SetParent(CS.Global.GetRootObject("UICanvas").transform)
+    ani.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
+    tb.animaId = animaId
+
     CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")
 end
 
@@ -26,6 +33,7 @@ end
 
 function loginCallback(res, type, msg)
     if res == true then
+        CS.Manager.Animation.Stop(tb.animaId)
         coroutine.resume(tb.closeDialogThread)
         CS.Global.Log("登入成功")
     else

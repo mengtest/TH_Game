@@ -47,11 +47,13 @@ namespace EX
 
         public void LoadImages([NotNull] string path)
         {
+//            throw new Exception("暂时无法使用这个api");
+            
             if (path[path.Length - 1] != '/')
             {
                 throw new Exception("无法为单张图片播放动画");
             }
-
+            
             _frames = Resources.LoadAll<Sprite>(path);
         }
 
@@ -80,7 +82,7 @@ namespace EX
         //停止当前动画
         public void Stop(bool destroy = true)
         {
-            
+            Destroy(gameObject);
         }
         
         //时间全部以秒为单位
