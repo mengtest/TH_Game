@@ -55,14 +55,14 @@ namespace StoryScene
         //所有章节信息的初始化
         private void ContentInit()
         {
-            var view = GetComponent<ScrollViewEx>();
-            var array = Global.Resources.Instance.Chapters.ChaptersChapters;
-            Transform[] trans = new Transform[array.Length];
-            for (int index = 0; index < array.Length; index++)
-            {
-                trans[index] = ChapterScript.CreateChapter(array[index]).transform;
-            }
-            view.AddChildren(trans);
+//            var view = GetComponent<ScrollViewEx>();
+//            var array = Global.Resources.Instance.Chapters.ChaptersChapters;
+//            Transform[] trans = new Transform[array.Length];
+//            for (int index = 0; index < array.Length; index++)
+//            {
+//                trans[index] = ChapterScript.CreateChapter(array[index]).transform;
+//            }
+//            view.AddChildren(trans);
         }
 
         private void Scrolled(Vector2 vec)

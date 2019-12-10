@@ -1,0 +1,16 @@
+﻿--技能分配器
+local SkillAllocator = {
+    skills = {
+
+    }
+}
+
+--@data: 从服务器，或者本地获得技能相关的数据，然后解析
+function SkillAllocator:Create(data)
+    local o = {}
+    setmetatable(o, self)
+    o.__index = self
+    return o
+end
+
+return SkillAllocator

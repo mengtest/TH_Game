@@ -9,12 +9,12 @@ CS.Global.Scene = nil
 	CS.System.Single
 	 Get 	 Set 
 --]]
-CS.Global.TOAST_SHORT = nil
+CS.Global.ToastShort = nil
 --[[
 	CS.System.Single
 	 Get 	 Set 
 --]]
-CS.Global.TOAST_LONG = nil
+CS.Global.ToastLong = nil
 --[[
 	@str CS.System.String
 	@level CS.Global.Level
@@ -4793,13 +4793,6 @@ function CS.Util.Listener:Call(code,o1,o2,o3) end
 function CS.Util.Listener:Inject(signal,callback) end
 --[[
 	@signal CS.System.String
-	@click CS.System.Int32
-	@callback CS.Util.Listener.Callback
-	@once CS.System.Boolean
---]]
-function CS.Util.Listener:On(signal,click,callback,once) end
---[[
-	@signal CS.System.String
 	@code CS.Lib.KeyCode
 	@callback CS.Util.Listener.Callback
 	@once CS.System.Boolean
@@ -4807,11 +4800,10 @@ function CS.Util.Listener:On(signal,click,callback,once) end
 function CS.Util.Listener:On(signal,code,callback,once) end
 --[[
 	@type CS.System.String
-	@call CS.Util.Listener.AsyncCall
 	@signal CS.System.Int32
-	@once CS.System.Boolean
+	@call CS.Util.Listener.AsyncCall
 --]]
-function CS.Util.Listener:On(type,call,signal,once) end
+function CS.Util.Listener:On(type,signal,call) end
 --[[
 	@predicate CS.Util.Listener.Predicate
 	@callback CS.Util.Listener.Callback
@@ -4902,10 +4894,10 @@ function CS.Util.Pool:ClearAll() end
 function CS.Util.Pool:GetItem(sign) end
 --[[
 	@sign CS.System.String
-	@function CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@fuc CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
 	@return [luaIde#CS.UnityEngine.GameObject]
 --]]
-function CS.Util.Pool:GetItemByFunc(sign,fun) end
+function CS.Util.Pool:GetItemByFunc(sign,fuc) end
 function CS.Util.Pool:Init() end
 
 CS.Util.pool.IPool = {}
@@ -4984,6 +4976,7 @@ function CS.Net.NetHelper:ReceiveMsg(msg) end
 function CS.Net.NetHelper:Login(username,userpwd,callName) end
 function CS.Net.NetHelper:Logout() end
 function CS.Net.NetHelper:DrawCard() end
+function CS.Net.NetHelper:Draw() end
 function CS.Net.NetHelper:Connect() end
 function CS.Net.NetHelper:Disconnect() end
 function CS.Net.NetHelper:Update() end
@@ -6673,6 +6666,11 @@ CS.Lib.KeyCode.Joystick8Button18 = 508
 	 Get 	 Set 
 --]]
 CS.Lib.KeyCode.Joystick8Button19 = 509
+--[[
+	CS.Lib.KeyCode
+	 Get 	 Set 
+--]]
+CS.Lib.KeyCode.AnyKey = 2000
 
 CS.Game.IBuff = {}
 function CS.Game.IBuff:GetName() end
@@ -7946,7 +7944,7 @@ function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 --@SuperType [luaIde#CS.System.Object]
 CS.DG.Tweening.Core.ABSSequentiable = {}
 
---@SuperType [luaIde#CS.DG.Tweening.Tweener]
+-- --@SuperType [luaIde#CS.DG.Tweening.Tweener]
 -- CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
 -- --[[
 -- 	@RefType [luaIde#CS.UnityEngine.Vector3]

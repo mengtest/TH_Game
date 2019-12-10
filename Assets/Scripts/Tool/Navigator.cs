@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Prefab;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
@@ -22,19 +20,25 @@ partial class Global
             name = "Scenes/" + name;
         }
 
-        Listener.Instance.Event("scene_changed");
+        Listener.Instance.Event("scene_change", 0, name);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
             SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
-            {
-                SceneManager.LoadSceneAsync(name);
-            };
+                {
+                    SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
+                    {
+                        Listener.Instance.Event("scene_changed", 0, name);
+                    };
+                };
         }
         else
         {
             
-            SceneManager.LoadScene(name);
+            SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
+            {
+                Listener.Instance.Event("scene_changed", 0, name);
+            };
         }
     }
     
@@ -44,20 +48,24 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
 
-        Listener.Instance.Event("scene_changed");
+        Listener.Instance.Event("scene_change", 0, id);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            //var layer = Object.Instantiate(UnityEngine.Resources.Load<GameObject>("Prefab/LoadingLayer"));
-            //SceneManager.MoveGameObjectToScene(layer, SceneManager.GetActiveScene());
             SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
-            {
-                SceneManager.LoadSceneAsync(id);
-            };
+                {
+                    SceneManager.LoadSceneAsync(id).completed += (op) =>
+                    {
+                        Listener.Instance.Event("scene_changed", 0, id);
+                    };
+                };
         }
         else
         {
-            SceneManager.LoadScene(id);
+            SceneManager.LoadSceneAsync(id).completed += operation =>
+            {
+                Listener.Instance.Event("scene_changed", 0, id);
+            };
         }
     }
 
@@ -65,8 +73,11 @@ partial class Global
     public static void Refresh()
     {
         //直接重新加载当前的场景一次，不会被添加到场景栈中
-        Listener.Instance.Event("scene_refreshed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Listener.Instance.Event("scene_refresh");
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex).completed += operation =>
+        {
+            Listener.Instance.Event("scene_refreshd", 0);
+        };
     }
 
     //返回到上个场景
@@ -75,7 +86,7 @@ partial class Global
         if (_sceneStack.Count > 0)
         {
             //如果上一个场景的id有效则跳转到对应的场景
-            SceneManager.LoadScene(_sceneStack.Pop());
+            NavigateTo(_sceneStack.Pop(), false);
         }
         else
         {

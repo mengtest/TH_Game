@@ -1,16 +1,9 @@
 ﻿using System;
 using LuaFramework;
 using Util;
-using XLua;
 
 namespace Net
 {
-    public struct ErrorCode
-    {
-        public long CodeId;
-        public string CodeMsg;
-    }
-
     //处理发送给服务器的数据，与解析服务器回传的数据的类
     public partial class NetHelper
     {
@@ -26,8 +19,6 @@ namespace Net
         
         private static NetHelper _instance = null;
         
-        
-
         public static NetHelper GetInstance()
         {
             return _instance;
@@ -48,12 +39,7 @@ namespace Net
         //接收服务器回传的消息并解析
         public void ReceiveMsg(Msg msg)
         {
-//            var res = LoginMsg.Parser.ParseJson(msg.Msg_);
-//            Debug.Log(res.Code);
-//            Debug.Log(res.Msg);
-//            LoginMsg.Parser.ParseFrom()
-//            Debug.Log(data.Code);
-//            Debug.Log(data.Msg);
+            
         }
         
         //登入
@@ -64,6 +50,7 @@ namespace Net
             Listener.Instance.Register(1, act);
             // 发送消息
             // 这里采用异步的方式来模拟发送消息的过程
+            // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
             if (username == "yuki1432" && userpwd == "abcd1234123")
             {
                 //模拟异步的情景
@@ -89,6 +76,12 @@ namespace Net
 
         //抽卡
         public void DrawCard()
+        {
+            
+        }
+
+        //抽抽抽
+        public void Draw()
         {
             
         }

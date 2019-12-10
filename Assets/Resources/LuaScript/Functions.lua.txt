@@ -51,11 +51,10 @@ Button.StartButtonCallback = function()
         -- 修改文本的坐标为中间偏下的位置
         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
 
-        CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.Mouse0, function()
+        CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.AnyKey, function()
             seq:Kill()
             CS.Global.NavigateTo("MainScene", true)
-        end)
-        -- print(123)
+        end, true)
     end)
 
     -- 点击取消的回调
@@ -66,7 +65,7 @@ end
 
 Button.SettingButtonCallback = function()
     -- 点击设置按钮之后跳转到设置场景
-    CS.Global.NavigateTo("SettingScene", false)
+    CS.Global.NavigateTo("SettingScene", true)
 end
 
 Button.ExitButtonCallback = function()

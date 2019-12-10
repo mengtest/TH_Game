@@ -1316,6 +1316,9 @@ namespace Lib
         ///   <para>Button 19 on eighth joystick.</para>
         /// </summary>
         Joystick8Button19 = 509, // 0x000001FD
+        
+        //用于表示按下任意键
+        AnyKey = 2000,
     }
     
     public class EventListener : MonoBehaviour

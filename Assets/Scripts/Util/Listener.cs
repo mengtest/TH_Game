@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using DG.Tweening;
 using Lib;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using XLua;
 using KeyCode = Lib.KeyCode;
+using Object = UnityEngine.Object;
 
 namespace Util
 {
@@ -26,65 +24,58 @@ namespace Util
         
         private static Listener _instance = null;
         public static Listener Instance => _instance;
-        private Dictionary<int, Queue<AsyncCall>> _actions;
         private Dictionary<string, List<Global.Pair<int, AsyncCall>>> _events;
         private GameObject _eventListener;
 
         private Listener()
         {
-            _actions = new Dictionary<int, Queue<AsyncCall>>();
+            _events = new Dictionary<string, List<Global.Pair<int, AsyncCall>>>();
         }
 
         public static void Init()
         {
-            if (_instance == null)
-            {
-                _instance = new Listener();
-                _instance._events = new Dictionary<string, List<Global.Pair<int, AsyncCall>>>();
-                if (_instance._eventListener == null)
-                {
-                    _instance._eventListener = new GameObject("EventListener");
-                    _instance._eventListener.AddComponent<EventListener>();
-                    SceneManager.MoveGameObjectToScene(_instance._eventListener, SceneManager.GetActiveScene());
-                }
-            }
+            if (_instance != null) return;
+            _instance = new Listener();
+            if (_instance._eventListener != null) return;
+            _instance._eventListener = new GameObject("EventListener");
+            _instance._eventListener.AddComponent<EventListener>();    
+            Object.DontDestroyOnLoad(_instance._eventListener);
         }
 
         //注册消息，就是单一回调，触发之后就会删除
         public void Register(int code, AsyncCall action)
         {
-            if (_actions.ContainsKey(code))
+            if (_events.ContainsKey("async_events"))
             {
-                _actions[code].Enqueue(action);
+                _events["async_events"].Add(new Global.Pair<int, AsyncCall>(code, action));
             }
             else
             {
-                var l = new Queue<AsyncCall>();
-                l.Enqueue(action);
-                _actions.Add(code, l);
+                _events["async_events"] = new List<Global.Pair<int, AsyncCall>>();
+                _events["async_events"].Add(new Global.Pair<int, AsyncCall>(code, action));
             }
         }
 
         //触发一个单一回调的事件，触发完后直接删除
         public void Call(int code, object o1, object o2, object o3)
         {
-            if (_actions.ContainsKey(code))
+            if (_events.ContainsKey("async_events"))
             {
-                var l = _actions[code];
-                if (l.Count > 0)
+                var actions = _events["async_events"];
+                foreach (Global.Pair<int,AsyncCall> action in actions)
                 {
-                    var act = l.Dequeue();
-                    act.Invoke(o1, o2, o3);
+                    if (action.First == code)
+                    {
+                        action.Second.Invoke(o1, o2, o3);
+                        return;
+                    }
                 }
             }
         }
 
         private void ListenerInit()
         {
-            if (_eventListener.transform.parent == null)
-            {
-                
-            }
+            
         }
 
         //将一个函数注入到事件监听器中
@@ -94,17 +85,23 @@ namespace Util
         }
         
         //键盘，鼠标等相关的事件注册
-        public void On(string signal, KeyCode code, Callback callback, bool once = true)
+        public void On(string signal, KeyCode code, Callback callback, bool once = false)
         {
-            ListenerInit();
-            var keycode = (UnityEngine.KeyCode) code;
-            _eventListener.GetComponent<EventListener>().Reg(signal, () =>
+            //设定上，按下任意键继续不包含escape键
+            if (code == KeyCode.AnyKey)
             {
-                if (Input.GetKey(keycode) || Input.GetKeyDown(keycode))
-                {
-                    callback.Invoke();
-                }
-            }, false);
+                _eventListener.GetComponent<EventListener>().Reg(signal, 
+                    () => Input.anyKey && !Input.GetKeyDown(UnityEngine.KeyCode.Escape), 
+                    callback, 
+                    once);
+                return;
+            }
+            
+            var keycode = (UnityEngine.KeyCode) code;
+            _eventListener.GetComponent<EventListener>().Reg(signal,
+                () => Input.GetKeyDown(keycode),
+                callback, 
+                once);
         }
 
         //signal标识这个事件是否有唯一标识符，0表示没有
@@ -173,6 +170,10 @@ namespace Util
                 {
                     _events.Remove(type);
                 }
+            }
+            else
+            {
+                _eventListener.GetComponent<EventListener>().Remove(type);
             }
         }
     }

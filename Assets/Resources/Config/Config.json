@@ -14,12 +14,12 @@
     "width": 1920,
     "height": 1080,
     "full_screen": true,
-    "no_boarder": true
+    "no_boarder": true,
+    "desc": "这些字段可以参考dota2的video文件描述"
   },
   "user_config": {
     "uid": 11111111111,
     "name": "",
-    "pwd": "这个字段会加密处理",
-    "last_login_time":"1231231231123"
+    "last_login_time": "1231231231123"
   }
 }
