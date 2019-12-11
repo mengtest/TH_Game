@@ -68,7 +68,7 @@ namespace Prefab
             _async = SceneManager.LoadSceneAsync(sceneName);
             _async.completed += operation =>
             {
-                Listener.Instance.Event("scene_changed", 0, sceneName);
+                Listener.Instance.Event("scene_changed", null, sceneName);
             };
             yield return _async;
         }
@@ -79,7 +79,7 @@ namespace Prefab
             _async = SceneManager.LoadSceneAsync(sceneId);
             _async.completed += (op) =>
             {
-                Listener.Instance.Event("scene_changed", 0, sceneId);
+                Listener.Instance.Event("scene_changed", null, sceneId);
             };
             yield return _async;
         }

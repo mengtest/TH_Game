@@ -24,12 +24,12 @@ namespace Util
         
         private static Listener _instance;
         public static Listener Instance => _instance;
-        private Dictionary<string, List<Global.Pair<int, AsyncCall>>> _events;
+        private Dictionary<string, List<Global.Pair<Object, AsyncCall>>> _events;
         private GameObject _eventListener;
 
         private Listener()
         {
-            _events = new Dictionary<string, List<Global.Pair<int, AsyncCall>>>();
+            _events = new Dictionary<string, List<Global.Pair<Object, AsyncCall>>>();
         }
 
         public static void Init()
@@ -47,12 +47,12 @@ namespace Util
         {
             if (_events.ContainsKey("async_events"))
             {
-                _events["async_events"].Add(new Global.Pair<int, AsyncCall>(code, action));
+                _events["async_events"].Add(new Global.Pair<Object, AsyncCall>(code, action));
             }
             else
             {
-                _events["async_events"] = new List<Global.Pair<int, AsyncCall>>();
-                _events["async_events"].Add(new Global.Pair<int, AsyncCall>(code, action));
+                _events["async_events"] = new List<Global.Pair<Object, AsyncCall>>();
+                _events["async_events"].Add(new Global.Pair<Object, AsyncCall>(code, action));
             }
         }
 
@@ -62,7 +62,7 @@ namespace Util
             if (_events.ContainsKey("async_events"))
             {
                 var actions = _events["async_events"];
-                foreach (Global.Pair<int,AsyncCall> action in actions)
+                foreach (Global.Pair<Object,AsyncCall> action in actions)
                 {
                     if (action.First == code)
                     {
@@ -100,13 +100,13 @@ namespace Util
         }
 
         //signal标识这个事件是否有唯一标识符，0表示没有
-        public void On(string type, int signal, AsyncCall call)
+        public void On(string type, Object signal, AsyncCall call)
         {
             if (!_events.ContainsKey(type))
             {
-                _events[type] = new List<Global.Pair<int, AsyncCall>>();
+                _events[type] = new List<Global.Pair<Object, AsyncCall>>();
             }
-            _events[type].Add(new Global.Pair<int, AsyncCall>(signal, call));
+            _events[type].Add(new Global.Pair<Object, AsyncCall>(signal, call));
         }
 
         //谓词监听器，满足自定义条件则自动触发
@@ -120,11 +120,11 @@ namespace Util
         }
 
         //调用事件
-        public void Event(string type, int signal = 0 ,object o1 = null, object o2 = null, object o3 = null)
+        public void Event(string type, Object signal = null ,object o1 = null, object o2 = null, object o3 = null)
         {
             if (_events.ContainsKey(type))
             {
-                if (signal != 0)
+                if (signal != null)
                 {
                     for (int i = 0; i < _events[type].Count; i++)
                     {
@@ -146,11 +146,11 @@ namespace Util
             }
         }
         
-        public void Off(string type, int signal = 0)
+        public void Off(string type, Object signal = null)
         {
             if (_events.ContainsKey(type))
             {
-                if (signal != 0)
+                if (signal != null)
                 {
                     for (int i = 0; i < _events[type].Count; i++)
                     {

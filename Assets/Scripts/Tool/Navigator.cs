@@ -20,7 +20,7 @@ partial class Global
             name = "Scenes/" + name;
         }
 
-        Listener.Instance.Event("scene_change", 0, name);
+        Listener.Instance.Event("scene_change", null, name);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
@@ -31,7 +31,7 @@ partial class Global
         {
             SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
             {
-                Listener.Instance.Event("scene_changed", 0, name);
+                Listener.Instance.Event("scene_changed", null, name);
             };
         }
     }
@@ -42,7 +42,7 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
 
-        Listener.Instance.Event("scene_change", 0, id);
+        Listener.Instance.Event("scene_change", null, id);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
@@ -50,7 +50,7 @@ partial class Global
                 {
                     SceneManager.LoadSceneAsync(id).completed += (op) =>
                     {
-                        Listener.Instance.Event("scene_changed", 0, id);
+                        Listener.Instance.Event("scene_changed", null, id);
                     };
                 };
         }
@@ -58,7 +58,7 @@ partial class Global
         {
             SceneManager.LoadSceneAsync(id).completed += operation =>
             {
-                Listener.Instance.Event("scene_changed", 0, id);
+                Listener.Instance.Event("scene_changed", null, id);
             };
         }
     }
@@ -70,7 +70,7 @@ partial class Global
         Listener.Instance.Event("scene_refresh");
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex).completed += operation =>
         {
-            Listener.Instance.Event("scene_refreshd", 0);
+            Listener.Instance.Event("scene_refreshd", null);
         };
     }
 
