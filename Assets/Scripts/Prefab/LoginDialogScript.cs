@@ -12,10 +12,7 @@ namespace Prefab
         
         [SerializeField]
         private Button _cancel;
-        
-//        [SerializeField]
-//        private InputField _name;
-        
+
         [SerializeField]
         private InputField _pwd;
 

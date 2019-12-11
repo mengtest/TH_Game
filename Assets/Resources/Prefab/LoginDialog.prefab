@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _confirm: {fileID: 8450474941149451200}
-  _cancel: {fileID: 7220846670343817123}
+  _cancel: {fileID: 3595081369112144017}
   _pwd: {fileID: 6264218516914196136}
   _luaClass:
     _filePath: LuaScript/UIS/LoginDialog.lua
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 8861661514354943081}
   - component: {fileID: 9065845575293999075}
   - component: {fileID: 2500640519090009182}
-  - component: {fileID: 7220846670343817123}
+  - component: {fileID: 3595081369112144017}
   m_Layer: 0
   m_Name: CancelBtn
   m_TagString: Untagged
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7220846670343817123
+--- !u!114 &3595081369112144017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7369074810540194527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a66d3fc729640540b942f39cecb95d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1195,6 +1195,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _supporter:
+    functionName: 
+    autoRegister: 1
 --- !u!1 &7847859466441621438
 GameObject:
   m_ObjectHideFlags: 0
