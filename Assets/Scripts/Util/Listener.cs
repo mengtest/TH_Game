@@ -22,7 +22,7 @@ namespace Util
         [CSharpCallLua]
         public delegate void AsyncCall(object o1, object o2, object o3);
         
-        private static Listener _instance = null;
+        private static Listener _instance;
         public static Listener Instance => _instance;
         private Dictionary<string, List<Global.Pair<int, AsyncCall>>> _events;
         private GameObject _eventListener;
@@ -71,11 +71,6 @@ namespace Util
                     }
                 }
             }
-        }
-
-        private void ListenerInit()
-        {
-            
         }
 
         //将一个函数注入到事件监听器中

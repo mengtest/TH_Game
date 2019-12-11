@@ -39,8 +39,9 @@ namespace EX
             var index = 0;
             foreach (var path in paths)
             {
-                var res = Util.Loader.Load<Sprite>(path);
-                _frames[index] = res;
+                var res = Util.Loader.Load<Sprite>(path)/* as Texture2D*/;
+                _frames[index] = /*Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));*/
+                    res;
                 index++;
             }
         }

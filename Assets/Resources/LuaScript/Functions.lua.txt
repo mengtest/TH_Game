@@ -53,6 +53,9 @@ Button.StartButtonCallback = function()
 
         CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.AnyKey, function()
             seq:Kill()
+            CS.Util.Listener.Instance:On("scene_change", 0, function(o)
+                print(o)
+            end)
             CS.Global.NavigateTo("MainScene", true)
         end, true)
     end)
@@ -67,7 +70,7 @@ Button.SettingButtonCallback = function()
     -- 点击设置按钮之后跳转到设置场景
     CS.Util.Listener.Instance:On("scene_changed", 0, function(o)
         CS.Global.Log("场景"..o.."加载完成")
-    end, true)
+    end)
     CS.Global.NavigateTo("SettingScene")
 end
 

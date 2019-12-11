@@ -13,6 +13,8 @@ namespace Util
         //加载资源
         Object Load(string path);
 
+        Object Load(string path, Type type);
+
         //释放资源
         void Unload(Object obj);
 
@@ -28,6 +30,11 @@ namespace Util
             
             //如果ab中没有这个资源，再从Resource中去加载这个资源
             return Resources.Load(path);
+        }
+
+        public Object Load(string path, Type type)
+        {
+            return Resources.Load(path, type);
         }
 
         public void Unload(Object obj)
@@ -70,7 +77,7 @@ namespace Util
 
         public static T Load<T>(string path) where T : Object
         {
-            return _loader.Load(path) as T;
+            return _loader.Load(path, typeof(T)) as T; 
         }
 
         public static Object Load(string path)
