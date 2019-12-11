@@ -22,18 +22,7 @@ namespace Prefab
         private void Start()
         {
             _pwd.contentType = InputField.ContentType.Password;
-            
-//            var kv = new[]
-//            {
-//                new Global.Injection() {Name = "nameInput", Value = _name},
-//                new Global.Injection() {Name = "pwdInput", Value = _pwd},
-//            };
-//            
-//            var table = LuaEngine.Instance.LoadFile("LuaScript/UIS/LoginDialog.lua", "LoginDialog", this, kv);
-//
-//            table.Get("ConfirmButton", out UnityAction confirmBtnCallback);
-//            table.Get("CancelButton", out UnityAction cancelBtnCallback);
-            
+
             _luaClass.Ref(this);
             _luaClass.Get("ConfirmButton", out UnityAction confirmBtnCallback)
                 .Get("CancelButton", out UnityAction cancelBtnCallback);

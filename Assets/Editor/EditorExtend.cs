@@ -1,4 +1,5 @@
 ﻿using EX;
+using LuaFramework;
 using Prefab;
 using UnityEditor;
 using UnityEngine;
@@ -8,6 +9,13 @@ namespace Editor
 {
     public static class EditorExtend
     {
+        [MenuItem("GameObject/yuki/LuaManager")]
+        public static void AddLuaManager()
+        {
+            var obj = new GameObject("LuaManager");
+            obj.AddComponent<LuaManager>();
+        }
+        
         [MenuItem("GameObject/yuki/ButtonGroup")]
         public static void AddGroupButton()
         {

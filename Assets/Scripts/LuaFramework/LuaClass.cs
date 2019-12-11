@@ -17,7 +17,7 @@ namespace LuaFramework
         
         private LuaTable _tb;
 
-        public virtual void Ref(MonoBehaviour self)
+        public void Ref(MonoBehaviour self)
         {
             //如果路径为空，则不会注册该对象
             if (string.IsNullOrEmpty(_filePath) || string.IsNullOrEmpty(_name))
@@ -33,7 +33,7 @@ namespace LuaFramework
             _tb = LuaEngine.Instance.LoadFile(_filePath, _name, self, _injections);
         }
         
-        public virtual void Ref(GameObject self)
+        public void Ref(GameObject self)
         {
             //如果路径为空，则不会注册该对象
             if (string.IsNullOrEmpty(_filePath) || string.IsNullOrEmpty(_name))

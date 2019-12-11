@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using LuaFramework;
+﻿using LuaFramework;
 using Manager;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +6,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
-using static Global;
 
 namespace EX
 {

@@ -6,15 +6,6 @@ using XLua;
 
 namespace LuaFramework
 {
-    [Serializable]
-    public enum LuaType
-    {
-        [Tooltip("读取整个lua文件，将对应的�?�象注册为lua的�?�象")]
-        Class,
-        [Tooltip("读取lua文件�?的某�?函数")]
-        Func,
-    }
-    
     public class LuaEngine : /*MonoBehaviour,*/ IDisposable
     {
         private static LuaEngine _engine;
@@ -31,7 +22,7 @@ namespace LuaFramework
                 _engine._luaTables = new Dictionary<string, LuaTable>();
             }
             
-            //一些准备工�?
+            //一些准备工作
             if (!_engine._luaTables.ContainsKey("functions"))
             {
                 _engine.LoadFile("LuaScript/Functions.lua", "functions");
@@ -81,8 +72,8 @@ namespace LuaFramework
             return _env;
         }
 
-        //加载整个文件，后�?会根据id将lua函数映射到C#函数
-        //path为lua文件�?�?,id为文件名
+        //加载整个文件，后面会根据id将lua函数映射到C#函数
+        //path为lua文件路径,id为文件名
         public LuaTable LoadFile(string path, string name)
         {
             var table = _env.NewTable();
