@@ -7,7 +7,7 @@ namespace Util
     [AddComponentMenu("yuki/Localization")]
     public class Localization : MonoBehaviour
     {
-        void Start()
+        void Awake()
         {
             Translator.Translate(this);
         }

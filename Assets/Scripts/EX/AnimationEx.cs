@@ -39,7 +39,7 @@ namespace EX
             var index = 0;
             foreach (var path in paths)
             {
-                var res = Resources.Load<Sprite>(path);
+                var res = Util.Loader.Load<Sprite>(path);
                 _frames[index] = res;
                 index++;
             }
@@ -47,14 +47,14 @@ namespace EX
 
         public void LoadImages([NotNull] string path)
         {
-//            throw new Exception("暂时无法使用这个api");
+            throw new Exception("暂时无法使用这个api");
             
-            if (path[path.Length - 1] != '/')
-            {
-                throw new Exception("无法为单张图片播放动画");
-            }
+            // if (path[path.Length - 1] != '/')
+            // {
+            //     throw new Exception("无法为单张图片播放动画");
+            // }
             
-            _frames = Resources.LoadAll<Sprite>(path);
+            // _frames = Resources.LoadAll<Sprite>(path);
         }
 
         private void Awake()

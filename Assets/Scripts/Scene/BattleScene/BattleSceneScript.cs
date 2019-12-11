@@ -62,14 +62,14 @@ namespace BattleScene
         {
             if (_enemyBoard == null)
             {
-                _enemyBoard = ((GameObject) Instantiate(Resources.Load("Prefab/EnemyBoard")))
+                _enemyBoard = ((GameObject) Instantiate(Util.Loader.Load("Prefab/EnemyBoard")))
                     .GetComponent<BattleBoard>();
                 _enemyBoard.name = "EnemyBoard";
             }
             
             if (_selfBoard == null)
             {
-                _selfBoard = ((GameObject) Instantiate(Resources.Load("Prefab/SelfBoard")))
+                _selfBoard = ((GameObject) Instantiate(Util.Loader.Load("Prefab/SelfBoard")))
                     .GetComponent<BattleBoard>();
                 _selfBoard.name = "SelfBoard";
             }

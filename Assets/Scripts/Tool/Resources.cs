@@ -1,11 +1,4 @@
-﻿using System.IO;
-using Entity.Card.Extend;
-using Entity.Chapters;
-using Entity.Config;
-using Entity.Save;
-using UnityEngine;
-
-partial class Global
+﻿partial class Global
 {
     public class Resources
     {

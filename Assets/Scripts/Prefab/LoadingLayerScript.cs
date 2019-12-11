@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Util;
 
 namespace Prefab
 {
@@ -22,7 +23,18 @@ namespace Prefab
         {
             _t = _text.text;
             Invoke(nameof(Timer), 0.5f);
-            StartCoroutine(LoadScene("Scenes/MainScene"));
+            if (Global.Cache.GetNextSceneId() != -1)
+            {
+                StartCoroutine(LoadScene(Global.Cache.GetNextSceneId()));
+            }
+            else if(Global.Cache.GetNextSceneName().Length != 0)
+            {
+                StartCoroutine(LoadScene(Global.Cache.GetNextSceneName()));
+            }
+            else
+            {
+                throw new Exception("不正确的场景参数");
+            }
         }
 
         private void Timer()
@@ -54,6 +66,10 @@ namespace Prefab
         {
             yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneName);
+            _async.completed += operation =>
+            {
+                Listener.Instance.Event("scene_changed", 0, sceneName);
+            };
             yield return _async;
         }
     
@@ -61,6 +77,10 @@ namespace Prefab
         {
             yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneId);
+            _async.completed += (op) =>
+            {
+                Listener.Instance.Event("scene_changed", 0, sceneId);
+            };
             yield return _async;
         }
     }

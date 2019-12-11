@@ -1,5 +1,4 @@
 ﻿using EX;
-using Prefab;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +22,7 @@ namespace StoryScene
         
         public static GameObject CreateScrollEx()
         {
-            var scroll = Instantiate(Resources.Load("Prefab/ScrollView")) as GameObject;
+            var scroll = Instantiate(Util.Loader.Load("Prefab/ScrollView")) as GameObject;
             if (scroll != null)
             {
                 scroll.name = "Scroll View";

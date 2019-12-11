@@ -16,6 +16,7 @@
     <BGMVol>背景音效</BGMVol>
     <EFFVol>特效音效</EFFVol>
     <ChVol>角色音效</ChVol>
+    <GraphicsQuality>画面质量</GraphicsQuality>
     <Story>故事模式</Story>
     <Start>快速开始</Start>
     <Invite>邀请好友</Invite>
@@ -24,6 +25,11 @@
     <Normal>普通</Normal>
     <Hard>困难</Hard>
     <Extra>极限</Extra>
+    <High>高</High>
+    <VoiceSetting>音效</VoiceSetting>
+    <GraphSetting>图像</GraphSetting>
+    <OtherSetting>其他</OtherSetting>
+    <VeryHigh>极致</VeryHigh>
     <Chapter1>第一章</Chapter1>
     <Chapter2>第二章</Chapter2>
     <Chapter3>第三章</Chapter3>

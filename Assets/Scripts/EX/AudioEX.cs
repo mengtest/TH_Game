@@ -145,7 +145,7 @@ namespace EX
                 }
             }
        
-            var clip = Resources.Load<AudioClip>(_resources[_index]);
+            var clip = Util.Loader.Load<AudioClip>(_resources[_index]);
             _audio.clip = clip;
             _audio.Play();
             _index++;

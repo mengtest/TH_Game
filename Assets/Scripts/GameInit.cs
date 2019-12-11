@@ -1,5 +1,4 @@
-﻿using Game;
-using LuaFramework;
+﻿using LuaFramework;
 using UnityEngine;
 using Util;
 
@@ -11,12 +10,14 @@ public static class GameInit
     public static void ApplicationInit()
     {
 //        Global.Resources.Init();
+        Loader.Init();
         Singleton.Init();
         //先暂时不启用网络连接相关的功能
         Net.NetHelper.Init();
         LuaEngine.Init();
         Listener.Init();
         Pool.Init();
+        
         
 //        var _env = new XLua.LuaEnv();
 //        var table = _env.NewTable();

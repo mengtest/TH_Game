@@ -24,17 +24,11 @@ partial class Global
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
-            SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
-                {
-                    SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
-                    {
-                        Listener.Instance.Event("scene_changed", 0, name);
-                    };
-                };
+            Cache.SetSceneParam(name);
+            SceneManager.LoadSceneAsync("Scenes/LoadingScene");
         }
         else
         {
-            
             SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
             {
                 Listener.Instance.Event("scene_changed", 0, name);

@@ -85,7 +85,7 @@ public static partial class Global
     
     public static void MakeToast(string text, float time)
     {
-        var obj = UnityEngine.Resources.Load<GameObject>("Prefab/Toast");
+        var obj = Util.Loader.Load<GameObject>("Prefab/Toast");
         var toast = Object.Instantiate(obj, GetCurCanvas(GetRootObject("UICanvas")).transform, true);
         toast.transform.localPosition = new Vector3(0, -350);
         toast.GetComponent<ToastScript>().Make(text, time);

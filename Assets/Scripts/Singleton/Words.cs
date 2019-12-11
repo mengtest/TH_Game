@@ -37,7 +37,7 @@ public partial class Singleton
             {
                 _words = new Dictionary<string, string>();
             }
-            TextAsset text = Resources.Load<TextAsset>("Language/" + _currentLanguage);
+            TextAsset text = Util.Loader.Load<TextAsset>("Language/" + _currentLanguage);
             var doc = new XmlDocument();
             doc.LoadXml(text.text);
             if (doc.HasChildNodes)

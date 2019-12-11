@@ -109,7 +109,7 @@ namespace Util
             SceneManager.MoveGameObjectToScene(canvas.gameObject, SceneManager.GetActiveScene());
 
             //dialog的创建与加载
-            var gameObj = Resources.Load("Prefab/Dialog");
+            var gameObj = Util.Loader.Load("Prefab/Dialog");
             var obj = (GameObject) Object.Instantiate(gameObj);
             obj.GetComponent<RectTransform>().SetParent(canvas.GetComponent<Transform>());
             obj.GetComponent<RectTransform>().localPosition = new Vector3(0, 0);

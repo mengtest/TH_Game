@@ -4894,10 +4894,10 @@ function CS.Util.Pool:ClearAll() end
 function CS.Util.Pool:GetItem(sign) end
 --[[
 	@sign CS.System.String
-	@fuc CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
+	@function CS.System.Func`1{{UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}}
 	@return [luaIde#CS.UnityEngine.GameObject]
 --]]
-function CS.Util.Pool:GetItemByFunc(sign,fuc) end
+function CS.Util.Pool:GetItemByFunc(sign,fun) end
 function CS.Util.Pool:Init() end
 
 CS.Util.pool.IPool = {}
@@ -7944,7 +7944,7 @@ function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 --@SuperType [luaIde#CS.System.Object]
 CS.DG.Tweening.Core.ABSSequentiable = {}
 
--- --@SuperType [luaIde#CS.DG.Tweening.Tweener]
+--@SuperType [luaIde#CS.DG.Tweening.Tweener]
 -- CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
 -- --[[
 -- 	@RefType [luaIde#CS.UnityEngine.Vector3]
