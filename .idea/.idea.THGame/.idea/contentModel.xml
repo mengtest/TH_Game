@@ -25,6 +25,7 @@
           <e p="ButtonExEdit.cs" t="Include" />
           <e p="EditorExtend.cs" t="Include" />
           <e p="ExportDoTween.cs" t="Include" />
+          <e p="SpliceButtonEdit.cs" t="Include" />
         </e>
         <e p="luaIde" t="Include">
           <e p="readme.txt" t="Include" />
@@ -43,13 +44,29 @@
             <e p="English.xml" t="Include" />
           </e>
           <e p="LuaScript" t="Include">
+            <e p="cards" t="Include">
+              <e p="alice.lua.txt" t="Include" />
+            </e>
             <e p="chara" t="Include">
               <e p="ICharacter.lua.txt" t="Include" />
             </e>
             <e p="Functions.lua.txt" t="Include" />
+            <e p="gameplay" t="Include">
+              <e p="singelGame.lua.txt" t="Include" />
+            </e>
+            <e p="global" t="Include">
+              <e p="global.lua.txt" t="Include" />
+            </e>
             <e p="LuaDebug.lua.txt" t="Include" />
             <e p="luaIde" t="Include">
               <e p="readme.txt" t="Include" />
+            </e>
+            <e p="player" t="Include">
+              <e p="player.lua.txt" t="Include" />
+            </e>
+            <e p="skills" t="Include">
+              <e p="SkillAllocator.lua.txt" t="Include" />
+              <e p="SkillExecutor.lua.txt" t="Include" />
             </e>
             <e p="UIS" t="Include">
               <e p="LoginDialog.lua.txt" t="Include" />
@@ -58,9 +75,6 @@
           <e p="readme.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="Callbacks" t="Include">
-            <e p="Callbacks.cs" t="Include" />
-          </e>
           <e p="Entity" t="Include">
             <e p="Card" t="Include">
               <e p="Cards.cs" t="Include" />
@@ -77,13 +91,25 @@
             </e>
           </e>
           <e p="EX" t="Include">
+            <e p="AnimationEx.cs" t="Include" />
             <e p="AudioEX.cs" t="Include" />
             <e p="ButtonEx.cs" t="Include" />
             <e p="ButtonGroup.cs" t="Include" />
             <e p="ScrollViewEx.cs" t="Include" />
+            <e p="SpliceButtonEx.cs" t="Include" />
+          </e>
+          <e p="Game" t="Include">
+            <e p="IBuff.cs" t="Include" />
+            <e p="ICard.cs" t="Include" />
+            <e p="IPlayer.cs" t="Include" />
+            <e p="ISkill.cs" t="Include" />
           </e>
           <e p="GameInit.cs" t="Include" />
           <e p="Global.cs" t="Include" />
+          <e p="lib" t="Include">
+            <e p="EventListener.cs" t="Include" />
+            <e p="EventListener2.cs" t="Include" />
+          </e>
           <e p="local" t="Include">
             <e p="Config.cs" t="Include" />
           </e>
@@ -93,11 +119,10 @@
             <e p="ILuaSupporter.cs" t="Include" />
             <e p="LuaClass.cs" t="Include" />
             <e p="LuaEngine.cs" t="Include" />
-            <e p="LuaGameObject.cs" t="Include" />
-            <e p="LuaMachine.cs" t="Include" />
-            <e p="LuaMonoBehavior.cs" t="Include" />
+            <e p="LuaManager.cs" t="Include" />
           </e>
           <e p="Manager" t="Include">
+            <e p="Animation.cs" t="Include" />
             <e p="Sound.cs" t="Include" />
           </e>
           <e p="Net" t="Include">
@@ -110,30 +135,21 @@
             <e p="DialogScript.cs" t="Include" />
             <e p="LoadingLayerScript.cs" t="Include" />
             <e p="LoginDialogScript.cs" t="Include" />
-          </e>
-          <e p="Refactor" t="Include">
-            <e p="Resource.cs" t="Include" />
+            <e p="TabViewScript.cs" t="Include" />
+            <e p="ToastScript.cs" t="Include" />
           </e>
           <e p="Scene" t="Include">
             <e p="BattleScene" t="Include">
               <e p="BattleBoard.cs" t="Include" />
               <e p="BattleSceneScript.cs" t="Include" />
               <e p="ChooserTargetScript.cs" t="Include" />
-              <e p="PauseButton.cs" t="Include" />
               <e p="SlotScript.cs" t="Include" />
             </e>
             <e p="LoadingScene" t="Include">
               <e p="LoadingScript.cs" t="Include" />
             </e>
-            <e p="MainScene" t="Include">
-              <e p="MainSceneBGM.cs" t="Include" />
-            </e>
             <e p="SettingScene" t="Include">
-              <e p="ButtonLayout.cs" t="Include" />
               <e p="LanguageComboBox.cs" t="Include" />
-            </e>
-            <e p="StartScene" t="Include">
-              <e p="ExitButton.cs" t="Include" />
             </e>
             <e p="StoryScene" t="Include">
               <e p="ScrollWidgetScript.cs" t="Include" />
@@ -145,7 +161,6 @@
           </e>
           <e p="Tool" t="Include">
             <e p="Cache.cs" t="Include" />
-            <e p="Error.cs" t="Include" />
             <e p="Navigator.cs" t="Include" />
             <e p="Resources.cs" t="Include" />
             <e p="Structs.cs" t="Include" />
@@ -153,6 +168,7 @@
           </e>
           <e p="Util" t="Include">
             <e p="Listener.cs" t="Include" />
+            <e p="Loader.cs" t="Include" />
             <e p="Localization.cs" t="Include" />
             <e p="ModelDialog.cs" t="Include" />
             <e p="Msg.cs" t="Include" />
@@ -179,63 +195,52 @@
           <e p="Editor" t="Include">
             <e p="ExampleConfig.cs" t="Include" />
           </e>
-          <e p="Examples" t="Include">
-            <e p="01_Helloworld" t="Include">
-              <e p="Helloworld.cs" t="Include" />
-            </e>
-            <e p="02_U3DScripting" t="Include">
-              <e p="LuaBehaviour.cs" t="Include" />
-              <e p="LuaTestScript.lua.txt" t="Include" />
-            </e>
-            <e p="03_UIEvent" t="Include">
-              <e p="ButtonInteraction.lua.txt" t="Include" />
-            </e>
-            <e p="04_LuaObjectOrented" t="Include">
-              <e p="InvokeLua.cs" t="Include" />
-            </e>
-            <e p="05_NoGc" t="Include">
-              <e p="NoGc.cs" t="Include" />
-            </e>
-            <e p="06_Coroutine" t="Include">
-              <e p="Coroutine_Runner.cs" t="Include" />
-              <e p="CoroutineTest.cs" t="Include" />
-              <e p="Resources" t="Include">
-                <e p="coruntine_test.lua.txt" t="Include" />
-                <e p="cs_coroutine.lua.txt" t="Include" />
-              </e>
-            </e>
-            <e p="07_AsyncTest" t="Include">
-              <e p="AsyncTest.cs" t="Include" />
-              <e p="MessageBox.cs" t="Include" />
-              <e p="Resources" t="Include">
-                <e p="async_test.lua.txt" t="Include" />
-                <e p="message_box.lua.txt" t="Include" />
-              </e>
-            </e>
-            <e p="08_Hotfix" t="Include">
-              <e p="HotfixTest.cs" t="Include" />
-              <e p="HotfixTest2.cs" t="Include" />
-              <e p="StatefullTest.cs" t="Include" />
-            </e>
-            <e p="09_GenericMethod" t="Include">
-              <e p="Foo.cs" t="Include" />
-              <e p="GenericMethodExample.cs" t="Include" />
-            </e>
-            <e p="10_SignatureLoader" t="Include">
-              <e p="SignatureLoaderTest.cs" t="Include" />
-            </e>
-            <e p="11_RawObject" t="Include">
-              <e p="RawObjectTest.cs" t="Include" />
-            </e>
-            <e p="12_ReImplementInLua" t="Include">
-              <e p="ReImplementInLua.cs" t="Include" />
-            </e>
-            <e p="13_BuildFromCLI" t="Include">
-              <e p="Editor" t="Include">
-                <e p="BuildFromCLI.cs" t="Include" />
-              </e>
-            </e>
-            <e p="ExampleGenConfig.cs" t="Include" />
+          <e p="Gen" t="Include">
+            <e p="DelegatesGensBridge.cs" t="Include" />
+            <e p="DGTweeningCoreABSSequentiableWrap.cs" t="Include" />
+            <e p="DGTweeningCoreTweenerCore3UnityEngineVector3UnityEngineVector3DGTweeningPluginsOptionsVectorOptionsWrap.cs" t="Include" />
+            <e p="DGTweeningDOTweenModuleUIWrap.cs" t="Include" />
+            <e p="DGTweeningDOTweenWrap.cs" t="Include" />
+            <e p="DGTweeningDOVirtualWrap.cs" t="Include" />
+            <e p="DGTweeningEaseFactoryWrap.cs" t="Include" />
+            <e p="DGTweeningSequenceWrap.cs" t="Include" />
+            <e p="DGTweeningShortcutExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenerWrap.cs" t="Include" />
+            <e p="DGTweeningTweenExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenParamsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenSettingsExtensionsWrap.cs" t="Include" />
+            <e p="DGTweeningTweenWrap.cs" t="Include" />
+            <e p="EnumWrap.cs" t="Include" />
+            <e p="GameIBuffBridge.cs" t="Include" />
+            <e p="GameIBuffWrap.cs" t="Include" />
+            <e p="GameICardBridge.cs" t="Include" />
+            <e p="GameICardWrap.cs" t="Include" />
+            <e p="GameIPlayerBridge.cs" t="Include" />
+            <e p="GameIPlayerWrap.cs" t="Include" />
+            <e p="GameISkillBridge.cs" t="Include" />
+            <e p="GameISkillWrap.cs" t="Include" />
+            <e p="GlobalWrap.cs" t="Include" />
+            <e p="link.xml" t="Include" />
+            <e p="ManagerAnimationWrap.cs" t="Include" />
+            <e p="NetNetHelperWrap.cs" t="Include" />
+            <e p="PackUnpack.cs" t="Include" />
+            <e p="TimerWrap.cs" t="Include" />
+            <e p="TutorialBaseClassWrap.cs" t="Include" />
+            <e p="TutorialCSCallLuaItfDBridge.cs" t="Include" />
+            <e p="TutorialDerivedClassExtensionsWrap.cs" t="Include" />
+            <e p="TutorialDerivedClassWrap.cs" t="Include" />
+            <e p="TutorialICalcWrap.cs" t="Include" />
+            <e p="UtilILoaderBridge.cs" t="Include" />
+            <e p="UtilILoaderWrap.cs" t="Include" />
+            <e p="UtilListenerWrap.cs" t="Include" />
+            <e p="UtilLoaderWrap.cs" t="Include" />
+            <e p="UtilModelDialogWrap.cs" t="Include" />
+            <e p="UtilpoolDefaultPoolWrap.cs" t="Include" />
+            <e p="UtilpoolGameObjectPoolWrap.cs" t="Include" />
+            <e p="UtilpoolIPoolWrap.cs" t="Include" />
+            <e p="UtilPoolWrap.cs" t="Include" />
+            <e p="WrapPusher.cs" t="Include" />
+            <e p="XLuaGenAutoRegister.cs" t="Include" />
           </e>
           <e p="Resources" t="Include">
             <e p="perf" t="Include">

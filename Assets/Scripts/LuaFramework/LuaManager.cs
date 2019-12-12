@@ -16,6 +16,8 @@ namespace LuaFramework
 
         private void Awake()
         {
+            
+            
             var table = LuaEngine.Instance.LoadFile(file, file);
 
             foreach (var injection in injections)
