@@ -4630,27 +4630,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OtherSetting
---- !u!114 &4065295534175649808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4065295534175649822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3ae65fb8b108443b880332ccd4dafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tabs:
-  - {fileID: 4065295532686164145}
-  - {fileID: 4065295533537513809}
-  - {fileID: 4065295532710004703}
-  _curView: 0
-  _views:
-  - {fileID: 4065295534356269602}
-  - {fileID: 4065295533532738310}
-  - {fileID: 4065295533702047145}
 --- !u!224 &4065295534175649809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4685,7 +4664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4065295534175649809}
-  - component: {fileID: 4065295534175649808}
+  - component: {fileID: 4065295534175649823}
   m_Layer: 5
   m_Name: TabView
   m_TagString: Untagged
@@ -4693,6 +4672,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4065295534175649823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065295534175649822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743deb696d3b47a280dc53802a0b0596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tabs:
+  - {fileID: 4065295532686164145}
+  - {fileID: 4065295533537513809}
+  - {fileID: 4065295532710004703}
+  _curView: 0
+  _views:
+  - {fileID: 4065295534356269602}
+  - {fileID: 4065295533532738310}
+  - {fileID: 4065295533702047145}
 --- !u!224 &4065295534356269602
 RectTransform:
   m_ObjectHideFlags: 0

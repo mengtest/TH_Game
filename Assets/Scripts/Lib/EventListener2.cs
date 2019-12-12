@@ -1,28 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Lib;
 using UnityEngine;
-using XLua;
-using KeyCode = Lib.KeyCode;
+using Util;
+//using XLua;
 
-namespace Util
+namespace Lib
 {
-    [LuaCallCSharp]
-    public class Listener
+//    [LuaCallCSharp]
+    public class EventListener2
     {
-        [LuaCallCSharp]
-        [CSharpCallLua]
+//        [LuaCallCSharp]
+//        [CSharpCallLua]
         public delegate bool Predicate();
-        [LuaCallCSharp]
-        [CSharpCallLua]
+//        [LuaCallCSharp]
+//        [CSharpCallLua]
         public delegate void Callback();
         
         //所有回调函数均为三参数
-        [CSharpCallLua]
+//        [CSharpCallLua]
         public delegate void AsyncCall(object o1, object o2, object o3);
         
-        private static Listener _instance;
-        public static Listener Instance => _instance;
+        private static EventListener2 _instance;
+        public static EventListener2 Instance => _instance;
         //事件按照key:事件名，value:Pair <绑定的对象,回调>
         //事件名为字符串
         //每次遍历的时候回去检测这个对象是否为空，如果为空，则将这个回调删除
@@ -32,7 +31,7 @@ namespace Util
         //其本质就是EventListener本身
         private MonoBehaviour _virtualGo;
 
-        private Listener()
+        private EventListener2()
         {
             _events = new Dictionary<string, List<Global.Pair<Object, AsyncCall>>>();
         }
@@ -40,7 +39,7 @@ namespace Util
         public static void Init()
         {
             if (_instance != null) return;
-            _instance = new Listener();
+            _instance = new EventListener2();
             if (_instance._eventListener != null) return;
             _instance._eventListener = new GameObject("EventListener");
             var listener = _instance._eventListener.AddComponent<EventListener>();
@@ -60,13 +59,8 @@ namespace Util
         }
         
         //signal标识这个事件是否有唯一标识符，0表示没有
-        public void On(string type, Object caller, AsyncCall call)
+        public void Register(string type, Object caller, AsyncCall call)
         {
-            if (caller == null)
-            {
-                caller = _virtualGo;
-            }
-            
             if (!_events.ContainsKey(type))
             {
                 _events[type] = new List<Global.Pair<Object, AsyncCall>>();
@@ -77,11 +71,6 @@ namespace Util
         //触发一个单一回调的事件，触发完后直接删除
         public void Call(string type, Object caller, object o1, object o2, object o3)
         {
-            if (caller == null)
-            {
-                caller = _virtualGo;
-            }
-            
             if (_events.ContainsKey(type))
             {
                 var actions = _events[type];
@@ -122,11 +111,6 @@ namespace Util
         //键盘，鼠标等相关的事件注册
         public void On(string type, KeyCode code, Object caller, Listener.Callback callback, bool once = false)
         {
-            if (caller == null)
-            {
-                caller = _virtualGo;
-            }
-            
             //设定上，按下任意键继续不包含escape键
             if (code == KeyCode.AnyKey)
             {
@@ -147,10 +131,6 @@ namespace Util
         //谓词监听器，满足自定义条件则自动触发
         public void On(string type, Object caller, Listener.Predicate predicate, Listener.Callback callback, bool once = true)
         {
-            if (caller == null)
-            {
-                caller = _virtualGo;
-            }
             if (predicate == null || callback == null)
             {
                 return;

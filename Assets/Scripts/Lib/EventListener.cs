@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Threading;
 using UnityEngine;
 using Util;
 using XLua;
+using Object = UnityEngine.Object;
 
 namespace Lib
-{ 
+{
+    #region MyRegion
+
+    
+
+
     [LuaCallCSharp]
     public enum KeyCode
     {
@@ -1321,65 +1324,72 @@ namespace Lib
         AnyKey = 2000,
     }
     
+    #endregion
+    
     public class EventListener : MonoBehaviour
     {
-        private Dictionary<string, Listener.Callback> _eventList = new Dictionary<string, Listener.Callback>();
+        private Dictionary<string, List<Global.Pair<Object,Listener.Callback>>> _eventList =
+            new Dictionary<string, List<Global.Pair<Object,Listener.Callback>>>();
 
-        public void Reg(string type, Listener.Callback callback, bool once)
+        public void Reg(string type, Object caller, Listener.Callback callback, bool once)
+        {
+            if (once)
+            {
+                callback += () => { Remove(type, caller); };
+            }
+
+            if (!_eventList.ContainsKey(type))
+            {
+                _eventList.Add(type, new List<Global.Pair<Object, Listener.Callback>>());
+            }
+            _eventList[type].Add(new Global.Pair<Object, Listener.Callback>(caller, callback));
+        }
+
+        public void Reg(string type,Object caller, Listener.Predicate predicate, Listener.Callback callback, bool once)
         {
             if (once)
             {
                 callback += () =>
                 {
-                    Remove(type);
+                    Remove(type, caller);
                 };
             }
-            if (_eventList.ContainsKey(type))
+            
+            if (!_eventList.ContainsKey(type))
             {
-                _eventList[type] = callback;
+                _eventList.Add(type, new List<Global.Pair<Object, Listener.Callback>>());
             }
-            else
+            _eventList[type].Add(new Global.Pair<Object, Listener.Callback>(caller, () =>
             {
-                _eventList.Add(type, callback);
-            }
+                if (predicate())
+                {
+                    callback.Invoke();
+                }
+            }));
         }
 
-        public void Reg(string type, Listener.Predicate predicate, Listener.Callback callback, bool once)
-        {
-            if (once)
-            {
-                callback += () =>
-                {
-                    Remove(type);
-                };
-            }
-            if (_eventList.ContainsKey(type))
-            {
-                _eventList[type] = () =>
-                {
-                    if (predicate())
-                    {
-                        callback.Invoke();
-                    }
-                };
-            }
-            else
-            {
-                _eventList.Add(type, () =>
-                {
-                    if (predicate())
-                    {
-                        callback.Invoke();
-                    }
-                });
-            }
-        }
-
-        public void Remove(string type)
+        public void Remove(string type, Object caller)
         {
             if (_eventList.ContainsKey(type))
             {
-                _eventList.Remove(type);
+                if (caller == null)
+                {
+                    _eventList.Remove(type);
+                }
+                else
+                {
+                    for (int i = 0; i < _eventList[type].Count; )
+                    {
+                        if (_eventList[type][i].First == caller)
+                        {
+                            _eventList[type].RemoveAt(i);
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
             }
         }
         
@@ -1387,7 +1397,18 @@ namespace Lib
         {
             for (int i = 0; i < _eventList.Count; i++)
             {
-                _eventList.ElementAt(i).Value.Invoke();
+                var ele = _eventList.ElementAt(i);
+                for (int j = 0; j < ele.Value.Count; j++)
+                {
+                    if (ele.Value[j].First == null)
+                    {
+                        Remove(ele.Key, ele.Value[j].First);
+                    }
+                    else
+                    {
+                        ele.Value[j].Second.Invoke();
+                    }
+                }
             }
         }
     }

@@ -4780,6 +4780,20 @@ function CS.Util.Listener:Init() end
 --]]
 function CS.Util.Listener:Register(code,action) end
 --[[
+	@type CS.System.String
+	@caller CS.UnityEngine.Object
+	@call CS.Util.Listener.AsyncCall
+--]]
+function CS.Util.Listener:Register(type,caller,call) end
+--[[
+	@type CS.System.String
+	@caller CS.UnityEngine.Object
+	@o1 CS.System.Object
+	@o2 CS.System.Object
+	@o3 CS.System.Object
+--]]
+function CS.Util.Listener:Call(type,caller,o1,o2,o3) end
+--[[
 	@code CS.System.Int32
 	@o1 CS.System.Object
 	@o2 CS.System.Object
@@ -4787,43 +4801,79 @@ function CS.Util.Listener:Register(code,action) end
 --]]
 function CS.Util.Listener:Call(code,o1,o2,o3) end
 --[[
-	@signal CS.System.String
-	@callback CS.Util.Listener.Callback
---]]
-function CS.Util.Listener:Inject(signal,callback) end
---[[
-	@signal CS.System.String
+	@type CS.System.String
 	@code CS.Lib.KeyCode
+	@caller CS.UnityEngine.Object
 	@callback CS.Util.Listener.Callback
 	@once CS.System.Boolean
 --]]
-function CS.Util.Listener:On(signal,code,callback,once) end
+function CS.Util.Listener:On(type,code,caller,callback,once) end
 --[[
 	@type CS.System.String
-	@signal CS.System.Int32
-	@call CS.Util.Listener.AsyncCall
---]]
-function CS.Util.Listener:On(type,signal,call) end
---[[
+	@caller CS.UnityEngine.Object
 	@predicate CS.Util.Listener.Predicate
 	@callback CS.Util.Listener.Callback
-	@signal CS.System.String
 	@once CS.System.Boolean
 --]]
-function CS.Util.Listener:On(predicate,callback,signal,once) end
+function CS.Util.Listener:On(type,caller,predicate,callback,once) end
 --[[
 	@type CS.System.String
-	@signal CS.System.Int32
+	@caller CS.UnityEngine.Object
 	@o1 CS.System.Object
 	@o2 CS.System.Object
 	@o3 CS.System.Object
 --]]
-function CS.Util.Listener:Event(type,signal,o1,o2,o3) end
+function CS.Util.Listener:Event(type,caller,o1,o2,o3) end
 --[[
 	@type CS.System.String
-	@signal CS.System.Int32
+	@caller CS.UnityEngine.Object
 --]]
-function CS.Util.Listener:Off(type,signal) end
+function CS.Util.Listener:Off(type,caller) end
+
+CS.Util.ILoader = {}
+--[[
+	@path CS.System.String
+	@return [luaIde#CS.UnityEngine.Object]
+--]]
+function CS.Util.ILoader:Load(path) end
+--[[
+	@path CS.System.String
+	@type CS.System.Type
+	@return [luaIde#CS.UnityEngine.Object]
+--]]
+function CS.Util.ILoader:Load(path,type) end
+--[[
+	@obj CS.UnityEngine.Object
+--]]
+function CS.Util.ILoader:Unload(obj) end
+--[[
+	@path CS.System.String
+	@text CS.System.String
+--]]
+function CS.Util.ILoader:Write(path,text) end
+
+--@SuperType [luaIde#CS.System.Object]
+CS.Util.Loader = {}
+function CS.Util.Loader:Init() end
+--[[
+	@path CS.System.String
+	@return [luaIde#CS.UnityEngine.Object]
+--]]
+function CS.Util.Loader:Load(path) end
+--[[
+	@obj CS.UnityEngine.Object
+--]]
+function CS.Util.Loader:Unload(obj) end
+--[[
+	@path CS.System.String
+	@text CS.System.String
+--]]
+function CS.Util.Loader:Write(path,text) end
+--[[
+	@path CS.System.String
+	return CS.System.String
+--]]
+function CS.Util.Loader:Read(path) end
 
 --@SuperType [luaIde#CS.System.Object]
 CS.Util.ModelDialog = {}
