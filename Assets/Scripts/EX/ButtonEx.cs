@@ -55,7 +55,7 @@ namespace EX
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
-                Functions.GetAction(this._supporter)?.Invoke();
+                Functions.GetAction(this._supporter)?.Call();
             });
             onClick.AddListener(callback);
         }

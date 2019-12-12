@@ -1115,8 +1115,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1765002183}
   - component: {fileID: 1765002187}
-  - component: {fileID: 1765002186}
   - component: {fileID: 1765002184}
+  - component: {fileID: 1765002186}
   m_Layer: 0
   m_Name: StartButton
   m_TagString: Untagged

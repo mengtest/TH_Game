@@ -1,5 +1,4 @@
-﻿using Lib;
-using LuaFramework;
+﻿using LuaFramework;
 using UnityEngine;
 using Util;
 
@@ -18,7 +17,6 @@ public static class GameInit
         LuaEngine.Init();
         Listener.Init();
         Pool.Init();
-        
         
 //        var _env = new XLua.LuaEnv();
 //        var table = _env.NewTable();

@@ -11,7 +11,7 @@ namespace Prefab
         
         public void Make(string text, float time)
         {
-            this._text.text = text;
+            _text.text = text;
             Invoke(nameof(Hide), time);
         }
 

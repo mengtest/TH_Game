@@ -22,11 +22,28 @@ namespace LuaFramework
                 _engine._luaTables = new Dictionary<string, LuaTable>();
             }
             
+            
+            LoadLuaLib();
+            
+
             //一些准备工作
+            _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
+                "global",
+                _engine._env.Global);
+            
             if (!_engine._luaTables.ContainsKey("functions"))
             {
                 _engine.LoadFile("LuaScript/Functions.lua", "functions");
             }
+        }
+        
+        //以后增加一个功能，
+        //根据给定的配置文件，去读取lua文件，并加载
+        //相当于做一个全局的lua库的初始化
+        private static void LoadLuaLib()
+        {
+            // TODO
+//            throw new NotImplementedException();
         }
 
         public LuaTable GetTable(string key)
@@ -63,6 +80,7 @@ namespace LuaFramework
             }
             else
             {
+//                return File.ReadAllBytes(@"F:/Code/THGame/output/THGame_Data/Resources/LuaScript/" + fileName);
                 return null;
             }
         }
@@ -132,7 +150,7 @@ namespace LuaFramework
 
             foreach (var injection in values)
             {
-                table.Set(injection.Name, injection.Value);
+                table.Set(injection.name, injection.value);
             }
             
             _env.DoString(

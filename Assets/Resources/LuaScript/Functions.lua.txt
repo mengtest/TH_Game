@@ -1,5 +1,4 @@
-﻿local tb = require"global.global"
--- local json = require"lib.json"
+﻿tb = GlobalTb
 
 Button = {}
 DropDown = {}
@@ -88,4 +87,9 @@ end
 
 Button.LoginButtonCallback = function()
     CS.Global.Log("你点击了登入按钮")
+end
+
+asdasd = function(o)
+    -- CS.Global.MakeToast("hhhhhhhhhhhh", CS.Global.ToastLong)
+    CS.Global.Log("hhhhhhhhhhhhhhhhhhh"..o)
 end

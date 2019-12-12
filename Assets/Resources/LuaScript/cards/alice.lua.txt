@@ -1,4 +1,4 @@
-﻿require"LuaScript.entity.entity"
+﻿dofile("LuaScript.entity.entity")
 
 local _M = {
     id = 0, --固有属性

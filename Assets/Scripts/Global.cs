@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -85,9 +84,9 @@ public static partial class Global
     
     public static void MakeToast(string text, float time)
     {
-        var obj = Util.Loader.Load<GameObject>("Prefab/Toast");
+        var obj = Loader.Load<GameObject>("Prefab/Toast");
         var toast = Object.Instantiate(obj, GetCurCanvas(GetRootObject("UICanvas")).transform, true);
-        toast.transform.localPosition = new Vector3(0, -350);
+        toast.transform.localPosition = new Vector3(0, -400);
         toast.GetComponent<ToastScript>().Make(text, time);
     }
 }

@@ -1,5 +1,0 @@
-local GlobalTb = {
-
-}
-
-return GlobalTb

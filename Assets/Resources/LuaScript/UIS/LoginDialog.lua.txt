@@ -1,4 +1,4 @@
-local tb = require"global.global"
+tb = GlobalTb
 
 function ConfirmButton()
     -- 这两个是通过injection设置过来的
