@@ -2,13 +2,14 @@
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace LuaFramework
 {
     public class LuaManager : MonoBehaviour
     {
         [SerializeField]
-        private string file;
+        private TextAsset file;
 
         [Tooltip("")]
         [SerializeField]
@@ -16,13 +17,18 @@ namespace LuaFramework
 
         private void Awake()
         {
+            if (file == null)
+            {
+                throw new Exception("");
+            }
             
-            
-            var table = LuaEngine.Instance.LoadFile(file, file);
+            var table = LuaEngine.Instance.LoadString(file.text, SceneManager.GetActiveScene().name);
 
             foreach (var injection in injections)
             {
-                table.Get(injection.name, out Action<GameObject> go);
+                var key = injection.name.Length == 0 ? injection.go.name : injection.name;
+                
+                table.Get(key, out Action<GameObject> go);
                 go.Invoke(injection.go);
             }
 
