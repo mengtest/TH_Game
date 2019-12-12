@@ -7,19 +7,23 @@ namespace LuaFramework
 {
     public class LuaManager : MonoBehaviour
     {
-//        [SerializeField]
-//        public Global.Inject5[] regFunctions;
-
         [SerializeField]
         private string file;
 
-        
-        
+        [Tooltip("")]
+        [SerializeField]
+        private Global.Injection2[] injections;
+
         private void Awake()
         {
-            
-            
-            
+            var table = LuaEngine.Instance.LoadFile(file, file);
+
+            foreach (var injection in injections)
+            {
+                table.Get(injection.name, out Action<GameObject> go);
+                go.Invoke(injection.go);
+            }
+
 //            foreach (var f in regFunctions)
 //            {
 //                var root = "";

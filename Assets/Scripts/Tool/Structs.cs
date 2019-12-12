@@ -26,6 +26,16 @@ partial class Global
         [FormerlySerializedAs("Value")] 
         public MonoBehaviour value;
     }
+    
+    
+    [System.Serializable]
+    public struct Injection2
+    {
+        [Tooltip("要调用的函数名")]
+        public string name;
+        [Tooltip("self对象")]
+        public GameObject go;
+    }
 
     [System.Serializable]
     public class Inject5
