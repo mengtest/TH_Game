@@ -1,0 +1,52 @@
+--[[
+    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
+    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
+    author:{author}
+    time:2019-12-12 21:59:06
+]]
+
+function ApplyBtn(this)
+    --@RefType [luaIde#CS.UnityEngine.GameObject]
+    local go = this
+
+    local btn = go:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        print("保存设置")
+    end)
+end
+
+function ResetBtn(this)
+    
+end
+
+function ConfirmBtn(this)
+    
+end
+
+function SettingPage1(this)
+
+end
+
+function SettingPage2(this)
+
+end
+
+function SettingPage3(this)
+
+end
+
+--@this: [luaIde#CS.UnityEngine.GameObject]
+function BGMPanel(this)
+    --@RefType [luaIde#CS.Scene.SettingScene.VoicePanel]
+    local voice = this:GetComponent(typeof(CS.Scene.SettingScene.VoicePanel))
+    voice.slider.onValueChanged:AddListener(function(f)
+        print(f)
+    end)
+    voice.checker.onValueChanged:AddListener(function(f)
+        print(tostring(f))
+    end)
+end
+
+function EffectPanel(this)
+    
+end
