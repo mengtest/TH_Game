@@ -18,12 +18,16 @@ end
 function ResetBtn(this)
     local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
     btn.onClick:AddListener(function()
-        CS.Net.NetHelper.GetInstance():Draw()
+        -- CS.Net.NetHelper.GetInstance():Draw()
+        CS.Global.Log("恢复默认设置")
     end)
 end
 
 function ConfirmBtn(this)
-    
+    local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        CS.Global.NavigateTo("StartScene", false)
+    end)
 end
 
 function SettingPage1(this)
@@ -43,13 +47,30 @@ function BGMPanel(this)
     --@RefType [luaIde#CS.Scene.SettingScene.VoicePanel]
     local voice = this:GetComponent(typeof(CS.Scene.SettingScene.VoicePanel))
     voice.slider.onValueChanged:AddListener(function(f)
-        print(f)
+        CS.Global.Log("BGM音量修改为"..f)
+        voice.voice.text = string.match(tostring(f), "(%d+)")
     end)
     voice.checker.onValueChanged:AddListener(function(f)
-        print(tostring(f))
+        if f then
+            CS.Global.Log("开启BGM")
+        else
+            CS.Global.Log("关闭BGM")
+        end
     end)
 end
 
 function EffectPanel(this)
-    
+    --@RefType [luaIde#CS.Scene.SettingScene.VoicePanel]
+    local voice = this:GetComponent(typeof(CS.Scene.SettingScene.VoicePanel))
+    voice.slider.onValueChanged:AddListener(function(f)
+        CS.Global.Log("音效音量修改为"..f)
+        voice.voice.text = string.match(tostring(f), "(%d+)")
+    end)
+    voice.checker.onValueChanged:AddListener(function(f)
+        if f then
+            CS.Global.Log("开启音效")
+        else
+            CS.Global.Log("关闭音效")
+        end
+    end)    
 end
