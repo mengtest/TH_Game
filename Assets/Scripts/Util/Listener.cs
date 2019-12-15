@@ -27,7 +27,7 @@ namespace Util
         //事件名为字符串
         //每次遍历的时候回去检测这个对象是否为空，如果为空，则将这个回调删除
         private Dictionary<string, List<Global.Pair<Object, AsyncCall>>> _events;
-        private GameObject _eventListener;
+        public GameObject _eventListener;
         //一个虚拟的对象，用于存储一些没有指定对象的事件监听器使用
         //其本质就是EventListener本身
         private MonoBehaviour _virtualGo;
@@ -49,7 +49,7 @@ namespace Util
         }
 
         //注册消息，就是单一回调，触发之后就会删除
-        public void Register(int code, AsyncCall action)
+        public void On(int code, AsyncCall action)
         {
             var signal = code.GetHashCode().ToString();
             if (!_events.ContainsKey(signal))
@@ -75,28 +75,28 @@ namespace Util
         }
 
         //触发一个单一回调的事件，触发完后直接删除
-        public void Call(string type, Object caller, object o1, object o2, object o3)
-        {
-            if (caller == null)
-            {
-                caller = _virtualGo;
-            }
-            
-            if (_events.ContainsKey(type))
-            {
-                var actions = _events[type];
-                foreach (Global.Pair<Object,AsyncCall> action in actions)
-                {
-                    if (action.First == caller)
-                    {
-                        action.Second.Invoke(o1, o2, o3);
-                        return;
-                    }
-                }
-            }
-        }
+//        public void Call(string type, Object caller, object o1, object o2, object o3)
+//        {
+//            if (caller == null)
+//            {
+//                caller = _virtualGo;
+//            }
+//            
+//            if (_events.ContainsKey(type))
+//            {
+//                var actions = _events[type];
+//                foreach (Global.Pair<Object,AsyncCall> action in actions)
+//                {
+//                    if (action.First == caller)
+//                    {
+//                        action.Second.Invoke(o1, o2, o3);
+//                        return;
+//                    }
+//                }
+//            }
+//        }
         
-        public void Call(int code, object o1, object o2, object o3)
+        public void Event(int code, object o1, object o2, object o3)
         {
             var signal = code.GetHashCode().ToString();
             if (_events.ContainsKey(signal))
@@ -112,12 +112,6 @@ namespace Util
                 }
             }
         }
-        
-//        //将一个函数注入到事件监听器中
-//        public void Inject(string signal, Listener.Callback callback)
-//        {
-//            _eventListener.GetComponent<EventListener>().Reg(signal, callback, false);
-//        }
         
         //键盘，鼠标等相关的事件注册
         public void On(string type, KeyCode code, Object caller, Listener.Callback callback, bool once = false)
@@ -180,6 +174,24 @@ namespace Util
                     {
                         var e = _events[type].ElementAt(i);
                         e.Second.Invoke(o1, o2, o3);
+                    }
+                }
+            }
+            
+            if (caller == null)
+            {
+                caller = _virtualGo;
+            }
+            
+            if (_events.ContainsKey(type))
+            {
+                var actions = _events[type];
+                foreach (Global.Pair<Object,AsyncCall> action in actions)
+                {
+                    if (action.First == caller)
+                    {
+                        action.Second.Invoke(o1, o2, o3);
+                        return;
                     }
                 }
             }

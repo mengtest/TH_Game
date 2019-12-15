@@ -1,10 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Google.Protobuf;
+using Lib;
 using UnityEngine;
+using Util;
 using XLua;
 
 namespace Net
@@ -17,7 +20,10 @@ namespace Net
         {
             private byte[] _buf;
             private static TcpClient _client;
-
+            
+            
+            
+            
             public Client(string host, int port)
             {
                 _buf = new byte[1024];
@@ -27,14 +33,27 @@ namespace Net
 
             private void OnConnected(IAsyncResult ar)
             {
+                Listener.Instance.Event("connected_with_server");
                 var client = ar.AsyncState as TcpClient;
                 System.Diagnostics.Debug.Assert(client != null, nameof(client) + " != null");
                 if (client.Connected)
                 {
                     client.EndConnect(ar);
                     //不太明白为什么C#设计成在这里就读出了数据
-                    client.GetStream().BeginRead(_buf, 0, 1024, OnRead, client.GetStream());
+                    client.GetStream().BeginRead(_buf, 0, 1024, OnRead2, client.GetStream());
                 }
+            }
+            
+            private void OnRead2(IAsyncResult ar)
+            {
+                var stream = ar.AsyncState as NetworkStream;
+                stream.EndRead(ar);
+                //取出
+                int count = _buf.TakeWhile(b => b != 0).Count();
+                byte[] buffer = new byte[count];
+                Buffer.BlockCopy(_buf, 0, buffer, 0, buffer.Length);
+                stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
+                Core.DataCenter.Instance.Receive(Msg.Parser.ParseFrom(buffer));
             }
             
             //这个是普通的byte数组的解析，主要还是要获取到数组的长度
@@ -46,7 +65,6 @@ namespace Net
                 char[] usageBuf = new char[15];
                 Buffer.BlockCopy(str.ToCharArray(), 0, usageBuf, 0, 15);
                 stream.EndRead(ar);
-                Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
 //                var str = Encoding.UTF8.GetString(usageBuf);
 //                str = str.Trim();
 //                LoginMsg msg = new LoginMsg();
@@ -54,11 +72,7 @@ namespace Net
 //                msg.Msg = "hello world";
 //                var bytes = msg.ToByteString();
 //                var s = msg.ToString();
-
-
 //                var data = LoginMsg.Parser.ParseFrom(Encoding.UTF8.GetBytes(usageBuf));
-
-                
                 //                var byteStr = ByteString.CopyFromUtf8(str);
 //                var msg = LoginMsg.Parser.ParseFrom(byteStr);
 //                var msg = new LoginMsg();
@@ -98,9 +112,10 @@ namespace Net
 //            }
             
             //向服务器发送消息
-            public void Send(Util.Msg msg)
+            public void Send(Msg msg)
             {
-                var buffer = System.Text.Encoding.UTF8.GetBytes(msg.ToString());
+//                var buffer = System.Text.Encoding.UTF8.GetBytes();
+                var buffer = msg.ToByteArray();
                 _client.GetStream().BeginWrite(buffer, 0, buffer.Length, OnSend,
                     _client.GetStream());
             }

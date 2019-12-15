@@ -16,7 +16,10 @@ function ApplyBtn(this)
 end
 
 function ResetBtn(this)
-    
+    local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        CS.Net.NetHelper.GetInstance():Draw()
+    end)
 end
 
 function ConfirmBtn(this)

@@ -1,6 +1,10 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using Google.Protobuf;
 using Lib;
 using LuaFramework;
+using UnityEngine;
 using Util;
 
 namespace Net
@@ -34,7 +38,7 @@ namespace Net
         private NetHelper()
         {
             //初始化的时候会去读取配置文件，从配置文件中读取到ip、端口等信息
-            //_connection = new Client("127.0.0.1", 9998);
+//            _connection = new Client("127.0.0.1", 9998);
         }
 
         //接收服务器回传的消息并解析
@@ -48,7 +52,7 @@ namespace Net
         public void Login(string username, string userpwd, string callName)
         {
             var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
-            Listener.Instance.Register(1, act);
+            Listener.Instance.On(1, act);
             // 发送消息
             // 这里采用异步的方式来模拟发送消息的过程
             // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
@@ -57,14 +61,14 @@ namespace Net
                 //模拟异步的情景
                 Timer.Register(1, () =>
                 {
-                    Listener.Instance.Call(1, true, 400, "");
+                    Listener.Instance.Event(1, true, 400, "");
                 });
             }
             else
             {
                 Timer.Register(1, () =>
                 {
-                    Listener.Instance.Call(1, false, 401, "用户名或者密码错误");
+                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
                 });
             }
         }
@@ -84,7 +88,13 @@ namespace Net
         //抽抽抽
         public void Draw()
         {
-            
+            var data = new Data();
+            data.Id = 100000000;
+            data.Name = "yuki";
+            var msg = new Msg();
+            msg.Msg_ = data.ToString();
+            msg.Type = 1000;
+            _connection.Send(msg);
         }
 
         //连接到服务器

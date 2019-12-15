@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Util;
@@ -1332,6 +1333,8 @@ namespace Lib
         private Dictionary<string, List<Global.Pair<Object,Listener.Callback>>> _eventList =
             new Dictionary<string, List<Global.Pair<Object,Listener.Callback>>>();
 
+        public Action destroy = () => { };
+
         public void Reg(string type, Object caller, Listener.Callback callback, bool once)
         {
             if (once)
@@ -1393,7 +1396,12 @@ namespace Lib
                 }
             }
         }
-        
+
+        private void OnApplicationQuit()
+        {
+            destroy?.Invoke();
+        }
+
         private void Update()
         {
             for (int i = 0; i < _eventList.Count; i++)
