@@ -1098,10 +1098,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 909750290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f451af31c06d4c38bcc70b15fa86f893, type: 3}
+  m_Script: {fileID: 11500000, guid: fccb12f3af63d234b9810ad49e3893b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regFunctions: []
+  file: {fileID: 4900000, guid: 1f88f8da9dad57a42afc768da5a70420, type: 3}
+  injections: []
 --- !u!4 &909750292
 Transform:
   m_ObjectHideFlags: 0
