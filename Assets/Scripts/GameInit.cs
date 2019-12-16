@@ -1,4 +1,5 @@
-﻿using LuaFramework;
+﻿using System.Runtime.InteropServices;
+using LuaFramework;
 using UnityEngine;
 using Util;
 
@@ -19,6 +20,15 @@ public static class GameInit
         LuaEngine.Init();
         Pool.Init();
         
+        connect("127.0.0.1", 9998);
+        
+        read((str, length) =>
+        {
+            Debug.Log(str);
+            Debug.Log(length);
+        });
+
+//        write("123123123123123");
 //        var _env = new XLua.LuaEnv();
 //        var table = _env.NewTable();
 //        var meta = _env.NewTable();
@@ -34,6 +44,18 @@ public static class GameInit
 //        Global.Log(player.GetName());
     }
 
-//    [DllImport("UnityDll")]
-//    public static extern int Add_int_int(int x, int y);
+
+    public delegate void Callback(string str, int length);
+
+    [DllImport("Core 7")]
+    public static extern void read(Callback callback);
+    
+    [DllImport("Core 7")]
+    public static extern void close();
+    
+    [DllImport("Core 7")]
+    public static extern void connect(string str, int port);
+    
+    [DllImport("Core 7")]
+    public static extern void write(string str);
 }
