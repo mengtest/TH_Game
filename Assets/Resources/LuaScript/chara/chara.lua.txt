@@ -1,0 +1,11 @@
+﻿local Chara = {
+    id = 1,
+    type = "Chara",
+    name = "",
+    hp = 1,
+    mp = 1,
+    skills = {
+
+    },
+    
+}

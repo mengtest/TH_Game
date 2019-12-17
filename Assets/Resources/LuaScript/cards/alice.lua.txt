@@ -1,20 +1,31 @@
-﻿dofile("LuaScript.entity.entity")
-
-local _M = {
+﻿local Alice = {
     id = 0, --固有属性
-    name = "",  --用于在界面中显示
-    uniqueName = "这个会动态生成，最终的结构为    用户uid + 卡牌id + 随机生成一个字母", --程序所使用的id
+    type = "Card", --由于lua脚本没有类型的概念，所以人为添加一个以此来区分不同的对象
+    name = "",  --用于在界面中显示的名称
+    uniqueName = "这个会动态生成，最终的结构为    用户uid + 卡牌id + 随机生成一个字母", --程序所使用的id，实际上是一个字符串
+    --技能表，包含有多个被动以及一个主动(留有多技能接口，但是不使用)
     skills = {
 
     },
+    --当前hp
     hp = 0,
+    --最大hp
     maxHp = 0,
+    --当前mp
     mp = 0,
-    maxMp = 0
+    --最大mp
+    maxMp = 0,
+    --显示在游戏场景中的图片或者模型路径
+    model = "",
+    --星阶级
+    career = 1,
+    --等级
+    level = 1,
 }
 
 -- 传入的是一个由json字符串转出来的对象
-function _M:Create(data)
+--@return [LuaScript.cards.alice#Alice]
+function Alice:Create(data)
     local card = {}
     setmetatable(card, self)
     card.__index = self
@@ -23,25 +34,30 @@ function _M:Create(data)
         asd = 1,
         zxc = 2
     }
-    --@RefType [LuaScript.cards.alice#_M]
+    --@RefType [LuaScript.cards.alice#Alice]
     return card
 end
 
-function _M:GetId()
+function Alice:GetId()
     return self.id
 end
 
-function _M:GetUniqueName()
-    --这个id由服务器来分配
+function Alice:GetUniqueName()
+    --这个id由服务器来分配,以保证同名卡片的唯一性
     return self.uniqueName
 end
 
-function _M:GetName()
+function Alice:GetName()
     return self.name
 end
 
-function _M:GetSkill(index)
+function Alice:GetSkill(index)
     
 end
 
-return _M
+--将这个脚本添加到对局当中后执行的
+function Alice:Execute()
+    
+end
+
+return Alice
