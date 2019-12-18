@@ -26,10 +26,15 @@ namespace LuaFramework
 
             foreach (var injection in injections)
             {
-                var key = injection.name.Length == 0 ? injection.go.name : injection.name;
+                if (injection.name.Length ==0 && injection.go == null)
+                {
+                    continue;
+                }
                 
-                table.Get(key, out Action<GameObject> go);
-                go.Invoke(injection.go);
+                var key = injection.name.Length == 0 ? injection.go.name : injection.name;
+
+                table.Get(key, out Action<GameObject> func);
+                func?.Invoke(injection.go);
             }
 
 //            foreach (var f in regFunctions)

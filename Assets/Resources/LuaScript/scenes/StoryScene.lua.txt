@@ -1,0 +1,15 @@
+--[[
+    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
+    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
+    author:{author}
+    time:2019-12-18 23:37:14
+]]
+
+function Return(this)
+    --@RefType [luaIde#CS.UnityEngine.GameObject]
+    local go = this
+    local btn = go:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        CS.Global.Return()
+    end)
+end

@@ -4,3 +4,11 @@
     local exp = go:GetComponent(typeof(CS.UnityEngine.UI.Slider))
     exp.value = 50
 end
+
+function MainQuest(this)
+    local go = this
+    local btn = go:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        CS.Global.NavigateTo("StoryScene", false)
+    end)
+end
