@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace LuaFramework
@@ -19,10 +17,19 @@ namespace LuaFramework
         {
             if (file == null)
             {
-                throw new Exception("");
+                try
+                {
+                    file = Util.Loader.Load<TextAsset>("LuaScript/scenes/" + Global.Scene.name + ".lua");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("添加LuaManager之后必须设置脚本文件或者存在于场景同名的脚本");
+                    throw;
+                }
             }
             
             var table = LuaEngine.Instance.LoadString(file.text, SceneManager.GetActiveScene().name);
+            table.Get<Action<LuaManager>>("init")?.Invoke(this);
 
             foreach (var injection in injections)
             {
@@ -37,6 +44,7 @@ namespace LuaFramework
                 func?.Invoke(injection.go);
             }
 
+            #region MyRegion
 //            foreach (var f in regFunctions)
 //            {
 //                var root = "";
@@ -54,6 +62,7 @@ namespace LuaFramework
 //                var method = value?.GetType().GetMethod("AddListener");
 ////                MethodInvoke(f.paraNum, method, value, root);
 //            }
+            #endregion
         }
     }
 }

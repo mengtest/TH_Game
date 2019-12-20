@@ -1,0 +1,42 @@
+--[[
+    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
+    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
+    author:{author}
+    time:2019-12-19 23:31:31
+]]
+local socket = require"lib.socket"
+
+function init(manager)
+    -- print(socket)
+    local tcp = socket.connect("127.0.0.1", 9998)
+    -- local host = host or "127.0.0.1"
+    -- local port = "9998"
+    -- local clicon = tcp:connect(host, port)
+    tcp:settimeout(4)
+    if (clicon) then
+        print("connect " .. host .. "ok")
+    else
+        print("connect error")
+    end
+    function rec_msg()
+        --local tcprev = tcp:receive(13)
+        local tcprev = tcp:receive(13)
+        if (tcprev) then
+            print("tcprev:" .. tcprev)
+        else
+            print("tcp rec err")
+        end
+    end
+
+    -- while 1 do
+        local tcpsend = tcp:send("hello 111111111")
+        if (tcpsend) then
+            --break
+            print("tcpsend ok")
+            rec_msg()
+        else
+            print("tcpsend err")
+        end
+    -- end
+    tcp:close()
+end

@@ -22,14 +22,10 @@ namespace LuaFramework
                 _engine._luaTables = new Dictionary<string, LuaTable>();
             }
             
-            
             LoadLuaLib();
             
-
             //一些准备工作
-            _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
-                "global",
-                _engine._env.Global);
+
             
             if (!_engine._luaTables.ContainsKey("functions"))
             {
@@ -43,7 +39,13 @@ namespace LuaFramework
         private static void LoadLuaLib()
         {
             // TODO
-//            throw new NotImplementedException();
+            _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
+                "global",
+                _engine._env.Global);
+            
+//            _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/lib/socket.lua").text, 
+//                "socket",
+//                _engine._env.Global);
         }
 
         public LuaTable GetTable(string key)

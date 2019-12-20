@@ -19,7 +19,7 @@ function ConfirmButton()
 
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local ani, animaId = CS.Manager.Animation.Play("Effect/loading/", 0.1, 13, 24, -1, 0, nil)
-    ani.transform:SetParent(CS.Global.GetRootObject("UICanvas").transform)
+    ani.transform:SetParent(CS.Global.GetRootObject("UILayer").transform)
     ani.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
     tb.animaId = animaId
 

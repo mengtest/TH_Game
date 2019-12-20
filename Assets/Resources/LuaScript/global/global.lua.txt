@@ -1,1 +1,5 @@
+socket = dofile(CS.UnityEngine.Application.dataPath.."/Resources/LuaScript/lib/json.lua")
+
+-- print()
+
 GlobalTb = GlobalTb or {}

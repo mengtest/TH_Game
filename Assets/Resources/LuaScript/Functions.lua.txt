@@ -44,7 +44,7 @@ Button.StartButtonCallback = function()
         seq:Play()
 
         --@RefType [luaIde#CS.UnityEngine.GameObject]
-        local back = CS.Global.GetRootObject("BackCanvas")
+        local back = CS.Global.GetRootObject("UILayer")
         -- 将这个文本添加到BackCanvas的子节点中
         txt.transform:SetParent(back.transform)
         -- 修改文本的坐标为中间偏下的位置
