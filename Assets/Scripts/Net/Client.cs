@@ -21,9 +21,6 @@ namespace Net
             private byte[] _buf;
             private static TcpClient _client;
             
-            
-            
-            
             public Client(string host, int port)
             {
                 _buf = new byte[1024];

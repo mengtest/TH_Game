@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using LuaFramework;
+using Net;
 using UnityEngine;
 using Util;
 
@@ -22,11 +23,13 @@ public static class GameInit
         
         connect("127.0.0.1", 9998);
         
-        read((str, length) =>
-        {
-            Debug.Log(str);
-            Debug.Log(length);
-        });
+//        read((str, length) =>
+//        {
+//            Debug.Log(str);
+//            Debug.Log(length);
+//        });
+
+        write("123123123123");
 
 //        write("123123123123123");
 //        var _env = new XLua.LuaEnv();

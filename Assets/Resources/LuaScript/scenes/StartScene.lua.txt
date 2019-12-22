@@ -18,22 +18,22 @@ function init(manager)
     else
         print("connect error")
     end
-    function rec_msg()
-        --local tcprev = tcp:receive(13)
-        local tcprev = tcp:receive(13)
-        if (tcprev) then
-            print("tcprev:" .. tcprev)
-        else
-            print("tcp rec err")
-        end
-    end
+    -- function rec_msg()
+    --     --local tcprev = tcp:receive(13)
+    --     local tcprev = tcp:receive(13)
+    --     if (tcprev) then
+    --         print("tcprev:" .. tcprev)
+    --     else
+    --         print("tcp rec err")
+    --     end
+    -- end
 
     -- while 1 do
         local tcpsend = tcp:send("hello 111111111")
         if (tcpsend) then
             --break
             print("tcpsend ok")
-            rec_msg()
+            -- rec_msg()
         else
             print("tcpsend err")
         end
