@@ -1399,7 +1399,6 @@ namespace Lib
 
         private void OnApplicationQuit()
         {
-            GameInit.close();
             destroy?.Invoke();
         }
 

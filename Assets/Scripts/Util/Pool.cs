@@ -155,8 +155,6 @@ namespace Util
     [LuaCallCSharp]
     public class Pool
     {
-//        private static Pool _instance;
-
         // 一般对象就使用一个队列来模拟一个对象池
         private static Dictionary<string, Queue<object>> _pools;
         private static Dictionary<string, IPool> _gameObjectPools;

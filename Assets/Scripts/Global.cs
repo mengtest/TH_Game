@@ -54,14 +54,16 @@ public static partial class Global
         return null;
     }
 
-    public static Canvas GetCurCanvas(GameObject go)
+    public static Canvas GetCurCanvas()
     {
-        return go.transform.root.GetComponent<Canvas>();
-    }
-
-    public static Canvas GetCurCanvas(Component comp)
-    {
-        return GetCurCanvas(comp.gameObject);
+        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            if (go.GetComponent<Canvas>() != null)
+            {
+                return go.GetComponent<Canvas>();
+            }   
+        }
+        return null;
     }
 
     public static void Alert(string text)
@@ -69,15 +71,15 @@ public static partial class Global
         new ModelDialog(text).ShowDialog();
     }
 
-    public static Canvas[] GetCanvas()
-    {
-        List<Canvas> list = new List<Canvas>();
-        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
-        {
-            list.AddRange(go.GetComponentsInChildren<Canvas>());
-        }
-        return list.ToArray();
-    }
+//    public static Canvas[] GetCanvas()
+//    {
+//        List<Canvas> list = new List<Canvas>();
+//        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+//        {
+//            list.AddRange(go.GetComponentsInChildren<Canvas>());
+//        }
+//        return list.ToArray();
+//    }
 
     public const float ToastShort = 1.5f;
     public const float ToastLong = 3.0f;
@@ -85,7 +87,7 @@ public static partial class Global
     public static void MakeToast(string text, float time)
     {
         var obj = Loader.Load<GameObject>("Prefab/Toast");
-        var toast = Object.Instantiate(obj, GetCurCanvas(GetRootObject("UICanvas")).transform, true);
+        var toast = Object.Instantiate(obj, GetCurCanvas().transform, true);
         toast.transform.localPosition = new Vector3(0, -400);
         toast.GetComponent<ToastScript>().Make(text, time);
     }

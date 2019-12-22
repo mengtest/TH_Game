@@ -21,7 +21,7 @@ public static class GameInit
         LuaEngine.Init();
         Pool.Init();
         
-        connect("127.0.0.1", 9998);
+//        connect("127.0.0.1", 9998);
         
 //        read((str, length) =>
 //        {
@@ -29,7 +29,7 @@ public static class GameInit
 //            Debug.Log(length);
 //        });
 
-        write("123123123123");
+//        write("123123123123");
 
 //        write("123123123123123");
 //        var _env = new XLua.LuaEnv();
@@ -48,17 +48,17 @@ public static class GameInit
     }
 
 
-    public delegate void Callback(string str, int length);
-
-    [DllImport("Core 7")]
-    public static extern void read(Callback callback);
-    
-    [DllImport("Core 7")]
-    public static extern void close();
-    
-    [DllImport("Core 7")]
-    public static extern void connect(string str, int port);
-    
-    [DllImport("Core 7")]
-    public static extern void write(string str);
+//    public delegate void Callback(string str, int length);
+//
+//    [DllImport("Core 7")]
+//    public static extern void read(Callback callback);
+//    
+//    [DllImport("Core 7")]
+//    public static extern void close();
+//    
+//    [DllImport("Core 7")]
+//    public static extern void connect(string str, int port);
+//    
+//    [DllImport("Core 7")]
+//    public static extern void write(string str);
 }
