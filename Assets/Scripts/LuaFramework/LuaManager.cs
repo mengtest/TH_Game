@@ -23,7 +23,8 @@ namespace LuaFramework
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("添加LuaManager之后必须设置脚本文件或者存在与场景同名的脚本");
+                    Debug.Log(e.Message);
+                    Debug.Log("添加LuaManager之后必须设置脚本文件或者存在与场景同名的脚本");
                     throw;
                 }
             }

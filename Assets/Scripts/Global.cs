@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Prefab;
+﻿using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
-
 
 //包含有各种全局的结构，工具函数等
 [LuaCallCSharp]
@@ -70,16 +68,6 @@ public static partial class Global
     {
         new ModelDialog(text).ShowDialog();
     }
-
-//    public static Canvas[] GetCanvas()
-//    {
-//        List<Canvas> list = new List<Canvas>();
-//        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
-//        {
-//            list.AddRange(go.GetComponentsInChildren<Canvas>());
-//        }
-//        return list.ToArray();
-//    }
 
     public const float ToastShort = 1.5f;
     public const float ToastLong = 3.0f;

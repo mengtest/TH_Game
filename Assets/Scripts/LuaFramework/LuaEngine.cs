@@ -6,7 +6,7 @@ using XLua;
 
 namespace LuaFramework
 {
-    public class LuaEngine : /*MonoBehaviour,*/ IDisposable
+    public class LuaEngine :IDisposable
     {
         private static LuaEngine _engine;
         private LuaEnv _env;
