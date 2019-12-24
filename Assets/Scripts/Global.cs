@@ -1,9 +1,14 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Globalization;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// 包含有各种全局的结构，工具函数等
@@ -21,30 +26,41 @@ public static partial class Global
         Error = 2,
         Debug = 3,
     }
-    
+
     /// <summary>
-    /// 打印消息日志，后续会添加将日志输出到任意位置的功能
+    /// 打印消息日志,同时输出到
     /// </summary>
     /// <param name="msg">输出的消息</param>
     /// <param name="level">日志级别</param>
     public static void Log(string msg, Level level = Level.Info)
     {
+        var info = $"[DATE: {DateTime.Now.ToString(CultureInfo.CurrentCulture)}] [{level}] {msg}";
+        DirectoryInfo dirinfo = new DirectoryInfo(Application.dataPath);
+        string fileName = dirinfo.FullName + $"../Logs/log_{DateTime.Now.Date.ToString(CultureInfo.CurrentCulture)}.dat";
+        if (!File.Exists(fileName))
+        {
+            File.Create(fileName);
+        }
+        var f = File.Open(fileName, FileMode.Append, FileAccess.Write);
+        var bytes = Encoding.UTF8.GetBytes(info);
+        f.Write(bytes, 0, bytes.Length);
+        f.Close();
         switch (level)
         {
             case Level.Warning:
-                Debug.LogWarning(msg);
+                Debug.LogWarning(info);
                 break;
             case Level.Error:
-                Debug.LogError(msg);
+                Debug.LogError(info);
                 break;
             case Level.Debug:
-                Debug.Log(msg);
+                Debug.Log(info);
                 break;
             case Level.Info:
-                Debug.Log(msg);
+                Debug.Log(info);
                 break;
             default:
-                Debug.Log(msg);
+                Debug.Log(info);
                 break;
         }
     }

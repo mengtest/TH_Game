@@ -50,7 +50,7 @@ namespace Net
                 byte[] buffer = new byte[count];
                 Buffer.BlockCopy(_buf, 0, buffer, 0, buffer.Length);
                 stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
-                Core.DataCenter.Instance.Receive(Msg.Parser.ParseFrom(buffer));
+                Core.DataCenter.Instance.Receive(buffer);
             }
             
             //这个是普通的byte数组的解析，主要还是要获取到数组的长度
