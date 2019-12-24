@@ -574,12 +574,12 @@ MonoBehaviour:
   _cancel: {fileID: 3595081369112144017}
   _pwd: {fileID: 6264218516914196136}
   _luaClass:
-    _filePath: LuaScript/UIS/LoginDialog.lua
+    _filePath: LuaScript/ui/LoginDialog.lua
     _injections:
-    - Name: nameInput
-      Value: {fileID: 6764019185177422348}
-    - Name: pwdInput
-      Value: {fileID: 6264218516914196136}
+    - name: nameInput
+      value: {fileID: 6764019185177422348}
+    - name: pwdInput
+      value: {fileID: 6264218516914196136}
     _name: LoginDialog
     _mappingSlef: 1
 --- !u!1 &5197776588751169335

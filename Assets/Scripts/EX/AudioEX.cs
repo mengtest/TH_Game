@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 //暂时没有考虑暂停的问题，只是单纯的实现了连续播放的功能
@@ -10,9 +11,10 @@ namespace EX
     //这个类没有继承于AudioSource(sealed)，但是实际上就是对AudioSource功能的扩展
     public class AudioEx : MonoBehaviour
     {
+        [FormerlySerializedAs("_resources")]
         [Tooltip("要播放的音乐文件路径列表")]
         [SerializeField]
-        private string[] _resources;
+        private string[] resources;
 
         public float Volume
         {
@@ -87,7 +89,7 @@ namespace EX
 //            Init();
             }
         
-            _resources = resources;
+            this.resources = resources;
             _loop = loop;
             _audio.volume = volume;
             Invoke(nameof(PlayNextSound), 1);
@@ -133,7 +135,7 @@ namespace EX
         private void PlayNextSound()
         {
             //如果已经播放完毕，且不循环的话，则不再播放
-            if (_index == _resources.Length)
+            if (_index == resources.Length)
             {
                 if (!_loop)
                 {
@@ -145,7 +147,7 @@ namespace EX
                 }
             }
        
-            var clip = Util.Loader.Load<AudioClip>(_resources[_index]);
+            var clip = Util.Loader.Load<AudioClip>(resources[_index]);
             _audio.clip = clip;
             _audio.Play();
             _index++;

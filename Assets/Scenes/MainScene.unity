@@ -728,21 +728,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 655421615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e53d8482e482f543af644b7193992c6, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: f88e72d97a014eb4da9229fdae91b01e, type: 3}
-  injections:
-  - name: 
-    go: {fileID: 1793939386}
-  - name: 
-    go: {fileID: 1013320237}
-  - name: 
-    go: {fileID: 0}
-  - name: 
-    go: {fileID: 0}
-  - name: 
-    go: {fileID: 0}
+  file: {fileID: 0}
+  injections: []
 --- !u!4 &655421617
 Transform:
   m_ObjectHideFlags: 0

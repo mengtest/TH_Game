@@ -4,14 +4,17 @@ using Net;
 using UnityEngine;
 using Util;
 
-//游戏开始的时候，各种必要的资源等的初始化
+/// <summary>
+/// 游戏开始的时候，各种必要的资源等的初始化
+/// </summary>
 public static class GameInit
 {
-    //在游戏开始的时候自动加载这个方法，对一些单例类做出初始化
+    /// <summary>
+    /// 在游戏开始的时候自动加载这个方法，对一些单例类做出初始化，会在游戏开始的时候自动调用
+    /// </summary>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void ApplicationInit()
     {
-//        Global.Resources.Init();
         Listener.Init();
         Loader.Init();
         Singleton.Init();

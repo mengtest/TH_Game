@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using Google.Protobuf;
 
@@ -12,7 +11,6 @@ namespace Core
         public static DataCenter Instance => _instance;
 
         private Mutex _mtx;
-
         private Dictionary<int, IMessage> _msgs;
 
         //处理的是msg，也就是原始数据

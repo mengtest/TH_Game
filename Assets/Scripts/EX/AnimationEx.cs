@@ -1,46 +1,55 @@
 ﻿using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace EX
 {
+    /// <summary>
+    /// 播放帧动画的类
+    /// </summary>
     [RequireComponent(typeof(Image))]
-    //播放帧动画的类
     public class AnimationEx: MonoBehaviour
     {
+        /// <summary>
+        /// 当前动画所处的状态
+        /// </summary>
         public enum State
         {
-            PAUSE,
-            PLAY,
-            NULL,
+            Pause,
+            Play,
+            Null,
         }
         
+        [FormerlySerializedAs("_frames")]
         [SerializeField]
-        private Sprite[] _frames;
+        private Sprite[] frames;
 
+        [FormerlySerializedAs("_image")]
         [SerializeField] 
-        private Image _image;
+        private Image image;
         
+        [FormerlySerializedAs("_curFrameIndex")]
         [SerializeField]
-        private int _curFrameIndex;
+        private int curFrameIndex;
 
         private Action _callback;
         
         private int _loop = 0;
         private int _times = 0;
         private float _interval = 1;
-        private State _pause = State.NULL;
+        private State _pause = State.Null;
 
         //加载图片
         public void LoadImages([NotNull] string[] paths)
         {
-            _frames = new Sprite[paths.Length];
+            frames = new Sprite[paths.Length];
             var index = 0;
             foreach (var path in paths)
             {
                 var res = Util.Loader.Load<Sprite>(path)/* as Texture2D*/;
-                _frames[index] = /*Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));*/
+                frames[index] = /*Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));*/
                     res;
                 index++;
             }
@@ -60,23 +69,23 @@ namespace EX
 
         private void Awake()
         {
-            _image = GetComponent<Image>();
+            image = GetComponent<Image>();
         }
 
         //将该动画停止到第几帧
         public void Pause(int frame = -1)
         {
-            if (frame >= 0 && frame < this._frames.Length)
+            if (frame >= 0 && frame < this.frames.Length)
             {
                 //将动画停止到对应的帧
-                _pause = State.PAUSE;
-                _curFrameIndex = frame;
-                _image.sprite = _frames[frame];
+                _pause = State.Pause;
+                curFrameIndex = frame;
+                image.sprite = frames[frame];
             }
             else
             {
                 //暂停当前动画的播放
-                _pause = State.PAUSE;
+                _pause = State.Pause;
             }
         }
 
@@ -93,13 +102,13 @@ namespace EX
             _times = 0;
             _interval = interval;
             _callback = callback;
-            _pause = State.PLAY;
+            _pause = State.Play;
             Invoke(nameof(PlayFrame), delay);
         }
 
         public void Continue()
         {
-            if (_pause != State.NULL)
+            if (_pause != State.Null)
             {
                 _pause = 0;
                 PlayFrame();    
@@ -108,18 +117,18 @@ namespace EX
         
         private void PlayFrame()
         {
-            if (_pause == State.PAUSE)
+            if (_pause == State.Pause)
             {
                 return;
             }
             //当前播放对应的帧
-            _image.sprite = _frames[_curFrameIndex];
-            _image.SetNativeSize();
-            _curFrameIndex++;
+            image.sprite = frames[curFrameIndex];
+            image.SetNativeSize();
+            curFrameIndex++;
             //如果帧数超过动画的总数，重回第一帧，播放次数加一
-            if (_curFrameIndex >= _frames.Length)
+            if (curFrameIndex >= frames.Length)
             {
-                _curFrameIndex = 0;
+                curFrameIndex = 0;
                 _times++;
             }
             //如果播放次数等于循环次数，则不再递归调用
