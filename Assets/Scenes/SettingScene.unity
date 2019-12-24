@@ -283,7 +283,6 @@ GameObject:
   - component: {fileID: 30118268}
   - component: {fileID: 30118267}
   - component: {fileID: 30118266}
-  - component: {fileID: 30118269}
   m_Layer: 5
   m_Name: Apply
   m_TagString: Untagged
@@ -401,18 +400,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30118264}
   m_CullTransparentMesh: 0
---- !u!114 &30118269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30118264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68230b0abd0363a4e9d8f4ac69b6cb67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &223555726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,27 +1109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 909750290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e53d8482e482f543af644b7193992c6, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: 4260152c7d3716e41b4f2eb1a39bb796, type: 3}
-  injections:
-  - name: ApplyBtn
-    go: {fileID: 30118264}
-  - name: ResetBtn
-    go: {fileID: 892007440}
-  - name: ConfirmBtn
-    go: {fileID: 360488744}
-  - name: SettingPage1
-    go: {fileID: 4065295534356269603}
-  - name: SettingPage2
-    go: {fileID: 4065295533532738311}
-  - name: SettingPage3
-    go: {fileID: 4065295533702047126}
-  - name: 
-    go: {fileID: 2180333433233260691}
-  - name: 
-    go: {fileID: 2180333433323440636}
+  file: {fileID: 0}
+  injections: []
 --- !u!4 &909750292
 Transform:
   m_ObjectHideFlags: 0
@@ -2712,9 +2683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229fd568648a46f489b0e1f0e0cc41f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voice: {fileID: 2180333433604649373}
-  slider: {fileID: 2180333433463770650}
-  checker: {fileID: 2180333433084451705}
 --- !u!114 &2180333433301108760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,9 +2845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229fd568648a46f489b0e1f0e0cc41f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voice: {fileID: 2180333433489307890}
-  slider: {fileID: 2180333433629443957}
-  checker: {fileID: 2180333432901997078}
 --- !u!224 &2180333433391284592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4756,18 +4721,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4065295534175649822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3ae65fb8b108443b880332ccd4dafb, type: 3}
+  m_Script: {fileID: 11500000, guid: 31a90c7eda0dc8a4e9e926925811f497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tabs:
-  - {fileID: 4065295532686164145}
-  - {fileID: 4065295533537513809}
-  - {fileID: 4065295532710004703}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _curView: 0
   _views:
-  - {fileID: 4065295534356269602}
-  - {fileID: 4065295533532738310}
-  - {fileID: 4065295533702047145}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!224 &4065295534175649809
 RectTransform:
   m_ObjectHideFlags: 0
