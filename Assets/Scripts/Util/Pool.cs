@@ -7,7 +7,6 @@ using Object = UnityEngine.Object;
 
 namespace Util
 {
-    
     namespace pool
     {
         [LuaCallCSharp]
@@ -81,21 +80,25 @@ namespace Util
         public class GameObjectPool : IPool
         {
             private Queue<GameObject> _gos;
-            public delegate GameObject Operator(GameObject go);
-            public delegate GameObject Creator();
-            private event Creator creator;
-            private event Operator deleter;
-            private event Operator getter;
-            private event Operator setter;
+            [LuaCallCSharp]
+            [CSharpCallLua]
+            public delegate GameObject Operator1(GameObject go);
+            [LuaCallCSharp]
+            [CSharpCallLua]
+            public delegate GameObject Operator();
+            private event Operator Creator;
+            private event Operator1 Deleter;
+            private event Operator1 Getter;
+            private event Operator1 Setter;
             
-            public static IPool CreatePool(Creator creator, Operator deleter, Operator getter = null,Operator setter = null)
+            public static IPool CreatePool(Operator @operator, Operator1 deleter, Operator1 getter = null,Operator1 setter = null)
             {
                 var pool = new GameObjectPool
                 {
-                    creator = creator, 
-                    deleter = deleter, 
-                    getter = getter, 
-                    setter = setter
+                    Creator = @operator, 
+                    Deleter = deleter, 
+                    Getter = getter, 
+                    Setter = setter
                 };
                 return pool;
             }
@@ -112,12 +115,12 @@ namespace Util
                 {
                     go = _gos.Dequeue();
                 }
-                return getter?.Invoke(go);
+                return Getter?.Invoke(go);
             }
 
             public void AddItem(GameObject item)
             {
-                _gos.Enqueue(setter == null ? item : setter(item));
+                _gos.Enqueue(Setter == null ? item : Setter(item));
             }
 
             public int Count()
@@ -127,14 +130,14 @@ namespace Util
 
             public virtual GameObject Create()
             {
-                return creator?.Invoke();
+                return Creator?.Invoke();
             }
 
             public virtual void Destroy(GameObject go)
             {
-                if (deleter != null)
+                if (Deleter != null)
                 {
-                    deleter(go);
+                    Deleter(go);
                 }
                 else
                 {

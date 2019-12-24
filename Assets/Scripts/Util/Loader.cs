@@ -52,9 +52,11 @@ namespace Util
         }
     }
     
+    /// <summary>
+    /// 资源的读取与释放相关api的封装
+    /// 为了应对可能出现的安卓版本的存取问题
+    /// </summary>
     [LuaCallCSharp]
-    //资源的读取与释放相关api的封装
-    //为了应对可能出现的安卓版本的存取问题
     public static class Loader
     {
         private static ILoader _loader;

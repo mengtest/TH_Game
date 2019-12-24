@@ -4,3 +4,7 @@
     author:{author}
     time:2019-12-22 22:57:17
 ]]
+
+function init()
+    
+end

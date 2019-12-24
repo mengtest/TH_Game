@@ -110,7 +110,7 @@ public static partial class Global
     public const float ToastLong = 3.0f;
     
     /// <summary>
-    /// 弹出一段提示信息
+    /// 弹出一段提示信息，类似于安卓的toast
     /// </summary>
     /// <param name="text">需要显示的文本</param>
     /// <param name="time">持续的时间，以秒为单位</param>

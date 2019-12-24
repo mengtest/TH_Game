@@ -20,7 +20,6 @@ function Pool.GetItemByFunc(signal, func)
         return Pool._list[signal][0]
     else
         Pool._list[signal] = {}
-        -- table.insert(Pool._list[signal], )
         return func()
     end
 end

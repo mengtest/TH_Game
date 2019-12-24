@@ -52,7 +52,6 @@ namespace Net
         public void Login(string username, string userpwd, string callName)
         {
             var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
-            Listener.Instance.On(1, act);
             // 发送消息
             // 这里采用异步的方式来模拟发送消息的过程
             // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
@@ -61,15 +60,16 @@ namespace Net
                 //模拟异步的情景
                 Timer.Register(1, () =>
                 {
-                    Listener.Instance.Event(1, true, 400, "");
+                    act.Invoke(true, 400, "");
                 });
             }
             else
             {
                 Timer.Register(1, () =>
                 {
-                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
+                    act.Invoke(false, 401, "用户名或者密码错误");
                 });
+                
             }
         }
 

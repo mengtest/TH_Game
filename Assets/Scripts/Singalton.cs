@@ -1,8 +1,9 @@
 ﻿public partial class Singleton
 {
-    public static string Chinese = "Chinese";
-    public static string English = "English";
-    public static string DefaultLang = "Chinese";
+    public const string Chinese = "Chinese";
+    public const string English = "English";
+    // ReSharper disable once MemberCanBePrivate.Global
+    public const string DefaultLang = "Chinese";
 
     public static Singleton Instance => _instance;
 

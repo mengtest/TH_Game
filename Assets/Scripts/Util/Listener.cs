@@ -48,18 +48,12 @@ namespace Util
             Object.DontDestroyOnLoad(_instance._eventListener);
         }
 
-        //注册消息，就是单一回调，触发之后就会删除
-        public void On(int code, AsyncCall action)
-        {
-            var signal = code.GetHashCode().ToString();
-            if (!_events.ContainsKey(signal))
-            {
-                _events[signal] = new List<Global.Pair<Object, AsyncCall>>();
-            }
-            _events[signal].Add(new Global.Pair<Object, AsyncCall>(_virtualGo, action));
-        }
-        
-        //signal标识这个事件是否有唯一标识符，0表示没有
+        /// <summary>
+        /// 注册一个普通的回调函数，只有当手动调用event时才会触发这个函数
+        /// </summary>
+        /// <param name="type">事件的类型</param>
+        /// <param name="caller">绑定这个事件的对象</param>
+        /// <param name="call">回调函数，有三个object参数</param>
         public void On(string type, Object caller, AsyncCall call)
         {
             if (caller == null)
@@ -73,48 +67,15 @@ namespace Util
             }
             _events[type].Add(new Global.Pair<Object, AsyncCall>(caller, call));
         }
-
-        //触发一个单一回调的事件，触发完后直接删除
-//        public void Call(string type, Object caller, object o1, object o2, object o3)
-//        {
-//            if (caller == null)
-//            {
-//                caller = _virtualGo;
-//            }
-//            
-//            if (_events.ContainsKey(type))
-//            {
-//                var actions = _events[type];
-//                foreach (Global.Pair<Object,AsyncCall> action in actions)
-//                {
-//                    if (action.First == caller)
-//                    {
-//                        action.Second.Invoke(o1, o2, o3);
-//                        return;
-//                    }
-//                }
-//            }
-//        }
         
-        public void Event(int code, object o1, object o2, object o3)
-        {
-            var signal = code.GetHashCode().ToString();
-            if (_events.ContainsKey(signal))
-            {
-                var actions = _events[signal];
-                foreach (Global.Pair<Object,AsyncCall> action in actions)
-                {
-                    if (action.First == _virtualGo)
-                    {
-                        action.Second.Invoke(o1, o2, o3);
-                        return;
-                    }
-                }
-            }
-        }
-        
-        //键盘，鼠标等相关的事件注册
-        public void On(string type, KeyCode code, Object caller, Listener.Callback callback, bool once = false)
+        /// <summary>
+        /// 键盘，鼠标等相关的事件注册
+        /// </summary>
+        /// <param name="code">要绑定的事件的枚举值</param>
+        /// <param name="caller">绑定这个事件的对象</param>
+        /// <param name="callback">回调</param>
+        /// <param name="once">是否只会触发一次，默认为false</param>
+        public void On(KeyCode code, Object caller, Callback callback, bool once = false)
         {
             if (caller == null)
             {
@@ -124,7 +85,7 @@ namespace Util
             //设定上，按下任意键继续不包含escape键
             if (code == KeyCode.AnyKey)
             {
-                _eventListener.GetComponent<EventListener>().Reg(type, caller,
+                _eventListener.GetComponent<EventListener>().Reg(code.ToString(), caller,
                     () => Input.anyKey && !Input.GetKeyDown(UnityEngine.KeyCode.Escape), 
                     callback, 
                     once);
@@ -132,14 +93,21 @@ namespace Util
             }
             
             var keycode = (UnityEngine.KeyCode) code;
-            _eventListener.GetComponent<EventListener>().Reg(type, caller,
+            _eventListener.GetComponent<EventListener>().Reg(code.ToString(), caller,
                 () => Input.GetKeyDown(keycode),
                 callback, 
                 once);
         }
         
-        //谓词监听器，满足自定义条件则自动触发
-        public void On(string type, Object caller, Listener.Predicate predicate, Listener.Callback callback, bool once = true)
+        /// <summary>
+        /// 谓词监听器，满足自定义条件则自动触发
+        /// </summary>
+        /// <param name="type">注册的自定义消息</param>
+        /// <param name="caller">消息所绑定的对象</param>
+        /// <param name="predicate">谓词</param>
+        /// <param name="callback">回调</param>
+        /// <param name="once">是否只会被调用一次，默认为true</param>
+        public void On(string type, Object caller, Predicate predicate, Callback callback, bool once = true)
         {
             if (caller == null)
             {
@@ -151,9 +119,32 @@ namespace Util
             }
             _eventListener.GetComponent<EventListener>().Reg(type, caller, predicate, callback, once);
         }
+        
+        public void Event(string type, object o1, object o2, object o3)
+        {
+            if (_events.ContainsKey(type))
+            {
+                var actions = _events[type];
+                foreach (Global.Pair<Object,AsyncCall> action in actions)
+                {
+                    if (action.First == _virtualGo)
+                    {
+                        action.Second.Invoke(o1, o2, o3);
+                        return;
+                    }
+                }
+            }
+        }
 
-        //调用事件
-        public void Event(string type, Object caller = null ,object o1 = null, object o2 = null, object o3 = null)
+        /// <summary>
+        /// 触发一个事件
+        /// </summary>
+        /// <param name="type">要触发的事件类型</param>
+        /// <param name="caller">注册时绑定的对象，默认为null</param>
+        /// <param name="o1"></param>
+        /// <param name="o2"></param>
+        /// <param name="o3"></param>
+        public void Event(string type, Object caller = null , object o1 = null, object o2 = null, object o3 = null)
         {
             if (_events.ContainsKey(type))
             {
@@ -197,6 +188,11 @@ namespace Util
             }
         }
         
+        /// <summary>
+        /// 取消一个已经注册的事件，如果没有对应的事件，不会报错
+        /// </summary>
+        /// <param name="type">事件的类型</param>
+        /// <param name="caller">为事件绑定的对象</param>
         public void Off(string type, Object caller = null)
         {
             if (_events.ContainsKey(type))

@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 
 namespace Lib
 {
-    #region MyRegion
+    #region KeyCodeMap
     [LuaCallCSharp]
     public enum KeyCode
     {
