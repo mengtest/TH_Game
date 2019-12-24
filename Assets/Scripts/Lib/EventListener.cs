@@ -1325,7 +1325,6 @@ namespace Lib
     
     public class EventListener : MonoBehaviour
     {
-//        [SerializeField]
         private Dictionary<string, List<Global.Pair<Object,Listener.Callback>>> _eventList =
             new Dictionary<string, List<Global.Pair<Object,Listener.Callback>>>();
 

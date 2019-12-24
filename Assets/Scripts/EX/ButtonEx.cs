@@ -3,6 +3,7 @@ using Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
@@ -15,8 +16,9 @@ namespace EX
     [AddComponentMenu("yuki/UI/ButtonEX")]
     public class ButtonEx : Button
     {
+        [FormerlySerializedAs("_supporter")]
         [SerializeField] 
-        private LuaSupporter _supporter;
+        private LuaSupporter supporter;
 
         //记录下当前的按钮的xy轴上的缩放
         private float _scaleX;
@@ -42,7 +44,7 @@ namespace EX
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
-            _supporter.RegisterCallback(this);
+            supporter.RegisterCallback(this);
 
             base.Start();
             
@@ -55,7 +57,7 @@ namespace EX
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
-                Functions.GetAction(this._supporter)?.Call();
+                Functions.GetAction(this.supporter)?.Call();
             });
             onClick.AddListener(callback);
         }

@@ -1,6 +1,7 @@
 ﻿using Prefab;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace EX
@@ -11,9 +12,10 @@ namespace EX
         private HorizontalLayoutGroup _layout;
 
         //为什么这里的字段在editor中显示不出来？
+        [FormerlySerializedAs("_elementWidth")]
         [Tooltip("每个元素的宽度")]
         [SerializeField]
-        private float _elementWidth = 300;
+        private float elementWidth = 300;
 
         private int _index;
 
