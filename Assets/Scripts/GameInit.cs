@@ -23,6 +23,8 @@ public static class GameInit
         Net.NetHelper.Init();
         LuaEngine.Init();
         Pool.Init();
+        LuaModules.Init();
+        LuaModules.GetInstance().LoadAll();
         
 //        connect("127.0.0.1", 9998);
         

@@ -99,7 +99,19 @@ namespace Util
 
         public static string Read(string path)
         {
-            return Load<TextAsset>(path).text;
+            if (!Path.IsPathRooted(path))
+            {
+                var p = Application.dataPath + "/" + path;
+                if (!File.Exists(p))
+                {
+                    throw new Exception($"文件{p}不存在");
+                }
+                return File.ReadAllText(p);
+            }
+            else
+            {
+                return Load<TextAsset>(path).text;
+            }
         }
     }
 }

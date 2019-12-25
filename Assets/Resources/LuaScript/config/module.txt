@@ -1,4 +1,4 @@
 ﻿;行首添加一个分号表示该行为注释
 ;下一行为lua模块的根目录
-LuaScript/modules
+Resources/LuaScript/modules
 ;以下为不加载的lua模块名

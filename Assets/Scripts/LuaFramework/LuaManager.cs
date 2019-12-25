@@ -45,7 +45,7 @@ namespace LuaFramework
                 func?.Invoke(injection.go);
             }
 
-            #region MyRegion
+            #region 尝试使用反射
 //            foreach (var f in regFunctions)
 //            {
 //                var root = "";

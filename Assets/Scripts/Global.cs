@@ -70,6 +70,18 @@ public static partial class Global
     /// </summary>
     public static UnityEngine.SceneManagement.Scene Scene => SceneManager.GetActiveScene();
 
+    public static GameObject GetGameObject(string path)
+    {
+        var root = path.Substring(0, path.IndexOf('/'));
+        var ex = path.Substring(path.IndexOf('/') + 1, path.Length - 1);
+        var rootObj = GetRootObject(root);
+        if (rootObj != null)
+        {
+            return rootObj.transform.Find(ex).gameObject;
+        }
+        return null;
+    }
+
     /// <summary>
     /// 获取到根对象
     /// </summary>
