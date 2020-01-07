@@ -47,8 +47,12 @@ namespace Util
             _instance._virtualGo = listener;
             Object.DontDestroyOnLoad(_instance._eventListener);
         }
-
-        //注册消息，就是单一回调，触发之后就会删除
+        
+        /// <summary>
+        /// 注册消息，就是单一回调，触发之后就会删除
+        /// </summary>
+        /// <param name="code">自定义的消息号</param>
+        /// <param name="action">回调函数</param>
         public void On(int code, AsyncCall action)
         {
             var signal = code.GetHashCode().ToString();

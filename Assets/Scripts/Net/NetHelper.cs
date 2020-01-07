@@ -38,7 +38,7 @@ namespace Net
         private NetHelper()
         {
             //初始化的时候会去读取配置文件，从配置文件中读取到ip、端口等信息
-//            _connection = new Client("127.0.0.1", 9998);
+            _connection = new Client("127.0.0.1", 9998);
         }
 
         //接收服务器回传的消息并解析
@@ -56,21 +56,21 @@ namespace Net
             // 发送消息
             // 这里采用异步的方式来模拟发送消息的过程
             // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
-            if (username == "yuki1432" && userpwd == "abcd1234123")
-            {
-                //模拟异步的情景
-                Timer.Register(1, () =>
-                {
-                    Listener.Instance.Event(1, true, 400, "");
-                });
-            }
-            else
-            {
-                Timer.Register(1, () =>
-                {
-                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
-                });
-            }
+//            if (username == "yuki1432" && userpwd == "abcd1234123")
+//            {
+//                //模拟异步的情景
+//                Timer.Register(1, () =>
+//                {
+//                    Listener.Instance.Event(1, true, 400, "");
+//                });
+//            }
+//            else
+//            {
+//                Timer.Register(1, () =>
+//                {
+//                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
+//                });
+//            }
         }
 
         //登出
@@ -88,13 +88,19 @@ namespace Net
         //抽抽抽
         public void Draw()
         {
-            var data = new Data();
-            data.Id = 100000000;
-            data.Name = "yuki";
-            var msg = new Msg();
-            msg.Msg_ = data.ToString();
-            msg.Type = 1000;
-            _connection.Send(msg);
+            var login = new Data();
+            login.Id = 100;
+            login.Name = "123123asdaszxc";
+
+            //数据头为32位byte
+            var msgBytes =  login.ToByteArray();
+            var type = "000001";
+            var bytes = Encoding.UTF8.GetBytes(type);
+            var mem = new byte[bytes.Length + msgBytes.Length];
+            Buffer.BlockCopy(bytes, 0, mem, 0, bytes.Length);
+            Buffer.BlockCopy(msgBytes, 0, mem, bytes.Length, msgBytes.Length);
+            Debug.Log(mem);
+            _connection.Send(mem);
         }
 
         //连接到服务器
