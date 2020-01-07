@@ -1,4 +1,4 @@
-## C# API
+﻿## C# API
 ### LuaEnv类
 #### object[] DoString(string chunk, string chunkName = "chuck", LuaTable env = null)
 描述：

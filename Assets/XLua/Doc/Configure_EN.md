@@ -1,4 +1,4 @@
-# XLua configuration
+﻿# XLua configuration
 
 All xLua configurations support three methods: tagging, static lists, and dynamic lists.
 

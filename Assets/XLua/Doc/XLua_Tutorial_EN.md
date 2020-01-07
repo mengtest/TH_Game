@@ -1,4 +1,4 @@
-## xLua Tutorial
+﻿## xLua Tutorial
 
 ### Load Lua files
 

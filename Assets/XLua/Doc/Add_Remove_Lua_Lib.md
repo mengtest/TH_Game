@@ -1,4 +1,4 @@
-## What & Why
+﻿## What & Why
 
 XLua's currently built-in extension libraries:
 

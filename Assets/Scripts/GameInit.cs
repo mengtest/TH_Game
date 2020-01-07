@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using LuaFramework;
+﻿using LuaFramework;
 using Net;
 using UnityEngine;
 using Util;
@@ -20,7 +19,7 @@ public static class GameInit
         Singleton.Init();
         Core.DataCenter.Init();
         //先暂时不启用网络连接相关的功能
-        Net.NetHelper.Init();
+        NetHelper.Init();
         LuaEngine.Init();
         Pool.Init();
         

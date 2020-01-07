@@ -1,4 +1,4 @@
-## What&Why
+﻿## What&Why
 
 XLua目前内置的扩展库：
 

@@ -1,4 +1,4 @@
-# FAQs
+﻿# FAQs
 
 ## How to use xLua distribution package?
 

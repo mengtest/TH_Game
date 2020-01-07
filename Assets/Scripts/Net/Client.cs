@@ -109,11 +109,11 @@ namespace Net
 //            }
             
             //向服务器发送消息
-            public void Send(Msg msg)
+            public void Send(byte[] msg)
             {
 //                var buffer = System.Text.Encoding.UTF8.GetBytes();
-                var buffer = msg.ToByteArray();
-                _client.GetStream().BeginWrite(buffer, 0, buffer.Length, OnSend,
+//                var buffer = msg.ToByteArray();
+                _client.GetStream().BeginWrite(msg, 0, msg.Length, OnSend,
                     _client.GetStream());
             }
 
