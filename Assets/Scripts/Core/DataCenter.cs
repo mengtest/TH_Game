@@ -14,12 +14,14 @@ namespace Core
         private Dictionary<int, IMessage> _msgs;
 
         //处理的是msg，也就是原始数据
-        public void Receive(Msg msg)
+        public void Receive(int code, byte[] msg)
         {
-            //读取出这个消息的类型
-            var type = msg.Type;
-            //根据消息的值，映射出实际的对象，再去做处理
-            var data = Data.Parser.ParseJson(msg.Msg_);
+            Global.Log(code.ToString());
+            if (code == 400)
+            {
+                var res = LoginRes.Parser.ParseFrom(msg);
+                Global.Log(res.ToString());
+            }
         }
 
         private void Reg()

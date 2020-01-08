@@ -47,10 +47,14 @@ namespace Net
                 stream.EndRead(ar);
                 //取出
                 int count = _buf.TakeWhile(b => b != 0).Count();
-                byte[] buffer = new byte[count];
-                Buffer.BlockCopy(_buf, 0, buffer, 0, buffer.Length);
+//                byte[] buffer = new byte[count];
+                byte[] type = new byte[8];
+                Buffer.BlockCopy(_buf, 0, type, 0, type.Length);
+                byte[] msg = new byte[count - 8];
+                Buffer.BlockCopy(_buf, 8, msg, 0, msg.Length);
+//                Buffer.BlockCopy(_buf, 0, buffer, 0, buffer.Length);
                 stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
-                Core.DataCenter.Instance.Receive(Msg.Parser.ParseFrom(buffer));
+                Core.DataCenter.Instance.Receive(int.Parse(Encoding.UTF8.GetString(type)), msg);
             }
             
             //这个是普通的byte数组的解析，主要还是要获取到数组的长度
@@ -114,6 +118,18 @@ namespace Net
 //                var buffer = System.Text.Encoding.UTF8.GetBytes();
 //                var buffer = msg.ToByteArray();
                 _client.GetStream().BeginWrite(msg, 0, msg.Length, OnSend,
+                    _client.GetStream());
+            }
+
+            public void Send(int code, IMessage msg)
+            {
+                var msgBytes =  msg.ToByteArray();
+                var type = code.ToString("00000000");
+                var bytes = Encoding.UTF8.GetBytes(type);
+                var mem = new byte[bytes.Length + msgBytes.Length];
+                Buffer.BlockCopy(bytes, 0, mem, 0, bytes.Length);
+                Buffer.BlockCopy(msgBytes, 0, mem, bytes.Length, msgBytes.Length);
+                _client.GetStream().BeginWrite(mem, 0, mem.Length, OnSend,
                     _client.GetStream());
             }
 

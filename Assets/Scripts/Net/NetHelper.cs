@@ -53,6 +53,13 @@ namespace Net
         {
             var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
             Listener.Instance.On(1, act);
+
+            var msg = new LoginMsg();
+            msg.Username = username;
+            msg.Userpwd = userpwd;
+            int code = 400;
+            _connection.Send(code, msg);
+
             // 发送消息
             // 这里采用异步的方式来模拟发送消息的过程
             // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
@@ -93,14 +100,9 @@ namespace Net
             login.Name = "123123asdaszxc";
 
             //数据头为32位byte
-            var msgBytes =  login.ToByteArray();
-            var type = "000001";
-            var bytes = Encoding.UTF8.GetBytes(type);
-            var mem = new byte[bytes.Length + msgBytes.Length];
-            Buffer.BlockCopy(bytes, 0, mem, 0, bytes.Length);
-            Buffer.BlockCopy(msgBytes, 0, mem, bytes.Length, msgBytes.Length);
-            Debug.Log(mem);
-            _connection.Send(mem);
+
+//            Debug.Log(mem);
+            _connection.Send(100, login);
         }
 
         //连接到服务器
