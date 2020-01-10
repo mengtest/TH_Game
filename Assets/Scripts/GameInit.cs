@@ -1,4 +1,5 @@
-﻿using LuaFramework;
+﻿using System.Threading;
+using LuaFramework;
 using Net;
 using UnityEngine;
 using Util;
@@ -22,6 +23,8 @@ public static class GameInit
         NetHelper.Init();
         LuaEngine.Init();
         Pool.Init();
+        
+        Global.Log(Thread.CurrentThread.ManagedThreadId.ToString());
         
 //        connect("127.0.0.1", 9998);
         

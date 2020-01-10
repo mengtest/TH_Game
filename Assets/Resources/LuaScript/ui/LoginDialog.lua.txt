@@ -1,3 +1,5 @@
+local json = require"lib.json"
+
 tb = GlobalTb
 
 function ConfirmButton()
@@ -5,15 +7,15 @@ function ConfirmButton()
     local name = nameInput.text
     local pwd = pwdInput.text
 
-    -- if #name == 0 then
-    --     CS.Global.Log("没有账号我怎么知道您是哪位？")
-    --     return
-    -- end
+    if #name == 0 then
+        CS.Global.Log("没有账号我怎么知道您是哪位？")
+        return
+    end
     
-    -- if #pwd == 0 then
-    --     CS.Global.Log("您是否忘记输入密码？")
-    --     return
-    -- end
+    if #pwd == 0 then
+        CS.Global.Log("您是否忘记输入密码？")
+        return
+    end
     
     -- CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 
@@ -23,7 +25,7 @@ function ConfirmButton()
     ani.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
     tb.animaId = animaId
 
-    CS.Net.NetHelper.GetInstance():Login("yuki1432", "abcd1234123", "loginCallback")
+    CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 end
 
 function CancelButton()
@@ -31,11 +33,16 @@ function CancelButton()
 end
 
 function loginCallback(res, type, msg)
-    if res == true then
-        CS.Manager.Animation.Stop(tb.animaId)
+    local data = json.decode(res)
+    -- print(data)
+    -- print(data.res)
+    -- if data.res then
+        CS.Global.Log(data.msg.."欢迎"..data.uid.."的用户："..data.nickname)
         coroutine.resume(tb.closeDialogThread)
-        CS.Global.Log("登入成功")
-    else
-        CS.Global.Log(msg)
-    end
+        CS.Manager.Animation.Stop(tb.animaId)
+    -- end
+    --     CS.Manager.Animation.Stop(tb.animaId)
+    --     coroutine.resume(tb.closeDialogThread2)
+    --     CS.Global.Log(data.msg)
+    -- end
 end

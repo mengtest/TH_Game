@@ -19,25 +19,63 @@ namespace Net
         partial class Client
         {
             private byte[] _buf;
-            private static TcpClient _client;
+            private TcpClient _client;
             
             public Client(string host, int port)
             {
                 _buf = new byte[1024];
                 _client = new TcpClient();
-                _client.BeginConnect(IPAddress.Parse(host), port, OnConnected, _client);
+//                _client.BeginConnect(IPAddress.Parse(host), port, OnConnected, _client);
+                
+                _client.Connect(IPAddress.Parse(host), port);
+                Listener.Instance.Event("connected_with_server");
+                var client = _client.GetStream();
+//                var client = ar.AsyncState as TcpClient;
+                System.Diagnostics.Debug.Assert(client != null, nameof(client) + " != null");
+                if (_client.Connected)
+                {
+//                    var stream = _client;
+//                    _client.EndConnect(ar);
+                    //不太明白为什么C#设计成在这里就读出了数据
+//                    client.GetStream().BeginRead(_buf, 0, 1024, OnRead2, client.GetStream());
+
+                    MyRead();
+                }
             }
 
-            private void OnConnected(IAsyncResult ar)
+            private async void MyRead()
+            {
+                await this._client.GetStream().ReadAsync(_buf, 0, 1024);
+                int count = _buf.TakeWhile(b => b != 0).Count();
+                byte[] type = new byte[8];
+                Buffer.BlockCopy(_buf, 0, type, 0, type.Length);
+                byte[] msg = new byte[count - 8];
+                Buffer.BlockCopy(_buf, 8, msg, 0, msg.Length);
+//                    stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
+                Core.DataCenter.Instance.Receive(int.Parse(Encoding.UTF8.GetString(type)), msg);
+            }
+
+            private async void  OnConnected(IAsyncResult ar)
             {
                 Listener.Instance.Event("connected_with_server");
                 var client = ar.AsyncState as TcpClient;
                 System.Diagnostics.Debug.Assert(client != null, nameof(client) + " != null");
                 if (client.Connected)
                 {
+                    var stream = ar.AsyncState as NetworkStream;
                     client.EndConnect(ar);
                     //不太明白为什么C#设计成在这里就读出了数据
-                    client.GetStream().BeginRead(_buf, 0, 1024, OnRead2, client.GetStream());
+//                    client.GetStream().BeginRead(_buf, 0, 1024, OnRead2, client.GetStream());
+
+
+                    await client.GetStream().ReadAsync(_buf, 0, 1024);
+                    int count = _buf.TakeWhile(b => b != 0).Count();
+                    byte[] type = new byte[8];
+                    Buffer.BlockCopy(_buf, 0, type, 0, type.Length);
+                    byte[] msg = new byte[count - 8];
+                    Buffer.BlockCopy(_buf, 8, msg, 0, msg.Length);
+//                    stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
+                    Core.DataCenter.Instance.Receive(int.Parse(Encoding.UTF8.GetString(type)), msg);
                 }
             }
             
@@ -47,13 +85,12 @@ namespace Net
                 stream.EndRead(ar);
                 //取出
                 int count = _buf.TakeWhile(b => b != 0).Count();
-//                byte[] buffer = new byte[count];
                 byte[] type = new byte[8];
                 Buffer.BlockCopy(_buf, 0, type, 0, type.Length);
                 byte[] msg = new byte[count - 8];
                 Buffer.BlockCopy(_buf, 8, msg, 0, msg.Length);
-//                Buffer.BlockCopy(_buf, 0, buffer, 0, buffer.Length);
                 stream.BeginRead(_buf, 0, 1024, OnRead2, stream);
+                
                 Core.DataCenter.Instance.Receive(int.Parse(Encoding.UTF8.GetString(type)), msg);
             }
             
@@ -129,8 +166,10 @@ namespace Net
                 var mem = new byte[bytes.Length + msgBytes.Length];
                 Buffer.BlockCopy(bytes, 0, mem, 0, bytes.Length);
                 Buffer.BlockCopy(msgBytes, 0, mem, bytes.Length, msgBytes.Length);
-                _client.GetStream().BeginWrite(mem, 0, mem.Length, OnSend,
-                    _client.GetStream());
+//                _client.GetStream().BeginWrite(mem, 0, mem.Length, OnSend,
+//                    _client.GetStream());
+                
+                _client.GetStream().Write(mem, 0, mem.Length);
             }
 
             private void OnSend(IAsyncResult ar)

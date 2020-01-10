@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using Google.Protobuf;
+using Util;
 
 namespace Core
 {
@@ -20,7 +21,11 @@ namespace Core
             if (code == 400)
             {
                 var res = LoginRes.Parser.ParseFrom(msg);
-                Global.Log(res.ToString());
+                if (res.Res)
+                {
+                    Listener.Instance.Event(1, res.ToString(), null, null);
+                }
+                
             }
         }
 

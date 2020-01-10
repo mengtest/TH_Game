@@ -59,25 +59,6 @@ namespace Net
             msg.Userpwd = userpwd;
             int code = 400;
             _connection.Send(code, msg);
-
-            // 发送消息
-            // 这里采用异步的方式来模拟发送消息的过程
-            // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
-//            if (username == "yuki1432" && userpwd == "abcd1234123")
-//            {
-//                //模拟异步的情景
-//                Timer.Register(1, () =>
-//                {
-//                    Listener.Instance.Event(1, true, 400, "");
-//                });
-//            }
-//            else
-//            {
-//                Timer.Register(1, () =>
-//                {
-//                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
-//                });
-//            }
         }
 
         //登出

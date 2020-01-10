@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using EX;
 using UnityEngine;
 using XLua;
@@ -161,6 +162,7 @@ namespace Manager
             {
                 if (pair.First == id)
                 {
+                    Global.Log(Thread.CurrentThread.ManagedThreadId.ToString());
                     pair.Second.Stop(true);
                     _list.Remove(pair);
                     return;
