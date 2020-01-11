@@ -91,12 +91,12 @@ namespace XLua.CSObjectWrap
             
                 if(gen_param_count == 4&& translator.Assignable<Util.pool.GameObjectPool.Operator>(L, 1)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 2)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 3)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 4)) 
                 {
-                    Util.pool.GameObjectPool.Operator @operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
+                    Util.pool.GameObjectPool.Operator _operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
                     Util.pool.GameObjectPool.Operator1 _deleter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 2);
                     Util.pool.GameObjectPool.Operator1 _getter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 3);
                     Util.pool.GameObjectPool.Operator1 _setter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 4);
                     
-                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( @operator, _deleter, _getter, _setter );
+                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( _operator, _deleter, _getter, _setter );
                         translator.PushAny(L, gen_ret);
                     
                     
@@ -105,11 +105,11 @@ namespace XLua.CSObjectWrap
                 }
                 if(gen_param_count == 3&& translator.Assignable<Util.pool.GameObjectPool.Operator>(L, 1)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 2)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 3)) 
                 {
-                    Util.pool.GameObjectPool.Operator @operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
+                    Util.pool.GameObjectPool.Operator _operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
                     Util.pool.GameObjectPool.Operator1 _deleter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 2);
                     Util.pool.GameObjectPool.Operator1 _getter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 3);
                     
-                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( @operator, _deleter, _getter );
+                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( _operator, _deleter, _getter );
                         translator.PushAny(L, gen_ret);
                     
                     
@@ -118,10 +118,10 @@ namespace XLua.CSObjectWrap
                 }
                 if(gen_param_count == 2&& translator.Assignable<Util.pool.GameObjectPool.Operator>(L, 1)&& translator.Assignable<Util.pool.GameObjectPool.Operator1>(L, 2)) 
                 {
-                    Util.pool.GameObjectPool.Operator @operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
+                    Util.pool.GameObjectPool.Operator _operator = translator.GetDelegate<Util.pool.GameObjectPool.Operator>(L, 1);
                     Util.pool.GameObjectPool.Operator1 _deleter = translator.GetDelegate<Util.pool.GameObjectPool.Operator1>(L, 2);
                     
-                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( @operator, _deleter );
+                        Util.pool.IPool gen_ret = Util.pool.GameObjectPool.CreatePool( _operator, _deleter );
                         translator.PushAny(L, gen_ret);
                     
                     

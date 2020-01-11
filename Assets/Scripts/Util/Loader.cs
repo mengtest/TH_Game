@@ -6,6 +6,9 @@ using Object = UnityEngine.Object;
 
 namespace Util
 {
+    /// <summary>
+    /// 自定义的loader接口
+    /// </summary>
     [CSharpCallLua]
     [LuaCallCSharp]
     public interface ILoader

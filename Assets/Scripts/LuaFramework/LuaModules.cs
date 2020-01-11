@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Util;
 
@@ -28,7 +29,7 @@ namespace LuaFramework
                 _modules = new LuaModules();
             }
             var str = Loader.Read("LuaScript/config/module");
-            var strs = str.Split('\r', '\n');
+            var strs = Regex.Split(str, "/r/n");
             foreach (string s in strs)
             {
                 if (s.Length != 0 && s[0] != ';')

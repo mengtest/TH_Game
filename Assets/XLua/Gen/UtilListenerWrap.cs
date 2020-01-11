@@ -97,17 +97,6 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 3&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<Util.Listener.AsyncCall>(L, 3)) 
-                {
-                    int _code = LuaAPI.xlua_tointeger(L, 2);
-                    Util.Listener.AsyncCall _action = translator.GetDelegate<Util.Listener.AsyncCall>(L, 3);
-                    
-                    gen_to_be_invoked.On( _code, _action );
-                    
-                    
-                    
-                    return 0;
-                }
                 if(gen_param_count == 4&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& translator.Assignable<UnityEngine.Object>(L, 3)&& translator.Assignable<Util.Listener.AsyncCall>(L, 4)) 
                 {
                     string _type = LuaAPI.lua_tostring(L, 2);
@@ -120,28 +109,26 @@ namespace XLua.CSObjectWrap
                     
                     return 0;
                 }
-                if(gen_param_count == 6&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& translator.Assignable<Lib.KeyCode>(L, 3)&& translator.Assignable<UnityEngine.Object>(L, 4)&& translator.Assignable<Util.Listener.Callback>(L, 5)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 6)) 
+                if(gen_param_count == 5&& translator.Assignable<Lib.KeyCode>(L, 2)&& translator.Assignable<UnityEngine.Object>(L, 3)&& translator.Assignable<Util.Listener.Callback>(L, 4)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 5)) 
                 {
-                    string _type = LuaAPI.lua_tostring(L, 2);
-                    Lib.KeyCode _code;translator.Get(L, 3, out _code);
-                    UnityEngine.Object _caller = (UnityEngine.Object)translator.GetObject(L, 4, typeof(UnityEngine.Object));
-                    Util.Listener.Callback _callback = translator.GetDelegate<Util.Listener.Callback>(L, 5);
-                    bool _once = LuaAPI.lua_toboolean(L, 6);
+                    Lib.KeyCode _code;translator.Get(L, 2, out _code);
+                    UnityEngine.Object _caller = (UnityEngine.Object)translator.GetObject(L, 3, typeof(UnityEngine.Object));
+                    Util.Listener.Callback _callback = translator.GetDelegate<Util.Listener.Callback>(L, 4);
+                    bool _once = LuaAPI.lua_toboolean(L, 5);
                     
-                    gen_to_be_invoked.On( _type, _code, _caller, _callback, _once );
+                    gen_to_be_invoked.On( _code, _caller, _callback, _once );
                     
                     
                     
                     return 0;
                 }
-                if(gen_param_count == 5&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& translator.Assignable<Lib.KeyCode>(L, 3)&& translator.Assignable<UnityEngine.Object>(L, 4)&& translator.Assignable<Util.Listener.Callback>(L, 5)) 
+                if(gen_param_count == 4&& translator.Assignable<Lib.KeyCode>(L, 2)&& translator.Assignable<UnityEngine.Object>(L, 3)&& translator.Assignable<Util.Listener.Callback>(L, 4)) 
                 {
-                    string _type = LuaAPI.lua_tostring(L, 2);
-                    Lib.KeyCode _code;translator.Get(L, 3, out _code);
-                    UnityEngine.Object _caller = (UnityEngine.Object)translator.GetObject(L, 4, typeof(UnityEngine.Object));
-                    Util.Listener.Callback _callback = translator.GetDelegate<Util.Listener.Callback>(L, 5);
+                    Lib.KeyCode _code;translator.Get(L, 2, out _code);
+                    UnityEngine.Object _caller = (UnityEngine.Object)translator.GetObject(L, 3, typeof(UnityEngine.Object));
+                    Util.Listener.Callback _callback = translator.GetDelegate<Util.Listener.Callback>(L, 4);
                     
-                    gen_to_be_invoked.On( _type, _code, _caller, _callback );
+                    gen_to_be_invoked.On( _code, _caller, _callback );
                     
                     
                     
@@ -196,14 +183,14 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 5&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<object>(L, 3)&& translator.Assignable<object>(L, 4)&& translator.Assignable<object>(L, 5)) 
+                if(gen_param_count == 5&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& translator.Assignable<object>(L, 3)&& translator.Assignable<object>(L, 4)&& translator.Assignable<object>(L, 5)) 
                 {
-                    int _code = LuaAPI.xlua_tointeger(L, 2);
+                    string _type = LuaAPI.lua_tostring(L, 2);
                     object _o1 = translator.GetObject(L, 3, typeof(object));
                     object _o2 = translator.GetObject(L, 4, typeof(object));
                     object _o3 = translator.GetObject(L, 5, typeof(object));
                     
-                    gen_to_be_invoked.Event( _code, _o1, _o2, _o3 );
+                    gen_to_be_invoked.Event( _type, _o1, _o2, _o3 );
                     
                     
                     
