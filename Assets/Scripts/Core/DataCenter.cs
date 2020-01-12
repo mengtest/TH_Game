@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using Google.Protobuf;
-using Tutorial;
-using Util;
+﻿using System.Collections.Generic;
 using XLua;
 
 namespace Core
@@ -14,24 +9,26 @@ namespace Core
 
         public static DataCenter Instance => _instance;
 
-        public delegate void Delegate(string str);
-        private Dictionary<int, Action<byte[]>> _msgs;
-        
         [CSharpCallLua]
         [LuaCallCSharp]
+        public delegate void Delegate(byte[] bytes);
+        
+        private Dictionary<int, Delegate> _msgs;
+        
+
         private Dictionary<int, Delegate> _luaMsgs;
 
         //处理的是msg，也就是原始数据
         public void Receive(int code, byte[] msg)
         {
-            if (code == 400)
-            {
-                var res = LoginRes.Parser.ParseFrom(msg);
-                if (res.Res)
-                {
-                    Listener.Instance.Event(1, res.ToString(), null, null);
-                }
-            }
+//            if (code == 400)
+//            {
+//                var res = LoginRes.Parser.ParseFrom(msg);
+//                if (res.Res)
+//                {
+//                    Listener.Instance.Event(1, res.ToString(), null, null);
+//                }
+//            }
 
             if (_instance._msgs.ContainsKey(code))
             {
@@ -44,7 +41,7 @@ namespace Core
         }
         
         [DoNotGen]
-        public static void Reg(int code, Action<byte[]> callback)
+        public static void Reg(int code, Delegate callback)
         {
             if (!_instance._msgs.ContainsKey(code))
             {
@@ -68,7 +65,7 @@ namespace Core
         public static void Init()
         {
             _instance = new DataCenter();
-            _instance._msgs = new Dictionary<int, Action<byte[]>>();
+            _instance._msgs = new Dictionary<int, Delegate>();
             _instance._luaMsgs = new Dictionary<int, Delegate>();
         }
     }

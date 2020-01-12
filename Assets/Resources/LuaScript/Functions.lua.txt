@@ -1,9 +1,16 @@
-﻿tb = GlobalTb
+﻿local json = require"lib.json"
+
+tb = GlobalTb
 
 Button = {}
 DropDown = {}
 
 Button.StartButtonCallback = function()
+    CS.Core.DataCenter.Reg(400, function(bytes)
+        local msg = CS.LoginRes.ParseFrom(bytes)
+        print(msg.Nickname)
+    end)
+
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
