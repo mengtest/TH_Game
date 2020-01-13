@@ -1,0 +1,53 @@
+local json = require"lib.json"
+
+local tb = GlobalTb
+
+function loginCallback(res, type, msg)
+    -- local data = json.decode(res)
+    -- print(res)
+    -- print(data.res)
+    if res.Res then
+        CS.Global.Log(res.Msg.."欢迎"..res.Uid.."的用户："..res.Nickname)
+        coroutine.resume(tb.closeDialogThread)
+        CS.Manager.Animation.Stop(tb.animaId)
+    else
+        CS.Manager.Animation.Stop(tb.animaId)
+        coroutine.resume(tb.closeDialogThread2)
+        CS.Global.Log(res.Msg)
+    end
+end
+
+function ConfirmBtn(this)
+    this:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(function() 
+        -- 这两个是通过injection设置过来的
+        -- local name = nameInput.text
+        -- local pwd = pwdInput.text
+
+        local name = "yuki1432"
+        local pwd = "abcd1234123"
+
+        if #name == 0 then
+            CS.Global.Log("没有账号我怎么知道您是哪位？")
+            return
+        end
+        
+        if #pwd == 0 then
+            CS.Global.Log("您是否忘记输入密码？")
+            return
+        end
+
+        --@RefType [luaIde#CS.UnityEngine.GameObject]
+        local ani, animaId = CS.Manager.Animation.Play("Effect/loading/", 0.1, 13, 24, -1, 0, nil)
+        ani.transform:SetParent(CS.Global.GetRootObject("UILayer").transform)
+        ani.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
+        tb.animaId = animaId
+
+        CS.Net.NetHelper.GetInstance():Login(name, pwd, loginCallback)
+    end)
+end
+
+function CancelBtn(this)
+    this:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(function() 
+        coroutine.resume(tb.closeDialogThread2)
+    end)
+end

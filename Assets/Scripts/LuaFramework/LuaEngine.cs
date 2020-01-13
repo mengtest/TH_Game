@@ -25,7 +25,6 @@ namespace LuaFramework
             LoadLuaLib();
             
             //一些准备工作
-
             
             if (!_engine._luaTables.ContainsKey("functions"))
             {

@@ -16,8 +16,6 @@ function ConfirmButton()
         CS.Global.Log("您是否忘记输入密码？")
         return
     end
-    
-    -- CS.Net.NetHelper.GetInstance():Login(name, pwd, "loginCallback")
 
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local ani, animaId = CS.Manager.Animation.Play("Effect/loading/", 0.1, 13, 24, -1, 0, nil)

@@ -733,6 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   file: {fileID: 0}
   injections: []
+  local: 0
 --- !u!4 &655421617
 Transform:
   m_ObjectHideFlags: 0

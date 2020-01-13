@@ -1,10 +1,5 @@
 ﻿using System;
-using System.IO;
-using System.Text;
-using Google.Protobuf;
-using Lib;
 using LuaFramework;
-using UnityEngine;
 using Util;
 
 namespace Net
@@ -49,10 +44,10 @@ namespace Net
         
         //登入
         //在登入模块中，可以在用户输入完用户名之后就发送消息，获取到对应的密码，然后再用户点击确认之后再去验证是否登入成功
-        public void Login(string username, string userpwd, string callName)
+        public void Login(string username, string userpwd, Listener.AsyncCall callback)
         {
-            var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
-            Listener.Instance.On(1, act);
+//            var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
+            Listener.Instance.On(1, callback);
 
             var msg = new LoginMsg();
             msg.Username = username;

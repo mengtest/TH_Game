@@ -78,7 +78,7 @@ public static partial class Global
     /// <returns>当前画布或者null</returns>
     public static Canvas GetCurCanvas()
     {
-        return GetRootObject("UICanvas").GetComponent<Canvas>();
+        return GetRootObject("UILayer").GetComponent<Canvas>();
     }
 
     /// <summary>

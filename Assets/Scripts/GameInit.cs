@@ -1,8 +1,7 @@
-﻿using System.Threading;
-using LuaFramework;
-using Net;
+﻿using LuaFramework;
 using UnityEngine;
 using Util;
+using Net;
 
 /// <summary>
 /// 游戏开始的时候，各种必要的资源等的初始化
@@ -23,47 +22,5 @@ public static class GameInit
         NetHelper.Init();
         LuaEngine.Init();
         Pool.Init();
-        
-        Global.Log(Thread.CurrentThread.ManagedThreadId.ToString());
-        
-//        connect("127.0.0.1", 9998);
-        
-//        read((str, length) =>
-//        {
-//            Debug.Log(str);
-//            Debug.Log(length);
-//        });
-
-//        write("123123123123");
-
-//        write("123123123123123");
-//        var _env = new XLua.LuaEnv();
-//        var table = _env.NewTable();
-//        var meta = _env.NewTable();
-//        meta.Set("__index", _env.Global);
-//        table.SetMetaTable(meta);
-//        meta.Dispose();
-//        _env.DoString(
-//            Resources.Load<TextAsset>("LuaScript/player/player.lua").text,
-//            "xlua",
-//            table);
-//
-//        var player = table.Get<IPlayer>("Player");
-//        Global.Log(player.GetName());
     }
-
-
-//    public delegate void Callback(string str, int length);
-//
-//    [DllImport("Core 7")]
-//    public static extern void read(Callback callback);
-//    
-//    [DllImport("Core 7")]
-//    public static extern void close();
-//    
-//    [DllImport("Core 7")]
-//    public static extern void connect(string str, int port);
-//    
-//    [DllImport("Core 7")]
-//    public static extern void write(string str);
 }

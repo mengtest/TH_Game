@@ -1,102 +1,100 @@
-﻿local json = require"lib.json"
+﻿-- tb = GlobalTb
 
-tb = GlobalTb
+-- Button = {}
+-- DropDown = {}
 
-Button = {}
-DropDown = {}
+-- Button.StartButtonCallback = function()
+--     CS.Core.DataCenter.Reg(400, function(bytes)
+--         local msg = CS.LoginRes.ParseFrom(bytes)
+--         print(msg.Nickname)
+--     end)
 
-Button.StartButtonCallback = function()
-    CS.Core.DataCenter.Reg(400, function(bytes)
-        local msg = CS.LoginRes.ParseFrom(bytes)
-        print(msg.Nickname)
-    end)
+--     --点击开始游戏按钮之后跳转到游戏的第一个场景中
+--     --@RefType [luaIde#CS.UnityEngine.GameObject]
+--     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
+--     --@RefType [luaIde#CS.UnityEngine.GameObject]
+--     local obj = CS.UnityEngine.GameObject.Instantiate(go)
+--     CS.Global.Translator.Translate(obj:GetComponent("Canvas"))
+--     CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
+--     -- 这个是用户输入正确的密码用用户名的回调
+--     tb.closeDialogThread = coroutine.create(function()
+--         -- 销毁对话框的实例对象
+--         CS.UnityEngine.GameObject.Destroy(obj)
+--         --@RefType [luaIde#CS.UnityEngine.GameObject]
+--         local txt = CS.UnityEngine.GameObject("continue")
+--         -- 创建一段文本，类似于崩三中开始游戏中那段文本的特效
+--         local text = txt:AddComponent(typeof(CS.UnityEngine.UI.Text))
+--         text.text = "按任意键开始游戏"
+--         -- 创建文本，必须要初始化字体，否则不会显示
+--         text.font = CS.UnityEngine.Font.CreateDynamicFontFromOSFont("Arial", 45)
+--         text.fontSize = 45
+--         -- 设置文本的大小
+--         txt:GetComponent(typeof(CS.UnityEngine.RectTransform)).sizeDelta = CS.UnityEngine.Vector2(700, 100)
+--         -- 文本居中对齐
+--         text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
+--         -- 修改文本的颜色
+--         text.color = CS.UnityEngine.Color.yellow
 
-    --点击开始游戏按钮之后跳转到游戏的第一个场景中
-    --@RefType [luaIde#CS.UnityEngine.GameObject]
-    local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
-    --@RefType [luaIde#CS.UnityEngine.GameObject]
-    local obj = CS.UnityEngine.GameObject.Instantiate(go)
-    CS.Global.Translator.Translate(obj:GetComponent("Canvas"))
-    CS.UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, CS.UnityEngine.SceneManagement.SceneManager.GetActiveScene())
-    -- 这个是用户输入正确的密码用用户名的回调
-    tb.closeDialogThread = coroutine.create(function()
-        -- 销毁对话框的实例对象
-        CS.UnityEngine.GameObject.Destroy(obj)
-        --@RefType [luaIde#CS.UnityEngine.GameObject]
-        local txt = CS.UnityEngine.GameObject("continue")
-        -- 创建一段文本，类似于崩三中开始游戏中那段文本的特效
-        local text = txt:AddComponent(typeof(CS.UnityEngine.UI.Text))
-        text.text = "按任意键开始游戏"
-        -- 创建文本，必须要初始化字体，否则不会显示
-        text.font = CS.UnityEngine.Font.CreateDynamicFontFromOSFont("Arial", 45)
-        text.fontSize = 45
-        -- 设置文本的大小
-        txt:GetComponent(typeof(CS.UnityEngine.RectTransform)).sizeDelta = CS.UnityEngine.Vector2(700, 100)
-        -- 文本居中对齐
-        text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
-        -- 修改文本的颜色
-        text.color = CS.UnityEngine.Color.yellow
+--         --整个放大与缩小，并且会闪烁的特效
+--         local fade = text:DOFade(0.4, 2)
+--         local defade = text:DOFade(1, 2)
+--         local scale = text.transform:DOScale(CS.UnityEngine.Vector3(0.9, 0.9, 0.9), 2)
+--         local descale = text.transform:DOScale(CS.UnityEngine.Vector3(1, 1, 1), 2)
+--         local seq = CS.DG.Tweening.DOTween.Sequence()
+--         seq:Append(fade)
+--         seq:Join(scale)
+--         seq:Append(defade)
+--         seq:Join(descale)
+--         seq:SetLoops(-1)
+--         seq:Play()
 
-        --整个放大与缩小，并且会闪烁的特效
-        local fade = text:DOFade(0.4, 2)
-        local defade = text:DOFade(1, 2)
-        local scale = text.transform:DOScale(CS.UnityEngine.Vector3(0.9, 0.9, 0.9), 2)
-        local descale = text.transform:DOScale(CS.UnityEngine.Vector3(1, 1, 1), 2)
-        local seq = CS.DG.Tweening.DOTween.Sequence()
-        seq:Append(fade)
-        seq:Join(scale)
-        seq:Append(defade)
-        seq:Join(descale)
-        seq:SetLoops(-1)
-        seq:Play()
+--         --@RefType [luaIde#CS.UnityEngine.GameObject]
+--         local back = CS.Global.GetRootObject("UILayer")
+--         -- 将这个文本添加到BackCanvas的子节点中
+--         txt.transform:SetParent(back.transform)
+--         -- 修改文本的坐标为中间偏下的位置
+--         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
 
-        --@RefType [luaIde#CS.UnityEngine.GameObject]
-        local back = CS.Global.GetRootObject("UILayer")
-        -- 将这个文本添加到BackCanvas的子节点中
-        txt.transform:SetParent(back.transform)
-        -- 修改文本的坐标为中间偏下的位置
-        txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
+--         CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.AnyKey, txt, function()
+--             seq:Kill()
+--             CS.Util.Listener.Instance:On("scene_change", nil, function(o)
+--                 print(o)
+--             end)
+--             CS.Global.NavigateTo("MainScene", true)
+--         end, true)
+--     end)
 
-        CS.Util.Listener.Instance:On("1234", CS.Lib.KeyCode.AnyKey, txt, function()
-            seq:Kill()
-            CS.Util.Listener.Instance:On("scene_change", nil, function(o)
-                print(o)
-            end)
-            CS.Global.NavigateTo("MainScene", true)
-        end, true)
-    end)
+--     -- 点击取消的回调
+--     tb.closeDialogThread2 = coroutine.create(function()
+--         CS.UnityEngine.GameObject.Destroy(obj)
+--     end)
+-- end
 
-    -- 点击取消的回调
-    tb.closeDialogThread2 = coroutine.create(function()
-        CS.UnityEngine.GameObject.Destroy(obj)
-    end)
-end
+-- Button.SettingButtonCallback = function()
+--     -- 点击设置按钮之后跳转到设置场景
+--     CS.Util.Listener.Instance:On("scene_changed", nil, function(o)
+--         print("场景"..o.."加载完成")
+--     end)
+--     CS.Global.NavigateTo("SettingScene")
+-- end
 
-Button.SettingButtonCallback = function()
-    -- 点击设置按钮之后跳转到设置场景
-    CS.Util.Listener.Instance:On("scene_changed", nil, function(o)
-        print("场景"..o.."加载完成")
-    end)
-    CS.Global.NavigateTo("SettingScene")
-end
+-- Button.ExitButtonCallback = function()
+--     --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
+--     --@RefType [luaIde#CS.Util.ModelDialog]
+--     local dialog = CS.Util.ModelDialog("是否要退出游戏？", "是", "否", function()
+--         CS.UnityEngine.Application.Quit(0)
+--         CS.Global.Log("退出游戏")
+--     end, function()
+--         CS.Global.Log("你点击了否")
+--     end)
+--     dialog:ShowDialog()
+-- end
 
-Button.ExitButtonCallback = function()
-    --点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
-    --@RefType [luaIde#CS.Util.ModelDialog]
-    local dialog = CS.Util.ModelDialog("是否要退出游戏？", "是", "否", function()
-        CS.UnityEngine.Application.Quit(0)
-        CS.Global.Log("退出游戏")
-    end, function()
-        CS.Global.Log("你点击了否")
-    end)
-    dialog:ShowDialog()
-end
+-- Button.LoginButtonCallback = function()
+--     CS.Global.Log("你点击了登入按钮")
+-- end
 
-Button.LoginButtonCallback = function()
-    CS.Global.Log("你点击了登入按钮")
-end
-
-asdasd = function(o)
-    -- CS.Global.MakeToast("hhhhhhhhhhhh", CS.Global.ToastLong)
-    CS.Global.Log("hhhhhhhhhhhhhhhhhhh"..o)
-end
+-- asdasd = function(o)
+--     -- CS.Global.MakeToast("hhhhhhhhhhhh", CS.Global.ToastLong)
+--     CS.Global.Log("hhhhhhhhhhhhhhhhhhh"..o)
+-- end

@@ -1,40 +1,57 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XLua;
 
 namespace LuaFramework
 {
     public class LuaManager : MonoBehaviour
     {
         [SerializeField]
+        [Tooltip("全局mgr可以不用设置这个项，全局mgr会自动加载对应场景的init方法，非全局mgr则会加载这个mgr的名称所对应的lua文件")]
         private TextAsset file;
 
         [Tooltip("")]
         [SerializeField]
         private Global.Injection2[] injections;
 
+        [SerializeField]
+        [Tooltip("是否是局部mgr，局部mgr主要应用于预制资源")]
+        private bool local = true;
+
         private void Awake()
         {
+            var path = "";
+            //即使是全局mgr，也只是说可以不用设置file属性，mgr会自动去加载一个lua文件，并执行其中的init方法
+            //也可以手动设置file字段，这时也会去执行init方法
             if (file == null)
             {
+                if (!local)
+                {
+                    path = Global.Scene.name + "/init.lua";
+                }
+                else
+                {
+                    path = Global.Scene.name + "/" + gameObject.name + ".lua";
+                }
+
                 try
                 {
-                    file = Util.Loader.Load<TextAsset>("LuaScript/scenes/" + Global.Scene.name + ".lua");
+                    file = Util.Loader.Load<TextAsset>("LuaScript/modules/" + path);
                 }
                 catch (Exception e)
                 {
-                    Debug.Log(e.Message);
-                    Debug.Log("添加LuaManager之后必须设置脚本文件或者存在与场景同名的脚本");
+                    Debug.Log("file字段为空，且无法自动加载");
                     throw;
                 }
             }
             
-            var table = LuaEngine.Instance.LoadString(file.text, SceneManager.GetActiveScene().name);
+            var table = LuaEngine.Instance.LoadString(file.text, path);
             table.Get<Action<LuaManager>>("init")?.Invoke(this);
-
+            
             foreach (var injection in injections)
             {
-                if (injection.name.Length ==0 && injection.go == null)
+                if (injection.name.Length == 0 && injection.go == null)
                 {
                     continue;
                 }
