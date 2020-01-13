@@ -139,6 +139,33 @@ namespace LuaFramework
             return table;
         }
         
+        public LuaTable LoadString(string str, string name, Global.Injection[] injections)
+        {
+            var table = _env.NewTable();
+            var meta = _env.NewTable();
+            meta.Set("__index", _env.Global);
+            table.SetMetaTable(meta);
+            meta.Dispose();
+            _env.DoString(
+                str,
+                name,
+                table);
+            foreach (var injection in injections)
+            {
+                table.Set(injection.name, injection.value);
+            }
+            if (_luaTables.ContainsKey(name))
+            {
+                _luaTables[name].Dispose();
+                _luaTables[name] = table;
+            }
+            else
+            {
+                _luaTables.Add(name, table);
+            }
+            return table;
+        }
+        
         public LuaTable LoadFile(string path, string name ,object self)
         {
             var table = _env.NewTable();

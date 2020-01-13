@@ -596,11 +596,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 0}
-  injections:
+  functions:
   - name: 
     go: {fileID: 8187003996625999251}
   - name: 
     go: {fileID: 7369074810540194527}
+  injections:
+  - name: nameInput
+    value: {fileID: 6764019185177422348}
+  - name: pwdInput
+    value: {fileID: 6264218516914196136}
   local: 1
 --- !u!1 &5197776588751169335
 GameObject:

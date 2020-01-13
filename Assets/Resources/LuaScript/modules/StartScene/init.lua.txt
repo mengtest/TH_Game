@@ -1,7 +1,7 @@
 local tb = GlobalTb
 
 function init(luaManger)
-    print(CS.UnityEngine.UI.InputField.ContentType.Password)
+    -- print(CS.UnityEngine.UI.InputField.ContentType.Password)
     CS.UnityEngine.GameObject.Find("StartButton"):GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(StartButtonCallback);
 end
 

@@ -11,10 +11,14 @@ namespace LuaFramework
         [Tooltip("全局mgr可以不用设置这个项，全局mgr会自动加载对应场景的init方法，非全局mgr则会加载这个mgr的名称所对应的lua文件")]
         private TextAsset file;
 
-        [Tooltip("")]
+        [Tooltip("自动调用的函数")]
         [SerializeField]
-        private Global.Injection2[] injections;
+        private Global.Injection2[] functions;
 
+        [Tooltip("C#端传递给lua端的参数")]
+        [SerializeField]
+        private Global.Injection[] injections;
+        
         [SerializeField]
         [Tooltip("是否是局部mgr，局部mgr主要应用于预制资源")]
         private bool local = true;
@@ -45,11 +49,11 @@ namespace LuaFramework
                     throw;
                 }
             }
-            
-            var table = LuaEngine.Instance.LoadString(file.text, path);
+
+            var table = LuaEngine.Instance.LoadString(file.text, path, injections);
             table.Get<Action<LuaManager>>("init")?.Invoke(this);
             
-            foreach (var injection in injections)
+            foreach (var injection in functions)
             {
                 if (injection.name.Length == 0 && injection.go == null)
                 {
@@ -61,6 +65,7 @@ namespace LuaFramework
                 table.Get(key, out Action<GameObject> func);
                 func?.Invoke(injection.go);
             }
+            
 
             #region MyRegion
 //            foreach (var f in regFunctions)

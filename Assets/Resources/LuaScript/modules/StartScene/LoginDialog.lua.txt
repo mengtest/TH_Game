@@ -2,29 +2,16 @@ local json = require"lib.json"
 
 local tb = GlobalTb
 
-function loginCallback(res, type, msg)
-    -- local data = json.decode(res)
-    -- print(res)
-    -- print(data.res)
-    if res.Res then
-        CS.Global.Log(res.Msg.."欢迎"..res.Uid.."的用户："..res.Nickname)
-        coroutine.resume(tb.closeDialogThread)
-        CS.Manager.Animation.Stop(tb.animaId)
-    else
-        CS.Manager.Animation.Stop(tb.animaId)
-        coroutine.resume(tb.closeDialogThread2)
-        CS.Global.Log(res.Msg)
-    end
-end
-
 function ConfirmBtn(this)
+    pwdInput.contentType = CS.UnityEngine.UI.InputField.ContentType.Password
+
     this:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(function() 
         -- 这两个是通过injection设置过来的
-        -- local name = nameInput.text
-        -- local pwd = pwdInput.text
-
-        local name = "yuki1432"
-        local pwd = "abcd1234123"
+        local name = nameInput.text
+        local pwd = pwdInput.text
+        
+        -- local name = "yuki1432"
+        -- local pwd = "abcd1234123"
 
         if #name == 0 then
             CS.Global.Log("没有账号我怎么知道您是哪位？")
@@ -50,4 +37,19 @@ function CancelBtn(this)
     this:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(function() 
         coroutine.resume(tb.closeDialogThread2)
     end)
+end
+
+function loginCallback(res, type, msg)
+    -- local data = json.decode(res)
+    -- print(res)
+    -- print(data.res)
+    if res.Res then
+        CS.Global.Log(res.Msg.."欢迎"..res.Uid.."的用户："..res.Nickname)
+        coroutine.resume(tb.closeDialogThread)
+        CS.Manager.Animation.Stop(tb.animaId)
+    else
+        CS.Manager.Animation.Stop(tb.animaId)
+        coroutine.resume(tb.closeDialogThread2)
+        CS.Global.Log(res.Msg)
+    end
 end
