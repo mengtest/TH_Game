@@ -21,6 +21,8 @@ public static class GameInit
         //先暂时不启用网络连接相关的功能
         NetHelper.Init();
         LuaEngine.Init();
+        //加载全局的lua模块
+        LuaEngine.LoadLuaModule();
         Pool.Init();
     }
 }

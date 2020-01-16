@@ -31,6 +31,17 @@ namespace LuaFramework
                 _engine.LoadFile("LuaScript/Functions.lua", "functions");
             }
         }
+
+        /// <summary>
+        /// 游戏开始时，加载全局的lua模块
+        /// </summary>
+        public static void LoadLuaModule()
+        {
+            var file = Util.Loader.Load<TextAsset>("LuaScript/modules/init.lua");
+
+            var table = LuaEngine.Instance.LoadString(file.text, "LuaModuleRoot");
+            table.Get<Action>("init")?.Invoke();
+        }
         
         //以后增加一个功能，
         //根据给定的配置文件，去读取lua文件，并加载
