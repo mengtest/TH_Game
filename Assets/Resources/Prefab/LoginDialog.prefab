@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 8329229183389362765}
   - component: {fileID: 3569764043686625351}
   - component: {fileID: 649485642123906728}
+  - component: {fileID: 3907387562974437343}
   m_Layer: 0
   m_Name: LoginDialog
   m_TagString: Untagged
@@ -607,6 +608,23 @@ MonoBehaviour:
   - name: pwdInput
     value: {fileID: 6264218516914196136}
   local: 1
+--- !u!114 &3907387562974437343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014791141958539760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c69447d32f4e53bb35f5bb988357a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 5752401354436124744}
+  - {fileID: 4518535041919162784}
+  - {fileID: 8187003996625999251}
+  - {fileID: 7369074810540194527}
 --- !u!1 &5197776588751169335
 GameObject:
   m_ObjectHideFlags: 0
