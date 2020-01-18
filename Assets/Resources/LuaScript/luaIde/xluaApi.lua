@@ -59,6 +59,11 @@ CS.LoginRes.NicknameFieldNumber = nil
 	 Get 	 Set 
 --]]
 CS.LoginRes.MsgFieldNumber = nil
+--[[
+	@bytes CS.System.Byte{}
+	@return [luaIde#CS.LoginRes]
+--]]
+function CS.LoginRes:ParseFrom(bytes) end
 function CS.LoginRes:Clone() end
 --[[
 	@other CS.System.Object
@@ -127,6 +132,11 @@ CS.LoginMsg.UsernameFieldNumber = nil
 	 Get 	 Set 
 --]]
 CS.LoginMsg.UserpwdFieldNumber = nil
+--[[
+	@bytes CS.System.Byte{}
+	@return [luaIde#CS.LoginMsg]
+--]]
+function CS.LoginMsg:ParseFrom(bytes) end
 function CS.LoginMsg:Clone() end
 --[[
 	@other CS.System.Object
@@ -661,9 +671,9 @@ function CS.Net.NetHelper:ReceiveMsg(msg) end
 --[[
 	@username CS.System.String
 	@userpwd CS.System.String
-	@callName CS.System.String
+	@callback CS.Util.Listener.AsyncCall
 --]]
-function CS.Net.NetHelper:Login(username,userpwd,callName) end
+function CS.Net.NetHelper:Login(username,userpwd,callback) end
 function CS.Net.NetHelper:Logout() end
 function CS.Net.NetHelper:DrawCard() end
 function CS.Net.NetHelper:Draw() end
@@ -3634,7 +3644,7 @@ function CS.DG.Tweening.TweenParams:SetSpeedBased(isSpeedBased) end
 --@SuperType [luaIde#CS.System.Object]
 CS.DG.Tweening.Core.ABSSequentiable = {}
 
---@SuperType [luaIde#CS.DG.Tweening.Tweener]
+-- --@SuperType [luaIde#CS.DG.Tweening.Tweener]
 -- CS.DG.Tweening.Core.TweenerCore`3[[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[DG.Tweening.Plugins.Options.VectorOptions, DOTween, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] = {}
 -- --[[
 -- 	CS.UnityEngine.Vector3

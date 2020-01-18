@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Util;
 using KeyCode = Lib.KeyCode;
 
@@ -18,36 +19,34 @@ namespace Tool
         public GameObject[] components;
 
         private int _curIdx;
-
-
+        
         private void Start()
         {
             Listener.Instance.On("", KeyCode.Tab, null, () =>
             {
                 var e = EventSystem.current;
                 var flag = false;
-                if (e.currentSelectedGameObject != null && e.currentSelectedGameObject.GetHashCode() == gameObject.GetHashCode())
+
+                if (e.currentSelectedGameObject == null)
+                {
+                    return;
+                }
+                
+                for (int i = 0; i < components.Length; i++)
+                {
+                    if (components[i].GetHashCode() == e.currentSelectedGameObject.GetHashCode())
+                    {
+                        _curIdx = i;
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag)
                 {
                     _curIdx = -1;
                 }
-                else
-                {
-                    for (int i = 0; i < components.Length; i++)
-                    {
-                        if (components[i].GetHashCode() == e.currentSelectedGameObject.GetHashCode())
-                        {
-                            _curIdx = i;
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (!flag)
-                    {
-                        _curIdx = -2;
-                    }
-                }
 
-                if (_curIdx == -2)
+                if (_curIdx < 0)
                 {
                     return;
                 }

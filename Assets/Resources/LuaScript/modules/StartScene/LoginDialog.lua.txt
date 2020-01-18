@@ -9,9 +9,6 @@ function ConfirmBtn(this)
         -- 这两个是通过injection设置过来的
         local name = nameInput.text
         local pwd = pwdInput.text
-        
-        -- local name = "yuki1432"
-        -- local pwd = "abcd1234123"
 
         if #name == 0 then
             CS.Global.Log("没有账号我怎么知道您是哪位？")
@@ -30,6 +27,23 @@ function ConfirmBtn(this)
         tb.animaId = animaId
 
         CS.Net.NetHelper.GetInstance():Login(name, pwd, loginCallback)
+    end)
+
+    CS.Util.Listener.Instance:On("", CS.Lib.KeyCode.KeypadEnter, this, function()
+        -- print("123123123")
+        
+        -- CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
+        CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
+
+        CS.UnityEngine.Event.KeyboardEvent("[enter]"):Use()
+    end)
+
+    CS.Util.Listener.Instance:On("", CS.Lib.KeyCode.Return, this, function()
+        
+        -- CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
+        CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
+
+        CS.UnityEngine.Event.KeyboardEvent("[enter]"):Use()
     end)
 end
 

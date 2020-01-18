@@ -1,7 +1,10 @@
 function init()
+
+    --处理服务器回传的登入相关的消息
     CS.Core.DataCenter.Reg(400, function(bytes)
         local msg = CS.LoginRes.ParseFrom(bytes)
         print(bytes)
         CS.Util.Listener.Instance:Event(1, msg, null, null);
     end)
+
 end
