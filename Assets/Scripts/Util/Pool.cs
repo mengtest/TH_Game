@@ -270,7 +270,7 @@ namespace Util
             return null;
         }
 
-        public static GameObject GetItemByFunc(string sign, Func<GameObject> function)
+        public static GameObject GetItemByFunc(string sign, Func<GameObject> func)
         {
             GameObject item = null;
             if (_gameObjectPools.ContainsKey(sign))
@@ -281,7 +281,7 @@ namespace Util
             {
                 _gameObjectPools.Add(sign, new DefaultPool());
             }
-            return item == null ? function() : item;
+            return item == null ? func() : item;
         }
         
         public static void Init()
