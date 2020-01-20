@@ -30,20 +30,11 @@ function ConfirmBtn(this)
     end)
 
     CS.Util.Listener.Instance:On("", CS.Lib.KeyCode.KeypadEnter, this, function()
-        -- print("123123123")
-        
-        -- CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
         CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
-
-        CS.UnityEngine.Event.KeyboardEvent("[enter]"):Use()
     end)
 
     CS.Util.Listener.Instance:On("", CS.Lib.KeyCode.Return, this, function()
-        
-        -- CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
         CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(this)
-
-        CS.UnityEngine.Event.KeyboardEvent("[enter]"):Use()
     end)
 end
 
