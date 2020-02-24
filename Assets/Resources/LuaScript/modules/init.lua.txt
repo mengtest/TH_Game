@@ -1,0 +1,19 @@
+local yuki_init_list = require"message.yuki.init"
+
+---加载全局lua的模块
+local function luaInit()
+    local app = util.readCfgFile(CS.Util.Loader.Read("LuaScript/config/app"))
+    
+    if app and app.host and app.port then
+        CS.Net.NetHelper.GetInstance():Connect(app.host, app.port)
+    else
+        CS.Global.Alert("无法读取配置文件，请尝试重新下载游戏")
+        CS.UnityEngine.Application.Quit(0)
+        return
+    end
+    yuki_init_list.init()
+end
+
+log("开始加载lua模块")
+luaInit()
+log("lua模块加载完成")
