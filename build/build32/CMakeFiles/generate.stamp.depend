@@ -1,0 +1,24 @@
+# CMake generation dependency list for this directory.
+D:/Game/THGame/build/CMakeLists.txt
+D:/Game/THGame/build/build32/CMakeFiles/3.14.7/CMakeCCompiler.cmake
+D:/Game/THGame/build/build32/CMakeFiles/3.14.7/CMakeCXXCompiler.cmake
+D:/Game/THGame/build/build32/CMakeFiles/3.14.7/CMakeRCCompiler.cmake
+D:/Game/THGame/build/build32/CMakeFiles/3.14.7/CMakeSystem.cmake
+D:/Game/THGame/build/lua-5.3.5/src/luaconf.h.in
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeCInformation.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeCXXInformation.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeCommonLanguageInclude.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeGenericSystem.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeInitializeConfigs.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeLanguageInformation.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeRCInformation.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeSystemSpecificInformation.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/CMakeSystemSpecificInitialize.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Compiler/MSVC-C.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Compiler/MSVC-CXX.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Platform/Windows-MSVC-C.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Platform/Windows-MSVC.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Platform/Windows.cmake
+D:/env/cmake-3.14.7-win64-x64/share/cmake-3.14/Modules/Platform/WindowsPaths.cmake

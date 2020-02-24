@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.lua.txt": "lua",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "xlocale": "cpp",
+        "xlocnum": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "string": "cpp"
+    }
+}
