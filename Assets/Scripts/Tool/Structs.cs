@@ -6,7 +6,7 @@ partial class Global
 {
     [System.Serializable]
     [LuaCallCSharp]
-    public struct Pair<TKey, TValue>
+    public class Pair<TKey, TValue>
     {
         public TKey First;
         public TValue Second;
@@ -15,6 +15,11 @@ partial class Global
         {
             First = key;
             Second = value;
+        }
+
+        public Pair()
+        {
+            
         }
     }
 

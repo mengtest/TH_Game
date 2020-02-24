@@ -1,5 +1,11 @@
-socket = dofile(CS.UnityEngine.Application.dataPath.."/Resources/LuaScript/lib/json.lua")
+--socket = dofile(CS.UnityEngine.Application.dataPath.."/Resources/LuaScript/lib/json.lua")
+util = require"lib.util"
 
--- print()
+local l = require"lib.log"
+setLevel = l.setLevel
+log = l.log
 
+json = require"lib.rapidjson"
+
+---全局数据表
 GlobalTb = GlobalTb or {}

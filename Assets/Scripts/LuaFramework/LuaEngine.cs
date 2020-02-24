@@ -23,29 +23,30 @@ namespace LuaFramework
             }
             
             LoadLuaLib();
-            
-            //一些准备工作
+        }
 
-            
-            if (!_engine._luaTables.ContainsKey("functions"))
-            {
-                _engine.LoadFile("LuaScript/Functions.lua", "functions");
-            }
+        /// <summary>
+        /// 游戏开始时，加载全局的lua模块
+        /// </summary>
+        public static void LoadLuaModule()
+        {
+            var file = Util.Loader.Load<TextAsset>("LuaScript/modules/init.lua");
+            Instance._env.DoString(file.text);
         }
         
-        //以后增加一个功能，
-        //根据给定的配置文件，去读取lua文件，并加载
-        //相当于做一个全局的lua库的初始化
+        /// <summary>
+        /// 以后增加一个功能，
+        /// 根据给定的配置文件，去读取lua文件，并加载
+        /// 相当于做一个全局的lua库的初始化
+        /// </summary>
         private static void LoadLuaLib()
         {
-            // TODO
+            _engine._env.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
+            _engine._env.AddBuildin("gameplay", XLua.LuaDLL.Lua.LoadGamePlay);
+            
             _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
                 "global",
                 _engine._env.Global);
-            
-//            _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/lib/socket.lua").text, 
-//                "socket",
-//                _engine._env.Global);
         }
 
         public LuaTable GetTable(string key)
@@ -128,6 +129,33 @@ namespace LuaFramework
                 str,
                 name,
                 table);
+            if (_luaTables.ContainsKey(name))
+            {
+                _luaTables[name].Dispose();
+                _luaTables[name] = table;
+            }
+            else
+            {
+                _luaTables.Add(name, table);
+            }
+            return table;
+        }
+        
+        public LuaTable LoadString(string str, string name, Global.Injection[] injections)
+        {
+            var table = _env.NewTable();
+            var meta = _env.NewTable();
+            meta.Set("__index", _env.Global);
+            table.SetMetaTable(meta);
+            meta.Dispose();
+            _env.DoString(
+                str,
+                name,
+                table);
+            foreach (var injection in injections)
+            {
+                table.Set(injection.name, injection.value);
+            }
             if (_luaTables.ContainsKey(name))
             {
                 _luaTables[name].Dispose();

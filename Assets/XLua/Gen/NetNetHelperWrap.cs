@@ -158,9 +158,8 @@ namespace XLua.CSObjectWrap
                 {
                     string _username = LuaAPI.lua_tostring(L, 2);
                     string _userpwd = LuaAPI.lua_tostring(L, 3);
-                    string _callName = LuaAPI.lua_tostring(L, 4);
                     
-                    gen_to_be_invoked.Login( _username, _userpwd, _callName );
+                    gen_to_be_invoked.Login( _username, _userpwd );
                     
                     
                     
@@ -267,8 +266,10 @@ namespace XLua.CSObjectWrap
             
                 
                 {
+                    string _host = LuaAPI.lua_tostring(L, 2);
+                    int _port = LuaAPI.xlua_tointeger(L, 3);
                     
-                    gen_to_be_invoked.Connect(  );
+                    gen_to_be_invoked.Connect( _host, _port );
                     
                     
                     

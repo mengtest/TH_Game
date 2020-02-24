@@ -188,7 +188,7 @@ namespace Util
         }
 
         //获取sign对应的对象，如果没有，则使用fuction创建对应的对象
-        public static T GetItemByFunc<T>(string sign, Func<T> function) where T : class
+        public static T GetItemByFunc<T>(string sign, Func<T> func) where T : class
         {
             if (_pools.ContainsKey(sign))
             {
@@ -198,13 +198,13 @@ namespace Util
                 }
                 else
                 {
-                    return function();
+                    return func();
                 }
             }
             else
             {
                 _pools.Add(sign, new Queue<object>());
-                return function.Invoke();
+                return func.Invoke();
             }
         }
 
@@ -270,7 +270,7 @@ namespace Util
             return null;
         }
 
-        public static GameObject GetItemByFunc(string sign, Func<GameObject> function)
+        public static GameObject GetItemByFunc(string sign, Func<GameObject> func)
         {
             GameObject item = null;
             if (_gameObjectPools.ContainsKey(sign))
@@ -281,7 +281,7 @@ namespace Util
             {
                 _gameObjectPools.Add(sign, new DefaultPool());
             }
-            return item == null ? function() : item;
+            return item == null ? func() : item;
         }
         
         public static void Init()

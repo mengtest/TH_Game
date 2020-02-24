@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Lib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -79,7 +80,7 @@ namespace Prefab
             _async = SceneManager.LoadSceneAsync(sceneId);
             _async.completed += (op) =>
             {
-                Listener.Instance.Event("scene_changed", null, sceneId);
+                Listener.Instance.Event("scene_changed", null, new object[]{sceneId});
             };
             yield return _async;
         }

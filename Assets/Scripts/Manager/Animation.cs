@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using EX;
 using UnityEngine;
 using XLua;
@@ -27,10 +28,9 @@ namespace Manager
             }
         }
         
-        
         public static GameObject Play(string[] paths, float interval, out int id, int loop = 1, float delay = 0, Action callback = null)
         {
-            var obj = new GameObject("animation");
+            var obj = new GameObject("Animation");
             var ani = obj.AddComponent<AnimationEx>();
             ani.LoadImages(paths);
             var index = GetId();
@@ -72,7 +72,7 @@ namespace Manager
                 throw new Exception("无效的路径");
             }
             
-            var obj = new GameObject("animation");
+            var obj = new GameObject("Animation");
             var ani = obj.AddComponent<AnimationEx>();
 
             string[] paths = new String[end - start + 1];
@@ -115,7 +115,7 @@ namespace Manager
                 throw new Exception("无效的路径");
             }
             
-            var obj = new GameObject("animation");
+            var obj = new GameObject("Animation");
             var ani = obj.AddComponent<AnimationEx>();
 
             ani.LoadImages(path);
@@ -161,6 +161,7 @@ namespace Manager
             {
                 if (pair.First == id)
                 {
+                    Global.Log(Thread.CurrentThread.ManagedThreadId.ToString());
                     pair.Second.Stop(true);
                     _list.Remove(pair);
                     return;

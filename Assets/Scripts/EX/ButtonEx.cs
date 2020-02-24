@@ -1,9 +1,7 @@
-﻿using LuaFramework;
-using Manager;
+﻿using Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
@@ -16,14 +14,16 @@ namespace EX
     [AddComponentMenu("yuki/UI/ButtonEX")]
     public class ButtonEx : Button
     {
-        [FormerlySerializedAs("_supporter")]
-        [SerializeField] 
-        private LuaSupporter supporter;
-
         //记录下当前的按钮的xy轴上的缩放
         private float _scaleX;
         private float _scaleY;
-    
+
+        [SerializeField]
+        public AudioClip clickSound;
+        
+        [SerializeField]
+        public AudioClip enterSound;
+
         [ContextMenu("初始化")]
         public void InitButtonEx()
         {
@@ -44,20 +44,16 @@ namespace EX
         //https://blog.csdn.net/niwalker/article/details/8872
         protected override void Start()
         {
-            supporter.RegisterCallback(this);
-
             base.Start();
-            
+
             var localScale = transform.localScale;
             _scaleX = localScale.x;
             _scaleY = localScale.y;
 
             //如果自动注册为true
-            
             var callback = new UnityAction(() =>
             {
                 Sound.PlayEffect("Music/BtnClick");
-                Functions.GetAction(this.supporter)?.Call();
             });
             onClick.AddListener(callback);
         }

@@ -23,25 +23,39 @@ namespace Prefab
         public string OkText
         {
             get => _okBtn.GetComponentInChildren<Text>().text;
-            set => _okBtn.GetComponentInChildren<Text>().text = value;
+            set
+            {
+                var text = _okBtn.GetComponentInChildren<Text>();
+                if (value?.Length > 0)
+                {
+                    text.text = value;
+                }
+            }
         }
 
         public string CancelText
         {
             get => _cancelBtn.GetComponentInChildren<Text>().text;
-            set => _cancelBtn.GetComponentInChildren<Text>().text = value;
+            set
+            {
+                var text = _cancelBtn.GetComponentInChildren<Text>();
+                if (value?.Length > 0)
+                {
+                    text.text = value;
+                }
+            }
         }
 
         private void CancelCallback()
         {
             CancelButtonCallback?.Invoke();
-            Destroy(gameObject.GetComponent<Transform>().gameObject);
+            Destroy(gameObject);
         }
 
         private void OkCallback()
         {
             OkButtonCallback?.Invoke();
-            Destroy(gameObject.GetComponent<Transform>().gameObject);
+            Destroy(gameObject);
         }
         
         void Start()

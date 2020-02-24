@@ -2,7 +2,6 @@ syntax = "proto3";
 
 message LoginMsg
 {
-    int32 id = 1;
-    string username = 2;
-    string userpwd = 3;
+    string username = 1;
+    string userpwd = 2;
 }

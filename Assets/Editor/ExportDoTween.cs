@@ -32,7 +32,7 @@ namespace Editor
             typeof(DG.Tweening.TweenParams),
             typeof(DG.Tweening.Core.ABSSequentiable),
 
-            typeof(DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions>),
+            // typeof(DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions>),
 
             typeof(DG.Tweening.TweenCallback),
             typeof(DG.Tweening.TweenExtensions),

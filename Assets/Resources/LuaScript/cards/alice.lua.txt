@@ -23,7 +23,8 @@
     level = 1,
 }
 
--- 传入的是一个由json字符串转出来的对象
+--@desc 创建一个卡牌对象，这里的这个对象是Alice
+--@data: 传入的是一个由json字符串转出来的对象
 --@return [LuaScript.cards.alice#Alice]
 function Alice:Create(data)
     local card = {}
@@ -38,22 +39,29 @@ function Alice:Create(data)
     return card
 end
 
+--@desc 获取这个卡牌的id
 function Alice:GetId()
     return self.id
 end
 
+--@desc 获取这个卡牌在当前对局中的唯一名称
 function Alice:GetUniqueName()
     --这个id由服务器来分配,以保证同名卡片的唯一性
     return self.uniqueName
 end
 
+--@desc 获取当前卡牌的名称
 function Alice:GetName()
     return self.name
 end
 
+--@desc 获取当前卡牌的技能列表
+--@index: 技能的index
+--@return [LuaScript.skills.skill#_skill]
 function Alice:GetSkill(index)
     
 end
+
 
 --将这个脚本添加到对局当中后执行的
 function Alice:Execute()

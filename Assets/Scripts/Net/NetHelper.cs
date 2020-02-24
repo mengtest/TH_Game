@@ -1,10 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Text;
-using Google.Protobuf;
-using Lib;
-using LuaFramework;
-using UnityEngine;
 using Util;
 
 namespace Net
@@ -32,13 +26,14 @@ namespace Net
         public static bool Init()
         {
             _instance = new NetHelper();
+            //初始化的时候会去读取配置文件，从配置文件中读取到ip、端口等信息
+            _connection = new Client();
             return true;
         }
         
         private NetHelper()
         {
-            //初始化的时候会去读取配置文件，从配置文件中读取到ip、端口等信息
-//            _connection = new Client("127.0.0.1", 9998);
+
         }
 
         //接收服务器回传的消息并解析
@@ -49,28 +44,13 @@ namespace Net
         
         //登入
         //在登入模块中，可以在用户输入完用户名之后就发送消息，获取到对应的密码，然后再用户点击确认之后再去验证是否登入成功
-        public void Login(string username, string userpwd, string callName)
+        public void Login(string username, string userpwd)
         {
-            var act = LuaEngine.Instance.GetTable("LoginDialog").Get<Listener.AsyncCall>(callName);
-            Listener.Instance.On(1, act);
-            // 发送消息
-            // 这里采用异步的方式来模拟发送消息的过程
-            // 实际情况上是服务端发过来消息之后对消息做解析，然后触发回调
-            if (username == "yuki1432" && userpwd == "abcd1234123")
-            {
-                //模拟异步的情景
-                Timer.Register(1, () =>
-                {
-                    Listener.Instance.Event(1, true, 400, "");
-                });
-            }
-            else
-            {
-                Timer.Register(1, () =>
-                {
-                    Listener.Instance.Event(1, false, 401, "用户名或者密码错误");
-                });
-            }
+            var msg = new LoginMsg();
+            msg.Username = username;
+            msg.Userpwd = userpwd;
+            int code = 400;
+            _connection.Send(code, msg);
         }
 
         //登出
@@ -88,19 +68,16 @@ namespace Net
         //抽抽抽
         public void Draw()
         {
-            var data = new Data();
-            data.Id = 100000000;
-            data.Name = "yuki";
-            var msg = new Msg();
-            msg.Msg_ = data.ToString();
-            msg.Type = 1000;
-            _connection.Send(msg);
+            // var login = new Data();
+            // login.Id = 100;
+            // login.Name = "123123asdaszxc";
+            // _connection.Send(100, login);
         }
 
         //连接到服务器
-        public void Connect()
+        public void Connect(string host, int port)
         {
-            
+            _connection.Connect(host, port);
         }
 
         //断开连接

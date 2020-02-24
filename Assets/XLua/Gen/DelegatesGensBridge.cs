@@ -60,7 +60,7 @@ namespace XLua
 #endif
 		}
         
-		public int __Gen_Delegate_Imp2(int p0, string p1, out Tutorial.CSCallLua.DClass p2)
+		public void __Gen_Delegate_Imp2(object[] p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -69,74 +69,9 @@ namespace XLua
                 RealStatePtr L = luaEnv.rawL;
                 int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
                 ObjectTranslator translator = luaEnv.translator;
-                LuaAPI.xlua_pushinteger(L, p0);
-                LuaAPI.lua_pushstring(L, p1);
+                if (p0 != null)  { for (int __gen_i = 0; __gen_i < p0.Length; ++__gen_i) translator.PushAny(L, p0[__gen_i]); };
                 
-                PCall(L, 2, 2, errFunc);
-                
-                p2 = (Tutorial.CSCallLua.DClass)translator.GetObject(L, errFunc + 2, typeof(Tutorial.CSCallLua.DClass));
-                
-                int __gen_ret = LuaAPI.xlua_tointeger(L, errFunc + 1);
-                LuaAPI.lua_settop(L, errFunc - 1);
-                return  __gen_ret;
-#if THREAD_SAFE || HOTFIX_ENABLE
-            }
-#endif
-		}
-        
-		public System.Action __Gen_Delegate_Imp3()
-		{
-#if THREAD_SAFE || HOTFIX_ENABLE
-            lock (luaEnv.luaEnvLock)
-            {
-#endif
-                RealStatePtr L = luaEnv.rawL;
-                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                ObjectTranslator translator = luaEnv.translator;
-                
-                PCall(L, 0, 1, errFunc);
-                
-                
-                System.Action __gen_ret = translator.GetDelegate<System.Action>(L, errFunc + 1);
-                LuaAPI.lua_settop(L, errFunc - 1);
-                return  __gen_ret;
-#if THREAD_SAFE || HOTFIX_ENABLE
-            }
-#endif
-		}
-        
-		public bool __Gen_Delegate_Imp4()
-		{
-#if THREAD_SAFE || HOTFIX_ENABLE
-            lock (luaEnv.luaEnvLock)
-            {
-#endif
-                RealStatePtr L = luaEnv.rawL;
-                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                
-                
-                PCall(L, 0, 1, errFunc);
-                
-                
-                bool __gen_ret = LuaAPI.lua_toboolean(L, errFunc + 1);
-                LuaAPI.lua_settop(L, errFunc - 1);
-                return  __gen_ret;
-#if THREAD_SAFE || HOTFIX_ENABLE
-            }
-#endif
-		}
-        
-		public void __Gen_Delegate_Imp5()
-		{
-#if THREAD_SAFE || HOTFIX_ENABLE
-            lock (luaEnv.luaEnvLock)
-            {
-#endif
-                RealStatePtr L = luaEnv.rawL;
-                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                
-                
-                PCall(L, 0, 0, errFunc);
+                PCall(L, 0 + (p0 == null ? 0 : p0.Length), 0, errFunc);
                 
                 
                 
@@ -147,7 +82,7 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp6(object p0, object p1, object p2)
+		public void __Gen_Delegate_Imp3(byte[] p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -155,12 +90,10 @@ namespace XLua
 #endif
                 RealStatePtr L = luaEnv.rawL;
                 int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                ObjectTranslator translator = luaEnv.translator;
-                translator.PushAny(L, p0);
-                translator.PushAny(L, p1);
-                translator.PushAny(L, p2);
                 
-                PCall(L, 3, 0, errFunc);
+                LuaAPI.lua_pushstring(L, p0);
+                
+                PCall(L, 1, 0, errFunc);
                 
                 
                 
@@ -190,29 +123,14 @@ namespace XLua
 			    return new Scene.SettingScene.UnityAction2(__Gen_Delegate_Imp1);
 			}
 		
-		    if (type == typeof(Tutorial.CSCallLua.FDelegate))
+		    if (type == typeof(Lib.Listener.Function))
 			{
-			    return new Tutorial.CSCallLua.FDelegate(__Gen_Delegate_Imp2);
+			    return new Lib.Listener.Function(__Gen_Delegate_Imp2);
 			}
 		
-		    if (type == typeof(Tutorial.CSCallLua.GetE))
+		    if (type == typeof(Core.DataCenter.Delegate))
 			{
-			    return new Tutorial.CSCallLua.GetE(__Gen_Delegate_Imp3);
-			}
-		
-		    if (type == typeof(Util.Listener.Predicate))
-			{
-			    return new Util.Listener.Predicate(__Gen_Delegate_Imp4);
-			}
-		
-		    if (type == typeof(Util.Listener.Callback))
-			{
-			    return new Util.Listener.Callback(__Gen_Delegate_Imp5);
-			}
-		
-		    if (type == typeof(Util.Listener.AsyncCall))
-			{
-			    return new Util.Listener.AsyncCall(__Gen_Delegate_Imp6);
+			    return new Core.DataCenter.Delegate(__Gen_Delegate_Imp3);
 			}
 		
 		    return null;

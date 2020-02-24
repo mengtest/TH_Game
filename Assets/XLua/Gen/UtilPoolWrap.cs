@@ -201,9 +201,9 @@ namespace XLua.CSObjectWrap
                 
                 {
                     string _sign = LuaAPI.lua_tostring(L, 1);
-                    System.Func<UnityEngine.GameObject> _function = translator.GetDelegate<System.Func<UnityEngine.GameObject>>(L, 2);
+                    System.Func<UnityEngine.GameObject> _func = translator.GetDelegate<System.Func<UnityEngine.GameObject>>(L, 2);
                     
-                        UnityEngine.GameObject gen_ret = Util.Pool.GetItemByFunc( _sign, _function );
+                        UnityEngine.GameObject gen_ret = Util.Pool.GetItemByFunc( _sign, _func );
                         translator.Push(L, gen_ret);
                     
                     

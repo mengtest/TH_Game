@@ -1,9 +1,9 @@
-syntax = "proto3";
+syntax="proto3";
 
-message LogimRes
+message LoginRes
 {
-    int32 id = 1;
-    string nickname = 2;
-    int64 lastLoginTime = 3;
-    int64 uid = 4;
+    bool res = 1;   //是否登入成功
+    int32 uid = 2;
+    string nickname = 3;    //登入成功后会传入当前账号的nickname
+    string msg = 4;   //登入成功或者失败后在ui中显示的一句话
 }

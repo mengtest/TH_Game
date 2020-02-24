@@ -1,8 +1,7 @@
-﻿using System.Runtime.InteropServices;
-using LuaFramework;
-using Net;
+﻿using LuaFramework;
 using UnityEngine;
 using Util;
+using Net;
 
 /// <summary>
 /// 游戏开始的时候，各种必要的资源等的初始化
@@ -15,53 +14,23 @@ public static class GameInit
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void ApplicationInit()
     {
-        Listener.Init();
+        // Listener.Init();
         Loader.Init();
         Singleton.Init();
         Core.DataCenter.Init();
         //先暂时不启用网络连接相关的功能
-        Net.NetHelper.Init();
+        NetHelper.Init();
         LuaEngine.Init();
+        //加载全局的lua模块
+        LuaEngine.LoadLuaModule();
         Pool.Init();
-        
-//        connect("127.0.0.1", 9998);
-        
-//        read((str, length) =>
-//        {
-//            Debug.Log(str);
-//            Debug.Log(length);
-//        });
-
-//        write("123123123123");
-
-//        write("123123123123123");
-//        var _env = new XLua.LuaEnv();
-//        var table = _env.NewTable();
-//        var meta = _env.NewTable();
-//        meta.Set("__index", _env.Global);
-//        table.SetMetaTable(meta);
-//        meta.Dispose();
-//        _env.DoString(
-//            Resources.Load<TextAsset>("LuaScript/player/player.lua").text,
-//            "xlua",
-//            table);
-//
-//        var player = table.Get<IPlayer>("Player");
-//        Global.Log(player.GetName());
+        FileUtils.Init();
     }
-
-
-//    public delegate void Callback(string str, int length);
-//
-//    [DllImport("Core 7")]
-//    public static extern void read(Callback callback);
-//    
-//    [DllImport("Core 7")]
-//    public static extern void close();
-//    
-//    [DllImport("Core 7")]
-//    public static extern void connect(string str, int port);
-//    
-//    [DllImport("Core 7")]
-//    public static extern void write(string str);
+    
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    public static void Init()
+    {
+        // var go = new GameObject("EventListener");
+        // var listener = go.AddComponent<EventListener>();
+    }
 }

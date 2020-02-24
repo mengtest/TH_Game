@@ -1,6 +1,15 @@
---[[
-    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
-    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
-    author:{author}
-    time:2019-12-22 22:57:17
-]]
+function ExpBar(this)
+    ---@type UnityEngine.GameObject
+    local go = this
+    local exp = go:GetComponent(typeof(CS.UnityEngine.UI.Slider))
+    exp.value = 50
+end
+
+function MainQuest(this)
+    ---@type UnityEngine.GameObject
+    local go = this
+    local btn = go:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function()
+        CS.Global.NavigateTo("StoryScene", false)
+    end)
+end

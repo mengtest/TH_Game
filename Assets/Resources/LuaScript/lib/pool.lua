@@ -11,6 +11,8 @@ Pool = {
     }
 }
 
+--@desc
+--@signal: 
 function Pool.GetItem(signal)
     
 end

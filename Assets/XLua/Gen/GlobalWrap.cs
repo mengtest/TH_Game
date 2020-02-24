@@ -78,10 +78,10 @@ namespace XLua.CSObjectWrap
             
                 if(gen_param_count == 2&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)&& translator.Assignable<Global.Level>(L, 2)) 
                 {
-                    string _str = LuaAPI.lua_tostring(L, 1);
+                    string _msg = LuaAPI.lua_tostring(L, 1);
                     Global.Level _level;translator.Get(L, 2, out _level);
                     
-                    Global.Log( _str, _level );
+                    Global.Log( _msg, _level );
                     
                     
                     
@@ -89,9 +89,9 @@ namespace XLua.CSObjectWrap
                 }
                 if(gen_param_count == 1&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)) 
                 {
-                    string _str = LuaAPI.lua_tostring(L, 1);
+                    string _msg = LuaAPI.lua_tostring(L, 1);
                     
-                    Global.Log( _str );
+                    Global.Log( _msg );
                     
                     
                     

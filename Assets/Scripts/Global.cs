@@ -1,9 +1,10 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// 包含有各种全局的结构，工具函数等
@@ -78,7 +79,7 @@ public static partial class Global
     /// <returns>当前画布或者null</returns>
     public static Canvas GetCurCanvas()
     {
-        return GetRootObject("UICanvas").GetComponent<Canvas>();
+        return GetRootObject("UILayer").GetComponent<Canvas>();
     }
 
     /// <summary>
@@ -104,5 +105,67 @@ public static partial class Global
         var toast = Object.Instantiate(obj, GetCurCanvas().transform, true);
         toast.transform.localPosition = new Vector3(0, -400);
         toast.GetComponent<ToastScript>().Make(text, time);
+    }
+    
+    [Obsolete]
+    public static GameObject FindChildByPath(this string path)
+    {
+        return null;
+    }
+
+    [Obsolete]
+    public static GameObject FindChildByName(this string name)
+    {
+        return null;
+    }
+
+    /**
+     * <summary>
+     * 严格的判定子关系
+     * </summary>
+     */
+    public static bool IsChildOf(this GameObject self, GameObject parent)
+    {
+        if (self == parent)
+        {
+            return false;
+        }
+        
+        var cursor = self.transform;
+        while (cursor != parent.transform)
+        {
+            if (cursor.transform.parent == null || cursor.transform == self.transform.root)
+            {
+                return parent.transform == cursor.transform;
+            }
+            
+            cursor = cursor.parent;
+        }
+        return true;
+    }
+
+    /**
+     * <summary>
+     * 严格的判定子关系
+     * </summary>
+     */
+    public static bool IsChildOf(this Transform self, Transform parent)
+    {
+        if (self == parent)
+        {
+            return false;
+        }
+
+        var cursor = self;
+        while (cursor != parent)
+        {
+            if (cursor.parent == null || cursor == self.root)
+            {
+                return parent == cursor;
+            }
+            
+            cursor = cursor.parent;
+        }
+        return true;
     }
 }

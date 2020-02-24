@@ -1,14 +1,22 @@
-﻿--@SuperType [luaIde#CS.Game.IPlayer]
-Player = {}
+﻿---@class Player
+local _Player = {}
 
-function Player:GetId()
+---获取当前玩家的uid
+---@return number
+function _Player:GetId()
     return 100
 end
 
-function Player:GetName()
+---获取当前玩家的name
+---@return string
+function _Player:GetName()
     return "我叫lua"
 end
 
-function Player:GetUserName()
+---获取当前玩家的name
+---@return string
+function _Player:GetUserName()
     return "233333"
 end
+
+return _Player

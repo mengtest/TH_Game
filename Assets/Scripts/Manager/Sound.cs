@@ -6,10 +6,10 @@ using Object = UnityEngine.Object;
 
 namespace Manager
 {
-    public class Sound
+    public static class Sound
     {
-        private LinkedList<AudioSource> _audioSources;
-        private LinkedList<AudioEx> _audioExes;
+        private static LinkedList<AudioSource> _audioSources;
+        private static LinkedList<AudioEx> _audioExes;
         
         public static void PlayBgm(string[] resources,bool loop)
         {
@@ -37,6 +37,11 @@ namespace Manager
             Play(resource, 0.5f, loop);
         }
 
+        public static void PlayEffect(AudioClip resource, bool loop = false)
+        {
+            Play(resource, 0.5f, loop);
+        }
+
         public static void PlayCharacterVoice(string resource, bool loop = false)
         {
             Play(resource, 0.5f, loop);
@@ -56,10 +61,30 @@ namespace Manager
         //播放音效
         private static void Play(string soundPath, float vol, bool loop)
         {
+            // var sound = new GameObject("Sound");
+            // SceneManager.MoveGameObjectToScene(sound.gameObject, SceneManager.GetActiveScene());
+            // var audio = sound.AddComponent<AudioSource>();
+            // var clip = Util.Loader.Load<AudioClip>(soundPath);
+            // audio.volume = vol;
+            // audio.loop = loop;
+            // audio.clip = clip;
+            // audio.Play();
+            //
+            // //如果是循环播放，则不需要去释放这段内存
+            // if (!loop)
+            // {
+            //     Timer.Register(clip.length + 1, () => { Object.Destroy(sound); });
+            // }
+            
+            var clip = Util.Loader.Load<AudioClip>(soundPath);
+            Play(clip, vol, loop);
+        }
+
+        private static void Play(AudioClip clip, float vol, bool loop)
+        {
             var sound = new GameObject("Sound");
             SceneManager.MoveGameObjectToScene(sound.gameObject, SceneManager.GetActiveScene());
             var audio = sound.AddComponent<AudioSource>();
-            var clip = Resources.Load<AudioClip>(soundPath);
             audio.volume = vol;
             audio.loop = loop;
             audio.clip = clip;

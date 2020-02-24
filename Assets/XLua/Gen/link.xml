@@ -22,7 +22,6 @@
 		<type fullname="DG.Tweening.Sequence" preserve="all"/>
 		<type fullname="DG.Tweening.TweenParams" preserve="all"/>
 		<type fullname="DG.Tweening.Core.ABSSequentiable" preserve="all"/>
-		<type fullname="DG.Tweening.Core.TweenerCore`3[UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions]" preserve="all"/>
 		<type fullname="DG.Tweening.TweenCallback" preserve="all"/>
 		<type fullname="DG.Tweening.TweenExtensions" preserve="all"/>
 		<type fullname="DG.Tweening.TweenSettingsExtensions" preserve="all"/>
@@ -46,7 +45,6 @@
 		<type fullname="DG.Tweening.Sequence" preserve="all"/>
 		<type fullname="DG.Tweening.TweenParams" preserve="all"/>
 		<type fullname="DG.Tweening.Core.ABSSequentiable" preserve="all"/>
-		<type fullname="DG.Tweening.Core.TweenerCore`3[UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions]" preserve="all"/>
 		<type fullname="DG.Tweening.TweenExtensions" preserve="all"/>
 		<type fullname="DG.Tweening.TweenSettingsExtensions" preserve="all"/>
 		<type fullname="DG.Tweening.ShortcutExtensions" preserve="all"/>
@@ -57,12 +55,6 @@
 	    <type fullname="DG.Tweening.DOTweenModuleUI" preserve="all"/>
 		<type fullname="Global" preserve="all"/>
 		<type fullname="Timer" preserve="all"/>
-		<type fullname="Tutorial.BaseClass" preserve="all"/>
-		<type fullname="Tutorial.TestEnum" preserve="all"/>
-		<type fullname="Tutorial.DerivedClass" preserve="all"/>
-		<type fullname="Tutorial.ICalc" preserve="all"/>
-		<type fullname="Tutorial.DerivedClassExtensions" preserve="all"/>
-		<type fullname="Util.Listener" preserve="all"/>
 		<type fullname="Util.ILoader" preserve="all"/>
 		<type fullname="Util.Loader" preserve="all"/>
 		<type fullname="Util.ModelDialog" preserve="all"/>
@@ -74,11 +66,12 @@
 		<type fullname="Net.NetHelper" preserve="all"/>
 		<type fullname="Manager.Animation" preserve="all"/>
 		<type fullname="Lib.KeyCode" preserve="all"/>
+		<type fullname="Lib.Listener" preserve="all"/>
 		<type fullname="Game.IBuff" preserve="all"/>
 		<type fullname="Game.ICard" preserve="all"/>
 		<type fullname="Game.IPlayer" preserve="all"/>
 		<type fullname="Game.ISkill" preserve="all"/>
-		<type fullname="Tutorial.DerivedClass+TestEnumInner" preserve="all"/>
+		<type fullname="Pb.Gen" preserve="all"/>
 		<type fullname="DG.Tweening.DOTweenModuleUI" preserve="all"/>
 		
 	</assembly>

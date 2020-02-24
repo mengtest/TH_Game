@@ -1,33 +1,24 @@
-﻿local _listener = {}
+﻿---@class Listener
+local _listener = {}
 
-_listener.map = {
+---@type table 这个是一个Map
+_listener.map = {}
 
-}
-
---取得对象实例
-function _listener:instance()
-    self.map = self.map or {}
-    return self
+---注册一个事件
+---@param name string|number 事件的名称
+---@param caller userdata 绑定这个事件的对象
+---@param func function 事件触发后调用的函数
+function _listener:on(name, caller, func)
+    if _listener.map[name] == nil then
+        _listener.map[name] = {}
+    end
 end
 
---@desc 触发一个事件
-function _listener:event(type)
+---触发一个事件
+---@param args table 参数数组
+---@param name string|number 要触发的事件的名称
+function _listener.event(name, args)
     
 end
-
---@desc 注册一个事件
---@singal: 事件的唯一标识符，可以为空
-function _listener:on(type, callback, singal)
-    
-end
-
---@desc 移除一个事件
-function _listener:off(type)
-
-end
-
-
 
 return _listener
-
-

@@ -35,14 +35,8 @@ namespace Util
             ButtonCallback cancelCallback = null)
         {
             _mainText = text;
-            if (okText?.Length > 0)
-            {
-                _okText = okText;
-            }
-            if (cancelText?.Length > 0)
-            {
-                _cancelText = cancelText;
-            }
+            _okText = okText;
+            _cancelText = cancelText;
             if (okCallback != null)
             {
                 OkBtnCallback += okCallback;
