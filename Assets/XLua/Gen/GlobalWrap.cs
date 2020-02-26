@@ -42,8 +42,8 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Return", _m_Return_xlua_st_);
             
 			
-            Utils.RegisterObject(L, translator, Utils.CLS_IDX, "ToastShort", Global.ToastShort);
-            Utils.RegisterObject(L, translator, Utils.CLS_IDX, "ToastLong", Global.ToastLong);
+            Utils.RegisterObject(L, translator, Utils.CLS_IDX, "ToastShort", Global.TOAST_SHORT);
+            Utils.RegisterObject(L, translator, Utils.CLS_IDX, "ToastLong", Global.TOAST_LONG);
             
 			Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "Scene", _g_get_Scene);
             

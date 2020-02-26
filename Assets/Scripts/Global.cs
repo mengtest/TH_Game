@@ -23,6 +23,13 @@ public static partial class Global
         Debug = 3,
     }
     
+    [CSharpCallLua]
+    [LuaCallCSharp]
+    public static void CallLuaMethod(string method, params object[] param)
+    {
+        // return false;
+    }
+    
     /// <summary>
     /// 打印消息日志，后续会添加将日志输出到任意位置的功能
     /// </summary>
@@ -91,8 +98,8 @@ public static partial class Global
         new ModelDialog(text).ShowDialog();
     }
 
-    public const float ToastShort = 1.5f;
-    public const float ToastLong = 3.0f;
+    public const float TOAST_SHORT = 1.5f;
+    public const float TOAST_LONG = 3.0f;
     
     /// <summary>
     /// 弹出一段提示信息

@@ -13,9 +13,6 @@ namespace Tool
     /// </summary>
     public class TabSwitcher: MonoBehaviour
     {
-        /// <summary>
-        /// 
-        /// </summary>
         [Tooltip("要切换的组件列表")]
         public GameObject[] components;
 
@@ -23,9 +20,10 @@ namespace Tool
         
         private void Start()
         {
+            //tabSwitcher组件会侦听键盘中的tab事件，
+            //按下tab的时候会在components中不断地切换
             Listener.Instance.On(Listener.KEY_EVENT, Lib.KeyCode.Tab ,null, (o) =>
             {
-                Debug.Log("123123123");
                 var e = EventSystem.current;
                 var flag = false;
             

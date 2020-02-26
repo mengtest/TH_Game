@@ -5,7 +5,7 @@
     time:2020-02-09 22:57:09
 ]]
 
-local tb = GlobalTb
+--local tb = GlobalTb
 local _yuki_init_list = {}
 
 ---这个是登入后触发的事件
@@ -32,10 +32,27 @@ function _yuki_init_list.regLoginEvent()
     end)
 end
 
+---无法连接到服务器触发的事件
+function _yuki_init_list.cantConnectServer()
+    CS.Lib.Listener.Instance:On("cant_connect_server", nil, nil, function ()
+        log("无法连接到服务器", LOG_ERROR)
+        local dialog = CS.Util.ModelDialog("无法连接到服务器，是否以离线模式启动？", "是", "退出游戏"
+        , function ()
+                    log("以离线模式启动游戏")
+                end
+        , function ()
+                    log("退出游戏")
+                    CS.UnityEngine.Application.Quit(0)
+                end)
+        dialog:ShowDialog()
+    end, true)
+end
+
 ---加载yuki的消息模块
 function _yuki_init_list.init()
     log("-----------开始加载yuki的消息模块-------------")
     _yuki_init_list.regLoginEvent()
+    _yuki_init_list.cantConnectServer()
     log("-----------yuki的消息模块加载完成-------------")
 end
 

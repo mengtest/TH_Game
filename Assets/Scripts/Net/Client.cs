@@ -4,6 +4,7 @@ using System.Text;
 using Google.Protobuf;
 using Lib;
 using UnityEngine;
+using Util;
 using XLua;
 
 namespace Net
@@ -25,7 +26,15 @@ namespace Net
 
             public async void Connect(string host, int port)
             {
-                await _client.ConnectAsync(host, port);
+                try
+                {
+                    await _client.ConnectAsync(host, port);
+                }
+                catch (Exception e)
+                {
+                    Listener.Instance.Event("cant_connect_server");
+                    return;
+                }
                 OnConnected();
             }
             
@@ -64,7 +73,6 @@ namespace Net
 
             private void Destroy()
             {
-                Debug.Log("Destroy");
                 _client.Close();
                 _client.Dispose();
             }

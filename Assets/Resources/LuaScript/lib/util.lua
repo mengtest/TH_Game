@@ -1,10 +1,3 @@
---[[
-    luaide  模板位置位于 Template/FunTemplate/NewFileTemplate.lua 其中 Template 为配置路径 与luaide.luaTemplatesDir
-    luaide.luaTemplatesDir 配置 https://www.showdoc.cc/web/#/luaide?page_id=713062580213505
-    author:{author}
-    time:2020-02-07 10:45:32
-]]
-
 local util = {}
 
 ---@param str string 要切割的字符串
@@ -28,7 +21,7 @@ function util.readCfgFile(content)
     local t = {}
     local lines = util.splice(content, "\n")
     local comment = string.byte("#")
-    for index,line in pairs(lines) do
+    for _, line in pairs(lines) do
         --忽略掉第一个字符为#的行
         if comment ~= string.byte(line, 1, 1) then
             local key, value = string.match( line, "%s*(%S*)%s*=%s*%s*(%S*)")
