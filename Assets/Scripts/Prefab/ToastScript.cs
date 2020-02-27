@@ -17,12 +17,7 @@ namespace Prefab
         {
             content.text = text;
             Redraw();
-            Invoke(nameof(TimeOver), sec);
-        }
-
-        private void TimeOver()
-        {
-            DestroyImmediate(gameObject);
+            Destroy(gameObject, sec);
         }
 
         private void Awake()

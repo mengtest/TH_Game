@@ -58,6 +58,9 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(Manager.Animation), ManagerAnimationWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(LuaFramework.ILuaMethod), LuaFrameworkILuaMethodWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(Lib.KeyCode), LibKeyCodeWrap.__Register);
         
         
@@ -158,6 +161,8 @@ namespace XLua.CSObjectWrap
             
             
             translator.AddInterfaceBridgeCreator(typeof(Util.ILoader), UtilILoaderBridge.__Create);
+            
+            translator.AddInterfaceBridgeCreator(typeof(LuaFramework.ILuaMethod), LuaFrameworkILuaMethodBridge.__Create);
             
             translator.AddInterfaceBridgeCreator(typeof(Game.IBuff), GameIBuffBridge.__Create);
             

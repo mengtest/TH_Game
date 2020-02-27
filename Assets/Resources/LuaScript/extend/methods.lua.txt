@@ -1,0 +1,20 @@
+﻿_luaExtend = {}
+
+function _luaExtend:Call(name, ...)
+    if self.methods[name] ~= nil then
+        self.methods[name](...)
+    else
+        log("不存在的方法", LOG_ERROR)
+    end
+end
+
+_luaExtend.methods = {}
+
+local function test(...)
+    log("测试方法")
+    print(...)
+end
+
+_luaExtend.methods.test = test
+
+return _luaExtend

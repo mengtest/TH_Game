@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using XLua;
+using Debug = System.Diagnostics.Debug;
+using Object = UnityEngine.Object;
 
 namespace Lib
 {
@@ -1358,6 +1361,7 @@ namespace Lib
                 var go = new GameObject("EventListener");
                 _listener = go.AddComponent<EventListener>();
                 SceneManager.MoveGameObjectToScene(go, Global.Scene);
+                Object.DontDestroyOnLoad(go);
             }
         }
 
@@ -1381,7 +1385,7 @@ namespace Lib
         /// <param name="caller">绑定的对象</param>
         /// <param name="func">事件出发后调用的函数</param>
         /// <param name="once">是否只会执行一次，默认false</param>
-        public void On(string eventName, int keycode, object caller, Function func, bool once = false)
+        public void On(string eventName, Function func, int keycode = 0, object caller = null,  bool once = false)
         {
             if (caller == null)
             {
@@ -1517,29 +1521,116 @@ namespace Lib
         {
             private List<Global.Pair<object, List<Action>>> _actions;
 
+            private Dictionary<int, List<Global.Pair<object, List<Function>>>> _keyEvents;
+            private Dictionary<int, List<Global.Pair<object, List<Function>>>> _mouseEvents;
+            private Dictionary<int, Function> _onceList;
+
             private void Awake()
             {
                 _actions = new List<Global.Pair<object, List<Action>>>();
+                _keyEvents = new Dictionary<int, List<Global.Pair<object, List<Function>>>>();
+                _mouseEvents = new Dictionary<int, List<Global.Pair<object, List<Function>>>>();
+                _onceList = new Dictionary<int, Function>();
             }
 
             private void Update()
             {
-                for (int i = 0; i < _actions.Count; )
+                // for (int i = 0; i < _actions.Count; )
+                // {
+                //     var pair = _actions[i];
+                //     
+                //     if (pair.First == null)
+                //     {
+                //         _actions.RemoveAt(i);
+                //         continue;
+                //     }
+                //
+                //     foreach (var act in pair.Second)
+                //     {
+                //         act?.Invoke();
+                //     }
+                //
+                //     i++;
+                // }
+
+                if (Input.anyKeyDown)
                 {
-                    var pair = _actions[i];
+                    for (var index = 0;index < _keyEvents.Count;)
+                    {
+                        var value = _keyEvents.ElementAt(index);
+                        if (value.Value.Count == 0)
+                        {
+                            _keyEvents.Remove(value.Key);
+                        }
+                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
+                        {
+                            for (int i = 0; i < value.Value.Count; )
+                            {
+                                var pair = value.Value[i];
+                                if (pair.First == null)
+                                {
+                                    value.Value.RemoveAt(i);
+                                    continue;
+                                }
+
+                                for (var j = 0; j < pair.Second.Count ; )
+                                {
+                                    var fun = pair.Second.ElementAt(j);
+                                    fun.Invoke();
+                                    if (_onceList.ContainsKey(fun.GetHashCode()))
+                                    {
+                                        pair.Second.RemoveAt(j);
+                                    }
+                                    else
+                                    {
+                                        j++;
+                                    }
+                                }
+                                i++;
+                            }
+                            break;
+                        }
+                        index++;
+                    }
                     
-                    if (pair.First == null)
+                    for (var index = 0;index < _mouseEvents.Count;)
                     {
-                        _actions.RemoveAt(i);
-                        continue;
-                    }
+                        var value = _mouseEvents.ElementAt(index);
+                        if (value.Value.Count == 0)
+                        {
+                            _mouseEvents.Remove(value.Key);
+                        }
+                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
+                        {
+                            for (int i = 0; i < value.Value.Count; )
+                            {
+                                var pair = value.Value[i];
+                                if (pair.First == null)
+                                {
+                                    value.Value.RemoveAt(i);
+                                    continue;
+                                }
 
-                    foreach (var act in pair.Second)
-                    {
-                        act?.Invoke();
-                    }
+                                for (var j = 0; j < pair.Second.Count ; )
+                                {
+                                    var fun = pair.Second.ElementAt(j);
+                                    fun.Invoke(Input.mousePosition, Input.touchCount);
+                                    if (_onceList.ContainsKey(fun.GetHashCode()))
+                                    {
+                                        pair.Second.RemoveAt(j);
+                                    }
+                                    else
+                                    {
+                                        j++;
+                                    }
+                                }
 
-                    i++;
+                                i++;
+                            }
+                            break;
+                        }
+                        index++;
+                    }
                 }
             }
 
@@ -1557,81 +1648,125 @@ namespace Lib
 
             public void AddKeyEvent(int keyCode, object o, Function func, bool once)
             {
-                Action act = null;
-                if (keyCode == KeyCode.AnyKey)
+                List<Global.Pair<object, List<Function>>> dic = 
+                    !_keyEvents.ContainsKey(keyCode)
+                    ? new List<Global.Pair<object, List<Function>>>()
+                    : _keyEvents[keyCode];
+                
+                var list = new List<Function>();
+                var pair = new Global.Pair<object, List<Function>>(o, list);
+                if (!_keyEvents.ContainsKey(keyCode))
                 {
-                    act = () =>
-                    {
-                        if (Input.anyKeyDown)
-                        {
-                            func?.Invoke();
-                            if (once)
-                            {
-                                func = null;
-                            }
-                        }
-                    };
+                    _keyEvents.Add(keyCode, dic);
                 }
-                else
+                dic.Add(pair);
+                list.Add(func);
+                
+                if (once)
                 {
-                    act = () =>
+                    if (!_onceList.ContainsKey(func.GetHashCode()))
                     {
-                        //只能使用Input，使用Event会无法触发
-                        if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
-                        {
-                            func();
-                        }
-                    };
+                        _onceList.Add(func.GetHashCode(), func);
+                    } 
                 }
 
-                var obj = GetKey(o);
-                if (obj == null)
-                {
-                    var value = new Global.Pair<object, List<Action>> 
-                        {First = o, Second = new List<Action> {act}};
-                    _actions.Add(value);
-                }
-                else
-                {
-                    obj.Add(act);
-                }
+                // Action act = null;
+                // if (keyCode == KeyCode.AnyKey)
+                // {
+                //     act = () =>
+                //     {
+                //         if (Input.anyKeyDown)
+                //         {
+                //             func?.Invoke();
+                //             if (once)
+                //             {
+                //                 func = null;
+                //             }
+                //         }
+                //     };
+                // }
+                // else
+                // {
+                //     act = () =>
+                //     {
+                //         //只能使用Input，使用Event会无法触发
+                //         if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
+                //         {
+                //             func();
+                //         }
+                //     };
+                // }
+                //
+                // var obj = GetKey(o);
+                // if (obj == null)
+                // {
+                //     var value = new Global.Pair<object, List<Action>> 
+                //         {First = o, Second = new List<Action> {act}};
+                //     _actions.Add(value);
+                // }
+                // else
+                // {
+                //     obj.Add(act);
+                // }
             }
 
             public void AddMouseEvent(int keyCode, object o, Function func,bool once)
             {
-                Action act = null;
-                if (keyCode == KeyCode.AnyKey)
+                List<Global.Pair<object, List<Function>>> dic = 
+                    !_mouseEvents.ContainsKey(keyCode)
+                        ? new List<Global.Pair<object, List<Function>>>()
+                        : _mouseEvents[keyCode];
+                
+                var list = new List<Function>();
+                var pair = new Global.Pair<object, List<Function>>(o, list);
+                if (!_mouseEvents.ContainsKey(keyCode))
                 {
-                    act = () =>
+                    _mouseEvents.Add(keyCode, dic);
+                }
+                dic.Add(pair);
+                list.Add(func);
+                
+                if (once)
+                {
+                    if (!_onceList.ContainsKey(func.GetHashCode()))
                     {
-                        if (Input.anyKeyDown)
-                        {
-                            func();
-                        }
-                    };
+                        _onceList.Add(func.GetHashCode(), func);
+                    }
                 }
-                else
-                {
-                    act = () =>
-                    {
-                        if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
-                        {
-                            func(new object[] {Input.touchCount, Input.mousePosition});
-                        }
-                    };
-                }
-
-                var obj = GetKey(o);
-                if (obj == null)
-                {
-                    var value = new Global.Pair<object, List<Action>> 
-                        {First = o, Second = new List<Action> {act}};
-                    _actions.Add(value);
-                }
-                else
-                {
-                    obj.Add(act);
-                }
+                
+                // Action act = null;
+                // if (keyCode == KeyCode.AnyKey)
+                // {
+                //     act = () =>
+                //     {
+                //         if (Input.anyKeyDown)
+                //         {
+                //             func();
+                //         }
+                //     };
+                // }
+                // else
+                // {
+                //     act = () =>
+                //     {
+                //         if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
+                //         {
+                //             func(new object[] {Input.touchCount, Input.mousePosition});
+                //         }
+                //     };
+                // }
+                //
+                // var obj = GetKey(o);
+                // if (obj == null)
+                // {
+                //     var value = new Global.Pair<object, List<Action>> 
+                //         {First = o, Second = new List<Action> {act}};
+                //     _actions.Add(value);
+                // }
+                // else
+                // {
+                //     obj.Add(act);
+                // }
             }
 
             public void RemoveEvent(object o)

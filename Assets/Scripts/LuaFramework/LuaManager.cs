@@ -24,7 +24,7 @@ namespace LuaFramework
         [SerializeField]
         [Tooltip("是否是局部mgr，局部mgr主要应用于预制资源")]
         private bool local = true;
-        
+
         [Tooltip("已经绑定了的lua文件列表")]
         // [SerializeField]
         private List<string> bindList;
@@ -33,6 +33,10 @@ namespace LuaFramework
         // [SerializeField]
         private List<string> banedList;
 
+        private delegate void UpdateFunction();
+
+        private UpdateFunction _update;
+        
         public List<string> BanedList
         {
             get => banedList;
@@ -49,6 +53,7 @@ namespace LuaFramework
 
         private void Awake()
         {
+            Time.timeScale = 1;
             var path = "";
             //即使是全局mgr，也只是说可以不用设置file属性，mgr会自动去加载一个lua文件，并执行其中的init方法
             //也可以手动设置file字段，这时也会去执行init方法
@@ -76,6 +81,9 @@ namespace LuaFramework
 
             var table = LuaEngine.Instance.LoadString(file.text, path, injections);
             table.Get<Action<LuaManager>>("init")?.Invoke(this);
+
+            _update = table.Get<UpdateFunction>("update");
+            // _update?.Invoke();
             
             foreach (var injection in functions)
             {
@@ -174,5 +182,15 @@ namespace LuaFramework
                 }
             }
         }
+        
+        private void Update()
+        {
+            _update?.Invoke();
+        }
+
+        // private void FixedUpdate()
+        // {
+        //     Global.Log("123123123123");
+        // }
     }
 }

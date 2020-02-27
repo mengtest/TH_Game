@@ -7,7 +7,7 @@ local function luaInit()
     if app and app.host and app.port then
         CS.Net.NetHelper.GetInstance():Connect(app.host, app.port)
     else
-        CS.Global.Alert("无法读取配置文件，请尝试重新下载游戏")
+        CS.Global.Alert("无效的配置文件，请尝试重新下载游戏")
         CS.UnityEngine.Application.Quit(0)
         return
     end

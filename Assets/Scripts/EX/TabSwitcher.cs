@@ -22,7 +22,7 @@ namespace Tool
         {
             //tabSwitcher组件会侦听键盘中的tab事件，
             //按下tab的时候会在components中不断地切换
-            Listener.Instance.On(Listener.KEY_EVENT, Lib.KeyCode.Tab ,null, (o) =>
+            Listener.Instance.On(Listener.KEY_EVENT,  (o) =>
             {
                 var e = EventSystem.current;
                 var flag = false;
@@ -58,7 +58,7 @@ namespace Tool
                 }
             
                 e.SetSelectedGameObject(components[_curIdx]);
-            });
+            }, Lib.KeyCode.Tab);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using LuaFramework;
 using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ using Object = UnityEngine.Object;
 [LuaCallCSharp]
 public static partial class Global
 {
+    private static ILuaMethod _methods;
+    
     /// <summary>
     /// 打印消息日志的等级
     /// </summary>
@@ -23,11 +26,16 @@ public static partial class Global
         Debug = 3,
     }
     
-    [CSharpCallLua]
-    [LuaCallCSharp]
+    [DoNotGen]
     public static void CallLuaMethod(string method, params object[] param)
     {
-        // return false;
+        if (_methods == null)
+        {
+            var env = LuaEngine.Instance.LoadString(Util.Loader.Load<TextAsset>("LuaScript/extend/methods.lua").text,
+                "LuaMethod");
+            _methods = env.Get<ILuaMethod>("_luaExtend");
+        }
+        _methods.Call(method, param);
     }
     
     /// <summary>

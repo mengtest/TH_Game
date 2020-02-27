@@ -65,6 +65,7 @@
 		<type fullname="Scene.SettingScene.VoicePanel" preserve="all"/>
 		<type fullname="Net.NetHelper" preserve="all"/>
 		<type fullname="Manager.Animation" preserve="all"/>
+		<type fullname="LuaFramework.ILuaMethod" preserve="all"/>
 		<type fullname="Lib.KeyCode" preserve="all"/>
 		<type fullname="Lib.Listener" preserve="all"/>
 		<type fullname="Game.IBuff" preserve="all"/>

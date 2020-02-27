@@ -22,7 +22,7 @@ function util.readCfgFile(content)
     local lines = util.splice(content, "\n")
     local comment = string.byte("#")
     for _, line in pairs(lines) do
-        --忽略掉第一个字符为#的行
+        --忽略掉第一个字符为#的行，相当于注释
         if comment ~= string.byte(line, 1, 1) then
             local key, value = string.match( line, "%s*(%S*)%s*=%s*%s*(%S*)")
             if key and value then

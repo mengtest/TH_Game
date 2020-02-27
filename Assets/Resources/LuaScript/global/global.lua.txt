@@ -7,5 +7,7 @@ log = l.log
 
 json = require"lib.rapidjson"
 
+listener = {}
+
 ---全局数据表
 GlobalTb = GlobalTb or {}
