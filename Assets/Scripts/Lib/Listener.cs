@@ -165,7 +165,7 @@ namespace Lib
              /// <summary>
              ///   <para>Equals '=' key.</para>
              /// </summary>
-             Equals = 61, // 0x0000003D
+             Equal = 61, // 0x0000003D
              /// <summary>
              ///   <para>Greater than '&gt;' key.</para>
              /// </summary>

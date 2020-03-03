@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using XLua;
 
 partial class Global
 {
-    [System.Serializable]
     [LuaCallCSharp]
+    [System.Serializable]
     public class Pair<TKey, TValue>
     {
         public TKey First;
@@ -21,6 +23,13 @@ partial class Global
         {
             
         }
+    }
+    
+    [Serializable]
+    public struct TabViewPair
+    {
+        public Button tab;
+        public RectTransform view;
     }
 
     [System.Serializable]

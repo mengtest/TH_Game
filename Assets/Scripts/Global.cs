@@ -122,12 +122,14 @@ public static partial class Global
         toast.GetComponent<ToastScript>().Make(text, time);
     }
     
+    [DoNotGen]
     [Obsolete]
     public static GameObject FindChildByPath(this string path)
     {
         return null;
     }
 
+    [DoNotGen]
     [Obsolete]
     public static GameObject FindChildByName(this string name)
     {
@@ -182,5 +184,22 @@ public static partial class Global
             cursor = cursor.parent;
         }
         return true;
+    }
+
+    /**
+     * <summary>
+     * 查找名称为name的第一个子节点，如果没有查找到，则返回空
+     * </summary>
+     */
+    public static Transform GetChildByName(this Transform self, string name)
+    {
+        foreach (Transform child in self)
+        {
+            if (child.name == name)
+            {
+                return child;
+            }
+        }
+        return null;
     }
 }

@@ -21,8 +21,10 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(Scene.SettingScene.VoicePanel);
-			Utils.BeginObjectRegister(type, L, translator, 0, 0, 3, 3);
+			Utils.BeginObjectRegister(type, L, translator, 0, 2, 3, 3);
 			
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddCheckerChangeEvent", _m_AddCheckerChangeEvent);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddSliderChangeEvent", _m_AddSliderChangeEvent);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "voice", _g_get_voice);
@@ -76,6 +78,62 @@ namespace XLua.CSObjectWrap
         
         
         
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_AddCheckerChangeEvent(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                Scene.SettingScene.VoicePanel gen_to_be_invoked = (Scene.SettingScene.VoicePanel)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    UnityEngine.Events.UnityAction<bool> _act = translator.GetDelegate<UnityEngine.Events.UnityAction<bool>>(L, 2);
+                    
+                    gen_to_be_invoked.AddCheckerChangeEvent( _act );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_AddSliderChangeEvent(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                Scene.SettingScene.VoicePanel gen_to_be_invoked = (Scene.SettingScene.VoicePanel)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    UnityEngine.Events.UnityAction<float> _act = translator.GetDelegate<UnityEngine.Events.UnityAction<float>>(L, 2);
+                    
+                    gen_to_be_invoked.AddSliderChangeEvent( _act );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
         
         
         

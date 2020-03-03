@@ -12,7 +12,6 @@ namespace EX
         private HorizontalLayoutGroup _layout;
 
         //为什么这里的字段在editor中显示不出来？
-        [FormerlySerializedAs("_elementWidth")]
         [Tooltip("每个元素的宽度")]
         [SerializeField]
         private float elementWidth = 300;
@@ -25,7 +24,6 @@ namespace EX
         {
             base.Awake();
             _layout = GetComponentInChildren<HorizontalLayoutGroup>();
-//            CalculateRect();
         }
 
         protected override void Start()
@@ -36,16 +34,13 @@ namespace EX
             
             //将当前的大小修正到与画布相同
             var rect = GetComponentInParent<Canvas>().GetComponent<RectTransform>().rect;
-//            content.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, rect.width);
             content.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rect.height);
-            
-//            transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, rect.width);
             transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rect.height);
         }
 
         public override void OnScroll(PointerEventData data)
         {
-            //交换xy的值，来打到滚动滚轮，横向滚动的效果
+            //交换xy的值，来达到滚动滚轮，横向滚动的效果
             data.scrollDelta = new Vector2(data.scrollDelta.y * _speed, data.scrollDelta.x);
             base.OnScroll(data);
         }
@@ -70,7 +65,6 @@ namespace EX
                 child.SetParent(content);
                 _index++;
             }
-            
         }
 
         //重新计算content区域的大小

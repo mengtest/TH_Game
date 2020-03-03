@@ -1,20 +1,27 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using XLua;
 
 
 //暂时没有考虑暂停的问题，只是单纯的实现了连续播放的功能
 namespace EX
 {
+    [LuaCallCSharp]
     [RequireComponent(typeof(AudioSource))]
     //连续播放不同的音乐
     //这个类没有继承于AudioSource(sealed)，但是实际上就是对AudioSource功能的扩展
     public class AudioEx : MonoBehaviour
     {
-        [FormerlySerializedAs("_resources")]
         [Tooltip("要播放的音乐文件路径列表")]
         [SerializeField]
         private string[] resources;
+
+        public AudioSource Audio
+        {
+            get => _audio;
+            set => _audio = value;
+        }
 
         public float Volume
         {
@@ -51,36 +58,12 @@ namespace EX
 
         private bool _loop;
 
-        // Start is called before the first frame update
-        //    private void Start()
-        //    {
-        //        _audio = GetComponent<AudioSource>();
-        //    }
-
         //在对象构造的时候调用，这个的调用比Start更早
         //Start会在脚本被启动(enable)的时候调用
         private void Awake()
         {
             _audio = GetComponent<AudioSource>();
         }
-
-//    private IEnumerator VolumeInit()
-//    {
-//        yield return new WaitUntil(
-//            () => _audio != null
-//                  );
-//    }
-
-//    private async void VolumeInit()
-//    {
-//        await Task.Run(() =>
-//        {
-//            while (_audio != null)
-//            {
-//
-//            }
-//        });
-//    }
 
         public void PlayList(string[] resources,float volume, bool loop)
         {
@@ -151,8 +134,6 @@ namespace EX
             _audio.clip = clip;
             _audio.Play();
             _index++;
-
-//            _audio.play
 
             //上一首歌播放完之后播放下一首
             Invoke(nameof(PlayNextSound), clip.length + 1);

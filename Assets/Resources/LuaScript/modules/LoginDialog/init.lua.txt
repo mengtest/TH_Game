@@ -27,8 +27,6 @@ end
 
 ---@param this UnityEngine.GameObject
 function init(this)
-    --CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, loginCallback, CS.Lib.KeyCode.KeypadEnter, this);
-    --CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, loginCallback, CS.Lib.KeyCode.Return, this);
     CS.UnityEngine.EventSystems.EventSystem.current:SetSelectedGameObject(nameInput.gameObject)
 end
 

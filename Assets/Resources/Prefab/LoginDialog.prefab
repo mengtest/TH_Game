@@ -1182,8 +1182,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  clickSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
+  enterSound: {fileID: 8300000, guid: 01f9f98b8d54d8949a4db0c655eef43a, type: 3}
 --- !u!1 &7847859466441621438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,8 +1376,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  clickSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
+  enterSound: {fileID: 8300000, guid: 01f9f98b8d54d8949a4db0c655eef43a, type: 3}
 --- !u!1 &8767226328331814538
 GameObject:
   m_ObjectHideFlags: 0

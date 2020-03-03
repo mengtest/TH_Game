@@ -1,3 +1,48 @@
+local uiList = {
+    LeftTopUI = LeftTopUI,
+    RightTopUI = RightTopUI,
+    LeftUI = LeftUI,
+    RightUI = RightUI,
+    BottomUI = BottomUI
+}
+
+---@param this LuaFramework.LuaManager
+function init(this)
+    local canvas = CS.Global.GetCurCanvas()
+    for i = 0, canvas.transform.childCount - 1 do
+        local child = canvas.transform:GetChild(i)
+        local f = uiList[child.name]
+        if f ~= nil then
+            f(child)
+        end
+    end
+end
+
+---@param this UnityEngine.Transform
+function LeftTopUI(this)
+    
+end
+
+---@param this UnityEngine.Transform
+function RightTopUI(this)
+    
+end
+
+---@param this UnityEngine.Transform
+function LeftUI(this)
+    
+end
+
+---@param this UnityEngine.Transform
+function RightUI(this)
+    
+end
+
+---@param this UnityEngine.Transform
+function BottomUI(this)
+    
+end
+
 function ExpBar(this)
     ---@type UnityEngine.GameObject
     local go = this

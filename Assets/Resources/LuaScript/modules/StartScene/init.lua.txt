@@ -77,7 +77,6 @@ function StartButtonCallback()
     end, 0,  obj)
     
     CS.Lib.Listener.Instance:On("yuki_login_success", closeDialogFunction, 0, obj, true)
-    
 end
 
 function SettingButtonCallback()
@@ -96,7 +95,3 @@ function ExitButtonCallback()
     end)
     dialog:ShowDialog()
 end
-
---function update()
---    print(123)
---end

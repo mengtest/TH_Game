@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 30118266}
   m_Layer: 5
   m_Name: Apply
-  m_TagString: Untagged
+  m_TagString: btns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 360488746}
   m_Layer: 5
   m_Name: Confirm
-  m_TagString: Untagged
+  m_TagString: btns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 892007442}
   m_Layer: 5
   m_Name: Reset
-  m_TagString: Untagged
+  m_TagString: btns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1112,12 +1112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 0}
+  file: {fileID: 4900000, guid: 78dd8062ee2f2644b8f045f135fcf60a, type: 3}
   functions: []
   injections: []
   local: 0
-  bindList: []
-  banedList: []
 --- !u!4 &909750292
 Transform:
   m_ObjectHideFlags: 0
@@ -1829,7 +1827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 333}
+  m_AnchoredPosition: {x: 0, y: 333.00006}
   m_SizeDelta: {x: 1378, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755214506
@@ -4258,7 +4256,7 @@ GameObject:
   - component: {fileID: 4065295533532738328}
   - component: {fileID: 4065295533532738329}
   m_Layer: 5
-  m_Name: View
+  m_Name: QualityView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4507,7 +4505,7 @@ GameObject:
   - component: {fileID: 4065295533702047147}
   - component: {fileID: 4065295533702047144}
   m_Layer: 5
-  m_Name: View
+  m_Name: OtherView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4734,15 +4732,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a33ab2d6c16fed4dbde97c052f587b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tabs:
-  - {fileID: 4065295532686164145}
-  - {fileID: 4065295533537513809}
-  - {fileID: 4065295532710004703}
-  _curView: 0
-  _views:
-  - {fileID: 4065295534356269602}
-  - {fileID: 4065295533532738310}
-  - {fileID: 4065295533702047145}
+  curView: 0
+  tabViews:
+  - tab: {fileID: 4065295532686164145}
+    view: {fileID: 4065295534356269602}
+  - tab: {fileID: 4065295533537513809}
+    view: {fileID: 4065295533532738310}
+  - tab: {fileID: 4065295532710004703}
+    view: {fileID: 4065295533702047145}
 --- !u!224 &4065295534175649809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4778,6 +4775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4065295534175649809}
   - component: {fileID: 4065295534175649808}
+  - component: {fileID: 4065295534175649823}
   m_Layer: 5
   m_Name: TabView
   m_TagString: Untagged
@@ -4785,6 +4783,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4065295534175649823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065295534175649822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: {fileID: 4900000, guid: dfe417cf056962848ac81fb43202d347, type: 3}
+  functions: []
+  injections: []
+  local: 1
 --- !u!224 &4065295534356269602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4817,7 +4831,7 @@ GameObject:
   - component: {fileID: 4065295534356269604}
   - component: {fileID: 4065295534356269605}
   m_Layer: 5
-  m_Name: View
+  m_Name: VoiceView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

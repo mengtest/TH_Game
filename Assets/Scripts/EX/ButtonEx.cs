@@ -18,8 +18,8 @@ namespace EX
         private float _scaleX;
         private float _scaleY;
 
-        [SerializeField]
-        public AudioClip clickSound;
+        [SerializeField] 
+        public AudioClip clickSound/* = Util.Loader.Load<AudioClip>("Music/WAV/Item5B")*/;
         
         [SerializeField]
         public AudioClip enterSound;
@@ -50,10 +50,11 @@ namespace EX
             _scaleX = localScale.x;
             _scaleY = localScale.y;
 
-            //如果自动注册为true
+            if (clickSound == null) return;
             var callback = new UnityAction(() =>
             {
-                Sound.PlayEffect("Music/BtnClick");
+                // Sound.PlayEffect("Music/BtnClick");
+                Sound.PlayEffect(clickSound);
             });
             onClick.AddListener(callback);
         }
@@ -68,7 +69,11 @@ namespace EX
 
             //不知道之前的是什么bug
             transform.localScale = new Vector3(_scaleX * 1.1f, _scaleY * 1.1f);
-            Sound.PlayEffect("Music/BtnClick");
+            // Sound.PlayEffect("Music/BtnClick");
+            if (enterSound)
+            {
+                Sound.PlayEffect(enterSound);
+            }
             base.OnPointerEnter(eventData);
         }
 
