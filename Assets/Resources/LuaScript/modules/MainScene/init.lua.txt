@@ -1,4 +1,47 @@
-local uiList = {
+---@param this UnityEngine.Transform
+function LeftTopUI(this)
+    ---@type UnityEngine.UI.Text
+    local level = CS.Util.ExtendMethods.GetChildByName(this,"Level"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    level.text = "LV." .. player.Level
+
+    ---@type UnityEngine.UI.Text
+    local name = CS.Util.ExtendMethods.GetChildByName(this, "UserName"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    name.text = player.Name
+end
+
+---@param this UnityEngine.Transform
+function RightTopUI(this)
+    ---@type UnityEngine.UI.Text
+    local power = CS.Util.ExtendMethods.GetChildByName(this, "Power"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    power.text = string.format("%d/%d", player.Power, player.MaxPower)
+
+    ---@type UnityEngine.UI.Text
+    local gold = CS.Util.ExtendMethods.GetChildByName(this, "Gold"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    gold.text = player.Gold
+
+    ---@type UnityEngine.UI.Text
+    local crystal = CS.Util.ExtendMethods.GetChildByName(this, "Crystal"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+    crystal.text = player.Crystal
+end
+
+---@param this UnityEngine.Transform
+function LeftUI(this)
+
+end
+
+---@param this UnityEngine.Transform
+function RightUI(this)
+    ---@type UnityEngine.Transform
+    local f = require"modules.MainScene.rightUI"
+    f(this)
+end
+
+---@param this UnityEngine.Transform
+function BottomUI(this)
+
+end
+
+uiList = {
     LeftTopUI = LeftTopUI,
     RightTopUI = RightTopUI,
     LeftUI = LeftUI,
@@ -8,53 +51,5 @@ local uiList = {
 
 ---@param this LuaFramework.LuaManager
 function init(this)
-    local canvas = CS.Global.GetCurCanvas()
-    for i = 0, canvas.transform.childCount - 1 do
-        local child = canvas.transform:GetChild(i)
-        local f = uiList[child.name]
-        if f ~= nil then
-            f(child)
-        end
-    end
-end
-
----@param this UnityEngine.Transform
-function LeftTopUI(this)
-    
-end
-
----@param this UnityEngine.Transform
-function RightTopUI(this)
-    
-end
-
----@param this UnityEngine.Transform
-function LeftUI(this)
-    
-end
-
----@param this UnityEngine.Transform
-function RightUI(this)
-    
-end
-
----@param this UnityEngine.Transform
-function BottomUI(this)
-    
-end
-
-function ExpBar(this)
-    ---@type UnityEngine.GameObject
-    local go = this
-    local exp = go:GetComponent(typeof(CS.UnityEngine.UI.Slider))
-    exp.value = 50
-end
-
-function MainQuest(this)
-    ---@type UnityEngine.GameObject
-    local go = this
-    local btn = go:GetComponent(typeof(CS.UnityEngine.UI.Button))
-    btn.onClick:AddListener(function()
-        CS.Global.NavigateTo("StoryScene", false)
-    end)
+    util.loadChild(CS.Global.GetCurCanvas().transform, uiList)
 end

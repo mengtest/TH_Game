@@ -8,7 +8,8 @@ namespace Pb
     {
         public static LoginRes GenLoginResult(byte[] bytes)
         {
-            return LoginRes.Parser.ParseFrom(bytes);
+            var r = LoginRes.Parser.ParseFrom(bytes);
+            return r;
         }
 
         public static LoginMsg GenLoginMsg(byte[] bytes)

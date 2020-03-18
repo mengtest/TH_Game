@@ -14,6 +14,7 @@ end
 ---@param str string json字符串
 ---@return table json字符串生成的对象
 function json.decode(str)
+    log(obj)
     return rapidjson.decode(str)
 end
 

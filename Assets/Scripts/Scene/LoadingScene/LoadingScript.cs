@@ -23,7 +23,8 @@ namespace Scene.LoadingScene
             _primText = _text.text;
 
             //unity提供的延迟调用
-            Invoke(nameof(Timer), 0.5f);
+            // Invoke(nameof(Timer), 0.5f);
+            InvokeRepeating(nameof(Timer), 0.5f, 0.5f);
         }
 
         public void NavigateTo(int id)
@@ -84,7 +85,7 @@ namespace Scene.LoadingScene
                     break;
             }
         
-            Invoke(nameof(Timer), 0.5f);
+            // Invoke(nameof(Timer), 0.5f);
         }
     }
 }

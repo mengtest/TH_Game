@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -99,10 +99,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"Debug\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -125,7 +125,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -141,10 +141,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"Release\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -167,7 +167,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -185,10 +185,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"MinSizeRel\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,7 +211,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -228,10 +228,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"RelWithDebInfo\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -656,6 +656,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
     </ClCompile>
     <ClCompile Include="D:\Game\THGame\build\lua-rapidjson\source\rapidjson.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\GamePlay.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\Test.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>

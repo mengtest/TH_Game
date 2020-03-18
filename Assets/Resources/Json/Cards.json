@@ -1,43 +1,25 @@
 {
     "date":"2019-8-4 20:47:42",
     "author":"yuki",
-    "CardArray":[
+    "desc": "这个是在对战期卡牌相关的属性",
+    "Cards":[
         {
             "id":1,
             "name":"alice",
             "img":"Card/alice_big_png",
             "type":"SR",
-            "hp": 100,
+            "leve": 1,
+            "maxLevel": 1,
+            "rating": 1,
+            "maxRating":1,
+            "hp":100,
+            "maxHp": 100,
             "mp": 100,
-            "def": 25,
-            "mag": 25,
-            "atk": 10,
-            "ene": 10,
-            "hpGrow": 10,
-            "mpGrow": 10,
-            "atkGrow": 10,
-            "eneGrow": 10,
+            "maxMp": 100,
+            "crit": 0.1,
+            "maxCrit": 0.1,
             "skills":[
                 1,2
-            ]
-        },
-        {
-            "id":2,
-            "name":"aya",
-            "img":"Card/aya_big_png",
-            "type":"SR",
-            "hp": 100,
-            "mp": 100,
-            "def": 25,
-            "mag": 25,
-            "atk": 10,
-            "ene": 10,
-            "hpGrow": 10,
-            "mpGrow": 10,
-            "atkGrow": 10,
-            "eneGrow": 10,
-            "skills":[
-                3,4
             ]
         }
     ]

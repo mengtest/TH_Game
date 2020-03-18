@@ -62,7 +62,6 @@ function Alice:GetSkill(index)
     
 end
 
-
 --将这个脚本添加到对局当中后执行的
 function Alice:Execute()
     

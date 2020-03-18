@@ -33,4 +33,35 @@ function util.readCfgFile(content)
     return t
 end
 
+local function copy(o)
+    if type(o) == "table" then
+        local t = {}
+        for k,v in pairs(o) do
+            t[k] = copy(v)
+        end
+        return t
+    else
+        return o
+    end
+end
+
+---深拷贝一个对象
+---@param o table
+function util.copy(o)
+    return copy(o)
+end
+
+---执行funcs中与parent的子物体名称相同的方法
+---@param parent UnityEngine.Transform
+---@param funs function[]
+function util.loadChild(parent, funs)
+    for i = 0, parent.transform.childCount - 1 do
+        local child = parent.transform:GetChild(i)
+        local f = funs[child.name]
+        if f ~= nil then
+            f(child)
+        end
+    end
+end
+
 return util

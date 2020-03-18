@@ -1,0 +1,10 @@
+-----@type Model
+--local model = require"model.luaInterface"
+--
+--local StartButtonModel = model:New()
+--
+--StartButtonModel.color = "red"
+--
+--StartButtonModel.fontSize = 35
+--
+--return StartButtonModel

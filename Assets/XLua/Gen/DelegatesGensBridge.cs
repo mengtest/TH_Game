@@ -82,7 +82,29 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp3(byte[] p0)
+		public void __Gen_Delegate_Imp3(object p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                ObjectTranslator translator = luaEnv.translator;
+                translator.PushAny(L, p0);
+                
+                PCall(L, 1, 0, errFunc);
+                
+                
+                
+                LuaAPI.lua_settop(L, errFunc - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp4(byte[] p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -128,9 +150,14 @@ namespace XLua
 			    return new Lib.Listener.Function(__Gen_Delegate_Imp2);
 			}
 		
+		    if (type == typeof(Lib.LuaView.MvcHandle))
+			{
+			    return new Lib.LuaView.MvcHandle(__Gen_Delegate_Imp3);
+			}
+		
 		    if (type == typeof(Core.DataCenter.Delegate))
 			{
-			    return new Core.DataCenter.Delegate(__Gen_Delegate_Imp3);
+			    return new Core.DataCenter.Delegate(__Gen_Delegate_Imp4);
 			}
 		
 		    return null;

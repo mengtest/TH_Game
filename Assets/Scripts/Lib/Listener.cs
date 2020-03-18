@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using XLua;
-using Debug = System.Diagnostics.Debug;
 using Object = UnityEngine.Object;
 
 namespace Lib
 {
-             #region MyRegion
-             /// <summary>
-             /// keycode枚举值导出
-             /// 因为导出枚举后在emmylua插件中无法取得有哪些枚举值，所以使用这个方法再次导出
-             /// </summary>
-     [LuaCallCSharp]
-     public class KeyCode
-     {
-         /// <summary>
-         ///   <para>Not assigned (never returned as the result of a keystroke).</para>
-         /// </summary>
-         public static int None = 0,
+    #region MyRegion
+    /// <summary>
+    /// keycode枚举值导出
+    /// 因为导出枚举后在emmylua插件中无法取得有哪些枚举值，所以使用这个方法再次导出
+    /// </summary>
+    [LuaCallCSharp]
+    public class KeyCode
+    {
+        /// <summary>
+        ///   <para>Not assigned (never returned as the result of a keystroke).</para>
+        /// </summary>
+        public static int None = 0,
              /// <summary>
              ///   <para>The backspace key.</para>
              /// </summary>
@@ -1323,12 +1321,12 @@ namespace Lib
              /// </summary>
              Joystick8Button19 = 509, // 0x000001FD
 
-             //用于表示按下任意键
-             AnyKey = 2000;
-     }
-     
-     #endregion
-    
+            //用于表示按下任意键
+            AnyKey = 2000;
+    }
+
+    #endregion
+
     [LuaCallCSharp]
     public class Listener
     {
@@ -1341,7 +1339,7 @@ namespace Lib
 
         public const string KEY_EVENT = "key_board";
         public const string MOUSE_EVENT = "mouse";
-        
+
         private readonly Dictionary<string, List<Global.Pair<object, List<Function>>>> _events;
 
         public Listener()
@@ -1376,7 +1374,7 @@ namespace Lib
                 return _instance;
             }
         }
-        
+
         /// <summary>
         /// 注册一个事件监听器
         /// </summary>
@@ -1385,33 +1383,33 @@ namespace Lib
         /// <param name="caller">绑定的对象</param>
         /// <param name="func">事件出发后调用的函数</param>
         /// <param name="once">是否只会执行一次，默认false</param>
-        public void On(string eventName, Function func, int keycode = 0, object caller = null,  bool once = false)
+        public void On(string eventName, Function func, int keycode = 0, object caller = null, bool once = false)
         {
             if (caller == null)
             {
                 caller = this;
             }
-            
+
             switch (eventName)
             {
                 //按键事件
                 case KEY_EVENT:
-                {
-                    _listener.AddKeyEvent(keycode, caller, func, once);
-                    break;
-                }
+                    {
+                        _listener.AddKeyEvent(keycode, caller, func, once);
+                        break;
+                    }
                 //鼠标事件
                 case MOUSE_EVENT:
-                {
-                    _listener.AddMouseEvent(keycode, caller, func, once);
-                    break;
-                }
+                    {
+                        _listener.AddMouseEvent(keycode, caller, func, once);
+                        break;
+                    }
                 //自定义事件
                 default:
-                {
-                    AddEvent(eventName, caller, func, once);
-                    break;
-                }
+                    {
+                        AddEvent(eventName, caller, func, once);
+                        break;
+                    }
             }
         }
 
@@ -1438,7 +1436,8 @@ namespace Lib
 
                 var value = new Global.Pair<object, List<Function>>
                 {
-                    First = caller, Second = new List<Function> {func}
+                    First = caller,
+                    Second = new List<Function> { func }
                 };
 
                 element.Add(value);
@@ -1450,9 +1449,10 @@ namespace Lib
 
                 var e = new Global.Pair<object, List<Function>>
                 {
-                    First = caller, Second = new List<Function> {func}
+                    First = caller,
+                    Second = new List<Function> { func }
                 };
-                    
+
                 element.Add(e);
             }
         }
@@ -1472,7 +1472,7 @@ namespace Lib
         /// <param name="caller">事件的名称</param>
         public void Off(string caller)
         {
-            
+
         }
 
         /// <summary>
@@ -1486,7 +1486,7 @@ namespace Lib
             {
                 return;
             }
-            
+
             if (_events.ContainsKey(eventName))
             {
                 var element = _events[eventName];
@@ -1506,16 +1506,16 @@ namespace Lib
                 }
             }
         }
-        
+
 
         /// <summary>
         /// 取消所有的事件
         /// </summary>
         public void OffAll()
         {
-            
+
         }
-        
+
         [DoNotGen]
         private class EventListener : MonoBehaviour
         {
@@ -1555,7 +1555,7 @@ namespace Lib
 
                 if (Input.anyKeyDown)
                 {
-                    for (var index = 0;index < _keyEvents.Count;)
+                    for (var index = 0; index < _keyEvents.Count;)
                     {
                         var value = _keyEvents.ElementAt(index);
                         if (value.Value.Count == 0)
@@ -1564,7 +1564,7 @@ namespace Lib
                         }
                         if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
                         {
-                            for (int i = 0; i < value.Value.Count; )
+                            for (int i = 0; i < value.Value.Count;)
                             {
                                 var pair = value.Value[i];
                                 if (pair.First == null)
@@ -1573,7 +1573,7 @@ namespace Lib
                                     continue;
                                 }
 
-                                for (var j = 0; j < pair.Second.Count ; )
+                                for (var j = 0; j < pair.Second.Count;)
                                 {
                                     var fun = pair.Second.ElementAt(j);
                                     fun.Invoke();
@@ -1592,8 +1592,8 @@ namespace Lib
                         }
                         index++;
                     }
-                    
-                    for (var index = 0;index < _mouseEvents.Count;)
+
+                    for (var index = 0; index < _mouseEvents.Count;)
                     {
                         var value = _mouseEvents.ElementAt(index);
                         if (value.Value.Count == 0)
@@ -1602,7 +1602,7 @@ namespace Lib
                         }
                         if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
                         {
-                            for (int i = 0; i < value.Value.Count; )
+                            for (int i = 0; i < value.Value.Count;)
                             {
                                 var pair = value.Value[i];
                                 if (pair.First == null)
@@ -1611,7 +1611,7 @@ namespace Lib
                                     continue;
                                 }
 
-                                for (var j = 0; j < pair.Second.Count ; )
+                                for (var j = 0; j < pair.Second.Count;)
                                 {
                                     var fun = pair.Second.ElementAt(j);
                                     fun.Invoke(Input.mousePosition, Input.touchCount);
@@ -1641,18 +1641,18 @@ namespace Lib
                     if (value.First == n)
                     {
                         return value.Second;
-                    }   
+                    }
                 }
                 return null;
             }
 
             public void AddKeyEvent(int keyCode, object o, Function func, bool once)
             {
-                List<Global.Pair<object, List<Function>>> dic = 
+                List<Global.Pair<object, List<Function>>> dic =
                     !_keyEvents.ContainsKey(keyCode)
                     ? new List<Global.Pair<object, List<Function>>>()
                     : _keyEvents[keyCode];
-                
+
                 var list = new List<Function>();
                 var pair = new Global.Pair<object, List<Function>>(o, list);
                 if (!_keyEvents.ContainsKey(keyCode))
@@ -1661,13 +1661,13 @@ namespace Lib
                 }
                 dic.Add(pair);
                 list.Add(func);
-                
+
                 if (once)
                 {
                     if (!_onceList.ContainsKey(func.GetHashCode()))
                     {
                         _onceList.Add(func.GetHashCode(), func);
-                    } 
+                    }
                 }
 
                 // Action act = null;
@@ -1710,13 +1710,13 @@ namespace Lib
                 // }
             }
 
-            public void AddMouseEvent(int keyCode, object o, Function func,bool once)
+            public void AddMouseEvent(int keyCode, object o, Function func, bool once)
             {
-                List<Global.Pair<object, List<Function>>> dic = 
+                List<Global.Pair<object, List<Function>>> dic =
                     !_mouseEvents.ContainsKey(keyCode)
                         ? new List<Global.Pair<object, List<Function>>>()
                         : _mouseEvents[keyCode];
-                
+
                 var list = new List<Function>();
                 var pair = new Global.Pair<object, List<Function>>(o, list);
                 if (!_mouseEvents.ContainsKey(keyCode))
@@ -1725,7 +1725,7 @@ namespace Lib
                 }
                 dic.Add(pair);
                 list.Add(func);
-                
+
                 if (once)
                 {
                     if (!_onceList.ContainsKey(func.GetHashCode()))
@@ -1733,7 +1733,7 @@ namespace Lib
                         _onceList.Add(func.GetHashCode(), func);
                     }
                 }
-                
+
                 // Action act = null;
                 // if (keyCode == KeyCode.AnyKey)
                 // {

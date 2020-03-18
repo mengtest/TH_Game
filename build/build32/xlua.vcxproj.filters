@@ -145,6 +145,12 @@
     <ClCompile Include="D:\Game\THGame\build\lua-rapidjson\source\rapidjson.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\GamePlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Game\THGame\build\CMakeLists.txt" />

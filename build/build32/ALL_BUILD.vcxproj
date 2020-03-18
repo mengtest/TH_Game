@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -73,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Game\THGame\build;D:\Game\THGame\build\lua-5.3.5\src;D:\Game\THGame\build\build32;D:\Game\THGame\build\lua-rapidjson\include;D:\Game\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

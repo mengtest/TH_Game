@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using XLua;
 using System.Collections.Generic;
@@ -28,6 +29,10 @@ namespace Scene.MainScene
 
         private bool _show = false;
 
+        private RectTransform _rect;
+        private float _width;
+        private float _height;
+
         //所有频道的消息
         private Queue<string>[] _messages;
 
@@ -35,12 +40,18 @@ namespace Scene.MainScene
         
         public void AddMessage(int channelId, string msg)
         {
-            
+            //将消息添加到对应的队列中
+            _messages[channelId].Enqueue(msg);
         }
         
         public void AddMessages(int channelId, string[] messages)
         {
-            // new Rect()
+            
+        }
+
+        private void Add(string message)
+        {
+            
         }
 
         private void Awake()
@@ -49,13 +60,35 @@ namespace Scene.MainScene
             channel.AddOptions(_channels);
             _messages = new Queue<string>[_channels.Count];
 
+            _rect = GetComponent<RectTransform>();
+            _width = _rect.rect.width;
+            _height = _rect.rect.height;
+
             scroll.scrollSensitivity = speed;
 
             channel.onValueChanged.AddListener(ChannelChanged);
             send.onClick.AddListener(SendClick);
+
+            // var layout = this.scroll.content.GetComponent<VerticalLayoutGroup>();
+            // this.scroll.content.sizeDelta = new Vector2(layout.preferredWidth, layout.preferredHeight);
+            this.ReDraw();
         }
-        
-        
+
+        private void ReDraw()
+        {
+            float height = 0;
+            foreach (RectTransform child in scroll.content.transform)
+            {
+                if (child != null)
+                {
+                    height += (child.rect.height + 10);
+                }
+            }
+
+            scroll.content.sizeDelta = new Vector2(scroll.content.GetComponent<RectTransform>().rect.width, height);
+        }
+
+
         private void HideComplete()
         {
             _show = false;
@@ -86,8 +119,9 @@ namespace Scene.MainScene
                 return;
             }
 
-            transform.DOMove(new Vector3(transform.position.x, transform.position.y - moveLength), 0.3f).onComplete =
-                HideComplete;
+            var position = transform.position;
+            transform.DOMove(new Vector3(position.x, position.y - moveLength), 0.3f)
+                    .onComplete = HideComplete;
         }
 
         //显示完整的聊天大厅
@@ -97,8 +131,28 @@ namespace Scene.MainScene
             {
                 return;
             }
-            var move = transform.DOMove(new Vector3(transform.position.x, transform.position.y + moveLength), 0.3f);
-            move.onComplete = ShowComplete;
+            var position = transform.position;
+            transform.DOMove(new Vector3(position.x, position.y + moveLength), 0.3f)
+                .onComplete = ShowComplete;
+        }
+
+        private void Update()
+        {
+            //点击聊天框后显示完整得聊天框，否则显示部分聊天框
+            if (Input.GetMouseButtonDown(0))
+            {
+                var r = new Rect(_rect.transform.position.x - _width / 2
+                    , _rect.transform.position.y - _height / 2
+                    , _width, _height);
+                if (r.Contains(Input.mousePosition))
+                {
+                    Show();
+                }
+                else
+                {
+                    Hide();
+                }
+            }
         }
     }
 }

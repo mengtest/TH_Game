@@ -4,6 +4,7 @@ using Lib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 using Util;
 
 namespace Prefab
@@ -22,8 +23,10 @@ namespace Prefab
 
         private void Start()
         {
+            //在loading场景中就执行这些函数，所以
+            Global.CallLoad();
             _t = _text.text;
-            Invoke(nameof(Timer), 0.5f);
+            InvokeRepeating(nameof(Timer), 0.5f, 0.5f);
             if (Global.Cache.GetNextSceneId() != -1)
             {
                 StartCoroutine(LoadScene(Global.Cache.GetNextSceneId()));
@@ -58,18 +61,17 @@ namespace Prefab
                     _text.text = _t;
                     break;
             }
-
             _count++;
-            Invoke(nameof(Timer), 0.5f);
         }
 
         private IEnumerator LoadScene(string sceneName)
         {
             yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneName);
+            _async.allowSceneActivation = true;
             _async.completed += operation =>
             {
-                Listener.Instance.Event("scene_changed", null, sceneName);
+                Listener.Instance.Event("scene_changed", sceneName);
             };
             yield return _async;
         }
@@ -78,9 +80,10 @@ namespace Prefab
         {
             yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneId);
-            _async.completed += (op) =>
+            _async.allowSceneActivation = true;
+            _async.completed += op =>
             {
-                Listener.Instance.Event("scene_changed", null, new object[]{sceneId});
+                Listener.Instance.Event("scene_changed", sceneId);
             };
             yield return _async;
         }

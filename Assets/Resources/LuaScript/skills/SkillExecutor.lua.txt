@@ -1,7 +1,0 @@
-﻿--SkillExecutor
---技能执行器
-local _SkillExecutor = {
-    
-}
-
-return _SkillExecutor

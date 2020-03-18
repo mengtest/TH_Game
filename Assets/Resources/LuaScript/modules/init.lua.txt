@@ -3,7 +3,6 @@ local yuki_init_list = require"message.yuki.init"
 ---加载全局lua的模块
 local function luaInit()
     local app = util.readCfgFile(CS.Util.Loader.Read("LuaScript/config/app"))
-    
     if app and app.host and app.port then
         CS.Net.NetHelper.GetInstance():Connect(app.host, app.port)
     else

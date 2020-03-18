@@ -14,7 +14,6 @@ GamePlay::~GamePlay()
 
 }
 
-
 double GamePlay::call(double x, double y)
 {
     auto test = new Test();
@@ -95,9 +94,6 @@ extern "C" {
 
 		lua_getfield(L, -1, "null"); // [rapidjson, json.null]
 		null = luaL_ref(L, LUA_REGISTRYINDEX); // [rapidjson]
-
-		// createSharedMeta(L, JSON_TABLE_TYPE_OBJECT);
-		// createSharedMeta(L, JSON_TABLE_TYPE_ARRAY);
 
 		return 1;
 	}

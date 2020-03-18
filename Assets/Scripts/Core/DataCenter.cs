@@ -48,14 +48,6 @@ namespace Core
                 _instance._msgs.Add(code, callback);
             }
         }
-
-//        public static void RegLua(int code, Delegate callback)
-//        {
-//            if (!_instance._luaMsgs.ContainsKey(code))
-//            {
-//                _instance._luaMsgs.Add(code, callback);
-//            }
-//        }
         
         private DataCenter()
         {

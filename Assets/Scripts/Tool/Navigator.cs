@@ -2,12 +2,52 @@
 using Lib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Util;
+using System;
 
 partial class Global
 {
     private static Stack<int> _sceneStack = new Stack<int>();
-    private static AsyncOperation _async;
+    // private static AsyncOperation _async;
+    private static Queue<Action> _funcs = new Queue<Action>();
+
+    /**
+    * <summary>
+    * 添加一个方法，在loading场景中调用
+    * </summary>
+    */
+    public static void PushLoad(Action func)
+    {
+        _funcs.Enqueue(func);
+    }
+
+    public static int CountLoad()
+    {
+        return _funcs.Count;
+    }
+
+    /**
+    * <summary>
+    * 弹出一个方法，在loading场景中调用
+    * </summary>
+    */
+    public static Action PopLoad()
+    {
+        return _funcs.Dequeue();
+    }
+
+    /**
+    * <summary>
+    * 在loading场景中调用所有的方法
+    * </summary>
+    */
+    public static void CallLoad()
+    {
+        foreach (var func in _funcs)
+        {
+            func.Invoke();
+        }
+        _funcs.Clear();
+    }
 
     //跳转到name场景中
     //是否需要加载loading界面
@@ -43,23 +83,23 @@ partial class Global
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
 
-        Listener.Instance.Event("scene_change", null, id);
+        Listener.Instance.Event("scene_change", id);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
             SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += operation =>
+            {
+                SceneManager.LoadSceneAsync(id).completed += (op) =>
                 {
-                    SceneManager.LoadSceneAsync(id).completed += (op) =>
-                    {
-                        Listener.Instance.Event("scene_changed", null, id);
-                    };
+                    Listener.Instance.Event("scene_changed", id);
                 };
+            };
         }
         else
         {
             SceneManager.LoadSceneAsync(id).completed += operation =>
             {
-                Listener.Instance.Event("scene_changed", null, id);
+                Listener.Instance.Event("scene_changed", id);
             };
         }
     }

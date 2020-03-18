@@ -1,0 +1,18 @@
+---动态加载场景
+---在一个场景中复用
+
+function awake()
+
+end
+
+function start()
+    
+end
+
+function destroy()
+    
+end
+
+function update()
+    
+end

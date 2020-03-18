@@ -60,6 +60,11 @@ namespace Net
                 }
             }
             
+            /**
+             * <summary>
+             * 发送protobuf的消息
+             * </summary>
+             */
             public void Send(int code, IMessage msg)
             {
                 var msgBytes =  msg.ToByteArray();
@@ -68,6 +73,22 @@ namespace Net
                 var mem = new byte[bytes.Length + msgBytes.Length];
                 Buffer.BlockCopy(bytes, 0, mem, 0, bytes.Length);
                 Buffer.BlockCopy(msgBytes, 0, mem, bytes.Length, msgBytes.Length);
+                _client.GetStream().Write(mem, 0, mem.Length);
+            }
+
+            /**
+             * <summary>
+             * 发送非protobuf的消息
+             * </summary>
+             */
+            public void Send(string msg)
+            {
+                var type = 2000.ToString("00000000");
+                var typeBytes = Encoding.UTF8.GetBytes(type);
+                var bytes = Encoding.UTF8.GetBytes(msg);
+                var mem = new byte[typeBytes.Length + bytes.Length];
+                Buffer.BlockCopy(typeBytes, 0, mem, 0, typeBytes.Length);
+                Buffer.BlockCopy(bytes, 0, mem, typeBytes.Length, bytes.Length);
                 _client.GetStream().Write(mem, 0, mem.Length);
             }
 

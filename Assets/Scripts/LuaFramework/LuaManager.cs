@@ -187,10 +187,5 @@ namespace LuaFramework
         {
             _update?.Invoke();
         }
-
-        // private void FixedUpdate()
-        // {
-        //     Global.Log("123123123123");
-        // }
     }
 }

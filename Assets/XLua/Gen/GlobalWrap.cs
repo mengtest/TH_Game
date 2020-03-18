@@ -31,13 +31,17 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 12, 1, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 16, 1, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "CallLuaMethod", _m_CallLuaMethod_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Log", _m_Log_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetRootObject", _m_GetRootObject_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetCurCanvas", _m_GetCurCanvas_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Alert", _m_Alert_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "MakeToast", _m_MakeToast_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "PushLoad", _m_PushLoad_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "CountLoad", _m_CountLoad_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "PopLoad", _m_PopLoad_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "CallLoad", _m_CallLoad_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "NavigateTo", _m_NavigateTo_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Refresh", _m_Refresh_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Return", _m_Return_xlua_st_);
@@ -224,6 +228,105 @@ namespace XLua.CSObjectWrap
                     float _time = (float)LuaAPI.lua_tonumber(L, 2);
                     
                     Global.MakeToast( _text, _time );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_PushLoad_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    System.Action _func = translator.GetDelegate<System.Action>(L, 1);
+                    
+                    Global.PushLoad( _func );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_CountLoad_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                        int gen_ret = Global.CountLoad(  );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_PopLoad_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    
+                        System.Action gen_ret = Global.PopLoad(  );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_CallLoad_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                    Global.CallLoad(  );
                     
                     
                     

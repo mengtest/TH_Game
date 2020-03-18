@@ -6,7 +6,9 @@ function _yuki_init_list.regLoginEvent()
     CS.Core.DataCenter.Reg(400, function(bytes)
         local res = CS.Pb.Gen.GenLoginResult(bytes)
         if res.Res then
-            CS.Global.Alert(res.Msg..",欢迎回来,<color='#fff000'><size=50>"..res.Nickname.."</size></color>")
+            player.Init(res)
+            CS.Global.Alert(res.Msg.."，欢迎回来<color='#fff000'><size=50>".."\n"..res.Nickname.."</size></color>")
+            --player.Name = res.Nickname
             --- 触发登入成功的回调事件
             CS.Lib.Listener.Instance:Event("yuki_login_success")
             --- 停止动画的播放

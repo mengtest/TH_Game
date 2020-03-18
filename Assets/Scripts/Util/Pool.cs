@@ -7,7 +7,6 @@ using Object = UnityEngine.Object;
 
 namespace Util
 {
-    
     namespace pool
     {
         [LuaCallCSharp]

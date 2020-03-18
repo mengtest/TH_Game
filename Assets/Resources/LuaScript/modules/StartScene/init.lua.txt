@@ -1,3 +1,6 @@
+---@type Model
+local model = nil
+
 ---@param luaManger LuaFramework.LuaManager
 function init(luaManger)
     ---@type UnityEngine.UI.Button[]
@@ -5,6 +8,15 @@ function init(luaManger)
     for i = 0, children.Length - 1 do
         local v = children[i]
         if v.name == "StartButton" then
+            -- ---@type Lib.LuaView
+            -- local view = v:GetComponent(typeof(CS.Lib.LuaView))
+            -- CS.Lib.Mvc.RegisterView("StartButton", view)
+            -- model = require"model.test"
+            -- CS.Lib.Mvc.RegisterModel("StartButton", model)
+            -- view:RegisterHandle(function (data) 
+            --     log(data.color)
+            --     log(data.fontSize)
+            -- end)
             v.onClick:AddListener(StartButtonCallback)
         elseif v.name == "SettingButton" then
             v.onClick:AddListener(SettingButtonCallback)
@@ -15,6 +27,8 @@ function init(luaManger)
 end
 
 function StartButtonCallback()
+    --CS.Lib.Mvc.Notify()
+    -- model:HandelEvent()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
     local go = CS.UnityEngine.Resources.Load("Prefab/LoginDialog", typeof(CS.UnityEngine.GameObject))
     --@RefType [luaIde#CS.UnityEngine.GameObject]
