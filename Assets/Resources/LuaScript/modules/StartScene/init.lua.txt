@@ -1,6 +1,3 @@
----@type Model
-local model = nil
-
 ---@param luaManger LuaFramework.LuaManager
 function init(luaManger)
     ---@type UnityEngine.UI.Button[]
@@ -78,11 +75,12 @@ function StartButtonCallback()
         
         local navigate = function()
             seq:Kill()
+            CS.Net.NetHelper.GetInstance():Send(20001, "")
             CS.Global.NavigateTo("MainScene")
         end
         
-        CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt,true)
-        CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt,true)
+        --CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt,true)
+        CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt, true)
     end
     
     --- 点击取消的回调

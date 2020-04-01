@@ -61,6 +61,9 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(Scene.MainScene.LobbyTalkScript), SceneMainSceneLobbyTalkScriptWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(Prefab.CardDisplayScript), PrefabCardDisplayScriptWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(Net.NetHelper), NetNetHelperWrap.__Register);
         
         
@@ -101,6 +104,12 @@ namespace XLua.CSObjectWrap
         
         
             translator.DelayWrapLoader(typeof(EX.AudioEx), EXAudioExWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(EX.ScrollListEx), EXScrollListExWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(Core.DataCenter), CoreDataCenterWrap.__Register);
         
         
             translator.DelayWrapLoader(typeof(Common.Player), CommonPlayerWrap.__Register);
@@ -165,6 +174,10 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(DG.Tweening.Core.ABSSequentiable), DGTweeningCoreABSSequentiableWrap.__Register);
         
+        }
+        
+        static void wrapInit1(LuaEnv luaenv, ObjectTranslator translator)
+        {
         
             translator.DelayWrapLoader(typeof(DG.Tweening.TweenExtensions), DGTweeningTweenExtensionsWrap.__Register);
         
@@ -174,16 +187,16 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(DG.Tweening.ShortcutExtensions), DGTweeningShortcutExtensionsWrap.__Register);
         
+        
+        
         }
-        
-        
-        
-        
         
         static void Init(LuaEnv luaenv, ObjectTranslator translator)
         {
             
             wrapInit0(luaenv, translator);
+            
+            wrapInit1(luaenv, translator);
             
             
             translator.AddInterfaceBridgeCreator(typeof(Util.ILoader), UtilILoaderBridge.__Create);

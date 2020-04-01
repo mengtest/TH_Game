@@ -1,0 +1,39 @@
+﻿{
+  "version": "0.0.1",
+  "types": [
+    "n", "r", "sr", "ssr"
+  ],
+  "star": 6,
+  "level": [
+    25, 30, 35, 40
+  ],
+  "exps": 500,
+  "cards": [
+    {
+      "id": 1,
+      "name" : "alice",
+      "type": 1,
+      "icon": "alice.png",
+      "desc": "爱丽丝",
+      "img": "alice.png",
+      "skills": [
+        1, 2, 3
+      ],
+
+      "atk": 100,
+      "def": 25,
+      "wit": 100,
+      "mag": 10,
+      "hp": 1000,
+      "mp": 100,
+      "crit": 0.1,
+
+      "atk_grow": 1,
+      "def_grow": 0,
+      "wit_grow": 1,
+      "mag_grow": 0,
+      "hp_grow": 30,
+      "mp_grow": 0
+    }
+  ]
+}

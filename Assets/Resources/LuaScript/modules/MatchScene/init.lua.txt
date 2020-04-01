@@ -1,0 +1,25 @@
+---@param this UnityEngine.Transform
+local function CardDisplay(this)
+    local t = require"modules.CardScene.cardDisplay"
+    util.loadChild(this, t.list)
+end
+
+---@param this UnityEngine.Transform
+local function Return(this)
+    ---@type UnityEngine.UI.Button
+    local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function ()
+        log("返回到游戏主场景中")
+        CS.Global.Return()
+    end)
+end
+
+local l = {
+    Return = Return,
+    CardDisplay = CardDisplay
+}
+
+---@param this LuaFramework.LuaManager
+function init(this)
+    util.loadChild(this, l);
+end

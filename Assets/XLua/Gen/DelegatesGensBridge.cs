@@ -60,7 +60,7 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp2(object[] p0)
+		public void __Gen_Delegate_Imp2(int p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -68,10 +68,10 @@ namespace XLua
 #endif
                 RealStatePtr L = luaEnv.rawL;
                 int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                ObjectTranslator translator = luaEnv.translator;
-                if (p0 != null)  { for (int __gen_i = 0; __gen_i < p0.Length; ++__gen_i) translator.PushAny(L, p0[__gen_i]); };
                 
-                PCall(L, 0 + (p0 == null ? 0 : p0.Length), 0, errFunc);
+                LuaAPI.xlua_pushinteger(L, p0);
+                
+                PCall(L, 1, 0, errFunc);
                 
                 
                 
@@ -82,7 +82,29 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp3(object p0)
+		public void __Gen_Delegate_Imp3(object[] p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                ObjectTranslator translator = luaEnv.translator;
+                translator.Push(L, p0);
+                
+                PCall(L, 1, 0, errFunc);
+                
+                
+                
+                LuaAPI.lua_settop(L, errFunc - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp4(object p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -104,7 +126,51 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp4(byte[] p0)
+		public void __Gen_Delegate_Imp5(object[] p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                ObjectTranslator translator = luaEnv.translator;
+                if (p0 != null)  { for (int __gen_i = 0; __gen_i < p0.Length; ++__gen_i) translator.PushAny(L, p0[__gen_i]); };
+                
+                PCall(L, 0 + (p0 == null ? 0 : p0.Length), 0, errFunc);
+                
+                
+                
+                LuaAPI.lua_settop(L, errFunc - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp6(byte[] p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                
+                LuaAPI.lua_pushstring(L, p0);
+                
+                PCall(L, 1, 0, errFunc);
+                
+                
+                
+                LuaAPI.lua_settop(L, errFunc - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp7(string p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -145,19 +211,34 @@ namespace XLua
 			    return new Scene.SettingScene.UnityAction2(__Gen_Delegate_Imp1);
 			}
 		
-		    if (type == typeof(Lib.Listener.Function))
+		    if (type == typeof(Scene.SettingScene.UnityAction3))
 			{
-			    return new Lib.Listener.Function(__Gen_Delegate_Imp2);
+			    return new Scene.SettingScene.UnityAction3(__Gen_Delegate_Imp2);
 			}
 		
-		    if (type == typeof(Lib.LuaView.MvcHandle))
+		    if (type == typeof(Lib.YukiEventDelegate))
 			{
-			    return new Lib.LuaView.MvcHandle(__Gen_Delegate_Imp3);
+			    return new Lib.YukiEventDelegate(__Gen_Delegate_Imp3);
+			}
+		
+		    if (type == typeof(Lib.MvcHandle))
+			{
+			    return new Lib.MvcHandle(__Gen_Delegate_Imp4);
+			}
+		
+		    if (type == typeof(Lib.Listener.Function))
+			{
+			    return new Lib.Listener.Function(__Gen_Delegate_Imp5);
 			}
 		
 		    if (type == typeof(Core.DataCenter.Delegate))
 			{
-			    return new Core.DataCenter.Delegate(__Gen_Delegate_Imp4);
+			    return new Core.DataCenter.Delegate(__Gen_Delegate_Imp6);
+			}
+		
+		    if (type == typeof(Core.DataCenter.Delegate2))
+			{
+			    return new Core.DataCenter.Delegate2(__Gen_Delegate_Imp7);
 			}
 		
 		    return null;

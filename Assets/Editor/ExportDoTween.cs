@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+using System;
 
 namespace Editor
 {
@@ -38,6 +39,8 @@ namespace Editor
             typeof(DG.Tweening.TweenExtensions),
             typeof(DG.Tweening.TweenSettingsExtensions),
             typeof(DG.Tweening.ShortcutExtensions),
+            
+            // typeof()
 //            typeof(DG.Tweening.ShortcutExtensions43),
             //typeof(DG.Tweening.ShortcutExtensions46),
             //typeof(DG.Tweening.ShortcutExtensions50),

@@ -72,6 +72,11 @@ namespace Lib
             return view;
         }
 
+        // public static ILuaData GetAssociateModel()
+        // {
+        //     
+        // }
+
         public static void Notify(string name, object value)
         {
             if (_views.ContainsKey(name))

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -13,6 +14,9 @@ namespace Scene.SettingScene
     [CSharpCallLua]
     [LuaCallCSharp]
     public delegate void UnityAction2(bool b);
+    [CSharpCallLua]
+    [LuaCallCSharp]
+    public delegate void UnityAction3(int b);
     
     [LuaCallCSharp]
     public class VoicePanel : MonoBehaviour

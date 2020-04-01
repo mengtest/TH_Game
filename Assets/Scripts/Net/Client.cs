@@ -20,8 +20,13 @@ namespace Net
             
             public Client()
             {
-                _buf = new byte[1024];
+                _buf = new byte[1024 * 10];
                 _client = new TcpClient();
+            }
+
+            public bool IsConnected()
+            {
+                return _client == null || _client.Connected;
             }
 
             public async void Connect(string host, int port)
@@ -40,7 +45,7 @@ namespace Net
             
             private async void MyRead()
             {
-                var count = await _client.GetStream().ReadAsync(_buf, 0, 1024);
+                var count = await _client.GetStream().ReadAsync(_buf, 0, _buf.Length);
                 byte[] type = new byte[8];
                 Buffer.BlockCopy(_buf, 0, type, 0, type.Length);
                 byte[] msg = new byte[count - 8];
@@ -81,9 +86,9 @@ namespace Net
              * 发送非protobuf的消息
              * </summary>
              */
-            public void Send(string msg)
+            public void Send(int code, string msg)
             {
-                var type = 2000.ToString("00000000");
+                var type = code.ToString("00000000");
                 var typeBytes = Encoding.UTF8.GetBytes(type);
                 var bytes = Encoding.UTF8.GetBytes(msg);
                 var mem = new byte[typeBytes.Length + bytes.Length];

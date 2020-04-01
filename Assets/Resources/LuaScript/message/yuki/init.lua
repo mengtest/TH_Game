@@ -38,11 +38,34 @@ function _yuki_init_list.cantConnectServer()
     end, 0, null, true)
 end
 
+---测试接收json字符串的事件
+function _yuki_init_list.test()
+    CS.Core.DataCenter.Reg2(20001, function (str)
+        --这里是当前玩家所有的卡牌信息
+        log(str)
+        globalTb.myCards = json.decode(str)
+    end)
+
+    CS.Core.DataCenter.Reg2(20002, function (str)
+        --这里是当前玩家所有好友的信息
+    end)
+end
+
+function _yuki_init_list.eventInit()
+    CS.Lib.Listener.Instance:On("connected_with_server", function ()
+        --这条消息是用于获取某些必须的数据的
+        --例如所有的卡牌信息(json文件的信息)
+        --CS.Net.NetHelper.GetInstance():Send(20003, "")
+    end)
+end
+
 ---加载yuki的消息模块
 function _yuki_init_list.init()
     log("-----------开始加载yuki的消息模块-------------")
     _yuki_init_list.regLoginEvent()
     _yuki_init_list.cantConnectServer()
+    _yuki_init_list.test()
+    _yuki_init_list.eventInit()
     log("-----------yuki的消息模块加载完成-------------")
 end
 

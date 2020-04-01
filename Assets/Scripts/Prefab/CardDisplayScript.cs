@@ -1,54 +1,63 @@
 ﻿using System;
+using Lib;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using XLua;
 
 namespace Prefab
 {
-    public class CardDisplayScript : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+    [LuaCallCSharp]
+    [CSharpCallLua]
+    public class CardDisplayScript : LuaView, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
+        public int cid;
+
+        public object data;
+        
+        //这个是该类
+        public static readonly string ClickEvent = "user_click_display_card";
+        
         [Tooltip("卡牌里面的角色")]
         [SerializeField]
-        private Image card;
+        public Image card;
 
         [Tooltip("卡牌的外框")]
         [SerializeField]
-        private Image border;
+        public Image border;
 
         [Tooltip("等级")]
         [SerializeField]
-        private Text level;
+        public Text level;
         
         [Tooltip("星级")]
         [SerializeField]
-        private Transform stars;
+        public Transform stars;
 
         [Tooltip("空的星星")]
         [SerializeField]
-        private Image starEmpty;
+        public Image starEmpty;
         
         [Tooltip("填充的星星")]
         [SerializeField]
-        private Image star;
-
-        private void Awake()
-        {
-            
-        }
+        public Image star;
+        
+        public Action<object> clickEvent;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("你点击了这个卡牌");
+            Listener.Instance.Event(ClickEvent, this);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            // throw new NotImplementedException();
+        
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            // throw new NotImplementedException();
+            
         }
     }
 }

@@ -3,6 +3,13 @@ using XLua;
 
 namespace Lib
 {
+    [LuaCallCSharp]
+    [CSharpCallLua]
+    //处理单个事件
+    public delegate void MvcHandle(object value);
+    //处理多个事件
+    // public delegate void MvcHandleAll(object value);
+    
     /**
      * <summary>
      *这个其实就是MonoBehavior
@@ -12,13 +19,6 @@ namespace Lib
     {
         private string _mvcName;
         private event MvcHandle _handle;
-        
-        [LuaCallCSharp]
-        [CSharpCallLua]
-        //处理单个事件
-        public delegate void MvcHandle(object value);
-        //处理多个事件
-        // public delegate void MvcHandleAll(object value);
 
         public string GetMvcName()
         {

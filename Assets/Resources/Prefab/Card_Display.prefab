@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7228256773241892047}
   - component: {fileID: 5099475004736720670}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 8761667004255031222}
   - component: {fileID: 803667126520599980}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 6044040746707429207}
   - component: {fileID: 5484302879852420685}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 892299145743072594}
   - component: {fileID: 5080690804394297197}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,8 +399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.7, y: 173.4}
-  m_SizeDelta: {x: 51.41, y: 39.7}
+  m_AnchoredPosition: {x: -81.100006, y: 138.2}
+  m_SizeDelta: {x: 42.2, y: 35.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &57443633286076977
 CanvasRenderer:
@@ -483,8 +483,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -178.1}
-  m_SizeDelta: {x: -120, y: 26}
+  m_AnchoredPosition: {x: 2.100006, y: -136}
+  m_SizeDelta: {x: -77.8, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026603322285942339
 MonoBehaviour:
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 64368814229922445}
   - component: {fileID: 5095679016115786104}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,11 +669,11 @@ GameObject:
   - component: {fileID: 8302515459113308462}
   m_Layer: 5
   m_Name: Card_Display
-  m_TagString: Untagged
+  m_TagString: cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8302515459113308461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -683,7 +683,7 @@ RectTransform:
   m_GameObject: {fileID: 8302515459113308460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8302515459113970909}
   - {fileID: 8302515459360549065}
@@ -697,7 +697,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 424}
+  m_SizeDelta: {x: 240, y: 339.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8302515459113308462
 MonoBehaviour:
@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e47244d3d084861924141d24e9cb8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cid: 0
   card: {fileID: 8302515459113970910}
   border: {fileID: 8302515459360549066}
   level: {fileID: 734435661150722778}
@@ -749,10 +750,10 @@ RectTransform:
   m_Father: {fileID: 8302515459113308461}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 424}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8302515459113970911
 CanvasRenderer:
@@ -817,15 +818,15 @@ RectTransform:
   m_GameObject: {fileID: 8302515459360549064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8302515459113308461}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 283}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8302515459360549067
 CanvasRenderer:
@@ -875,7 +876,7 @@ GameObject:
   - component: {fileID: 2678275599842345978}
   - component: {fileID: 1704823224268759409}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

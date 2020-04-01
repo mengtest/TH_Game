@@ -36,6 +36,11 @@ namespace Net
 
         }
 
+        public bool IsConnected()
+        {
+            return _connection.IsConnected();
+        }
+
         //接收服务器回传的消息并解析
         public void ReceiveMsg(Msg msg)
         {
@@ -90,6 +95,11 @@ namespace Net
         public void Update()
         {
             
+        }
+
+        public void Send(int code, string msg)
+        {
+            _connection.Send(code, msg);
         }
 
         //检查版本号,返回版本号是否一致

@@ -13,15 +13,15 @@ namespace Util
          */
         public static bool IsOverlap(this RectTransform self, RectTransform rect)
         {
-            var rect1MinX = self.position.x - self.rect.width / 2;
-            var rect1MaxX = self.position.x + self.rect.width / 2;
-            var rect1MinY = self.position.y - self.rect.height / 2;
-            var rect1MaxY = self.position.y + self.rect.height / 2;
+            var rect1MinX = self.position.x - self.rect.width * self.pivot.x;
+            var rect1MaxX = self.position.x + self.rect.width * (1- self.pivot.x);
+            var rect1MinY = self.position.y - self.rect.height * self.pivot.y;
+            var rect1MaxY = self.position.y + self.rect.height * (1- self.pivot.y);
 
-            var rect2MinX = rect.position.x - rect.rect.width / 2;
-            var rect2MaxX = rect.position.x + rect.rect.width / 2;
-            var rect2MinY = rect.position.y - rect.rect.height / 2;
-            var rect2MaxY = rect.position.y + rect.rect.height / 2;
+            var rect2MinX = rect.position.x - rect.rect.width * rect.pivot.x;
+            var rect2MaxX = rect.position.x + rect.rect.width * (1- rect.pivot.x);
+            var rect2MinY = rect.position.y - rect.rect.height * rect.pivot.y;
+            var rect2MaxY = rect.position.y + rect.rect.height * (1- rect.pivot.y);
 
             var xNotOverlap = rect1MaxX < rect2MinX || rect2MaxX < rect1MinX;
             var yNotOverlap = rect1MaxY < rect2MinY || rect2MaxY < rect1MinY;
@@ -38,15 +38,15 @@ namespace Util
          */
         public static bool IsInRect(this RectTransform self, RectTransform rect)
         {
-            var rect1MinX = self.position.x - self.rect.width / 2;
-            var rect1MaxX = self.position.x + self.rect.width / 2;
-            var rect1MinY = self.position.y - self.rect.height / 2;
-            var rect1MaxY = self.position.y + self.rect.height / 2;
+            var rect1MinX = self.position.x - self.rect.width * self.pivot.x;
+            var rect1MaxX = self.position.x + self.rect.width * (1- self.pivot.x);
+            var rect1MinY = self.position.y - self.rect.height * self.pivot.y;
+            var rect1MaxY = self.position.y + self.rect.height * (1- self.pivot.y);
 
-            var rect2MinX = rect.position.x - rect.rect.width / 2;
-            var rect2MaxX = rect.position.x + rect.rect.width / 2;
-            var rect2MinY = rect.position.y - rect.rect.height / 2;
-            var rect2MaxY = rect.position.y + rect.rect.height / 2;
+            var rect2MinX = rect.position.x - rect.rect.width * rect.pivot.x;
+            var rect2MaxX = rect.position.x + rect.rect.width * (1- rect.pivot.x);
+            var rect2MinY = rect.position.y - rect.rect.height * rect.pivot.y;
+            var rect2MaxY = rect.position.y + rect.rect.height * (1- rect.pivot.y);
 
             var inX = rect1MinX >= rect2MinX && rect1MaxX <= rect2MaxX;
             var inY = rect1MinY >= rect2MinY && rect1MaxY <= rect2MaxY;

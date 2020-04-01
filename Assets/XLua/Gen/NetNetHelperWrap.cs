@@ -21,8 +21,9 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(Net.NetHelper);
-			Utils.BeginObjectRegister(type, L, translator, 0, 9, 0, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 11, 0, 0);
 			
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsConnected", _m_IsConnected);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReceiveMsg", _m_ReceiveMsg);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Login", _m_Login);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Logout", _m_Logout);
@@ -31,6 +32,7 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Connect", _m_Connect);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Disconnect", _m_Disconnect);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Update", _m_Update);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Send", _m_Send);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CheckVersion", _m_CheckVersion);
 			
 			
@@ -102,6 +104,34 @@ namespace XLua.CSObjectWrap
                 {
                     
                         bool gen_ret = Net.NetHelper.Init(  );
+                        LuaAPI.lua_pushboolean(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_IsConnected(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                Net.NetHelper gen_to_be_invoked = (Net.NetHelper)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    
+                        bool gen_ret = gen_to_be_invoked.IsConnected(  );
                         LuaAPI.lua_pushboolean(L, gen_ret);
                     
                     
@@ -324,6 +354,35 @@ namespace XLua.CSObjectWrap
                 {
                     
                     gen_to_be_invoked.Update(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_Send(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                Net.NetHelper gen_to_be_invoked = (Net.NetHelper)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    int _code = LuaAPI.xlua_tointeger(L, 2);
+                    string _msg = LuaAPI.lua_tostring(L, 3);
+                    
+                    gen_to_be_invoked.Send( _code, _msg );
                     
                     
                     

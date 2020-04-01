@@ -66,6 +66,7 @@
 		<type fullname="Util.pool.GameObjectPool" preserve="all"/>
 		<type fullname="Scene.SettingScene.VoicePanel" preserve="all"/>
 		<type fullname="Scene.MainScene.LobbyTalkScript" preserve="all"/>
+		<type fullname="Prefab.CardDisplayScript" preserve="all"/>
 		<type fullname="Net.NetHelper" preserve="all"/>
 		<type fullname="Manager.Animation" preserve="all"/>
 		<type fullname="Manager.Sound" preserve="all"/>
@@ -80,6 +81,8 @@
 		<type fullname="Game.ISkill" preserve="all"/>
 		<type fullname="Pb.Gen" preserve="all"/>
 		<type fullname="EX.AudioEx" preserve="all"/>
+		<type fullname="EX.ScrollListEx" preserve="all"/>
+		<type fullname="Core.DataCenter" preserve="all"/>
 		<type fullname="Common.Player" preserve="all"/>
 		<type fullname="DG.Tweening.DOTweenModuleUI" preserve="all"/>
 		
