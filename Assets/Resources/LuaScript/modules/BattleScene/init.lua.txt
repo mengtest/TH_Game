@@ -1,0 +1,33 @@
+﻿local queryCard = require"modules.BattleScene.QueryCard"
+local drawAndGold = require"modules.BattleScene.DrawAndGold"
+
+---@param this UnityEngine.Transform
+local function Setting(this)
+    ---@type UnityEngine.UI.Button
+    local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
+    btn.onClick:AddListener(function ()
+        log("您点击了设置按钮")
+    end)
+end
+
+local list = {
+    QueryCard = queryCard,
+    DrawAndGold = drawAndGold,
+    Setting = Setting
+}
+
+---@param this LuaFramework.LuaManager
+function init(this)
+    util.loadChild(this, list)
+    
+    ---所有的卡牌的点击事件
+    CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
+        ---@type UnityEngine.RaycastHit
+        local isHit, hit = a:InnocentRayHit()
+        if isHit then
+            if hit then
+                log(hit.transform.name)
+            end
+        end
+    end, CS.Lib.KeyCode.Mouse0, nil, false)
+end

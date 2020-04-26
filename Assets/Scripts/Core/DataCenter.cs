@@ -22,10 +22,11 @@ namespace Core
         private Dictionary<int, Delegate> _msgs;
         private Dictionary<int, Delegate2> _msgs2;
         
-
-        // private Dictionary<int, Delegate> _luaMsgs;
-
-        //处理的是msg，也就是原始数据
+        /// <summary>
+        /// 处理的是msg，也就是原始数据
+        /// </summary>
+        /// <param name="code">注册的消息的编号</param>
+        /// <param name="msg">消息的内容</param>
         public void Receive(int code, byte[] msg)
         {
 //            if (code == 400)
@@ -55,7 +56,11 @@ namespace Core
             }
         }
         
-        // [DoNotGen]
+        /// <summary>
+        /// 注册一个处理pb的消息
+        /// </summary>
+        /// <param name="code">消息号</param>
+        /// <param name="callback">接收到对应的消息号是，执行的函数</param>
         public static void Reg(int code, Delegate callback)
         {
             if (!_instance._msgs.ContainsKey(code))
@@ -64,6 +69,11 @@ namespace Core
             }
         }
         
+        /// <summary>
+        /// 注册一个处理json的消息
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="callback"></param>
         public static void Reg2(int code, Delegate2 callback)
         {
             if (!_instance._msgs2.ContainsKey(code))
@@ -77,12 +87,14 @@ namespace Core
             
         }
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
         public static void Init()
         {
             _instance = new DataCenter();
             _instance._msgs = new Dictionary<int, Delegate>();
             _instance._msgs2 = new Dictionary<int, Delegate2>();
-            // _instance._luaMsgs = new Dictionary<int, Delegate>();
         }
     }
 }

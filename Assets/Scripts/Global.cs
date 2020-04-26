@@ -15,6 +15,7 @@ using Object = UnityEngine.Object;
 public static partial class Global
 {
     private static ILuaMethod _methods;
+    private static Canvas _curCanvas;
     
     /// <summary>
     /// 打印消息日志的等级
@@ -27,6 +28,11 @@ public static partial class Global
         Debug = 3,
     }
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="method"></param>
+    /// <param name="param"></param>
     [DoNotGen]
     public static void CallLuaMethod(string method, params object[] param)
     {
@@ -88,6 +94,33 @@ public static partial class Global
         return null;
     }
 
+    private static void AddDefaultCanvas()
+    {
+        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            var canvas = go.GetComponent<Canvas>();
+            if (canvas != null)
+            {
+                if (canvas.name != "UILayer")
+                {
+                    canvas.name = "UILayer";
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+        // var c = new GameObject("UILayer");
+        // var canvasComponent =  c.AddComponent<Canvas>();
+        // canvasComponent.renderMode = RenderMode.ScreenSpaceOverlay;
+        // canvasComponent.pixelPerfect = false;
+        // canvasComponent.sortingOrder = 0;
+        // canvasComponent.targetDisplay = 
+        // SceneManager.MoveGameObjectToScene(c, Scene);
+    }
+
     /// <summary>
     /// 获取到当前的画布，
     /// 方便操作ui
@@ -119,8 +152,14 @@ public static partial class Global
     {
         var obj = Loader.Load<GameObject>("Prefab/Toast");
         var toast = Object.Instantiate(obj, GetCurCanvas().transform, true);
-        toast.transform.localPosition = new Vector3(0, -400);
+        toast.transform.localPosition = new Vector3(0, 250);
         toast.GetComponent<ToastScript>().Make(text, time);
+    }
+
+    public static void Test(Lib.Listener.Function act)
+    {
+        act?.Invoke(1, 200.1, "asdasd");
+        Log(act.GetHashCode().ToString());
     }
     
     [DoNotGen]

@@ -458,8 +458,8 @@ GameObject:
   - component: {fileID: 4026974254509735218}
   - component: {fileID: 213696063695018639}
   - component: {fileID: 3494381146552363443}
-  - component: {fileID: 3926896540172487580}
   - component: {fileID: 4701945243946406803}
+  - component: {fileID: 918641665059284861}
   m_Layer: 0
   m_Name: LoginDialog
   m_TagString: Untagged
@@ -501,14 +501,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5014791141958539760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c784e6d138e771c4dbadabf3a3f12def, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: 5752401354436124744}
-  - {fileID: 4518535041919162784}
-  - {fileID: 8187003996625999251}
-  - {fileID: 7369074810540194527}
+  file: {fileID: 4900000, guid: 8946a49be82d2884686632826901ce2c, type: 3}
+  functions:
+  - name: 
+    go: {fileID: 7369074810540194527}
+  - name: 
+    go: {fileID: 8187003996625999251}
+  injections:
+  - name: nameInput
+    value: {fileID: 6512683157471067530}
+  - name: pwdInput
+    value: {fileID: 6264218516914196136}
+  local: 1
 --- !u!114 &3494381146552363443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +534,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 678305c646f0cf54e9588abbb27268e0, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b4b0d1d29b1633549a1363a19867aa99, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -537,30 +544,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3926896540172487580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5014791141958539760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: d9e7828820970534ea114c213a4c51f5, type: 3}
-  functions:
-  - name: 
-    go: {fileID: 8187003996625999251}
-  - name: 
-    go: {fileID: 7369074810540194527}
-  injections:
-  - name: nameInput
-    value: {fileID: 6512683157471067530}
-  - name: pwdInput
-    value: {fileID: 6264218516914196136}
-  local: 1
 --- !u!222 &4701945243946406803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -569,6 +552,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5014791141958539760}
   m_CullTransparentMesh: 0
+--- !u!114 &918641665059284861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014791141958539760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c724d9c4204e994393e16d016f153ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 5752401354436124744}
+  - {fileID: 4518535041919162784}
+  - {fileID: 8187003996625999251}
+  - {fileID: 7369074810540194527}
 --- !u!1 &5197776588751169335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 104, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2709305125716321322
 CanvasRenderer:

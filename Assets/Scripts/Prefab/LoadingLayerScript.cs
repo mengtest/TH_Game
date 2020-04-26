@@ -4,8 +4,6 @@ using Lib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Threading.Tasks;
-using Util;
 
 namespace Prefab
 {

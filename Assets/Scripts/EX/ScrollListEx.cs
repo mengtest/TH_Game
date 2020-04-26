@@ -548,7 +548,7 @@ namespace EX
                         go.name = i.ToString();
                         if (i < _originLength)
                         {
-                            addGameObjectEvent?.Invoke(go.gameObject, i);                        
+                            addGameObjectEvent?.Invoke(go.gameObject, i);
                         }
                         else
                         {

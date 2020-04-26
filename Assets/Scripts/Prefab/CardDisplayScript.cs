@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Lib;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,7 +53,10 @@ namespace Prefab
 
         public void OnPointerDown(PointerEventData eventData)
         {
-        
+            // var seq = DG.Tweening.DOTween.Sequence();
+            // var r = this.transform.DORotate(new Vector3(), 1);
+            // seq.Append(r);
+            // seq.onComplete += () => { };
         }
 
         public void OnPointerUp(PointerEventData eventData)

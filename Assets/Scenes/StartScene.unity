@@ -325,7 +325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 510ceac7dcb7e2f489509e05fd864398, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c5e20b50f9472f4e9c22fd6ab370ec7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -426,7 +426,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   clickSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
-  enterSound: {fileID: 8300000, guid: 19d866d3f6c29664797c6105e3200086, type: 3}
+  enterSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
 --- !u!114 &806221461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   clickSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
-  enterSound: {fileID: 8300000, guid: 19d866d3f6c29664797c6105e3200086, type: 3}
+  enterSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
 --- !u!114 &1234001243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,10 +800,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1519221600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: d20a564350487c44e8a1ba4522113c33, type: 3}
+  file: {fileID: 0}
   functions: []
   injections: []
   local: 0
@@ -1136,7 +1136,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   clickSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
-  enterSound: {fileID: 8300000, guid: 01f9f98b8d54d8949a4db0c655eef43a, type: 3}
+  enterSound: {fileID: 8300000, guid: 677e479bba45f8f458359aeec03983a6, type: 3}
 --- !u!114 &1765002185
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69ab84fbb4c7ea94c908a3fbb9df0bee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 881276f36d94c78449ced2fcd135aab0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -352,18 +352,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 30118267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &30118267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,10 +1098,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 909750290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: 78dd8062ee2f2644b8f045f135fcf60a, type: 3}
+  file: {fileID: 0}
   functions: []
   injections: []
   local: 0
@@ -2682,7 +2671,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2180333433233260691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13491faf08421f2429fd82aee4fd16d9, type: 3}
+  m_Script: {fileID: 11500000, guid: db777ff60118402419856273d5e563f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   voice: {fileID: 2180333433604649373}
@@ -2847,7 +2836,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2180333433323440636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13491faf08421f2429fd82aee4fd16d9, type: 3}
+  m_Script: {fileID: 11500000, guid: db777ff60118402419856273d5e563f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   voice: {fileID: 2180333433489307890}
@@ -4729,7 +4718,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4065295534175649822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a33ab2d6c16fed4dbde97c052f587b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 31a90c7eda0dc8a4e9e926925811f497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   curView: 0
@@ -4792,10 +4781,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4065295534175649822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021d6cf871464d040a5fa95838490b1e, type: 3}
+  m_Script: {fileID: 11500000, guid: b4029ef86822ec747a2b8c3d3cd641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: dfe417cf056962848ac81fb43202d347, type: 3}
+  file: {fileID: 4900000, guid: c006851e5b6c96946a3c304a880e1aeb, type: 3}
   functions: []
   injections: []
   local: 1

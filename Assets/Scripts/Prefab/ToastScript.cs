@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Prefab
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ToastScript: MonoBehaviour
     {
         [Tooltip("toast对应的文本")]
@@ -17,7 +21,15 @@ namespace Prefab
         {
             content.text = text;
             Redraw();
-            Destroy(gameObject, sec);
+            // Destroy(gameObject, sec);
+            var seq = DG.Tweening.DOTween.Sequence();
+            // var move = transform.DOMove(new Vector3(transform.position.x, transform.position.y + 150, 0), sec);
+            var move = transform.DOBlendableMoveBy(new Vector3(0, 150, 0), sec);
+            seq.Append(move);
+            seq.OnComplete(() =>
+            {
+                Destroy(gameObject);
+            });
         }
 
         private void Awake()
@@ -58,10 +70,10 @@ namespace Prefab
             textRect.sizeDelta = new Vector2(width, height);
         }
 
-        private void OnGUI()
-        {
-            Redraw();
-        }
+        // private void OnGUI()
+        // {
+        //     Redraw();
+        // }
 
         private void GetChineseEnglishNumber(string str, out int chinese, out int english)
         {

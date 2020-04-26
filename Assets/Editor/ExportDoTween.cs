@@ -9,6 +9,7 @@ namespace Editor
     public static class ExportDoTween
     {
         [LuaCallCSharp]
+        [CSharpCallLua]
         [ReflectionUse]
         public static List<Type> dotween_lua_call_cs_list = new List<Type>()
         {
@@ -32,18 +33,20 @@ namespace Editor
             typeof(DG.Tweening.Sequence),
             typeof(DG.Tweening.TweenParams),
             typeof(DG.Tweening.Core.ABSSequentiable),
-
-            // typeof(DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions>),
+            // typeof(DG.Tweening.Tweener)
+            typeof(DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions>),
 
             typeof(DG.Tweening.TweenCallback),
             typeof(DG.Tweening.TweenExtensions),
             typeof(DG.Tweening.TweenSettingsExtensions),
             typeof(DG.Tweening.ShortcutExtensions),
+            typeof(DG.Tweening.Core.Extensions),
+            // typeof(DG.Tweening.CustomPlugins.PureQuaternionPlugin),
             
             // typeof()
-//            typeof(DG.Tweening.ShortcutExtensions43),
-            //typeof(DG.Tweening.ShortcutExtensions46),
-            //typeof(DG.Tweening.ShortcutExtensions50),
+            // typeof(DG.Tweening.ShortcutExtensions43),
+            // typeof(DG.Tweening.ShortcutExtensions46),
+            // typeof(DG.Tweening.ShortcutExtensions50),
    
             //dotween pro 的功能
             //typeof(DG.Tweening.DOTweenPath),

@@ -53,13 +53,16 @@ end
 
 ---执行funcs中与parent的子物体名称相同的方法
 ---@param parent UnityEngine.Transform
----@param funs function[]
-function util.loadChild(parent, funs)
+---@param fun function[]
+function util.loadChild(parent, fun)
     for i = 0, parent.transform.childCount - 1 do
         local child = parent.transform:GetChild(i)
-        local f = funs[child.name]
-        if f ~= nil then
+        local f = fun[child.name]
+        --if f == nil then
+        if type(f) == "function" then
             f(child)
+        elseif type(f) == "table" then
+            f.init(child)
         end
     end
 end

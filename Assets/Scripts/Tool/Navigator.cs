@@ -20,6 +20,10 @@ partial class Global
         _funcs.Enqueue(func);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public static int CountLoad()
     {
         return _funcs.Count;
@@ -48,9 +52,12 @@ partial class Global
         }
         _funcs.Clear();
     }
-
-    //跳转到name场景中
-    //是否需要加载loading界面
+    
+    /// <summary>
+    /// 跳转到name场景中
+    /// </summary>
+    /// <param name="name">目标场景的名称</param>
+    /// <param name="loading">是否需要加载loading场景</param>
     public static void NavigateTo(string name, bool loading = true)
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
@@ -72,13 +79,18 @@ partial class Global
         {
             SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
             {
-                Listener.Instance.Event("scene_changed", null, name);
+                Listener.Instance.Event("scene_changed", name);
             };
         }
     }
     
-    //跳转到id场景中
-    //是否需要加载loading界面
+
+    /// <summary>
+    /// 跳转到id场景中
+    /// 是否需要加载loading界面
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="loading"></param>
     public static void NavigateTo(int id, bool loading = true)
     {
         _sceneStack.Push(SceneManager.GetActiveScene().buildIndex);
@@ -103,8 +115,10 @@ partial class Global
             };
         }
     }
-
-    //刷新当前场景
+    
+    /// <summary>
+    /// 刷新当前场景
+    /// </summary>
     public static void Refresh()
     {
         //直接重新加载当前的场景一次，不会被添加到场景栈中
@@ -114,8 +128,10 @@ partial class Global
             Listener.Instance.Event("scene_refreshd", null);
         };
     }
-
-    //返回到上个场景
+    
+    /// <summary>
+    /// 返回到上个场景
+    /// </summary>
     public static void Return()
     {
         if (_sceneStack.Count > 0)

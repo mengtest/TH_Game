@@ -1,6 +1,6 @@
 ---@param this UnityEngine.Transform
 local function CardDisplay(this)
-    local t = require"modules.CardScene.cardDisplay"
+    local t = require"modules.MatchScene.cardDisplay"
     util.loadChild(this, t.list)
 end
 
@@ -16,10 +16,12 @@ end
 
 local l = {
     Return = Return,
-    CardDisplay = CardDisplay
+    Deck = require("modules.MatchScene.deck").init
+    --CardDisplay = CardDisplay
 }
 
 ---@param this LuaFramework.LuaManager
 function init(this)
+    ---这里暂时命名为MatchScene，主要是给玩家自定义卡组的
     util.loadChild(this, l);
 end

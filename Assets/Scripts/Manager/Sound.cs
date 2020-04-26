@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using EX;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +7,26 @@ using Object = UnityEngine.Object;
 
 namespace Manager
 {
+    /// <summary>
+    /// 音乐相关的封装
+    /// </summary>
     [LuaCallCSharp]
     public static class Sound
     {
         private static Dictionary<int, AudioEx> _audioExes;
         private static GameObject _soundMgr;
         
+        /// <summary>
+        /// 音乐播放完毕后的回调函数
+        /// </summary>
+        /// <param name="audio"></param>
         public delegate void SoundPlayCompleteCallback(AudioEx audio);
         
+        /// <summary>
+        /// 使用bgm的音量播放一段音效、同时最多播放一段bgm
+        /// </summary>
+        /// <param name="resources">资源的路径</param>
+        /// <param name="loop">是否循环播放</param>
         public static void PlayBgm(string[] resources,bool loop)
         {
             Play(resources, 0.2f, loop);
@@ -62,8 +73,8 @@ namespace Manager
 
             //播放列表里头的所有音频文件时，不需要去停止
         }
-
-        //播放音效
+        
+        
         private static void Play(string soundPath, float vol, bool loop, bool destroy = true,  SoundPlayCompleteCallback callback = null)
         {
             var clip = Util.Loader.Load<AudioClip>(soundPath);

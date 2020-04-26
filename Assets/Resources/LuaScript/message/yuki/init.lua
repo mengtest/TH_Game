@@ -59,6 +59,15 @@ function _yuki_init_list.eventInit()
     end)
 end
 
+function _yuki_init_list.sceneInit()
+    local f = function(param)
+        --log("新的场景参数为:"..param)
+        --log("当前场景的名称是："..CS.Global.Scene.name)
+        
+    end
+    CS.Lib.Listener.Instance:On("scene_changed", f)
+end
+
 ---加载yuki的消息模块
 function _yuki_init_list.init()
     log("-----------开始加载yuki的消息模块-------------")
@@ -66,6 +75,7 @@ function _yuki_init_list.init()
     _yuki_init_list.cantConnectServer()
     _yuki_init_list.test()
     _yuki_init_list.eventInit()
+    _yuki_init_list.sceneInit()
     log("-----------yuki的消息模块加载完成-------------")
 end
 
