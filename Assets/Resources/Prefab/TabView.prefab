@@ -351,18 +351,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 699047546637925798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743deb696d3b47a280dc53802a0b0596, type: 3}
+  m_Script: {fileID: 11500000, guid: 31a90c7eda0dc8a4e9e926925811f497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tabs:
-  - {fileID: 699047547323186441}
-  - {fileID: 699047547008707817}
-  - {fileID: 699047547298789991}
-  _curView: 0
-  _views:
-  - {fileID: 699047545920960410}
-  - {fileID: 699047547011911358}
-  - {fileID: 699047546306779153}
+  curView: 0
+  tabViews:
+  - tab: {fileID: 699047547323186441}
+    view: {fileID: 699047545920960410}
+  - tab: {fileID: 699047547008707817}
+    view: {fileID: 699047547011911358}
+  - tab: {fileID: 699047547298789991}
+    view: {fileID: 699047546306779153}
 --- !u!1 &699047547008707815
 GameObject:
   m_ObjectHideFlags: 0

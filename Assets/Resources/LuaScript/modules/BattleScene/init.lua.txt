@@ -25,6 +25,9 @@ function init(this)
         ---@type UnityEngine.RaycastHit
         local isHit, hit = a:InnocentRayHit()
         if isHit then
+            ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作
+            ---如果不是自己的卡牌，则没有任何提示
+            ---如果持续点击对应的卡牌，则会显示当前卡牌的详细信息
             if hit then
                 log(hit.transform.name)
             end

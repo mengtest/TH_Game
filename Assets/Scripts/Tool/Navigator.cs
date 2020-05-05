@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using Lib;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
 partial class Global
 {
+    //存放跳转过的场景
     private static Stack<int> _sceneStack = new Stack<int>();
-    // private static AsyncOperation _async;
+    //存放所有需要在loading场景中加载的内容
     private static Queue<Action> _funcs = new Queue<Action>();
 
     /**

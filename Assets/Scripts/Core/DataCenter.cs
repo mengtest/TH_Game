@@ -44,6 +44,10 @@ namespace Core
             {
                 if (code > 20000)
                 {
+                    var str = Encoding.UTF8.GetString(msg);
+                    // Global.Log(Encoding.UTF8.GetString(msg));
+                    Global.Log("--------------------------");
+                    Global.Log(str.Length.ToString());
                     _instance._msgs2[code].Invoke(Encoding.UTF8.GetString(msg));
                 }
                 return;

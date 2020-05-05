@@ -23,6 +23,10 @@ function init(luaManger)
     end
 end
 
+--function update()
+--    log("11111")
+--end
+
 function StartButtonCallback()
     --CS.Lib.Mvc.Notify()
     -- model:HandelEvent()

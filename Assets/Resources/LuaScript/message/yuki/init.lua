@@ -4,7 +4,7 @@ local _yuki_init_list = {}
 function _yuki_init_list.regLoginEvent()
     ---处理服务器回传的登入相关的消息
     CS.Core.DataCenter.Reg(400, function(bytes)
-        local res = CS.Pb.Gen.GenLoginResult(bytes)
+        local res = CS.Pb.Gen.GenLoginRes(bytes)
         if res.Res then
             player.Init(res)
             CS.Global.Alert(res.Msg.."，欢迎回来<color='#fff000'><size=50>".."\n"..res.Nickname.."</size></color>")
@@ -42,8 +42,11 @@ end
 function _yuki_init_list.test()
     CS.Core.DataCenter.Reg2(20001, function (str)
         --这里是当前玩家所有的卡牌信息
+        log("-----------------")
         log(str)
+        log(json.encode(json.decode(str)))
         globalTb.myCards = json.decode(str)
+        --log(#globalTb.myCards)
     end)
 
     CS.Core.DataCenter.Reg2(20002, function (str)

@@ -223,6 +223,19 @@ namespace LuaFramework
             return table;
         }
 
+        /// <summary>
+        /// 释放一个lua表
+        /// </summary>
+        /// <param name="tableName"></param>
+        public void Release(string tableName)
+        {
+            if (_luaTables[tableName] != null)
+            {
+                _luaTables[tableName].Dispose();
+                _luaTables.Remove(tableName);
+            }
+        }
+
         public void Dispose()
         {
             _env.Dispose();

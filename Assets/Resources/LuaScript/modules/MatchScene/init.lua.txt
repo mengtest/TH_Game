@@ -1,7 +1,8 @@
 ---@param this UnityEngine.Transform
 local function CardDisplay(this)
     local t = require"modules.MatchScene.cardDisplay"
-    util.loadChild(this, t.list)
+    --util.loadChild(this, t.list)
+    t.init(this)
 end
 
 ---@param this UnityEngine.Transform
@@ -9,15 +10,16 @@ local function Return(this)
     ---@type UnityEngine.UI.Button
     local btn = this:GetComponent(typeof(CS.UnityEngine.UI.Button))
     btn.onClick:AddListener(function ()
-        log("返回到游戏主场景中")
-        CS.Global.Return()
+        --log("返回到游戏主场景中")
+        ---如果玩家当前还有没有保存的操作，则需要提示是否放弃保存直接退出
+        CS.Global.NavigateTo("MainScene", false)
     end)
 end
 
 local l = {
     Return = Return,
-    Deck = require("modules.MatchScene.deck").init
-    --CardDisplay = CardDisplay
+    Deck = require("modules.MatchScene.deck"),      ---左侧展示所有卡牌信息的组件
+    CardDisplay = CardDisplay                                   ---右侧的展示当前卡牌列表相关的组件
 }
 
 ---@param this LuaFramework.LuaManager

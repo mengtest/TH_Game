@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 168980695}
   - component: {fileID: 168980694}
   m_Layer: 5
-  m_Name: Labels
+  m_Name: CardList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 409101293}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -8008,7 +8008,7 @@ GameObject:
   - component: {fileID: 835455611}
   - component: {fileID: 835455610}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Num
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14460,7 +14460,7 @@ GameObject:
   - component: {fileID: 1343130981}
   - component: {fileID: 1343130980}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Num
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15373,7 +15373,7 @@ GameObject:
   - component: {fileID: 1469718901}
   - component: {fileID: 1469718900}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Num
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19821,7 +19821,7 @@ GameObject:
   - component: {fileID: 1880678467}
   - component: {fileID: 1880678466}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Num
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

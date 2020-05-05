@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
-using System;
 
 namespace Editor
 {

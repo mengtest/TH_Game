@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading;
 using UnityEditor;
 using UnityEditor.Callbacks;
- 
+using UnityEngine;
+
 namespace EmmyLua
 {
     enum TypeKind
@@ -96,7 +97,7 @@ namespace EmmyLua
             }
             catch (Exception e)
             {
-                TryLater();
+                TryLater(e);
             }
         }
  
@@ -110,11 +111,11 @@ namespace EmmyLua
             }
             catch (Exception e)
             {
-                TryLater();
+                TryLater(e);
             }
         }
  
-        private static void TryLater()
+        private static void TryLater(Exception e = null)
         {
             running = false;
             connected = false;
@@ -195,7 +196,7 @@ namespace EmmyLua
                 }
                 catch (Exception e)
                 {
-                    TryLater();
+                    TryLater(e);
                 }
             }
         }

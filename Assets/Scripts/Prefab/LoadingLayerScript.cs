@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Prefab
 {
+    /// <summary>
+    /// loading场景中用到的组件
+    /// </summary>
     public class LoadingLayerScript : MonoBehaviour
     {
         private Text _text;
@@ -21,7 +24,7 @@ namespace Prefab
 
         private void Start()
         {
-            //在loading场景中就执行这些函数，所以
+            //在loading场景中就执行这些函数
             Global.CallLoad();
             _t = _text.text;
             InvokeRepeating(nameof(Timer), 0.5f, 0.5f);

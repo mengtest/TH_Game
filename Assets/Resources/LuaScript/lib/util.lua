@@ -67,4 +67,10 @@ function util.loadChild(parent, fun)
     end
 end
 
+---@param component UnityEngine.Transform
+---@param func function
+function util.bindButtonCallback(component, func)
+    component:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(func)
+end
+
 return util
