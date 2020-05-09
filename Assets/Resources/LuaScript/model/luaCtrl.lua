@@ -1,0 +1,33 @@
+﻿---@class Controller: Lib.ILuaController
+local Ctrl = {
+    _mvcName = nil;
+}
+
+---@param o table|nil
+function Ctrl:New(o)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
+    return o
+end
+
+---@param name string
+---@param property table
+function Ctrl:Notify(name, property)
+    
+end
+
+---@param property table
+function Ctrl:NotifyAll(property)
+    
+end
+
+function Ctrl:GetMvcName()
+    return self._mvcName
+end
+
+function Ctrl:SetMvcName(name)
+    self._mvcName = name
+end
+
+return Ctrl

@@ -35,7 +35,7 @@ function _yuki_init_list.cantConnectServer()
                     CS.UnityEngine.Application.Quit(0)
                 end)
         dialog:ShowDialog()
-    end, 0, null, true)
+    end, nil, 0, true)
 end
 
 ---测试接收json字符串的事件

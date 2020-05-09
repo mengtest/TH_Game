@@ -75,26 +75,51 @@ namespace Util
             }
         }
 
+        /// <summary>
+        /// 加载一个资源为指定类型
+        /// </summary>
+        /// <param name="path"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Load<T>(string path) where T : Object
         {
             return _loader.Load(path, typeof(T)) as T; 
         }
 
+        /// <summary>
+        /// 加载一个资源为Object
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static Object Load(string path)
         {
             return _loader.Load(path);
         }
 
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        /// <param name="obj"></param>
         public static void Unload(Object obj)
         {
             _loader.Unload(obj);
         }
 
+        /// <summary>
+        /// 向一个文本写入
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="text"></param>
         public static void Write(string path, string text)
         {
             _loader.Write(path, text);
         }
 
+        /// <summary>
+        /// 读取一段文本的内容
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static string Read(string path)
         {
             return Load<TextAsset>(path).text;

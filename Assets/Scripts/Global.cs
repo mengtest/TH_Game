@@ -2,10 +2,10 @@
 using LuaFramework;
 using Prefab;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
+using Clickable = Common.Clickable;
 using Object = UnityEngine.Object;
 
 /// <summary>
@@ -156,11 +156,11 @@ public static partial class Global
         toast.GetComponent<ToastScript>().Make(text, time);
     }
 
-    public static void Test(Lib.Listener.Function act)
-    {
-        act?.Invoke(1, 200.1, "asdasd");
-        Log(act.GetHashCode().ToString());
-    }
+    // public static void Test(Lib.Listener. act)
+    // {
+    //     act?.Invoke(1, 200.1, "asdasd");
+    //     Log(act.GetHashCode().ToString());
+    // }
     
     [DoNotGen]
     [Obsolete]
@@ -241,5 +241,41 @@ public static partial class Global
             }
         }
         return null;
+    }
+
+    public static void AttachClickble(this Transform self, Clickable.Func func)
+    {
+        AttachClickble(self.gameObject, func);
+    }
+    
+    public static void AttachClickble(this GameObject self, Clickable.Func func)
+    {
+        var component = self.GetComponent<Clickable>();
+        if (component == null)
+        {
+            component = self.AddComponent<Clickable>();
+            component.clickEvent += func;
+        }
+        else
+        {
+            Object.DestroyImmediate(component);
+            component = null;
+            var obj = self.AddComponent<Clickable>();
+            obj.clickEvent += func;
+        }
+    }
+
+    public static void RemoveClickble(this Transform self)
+    {
+        RemoveClickble(self.gameObject);
+    }
+    
+    public static void RemoveClickble(this GameObject self)
+    {
+        var component = self.GetComponent<Clickable>();
+        if (component != null)
+        {
+            Object.DestroyImmediate(component);
+        }
     }
 }

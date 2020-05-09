@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using XLua;
-using Object = UnityEngine.Object;
 
-namespace Lib.obsolete
+namespace Lib
 {
+    
+    using Function = YukiEventDelegate;
+    
     #region MyRegion
     /// <summary>
     /// keycode枚举值导出
@@ -16,6 +16,7 @@ namespace Lib.obsolete
     [LuaCallCSharp]
     public class KeyCode
     {
+        
         /// <summary>
         ///   <para>Not assigned (never returned as the result of a keystroke).</para>
         /// </summary>
@@ -1326,457 +1327,236 @@ namespace Lib.obsolete
     }
 
     #endregion
-
+    
+    /// <summary>
+    /// 事件系统，这个类相当于是一个管理器，管理所有的ListenerObj
+    /// </summary>
     [LuaCallCSharp]
     public class Listener
     {
-        private static EventListener _listener;
+        //这个表示监听了某个名称的事件的对象集合
+        private Dictionary<string, LinkedList<ListenerObject>> _allListenerObjects =
+            new Dictionary<string, LinkedList<ListenerObject>>();
+
         private static Listener _instance;
-
-        [LuaCallCSharp]
-        [CSharpCallLua]
-        public delegate void Function(params object[] objs);
-
+        
         public const string KEY_EVENT = "key_board";
         public const string MOUSE_EVENT = "mouse";
-
-        private readonly Dictionary<string, List<Global.Pair<object, List<Function>>>> _events;
-
-        public Listener()
-        {
-            _events = new Dictionary<string, List<Global.Pair<object, List<Function>>>>();
-        }
-
+        
         /// <summary>
-        /// 事件监听器初始化,需要在程序运行之后初始化
-        /// 这里没搞懂为什么用after就会执行出错
+        /// 获取单例的实例对象
         /// </summary>
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        public static void Init()
-        {
-            if (_listener == null)
-            {
-                var go = new GameObject("EventListener");
-                _listener = go.AddComponent<EventListener>();
-                SceneManager.MoveGameObjectToScene(go, Global.Scene);
-                Object.DontDestroyOnLoad(go);
-            }
-        }
-
         public static Listener Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new Listener();
+                    _instance = new Listener(); 
                 }
                 return _instance;
             }
         }
+        
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void Init()
+        {
+            if (_instance == null)
+            {
+                _instance = new Listener();
+            }
+        }
+        
+        //全局的游戏对象
+        private GameObject _gameObject;
+        //全局的mono对象
+        private ListenerObject _listener;
+
+        private Listener()
+        {
+            _gameObject = new GameObject("GlobalListener");
+            _listener = _gameObject.AddComponent<ListenerObject>();
+            SceneManager.MoveGameObjectToScene(_gameObject, Global.Scene);
+            Object.DontDestroyOnLoad(_gameObject);
+        }
 
         /// <summary>
-        /// 注册一个事件监听器
+        /// 从字典中删除对象
         /// </summary>
-        /// <param name="eventName">事件的名称</param>
-        /// <param name="keycode">键值</param>
-        /// <param name="caller">绑定的对象</param>
-        /// <param name="func">事件出发后调用的函数</param>
-        /// <param name="once">是否只会执行一次，默认false</param>
-        public void On(string eventName, Function func, int keycode = 0, object caller = null, bool once = false)
+        /// <param name="obj"></param>
+        public void RemoveObj(ListenerObject obj)
         {
+            //遍历整个字典
+            foreach (var listenerObjects in _allListenerObjects)
+            {
+                listenerObjects.Value.Remove(obj);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="func"></param>
+        /// <param name="keycode"></param>
+        /// <param name="caller"></param>
+        /// <param name="once"></param>
+        public void On2(string eventName, YukiEventDelegate func, ListenerObject caller = null, int keycode = 0, bool once = false)
+        {
+            //如果为空，则使用全局的对象
             if (caller == null)
             {
-                caller = this;
+                caller = _listener;
+            }
+            AddToList(eventName, caller);
+            caller.On(eventName, func);
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="func"></param>
+        /// <param name="keycode"></param>
+        /// <param name="caller"></param>
+        /// <param name="once"></param>
+        public void On(string eventName, YukiEventDelegate func, GameObject caller = null, int keycode = 0, bool once = false)
+        {
+            // 如果为空，则使用全局的对象
+            if (caller == null)
+            {
+                caller = _listener.gameObject;
+            }
+            var obj = caller.GetComponent<ListenerObject>();
+            if (obj == null)
+            {
+                obj = caller.AddComponent<ListenerObject>();
             }
 
             switch (eventName)
             {
-                //按键事件
                 case KEY_EVENT:
-                    {
-                        _listener.AddKeyEvent(keycode, caller, func, once);
-                        break;
-                    }
-                //鼠标事件
+                {
+                    obj.AddKeyEvent(keycode, func, once);
+                    break;
+                }
                 case MOUSE_EVENT:
-                    {
-                        _listener.AddMouseEvent(keycode, caller, func, once);
-                        break;
-                    }
-                //自定义事件
+                {
+                    obj.AddMouseEvent(keycode, func, once);
+                    break;
+                }
                 default:
-                    {
-                        AddEvent(eventName, caller, func, once);
-                        break;
-                    }
+                {
+                    On2(eventName, func, obj, keycode, once);
+                    break;
+                }
             }
         }
 
         /// <summary>
-        /// 注册一个普通的事件，因为不用依赖unity，所以抽出为独立的类函数
+        /// 停用这个对象身上所有的监听器
         /// </summary>
-        /// <param name="eventName">事件名称</param>
-        /// <param name="caller">绑定这个事件的对象</param>
-        /// <param name="func">事件触发后调用的函数</param>
-        private void AddEvent(string eventName, object caller, Function func, bool once)
+        /// <param name="caller"></param>
+        public void Off(GameObject caller)
         {
-            if (_events.ContainsKey(eventName))
+            var comp = caller.GetComponent<ListenerObject>();
+            if (comp == null)
             {
-                var element = _events[eventName];
-                for (int i = 0; i < element.Count; i++)
+                return;
+            }
+            //感觉现在不会使用这个api
+            foreach (var listenerObjects in _allListenerObjects)
+            {
+                listenerObjects.Value.Remove(comp);
+            }
+            //最后还会删除这个组件
+            Object.Destroy(comp);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="caller"></param>
+        /// <param name="eventName"></param>
+        /// <param name="func"></param>
+        public void Off(GameObject caller, string eventName, YukiEventDelegate func)
+        {
+            var comp = caller.GetComponent<ListenerObject>();
+            if (comp == null)
+            {
+                return;
+            }
+            //感觉现在不会使用这个api
+            if (_allListenerObjects.ContainsKey(eventName))
+            {
+                foreach (var listenerObject in _allListenerObjects[eventName])
                 {
-                    var e = element[i];
-                    if (e.First == caller)
-                    {
-                        e.Second.Add(func);
-                        return;
-                    }
+                    listenerObject.Off(eventName, func);
                 }
+            }
+        }
 
-                var value = new Global.Pair<object, List<Function>>
+        /// <summary>
+        /// 不再监听某类事件
+        /// </summary>
+        /// <param name="eventName"></param>
+        public void Off(string eventName)
+        {
+            if (_allListenerObjects.ContainsKey(eventName))
+            {
+                var list = _allListenerObjects[eventName];
+                foreach (var l in list)
                 {
-                    First = caller,
-                    Second = new List<Function> { func }
-                };
+                    l.Off(eventName);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// 不再监听某类事件
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="eventName"></param>
+        public void Off(ListenerObject obj, string eventName)
+        {
+            obj.Off(eventName);
+        }
 
-                element.Add(value);
+        private void AddToList(string eventName, ListenerObject obj)
+        {
+            if (_allListenerObjects.ContainsKey(eventName))
+            {
+                _allListenerObjects[eventName].AddLast(obj);
             }
             else
             {
-                var element = new List<Global.Pair<object, List<Function>>>();
-                _events.Add(eventName, element);
-
-                var e = new Global.Pair<object, List<Function>>
-                {
-                    First = caller,
-                    Second = new List<Function> { func }
-                };
-
-                element.Add(e);
+                _allListenerObjects[eventName] = new LinkedList<ListenerObject>();
+                _allListenerObjects[eventName].AddLast(obj);
             }
-        }
-
-        /// <summary>
-        /// 取消一个事件
-        /// </summary>
-        /// <param name="caller">事件所绑定的对象</param>
-        public void Off(object caller)
-        {
-            _listener.RemoveEvent(caller);
-        }
-
-        /// <summary>
-        /// 取消一个事件
-        /// </summary>
-        /// <param name="caller">事件的名称</param>
-        public void Off(string caller)
-        {
-
         }
 
         /// <summary>
         /// 触发一个事件
         /// </summary>
-        /// <param name="eventName">事件的名称</param>
-        /// <param name="objs">传入的参数</param>
+        /// <param name="eventName"></param>
+        /// <param name="objs"></param>
         public void Event(string eventName, params object[] objs)
         {
-            if (_listener == null)
+            if (_allListenerObjects.ContainsKey(eventName))
             {
-                return;
-            }
-
-            if (_events.ContainsKey(eventName))
-            {
-                var element = _events[eventName];
-                for (int i = 0; i < element.Count; i++)
+                foreach (var l in _allListenerObjects[eventName])
                 {
-                    var e = element[i];
-                    if (e.First == null)
-                    {
-                        element.RemoveAt(i);
-                        continue;
-                    }
-
-                    foreach (var fun in e.Second)
-                    {
-                        fun?.Invoke(objs);
-                    }
+                    l.Event(eventName, objs);
                 }
             }
         }
-
-
+        
         /// <summary>
         /// 取消所有的事件
         /// </summary>
         public void OffAll()
         {
-
-        }
-
-        [DoNotGen]
-        private class EventListener : MonoBehaviour
-        {
-            private List<Global.Pair<object, List<Action>>> _actions;
-
-            private Dictionary<int, List<Global.Pair<object, List<Function>>>> _keyEvents;
-            private Dictionary<int, List<Global.Pair<object, List<Function>>>> _mouseEvents;
-            private Dictionary<int, Function> _onceList;
-
-            private void Awake()
-            {
-                _actions = new List<Global.Pair<object, List<Action>>>();
-                _keyEvents = new Dictionary<int, List<Global.Pair<object, List<Function>>>>();
-                _mouseEvents = new Dictionary<int, List<Global.Pair<object, List<Function>>>>();
-                _onceList = new Dictionary<int, Function>();
-            }
-
-            private void Update()
-            {
-                // for (int i = 0; i < _actions.Count; )
-                // {
-                //     var pair = _actions[i];
-                //     
-                //     if (pair.First == null)
-                //     {
-                //         _actions.RemoveAt(i);
-                //         continue;
-                //     }
-                //
-                //     foreach (var act in pair.Second)
-                //     {
-                //         act?.Invoke();
-                //     }
-                //
-                //     i++;
-                // }
-
-                if (Input.anyKeyDown)
-                {
-                    for (var index = 0; index < _keyEvents.Count;)
-                    {
-                        var value = _keyEvents.ElementAt(index);
-                        if (value.Value.Count == 0)
-                        {
-                            _keyEvents.Remove(value.Key);
-                        }
-                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
-                        {
-                            for (int i = 0; i < value.Value.Count;)
-                            {
-                                var pair = value.Value[i];
-                                if (pair.First == null)
-                                {
-                                    value.Value.RemoveAt(i);
-                                    continue;
-                                }
-
-                                for (var j = 0; j < pair.Second.Count;)
-                                {
-                                    var fun = pair.Second.ElementAt(j);
-                                    fun.Invoke();
-                                    if (_onceList.ContainsKey(fun.GetHashCode()))
-                                    {
-                                        pair.Second.RemoveAt(j);
-                                    }
-                                    else
-                                    {
-                                        j++;
-                                    }
-                                }
-                                i++;
-                            }
-                            break;
-                        }
-                        index++;
-                    }
-
-                    for (var index = 0; index < _mouseEvents.Count;)
-                    {
-                        var value = _mouseEvents.ElementAt(index);
-                        if (value.Value.Count == 0)
-                        {
-                            _mouseEvents.Remove(value.Key);
-                        }
-                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
-                        {
-                            for (int i = 0; i < value.Value.Count;)
-                            {
-                                var pair = value.Value[i];
-                                if (pair.First == null)
-                                {
-                                    value.Value.RemoveAt(i);
-                                    continue;
-                                }
-
-                                for (var j = 0; j < pair.Second.Count;)
-                                {
-                                    var fun = pair.Second.ElementAt(j);
-                                    fun.Invoke(Input.mousePosition, Input.touchCount);
-                                    if (_onceList.ContainsKey(fun.GetHashCode()))
-                                    {
-                                        pair.Second.RemoveAt(j);
-                                    }
-                                    else
-                                    {
-                                        j++;
-                                    }
-                                }
-
-                                i++;
-                            }
-                            break;
-                        }
-                        index++;
-                    }
-                }
-            }
-
-            private List<Action> GetKey(object n)
-            {
-                foreach (var value in _actions)
-                {
-                    if (value.First == n)
-                    {
-                        return value.Second;
-                    }
-                }
-                return null;
-            }
-
-            public void AddKeyEvent(int keyCode, object o, Function func, bool once)
-            {
-                List<Global.Pair<object, List<Function>>> dic =
-                    !_keyEvents.ContainsKey(keyCode)
-                    ? new List<Global.Pair<object, List<Function>>>()
-                    : _keyEvents[keyCode];
-
-                var list = new List<Function>();
-                var pair = new Global.Pair<object, List<Function>>(o, list);
-                if (!_keyEvents.ContainsKey(keyCode))
-                {
-                    _keyEvents.Add(keyCode, dic);
-                }
-                dic.Add(pair);
-                list.Add(func);
-
-                if (once)
-                {
-                    if (!_onceList.ContainsKey(func.GetHashCode()))
-                    {
-                        _onceList.Add(func.GetHashCode(), func);
-                    }
-                }
-
-                // Action act = null;
-                // if (keyCode == KeyCode.AnyKey)
-                // {
-                //     act = () =>
-                //     {
-                //         if (Input.anyKeyDown)
-                //         {
-                //             func?.Invoke();
-                //             if (once)
-                //             {
-                //                 func = null;
-                //             }
-                //         }
-                //     };
-                // }
-                // else
-                // {
-                //     act = () =>
-                //     {
-                //         //只能使用Input，使用Event会无法触发
-                //         if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
-                //         {
-                //             func();
-                //         }
-                //     };
-                // }
-                //
-                // var obj = GetKey(o);
-                // if (obj == null)
-                // {
-                //     var value = new Global.Pair<object, List<Action>> 
-                //         {First = o, Second = new List<Action> {act}};
-                //     _actions.Add(value);
-                // }
-                // else
-                // {
-                //     obj.Add(act);
-                // }
-            }
-
-            public void AddMouseEvent(int keyCode, object o, Function func, bool once)
-            {
-                List<Global.Pair<object, List<Function>>> dic =
-                    !_mouseEvents.ContainsKey(keyCode)
-                        ? new List<Global.Pair<object, List<Function>>>()
-                        : _mouseEvents[keyCode];
-
-                var list = new List<Function>();
-                var pair = new Global.Pair<object, List<Function>>(o, list);
-                if (!_mouseEvents.ContainsKey(keyCode))
-                {
-                    _mouseEvents.Add(keyCode, dic);
-                }
-                dic.Add(pair);
-                list.Add(func);
-
-                if (once)
-                {
-                    if (!_onceList.ContainsKey(func.GetHashCode()))
-                    {
-                        _onceList.Add(func.GetHashCode(), func);
-                    }
-                }
-
-                // Action act = null;
-                // if (keyCode == KeyCode.AnyKey)
-                // {
-                //     act = () =>
-                //     {
-                //         if (Input.anyKeyDown)
-                //         {
-                //             func();
-                //         }
-                //     };
-                // }
-                // else
-                // {
-                //     act = () =>
-                //     {
-                //         if (Input.GetKeyDown((UnityEngine.KeyCode) keyCode))
-                //         {
-                //             func(new object[] {Input.touchCount, Input.mousePosition});
-                //         }
-                //     };
-                // }
-                //
-                // var obj = GetKey(o);
-                // if (obj == null)
-                // {
-                //     var value = new Global.Pair<object, List<Action>> 
-                //         {First = o, Second = new List<Action> {act}};
-                //     _actions.Add(value);
-                // }
-                // else
-                // {
-                //     obj.Add(act);
-                // }
-            }
-
-            public void RemoveEvent(object o)
-            {
-                foreach (var t in _actions.Where(t => t.First == o))
-                {
-                    t.First = null;
-                    return;
-                }
-            }
+            
         }
     }
 }

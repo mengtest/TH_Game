@@ -23,10 +23,6 @@ function init(luaManger)
     end
 end
 
---function update()
---    log("11111")
---end
-
 function StartButtonCallback()
     --CS.Lib.Mvc.Notify()
     -- model:HandelEvent()
@@ -84,15 +80,15 @@ function StartButtonCallback()
         end
         
         --CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt,true)
-        CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt, true)
+        CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, navigate, txt.gameObject, CS.Lib.KeyCode.AnyKey, true)
     end
     
     --- 点击取消的回调
     CS.Lib.Listener.Instance:On("yuki_login_dialog_close",  function()
         CS.UnityEngine.GameObject.Destroy(obj)
-    end, 0,  obj)
+    end, obj, 0)
     
-    CS.Lib.Listener.Instance:On("yuki_login_success", closeDialogFunction, 0, obj, true)
+    CS.Lib.Listener.Instance:On("yuki_login_success", closeDialogFunction, obj, 0, true)
 end
 
 function SettingButtonCallback()

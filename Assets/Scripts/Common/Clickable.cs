@@ -1,14 +1,11 @@
-﻿using System;
-using DG.Tweening;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using XLua;
 
 namespace Common
 {
     /// <summary>
-    /// 
+    /// 可点击对象
     /// </summary>
     [LuaCallCSharp]
     public class Clickable: MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler

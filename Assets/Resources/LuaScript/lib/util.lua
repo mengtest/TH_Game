@@ -46,6 +46,7 @@ local function copy(o)
 end
 
 ---深拷贝一个对象
+---其实还是有一定的问题存在
 ---@param o table
 function util.copy(o)
     return copy(o)
@@ -67,10 +68,27 @@ function util.loadChild(parent, fun)
     end
 end
 
+util.load = CS.Util.Loader.load
+util.read = CS.Util.Loader.Read
+util.write = CS.Util.Loader.Write
+
+local f1 = xlua.get_generic_method(CS.Util.Loader, 'Load')
+local l = f1(CS.UnityEngine.Sprite)
+
+---@type function
+util.loadSprite = l
+
 ---@param component UnityEngine.Transform
 ---@param func function
 function util.bindButtonCallback(component, func)
     component:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(func)
+end
+
+local types = json.decode(util.read("LuaScript/json/types"))
+---@return string
+---@param index number
+function util.idToType(index)
+    return types[index]
 end
 
 return util

@@ -1,19 +1,19 @@
-util = require"lib.util"
-
 local l = require"lib.log"
 setLevel = l.setLevel
 log = l.log
 
 json = require"lib.rapidjson"
 
+util = require"lib.util"
+
 listener = {}
 
 cards = {}
-
-
 
 ---@type Common.Player
 player = CS.Common.Player
 
 ---全局数据表
 globalTb = globalTb or {}
+
+global = global or {}

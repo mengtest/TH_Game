@@ -50,7 +50,7 @@ public static class GameInit
         LuaEngine.LoadLuaModule();
         Pool.Init();
         FileUtils.Init();
-        
+
         // Physics.ray
 
         // Core c = getData();

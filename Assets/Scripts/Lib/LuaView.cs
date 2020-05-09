@@ -3,13 +3,14 @@ using XLua;
 
 namespace Lib
 {
+    /// <summary>
+    /// 处理一个事件
+    /// </summary>
+    /// <param name="value"></param>
     [LuaCallCSharp]
     [CSharpCallLua]
-    //处理单个事件
     public delegate void MvcHandle(object value);
-    //处理多个事件
-    // public delegate void MvcHandleAll(object value);
-    
+
     /**
      * <summary>
      *这个其实就是MonoBehavior
@@ -20,21 +21,37 @@ namespace Lib
         private string _mvcName;
         private event MvcHandle _handle;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetMvcName()
         {
             return _mvcName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mvcName"></param>
         public void SetMvcName(string mvcName)
         {
             _mvcName = mvcName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public virtual void HandleEvent(object value)
         {
             _handle?.Invoke(value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
         public void RegisterHandle(MvcHandle handle)
         {
             _handle = handle;

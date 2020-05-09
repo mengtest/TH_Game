@@ -2,8 +2,6 @@
 using Lib;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using Util;
 // using KeyCode = Lib.KeyCode;
 
 namespace Tool
@@ -58,7 +56,7 @@ namespace Tool
                 }
             
                 e.SetSelectedGameObject(components[_curIdx]);
-            }, Lib.KeyCode.Tab);
+            }, this.gameObject, Lib.KeyCode.Tab);
         }
     }
 }

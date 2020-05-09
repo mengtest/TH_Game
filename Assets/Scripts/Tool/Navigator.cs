@@ -79,6 +79,7 @@ partial class Global
         {
             SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
             {
+                // SceneManager.un
                 Listener.Instance.Event("scene_changed", name);
             };
         }
