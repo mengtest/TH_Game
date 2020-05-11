@@ -66,7 +66,7 @@ function _yuki_init_list.sceneInit()
     local f = function(param)
         --log("新的场景参数为:"..param)
         --log("当前场景的名称是："..CS.Global.Scene.name)
-        
+        log("111111111111111")
     end
     CS.Lib.Listener.Instance:On("scene_changed", f)
 end

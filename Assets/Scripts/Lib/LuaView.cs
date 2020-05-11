@@ -9,7 +9,7 @@ namespace Lib
     /// <param name="value"></param>
     [LuaCallCSharp]
     [CSharpCallLua]
-    public delegate void MvcHandle(object value);
+    public delegate void MvcHandle(LuaView view,object value);
 
     /**
      * <summary>
@@ -45,7 +45,7 @@ namespace Lib
         /// <param name="value"></param>
         public virtual void HandleEvent(object value)
         {
-            _handle?.Invoke(value);
+            _handle?.Invoke(this, value);
         }
 
         /// <summary>

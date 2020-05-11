@@ -10,7 +10,6 @@ namespace Prefab
     /// 简化后的展示卡牌信息的脚本
     /// </summary>
     [LuaCallCSharp]
-    // [CSharpCallLua]
     public class CardDisplayScript2: LuaView, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
         public object data;

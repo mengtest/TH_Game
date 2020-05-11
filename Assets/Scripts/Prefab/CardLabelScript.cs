@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using Lib;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using XLua;
 
 namespace Prefab
 {
     /// <summary>
     /// 选择卡组的时候，左侧的简要信息展示
     /// </summary>
-    public class CardLabelScript: MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+    [LuaCallCSharp]
+    public class CardLabelScript: LuaView, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
+        public object data;
+        
         /// <summary>
         /// 当前所显示的icon
         /// </summary>
@@ -24,58 +28,58 @@ namespace Prefab
         /// </summary>
         public Text count;
 
-        private int _number;
-
-        private string _cardName;
-
-        private string _rareType;
-        
-        /// <summary>
-        /// 卡牌的数量
-        /// </summary>
-        public int Number {
-            set
-            {
-                if (count != null)
-                {
-                    _number = value;
-                    count.text = $"x{_number}";
-                }
-            }
-            get => _number;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string CardName
-        {
-            set
-            {
-                if (label != null)
-                {
-                    _cardName = value;
-                    label.text =  $"【{_rareType}】{_cardName}";
-                }
-            }
-            get => _cardName;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string RareType
-        {
-            set
-            {
-                if (label != null)
-                {
-                    _rareType = value;
-                    label.text =  $"【{_rareType}】{_cardName}";
-                }
-            }
-            get => _rareType;
-        }
+        // private int _number;
+        //
+        // private string _cardName;
+        //
+        // private string _rareType;
+        //
+        // /// <summary>
+        // /// 卡牌的数量
+        // /// </summary>
+        // public int Number {
+        //     set
+        //     {
+        //         if (count != null)
+        //         {
+        //             _number = value;
+        //             count.text = $"x{_number}";
+        //         }
+        //     }
+        //     get => _number;
+        // }
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public string CardName
+        // {
+        //     set
+        //     {
+        //         if (label != null)
+        //         {
+        //             _cardName = value;
+        //             label.text =  $"【{_rareType}】{_cardName}";
+        //         }
+        //     }
+        //     get => _cardName;
+        // }
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public string RareType
+        // {
+        //     set
+        //     {
+        //         if (label != null)
+        //         {
+        //             _rareType = value;
+        //             label.text =  $"【{_rareType}】{_cardName}";
+        //         }
+        //     }
+        //     get => _rareType;
+        // }
 
         /// <summary>
         /// 点击当前物体的事件

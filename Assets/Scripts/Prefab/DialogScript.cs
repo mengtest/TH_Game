@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+// ReSharper disable All
 
 namespace Prefab
 {
@@ -13,13 +14,13 @@ namespace Prefab
         public Text _text;
         public Button _okBtn;
         public Button _cancelBtn;
-
+        
         public string MainText
         {
             get => _text.text;
             set => _text.text = value;
         }
-
+        
         public string OkText
         {
             get => _okBtn.GetComponentInChildren<Text>().text;
@@ -32,7 +33,7 @@ namespace Prefab
                 }
             }
         }
-
+        
         public string CancelText
         {
             get => _cancelBtn.GetComponentInChildren<Text>().text;

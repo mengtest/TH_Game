@@ -20,7 +20,7 @@ local function loginCallback()
 
     CS.Lib.Listener.Instance:On("yuki_stop_login_animation", function ()
         CS.Manager.Animation.Stop(animaId)
-    end, ani, 1, true)
+    end, ani, 0, true)
 
     CS.Net.NetHelper.GetInstance():Login(name, pwd)
 end

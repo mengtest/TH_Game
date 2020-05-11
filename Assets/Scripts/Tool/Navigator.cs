@@ -2,6 +2,8 @@
 using Lib;
 using UnityEngine.SceneManagement;
 using System;
+using System.Threading;
+using UnityEngine;
 
 partial class Global
 {
@@ -9,6 +11,9 @@ partial class Global
     private static Stack<int> _sceneStack = new Stack<int>();
     //存放所有需要在loading场景中加载的内容
     private static Queue<Action> _funcs = new Queue<Action>();
+
+    private static AsyncOperation asyncOperation;
+    private static bool _lock = false;
 
     /**
     * <summary>
@@ -46,11 +51,12 @@ partial class Global
     */
     public static void CallLoad()
     {
-        foreach (var func in _funcs)
+        if (!_lock)
         {
-            func.Invoke();
+            _lock = true;
+            _funcs.Dequeue()?.Invoke();
+            _lock = false;
         }
-        _funcs.Clear();
     }
     
     /// <summary>
@@ -68,18 +74,21 @@ partial class Global
             name = "Scenes/" + name;
         }
 
-        Listener.Instance.Event("scene_change", null, name);
+        Listener.Instance.Event("scene_change", name);
         if (loading)
         {
             //如果需要加载loading场景的话，会先去加载loading场景，在loading场景中再去加载目标场景
             Cache.SetSceneParam(name);
-            SceneManager.LoadSceneAsync("Scenes/LoadingScene");
+            SceneManager.LoadSceneAsync("Scenes/LoadingScene").completed += op =>
+            {
+                // asyncOperation = op;
+                // asyncOperation.allowSceneActivation = false;
+            };
         }
         else
         {
-            SceneManager.LoadSceneAsync(name).completed += asyncOperation =>
+            SceneManager.LoadSceneAsync(name).completed += op =>
             {
-                // SceneManager.un
                 Listener.Instance.Event("scene_changed", name);
             };
         }
@@ -104,7 +113,7 @@ partial class Global
             {
                 SceneManager.LoadSceneAsync(id).completed += (op) =>
                 {
-                    Listener.Instance.Event("scene_changed", id);
+                    // Listener.Instance.Event("scene_changed", id);
                 };
             };
         }
@@ -126,7 +135,7 @@ partial class Global
         Listener.Instance.Event("scene_refresh");
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex).completed += operation =>
         {
-            Listener.Instance.Event("scene_refreshd", null);
+            Listener.Instance.Event("scene_refreshd");
         };
     }
     

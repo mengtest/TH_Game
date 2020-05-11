@@ -1,4 +1,4 @@
-﻿---这里存放所有的类型声明
+---这里存放所有的类型声明
 
 ---@class CCard
 local CCard = {
@@ -21,4 +21,13 @@ local CCard = {
     skill4 = 0,
     skill5 = 0,
 }
+
+---@class CMyCard
+local CMyCard = {
+    id = 0,
+    num = 0
+}
+
+---@type fun(this: UnityEngine.Transform): any
+local initFun
 

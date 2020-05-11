@@ -1408,8 +1408,12 @@ namespace Lib
             {
                 caller = _listener;
             }
-            AddToList(eventName, caller);
-            caller.On(eventName, func);
+
+            if (AddToList(eventName, caller))
+            {
+                caller.On(eventName, func);
+            }
+            
         }
         
         /// <summary>
@@ -1522,17 +1526,22 @@ namespace Lib
             obj.Off(eventName);
         }
 
-        private void AddToList(string eventName, ListenerObject obj)
+        private bool AddToList(string eventName, ListenerObject obj)
         {
             if (_allListenerObjects.ContainsKey(eventName))
             {
-                _allListenerObjects[eventName].AddLast(obj);
+                //如果已经存在了这个物体，则不再重复添加这个事件
+                if (_allListenerObjects[eventName].Find(obj) == null)
+                {
+                    _allListenerObjects[eventName].AddLast(obj);
+                }
             }
             else
             {
                 _allListenerObjects[eventName] = new LinkedList<ListenerObject>();
                 _allListenerObjects[eventName].AddLast(obj);
             }
+            return true;
         }
 
         /// <summary>

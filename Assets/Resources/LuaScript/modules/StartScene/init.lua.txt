@@ -1,5 +1,6 @@
 ---@param luaManger LuaFramework.LuaManager
 function init(luaManger)
+    dbg.breakHere()
     ---@type UnityEngine.UI.Button[]
     local children =  CS.Global.GetCurCanvas():GetComponentsInChildren(typeof(CS.UnityEngine.UI.Button))
     for i = 0, children.Length - 1 do

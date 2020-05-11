@@ -19,13 +19,12 @@ namespace Prefab
 
         private void Awake()
         {
+            // Global.CallLoad();
             _text = GetComponentInChildren<Text>();
         }
 
         private void Start()
         {
-            //在loading场景中就执行这些函数
-            Global.CallLoad();
             _t = _text.text;
             InvokeRepeating(nameof(Timer), 0.5f, 0.5f);
             if (Global.Cache.GetNextSceneId() != -1)
@@ -67,26 +66,36 @@ namespace Prefab
 
         private IEnumerator LoadScene(string sceneName)
         {
-            yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneName);
-            _async.allowSceneActivation = true;
-            _async.completed += operation =>
+            _async.allowSceneActivation = false;
+            _async.completed += op =>
             {
                 Listener.Instance.Event("scene_changed", sceneName);
             };
-            yield return _async;
+            while (Global.CountLoad() > 0)
+            {
+                Global.CallLoad();
+                yield return new WaitForEndOfFrame();
+            }
+            _async.allowSceneActivation = true;
         }
     
         private IEnumerator LoadScene(int sceneId)
         {
             yield return new WaitForEndOfFrame();
             _async = SceneManager.LoadSceneAsync(sceneId);
-            _async.allowSceneActivation = true;
+            _async.allowSceneActivation = false;
             _async.completed += op =>
             {
                 Listener.Instance.Event("scene_changed", sceneId);
             };
-            yield return _async;
+            while (Global.CountLoad() > 0)
+            {
+                //在loading场景中就执行这些函数
+                // Global.CallLoad();
+                yield return new WaitForEndOfFrame();
+            }
+            _async.allowSceneActivation = true;
         }
     }
 }

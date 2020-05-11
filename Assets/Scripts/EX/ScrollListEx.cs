@@ -70,7 +70,7 @@ namespace EX
         /// <param name="index"></param>
         public void Refresh(int index)
         {
-            
+            _impl.Refresh(index);
         }
 
         protected override void Awake()

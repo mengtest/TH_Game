@@ -1,11 +1,14 @@
 local yuki_init_list = require"message.yuki.init"
 
---package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
---local dbg = require('emmy_core')
---dbg.tcpConnect('localhost', 9966)
+--global = global or require"lib.functions"
+
+package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
+dbg = require('emmy_core')
+dbg.tcpConnect('localhost', 9966)
 
 ---加载全局lua的模块
 local function luaInit()
+    require"global.app".init()
     yuki_init_list.init()
     local app = util.readCfgFile(CS.Util.Loader.Read("LuaScript/config/app"))
     cards = json.decode(CS.Util.Loader.Read("Extend/Cards"))
