@@ -1,6 +1,7 @@
 ﻿using System;
 using Common;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using XLua;
 
 namespace Util
@@ -94,23 +95,28 @@ namespace Util
         /// 如果直接调用unity的api的话，可能会因为模糊重载而无法取得hit参数
         /// </summary>
         /// <returns></returns>
-        public static bool InnocentRayHit(this Vector3 point, out RaycastHit hit)
+        public static bool ExplicitRayHit(this Vector3 point, out RaycastHit hit)
         {
-            var ray = Camera.main.ScreenPointToRay(point);
-            return Physics.Raycast(ray, out hit);
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                var ray = Camera.main.ScreenPointToRay(point);
+                return Physics.Raycast(ray, out hit);
+            }
+            hit = new RaycastHit();
+            return false;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
-        public static bool Clicked(this Transform self)
-        {
-            var ray = new RaycastHit2D();
-            
-            return true;
-        }
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // /// <param name="self"></param>
+        // /// <returns></returns>
+        // public static bool Clicked(this Transform self)
+        // {
+        //     var ray = new RaycastHit2D();
+        //     
+        //     return true;
+        // }
         
         
 

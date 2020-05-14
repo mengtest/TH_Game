@@ -41,6 +41,11 @@ namespace Net
             return _connection.IsConnected();
         }
 
+        public bool Online()
+        {
+            return false;
+        }
+
         //接收服务器回传的消息并解析
         public void ReceiveMsg(Msg msg)
         {

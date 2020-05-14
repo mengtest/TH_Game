@@ -12,9 +12,9 @@ namespace EX
         private HorizontalLayoutGroup _layout;
 
         //为什么这里的字段在editor中显示不出来？
-        [Tooltip("每个元素的宽度")]
-        [SerializeField]
-        private float elementWidth = 300;
+        // [Tooltip("每个元素的宽度")]
+        // [SerializeField]
+        // private float elementWidth = 300;
 
         private int _index;
 

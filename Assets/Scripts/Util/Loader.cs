@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using XLua;
@@ -6,6 +7,8 @@ using Object = UnityEngine.Object;
 
 namespace Util
 {
+    using Pair = Global.Pair<Object, int>;
+    
     [CSharpCallLua]
     [LuaCallCSharp]
     public interface ILoader
@@ -18,12 +21,23 @@ namespace Util
         //释放资源
         void Unload(Object obj);
 
+        void Unload(string name);
+
+        void Unload();
+
         //写文件
         void Write(string path, string text);
     }
 
     class WinLoader : ILoader
     {
+        private Dictionary<string, Pair> _resources;
+
+        public WinLoader()
+        {
+            _resources = new Dictionary<string, Pair>();
+        }
+        
         public Object Load(string path)
         {
             //先调用其他的加载方式去加载资源，例如ab
@@ -40,6 +54,16 @@ namespace Util
         public void Unload(Object obj)
         {
             Resources.UnloadAsset(obj);
+        }
+
+        public void Unload(string name)
+        {
+            
+        }
+
+        public void Unload()
+        {
+            
         }
 
         public void Write(string path, string text)
@@ -74,6 +98,16 @@ namespace Util
                 throw new Exception("暂时没有定义该平台的资源加载方式");
             }
         }
+        
+        public static void Unload(string name)
+        {
+            _loader.Unload(name);
+        }
+
+        public static void Unload()
+        {
+            _loader.Unload();
+        }
 
         /// <summary>
         /// 加载一个资源为指定类型
@@ -104,6 +138,7 @@ namespace Util
         {
             _loader.Unload(obj);
         }
+        
 
         /// <summary>
         /// 向一个文本写入

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using XLua;
 using Object = UnityEngine.Object;
 
+// 已被废弃的旧api
 namespace Lib.obsolete
 {
     #region MyRegion

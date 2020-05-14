@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using XLua;
 
@@ -37,6 +38,10 @@ namespace Common
         /// <param name="eventData"></param>
         public void OnPointerClick(PointerEventData eventData)
         {
+            // transform.DOBlendableMoveBy(new Vector3(), 0.3f);
+            // transform.()
+            // var seq = DG.Tweening.DOTween.Sequence();
+            // seq.
             clickEvent?.Invoke();
         }
 

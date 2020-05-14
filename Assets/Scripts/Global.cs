@@ -154,6 +154,7 @@ public static partial class Global
         var toast = Object.Instantiate(obj, GetCurCanvas().transform, true);
         toast.transform.localPosition = new Vector3(0, 250);
         toast.GetComponent<ToastScript>().Make(text, time);
+        toast.transform.localScale = new Vector3(1, 1, 1);
     }
 
     // public static void Test(Lib.Listener. act)

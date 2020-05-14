@@ -71,7 +71,7 @@ namespace Scene.MainScene
 
             // var layout = this.scroll.content.GetComponent<VerticalLayoutGroup>();
             // this.scroll.content.sizeDelta = new Vector2(layout.preferredWidth, layout.preferredHeight);
-            this.ReDraw();
+            ReDraw();
         }
 
         private void ReDraw()

@@ -17,8 +17,13 @@ namespace EX
         
         [CSharpCallLua]
         public delegate void AddGameObjectCallback(GameObject obj, int index);
-
+        
         // [CSharpCallLua]
+        // public delegate void CreateGameObjectCallback(GameObject obj);
+
+        /// <summary>
+        /// 这个就是每次因为而重复利用物体时的调用
+        /// </summary>
         public event AddGameObjectCallback scrollListAddObjectCallback;
 
         [Serializable]
@@ -29,8 +34,8 @@ namespace EX
             Grid,
         }
 
-        // public float speed = 20;
-        public ListType type = ListType.Vert;
+        [Tooltip("当前scrollList的类型")]
+        public ListType type = ListType.Grid;
 
         [Tooltip("竖直布局下失效，每个元素之间的间隔")]
         private float paddingWidth;
@@ -45,9 +50,6 @@ namespace EX
         [Tooltip("网格布局中每个元素的样例，或者底图")]
         public Transform cell;
 
-        // [Tooltip("cell的大小是否一致")]
-        // public bool regular = true;
-
         [Tooltip("显示的数据的长度,只在启动时有效")]
         public int dataLength;
 
@@ -55,6 +57,7 @@ namespace EX
 
         public void BindDataLength(uint length)
         {
+            //还有一个，如果当前所content的大小小于viewport的话，则需要将content置顶
             dataLength = (int) length;
             _impl.BindDataLength((int) length);
         }
@@ -97,7 +100,7 @@ namespace EX
                     // _impl = new HorizScroll(this);
                     break;
                 case ListType.Vert:
-                    _impl = new VertScroll(this, dataLength);
+                    // _impl = new VertScroll(this, dataLength);
                     break;
                 case ListType.Grid:
                     _impl = new GridScroll(this, dataLength);
@@ -115,6 +118,11 @@ namespace EX
         }
 
         private void AddGameObject(GameObject obj, int index)
+        {
+            
+        }
+
+        private void CreateGameObject(GameObject obj)
         {
             
         }
@@ -194,274 +202,274 @@ namespace EX
         }
 
         
-        [DoNotGen]
-        [Serializable]
-        private class VertScroll: IPrimitive
-        {
-            //持有这个对象的类的引用
-            private ScrollListEx _holder;
-            //当前视图的布局方式
-            // private VerticalLayoutGroup _vert;
-            //content的矩形
-            private RectTransform _rect;
-            //添加物体的事件
-            public event AddGameObjectCallback addGameObjectEvent;
-
-            public int GetDataLength()
-            {
-                return _dataLength;
-            }
-
-            /**
-             * <summary>
-             * 增加要显示的数据的量
-             * </summary>
-             */
-            public void BindDataLength(int index = 1)
-            {
-                if (index < 0)
-                {
-                    throw new Exception("数据增加的量，必须大于0");
-                }
-                else if (index == 0)
-                {
-                    
-                }
-                else if (index > 0)
-                {
-                    _dataLength += index;
-                    _scrollBottom = true;
-                }
-            }
-
-            private int _dataLength;
-
-            private int _maxChildCount;
-
-            private bool _scrollTop = true;
-            private bool _scrollBottom = true;
-
-            private int _firstId;
-            private int _lastId;
-
-            public VertScroll(ScrollListEx holder, int sourceLength)
-            {
-                _holder = holder;
-                _rect = holder.content;
-                //最大子物体的数量，为可视范围的高度除以cell的高度与paddingHeight之和，这里会额外添加两个物体，以解决部分bug
-                _maxChildCount = (int)(_holder.viewport.rect.height / (_holder.cell.GetComponent<RectTransform>().rect.height + _holder.paddingHeight)) + 2;
-                addGameObjectEvent = AddGameObject;
-                for (int i = 0; i < _holder.content.childCount; i++)
-                {
-                    var obj = _holder.content.GetChild(i);
-                    obj.name = i.ToString();
-                }
-                _dataLength = sourceLength;
-                _firstId = 0;
-                _lastId = _holder.content.childCount - 1;
-            }
-
-            public void OnRender(ref PointerEventData data)
-            {
-                //向下滚动
-                if ((data.scrollDelta.y < 0 || data.delta.y < 0)  && !CanScrollBottom())
-                {
-                    data.scrollDelta = Vector2.zero;
-                    data.delta = Vector2.zero;
-                }
-                
-                //向上滚动
-                if ((data.scrollDelta.y > 0 || data.delta.y > 0) && !CanScrollTop())
-                {
-                    data.scrollDelta = Vector2.zero;
-                    data.delta = Vector2.zero;
-                }
-
-                if (data.scrollDelta.y < 0 || data.delta.y < 0)
-                {
-                    ScrollDown();
-                }
-                else if (data.scrollDelta.y > 0 || data.delta.y > 0)
-                {
-                    ScrollUp();
-                }
-            }
-
-            public void Refresh()
-            {
-
-            }
-
-            public bool CanScrollTop()
-            {
-                return _scrollTop;
-            }
-
-            public bool CanScrollBottom()
-            {
-                return _scrollBottom;
-            }
-
-            public bool CanScrollLeft()
-            {
-                return false;
-            }
-
-            public bool CanScrollRight()
-            {
-                return false;
-            }
-
-            public void OnRender(Vector2 data)
-            {
-                //向下滚动
-                if ((data.y < 0)  && !CanScrollBottom())
-                {
-                    data = Vector2.zero;
-                }
-                
-                //向上滚动
-                if ((data.y > 0 || data.y > 0) && !CanScrollTop())
-                {
-                    data = Vector2.zero;
-                }
-
-                if (data.y < 0)
-                {
-                    ScrollDown();
-                }
-                else if (data.y > 0)
-                {
-                    ScrollUp();
-                }
-            }
-
-            public void Refresh(int index)
-            {
-                
-            }
-
-            /**
-             * <summary>
-             * 将下标为index的cell设置为第一个显示的物体
-             * </summary>
-             */
-            public void ScrollTo(int index)
-            {
-                if ( index >= _dataLength )
-                {
-                    index = _dataLength;
-                }
-
-                if(index < 0)
-                {
-                    index = 0;
-                }
-                
-                //再滚动到对应的位置
-                // _holder.content.DOMove(new Vector3(0, _holder.content.position.y - 100), 1);
-            }
-
-            //滚动的时候，不断的调用这个函数，去检测当前队列当中的第一个物体是否可见
-            //物体的可见性可以通过检测第一个物体以及当前视口的矩形是否相交来判断
-            public void ScrollDown()
-            {
-                _scrollTop = true;
-                //如果当前最大的id与当前的数据长度相等，那么就不再执行这里的操作
-                //此时不再执行下滚的操作
-                if(_lastId == _dataLength - 1)
-                {
-                    //如果最后一个节点已经完全显示在视口当中，则不再允许下滚的操作
-                    if (_holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>().IsInRect(_holder.viewport))
-                    {
-                        _scrollBottom = false;    
-                    }
-                    return;
-                }
-
-                //向上滚动时调用的回调
-                if (_holder.content.childCount == 0)
-                {
-                    return;
-                }
-                var firstObj = _holder.content.GetChild(0).GetComponent<RectTransform>();
-                var lastObj = _holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>();
-                if (!firstObj.IsOverlap(_holder.viewport))
-                {
-                    _lastId++;
-                    firstObj.name = _lastId.ToString();
-                    _firstId++;
-                    firstObj.localPosition = new Vector3(firstObj.localPosition.x,
-                        _holder.content.GetChild(_holder.content.childCount - 1).localPosition.y -
-                        _holder.paddingHeight - firstObj.rect.height / 2 - lastObj.rect.height / 2);
-                    firstObj.SetAsLastSibling();
-                    addGameObjectEvent?.Invoke(firstObj.gameObject, _lastId);
-                }
-            }
-            
-            public void ScrollUp()
-            {
-                _scrollBottom = true;
-                //如果当前最小的id为0，那么就不再执行这里的操作
-                //并且此时无法执行上滚的操作
-                if(_firstId == 0)
-                {
-                    //如果最后一个节点已经完全显示在视口当中，则不再允许下滚的操作
-                    if (_holder.content.GetChild(0).GetComponent<RectTransform>().IsInRect(_holder.viewport))
-                    {
-                        _scrollTop = false;
-                    }
-                    return;
-                }
-
-                //向下滚动时调用的回调
-                if (_holder.content.childCount == 0)
-                {
-                    return;
-                }
-                var lastObj = _holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>();
-                var firstObj = _holder.content.GetChild(0).GetComponent<RectTransform>();
-                if (!lastObj.IsOverlap(_holder.viewport))
-                {
-                    _firstId--;
-                    lastObj.name = _firstId.ToString();
-                    _lastId--;
-                    lastObj.localPosition = new Vector3(lastObj.localPosition.x,
-                        _holder.content.GetChild(0).localPosition.y +
-                        _holder.paddingHeight + lastObj.rect.height / 2 + firstObj.rect.height / 2);
-                    lastObj.SetAsFirstSibling();
-                    addGameObjectEvent?.Invoke(lastObj.gameObject, _firstId);
-                }
-            }
-
-            //实际上现在的api根本用不上redraw
-            //不知道是否是添加新节点导致的重绘
-            public void ReDraw()
-            {
-                //重绘主要的操作就是修改scrollRect的content的大小
-                float height = 0;
-                foreach (RectTransform item in _holder.content.transform)
-                {
-                    height += item.rect.height;
-                }
-                height += (_holder.content.childCount - 1) * _holder.paddingHeight;
-                _holder.content.sizeDelta = new Vector2(_rect.rect.width, height);
-            }
-
-            //添加一个新的节点导致的重绘
-            public void ReDraw(GameObject child)
-            {
-                //重绘主要的操作就是修改scrollRect的content的大小
-                _holder.content.sizeDelta = new Vector2(_rect.rect.width, _rect.rect.height + child.GetComponent<RectTransform>().rect.height + _holder.paddingHeight);
-            }
-
-            private void AddGameObject(GameObject obj, int index)
-            {
-                //发起这样的一个事件
-                // Lib.Listener.Instance.Event("scroll_add_gameobject", _holder, obj, index);
-                _holder.scrollListAddObjectCallback?.Invoke(obj, index);
-            }
-        }
+        // [DoNotGen]
+        // [Serializable]
+        // private class VertScroll: IPrimitive
+        // {
+        //     //持有这个对象的类的引用
+        //     private ScrollListEx _holder;
+        //     //当前视图的布局方式
+        //     // private VerticalLayoutGroup _vert;
+        //     //content的矩形
+        //     private RectTransform _rect;
+        //     //添加物体的事件
+        //     public event AddGameObjectCallback addGameObjectEvent;
+        //
+        //     public int GetDataLength()
+        //     {
+        //         return _dataLength;
+        //     }
+        //
+        //     /**
+        //      * <summary>
+        //      * 增加要显示的数据的量
+        //      * </summary>
+        //      */
+        //     public void BindDataLength(int index = 1)
+        //     {
+        //         if (index < 0)
+        //         {
+        //             throw new Exception("数据增加的量，必须大于0");
+        //         }
+        //         else if (index == 0)
+        //         {
+        //             
+        //         }
+        //         else if (index > 0)
+        //         {
+        //             _dataLength += index;
+        //             _scrollBottom = true;
+        //         }
+        //     }
+        //
+        //     private int _dataLength;
+        //
+        //     private int _maxChildCount;
+        //
+        //     private bool _scrollTop = true;
+        //     private bool _scrollBottom = true;
+        //
+        //     private int _firstId;
+        //     private int _lastId;
+        //
+        //     public VertScroll(ScrollListEx holder, int sourceLength)
+        //     {
+        //         _holder = holder;
+        //         _rect = holder.content;
+        //         //最大子物体的数量，为可视范围的高度除以cell的高度与paddingHeight之和，这里会额外添加两个物体，以解决部分bug
+        //         _maxChildCount = (int)(_holder.viewport.rect.height / (_holder.cell.GetComponent<RectTransform>().rect.height + _holder.paddingHeight)) + 2;
+        //         addGameObjectEvent = AddGameObject;
+        //         for (int i = 0; i < _holder.content.childCount; i++)
+        //         {
+        //             var obj = _holder.content.GetChild(i);
+        //             obj.name = i.ToString();
+        //         }
+        //         _dataLength = sourceLength;
+        //         _firstId = 0;
+        //         _lastId = _holder.content.childCount - 1;
+        //     }
+        //
+        //     public void OnRender(ref PointerEventData data)
+        //     {
+        //         //向下滚动
+        //         if ((data.scrollDelta.y < 0 || data.delta.y < 0)  && !CanScrollBottom())
+        //         {
+        //             data.scrollDelta = Vector2.zero;
+        //             data.delta = Vector2.zero;
+        //         }
+        //         
+        //         //向上滚动
+        //         if ((data.scrollDelta.y > 0 || data.delta.y > 0) && !CanScrollTop())
+        //         {
+        //             data.scrollDelta = Vector2.zero;
+        //             data.delta = Vector2.zero;
+        //         }
+        //
+        //         if (data.scrollDelta.y < 0 || data.delta.y < 0)
+        //         {
+        //             ScrollDown();
+        //         }
+        //         else if (data.scrollDelta.y > 0 || data.delta.y > 0)
+        //         {
+        //             ScrollUp();
+        //         }
+        //     }
+        //
+        //     public void Refresh()
+        //     {
+        //
+        //     }
+        //
+        //     public bool CanScrollTop()
+        //     {
+        //         return _scrollTop;
+        //     }
+        //
+        //     public bool CanScrollBottom()
+        //     {
+        //         return _scrollBottom;
+        //     }
+        //
+        //     public bool CanScrollLeft()
+        //     {
+        //         return false;
+        //     }
+        //
+        //     public bool CanScrollRight()
+        //     {
+        //         return false;
+        //     }
+        //
+        //     public void OnRender(Vector2 data)
+        //     {
+        //         //向下滚动
+        //         if ((data.y < 0)  && !CanScrollBottom())
+        //         {
+        //             data = Vector2.zero;
+        //         }
+        //         
+        //         //向上滚动
+        //         if ((data.y > 0 || data.y > 0) && !CanScrollTop())
+        //         {
+        //             data = Vector2.zero;
+        //         }
+        //
+        //         if (data.y < 0)
+        //         {
+        //             ScrollDown();
+        //         }
+        //         else if (data.y > 0)
+        //         {
+        //             ScrollUp();
+        //         }
+        //     }
+        //
+        //     public void Refresh(int index)
+        //     {
+        //         
+        //     }
+        //
+        //     /**
+        //      * <summary>
+        //      * 将下标为index的cell设置为第一个显示的物体
+        //      * </summary>
+        //      */
+        //     public void ScrollTo(int index)
+        //     {
+        //         if ( index >= _dataLength )
+        //         {
+        //             index = _dataLength;
+        //         }
+        //
+        //         if(index < 0)
+        //         {
+        //             index = 0;
+        //         }
+        //         
+        //         //再滚动到对应的位置
+        //         // _holder.content.DOMove(new Vector3(0, _holder.content.position.y - 100), 1);
+        //     }
+        //
+        //     //滚动的时候，不断的调用这个函数，去检测当前队列当中的第一个物体是否可见
+        //     //物体的可见性可以通过检测第一个物体以及当前视口的矩形是否相交来判断
+        //     public void ScrollDown()
+        //     {
+        //         _scrollTop = true;
+        //         //如果当前最大的id与当前的数据长度相等，那么就不再执行这里的操作
+        //         //此时不再执行下滚的操作
+        //         if(_lastId == _dataLength - 1)
+        //         {
+        //             //如果最后一个节点已经完全显示在视口当中，则不再允许下滚的操作
+        //             if (_holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>().IsInRect(_holder.viewport))
+        //             {
+        //                 _scrollBottom = false;    
+        //             }
+        //             return;
+        //         }
+        //
+        //         //向上滚动时调用的回调
+        //         if (_holder.content.childCount == 0)
+        //         {
+        //             return;
+        //         }
+        //         var firstObj = _holder.content.GetChild(0).GetComponent<RectTransform>();
+        //         var lastObj = _holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>();
+        //         if (!firstObj.IsOverlap(_holder.viewport))
+        //         {
+        //             _lastId++;
+        //             firstObj.name = _lastId.ToString();
+        //             _firstId++;
+        //             firstObj.localPosition = new Vector3(firstObj.localPosition.x,
+        //                 _holder.content.GetChild(_holder.content.childCount - 1).localPosition.y -
+        //                 _holder.paddingHeight - firstObj.rect.height / 2 - lastObj.rect.height / 2);
+        //             firstObj.SetAsLastSibling();
+        //             addGameObjectEvent?.Invoke(firstObj.gameObject, _lastId);
+        //         }
+        //     }
+        //     
+        //     public void ScrollUp()
+        //     {
+        //         _scrollBottom = true;
+        //         //如果当前最小的id为0，那么就不再执行这里的操作
+        //         //并且此时无法执行上滚的操作
+        //         if(_firstId == 0)
+        //         {
+        //             //如果最后一个节点已经完全显示在视口当中，则不再允许下滚的操作
+        //             if (_holder.content.GetChild(0).GetComponent<RectTransform>().IsInRect(_holder.viewport))
+        //             {
+        //                 _scrollTop = false;
+        //             }
+        //             return;
+        //         }
+        //
+        //         //向下滚动时调用的回调
+        //         if (_holder.content.childCount == 0)
+        //         {
+        //             return;
+        //         }
+        //         var lastObj = _holder.content.GetChild(_holder.content.childCount - 1).GetComponent<RectTransform>();
+        //         var firstObj = _holder.content.GetChild(0).GetComponent<RectTransform>();
+        //         if (!lastObj.IsOverlap(_holder.viewport))
+        //         {
+        //             _firstId--;
+        //             lastObj.name = _firstId.ToString();
+        //             _lastId--;
+        //             lastObj.localPosition = new Vector3(lastObj.localPosition.x,
+        //                 _holder.content.GetChild(0).localPosition.y +
+        //                 _holder.paddingHeight + lastObj.rect.height / 2 + firstObj.rect.height / 2);
+        //             lastObj.SetAsFirstSibling();
+        //             addGameObjectEvent?.Invoke(lastObj.gameObject, _firstId);
+        //         }
+        //     }
+        //
+        //     //实际上现在的api根本用不上redraw
+        //     //不知道是否是添加新节点导致的重绘
+        //     public void ReDraw()
+        //     {
+        //         //重绘主要的操作就是修改scrollRect的content的大小
+        //         float height = 0;
+        //         foreach (RectTransform item in _holder.content.transform)
+        //         {
+        //             height += item.rect.height;
+        //         }
+        //         height += (_holder.content.childCount - 1) * _holder.paddingHeight;
+        //         _holder.content.sizeDelta = new Vector2(_rect.rect.width, height);
+        //     }
+        //
+        //     //添加一个新的节点导致的重绘
+        //     public void ReDraw(GameObject child)
+        //     {
+        //         //重绘主要的操作就是修改scrollRect的content的大小
+        //         _holder.content.sizeDelta = new Vector2(_rect.rect.width, _rect.rect.height + child.GetComponent<RectTransform>().rect.height + _holder.paddingHeight);
+        //     }
+        //
+        //     private void AddGameObject(GameObject obj, int index)
+        //     {
+        //         //发起这样的一个事件
+        //         // Lib.Listener.Instance.Event("scroll_add_gameobject", _holder, obj, index);
+        //         _holder.scrollListAddObjectCallback?.Invoke(obj, index);
+        //     }
+        // }
 
         // [Serializable]
         // private class HorizScroll: IPrimitive
@@ -545,7 +553,7 @@ namespace EX
                 }
                 else if (index > 0)
                 {
-                    if (index > _dataLength)
+                    if (index != _dataLength)
                     {
                         _originLength = index;
                         _dataLength = (index / _dataWidth + (index % _dataWidth == 0 ? 0 : 1)) * _dataWidth;
@@ -554,11 +562,11 @@ namespace EX
                     {
                         
                     }
-                    else
-                    {
-                        _originLength = _dataLength;
-                        _dataLength = (index / _dataWidth + (index % _dataWidth == 0 ? 0 : 1)) * _dataWidth;
-                    }
+                    // else
+                    // {
+                    //     _originLength = _dataLength;
+                    //     _dataLength = (index / _dataWidth + (index % _dataWidth == 0 ? 0 : 1)) * _dataWidth;
+                    // }
                 }
                 //每次重新绑定数据长度都会刷新所有的数据
                 Refresh();
@@ -771,15 +779,15 @@ namespace EX
             {
                 throw new Exception("没有实现的函数");
                 
-                if ( index >= _dataLength )
-                {
-                    index = _dataLength;
-                }
-
-                if(index < 0)
-                {
-                    index = 0;
-                }
+                // if ( index >= _dataLength )
+                // {
+                //     index = _dataLength;
+                // }
+                //
+                // if(index < 0)
+                // {
+                //     index = 0;
+                // }
                 
                 //再滚动到对应的位置
                 // _holder.content.DOMove(new Vector3(0, _holder.content.position.y - 100), 1);
@@ -880,7 +888,7 @@ namespace EX
             {
                 _dataHeight = _dataLength / _dataWidth;
                 
-                //重绘主要的操作就是修改scrollRect的content的大小
+                // 重绘主要的操作就是修改scrollRect的content的大小
                 // float height = 0;
                 // foreach (RectTransform item in _holder.content.transform)
                 // {
@@ -889,11 +897,16 @@ namespace EX
                 // var content1 = _holder.content;
                 // height += (content1.childCount - 1) * _holder.paddingHeight;
                 // content1.sizeDelta = new Vector2(_rect.rect.width, height);
-                //需要增加一个表示当前数据转化后所能展示的对象的排数(_height)
+                // 需要增加一个表示当前数据转化后所能展示的对象的排数(_height)
                 
-                //这里有一个bug，这里获取到的宽度为240，而实际宽度为255，长度也是如此，所以在这里手动添加
+                
+                
                 _holder.content.sizeDelta = new Vector2(_cellRect.sizeDelta.x * _dataWidth + _holder.paddingWidth * (_dataWidth - 1) + 10,
                     _cellRect.sizeDelta.y * _dataHeight + _holder.paddingHeight * (_dataHeight - 1));
+
+                // if (_holder.content.rect.x)
+                // {
+                // }
             }
 
             //添加一个新的节点导致的重绘

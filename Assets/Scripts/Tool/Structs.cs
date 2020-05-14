@@ -7,7 +7,7 @@ using XLua;
 partial class Global
 {
     [LuaCallCSharp]
-    [System.Serializable]
+    [Serializable]
     public class Pair<TKey, TValue>
     {
         public TKey First;

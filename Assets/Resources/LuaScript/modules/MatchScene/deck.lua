@@ -88,18 +88,6 @@ function M.Cancel(this)
 end
 
 function M.checkCards()
-    --local res1 = M.counts.SSR == M.regular.SSR
-    --    and  M.counts.SR == M.regular.SR
-    --    and  M.counts.R == M.regular.R
-    --    and  M.counts.N == M.regular.N
-    -----如果不满足第一个条件，则直接返回false
-    --if not res1 then
-    --    return false
-    --end
-    --
-    -----如果满足了第一个条件，再判断是否满足第二个条件
-    --global.checkCards(M.selectedCardList)
-    
     return M.counts.SSR == M.regular.SSR
             and  M.counts.SR == M.regular.SR
             and  M.counts.R == M.regular.R
@@ -109,6 +97,7 @@ end
 
 local function ConfirmBtnCallback()
     ---先保存当前的牌组，然后向服务端发送一条消息，开始对战
+    global.combatCards = M.selectedCardList
     CS.Global.NavigateTo("BattleScene", true)
 end
 
@@ -116,6 +105,10 @@ end
 function M.Start(this)
     ---先要弹出对话框，检测当前的卡牌是否符合要求，询问是否以当前选择的卡组开始匹配
     ---玩家点击确认之保存当前的卡牌信息，然后开始匹配
+    --- 如果匹配到对手之后，服务端发送一条消息回来，客户端弹出一个对话框询问是否接受这个对局
+    --- 玩家点击接受之后，会发送一条消息到服务端，同时显示出等待另一个玩家接受对局的状态
+    --- 另一个玩家也点击了接受对局之后，服务端向客户端发送消息，控制客户端进入到战斗场景
+    --- 这里的参数就应当包含有双方玩家的名称、uid、选择的卡组信息 
     util.bindButtonCallback(this, function ()
         ---如果当前卡牌的数量满足给定的要求的话，则弹出对话框，询问是否以当前卡组开始游戏
         if M.checkCards() then

@@ -22,9 +22,9 @@ namespace Prefab
             content.text = text;
             Redraw();
             // Destroy(gameObject, sec);
-            var seq = DG.Tweening.DOTween.Sequence();
+            var seq = DOTween.Sequence();
             // var move = transform.DOMove(new Vector3(transform.position.x, transform.position.y + 150, 0), sec);
-            var move = transform.DOBlendableMoveBy(new Vector3(0, 150, 0), sec);
+            var move = transform.DOBlendableLocalMoveBy(new Vector3(0, 150, 0), sec);
             seq.Append(move);
             seq.OnComplete(() =>
             {
