@@ -64,7 +64,6 @@ public static class GameInit
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
-        // var go = new GameObject("EventListener");
-        // var listener = go.AddComponent<EventListener>();
+        Lib.Listener.Instance.Event("after_app_init", Global.Scene.name);
     }
 }

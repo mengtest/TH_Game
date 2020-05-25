@@ -9,7 +9,10 @@ local m = {}
 
 local function init()
     CS.Lib.Listener.Instance:On("scene_changed", function (name)
-        log(name)
+        require(string.format("modules.%s.init", CS.Global.Scene.name)).init()
+    end)
+    CS.Lib.Listener.Instance:On("after_app_init", function (name)
+        require(string.format("modules.%s.init", name)).init()
     end)
 end
 

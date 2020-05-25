@@ -1,3 +1,5 @@
+local M = {}
+
 ---@param this UnityEngine.Transform
 function LeftTopUI(this)
     ---@type UnityEngine.UI.Text
@@ -49,7 +51,8 @@ uiList = {
     BottomUI = BottomUI
 }
 
----@param this LuaFramework.LuaManager
-function init(this)
+function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, uiList)
 end
+
+return M

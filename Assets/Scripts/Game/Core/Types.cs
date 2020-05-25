@@ -2,42 +2,19 @@ using System.Runtime.InteropServices;
 
 namespace Game.Core
 {
-    public class Types
+    public static class Types
     {
-        // //玩家的信息发生更新的回调
-        // void (*PlayerUpdateEvent)(Player*);
-        // //棋子的信息发生更新的回调
-        // // typedef void (*PawnUpdateEvent)(Pawn*);
-        // void (*PawnUpdateEvent)(Pawn*);
-        // //战场中的物体发生更新的回调
-        // void (*PlayerStartBattle)(Player*);
-        // //玩家发送消息
-        // void (*UserMsg)(Msg*);
-        // //玩家执行某个操作后的回调
-        // void (*UpdatePlayerMsgEvent)(UpdatePlayerMsg*);
-        // //玩家执行某个操作的调用
-        // void (*UpdatePlayerInfoEvent)(UpdatePlayerInfo*);
-        // //
-        // void (*UpdatePawnMsgEvent)(UpdatePawnMsg*);
-        // //棋子
-        // // typedef void (*UpdatePawnInfoEvent)(UpdatePawnInfo*);
-        // // typedef void (*UpdateCombatInfoEvent)(UpdateCombatInfo*);
-        // void (*UpdateCombatMsgEvent)(UpdateCombatMsg*);
-        // void (*NotifyUpdate)(double tick);
-
-        
-        
-        public delegate void PlayerUpdateEvent(Player player);
-        
-        public delegate void PawnUpdateEvent(Pawn p);
-        
-        public delegate void PlayerStartBattle(Player p);
-        
-        public delegate void UserMsg(Msg msg);
+        // public delegate void PlayerUpdateEvent(Player player);
+        //
+        // public delegate void PawnUpdateEvent(Pawn p);
+        //
+        // public delegate void PlayerStartBattle(Player p);
+        //
+        // public delegate void UserMsg(Msg msg);
         
         public delegate void UpdatePlayerMsgEvent(UpdatePlayerMsg p);
         
-        public delegate void UpdatePlayerInfoEvent(UpdatePlayerInfo p);
+        // public delegate void UpdatePlayerInfoEvent(UpdatePlayerInfo p);
         
         public delegate void UpdatePawnMsgEvent(UpdatePawnMsg p);
         
@@ -125,9 +102,9 @@ namespace Game.Core
         public struct Cmd
         {
             public int id;                     //cmd预留的id
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
             public string name;              //cmd的名称
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1024)]
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1024)]
             public string msg;             //具体的内容
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
             public int[] targetId;            //目标棋子id

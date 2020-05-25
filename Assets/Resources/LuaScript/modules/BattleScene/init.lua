@@ -1,4 +1,6 @@
-﻿local queryCard = require"modules.BattleScene.QueryCard"
+local M = {}
+
+local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
 
 ---@param this UnityEngine.Transform
@@ -14,9 +16,9 @@ local list = {
     Setting = Setting
 }
 
----@param this LuaFramework.LuaManager
-function init(this)
-    util.loadChild(this, list)
+
+function M.init()
+    util.loadChild(CS.Global.GetCurCanvas().transform, list)
     
     ---所有的卡牌的点击事件
     CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
@@ -32,3 +34,5 @@ function init(this)
         end
     end, nil, CS.Lib.KeyCode.Mouse0, false)
 end
+
+return M

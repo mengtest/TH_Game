@@ -1,4 +1,0 @@
-﻿---@param mgr LuaFramework.LuaManager
-function init(mgr)
-    CS.Global.MakeToast("123123123123123", 10);
-end

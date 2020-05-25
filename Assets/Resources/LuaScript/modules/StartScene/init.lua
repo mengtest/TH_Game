@@ -1,30 +1,6 @@
----@param luaManger LuaFramework.LuaManager
-function init(luaManger)
-    dbg.breakHere()
-    ---@type UnityEngine.UI.Button[]
-    local children =  CS.Global.GetCurCanvas():GetComponentsInChildren(typeof(CS.UnityEngine.UI.Button))
-    for i = 0, children.Length - 1 do
-        local v = children[i]
-        if v.name == "StartButton" then
-            -- ---@type Lib.LuaView
-            -- local view = v:GetComponent(typeof(CS.Lib.LuaView))
-            -- CS.Lib.Mvc.RegisterView("StartButton", view)
-            -- model = require"model.test"
-            -- CS.Lib.Mvc.RegisterModel("StartButton", model)
-            -- view:RegisterHandle(function (data) 
-            --     log(data.color)
-            --     log(data.fontSize)
-            -- end)
-            v.onClick:AddListener(StartButtonCallback)
-        elseif v.name == "SettingButton" then
-            v.onClick:AddListener(SettingButtonCallback)
-        elseif v.name == "ExitButton" then
-            v.onClick:AddListener(ExitButtonCallback)
-        end
-    end
-end
+local M = {}
 
-function StartButtonCallback()
+local function StartButtonCallback()
     --CS.Lib.Mvc.Notify()
     -- model:HandelEvent()
     --点击开始游戏按钮之后跳转到游戏的第一个场景中
@@ -52,7 +28,7 @@ function StartButtonCallback()
         text.alignment = CS.UnityEngine.TextAnchor.MiddleCenter
         -- 修改文本的颜色
         text.color = CS.UnityEngine.Color.yellow
-        
+
         --整个放大与缩小，并且会闪烁的特效
         local fade = text:DOFade(0.4, 2)
         local defade = text:DOFade(1, 2)
@@ -73,38 +49,78 @@ function StartButtonCallback()
         txt.transform:SetParent(back.transform)
         -- 修改文本的坐标为中间偏下的位置
         txt.transform.localPosition = CS.UnityEngine.Vector3(0, -180, 0)
-        
+
         local navigate = function()
             seq:Kill()
             CS.Net.NetHelper.GetInstance():Send(20001, "")
             CS.Global.NavigateTo("MainScene")
         end
-        
+
         --CS.Lib.Listener.Instance:On(CS.Lib.Listener.KEY_EVENT, navigate, CS.Lib.KeyCode.AnyKey , txt,true)
         CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, navigate, txt.gameObject, CS.Lib.KeyCode.AnyKey, true)
     end
-    
+
     --- 点击取消的回调
     CS.Lib.Listener.Instance:On("yuki_login_dialog_close",  function()
         CS.UnityEngine.GameObject.Destroy(obj)
     end, obj, 0)
-    
+
     CS.Lib.Listener.Instance:On("yuki_login_success", closeDialogFunction, obj, 0, true)
 end
 
-function SettingButtonCallback()
+local function SettingButtonCallback()
     ---点击设置按钮之后跳转到设置场景
     CS.Global.NavigateTo("SettingScene")
 end
 
-function ExitButtonCallback()
-    ---点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
-    ---@type Util.ModelDialog
-    local dialog = CS.Util.ModelDialog("是否要退出游戏？", "是", "否", function()
-        CS.UnityEngine.Application.Quit(0)
-        log("退出游戏")
-    end, function()
-        log("你点击了否")
+local function ExitButtonCallback()
+    local co 
+    co = coroutine.create(function ()
+        local s
+        ---点击退出游戏按钮，先弹出对话框，如果用户选择是，则退出游戏
+        ---@type Util.ModelDialog
+        local dialog = CS.Util.ModelDialog("是否要退出游戏？", "是", "否", function()
+            --CS.UnityEngine.Application.Quit(0)
+            --log("退出游戏")
+            s = true
+            coroutine.resume(co)
+        end, function()
+            --log("你点击了否")
+            s = false
+            coroutine.resume(co)
+        end)
+        dialog:ShowDialog()
+        coroutine.yield()
+        if s then
+            log("123123123123")
+        end
     end)
-    dialog:ShowDialog()
+    coroutine.resume(co)
+    --require("xlua.util").coroutine_call()
 end
+
+function M.init()
+    ---@type UnityEngine.UI.Button[]
+    local children =  CS.Global.GetCurCanvas():GetComponentsInChildren(typeof(CS.UnityEngine.UI.Button))
+    for i = 0, children.Length - 1 do
+        local v = children[i]
+        if v.name == "StartButton" then
+            -- ---@type Lib.LuaView
+            -- local view = v:GetComponent(typeof(CS.Lib.LuaView))
+            -- CS.Lib.Mvc.RegisterView("StartButton", view)
+            -- model = require"model.test"
+            -- CS.Lib.Mvc.RegisterModel("StartButton", model)
+            -- view:RegisterHandle(function (data) 
+            --     log(data.color)
+            --     log(data.fontSize)
+            -- end)
+            v.onClick:AddListener(StartButtonCallback)
+        elseif v.name == "SettingButton" then
+            v.onClick:AddListener(SettingButtonCallback)
+        elseif v.name == "ExitButton" then
+            v.onClick:AddListener(ExitButtonCallback)
+        end
+    end
+end
+
+return M

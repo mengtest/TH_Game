@@ -71,7 +71,7 @@ namespace Util
             var maxX = self.position.x + self.rect.width * (1- self.pivot.x);
             var minY = self.position.y - self.rect.height * self.pivot.y;
             var maxY = self.position.y + self.rect.height * (1- self.pivot.y);
-            Global.Log("1223123123");
+            // Global.Log("1223123123");
             return point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY;
         }
 

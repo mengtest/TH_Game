@@ -5,9 +5,9 @@ namespace Game.Core
     public struct Player
     {
         public int uid;                    //玩家的uid
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 30)]
         public string name;                //当前玩家的名称
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 30)]
         public string icon;                //当前玩家所选择的头像
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
         public int[] cards;                //本次战斗，该玩家所选择的卡组信息       这里是id而非unique_id

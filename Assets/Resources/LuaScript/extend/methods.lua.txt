@@ -15,6 +15,26 @@ local function test(...)
     print(...)
 end
 
+--[[]---@param func function
+--local function co_create(func)
+--    require"xlua.util".
+--end]]
+
+--_luaExtend.methods.co_create = function(f, t)
+--    local co = coroutine.create(function(o)
+--        f()
+--        coroutine.yield()
+--        t()
+--    end)
+--    coroutine.resume(co, co, t)
+--    return co
+--end
+--
+--_luaExtend.methods.co_resume = function(co)
+--    
+--end
+
 _luaExtend.methods.test = test
+--_luaExtend.methods
 
 return _luaExtend

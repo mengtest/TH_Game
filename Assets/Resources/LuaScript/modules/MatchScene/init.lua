@@ -18,8 +18,7 @@ local l = {
     CardDisplay = require"modules.MatchScene.cardDisplay"       ---右侧的展示当前卡牌列表相关的组件
 }
 
----@param this LuaFramework.LuaManager
-function init(this)
+function init()
     ---如果cardInfos为空，则创建
     ---@type CCard[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
@@ -29,7 +28,7 @@ function init(this)
     global.myCards = global.myCards or json.decode(CS.Util.Loader.Read("LuaScript/json/myCards"))
     
     ---这里暂时命名为MatchScene，主要是给玩家自定义卡组的
-    util.loadChild(this, l)
+    util.loadChild(CS.Global.GetCurCanvas().transform, l)
 end
 
 
