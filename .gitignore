@@ -2,24 +2,6 @@
 Library
 Logs/Packages-Update.log
 Packages/manifest.json
-ProjectSettings/AudioManager.asset
-ProjectSettings/ClusterInputManager.asset
-ProjectSettings/DynamicsManager.asset
-ProjectSettings/EditorBuildSettings.asset
-ProjectSettings/EditorSettings.asset
-ProjectSettings/GraphicsSettings.asset
-ProjectSettings/InputManager.asset
-ProjectSettings/NavMeshAreas.asset
-ProjectSettings/Physics2DSettings.asset
-ProjectSettings/PresetManager.asset
-ProjectSettings/ProjectSettings.asset
-ProjectSettings/ProjectVersion.txt
-ProjectSettings/QualitySettings.asset
-ProjectSettings/TagManager.asset
-ProjectSettings/TimeManager.asset
-ProjectSettings/UnityConnectSettings.asset
-ProjectSettings/VFXManager.asset
-ProjectSettings/XRSettings.asset
 
 /Library/Artifacts/00/002b6e113955fd9170ea7814405d69ae
 /Library
