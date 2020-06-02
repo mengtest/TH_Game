@@ -1,0 +1,5983 @@
+fileFormatVersion: 2
+guid: 61b02c0acce52ce428af3b0cee372c74
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8287638435026991817
+    second: CommonAtlas2_0
+  - first:
+      213: -7513062184057300967
+    second: CommonAtlas2_1
+  - first:
+      213: 1888935127132415122
+    second: CommonAtlas2_2
+  - first:
+      213: 3804924060739499272
+    second: CommonAtlas2_3
+  - first:
+      213: 1041190680676672689
+    second: CommonAtlas2_4
+  - first:
+      213: -1641981255578483059
+    second: CommonAtlas2_5
+  - first:
+      213: -8398479241011280052
+    second: CommonAtlas2_6
+  - first:
+      213: 4167061687246552067
+    second: CommonAtlas2_7
+  - first:
+      213: 4652967695273092406
+    second: CommonAtlas2_8
+  - first:
+      213: 9149918632540480121
+    second: CommonAtlas2_9
+  - first:
+      213: 5834608182764072638
+    second: CommonAtlas2_10
+  - first:
+      213: 3511216716818554661
+    second: CommonAtlas2_11
+  - first:
+      213: 1296201351973729635
+    second: CommonAtlas2_12
+  - first:
+      213: -7638490160637065630
+    second: CommonAtlas2_13
+  - first:
+      213: 7908724298844890888
+    second: CommonAtlas2_14
+  - first:
+      213: 418891142312010389
+    second: CommonAtlas2_15
+  - first:
+      213: -2731776663389105702
+    second: CommonAtlas2_16
+  - first:
+      213: 1080784078975554332
+    second: CommonAtlas2_17
+  - first:
+      213: -2191248152264073012
+    second: CommonAtlas2_18
+  - first:
+      213: 8712697472046730764
+    second: CommonAtlas2_19
+  - first:
+      213: -5389405006824484834
+    second: CommonAtlas2_20
+  - first:
+      213: 2992338268477422849
+    second: CommonAtlas2_21
+  - first:
+      213: 1921927972403447073
+    second: CommonAtlas2_22
+  - first:
+      213: -1424030209344247385
+    second: CommonAtlas2_23
+  - first:
+      213: 6458254108524685315
+    second: CommonAtlas2_24
+  - first:
+      213: 152780676288571075
+    second: CommonAtlas2_25
+  - first:
+      213: -7253747282856392255
+    second: CommonAtlas2_26
+  - first:
+      213: -1298693141928252873
+    second: CommonAtlas2_27
+  - first:
+      213: 1195293440278038716
+    second: CommonAtlas2_28
+  - first:
+      213: 887200168220116388
+    second: CommonAtlas2_29
+  - first:
+      213: 2593035850267795855
+    second: CommonAtlas2_30
+  - first:
+      213: 236559216155555804
+    second: CommonAtlas2_31
+  - first:
+      213: -1579731752444846300
+    second: CommonAtlas2_32
+  - first:
+      213: 5338980415710102522
+    second: CommonAtlas2_33
+  - first:
+      213: 6616881127975062868
+    second: CommonAtlas2_34
+  - first:
+      213: -1488862785282777960
+    second: CommonAtlas2_35
+  - first:
+      213: 830057636038338187
+    second: CommonAtlas2_36
+  - first:
+      213: 7025311330116484502
+    second: CommonAtlas2_37
+  - first:
+      213: 5838391659501161819
+    second: CommonAtlas2_38
+  - first:
+      213: -1440347034020831062
+    second: CommonAtlas2_39
+  - first:
+      213: 8456256195878344435
+    second: CommonAtlas2_40
+  - first:
+      213: 7188587689267843748
+    second: CommonAtlas2_41
+  - first:
+      213: -7616990071988233376
+    second: CommonAtlas2_42
+  - first:
+      213: 5999203129228902616
+    second: CommonAtlas2_43
+  - first:
+      213: 3803141067451805057
+    second: CommonAtlas2_44
+  - first:
+      213: 7543336636014288264
+    second: CommonAtlas2_45
+  - first:
+      213: 1001033069420717603
+    second: CommonAtlas2_46
+  - first:
+      213: -3746174591712418122
+    second: CommonAtlas2_47
+  - first:
+      213: -4500842346628307951
+    second: CommonAtlas2_48
+  - first:
+      213: 7818735900704366078
+    second: CommonAtlas2_49
+  - first:
+      213: -2349884854384140375
+    second: CommonAtlas2_50
+  - first:
+      213: -3160265719342526364
+    second: CommonAtlas2_51
+  - first:
+      213: -8956469039943086315
+    second: CommonAtlas2_52
+  - first:
+      213: -4731534143286552549
+    second: CommonAtlas2_53
+  - first:
+      213: -383533015290058912
+    second: CommonAtlas2_54
+  - first:
+      213: -4700498529432675108
+    second: CommonAtlas2_55
+  - first:
+      213: -4410053393187971916
+    second: CommonAtlas2_56
+  - first:
+      213: 7325705747969902940
+    second: CommonAtlas2_57
+  - first:
+      213: 3914783985529076156
+    second: CommonAtlas2_58
+  - first:
+      213: -6470684946128478291
+    second: CommonAtlas2_59
+  - first:
+      213: -2326390335034879999
+    second: CommonAtlas2_60
+  - first:
+      213: -3326761495758338751
+    second: CommonAtlas2_61
+  - first:
+      213: -6089795394918653643
+    second: CommonAtlas2_62
+  - first:
+      213: -2235907287746628513
+    second: CommonAtlas2_63
+  - first:
+      213: -7525712950635834717
+    second: CommonAtlas2_64
+  - first:
+      213: 2235645512982122864
+    second: CommonAtlas2_65
+  - first:
+      213: 8826165940477933967
+    second: CommonAtlas2_66
+  - first:
+      213: -1183874630614871806
+    second: CommonAtlas2_67
+  - first:
+      213: -6723233436565000024
+    second: CommonAtlas2_68
+  - first:
+      213: -150269057686167668
+    second: CommonAtlas2_69
+  - first:
+      213: -7992836763440269345
+    second: CommonAtlas2_70
+  - first:
+      213: 8194522556813663917
+    second: CommonAtlas2_71
+  - first:
+      213: 7500184639523421466
+    second: CommonAtlas2_72
+  - first:
+      213: -2579591063734371520
+    second: CommonAtlas2_73
+  - first:
+      213: -7098881251312338454
+    second: CommonAtlas2_74
+  - first:
+      213: -5601511705936846542
+    second: CommonAtlas2_75
+  - first:
+      213: 2035749615330021652
+    second: CommonAtlas2_76
+  - first:
+      213: 5920411217642054093
+    second: CommonAtlas2_77
+  - first:
+      213: -2184184789831427487
+    second: CommonAtlas2_78
+  - first:
+      213: 3097637193911346799
+    second: CommonAtlas2_79
+  - first:
+      213: 1886933830434228381
+    second: CommonAtlas2_80
+  - first:
+      213: -7308380815599431505
+    second: CommonAtlas2_81
+  - first:
+      213: -907532898356646331
+    second: CommonAtlas2_82
+  - first:
+      213: 4708889668050207838
+    second: CommonAtlas2_83
+  - first:
+      213: 3681786754188825253
+    second: CommonAtlas2_84
+  - first:
+      213: -7231086386399128874
+    second: CommonAtlas2_85
+  - first:
+      213: 4575944028857219785
+    second: CommonAtlas2_86
+  - first:
+      213: 1257454897655447307
+    second: CommonAtlas2_87
+  - first:
+      213: -5234737337905877685
+    second: CommonAtlas2_88
+  - first:
+      213: 759256210771700400
+    second: CommonAtlas2_89
+  - first:
+      213: -6747443166856339284
+    second: CommonAtlas2_90
+  - first:
+      213: 5663706907454884181
+    second: CommonAtlas2_91
+  - first:
+      213: 4097209080152952655
+    second: CommonAtlas2_92
+  - first:
+      213: -6694134756208255510
+    second: CommonAtlas2_93
+  - first:
+      213: 8501433392894245639
+    second: CommonAtlas2_94
+  - first:
+      213: -8812295709768763843
+    second: CommonAtlas2_95
+  - first:
+      213: 2203590002041076792
+    second: CommonAtlas2_96
+  - first:
+      213: -1749757042678851089
+    second: CommonAtlas2_97
+  - first:
+      213: 2744368359382730547
+    second: CommonAtlas2_98
+  - first:
+      213: 4526082349409277517
+    second: CommonAtlas2_99
+  - first:
+      213: -6910456534486458010
+    second: CommonAtlas2_100
+  - first:
+      213: -68685341737807504
+    second: CommonAtlas2_101
+  - first:
+      213: -338404220262911930
+    second: CommonAtlas2_102
+  - first:
+      213: -4956656739640798420
+    second: CommonAtlas2_103
+  - first:
+      213: 2505693623089210186
+    second: CommonAtlas2_104
+  - first:
+      213: -1201388994342573921
+    second: CommonAtlas2_105
+  - first:
+      213: -6791847963361768848
+    second: CommonAtlas2_106
+  - first:
+      213: 2380468703375795368
+    second: CommonAtlas2_107
+  - first:
+      213: 6517190253640080776
+    second: CommonAtlas2_108
+  - first:
+      213: 2208404967000149439
+    second: CommonAtlas2_109
+  - first:
+      213: -2989887437217701432
+    second: CommonAtlas2_110
+  - first:
+      213: 5303842563016726196
+    second: CommonAtlas2_111
+  - first:
+      213: -3639561939962950082
+    second: CommonAtlas2_112
+  - first:
+      213: 1905270864827288647
+    second: CommonAtlas2_113
+  - first:
+      213: -9132780013117596885
+    second: CommonAtlas2_114
+  - first:
+      213: 5391903248988692720
+    second: CommonAtlas2_115
+  - first:
+      213: -1972370596800379714
+    second: CommonAtlas2_116
+  - first:
+      213: -5777189638532436974
+    second: CommonAtlas2_117
+  - first:
+      213: 8017052420571740192
+    second: CommonAtlas2_118
+  - first:
+      213: -7386724299075850645
+    second: CommonAtlas2_119
+  - first:
+      213: -5796927915364039838
+    second: CommonAtlas2_120
+  - first:
+      213: -2620644211680580804
+    second: CommonAtlas2_121
+  - first:
+      213: 8943882800116227759
+    second: CommonAtlas2_122
+  - first:
+      213: -3333798054663105318
+    second: CommonAtlas2_123
+  - first:
+      213: 722335288070158574
+    second: CommonAtlas2_124
+  - first:
+      213: -2634613028932163014
+    second: CommonAtlas2_125
+  - first:
+      213: 2097116185891498457
+    second: CommonAtlas2_126
+  - first:
+      213: -5192633527264967050
+    second: CommonAtlas2_127
+  - first:
+      213: 7025176378063684149
+    second: CommonAtlas2_128
+  - first:
+      213: 42231575332941862
+    second: CommonAtlas2_129
+  - first:
+      213: 1778764377240951150
+    second: CommonAtlas2_130
+  - first:
+      213: 1109517034563604962
+    second: CommonAtlas2_131
+  - first:
+      213: 8920198770630478571
+    second: CommonAtlas2_132
+  - first:
+      213: 5469166317679200058
+    second: CommonAtlas2_133
+  - first:
+      213: -4321005483996979712
+    second: CommonAtlas2_134
+  - first:
+      213: 1087117546058162995
+    second: CommonAtlas2_135
+  - first:
+      213: 3321588732723943231
+    second: CommonAtlas2_136
+  - first:
+      213: -2876855842282601584
+    second: CommonAtlas2_137
+  - first:
+      213: -4939857007427977340
+    second: CommonAtlas2_138
+  - first:
+      213: -4819340849572226008
+    second: CommonAtlas2_139
+  - first:
+      213: -393577330837767684
+    second: CommonAtlas2_140
+  - first:
+      213: -1138961867982248473
+    second: CommonAtlas2_141
+  - first:
+      213: -6599044263531067992
+    second: CommonAtlas2_142
+  - first:
+      213: 3884159354323444709
+    second: CommonAtlas2_143
+  - first:
+      213: 4221552472083586114
+    second: CommonAtlas2_144
+  - first:
+      213: -2956272096778737365
+    second: CommonAtlas2_145
+  - first:
+      213: -8091798401340166763
+    second: CommonAtlas2_146
+  - first:
+      213: 7332315812952155636
+    second: CommonAtlas2_147
+  - first:
+      213: -2640897104833397555
+    second: CommonAtlas2_148
+  - first:
+      213: -2816409965309095697
+    second: CommonAtlas2_149
+  - first:
+      213: 6593830252969136231
+    second: CommonAtlas2_150
+  - first:
+      213: -7624517046682798257
+    second: CommonAtlas2_151
+  - first:
+      213: 296106631795455854
+    second: CommonAtlas2_152
+  - first:
+      213: 5311238630332948579
+    second: CommonAtlas2_153
+  - first:
+      213: -550355059046950988
+    second: CommonAtlas2_154
+  - first:
+      213: 3983753240929739070
+    second: CommonAtlas2_155
+  - first:
+      213: 1399818295951920504
+    second: CommonAtlas2_156
+  - first:
+      213: -1775064154537407656
+    second: CommonAtlas2_157
+  - first:
+      213: 4671516039671240141
+    second: CommonAtlas2_158
+  - first:
+      213: 163807604839011212
+    second: CommonAtlas2_159
+  - first:
+      213: -1651478679970407022
+    second: CommonAtlas2_160
+  - first:
+      213: 847031297521634251
+    second: CommonAtlas2_161
+  - first:
+      213: -4921169533475377477
+    second: CommonAtlas2_162
+  - first:
+      213: -8160041012794025877
+    second: CommonAtlas2_163
+  - first:
+      213: 4764830509333709651
+    second: CommonAtlas2_164
+  - first:
+      213: 5613545919221100607
+    second: CommonAtlas2_165
+  - first:
+      213: 5079050400020968325
+    second: CommonAtlas2_166
+  - first:
+      213: -2181795570515927782
+    second: CommonAtlas2_167
+  - first:
+      213: 3079956634809610139
+    second: CommonAtlas2_168
+  - first:
+      213: 7696835079613219158
+    second: CommonAtlas2_169
+  - first:
+      213: 8975392063274021526
+    second: CommonAtlas2_170
+  - first:
+      213: 1251801248533117988
+    second: CommonAtlas2_171
+  - first:
+      213: 4394786404908125580
+    second: CommonAtlas2_172
+  - first:
+      213: -6109435427129100214
+    second: CommonAtlas2_173
+  - first:
+      213: -5071080416174205880
+    second: CommonAtlas2_174
+  - first:
+      213: -8684742262209734848
+    second: CommonAtlas2_175
+  - first:
+      213: 3447944877957643434
+    second: CommonAtlas2_176
+  - first:
+      213: 1738083735077183332
+    second: CommonAtlas2_177
+  - first:
+      213: -196399518470168171
+    second: CommonAtlas2_178
+  - first:
+      213: -6091153895542981302
+    second: CommonAtlas2_179
+  - first:
+      213: -4335668547071251179
+    second: CommonAtlas2_180
+  - first:
+      213: -8154601731637828086
+    second: CommonAtlas2_181
+  - first:
+      213: 5625788403562226556
+    second: CommonAtlas2_182
+  - first:
+      213: -4456113785196185963
+    second: CommonAtlas2_183
+  - first:
+      213: -3949340306213893275
+    second: CommonAtlas2_184
+  - first:
+      213: -6585684892541802941
+    second: CommonAtlas2_185
+  - first:
+      213: -7275882749498186111
+    second: CommonAtlas2_186
+  - first:
+      213: -6634021265136535802
+    second: CommonAtlas2_187
+  - first:
+      213: -7645132502572724481
+    second: CommonAtlas2_188
+  - first:
+      213: 1991220496269170675
+    second: CommonAtlas2_189
+  - first:
+      213: -8730977432952492153
+    second: CommonAtlas2_190
+  - first:
+      213: -3338897013074993869
+    second: CommonAtlas2_191
+  - first:
+      213: -8785630302903873897
+    second: CommonAtlas2_192
+  - first:
+      213: 4357273964229004682
+    second: CommonAtlas2_193
+  - first:
+      213: -6900903877841343641
+    second: CommonAtlas2_194
+  - first:
+      213: 6261169915450181027
+    second: CommonAtlas2_195
+  - first:
+      213: -489587424801712268
+    second: CommonAtlas2_196
+  - first:
+      213: 3416020062386636891
+    second: CommonAtlas2_197
+  - first:
+      213: 3605842861899369322
+    second: CommonAtlas2_198
+  - first:
+      213: -2707199581964317385
+    second: CommonAtlas2_199
+  - first:
+      213: -5762540263647324789
+    second: CommonAtlas2_200
+  - first:
+      213: 2342128244935377595
+    second: CommonAtlas2_201
+  - first:
+      213: 6242395322908576115
+    second: CommonAtlas2_202
+  - first:
+      213: -3338783860479803673
+    second: CommonAtlas2_203
+  - first:
+      213: -8654416924992374132
+    second: CommonAtlas2_204
+  - first:
+      213: 4008661385905684610
+    second: CommonAtlas2_205
+  - first:
+      213: 3063938609847994862
+    second: CommonAtlas2_206
+  - first:
+      213: 1053015867281897655
+    second: CommonAtlas2_207
+  - first:
+      213: -3663632457530957999
+    second: CommonAtlas2_208
+  - first:
+      213: 8090295651507773836
+    second: CommonAtlas2_209
+  - first:
+      213: 6583929358183721469
+    second: CommonAtlas2_210
+  - first:
+      213: -8628331783790899343
+    second: CommonAtlas2_211
+  - first:
+      213: 8799518201291969343
+    second: CommonAtlas2_212
+  - first:
+      213: -2443747330897656440
+    second: CommonAtlas2_213
+  - first:
+      213: -3532993102931619619
+    second: CommonAtlas2_214
+  - first:
+      213: -6112798388173463367
+    second: CommonAtlas2_215
+  - first:
+      213: 5222179135503635166
+    second: CommonAtlas2_216
+  - first:
+      213: 8460619463121095102
+    second: CommonAtlas2_217
+  - first:
+      213: -5162750546317301334
+    second: CommonAtlas2_218
+  - first:
+      213: 4743168770699923425
+    second: CommonAtlas2_219
+  - first:
+      213: 200918131135620451
+    second: CommonAtlas2_220
+  - first:
+      213: -3346373645497585088
+    second: CommonAtlas2_221
+  - first:
+      213: -5842718045203440313
+    second: CommonAtlas2_222
+  - first:
+      213: -7171837289209622782
+    second: CommonAtlas2_223
+  - first:
+      213: -1115654413942082103
+    second: CommonAtlas2_224
+  - first:
+      213: 2668573406645480390
+    second: CommonAtlas2_225
+  - first:
+      213: -499275279198316221
+    second: CommonAtlas2_226
+  - first:
+      213: 7541149821829180684
+    second: CommonAtlas2_227
+  - first:
+      213: 5171603890582711261
+    second: CommonAtlas2_228
+  - first:
+      213: 5304473252311497005
+    second: CommonAtlas2_229
+  - first:
+      213: 6770314506311351214
+    second: CommonAtlas2_230
+  - first:
+      213: 5617479162084047928
+    second: CommonAtlas2_231
+  - first:
+      213: -599300046185868454
+    second: CommonAtlas2_232
+  - first:
+      213: -3000967734458690283
+    second: CommonAtlas2_233
+  - first:
+      213: 4224998990373332520
+    second: CommonAtlas2_234
+  - first:
+      213: -3040087426167748085
+    second: CommonAtlas2_235
+  - first:
+      213: -1877849875317964214
+    second: CommonAtlas2_236
+  - first:
+      213: -4542887056511340534
+    second: CommonAtlas2_237
+  - first:
+      213: -8087057155684257988
+    second: CommonAtlas2_238
+  - first:
+      213: -1328879551402329467
+    second: CommonAtlas2_239
+  - first:
+      213: -6966880432489130316
+    second: CommonAtlas2_240
+  - first:
+      213: -3039952956284522273
+    second: CommonAtlas2_241
+  - first:
+      213: -3751999985086988439
+    second: CommonAtlas2_242
+  - first:
+      213: -2905289349649870324
+    second: CommonAtlas2_243
+  - first:
+      213: 4594027900940747975
+    second: CommonAtlas2_244
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CommonAtlas2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 984
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45327953e8afe7d4a97d3dd59f2d05bd
+      internalID: -8287638435026991817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1005
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f0695945e578945897f65566613667
+      internalID: -7513062184057300967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 924
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276af20be7e19f34eba50fd61d8af52f
+      internalID: 1888935127132415122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1002
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e3a2b5d15f0b54497c6b1ff77c606a
+      internalID: 3804924060739499272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_4
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1002
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a079e7af286fa1448b6e3144a4eceddd
+      internalID: 1041190680676672689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 1002
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa6a0620e6270d4e95d5c3a072b8fdd
+      internalID: -1641981255578483059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_6
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1002
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eada8ca061a10940ab53090a9ca8b61
+      internalID: -8398479241011280052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_7
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1006
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9318162e8dfd7084888b278022fea1e3
+      internalID: 4167061687246552067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_8
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 1006
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bd2ddc1a58041459e3b75d0ad19aeb
+      internalID: 4652967695273092406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_9
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1006
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bccd050e990bcc4fa0c21c3dbaa2b57
+      internalID: 9149918632540480121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_10
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 963
+        width: 66
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41df474e70c5d2a478a8febc81154e0f
+      internalID: 5834608182764072638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_11
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 992
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: face0c27ea801d8419687631c54e83db
+      internalID: 3511216716818554661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_12
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 992
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818bc38ce6beb6e40b1331462abc61de
+      internalID: 1296201351973729635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_13
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 966
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd927ba7fe2e87d4195ec958e805817c
+      internalID: -7638490160637065630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_14
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 985
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1b112d163636842886712b17cbabe1
+      internalID: 7908724298844890888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_15
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 978
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13e56e93bd11a94f92ce1760497523f
+      internalID: 418891142312010389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_16
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 977
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c91600307cd124a9e1a9222aa71a00
+      internalID: -2731776663389105702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_17
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 986
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30aa272d7961cca4e830564ff743c528
+      internalID: 1080784078975554332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_18
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 993
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e8409e401fc7c489d6feeb6588fd96
+      internalID: -2191248152264073012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_19
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 984
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca85c0bae54100547ac1f8e21ecf1a1e
+      internalID: 8712697472046730764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 916
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e835375b77753549a8e93a58dbf48ea
+      internalID: -5389405006824484834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_21
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 918
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e273befc7d8a161428406c9840ae957c
+      internalID: 2992338268477422849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 943
+        width: 36
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49271cc5cb876d409d1b705b24a3016
+      internalID: 1921927972403447073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_23
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 930
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb01b7b5e0a50e948821226b5efeb447
+      internalID: -1424030209344247385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_24
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 956
+        width: 42
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0493b99fafa3b824dae2f36f865ffec1
+      internalID: 6458254108524685315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_25
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 956
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba12300ab750ee4998db85dc4e83928
+      internalID: 152780676288571075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_26
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 959
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785b910fde5f95d45b62d7ceb05b0513
+      internalID: -7253747282856392255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_27
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 957
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4e28a2c2d7dfc4f9503bf75e0d8258
+      internalID: -1298693141928252873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_28
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 957
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ec04d1e2255e34aac6422ffad46d2a
+      internalID: 1195293440278038716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 862
+        width: 104
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445620dda2750d143a200856c8ebd451
+      internalID: 887200168220116388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_30
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 943
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ee43c7e4b595544bbd83a5d9355620
+      internalID: 2593035850267795855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_31
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 898
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60609a3cc5243f549b509a55f8f31584
+      internalID: 236559216155555804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_32
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 910
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81caae362d8ee44fb6bb561a794308f
+      internalID: -1579731752444846300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_33
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 933
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c37be0ba2ba7b48bfc564d112a0a0b
+      internalID: 5338980415710102522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_34
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 906
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda7b2d6c37ba2544a3a87ddccbb206e
+      internalID: 6616881127975062868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_35
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 936
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b89a15ee558464cadfb015555421fc
+      internalID: -1488862785282777960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_36
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 930
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f153d9cb469c3f145adb0c037408e5eb
+      internalID: 830057636038338187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_37
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 950
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b3574791683dd4dac215c1863f1de1
+      internalID: 7025311330116484502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_38
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 921
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a282ca0e6167d4c4283c77b440d9614d
+      internalID: 5838391659501161819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_39
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 923
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26cf046d169bc145984417a51f44ed4
+      internalID: -1440347034020831062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_40
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 926
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d2c63b214a42a45a25b78773715409
+      internalID: 8456256195878344435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_41
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 923
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4345b153a7ac2df4da4616af5348ceb1
+      internalID: 7188587689267843748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_42
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 828
+        width: 90
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32ef7f72343a6845aea9513a51a4cfc
+      internalID: -7616990071988233376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_43
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 830
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d862ee7b50a963478a9d0bb027ccc4d
+      internalID: 5999203129228902616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_44
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 830
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6886d95a1f039c24fa57ecf5b16e2f76
+      internalID: 3803141067451805057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_45
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 894
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a836b421ab6025c468d2dec9e107ee39
+      internalID: 7543336636014288264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_46
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 860
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd70eef7a72f4d46badf494c9bbe7fd
+      internalID: 1001033069420717603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_47
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 854
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331b5f348aac3a34c83edb7fb46c510f
+      internalID: -3746174591712418122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_48
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 882
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96885a13f7e03c045a94e0dc9fbce0e9
+      internalID: -4500842346628307951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_49
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 856
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1332664aacc99f3479848292489c4b55
+      internalID: 7818735900704366078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_50
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 877
+        width: 29
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365d867d6eff95f4f8f98a9d84f43d43
+      internalID: -2349884854384140375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_51
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 883
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abff2a06e72111e46ae4f6f85c22537b
+      internalID: -3160265719342526364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_52
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 890
+        width: 20
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f41869f88a19747a0bcd0fbc0d235c
+      internalID: -8956469039943086315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_53
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 886
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beeec73e090cf0f41aeb639f21abdb7a
+      internalID: -4731534143286552549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_54
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 886
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a82e233257a5949a92c1ba3dee1191
+      internalID: -383533015290058912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_55
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 886
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c39df91e9d59c45bcbbee575a80b75
+      internalID: -4700498529432675108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_56
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 886
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcac288f46a1664bbfa4c81138170cc
+      internalID: -4410053393187971916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_57
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 833
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1910e5f7eb640469214c9b13c517c9
+      internalID: 7325705747969902940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_58
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 835
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa2c2f3342d7894bb72ac174ac82dce
+      internalID: 3914783985529076156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_59
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 794
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba65c82757871444a74da3401c52697
+      internalID: -6470684946128478291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_60
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 830
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241f2206bde88b04e82432a167602150
+      internalID: -2326390335034879999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_61
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 811
+        width: 28
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe50367419e0014b85859ddb573fcce
+      internalID: -3326761495758338751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_62
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 841
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf618bb8a5222c46a095b4d6211e030
+      internalID: -6089795394918653643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_63
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 853
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dbe28e9a6e3854ba71194e00a85aac
+      internalID: -2235907287746628513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_64
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 852
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf10705c52067240a1590dc4b91150d
+      internalID: -7525712950635834717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_65
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 855
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12037d01882b1ba4cbb54912e60bcc57
+      internalID: 2235645512982122864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_66
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 852
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108854770a467dc41bcf32d152c2b5f9
+      internalID: 8826165940477933967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 740
+        width: 104
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32a9aaebc7a91f439ce76611c525a87
+      internalID: -1183874630614871806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_68
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 732
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938dba022eb14734b9fce0e9c2424e5f
+      internalID: -6723233436565000024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_69
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 744
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824fdbb77c364254ead90044d32c8212
+      internalID: -150269057686167668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_70
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 742
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4bd990a3bfb5c459f14a770612d382
+      internalID: -7992836763440269345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_71
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 777
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429fa706419d625419a6ec32cf929a0a
+      internalID: 8194522556813663917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_72
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 765
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a880cc161942983479e7a9eefec92f8f
+      internalID: 7500184639523421466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_73
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 798
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbb535f945c1d645ad5293fd59b34f4
+      internalID: -2579591063734371520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_74
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 778
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28dbf87fd37e9045a387cab2327d8dd
+      internalID: -7098881251312338454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_75
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 811
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2c0ee1184cd74489126506e319838d
+      internalID: -5601511705936846542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_76
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 802
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe3cc36a5b62574489d7f270568c191
+      internalID: 2035749615330021652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_77
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 801
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5d03ae88f1d354e85819b0b2f4f866
+      internalID: 5920411217642054093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_78
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 801
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78a0e62c1cb5bf49844fba5cd5a0b59
+      internalID: -2184184789831427487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_79
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 801
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f4c8431737e624ab593bb85f42f92a
+      internalID: 3097637193911346799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_80
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 801
+        width: 22
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9f3c400d1e3234fa25a43de0143d41
+      internalID: 1886933830434228381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_81
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 802
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9110af6bfd146b4a91fcf0a90d93a52
+      internalID: -7308380815599431505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_82
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 801
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3112b665ba4ed74ea7b9fbcc810ac5c
+      internalID: -907532898356646331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_83
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 711
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbee6436dc2b3f4e98c96b32f7139f3
+      internalID: 4708889668050207838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_84
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 728
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c3a670f68b7c4478f2ae58506d4431
+      internalID: 3681786754188825253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_85
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 742
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261ce973697952b409396da22dce2a79
+      internalID: -7231086386399128874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_86
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 722
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c90f22a188515e4795669ad5f7b2841
+      internalID: 4575944028857219785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_87
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 760
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0203a230fdb0cf40b0943106e3870d9
+      internalID: 1257454897655447307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_88
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 761
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d224197f240cc449af64d7f8705bb2
+      internalID: -5234737337905877685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_89
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 761
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e19edf7f613224ebf0d7f17d34185b
+      internalID: 759256210771700400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_90
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 761
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e676860868f3d147be954fe61802608
+      internalID: -6747443166856339284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_91
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 761
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab75727d4a5df4842bcc488219908af1
+      internalID: 5663706907454884181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_92
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 761
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd49d3348b945143a8004cc87848c86
+      internalID: 4097209080152952655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_93
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 761
+        width: 44
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750ea6cdfc79e9f4daebdda9ce7e886b
+      internalID: -6694134756208255510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 618
+        width: 104
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7650167d1ccf54f84067562408a3ba
+      internalID: 8501433392894245639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_95
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 636
+        width: 90
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f666ee4b9f9bc0144b5c20f97da5ca49
+      internalID: -8812295709768763843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_96
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 661
+        width: 81
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7dea25a2c7ad3544b3b2c0916e706fc
+      internalID: 2203590002041076792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_97
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 654
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9abf95c0a29054e8123881220395d2
+      internalID: -1749757042678851089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_98
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 694
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc19810d346f29f40a87ec82794ac5c7
+      internalID: 2744368359382730547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_99
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 662
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119ec62e208944f47838775a04b7ed4e
+      internalID: 4526082349409277517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_100
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 686
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e3c703a4df583488092c93b707ebfa
+      internalID: -6910456534486458010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_101
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 666
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c60c0da74fd96479b681b815379384
+      internalID: -68685341737807504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_102
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 718
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24c35575c0f13b41814c5fb4b3ede1b
+      internalID: -338404220262911930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_103
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 712
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a334521dd4e3441b5541bab039a351
+      internalID: -4956656739640798420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_104
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 713
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d979c851318849141aac52933e02c873
+      internalID: 2505693623089210186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_105
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 712
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd549f5426f93e439c5520ae4d288ff
+      internalID: -1201388994342573921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_106
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 713
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45008d03a30a3b499bffb13bf983ac3
+      internalID: -6791847963361768848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_107
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 713
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582abaef973f4e7429daf44da52caa82
+      internalID: 2380468703375795368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_108
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 713
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e370717d331b24aaba5a5abf89e931
+      internalID: 6517190253640080776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_109
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 712
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a9670387e8b1f14ca262bbd1774e46c
+      internalID: 2208404967000149439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_110
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 641
+        width: 48
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f5128a90bc39e49938178a5a070a08
+      internalID: -2989887437217701432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_111
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 624
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4718c7a7e0127440988ba20d259dae0
+      internalID: 5303842563016726196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_112
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 628
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8e3c1f6a35ca443850c1c01bfabd8f
+      internalID: -3639561939962950082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_113
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 666
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80f006dd71ddee45802c05f75350e30
+      internalID: 1905270864827288647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_114
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 666
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad4ba80f67ad4143bf7edb113dd682c
+      internalID: -9132780013117596885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_115
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 666
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3dbb2a5cd729e45a91c4746722d729
+      internalID: 5391903248988692720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_116
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 667
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a372c9d87ba704e91299b5414bd776
+      internalID: -1972370596800379714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_117
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 666
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0287a321258940f4b8350cf4dc903699
+      internalID: -5777189638532436974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_118
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 666
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3d71936c6175c4bade6ae9320a7acb
+      internalID: 8017052420571740192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_119
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 666
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83435e00aea5e414283cda7c849ca830
+      internalID: -7386724299075850645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_120
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 540
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee48c51d2dbeb94f922a88ddf19ea24
+      internalID: -5796927915364039838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_121
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 573
+        width: 81
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d8d1bc7d4989a4e86cd61f35ef6b62
+      internalID: -2620644211680580804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_122
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 566
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510a61ea30160a14e9b84aa2098c30ce
+      internalID: 8943882800116227759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_123
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 518
+        width: 46
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac18bf5dca08d99468ca2829078bdd39
+      internalID: -3333798054663105318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_124
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 596
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d83c974bff27764fba1871a4da77c71
+      internalID: 722335288070158574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_125
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 631
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee1f46f8fdf75c40ada6cc3a84900c5
+      internalID: -2634613028932163014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_126
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 631
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623d05fd68c77744ca288a1fa62d9636
+      internalID: 2097116185891498457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_127
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 629
+        width: 83
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8261a047cb7756e4188c3464ad21088a
+      internalID: -5192633527264967050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_128
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 628
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc83ca6b7c5b12943adfef7310f11d41
+      internalID: 7025176378063684149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_129
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 628
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7e4c539ec772a4dacb4f29f207d1db
+      internalID: 42231575332941862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_130
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 628
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e4734fa0448804bb0b49cff862739f
+      internalID: 1778764377240951150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_131
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 629
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f61b755651759409c591a006592552
+      internalID: 1109517034563604962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_132
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 628
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf9bca0d2b31f44084620a0ad44ffc6
+      internalID: 8920198770630478571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 104
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8b0b649b1c06c45b216a31752e756f
+      internalID: 5469166317679200058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_134
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 556
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cb8d5eb649bc9419b7b78082674284
+      internalID: -4321005483996979712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_135
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 596
+        width: 126
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7004c005d8169654fa9c6a1d43043f24
+      internalID: 1087117546058162995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_136
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 596
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e937eec21ec10a340999be57d358a802
+      internalID: 3321588732723943231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_137
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 606
+        width: 30
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e55ca861ce570246b7ddc8b84a3864f
+      internalID: -2876855842282601584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_138
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 596
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c8ee56ecc4e444c9fad80c92bd3365
+      internalID: -4939857007427977340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_139
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 596
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c33a27860b26144b474f57e0729c5e
+      internalID: -4819340849572226008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_140
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 597
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3a9857a48e93f4384891d3a3ca98b7
+      internalID: -393577330837767684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_141
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 596
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd75c0aad08fee49b1307254c7b9389
+      internalID: -1138961867982248473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_142
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 596
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2e95faf67184c48b0373072ed43083
+      internalID: -6599044263531067992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_143
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 596
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6096ad0c853dc7343b35470fd1346637
+      internalID: 3884159354323444709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_144
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 596
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a8b254bc07c7a46ae827c07479f0fd
+      internalID: 4221552472083586114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_145
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 596
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6938a85bd52e9304f902f8da50903d16
+      internalID: -2956272096778737365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_146
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 596
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3db1796cddc37b48b2f24805123f23f
+      internalID: -8091798401340166763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_147
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 486
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80fe4563b3222f4ea6b3b06eba33b54
+      internalID: 7332315812952155636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_148
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 478
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40293e03b819473408acac1b19632370
+      internalID: -2640897104833397555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_149
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 476
+        width: 68
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef598442be0598b438d39f76cfeb4075
+      internalID: -2816409965309095697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_150
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 530
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d36a142c6d2716489e1903b2110e01c
+      internalID: 6593830252969136231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_151
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 530
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ca14c59f8b8374b8569fb368a6eeb6
+      internalID: -7624517046682798257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_152
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 544
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb8c88f19cd1af438ab36847e1a34a4
+      internalID: 296106631795455854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_153
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 530
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619068990dfa2af4c9cc03ad269c1318
+      internalID: 5311238630332948579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_154
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 530
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffdebf35ed7e894cb1bbba27d38bef4
+      internalID: -550355059046950988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_155
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 530
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a3e42c02f06e74bb0cb9347bb3344e
+      internalID: 3983753240929739070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_156
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 530
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c63bd3f6827fc04a988a1b6f4af8576
+      internalID: 1399818295951920504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_157
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 530
+        width: 52
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad31fbc87499384439c26312bab2e33b
+      internalID: -1775064154537407656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_158
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 444
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37114616b51c62c499cb723c6ea948d7
+      internalID: 4671516039671240141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_159
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 534
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9c712be54f43844af2cdc11765e998
+      internalID: 163807604839011212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 104
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0caae80119d54438df0c657ed59fc5
+      internalID: -1651478679970407022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_161
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 398
+        width: 81
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc3612ac22536f40ad933074150a56a
+      internalID: 847031297521634251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_162
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 392
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d030a4a82531a94b8a0b760edaa0a59
+      internalID: -4921169533475377477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_163
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 394
+        width: 47
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e147e8281f6f7b42bb29ee49389efea
+      internalID: -8160041012794025877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_164
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 475
+        width: 80
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbe0554b3a9cec4fa3fa68c042b4cf6
+      internalID: 4764830509333709651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_165
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 475
+        width: 80
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579c9fdb78625854481125fd8621ca65
+      internalID: 5613545919221100607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_166
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 475
+        width: 80
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b530b15588d318e45baf5a996cf1863c
+      internalID: 5079050400020968325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_167
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 474
+        width: 80
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ab4a020aca2ca4ea6e946ddf48ba3f
+      internalID: -2181795570515927782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_168
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 474
+        width: 76
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb2dfb308a8b1448bc1431175f4c8e7
+      internalID: 3079956634809610139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_169
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 474
+        width: 76
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0a59eb72879b54881e4e3212c9fa1c
+      internalID: 7696835079613219158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_170
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 475
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9e7206e2ab1a949abeca96a6946dd3
+      internalID: 8975392063274021526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_171
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 340
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8b5838ad1ce924c88bde597ece5913
+      internalID: 1251801248533117988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_172
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 394
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f19e8549a2475d458e6a883a518be74
+      internalID: 4394786404908125580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_173
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 394
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46463d26b866bfc459fb276fba9cd0e1
+      internalID: -6109435427129100214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_174
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 394
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e10c1573691ff04196341296b0b7af3
+      internalID: -5071080416174205880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_175
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 394
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d5f67ee89504449b0c7c37621e01c4
+      internalID: -8684742262209734848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_176
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 394
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cdd1b9029bcbd143a35eb92f80e1b37
+      internalID: 3447944877957643434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_177
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 394
+        width: 71
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c62479c8777fd24ea72002aeb987721
+      internalID: 1738083735077183332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_178
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 394
+        width: 72
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e66a8af067c4ed49b0df34166eb5093
+      internalID: -196399518470168171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_179
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 394
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0bbc66bf848d0c4781cdc1ca7f030d5
+      internalID: -6091153895542981302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 104
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bce98ab6d30774f9f54664728bf4d5
+      internalID: -4335668547071251179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_181
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 236
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f167922696e674fa8611314ad83446
+      internalID: -8154601731637828086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_182
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 306
+        width: 90
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f6c9b1d81caf94680007e894fef7dd
+      internalID: 5625788403562226556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_183
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 306
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2886f6966a736a54fa3bef660c1d8115
+      internalID: -4456113785196185963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_184
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 306
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6186fb735701d4bb3975b7aab5332c
+      internalID: -3949340306213893275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_185
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 306
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b80240e46c738e4283428d183a1eef8
+      internalID: -6585684892541802941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_186
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 306
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39332579497219444b14f012cf8315f7
+      internalID: -7275882749498186111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_187
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 306
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf66762654e4eb74fa091b129213ea56
+      internalID: -6634021265136535802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_188
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 306
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c7f8c6a2d80024ebe52e0ccf7cd1b6
+      internalID: -7645132502572724481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_189
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 306
+        width: 80
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ae43ae9a73a4e4091f53278fed155b
+      internalID: 1991220496269170675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_190
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 306
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b23b3e544e65e4baf9e22accca0d95
+      internalID: -8730977432952492153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_191
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 307
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e185b288f199d574198bc9d3cf478ac5
+      internalID: -3338897013074993869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_192
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 235
+        width: 103
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63b64097f97f294292cb8c576a1c0bb
+      internalID: -8785630302903873897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_193
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 235
+        width: 103
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60bc951b00b26ae4fa608e66e106ca02
+      internalID: 4357273964229004682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_194
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 232
+        width: 109
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f25cc153e13c5e4490d3d8480067820
+      internalID: -6900903877841343641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_195
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 232
+        width: 100
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856405c7c3d0e4a4788fa3ce4f8aff4d
+      internalID: 6261169915450181027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_196
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 278
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1dd6e4cd0a0c43489cc3e4b23860e75
+      internalID: -489587424801712268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_197
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 278
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9340c021a823e4a4a975a7d56c3ee1e2
+      internalID: 3416020062386636891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_198
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 278
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b517a3563add9c419b7e4364324b0ed
+      internalID: 3605842861899369322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_199
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 278
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a3ef395994287449134fd3bfd7ed4a
+      internalID: -2707199581964317385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_200
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 278
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f462f2911b05e634baa04ba1294d3ced
+      internalID: -5762540263647324789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_201
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 278
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0df8705e25d024c94cbf383462e023
+      internalID: 2342128244935377595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_202
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 232
+        width: 70
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fbd557b2e769a4cbe4909c868fae40
+      internalID: 6242395322908576115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_203
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 232
+        width: 78
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bd93c21b8832545a44ca65026bef0d
+      internalID: -3338783860479803673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_204
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 232
+        width: 63
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961f658490435224ab0ff018c922e170
+      internalID: -8654416924992374132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_205
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 232
+        width: 28
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01bd4e6fe69da6449021458234784b2
+      internalID: 4008661385905684610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_206
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 104
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821fca89367596044bf91885a5373e8f
+      internalID: 3063938609847994862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_207
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 131
+        width: 98
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a393a27c5ae5d34c9229a87bb905799
+      internalID: 1053015867281897655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_208
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 232
+        width: 126
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36748e32ce18a3e42a53a22300fc6642
+      internalID: -3663632457530957999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_209
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 130
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b8c6a331aba014fa94f0072e3f0d54
+      internalID: 8090295651507773836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_210
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 130
+        width: 102
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801a65213d6d2d340802e38f01528559
+      internalID: 6583929358183721469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_211
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 210
+        width: 106
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c738170ab2f8f104fa72d3b1e71a3db8
+      internalID: -8628331783790899343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_212
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 130
+        width: 99
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1abfee17550470f4eaae85d36cd78e57
+      internalID: 8799518201291969343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_213
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 211
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b55f696482ddd904a991d6d5e9591e3e
+      internalID: -2443747330897656440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_214
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 211
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f8e1dd861d6f54fb447704d30639e5
+      internalID: -3532993102931619619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_215
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 211
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f896ffe0bfd96547b3a09bba1af778b
+      internalID: -6112798388173463367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_216
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 130
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fb7f5a7bd1eb442bdbec41457a385c
+      internalID: 5222179135503635166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_217
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 203
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c72285a52272942aa197465bf0d06f
+      internalID: 8460619463121095102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_218
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 203
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a0e677abfe77540a8d4fe1182b9d55
+      internalID: -5162750546317301334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_219
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 203
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b93d9c7baed7f479614e120129ef15
+      internalID: 4743168770699923425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_220
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 203
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e704b663f5406f47a9469ee81714bbf
+      internalID: 200918131135620451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_221
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 130
+        width: 66
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e654ffe12aba04199840688dd0ebb6
+      internalID: -3346373645497585088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_222
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 130
+        width: 116
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab23ee22ff60cb449e908d6a0d3a7fa
+      internalID: -5842718045203440313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_223
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 130
+        width: 104
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbeda6097b4eb1e438d2cff4c8c7552d
+      internalID: -7171837289209622782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_224
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 130
+        width: 114
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b128782c1fd353c4181da1076000a586
+      internalID: -1115654413942082103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_225
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bc2434e75855940ac475bb3293b2ee
+      internalID: 2668573406645480390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_226
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3558e68d3694aae48a5d22fd4a5e5740
+      internalID: -499275279198316221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_227
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 116
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3dbebcbb222794eba2d3a6dc1127ce
+      internalID: 7541149821829180684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_228
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 116
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee56337eacec6044092497e2f7694aa7
+      internalID: 5171603890582711261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_229
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 116
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa6456a78544e841abc61bde878d946
+      internalID: 5304473252311497005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_230
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 116
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e289029946e659f41ad9ab83d7efe08e
+      internalID: 6770314506311351214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_231
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 116
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8042a0b9d98ff474791518a49ebb696a
+      internalID: 5617479162084047928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_232
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 116
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57869f60bff2cf84f99ad6bfde92fb00
+      internalID: -599300046185868454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_233
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 116
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d405e983a5c4eb478c2a30342545664
+      internalID: -3000967734458690283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_234
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 122
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bea640f4056cb3468821220ca5502dc
+      internalID: 4224998990373332520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_235
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 0
+        width: 100
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5284c53ba1ef16b46b595c2f30b1e66c
+      internalID: -3040087426167748085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_236
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 72
+        width: 12
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20aaa3840e3acf543a514f72ae6cdade
+      internalID: -1877849875317964214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_237
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 116
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294f834b2c1ac694bbf7aa8c54a471c6
+      internalID: -4542887056511340534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_238
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 0
+        width: 104
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0229f6d4be9104ea39883c70a58874
+      internalID: -8087057155684257988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_239
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 0
+        width: 104
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89699f513e18914f953c35d4be45582
+      internalID: -1328879551402329467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_240
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b20127042b66e44a64501b5f860267
+      internalID: -6966880432489130316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_241
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 104
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be1e3e0167e9cf4894853b20f6280cb
+      internalID: -3039952956284522273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_242
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 0
+        width: 104
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e70214ca3801c468a8747b95e0ec12
+      internalID: -3751999985086988439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_243
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 0
+        width: 104
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b395e968290bd24c911492aa176f245
+      internalID: -2905289349649870324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtlas2_244
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 14
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e4a427d64f77e4eae510aaeff07129
+      internalID: 4594027900940747975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

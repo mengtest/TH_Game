@@ -1,0 +1,7807 @@
+fileFormatVersion: 2
+guid: c171cd4ab99829f4b9c1b5bcd7e10a66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1215165926625104294
+    second: CommonAtalas_0
+  - first:
+      213: 4026521196621557930
+    second: CommonAtalas_1
+  - first:
+      213: -5124407052980446124
+    second: CommonAtalas_2
+  - first:
+      213: -2294950379402128879
+    second: CommonAtalas_3
+  - first:
+      213: -1364694102643244532
+    second: CommonAtalas_4
+  - first:
+      213: -6487607558298392599
+    second: CommonAtalas_5
+  - first:
+      213: -1020891756421441255
+    second: CommonAtalas_6
+  - first:
+      213: 3108521216050355094
+    second: CommonAtalas_7
+  - first:
+      213: -9181967510324806405
+    second: CommonAtalas_8
+  - first:
+      213: -4068660526622145559
+    second: CommonAtalas_9
+  - first:
+      213: -7234849305935713743
+    second: CommonAtalas_10
+  - first:
+      213: -5808130649987397501
+    second: CommonAtalas_11
+  - first:
+      213: 7200760010903448343
+    second: CommonAtalas_12
+  - first:
+      213: -5698117712248375941
+    second: CommonAtalas_13
+  - first:
+      213: -6712462601641121731
+    second: CommonAtalas_14
+  - first:
+      213: 5169627916019196219
+    second: CommonAtalas_15
+  - first:
+      213: -3810337108390251676
+    second: CommonAtalas_16
+  - first:
+      213: 7807474948234081894
+    second: CommonAtalas_17
+  - first:
+      213: -4880917252942546524
+    second: CommonAtalas_18
+  - first:
+      213: 3968005728434003963
+    second: CommonAtalas_19
+  - first:
+      213: -805819817744119940
+    second: CommonAtalas_20
+  - first:
+      213: 3462255156841124154
+    second: CommonAtalas_21
+  - first:
+      213: 8751066003316084866
+    second: CommonAtalas_22
+  - first:
+      213: -6146035667792960056
+    second: CommonAtalas_23
+  - first:
+      213: -6950191130258825684
+    second: CommonAtalas_24
+  - first:
+      213: -8356953369859914267
+    second: CommonAtalas_25
+  - first:
+      213: 7156808524602550425
+    second: CommonAtalas_26
+  - first:
+      213: -7296807923719838627
+    second: CommonAtalas_27
+  - first:
+      213: -7946639552398760326
+    second: CommonAtalas_28
+  - first:
+      213: 5762476115504542436
+    second: CommonAtalas_29
+  - first:
+      213: 3754965825508255257
+    second: CommonAtalas_30
+  - first:
+      213: -9086133644429507726
+    second: CommonAtalas_31
+  - first:
+      213: -3307361076696933608
+    second: CommonAtalas_32
+  - first:
+      213: 4716445159208149330
+    second: CommonAtalas_33
+  - first:
+      213: -670406218466217354
+    second: CommonAtalas_34
+  - first:
+      213: 654246883763360320
+    second: CommonAtalas_35
+  - first:
+      213: -1504066119388983137
+    second: CommonAtalas_36
+  - first:
+      213: -745318748669406772
+    second: CommonAtalas_37
+  - first:
+      213: 5281714290936100466
+    second: CommonAtalas_38
+  - first:
+      213: -2865257112959450899
+    second: CommonAtalas_39
+  - first:
+      213: -2961305958035680205
+    second: CommonAtalas_40
+  - first:
+      213: 1367389469284358279
+    second: CommonAtalas_41
+  - first:
+      213: -3755534725796051954
+    second: CommonAtalas_42
+  - first:
+      213: -2496404635044761907
+    second: CommonAtalas_43
+  - first:
+      213: -1333516773466213881
+    second: CommonAtalas_44
+  - first:
+      213: -5747661725990045688
+    second: CommonAtalas_45
+  - first:
+      213: 6360629677300635322
+    second: CommonAtalas_46
+  - first:
+      213: 1102113203211295158
+    second: CommonAtalas_47
+  - first:
+      213: 3172451688845827918
+    second: CommonAtalas_48
+  - first:
+      213: -2202540964786619186
+    second: CommonAtalas_49
+  - first:
+      213: -4825907135336106080
+    second: CommonAtalas_50
+  - first:
+      213: 734644978320928534
+    second: CommonAtalas_51
+  - first:
+      213: -16324465939906156
+    second: CommonAtalas_52
+  - first:
+      213: -5331513680161719708
+    second: CommonAtalas_53
+  - first:
+      213: 5911599097957160248
+    second: CommonAtalas_54
+  - first:
+      213: 7364511214192390240
+    second: CommonAtalas_55
+  - first:
+      213: -2830066199129341323
+    second: CommonAtalas_56
+  - first:
+      213: -6142137957007674283
+    second: CommonAtalas_57
+  - first:
+      213: 6591308038330938980
+    second: CommonAtalas_58
+  - first:
+      213: -6858338523435353840
+    second: CommonAtalas_59
+  - first:
+      213: -5457641319414255586
+    second: CommonAtalas_60
+  - first:
+      213: -4867822517195106713
+    second: CommonAtalas_61
+  - first:
+      213: -325411766167747891
+    second: CommonAtalas_62
+  - first:
+      213: 6027653538507631617
+    second: CommonAtalas_63
+  - first:
+      213: -6111968248472766872
+    second: CommonAtalas_64
+  - first:
+      213: 4756928029540004200
+    second: CommonAtalas_65
+  - first:
+      213: -587754361696597405
+    second: CommonAtalas_66
+  - first:
+      213: -4191407107845625212
+    second: CommonAtalas_67
+  - first:
+      213: 3603390023711705310
+    second: CommonAtalas_68
+  - first:
+      213: 1679449347315468003
+    second: CommonAtalas_69
+  - first:
+      213: -5915414182488883347
+    second: CommonAtalas_70
+  - first:
+      213: -6006820563099655530
+    second: CommonAtalas_71
+  - first:
+      213: -6326232879660458271
+    second: CommonAtalas_72
+  - first:
+      213: -8204432504047294354
+    second: CommonAtalas_73
+  - first:
+      213: 6875644134531176894
+    second: CommonAtalas_74
+  - first:
+      213: -22161171605943174
+    second: CommonAtalas_75
+  - first:
+      213: -1859910801712564334
+    second: CommonAtalas_76
+  - first:
+      213: -8972756233750000074
+    second: CommonAtalas_77
+  - first:
+      213: -4222937711127904543
+    second: CommonAtalas_78
+  - first:
+      213: -6111901262652390875
+    second: CommonAtalas_79
+  - first:
+      213: -6477294389352161677
+    second: CommonAtalas_80
+  - first:
+      213: 456265790579213835
+    second: CommonAtalas_81
+  - first:
+      213: -2144722635961052296
+    second: CommonAtalas_82
+  - first:
+      213: 2331317747701282140
+    second: CommonAtalas_83
+  - first:
+      213: -8264667116742797235
+    second: CommonAtalas_84
+  - first:
+      213: -5673128432196744364
+    second: CommonAtalas_85
+  - first:
+      213: 8871546953758532793
+    second: CommonAtalas_86
+  - first:
+      213: -3651380981881662199
+    second: CommonAtalas_87
+  - first:
+      213: 5413536750577216799
+    second: CommonAtalas_88
+  - first:
+      213: 4541303212135652944
+    second: CommonAtalas_89
+  - first:
+      213: 1133088615516831783
+    second: CommonAtalas_90
+  - first:
+      213: 4006308133728683666
+    second: CommonAtalas_91
+  - first:
+      213: 69402802153793201
+    second: CommonAtalas_92
+  - first:
+      213: 2791166674823128210
+    second: CommonAtalas_93
+  - first:
+      213: -7385557674381144347
+    second: CommonAtalas_94
+  - first:
+      213: 7814298244990918367
+    second: CommonAtalas_95
+  - first:
+      213: -5956355260959872670
+    second: CommonAtalas_96
+  - first:
+      213: 6799143229549753290
+    second: CommonAtalas_97
+  - first:
+      213: 5750128988209740283
+    second: CommonAtalas_98
+  - first:
+      213: 8136133136202393098
+    second: CommonAtalas_99
+  - first:
+      213: 5216743671882381286
+    second: CommonAtalas_100
+  - first:
+      213: 1951570711479298514
+    second: CommonAtalas_101
+  - first:
+      213: 5954850606911526180
+    second: CommonAtalas_102
+  - first:
+      213: 6734269262610331957
+    second: CommonAtalas_103
+  - first:
+      213: 1491201790533220612
+    second: CommonAtalas_104
+  - first:
+      213: -3147770535526144209
+    second: CommonAtalas_105
+  - first:
+      213: 2972277042864054944
+    second: CommonAtalas_106
+  - first:
+      213: 3181499478286528058
+    second: CommonAtalas_107
+  - first:
+      213: 1730766505934885145
+    second: CommonAtalas_108
+  - first:
+      213: -4073751374544773206
+    second: CommonAtalas_109
+  - first:
+      213: -2511673481749288545
+    second: CommonAtalas_110
+  - first:
+      213: -3099085576189515467
+    second: CommonAtalas_111
+  - first:
+      213: 1067457965878872244
+    second: CommonAtalas_112
+  - first:
+      213: -6734674394331497067
+    second: CommonAtalas_113
+  - first:
+      213: 8160010442172040347
+    second: CommonAtalas_114
+  - first:
+      213: 4388010698397121465
+    second: CommonAtalas_115
+  - first:
+      213: -472686377668033947
+    second: CommonAtalas_116
+  - first:
+      213: 153459385872770491
+    second: CommonAtalas_117
+  - first:
+      213: -7029414918052035406
+    second: CommonAtalas_118
+  - first:
+      213: -5004975324346382741
+    second: CommonAtalas_119
+  - first:
+      213: 4434872844464358458
+    second: CommonAtalas_120
+  - first:
+      213: -1063540612541104619
+    second: CommonAtalas_121
+  - first:
+      213: 8595779594794982781
+    second: CommonAtalas_122
+  - first:
+      213: 6762312979287403673
+    second: CommonAtalas_123
+  - first:
+      213: -6384308225562275984
+    second: CommonAtalas_124
+  - first:
+      213: 3114696710533611991
+    second: CommonAtalas_125
+  - first:
+      213: -343093190770583267
+    second: CommonAtalas_126
+  - first:
+      213: -9154577884441626760
+    second: CommonAtalas_127
+  - first:
+      213: -6243041399812473787
+    second: CommonAtalas_128
+  - first:
+      213: 8665230423909294322
+    second: CommonAtalas_129
+  - first:
+      213: -1021052205851480675
+    second: CommonAtalas_130
+  - first:
+      213: -6579380396069421590
+    second: CommonAtalas_131
+  - first:
+      213: -7390176580412682346
+    second: CommonAtalas_132
+  - first:
+      213: -2156621105080582960
+    second: CommonAtalas_133
+  - first:
+      213: 5516465147878944527
+    second: CommonAtalas_134
+  - first:
+      213: -3731080925266682739
+    second: CommonAtalas_135
+  - first:
+      213: 5956531661313392046
+    second: CommonAtalas_136
+  - first:
+      213: 1051150878095011537
+    second: CommonAtalas_137
+  - first:
+      213: -8644817234067638256
+    second: CommonAtalas_138
+  - first:
+      213: 6970262388296618618
+    second: CommonAtalas_139
+  - first:
+      213: -4262642303231707420
+    second: CommonAtalas_140
+  - first:
+      213: 8191684058686896329
+    second: CommonAtalas_141
+  - first:
+      213: 8225780608436958734
+    second: CommonAtalas_142
+  - first:
+      213: 7400640928618434290
+    second: CommonAtalas_143
+  - first:
+      213: -3106125985397401759
+    second: CommonAtalas_144
+  - first:
+      213: 6358984243574109789
+    second: CommonAtalas_145
+  - first:
+      213: -6883665591033646593
+    second: CommonAtalas_146
+  - first:
+      213: -5366829496683010999
+    second: CommonAtalas_147
+  - first:
+      213: -7554479654062035258
+    second: CommonAtalas_148
+  - first:
+      213: -760890038045796868
+    second: CommonAtalas_149
+  - first:
+      213: -323205876553550924
+    second: CommonAtalas_150
+  - first:
+      213: 8991001189569801110
+    second: CommonAtalas_151
+  - first:
+      213: -8753439797041907969
+    second: CommonAtalas_152
+  - first:
+      213: 6546451764247656831
+    second: CommonAtalas_153
+  - first:
+      213: 6174310452449146062
+    second: CommonAtalas_154
+  - first:
+      213: 7561736633127202340
+    second: CommonAtalas_155
+  - first:
+      213: -6399556824076204694
+    second: CommonAtalas_156
+  - first:
+      213: -6688160284245418207
+    second: CommonAtalas_157
+  - first:
+      213: 6518455937133023617
+    second: CommonAtalas_158
+  - first:
+      213: 2777010453521880896
+    second: CommonAtalas_159
+  - first:
+      213: -8414849099111676793
+    second: CommonAtalas_160
+  - first:
+      213: -8555185417780426310
+    second: CommonAtalas_161
+  - first:
+      213: 4599851647679059674
+    second: CommonAtalas_162
+  - first:
+      213: 5491641227842558018
+    second: CommonAtalas_163
+  - first:
+      213: -3940086327985585283
+    second: CommonAtalas_164
+  - first:
+      213: 9068231551111629363
+    second: CommonAtalas_165
+  - first:
+      213: -8649035131083383205
+    second: CommonAtalas_166
+  - first:
+      213: -6438376316706394728
+    second: CommonAtalas_167
+  - first:
+      213: -6143132895268029844
+    second: CommonAtalas_168
+  - first:
+      213: -8636923038493817685
+    second: CommonAtalas_169
+  - first:
+      213: 8824558477229180510
+    second: CommonAtalas_170
+  - first:
+      213: 1002773924249452345
+    second: CommonAtalas_171
+  - first:
+      213: 6746475590449454772
+    second: CommonAtalas_172
+  - first:
+      213: -389650347333534110
+    second: CommonAtalas_173
+  - first:
+      213: 8584147993836909899
+    second: CommonAtalas_174
+  - first:
+      213: 2708465744945356830
+    second: CommonAtalas_175
+  - first:
+      213: 7113302172958035527
+    second: CommonAtalas_176
+  - first:
+      213: 8443072059394773129
+    second: CommonAtalas_177
+  - first:
+      213: -9097031658013469069
+    second: CommonAtalas_178
+  - first:
+      213: -7238582688401509725
+    second: CommonAtalas_179
+  - first:
+      213: -8542925389374487136
+    second: CommonAtalas_180
+  - first:
+      213: -7267944742855768950
+    second: CommonAtalas_181
+  - first:
+      213: -2812364071293061748
+    second: CommonAtalas_182
+  - first:
+      213: 7949044732433426873
+    second: CommonAtalas_183
+  - first:
+      213: -7345980405738111118
+    second: CommonAtalas_184
+  - first:
+      213: 5541979753646388994
+    second: CommonAtalas_185
+  - first:
+      213: 3101816214995651678
+    second: CommonAtalas_186
+  - first:
+      213: -6657481880755487391
+    second: CommonAtalas_187
+  - first:
+      213: -4073115344965573539
+    second: CommonAtalas_188
+  - first:
+      213: -7537591845916450909
+    second: CommonAtalas_189
+  - first:
+      213: 1348445234582929455
+    second: CommonAtalas_190
+  - first:
+      213: 1367550325573941481
+    second: CommonAtalas_191
+  - first:
+      213: 4841424851683999263
+    second: CommonAtalas_192
+  - first:
+      213: -7172320359217527878
+    second: CommonAtalas_193
+  - first:
+      213: 8757866571585620752
+    second: CommonAtalas_194
+  - first:
+      213: 3335222867239199402
+    second: CommonAtalas_195
+  - first:
+      213: -5834572739795079854
+    second: CommonAtalas_196
+  - first:
+      213: 976049640209044432
+    second: CommonAtalas_197
+  - first:
+      213: -1262018297843574474
+    second: CommonAtalas_198
+  - first:
+      213: 8928148015343175695
+    second: CommonAtalas_199
+  - first:
+      213: 3997095790282721025
+    second: CommonAtalas_200
+  - first:
+      213: 3358522328001341148
+    second: CommonAtalas_201
+  - first:
+      213: 6000958360706076353
+    second: CommonAtalas_202
+  - first:
+      213: -2400908118008827447
+    second: CommonAtalas_203
+  - first:
+      213: 206000054266223551
+    second: CommonAtalas_204
+  - first:
+      213: -8547616643554929028
+    second: CommonAtalas_205
+  - first:
+      213: -7075625857302356191
+    second: CommonAtalas_206
+  - first:
+      213: 1385384020907694591
+    second: CommonAtalas_207
+  - first:
+      213: -5309017571421432457
+    second: CommonAtalas_208
+  - first:
+      213: 8789597028441113675
+    second: CommonAtalas_209
+  - first:
+      213: 2015157013845502838
+    second: CommonAtalas_210
+  - first:
+      213: 2896522162083227353
+    second: CommonAtalas_211
+  - first:
+      213: -4822618904366085359
+    second: CommonAtalas_212
+  - first:
+      213: 7351174266607201
+    second: CommonAtalas_213
+  - first:
+      213: -5637233659363252098
+    second: CommonAtalas_214
+  - first:
+      213: -3952088010362107540
+    second: CommonAtalas_215
+  - first:
+      213: 813481479255011364
+    second: CommonAtalas_216
+  - first:
+      213: -3482197717953347611
+    second: CommonAtalas_217
+  - first:
+      213: 4573199586649853700
+    second: CommonAtalas_218
+  - first:
+      213: -4497988600009600712
+    second: CommonAtalas_219
+  - first:
+      213: -8479914094697105272
+    second: CommonAtalas_220
+  - first:
+      213: 6679348831179014344
+    second: CommonAtalas_221
+  - first:
+      213: -4528761531770760797
+    second: CommonAtalas_222
+  - first:
+      213: 2380190734228649967
+    second: CommonAtalas_223
+  - first:
+      213: -9050037024284315985
+    second: CommonAtalas_224
+  - first:
+      213: -3349841030591802143
+    second: CommonAtalas_225
+  - first:
+      213: -1231989253097217538
+    second: CommonAtalas_226
+  - first:
+      213: -2408986893485121747
+    second: CommonAtalas_227
+  - first:
+      213: -3744728397907006196
+    second: CommonAtalas_228
+  - first:
+      213: -2219518398039943167
+    second: CommonAtalas_229
+  - first:
+      213: 3674703766240982458
+    second: CommonAtalas_230
+  - first:
+      213: 1116836869173877129
+    second: CommonAtalas_231
+  - first:
+      213: 3196232433871845314
+    second: CommonAtalas_232
+  - first:
+      213: 4434652107816016693
+    second: CommonAtalas_233
+  - first:
+      213: 6180178256299086141
+    second: CommonAtalas_234
+  - first:
+      213: 2020102721292249199
+    second: CommonAtalas_235
+  - first:
+      213: 7882229519896581020
+    second: CommonAtalas_236
+  - first:
+      213: -8863795440699434521
+    second: CommonAtalas_237
+  - first:
+      213: 7441034424626167873
+    second: CommonAtalas_238
+  - first:
+      213: 1347458641194549569
+    second: CommonAtalas_239
+  - first:
+      213: 3805087477075006939
+    second: CommonAtalas_240
+  - first:
+      213: 3303400613928699992
+    second: CommonAtalas_241
+  - first:
+      213: -1009097811021563679
+    second: CommonAtalas_242
+  - first:
+      213: 4706071052824755444
+    second: CommonAtalas_243
+  - first:
+      213: 1653609284170464420
+    second: CommonAtalas_244
+  - first:
+      213: 3972620879341172367
+    second: CommonAtalas_245
+  - first:
+      213: -4326893119594110322
+    second: CommonAtalas_246
+  - first:
+      213: -8674583864399339938
+    second: CommonAtalas_247
+  - first:
+      213: 3470729244966497008
+    second: CommonAtalas_248
+  - first:
+      213: -7723360784133300747
+    second: CommonAtalas_249
+  - first:
+      213: -5954057379034180713
+    second: CommonAtalas_250
+  - first:
+      213: -6153055241041271593
+    second: CommonAtalas_251
+  - first:
+      213: 1938134208141624306
+    second: CommonAtalas_252
+  - first:
+      213: -75919416009327757
+    second: CommonAtalas_253
+  - first:
+      213: -8507148954424899476
+    second: CommonAtalas_254
+  - first:
+      213: -1173873201572006920
+    second: CommonAtalas_255
+  - first:
+      213: -3184525675239458501
+    second: CommonAtalas_256
+  - first:
+      213: 6436498342836821969
+    second: CommonAtalas_257
+  - first:
+      213: 9123388198354602914
+    second: CommonAtalas_258
+  - first:
+      213: 3894948656088931215
+    second: CommonAtalas_259
+  - first:
+      213: -5360815020512872864
+    second: CommonAtalas_260
+  - first:
+      213: 8170931915167747174
+    second: CommonAtalas_261
+  - first:
+      213: -8342327403497076641
+    second: CommonAtalas_262
+  - first:
+      213: -6167858994784282876
+    second: CommonAtalas_263
+  - first:
+      213: -5755586286888440872
+    second: CommonAtalas_264
+  - first:
+      213: -7902376826545146193
+    second: CommonAtalas_265
+  - first:
+      213: 6665853602683015799
+    second: CommonAtalas_266
+  - first:
+      213: -6302345762257113494
+    second: CommonAtalas_267
+  - first:
+      213: 8131975815897123636
+    second: CommonAtalas_268
+  - first:
+      213: 1336998571420917630
+    second: CommonAtalas_269
+  - first:
+      213: 4909392706226317743
+    second: CommonAtalas_270
+  - first:
+      213: -5176472498690071158
+    second: CommonAtalas_271
+  - first:
+      213: -8691996033625215772
+    second: CommonAtalas_272
+  - first:
+      213: -8894518757965175336
+    second: CommonAtalas_273
+  - first:
+      213: 2801069272137781472
+    second: CommonAtalas_274
+  - first:
+      213: 2860987127944542579
+    second: CommonAtalas_275
+  - first:
+      213: 1395968114418513441
+    second: CommonAtalas_276
+  - first:
+      213: 1601898672067953054
+    second: CommonAtalas_277
+  - first:
+      213: 1760762314884451548
+    second: CommonAtalas_278
+  - first:
+      213: 658783031599275210
+    second: CommonAtalas_279
+  - first:
+      213: -4394080655527622384
+    second: CommonAtalas_280
+  - first:
+      213: 1310403948366364089
+    second: CommonAtalas_281
+  - first:
+      213: -2159735255245868879
+    second: CommonAtalas_282
+  - first:
+      213: 7020380435096281999
+    second: CommonAtalas_283
+  - first:
+      213: -5046367988398247562
+    second: CommonAtalas_284
+  - first:
+      213: -5357555690885170488
+    second: CommonAtalas_285
+  - first:
+      213: -6665261903512370800
+    second: CommonAtalas_286
+  - first:
+      213: 983862230558019021
+    second: CommonAtalas_287
+  - first:
+      213: -7024531804040333178
+    second: CommonAtalas_288
+  - first:
+      213: -8789626191068512478
+    second: CommonAtalas_289
+  - first:
+      213: 576778786898145933
+    second: CommonAtalas_290
+  - first:
+      213: -5385180618293374933
+    second: CommonAtalas_291
+  - first:
+      213: 9125632226878946821
+    second: CommonAtalas_292
+  - first:
+      213: -212618358931305435
+    second: CommonAtalas_293
+  - first:
+      213: -3901418776164377597
+    second: CommonAtalas_294
+  - first:
+      213: -6279113936770419331
+    second: CommonAtalas_295
+  - first:
+      213: -4880147966833521923
+    second: CommonAtalas_296
+  - first:
+      213: -2064963425356124012
+    second: CommonAtalas_297
+  - first:
+      213: 7251900604290492717
+    second: CommonAtalas_298
+  - first:
+      213: -693787311401872620
+    second: CommonAtalas_299
+  - first:
+      213: 4193170411468539511
+    second: CommonAtalas_300
+  - first:
+      213: -2671628221718478397
+    second: CommonAtalas_301
+  - first:
+      213: 5637560724971459226
+    second: CommonAtalas_302
+  - first:
+      213: -7889317995770117704
+    second: CommonAtalas_303
+  - first:
+      213: -896429587930231675
+    second: CommonAtalas_304
+  - first:
+      213: 5436415524097957361
+    second: CommonAtalas_305
+  - first:
+      213: 2742707495173458403
+    second: CommonAtalas_306
+  - first:
+      213: 6599533298279829812
+    second: CommonAtalas_307
+  - first:
+      213: 746555711631437922
+    second: CommonAtalas_308
+  - first:
+      213: 4926297728049227034
+    second: CommonAtalas_309
+  - first:
+      213: -771456596884540776
+    second: CommonAtalas_310
+  - first:
+      213: -2437495496409627377
+    second: CommonAtalas_311
+  - first:
+      213: 5383177550516657630
+    second: CommonAtalas_312
+  - first:
+      213: -8906229018391331690
+    second: CommonAtalas_313
+  - first:
+      213: 2344861126029169053
+    second: CommonAtalas_314
+  - first:
+      213: -4851361681697594073
+    second: CommonAtalas_315
+  - first:
+      213: -7015306610669842691
+    second: CommonAtalas_316
+  - first:
+      213: 8781193382103407831
+    second: CommonAtalas_317
+  - first:
+      213: 2408752676987921069
+    second: CommonAtalas_318
+  - first:
+      213: 6825838911372976230
+    second: CommonAtalas_319
+  - first:
+      213: 7300656278265315443
+    second: CommonAtalas_320
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CommonAtalas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 982
+        width: 90
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056150924fde7de49b213ff9d6dc787b
+      internalID: 1215165926625104294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1004
+        width: 10
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941b176c1d4cdc24eb867213e2e4fc59
+      internalID: 4026521196621557930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1002
+        width: 58
+        height: 19
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13280e832c3a8cd48bcc3efb334173e3
+      internalID: -5124407052980446124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 992
+        width: 46
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4faa867b379be37419aade6ff23d0660
+      internalID: -2294950379402128879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 988
+        width: 31
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07c29816b01c864fa5ec0db62f54e4d
+      internalID: -1364694102643244532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 981
+        width: 52
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bfa08e71cc22b04e8a345ded8b0ff0a
+      internalID: -6487607558298392599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_6
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1002
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb603647db2793843af8d86caed61d5a
+      internalID: -1020891756421441255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_7
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 997
+        width: 48
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42098dfd17482142b41f427fa914953
+      internalID: 3108521216050355094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_8
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 981
+        width: 52
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba3859e6890b1d41b6e91fa93b4bae4
+      internalID: -9181967510324806405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_9
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 991
+        width: 40
+        height: 31
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640ac3e824a169749b7e35dbe2ba5370
+      internalID: -4068660526622145559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_10
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 997
+        width: 26
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605874d74496f3640a15c296f2f6c037
+      internalID: -7234849305935713743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_11
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 972
+        width: 44
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925b83abe1176744eb78cbaf90172655
+      internalID: -5808130649987397501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_12
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 1000
+        width: 32
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fab48f0193a5c74d9bff768b36edc1c
+      internalID: 7200760010903448343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_13
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 983
+        width: 42
+        height: 39
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2cf6bed2e16d714c91a7f1f139f0ae3
+      internalID: -5698117712248375941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_14
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 974
+        width: 37
+        height: 38
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0799b291b0c2a4b8992197a1c413f5
+      internalID: -6712462601641121731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_15
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 985
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a9918b831fd1444b80f1a434a96065
+      internalID: 5169627916019196219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_16
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 997
+        width: 24
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac761f2b6081af41be07c563ac53120
+      internalID: -3810337108390251676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_17
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 982
+        width: 8
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1627fc04466ea4b80f1158fe5be22d
+      internalID: 7807474948234081894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_18
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 910
+        width: 54
+        height: 90
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1507b8c74f121ba44a38c1133e05aa0b
+      internalID: -4880917252942546524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 902
+        width: 80
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d465e721baf566e4793005cb4e7b9f2f
+      internalID: 3968005728434003963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_20
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 978
+        width: 18
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070867d68859e98419e59aa091a5a49e
+      internalID: -805819817744119940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_21
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 931
+        width: 48
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bec85b1cf64b6448c58a68582ddc82
+      internalID: 3462255156841124154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_22
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 925
+        width: 31
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80693d961ab64e8498290fd3a239b407
+      internalID: 8751066003316084866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_23
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 965
+        width: 32
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450205de4309b3a4595305200ac33f14
+      internalID: -6146035667792960056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_24
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 967
+        width: 28
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a80ecb5df3318b428f623d9ff941c7c
+      internalID: -6950191130258825684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_25
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 910
+        width: 96
+        height: 70
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ca5396ea838b848853a84b19b09c45
+      internalID: -8356953369859914267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 910
+        width: 66
+        height: 66
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7ac1137e2ec6845a1d42fa4ac3d559
+      internalID: 7156808524602550425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_27
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 925
+        width: 53
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe020c4445fa3ca4099a6f0ace1d6ca6
+      internalID: -7296807923719838627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_28
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 893
+        width: 32
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75296955559fe02409584635845a0494
+      internalID: -7946639552398760326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_29
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 914
+        width: 44
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c137f7caa2d26e449f0f4c5e9a91c63
+      internalID: 5762476115504542436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_30
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 927
+        width: 32
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae17590e1ce1b14db652340a949769c
+      internalID: 3754965825508255257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_31
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 940
+        width: 40
+        height: 41
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef52a49cb0a26574585969127bd5bb42
+      internalID: -9086133644429507726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_32
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 936
+        width: 33
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6961be41ddc5d5342820fd390a85c0f8
+      internalID: -3307361076696933608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_33
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 917
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58bc1153d0f79f141add9c133c419501
+      internalID: 4716445159208149330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_34
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 937
+        width: 28
+        height: 27
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364002abcea779344a92af15c91caefc
+      internalID: -670406218466217354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 82
+        height: 92
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f25fd9855102146b57363db184fcec
+      internalID: 654246883763360320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 840
+        width: 67
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694765586453e604b9eb36e0689329dc
+      internalID: -1504066119388983137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_37
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 865
+        width: 48
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62690a11d98c2f84f89a902bf4109416
+      internalID: -745318748669406772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_38
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 870
+        width: 41
+        height: 47
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb9f4a9555c6e14b8502775ed1ad795
+      internalID: 5281714290936100466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_39
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 863
+        width: 46
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22755299f5d5c7469e88e4877c8b03d
+      internalID: -2865257112959450899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_40
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 858
+        width: 44
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ab4e6f7f1b45b4cad16d05e6c526b4
+      internalID: -2961305958035680205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_41
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 890
+        width: 32
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8adbe972f383e41859ceab74743b84
+      internalID: 1367389469284358279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_42
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 896
+        width: 40
+        height: 42
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd773f290af7b584cad90126d756f8db
+      internalID: -3755534725796051954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_43
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 897
+        width: 31
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f15a048242c788469e10ef8f2f769d2
+      internalID: -2496404635044761907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_44
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 883
+        width: 33
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c9a68ce24b726448153c8e66e64010
+      internalID: -1333516773466213881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_45
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 906
+        width: 28
+        height: 29
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508cfa60820e0774585789dce0226eda
+      internalID: -5747661725990045688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_46
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 817
+        width: 84
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee281687b624085478e11a9e6d35e8ea
+      internalID: 6360629677300635322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_47
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 819
+        width: 79
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b322d97e69580242b50b43212366054
+      internalID: 1102113203211295158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_48
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 832
+        width: 31
+        height: 58
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8f0d11adebca348b9ab9a1ecd4c83f
+      internalID: 3172451688845827918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_49
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 853
+        width: 33
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563d068a598def44db3f58f2b74c7271
+      internalID: -2202540964786619186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_50
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 848
+        width: 40
+        height: 46
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa4c9f592e5df745bd3ff1b8e235382
+      internalID: -4825907135336106080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_51
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 857
+        width: 30
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b583b534fdc7c468c473d5dc4f7510
+      internalID: 734644978320928534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_52
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 846
+        width: 34
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0307707dd618641bb7e3a0e82cb1ab
+      internalID: -16324465939906156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_53
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 872
+        width: 27
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b395595bd00da1049a1e3eae63a76694
+      internalID: -5331513680161719708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_54
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 782
+        width: 39
+        height: 81
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96915edff1eaa8543a1d2c5951bebbd4
+      internalID: 5911599097957160248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_55
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 846
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7be448778eec64cba6b4d2b843dccb
+      internalID: 7364511214192390240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_56
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 810
+        width: 51
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cc34d20e8e10246a14d91ef4f9e41a
+      internalID: -2830066199129341323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_57
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 802
+        width: 45
+        height: 59
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc6783ba7617c840b5e964b3846b494
+      internalID: -6142137957007674283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_58
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 804
+        width: 45
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a57c31b52630c4eb653c70482229e2
+      internalID: 6591308038330938980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_59
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 816
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5262279e1c55006458a578b1bd69d918
+      internalID: -6858338523435353840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_60
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 816
+        width: 37
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018674b4dbf891440821c0dd20725b88
+      internalID: -5457641319414255586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_61
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 842
+        width: 26
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff0a8a9703187f44899ea6fd8136fbe
+      internalID: -4867822517195106713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 748
+        width: 54
+        height: 90
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf9289e774643e4da74e280bcc2f2bf
+      internalID: -325411766167747891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_63
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 782
+        width: 16
+        height: 44
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ecbe273874f1048ba5555a5f4ccae2
+      internalID: 6027653538507631617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_64
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 814
+        width: 20
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02f2ad5d3860e844a63050577e8a419
+      internalID: -6111968248472766872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_65
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 771
+        width: 31
+        height: 58
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a1b46c5fab3fa4c8e68b18c359345a
+      internalID: 4756928029540004200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_66
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 799
+        width: 40
+        height: 47
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844777bfdc242154a8077d83cbfe6255
+      internalID: -587754361696597405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_67
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 809
+        width: 34
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44441057e2700a34f8aa56fc22f139f2
+      internalID: -4191407107845625212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_68
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 804
+        width: 28
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a128535812f90449f6b4f3575c868b
+      internalID: 3603390023711705310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_69
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 797
+        width: 28
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f804e2ab3a5a564d84b4ff9774894ff
+      internalID: 1679449347315468003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_70
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 797
+        width: 27
+        height: 26
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57009bb6eee73ba4aaa3b4415f44bd77
+      internalID: -5915414182488883347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_71
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 797
+        width: 25
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9cf6c09d564764ebe55ba797430363
+      internalID: -6006820563099655530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_72
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 797
+        width: 25
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bbcb0cc0889b96459d673e0e134a95c
+      internalID: -6326232879660458271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_73
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 797
+        width: 20
+        height: 26
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e78717fc5cd084085ce258bde373ad
+      internalID: -8204432504047294354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_74
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 797
+        width: 22
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6162cd1f91bb6ed42b9a523eac3a963b
+      internalID: 6875644134531176894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_75
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 797
+        width: 22
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328fc5427f93ac244abe03ffba3738e6
+      internalID: -22161171605943174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_76
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 797
+        width: 22
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126ea9866fcea7645806f8b0ce9e7600
+      internalID: -1859910801712564334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 730
+        width: 90
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83676a917a232248b60cf88628169ae
+      internalID: -8972756233750000074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_78
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 800
+        width: 16
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c086394cc0fb1c4a9f6fde5b8390337
+      internalID: -4222937711127904543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_79
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 800
+        width: 16
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6bd2a00e30b4443bd00e094483143b
+      internalID: -6111901262652390875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 800
+        width: 16
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9bde0197b64af842a0d1284a62283af
+      internalID: -6477294389352161677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_81
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 800
+        width: 10
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e5d85ff26db204987a578de6a72bab
+      internalID: 456265790579213835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_82
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 800
+        width: 10
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7bd9b460d24bc46ae845bb1677a96c
+      internalID: -2144722635961052296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_83
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 686
+        width: 55
+        height: 128
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d254910162f5b0468ef961a2217381c
+      internalID: 2331317747701282140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_84
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 776
+        width: 26
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3869260819953f4589c572433d4cb74
+      internalID: -8264667116742797235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_85
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 782
+        width: 20
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19170280faa90214594070077aa221bb
+      internalID: -5673128432196744364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_86
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 754
+        width: 51
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1366c00d4eca6584495a3422f3d1fa31
+      internalID: 8871546953758532793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_87
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 751
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ed411845d9c3c4a84ac460e4b63b3a
+      internalID: -3651380981881662199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_88
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 763
+        width: 34
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb41cc70559e1c142892a9a12dc3fcce
+      internalID: 5413536750577216799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_89
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 776
+        width: 31
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c871db9ef60dcd0499195cd3c9423f50
+      internalID: 4541303212135652944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_90
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 772
+        width: 34
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2665e0046259c4b9b72c0ea207df10
+      internalID: 1133088615516831783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_91
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 771
+        width: 30
+        height: 31
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25aea552d2b3f1c418aab8adc222081b
+      internalID: 4006308133728683666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_92
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 730
+        width: 68
+        height: 68
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4615e6b46cc2440adf3e0fd6256bf4
+      internalID: 69402802153793201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_93
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 727
+        width: 20
+        height: 47
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5530acfdb30a18340bb720fe72c4c476
+      internalID: 2791166674823128210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_94
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 748
+        width: 22
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1f2658ae4fa5b4b97eca9b57d0b66b
+      internalID: -7385557674381144347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_95
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 716
+        width: 50
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07e55e87259fc84695313af1ee52898
+      internalID: 7814298244990918367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_96
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 739
+        width: 46
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9a35d4567c47140a30105872f631cc
+      internalID: -5956355260959872670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_97
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 749
+        width: 40
+        height: 47
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f02d4ee7d5d7544386eb81287f363ec
+      internalID: 6799143229549753290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_98
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 771
+        width: 34
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d03903454f4eb43af5d3109a29f1db
+      internalID: 5750128988209740283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_99
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 771
+        width: 24
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db2c78a981c935488dccb81865dd7ef
+      internalID: 8136133136202393098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_100
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 772
+        width: 19
+        height: 21
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd31766e0444cdc40822b470b41ba604
+      internalID: 5216743671882381286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_101
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 771
+        width: 24
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77321db25153aaf4a8da758b0573a643
+      internalID: 1951570711479298514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_102
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 773
+        width: 20
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63ccd6ff4ff0304c9140d3030ebc0c0
+      internalID: 5954850606911526180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_103
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 771
+        width: 24
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6908f604a18f84ca960362d38ff485
+      internalID: 6734269262610331957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_104
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 773
+        width: 20
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86443bab784347a49a7a3061486fc021
+      internalID: 1491201790533220612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_105
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 771
+        width: 26
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd723e2a0ff68694491d589e49e5dc53
+      internalID: -3147770535526144209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_106
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 730
+        width: 6
+        height: 14
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78432e14eee4c95479863befe383cf64
+      internalID: 2972277042864054944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_107
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 666
+        width: 75
+        height: 79
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f531ba7efa229a44ca10de2cc8769e35
+      internalID: 3181499478286528058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_108
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 695
+        width: 51
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac41aa25613bfbf43bb7e798542b21f8
+      internalID: 1730766505934885145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_109
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 677
+        width: 46
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c90202a94eab9f4b860e78ec088d8d9
+      internalID: -4073751374544773206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_110
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 710
+        width: 31
+        height: 59
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d27b702c89ee549b4cda3330e981c5
+      internalID: -2511673481749288545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_111
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 698
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2446a3d31c852f940bc7c5782ebb4e93
+      internalID: -3099085576189515467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_112
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 711
+        width: 34
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069902940b56a2c44af3db020e364d71
+      internalID: 1067457965878872244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_113
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 699
+        width: 40
+        height: 47
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4dde9df58c3bd241972ccbc9a0d647c
+      internalID: -6734674394331497067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_114
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 735
+        width: 35
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea812c21b3b7d824ea4b5b5e79538e9f
+      internalID: 8160010442172040347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_115
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 735
+        width: 34
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94713608c59eddc4fbf62c3f50ca323d
+      internalID: 4388010698397121465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_116
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 735
+        width: 36
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd55c15855876b4887cbf3e83c1b3c1
+      internalID: -472686377668033947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_117
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 735
+        width: 36
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd8b87ffda05e24c8c43878ee4a09d1
+      internalID: 153459385872770491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_118
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 735
+        width: 36
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf536530e7ed1840a8f755b599d0481
+      internalID: -7029414918052035406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_119
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 735
+        width: 36
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7a8c77f2becd44ba0e54d9cec04647
+      internalID: -5004975324346382741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_120
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 735
+        width: 30
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4631625d007a6274489695f3832b5a25
+      internalID: 4434872844464358458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_121
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 736
+        width: 30
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e87cde2bfee63d2488472fde81d4d85e
+      internalID: -1063540612541104619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_122
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 735
+        width: 30
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8d939f9e7735e4a989d4f119d4faa4
+      internalID: 8595779594794982781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_123
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 638
+        width: 90
+        height: 90
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba9e2fea79148d4396bc0ed3017d8cb
+      internalID: 6762312979287403673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_124
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 714
+        width: 18
+        height: 12
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1e90a0845044b4ba8eec0a9d1eab30
+      internalID: -6384308225562275984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_125
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 714
+        width: 14
+        height: 14
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c83f1256ce9ce41b66f9c163f3869a
+      internalID: 3114696710533611991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_126
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 714
+        width: 14
+        height: 14
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682699ca16b11e746bca6d659d4c350f
+      internalID: -343093190770583267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_127
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 714
+        width: 18
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9737e2531fb254c8d1163f166899d8
+      internalID: -9154577884441626760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_128
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 686
+        width: 25
+        height: 39
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401ce6db094bafd4a99cebdba29c8e84
+      internalID: -6243041399812473787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_129
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 695
+        width: 40
+        height: 37
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e02b370c10677468f4af6520d93037
+      internalID: 8665230423909294322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_130
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 698
+        width: 38
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23878474474af454ebac7bce27d62fc3
+      internalID: -1021052205851480675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_131
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 698
+        width: 31
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ece93283983a224eb7c3e6a54795215
+      internalID: -6579380396069421590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_132
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 695
+        width: 36
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1ce92deddddf940bf044f5871e4b6d
+      internalID: -7390176580412682346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_133
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 695
+        width: 36
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15471fc1426cb8848b4cfaa7c8bbae84
+      internalID: -2156621105080582960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_134
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 695
+        width: 36
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b60144d7373c9b44a512ca8e6fec9ec
+      internalID: 5516465147878944527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_135
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 695
+        width: 35
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35dbe1b15d5b0d4e927bb81d257cb4b
+      internalID: -3731080925266682739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_136
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 695
+        width: 34
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1aa63d947f6b994da0678a7996aaccb
+      internalID: 5956531661313392046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_137
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 695
+        width: 19
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3c901dbbb34d04b993bd1e0dce047c
+      internalID: 1051150878095011537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_138
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 638
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582f6151579fd214994a3a5a819cbe71
+      internalID: -8644817234067638256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_139
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 556
+        width: 55
+        height: 128
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df415a0cf6456c46b20468215575812
+      internalID: 6970262388296618618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_140
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 646
+        width: 20
+        height: 38
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dcb1c0aca6c554391916fcd6a863e2
+      internalID: -4262642303231707420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_141
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 584
+        width: 78
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c342b57acb84373429dbea50ec681f97
+      internalID: 8191684058686896329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_142
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 659
+        width: 59
+        height: 55
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c4f5ac577b1434c802688be7c4c8d0
+      internalID: 8225780608436958734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_143
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 637
+        width: 54
+        height: 56
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6b217e2597e7840bb38b57115ccc59
+      internalID: 7400640928618434290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_144
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 615
+        width: 46
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429a2a6bc582e554382e2b4ef3822c29
+      internalID: -3106125985397401759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_145
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 647
+        width: 31
+        height: 59
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2dce968a69b52488faf45e7d9e5e93
+      internalID: 6358984243574109789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_146
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 644
+        width: 48
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a827a37e23052c4a99474ee44c89395
+      internalID: -6883665591033646593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_147
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 650
+        width: 34
+        height: 58
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fc292127ab61b47a5a3d9a26b7d815
+      internalID: -5366829496683010999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_148
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 650
+        width: 42
+        height: 46
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767b5039f08572747a4d63bd57e94f5a
+      internalID: -7554479654062035258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_149
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 650
+        width: 42
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d1c87fa8352444dbe3c39656056e6d
+      internalID: -760890038045796868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_150
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 650
+        width: 46
+        height: 39
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f3465894f5a1a48bd352889afda07a
+      internalID: -323205876553550924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_151
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 650
+        width: 44
+        height: 38
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212c689b33d72a24e83c250c668abe66
+      internalID: 8991001189569801110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_152
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 650
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b162c9a13396a94a8118fd9974ce04c
+      internalID: -8753439797041907969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_153
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 650
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60c9b1d9c9504b48ba2ea78b523af27
+      internalID: 6546451764247656831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_154
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 650
+        width: 39
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbe68e1ede8b044682ada0d38ce74ec
+      internalID: 6174310452449146062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_155
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 650
+        width: 37
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6423de894a80e47b911928f4cf4181
+      internalID: 7561736633127202340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_156
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 651
+        width: 30
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00990114bf40c3c4d807888d6bfbe87f
+      internalID: -6399556824076204694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_157
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 546
+        width: 90
+        height: 90
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a050939a12178be46b795618c81a9a51
+      internalID: -6688160284245418207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_158
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 628
+        width: 26
+        height: 8
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aace3af0ccd45c74ea213198bf50681c
+      internalID: 6518455937133023617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_159
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 628
+        width: 16
+        height: 8
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ebf06601f271041a9022e47c183a89
+      internalID: 2777010453521880896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_160
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 628
+        width: 12
+        height: 8
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1ad2e227b54384daa09c79a545a3de
+      internalID: -8414849099111676793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_161
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 601
+        width: 26
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7468f140139c9c4b84f2cf1bb3374fb
+      internalID: -8555185417780426310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_162
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 597
+        width: 60
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1100c449b5e01ff469aa510e9c924e44
+      internalID: 4599851647679059674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_163
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 579
+        width: 54
+        height: 56
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b10a3938254da47a49e2775a849606
+      internalID: 5491641227842558018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_164
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 569
+        width: 32
+        height: 76
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da21592f3fa55684185605ef44336131
+      internalID: -3940086327985585283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_165
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 592
+        width: 49
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0934aa01e47e2e408591770f1aef499
+      internalID: 9068231551111629363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_166
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 592
+        width: 42
+        height: 56
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775eeff5e049b1c47a6482f4e94c1630
+      internalID: -8649035131083383205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_167
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 592
+        width: 43
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0fd0d51bcfd3f429db3e272edd8147
+      internalID: -6438376316706394728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_168
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 592
+        width: 43
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac732f608316ff41be9f9ea04e82701
+      internalID: -6143132895268029844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_169
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 592
+        width: 42
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c596b7885ab0d094fb4d89364700a726
+      internalID: -8636923038493817685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_170
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 592
+        width: 41
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af429acd90f978943af797157adf92de
+      internalID: 8824558477229180510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_171
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 592
+        width: 42
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf94439afc6861d4eb01524283fd6741
+      internalID: 1002773924249452345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_172
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 592
+        width: 41
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6572618ba7736d4a9b2dda47d7f1d0d
+      internalID: 6746475590449454772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_173
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 592
+        width: 41
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b34c0e9f2ad8e4e8b408c36d6d3278
+      internalID: -389650347333534110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_174
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 592
+        width: 44
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a83f09dd4f7264fb78dd3b7f4c08ba
+      internalID: 8584147993836909899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_175
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 616
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdabdb62c22604d44a3f52322a13bf15
+      internalID: 2708465744945356830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_176
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 546
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f9ed787b81db145bc86ad215ad04ad
+      internalID: 7113302172958035527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_177
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 556
+        width: 26
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34847289e247654d9e35fa1a27da008
+      internalID: 8443072059394773129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_178
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 535
+        width: 60
+        height: 60
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5294f8d0d28c1b45b0f292a660d9196
+      internalID: -9097031658013469069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_179
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 547
+        width: 42
+        height: 66
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9336b541f4eb0e54d913bdcd2f3ef522
+      internalID: -7238582688401509725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_180
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 592
+        width: 16
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2b3a178d3402347b137b101211c6a9
+      internalID: -8542925389374487136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_181
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 502
+        width: 76
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0783fa934088cd4d8fda5c06ee2216a
+      internalID: -7267944742855768950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_182
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 493
+        width: 37
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a09735ffc10dc8449c8bed01fd99823
+      internalID: -2812364071293061748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_183
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 554
+        width: 22
+        height: 23
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091fc72af86bd524a8f6119ed18c58f6
+      internalID: 7949044732433426873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_184
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 487
+        width: 33
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75386372ea7bea846baa253cd0f4ec83
+      internalID: -7345980405738111118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_185
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 541
+        width: 53
+        height: 49
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b5731e267ab23499865a791bea3c83
+      internalID: 5541979753646388994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_186
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 541
+        width: 50
+        height: 49
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b84931037958449891fa4bfd6cdf68
+      internalID: 3101816214995651678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_187
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 541
+        width: 54
+        height: 44
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8be116c25b70b41968075aabfdb060
+      internalID: -6657481880755487391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_188
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 541
+        width: 50
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64a86d335a46304798065335e0f02d1
+      internalID: -4073115344965573539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_189
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 541
+        width: 48
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f3353759e71444fa5a2d24b1b248e9
+      internalID: -7537591845916450909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_190
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 541
+        width: 46
+        height: 46
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d568619b85d5552458880ea67164816c
+      internalID: 1348445234582929455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_191
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 541
+        width: 44
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b46b2ba630757c4a86eb25e66f43748
+      internalID: 1367550325573941481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_192
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 541
+        width: 52
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73438f68dc66bdf42b00c075fc6b9c78
+      internalID: 4841424851683999263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_193
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 541
+        width: 43
+        height: 44
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b02a328364d1b438f298b09002a04f
+      internalID: -7172320359217527878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_194
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 444
+        width: 96
+        height: 100
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb33078148f8c9479886679d03855f2
+      internalID: 8757866571585620752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_195
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 516
+        width: 46
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539109da98e6ca34fb115b886b1c9e02
+      internalID: 3335222867239199402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_196
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 516
+        width: 22
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c90f17f230d154ea8fef5717b5bb89
+      internalID: -5834572739795079854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_197
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 426
+        width: 55
+        height: 128
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d3cca1c1c74f24a815436d3784aaf7
+      internalID: 976049640209044432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_198
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 532
+        width: 25
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c1be27c2f1e2447bda73e563fce04f
+      internalID: -1262018297843574474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_199
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 472
+        width: 61
+        height: 61
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c4c5217893827469564b1ba5f6d3ca
+      internalID: 8928148015343175695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_200
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 525
+        width: 24
+        height: 26
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c6708275e716f42a9f2f2531436690
+      internalID: 3997095790282721025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_201
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 487
+        width: 48
+        height: 58
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f4d270634b50346b23d35e6b92c8f3
+      internalID: 3358522328001341148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_202
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0eb15ff35db12b488f50a0b82b1e734
+      internalID: 6000958360706076353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_203
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386342f41dc99c14da890baf7dd9f0c8
+      internalID: -2400908118008827447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_204
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 488
+        width: 49
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b7a36bff329774d84b4aaeb3815096
+      internalID: 206000054266223551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_205
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb2d1e3de3d8f449897b5a25e8bdd45
+      internalID: -8547616643554929028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_206
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c89e6a2751a1c44947b0ea9abda846
+      internalID: -7075625857302356191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_207
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dd1685ae6962b4c9873093ca567d92
+      internalID: 1385384020907694591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_208
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9007fa0ceac2c64f98cf4d6ef9f9d42
+      internalID: -5309017571421432457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_209
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 487
+        width: 50
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6582e68d1c5ef34794c3275f413f1f1
+      internalID: 8789597028441113675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_210
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 444
+        width: 70
+        height: 70
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84804002abb4ea47ba1ea1cc236baf7
+      internalID: 2015157013845502838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_211
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 482
+        width: 23
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e908df278b728345b37d71cba060da1
+      internalID: 2896522162083227353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_212
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 418
+        width: 78
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2164cf746e2864fabadc511d9d6ca5
+      internalID: -4822618904366085359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_213
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 493
+        width: 23
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f368156c6c9db2b4ab26ce547f381cb6
+      internalID: 7351174266607201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_214
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 493
+        width: 44
+        height: 37
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341cd39dea3bf3f41b71e66644c0d0db
+      internalID: -5637233659363252098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_215
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 98
+        height: 98
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4373aac37adada6468f5a3a0756d3918
+      internalID: -3952088010362107540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_216
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 436
+        width: 8
+        height: 6
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be85f22605e035b499e16af95af2ab82
+      internalID: 813481479255011364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_217
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 416
+        width: 8
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ec110c0962a81488369f1d397e22c2
+      internalID: -3482197717953347611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_218
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 426
+        width: 26
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2becd8b1a32fcbf4a8a2ed3abe5a9044
+      internalID: 4573199586649853700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_219
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 400
+        width: 63
+        height: 70
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31583631b01c49a43a78a5e08448020c
+      internalID: -4497988600009600712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_220
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 433
+        width: 64
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec09226196437a2499686e496484bd58
+      internalID: -8479914094697105272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_221
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 432
+        width: 69
+        height: 53
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87ba74789ebbf14883dc2fbbd646071
+      internalID: 6679348831179014344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_222
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 432
+        width: 72
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64d860afaa47144a80c981fa21d8d50
+      internalID: -4528761531770760797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_223
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 432
+        width: 66
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd947d74f5637143a77ac75fbef7b12
+      internalID: 2380190734228649967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_224
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 435
+        width: 36
+        height: 31
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a869556a390644794791f101bb3ed0
+      internalID: -9050037024284315985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_225
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 435
+        width: 35
+        height: 31
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf4b28ee1fb401488c5bd068467330b
+      internalID: -3349841030591802143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_226
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 432
+        width: 53
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953e928d59079894baf7f1cb326fa09c
+      internalID: -1231989253097217538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_227
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 432
+        width: 58
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f790dd19ac19944908f1a961d908d0
+      internalID: -2408986893485121747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_228
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 432
+        width: 52
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7733cac4571ae5a41b260ed628242b08
+      internalID: -3744728397907006196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_229
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 432
+        width: 52
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a09cc5bad13104ead038cf18796e0a
+      internalID: -2219518398039943167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_230
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 432
+        width: 28
+        height: 52
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8ad8afcb567d643bcc1dabca9f7dc1
+      internalID: 3674703766240982458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_231
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 344
+        width: 54
+        height: 90
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c11796eff519041a3fd07b7f3b3d06
+      internalID: 1116836869173877129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_232
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 396
+        width: 10
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353d5190b0ea25e4188b437efcf5410f
+      internalID: 3196232433871845314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_233
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 340
+        width: 84
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129aead9be26858488f197951066af22
+      internalID: 4434652107816016693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_234
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 331
+        width: 80
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59446b473c2efb348846e2e0134bb8bd
+      internalID: 6180178256299086141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_235
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 400
+        width: 126
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92c7b4f744027941b2aa614ca1ad83b
+      internalID: 2020102721292249199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_236
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 400
+        width: 106
+        height: 27
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3181e1df166ef24449d8f33bd3a38448
+      internalID: 7882229519896581020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_237
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 400
+        width: 46
+        height: 26
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c087b7a07745fbe48b38342393f9db99
+      internalID: -8863795440699434521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_238
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 400
+        width: 48
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8233c5f63cc3d842abdb3da6e4187f6
+      internalID: 7441034424626167873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_239
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 400
+        width: 38
+        height: 27
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3eac551be9115408a3f4b024b38f7b
+      internalID: 1347458641194549569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_240
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 400
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5b43c9d67951d42b9f1cbcf2eaeef7
+      internalID: 3805087477075006939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_241
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 400
+        width: 32
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf1633c06cc5d045a8e93c91041c0d5
+      internalID: 3303400613928699992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_242
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 400
+        width: 33
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cfccdfe22b3ac84da92d988dd4d0288
+      internalID: -1009097811021563679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_243
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 400
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d287ea96db843b347a5a77f233866651
+      internalID: 4706071052824755444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_244
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 400
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e7f93218f674640809901303b7ea40
+      internalID: 1653609284170464420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_245
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 400
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7224344e954d5b04c9a7caa1527c3738
+      internalID: 3972620879341172367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_246
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 401
+        width: 34
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5326c6435d029c4cb5b61cd711bc260
+      internalID: -4326893119594110322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_247
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 376
+        width: 12
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09e4b3d019e4194e821692d3d559dff
+      internalID: -8674583864399339938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_248
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 331
+        width: 65
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9873cadfe4d3a0a408359fa7f3eab18a
+      internalID: 3470729244966497008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_249
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 331
+        width: 65
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f6f4ac5a6f34247ae08df12fda47f3
+      internalID: -7723360784133300747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_250
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 331
+        width: 66
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edff91ceb7a21074ea056f87f4cd9d12
+      internalID: -5954057379034180713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_251
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 331
+        width: 66
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f02280c9c137024f94285f7f8b1d8b5
+      internalID: -6153055241041271593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_252
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 331
+        width: 66
+        height: 67
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519a4bbcd7cc06444becdb399bd129f3
+      internalID: 1938134208141624306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_253
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 331
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6acff1b49d3d546a3e968ca3b288ec
+      internalID: -75919416009327757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_254
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 331
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875d15a6ed637ed43ae88c5ecef4c49c
+      internalID: -8507148954424899476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_255
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 333
+        width: 62
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b15efe28e83a4458543eb8a962aae4
+      internalID: -1173873201572006920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_256
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 331
+        width: 62
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267ba0f7d6cd88140b2a2c9a360934ac
+      internalID: -3184525675239458501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_257
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 331
+        width: 69
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04af3a6b698823c4a89f192d106e5a6b
+      internalID: 6436498342836821969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_258
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 344
+        width: 12
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d01b82e43b76b34f8cfb0c7e12e9e48
+      internalID: 9123388198354602914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_259
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 118
+        height: 118
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9dcfdac70119f747a9f5d987c5dad95
+      internalID: 3894948656088931215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_260
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 308
+        width: 47
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa72dfde2d8a05a409ff0d1906063a33
+      internalID: -5360815020512872864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_261
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 254
+        width: 84
+        height: 84
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878114cae4128c34db3c1e7c0a14c79e
+      internalID: 8170931915167747174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_262
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 254
+        width: 89
+        height: 75
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b3dd463fbfbce47b2b644b27329431
+      internalID: -8342327403497076641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_263
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 254
+        width: 80
+        height: 72
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb9e231268876f47926a80c59fb8a4e
+      internalID: -6167858994784282876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_264
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 260
+        width: 66
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd137e0cf9c0c34bb881f9eb71fec30
+      internalID: -5755586286888440872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_265
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 254
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbe8a43d7968bc49b1af31e5676d9f4
+      internalID: -7902376826545146193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_266
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 260
+        width: 66
+        height: 56
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f4bbd5d99101c43a679db657916d14
+      internalID: 6665853602683015799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_267
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 254
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4909123e61700d74d919577f85fcfdba
+      internalID: -6302345762257113494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_268
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 254
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472d080061c0d1444be96501c0980c65
+      internalID: 8131975815897123636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_269
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 254
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d711c037f0e59d4aa1913f303e4cbfd
+      internalID: 1336998571420917630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_270
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 254
+        width: 69
+        height: 66
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdb8e60966f2894983958a7bf8c53aa
+      internalID: 4909392706226317743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_271
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 254
+        width: 69
+        height: 66
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5901dab944cf844468ec6e2bff02385e
+      internalID: -5176472498690071158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_272
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 224
+        width: 44
+        height: 82
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c935e84effbd44e8bfed7ae712ebe7
+      internalID: -8691996033625215772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_273
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 181
+        width: 180
+        height: 71
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361ea137046d620488c24dabc7792562
+      internalID: -8894518757965175336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_274
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 232
+        width: 104
+        height: 14
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae753816a9a2824ea69db511bf03d22
+      internalID: 2801069272137781472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_275
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 232
+        width: 78
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d15781d7dfe9c4f862df05cb40d1cd
+      internalID: 2860987127944542579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_276
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 232
+        width: 77
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d684a1d843356b948a2acfa5b29359d2
+      internalID: 1395968114418513441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_277
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 233
+        width: 56
+        height: 13
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae88e151de228194d9c2c422a40a7253
+      internalID: 1601898672067953054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_278
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 232
+        width: 46
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedb5bc55b9ec93409b49fb6bd8ecbb1
+      internalID: 1760762314884451548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_279
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 232
+        width: 30
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8054c0b37e3384e8efd361b5c4c335
+      internalID: 658783031599275210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_280
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 232
+        width: 23
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7371b730aee777a41a98acc5e83de6ce
+      internalID: -4394080655527622384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_281
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 232
+        width: 20
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939b0eae915c9894db6197a42abe745b
+      internalID: 1310403948366364089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_282
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 232
+        width: 19
+        height: 19
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3102e4a0ea540c74b92748cd8da2064f
+      internalID: -2159735255245868879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_283
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 232
+        width: 17
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0855e38b5f4a21b48973b34fe4d3cd2d
+      internalID: 7020380435096281999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_284
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 232
+        width: 18
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9901f95e2d612449b0637fc06155efe
+      internalID: -5046367988398247562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_285
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 232
+        width: 16
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0798a52c366896c43a7e1f3363ca4f8a
+      internalID: -5357555690885170488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_286
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 232
+        width: 16
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722d6e44f0978d049a654afd6e748027
+      internalID: -6665261903512370800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_287
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 232
+        width: 16
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c217a173d9eaf45810a826d4767943
+      internalID: 983862230558019021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_288
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 181
+        width: 64
+        height: 71
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b7c96b304c61844b48e9b969814ed8
+      internalID: -7024531804040333178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_289
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 108
+        width: 165
+        height: 110
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bca66d33bcdb2e49b5c4884fff4a2e9
+      internalID: -8789626191068512478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_290
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 188
+        width: 186
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3b202d7e393304382101b401b2a9d9
+      internalID: 576778786898145933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_291
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 188
+        width: 148
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ae53dd6b107214d8ad49a1e50b6d6a
+      internalID: -5385180618293374933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_292
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 187
+        width: 194
+        height: 42
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f62515afa7e27f438cbbcd25205666c
+      internalID: 9125632226878946821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_293
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 108
+        width: 200
+        height: 69
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1867b276b8bec847b6fc75e16ccb169
+      internalID: -212618358931305435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_294
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 108
+        width: 210
+        height: 59
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52bc88114a00df428a79a23ed77cde6
+      internalID: -3901418776164377597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_295
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 152
+        width: 121
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b757712d18c007c469e6040902d31fcd
+      internalID: -6279113936770419331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_296
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 153
+        width: 106
+        height: 17
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53751642d4418f4dbbe4a5d628fa151
+      internalID: -4880147966833521923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_297
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 164
+        width: 10
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e73baab78bf7a40b2e22b2c9a28900
+      internalID: -2064963425356124012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_298
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 108
+        width: 88
+        height: 68
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015ef8e6d8a5f87418ba2b6a02b6549b
+      internalID: 7251900604290492717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_299
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 108
+        width: 83
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1422c203adc5ca4c98b4f5d1bd2693c
+      internalID: -693787311401872620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_300
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 152
+        width: 10
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a13ad3dcf00b8944b66e33fa1f2502b
+      internalID: 4193170411468539511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_301
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 108
+        width: 244
+        height: 42
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34dc305b2cc5134ca39504e78def623
+      internalID: -2671628221718478397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_302
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 108
+        width: 14
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cff71d9494206448142689d45eabf0
+      internalID: 5637560724971459226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_303
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 106
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7632b3f4a82e64fb46d4fc8fdd16f4
+      internalID: -7889317995770117704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_304
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 70
+        width: 144
+        height: 33
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65dbcbe5da3d5f14a9b71d2f0d05dc69
+      internalID: -896429587930231675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_305
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 69
+        width: 120
+        height: 35
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0151f79fea0f81f41b6fe9d9641d2d95
+      internalID: 5436415524097957361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_306
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 68
+        width: 68
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5b8d40e0cae004f97aff1e1e8c5798
+      internalID: 2742707495173458403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_307
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 90
+        width: 8
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344f67d403190034b965e254f4788b9e
+      internalID: 6599533298279829812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_308
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 97
+        width: 131
+        height: 7
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9655a11b237b1874199a015afdf6cc71
+      internalID: 746555711631437922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_309
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 65
+        width: 86
+        height: 38
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a551a0bf029b88a4c866359e6af990b0
+      internalID: 4926297728049227034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_310
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 65
+        width: 32
+        height: 41
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d770513f8ae0b1d4893b90bcb3a4e7c3
+      internalID: -771456596884540776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_311
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 102
+        width: 14
+        height: 4
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5830ab0ccab27bc4b8ec0fee3c4c4fdc
+      internalID: -2437495496409627377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_312
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 102
+        width: 12
+        height: 4
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20984e9907a67d44cb8ac981e16daf06
+      internalID: 5383177550516657630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_313
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 68
+        width: 10
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa39d79086727434393cd9fd7104c6cd
+      internalID: -8906229018391331690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_314
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 65
+        width: 133
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4afbf0c5799526740a24da4bf0dd85f9
+      internalID: 2344861126029169053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_315
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 100
+        height: 102
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02746f31b7d12714280d61da56b389f7
+      internalID: -4851361681697594073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_316
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 43
+        height: 100
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff5eecc5634594449718515da3f6d37
+      internalID: -7015306610669842691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_317
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 352
+        height: 65
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d625c5d2961ed347aa2294db9e461b9
+      internalID: 8781193382103407831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_318
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 0
+        width: 244
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b6fbbb0064eec448d7759291b303f2
+      internalID: 2408752676987921069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_319
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 12
+        width: 4
+        height: 4
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7496c705ef82c914083225c67846541c
+      internalID: 6825838911372976230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CommonAtalas_320
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 0
+        width: 4
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cebd4e40a0077458b4437a931c62d3
+      internalID: 7300656278265315443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

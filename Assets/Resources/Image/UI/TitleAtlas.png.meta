@@ -1,0 +1,1207 @@
+fileFormatVersion: 2
+guid: b60ac1ad10ff2e54bb356f03e2c45f43
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3928821091713784759
+    second: TitleAtlas_0
+  - first:
+      213: 2916560527354976999
+    second: TitleAtlas_1
+  - first:
+      213: -5055776873432757628
+    second: TitleAtlas_2
+  - first:
+      213: 7598655851263336653
+    second: TitleAtlas_3
+  - first:
+      213: -3892114929321276990
+    second: TitleAtlas_4
+  - first:
+      213: 1099510201035020127
+    second: TitleAtlas_5
+  - first:
+      213: 3902358521082277757
+    second: TitleAtlas_6
+  - first:
+      213: 7026182839562708801
+    second: TitleAtlas_7
+  - first:
+      213: -5109075117935204462
+    second: TitleAtlas_8
+  - first:
+      213: 2492716291678218052
+    second: TitleAtlas_9
+  - first:
+      213: -1742602970439932184
+    second: TitleAtlas_10
+  - first:
+      213: -7649296881789703845
+    second: TitleAtlas_11
+  - first:
+      213: -3705905291218234797
+    second: TitleAtlas_12
+  - first:
+      213: -3005553982864889495
+    second: TitleAtlas_13
+  - first:
+      213: -8646140444907368850
+    second: TitleAtlas_14
+  - first:
+      213: 7162866386213557854
+    second: TitleAtlas_15
+  - first:
+      213: -2675943177598839832
+    second: TitleAtlas_16
+  - first:
+      213: 1355268219501827143
+    second: TitleAtlas_17
+  - first:
+      213: 8517481890339073633
+    second: TitleAtlas_18
+  - first:
+      213: 6406255595486156180
+    second: TitleAtlas_19
+  - first:
+      213: -2661564590178208204
+    second: TitleAtlas_20
+  - first:
+      213: -6287874128018990632
+    second: TitleAtlas_21
+  - first:
+      213: -3083693115190206346
+    second: TitleAtlas_22
+  - first:
+      213: -4181235696502975257
+    second: TitleAtlas_23
+  - first:
+      213: 8123632210117957339
+    second: TitleAtlas_24
+  - first:
+      213: -5429249553976631683
+    second: TitleAtlas_25
+  - first:
+      213: -1280479248265346179
+    second: TitleAtlas_26
+  - first:
+      213: 3446443871078531866
+    second: TitleAtlas_27
+  - first:
+      213: 7925816031154165741
+    second: TitleAtlas_28
+  - first:
+      213: -7746497439294421539
+    second: TitleAtlas_29
+  - first:
+      213: 1948560954059797540
+    second: TitleAtlas_30
+  - first:
+      213: -766743173282287277
+    second: TitleAtlas_31
+  - first:
+      213: -4985910545322071847
+    second: TitleAtlas_32
+  - first:
+      213: -5496011698074368883
+    second: TitleAtlas_33
+  - first:
+      213: 4241661002201955456
+    second: TitleAtlas_34
+  - first:
+      213: 7910359101754005982
+    second: TitleAtlas_35
+  - first:
+      213: -7418698376787100522
+    second: TitleAtlas_36
+  - first:
+      213: 3104628143277238794
+    second: TitleAtlas_37
+  - first:
+      213: 5685768984965235513
+    second: TitleAtlas_38
+  - first:
+      213: 5793399401150302357
+    second: TitleAtlas_39
+  - first:
+      213: 2062062287548008025
+    second: TitleAtlas_40
+  - first:
+      213: 7904468591051597171
+    second: TitleAtlas_41
+  - first:
+      213: -1513953817246198479
+    second: TitleAtlas_42
+  - first:
+      213: 5546707617960513887
+    second: TitleAtlas_43
+  - first:
+      213: 8024976035958438638
+    second: TitleAtlas_44
+  - first:
+      213: 7526301186649195827
+    second: TitleAtlas_45
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TitleAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 14
+        height: 14
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26810a25483b1c940b92ad73f1d77fe0
+      internalID: -3928821091713784759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 478
+        width: 24
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e74a2bfa81a014d8c7685bab702d5f
+      internalID: 2916560527354976999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a5b640b9ae90043a44f5a8f71601b7
+      internalID: -5055776873432757628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 454
+        width: 24
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26688cecfc97065459291f419ff5308c
+      internalID: 7598655851263336653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 443
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b14edf85910d0f4fbf463d287747259
+      internalID: -3892114929321276990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 430
+        width: 24
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5afe8be226ab45e44b5eb106c384bab2
+      internalID: 1099510201035020127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 392
+        width: 23
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98acb4722034b3c49b6a8119e351f934
+      internalID: 3902358521082277757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 70
+        height: 68
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5de89baae76854388afe681b4deb89
+      internalID: 7026182839562708801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 391
+        width: 25
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1e56cc3accf934f96ef627ea925d08
+      internalID: -5109075117935204462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 361
+        width: 28
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2ad2929998b0b459ad940387048a16
+      internalID: 2492716291678218052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 348
+        width: 36
+        height: 36
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b4e03472ebb714583847063cbe38f3
+      internalID: -1742602970439932184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 346
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ebaec671c541942a8db0c41233f928
+      internalID: -7649296881789703845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 238
+        width: 100
+        height: 120
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a23be15bc9d4946b96af8a93385f4b
+      internalID: -3705905291218234797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 300
+        width: 40
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcce4da85554744ea7de8edf24a7a12
+      internalID: -3005553982864889495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 314
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec9a1cbe93714a489af55e656d002d5
+      internalID: -8646140444907368850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 260
+        width: 12
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ae1332fc254a74089af313f09f3c8c
+      internalID: 7162866386213557854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 282
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9932ed5bc0eab543a7500b86a2fd48b
+      internalID: -2675943177598839832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 240
+        width: 38
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43d0158935fbd841b7c22e1cd39fd7d
+      internalID: 1355268219501827143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 100
+        height: 120
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c02c7deb00c504f82cb24492413bc5
+      internalID: 8517481890339073633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 186
+        width: 48
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afefc627114a4d408415cbd785a6270
+      internalID: 6406255595486156180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 186
+        width: 46
+        height: 46
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c886a7c069dfb1749856064413682313
+      internalID: -2661564590178208204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 134
+        width: 30
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a24594300051d42ab83fa8cc7ea1ed
+      internalID: -6287874128018990632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 167
+        width: 6
+        height: 6
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde9f49de40d8bf468a1853352af8d58
+      internalID: -3083693115190206346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 156
+        width: 30
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68d1ff36deeb8140978a8ebbaf17fb4
+      internalID: -4181235696502975257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 160
+        width: 29
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b758cb56d68c3fa47a3936d5a863b213
+      internalID: 8123632210117957339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 116
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ab9ec6cad35dc40a2a95735929064a
+      internalID: -5429249553976631683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 116
+        width: 72
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0c7900cba729d4cb04dbfb6ff486de
+      internalID: -1280479248265346179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 145
+        width: 6
+        height: 6
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6756a8f950b7ca4aac4dde375db2892
+      internalID: 3446443871078531866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 120
+        width: 41
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e946e9b7482f479148587ee5d5c75
+      internalID: 7925816031154165741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 130
+        width: 24
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f168838bd07d264e966483378e506fe
+      internalID: -7746497439294421539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 124
+        width: 27
+        height: 31
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25264704bb1db2441a1bf9cdbf4e3e89
+      internalID: 1948560954059797540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 130
+        width: 25
+        height: 20
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa384ec3279b72448f45ff0e09c2cc7
+      internalID: -766743173282287277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 116
+        width: 8
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62c7fbcb7df6cb44831f5f96f374467
+      internalID: -4985910545322071847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 116
+        width: 6
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e144292d306fc4e4cae15cf2ce8f98dd
+      internalID: -5496011698074368883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 116
+        width: 5
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3beaf9dc94b48543922140bfed408f1
+      internalID: 4241661002201955456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 116
+        width: 8
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5de81435d965249a9d20499561bf83
+      internalID: 7910359101754005982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 116
+        width: 7
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a16e42832b19d4d8fe3f32cc1b3d6d
+      internalID: -7418698376787100522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 116
+        width: 8
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dae8b21e2e72543af8e275aa9232f8
+      internalID: 3104628143277238794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 116
+        width: 5
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492f628e6a7f6b54a8811897251398df
+      internalID: 5685768984965235513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_39
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 116
+        width: 5
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe430a916e365374686a544e19c1384f
+      internalID: 5793399401150302357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_40
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 116
+        width: 8
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d489b5fd7385b742bc3d9616e696a35
+      internalID: 2062062287548008025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 116
+        width: 6
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86333f10dcba2d44bb5a803bedf72528
+      internalID: 7904468591051597171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_42
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 101
+        width: 16
+        height: 10
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0233b31f9c4fa5449f3ee3f66a149d5
+      internalID: -1513953817246198479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_43
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 69
+        width: 30
+        height: 30
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2452d694f9e35654c81b1c670b63f43d
+      internalID: 5546707617960513887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_44
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 34
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20820cdf1306c444ba9a26bdbb0688f
+      internalID: 8024976035958438638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleAtlas_45
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1c66695b0628d4d80be46a450b356b
+      internalID: 7526301186649195827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
