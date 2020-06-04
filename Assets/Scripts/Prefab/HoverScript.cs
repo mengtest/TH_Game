@@ -22,7 +22,7 @@ namespace Prefab
                 _display = Instantiate(hover, Global.GetCurCanvas().transform);
                 if (_display.GetComponent<RectTransform>())
                 {
-                                
+                    
                 }
             }
         }

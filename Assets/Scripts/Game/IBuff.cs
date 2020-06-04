@@ -13,7 +13,5 @@ namespace Game
         int LastTime();
 
         int RestTime();
-        
-        
     }
 }

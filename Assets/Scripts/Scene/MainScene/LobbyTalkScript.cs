@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using XLua;
 using System.Collections.Generic;
@@ -9,15 +8,33 @@ using Button = UnityEngine.UI.Button;
 
 namespace Scene.MainScene
 {
+    ///在聊天区域内显示的每条信息的具体内容
+    struct LobbyMsg
+    {
+        //消息的发送者名称
+        string name;
+        //消息发送的时间
+        string date;
+        //消息的具体内容
+        string msg;
+    }
+
     [LuaCallCSharp]
     public class LobbyTalkScript : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
+        [Tooltip("滚动区控件")]
         [SerializeField]
         private ScrollRect scroll;
+
+        [Tooltip("下拉显示频道的控件")]
         [SerializeField]
         private Dropdown channel;
+
+        [Tooltip("输入区域控件")]
         [SerializeField]
         private InputField input;
+
+        [Tooltip("发送消息控件")]
         [SerializeField]
         private Button send;
 
