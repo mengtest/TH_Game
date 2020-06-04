@@ -1,292 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Util.pool;
 using XLua;
-using Object = UnityEngine.Object;
 
 namespace Util
 {
-    namespace pool
-    {
-        [LuaCallCSharp]
-        public interface IPool
-        {
-            GameObject GetItem();
-            void AddItem(GameObject item);
-            int Count();
-            GameObject Create();
-            void Destroy(GameObject go);
-            void Clear();
-        }
-
-        [LuaCallCSharp]
-        public class DefaultPool : IPool
-        {
-            private Queue<GameObject> _gos;
-
-            public DefaultPool()
-            {
-                _gos = new Queue<GameObject>();
-            }
-            
-            public GameObject GetItem()
-            {
-                GameObject go = null;
-                if (_gos.Count > 0)
-                {
-                    go = _gos.Dequeue();
-                }
-                return go;
-            }
-
-            public void AddItem(GameObject item)
-            {
-                if (item != null)
-                {
-                    item.SetActive((false));
-                    _gos.Enqueue(item);
-                }
-            }
-
-            public int Count()
-            {
-                return _gos.Count;
-            }
-
-            public virtual GameObject Create()
-            {
-                var go = new GameObject();
-                go.SetActive(true);
-                go.transform.position = Vector3.zero;
-                return go;
-            }
-
-            public virtual void Destroy(GameObject go)
-            {
-                Object.Destroy(go);
-            }
-
-            public void Clear()
-            {
-                while (_gos.Count != 0)
-                {
-                    Destroy(_gos.Dequeue());
-                }
-            }
-        }
-        
-        [LuaCallCSharp]
-        public class GameObjectPool : IPool
-        {
-            private Queue<GameObject> _gos;
-            public delegate GameObject Operator(GameObject go);
-            public delegate GameObject Creator();
-            private event Creator creator;
-            private event Operator deleter;
-            private event Operator getter;
-            private event Operator setter;
-            
-            public static IPool CreatePool(Creator creator, Operator deleter, Operator getter = null,Operator setter = null)
-            {
-                var pool = new GameObjectPool
-                {
-                    creator = creator, 
-                    deleter = deleter, 
-                    getter = getter, 
-                    setter = setter
-                };
-                return pool;
-            }
-            
-            public GameObjectPool()
-            {
-                _gos = new Queue<GameObject>();
-            }
-
-            public GameObject GetItem()
-            {
-                GameObject go = null;
-                if (_gos.Count > 0)
-                {
-                    go = _gos.Dequeue();
-                }
-                return getter?.Invoke(go);
-            }
-
-            public void AddItem(GameObject item)
-            {
-                _gos.Enqueue(setter == null ? item : setter(item));
-            }
-
-            public int Count()
-            {
-                return _gos.Count;
-            }
-
-            public virtual GameObject Create()
-            {
-                return creator?.Invoke();
-            }
-
-            public virtual void Destroy(GameObject go)
-            {
-                if (deleter != null)
-                {
-                    deleter(go);
-                }
-                else
-                {
-                    Object.Destroy(go);
-                }
-            }
-
-            public void Clear()
-            {
-                while (_gos.Count != 0)
-                {
-                    Destroy(_gos.Dequeue());
-                }
-            }
-        }
-    }
-
+    /// <summary>
+    /// 专门用于管理GameObject的对象池
+    /// </summary>
     [LuaCallCSharp]
-    public class Pool
+    public static class Pool
     {
-        // 一般对象就使用一个队列来模拟一个对象池
-        private static Dictionary<string, Queue<object>> _pools;
-        private static Dictionary<string, IPool> _gameObjectPools;
+        private static Dictionary<string, Queue<GameObject>> _pool = new Dictionary<string, Queue<GameObject>>();
 
-        private Pool()
-        {
-            _pools = new Dictionary<string, Queue<object>>();
-            _gameObjectPools = new Dictionary<string, IPool>();
-        }
+        public delegate GameObject CreateFun();
 
-        public static void AddPool(string sign, IPool pool)
+        static GameObject Get(string name)
         {
-            if (_gameObjectPools.ContainsKey(sign))
+            if(!_pool.ContainsKey(name))
             {
-                var p = _gameObjectPools[sign];
-                p.Clear();
-                _gameObjectPools[sign] = pool;
+                var pool = new Queue<GameObject>();
+                _pool.Add(name, pool);
+                return new GameObject();
             }
-        }
-
-        //获取到sign对应的对象，如果没有返回null
-        public static T GetItem<T>(string sign) where T : class
-        {
-            if (_pools.ContainsKey(sign))
+            else
             {
-                return _pools[sign].Count > 0
-                    ? _pools[sign].Dequeue() as T
-                    : default;
-            }
-            return default;
-        }
-
-        //获取sign对应的对象，如果没有，则使用fuction创建对应的对象
-        public static T GetItemByFunc<T>(string sign, Func<T> func) where T : class
-        {
-            if (_pools.ContainsKey(sign))
-            {
-                if (_pools[sign].Count > 0)
+                var pool = _pool[name];
+                if(pool.Count == 0)
                 {
-                    return _pools[sign].Dequeue() as T;
+                    return new GameObject();
                 }
                 else
+                {
+                    return pool.Dequeue();
+                }
+            }
+        }
+
+        static void Store(string name,GameObject go)
+        {
+            go.SetActive(false);
+            go.transform.SetParent(null);
+            if(!_pool.ContainsKey(name))
+            {
+                var pool = new Queue<GameObject>();
+                pool.Enqueue(go);
+                _pool.Add(name, pool);
+            }
+            else
+            {
+                var pool = _pool[name];
+                pool.Enqueue(go);
+            }
+        }
+
+        static GameObject GetByCreateFun(string name, CreateFun func)
+        {
+            if(!_pool.ContainsKey(name))
+            {
+                var pool = new Queue<GameObject>();
+                _pool.Add(name, pool);
+                return func();
+            }
+            else
+            {
+                var pool = _pool[name];
+                if(pool.Count == 0)
                 {
                     return func();
                 }
-            }
-            else
-            {
-                _pools.Add(sign, new Queue<object>());
-                return func.Invoke();
-            }
-        }
-
-        //获取sign对应的对象，如果没有，则调用构造函数创建，必须为具有无参的构造函数
-        public static T GetItemByConstructor<T>(string sign) where T : class, new()
-        {
-            if (_pools.ContainsKey(sign))
-            {
-                if (_pools[sign].Count > 0)
-                {
-                    return _pools[sign].Dequeue() as T;
-                }
                 else
                 {
-                    return new T();
+                    return pool.Dequeue();
                 }
             }
-            else
+        }
+
+        static void Clear(string name)
+        {
+            if(_pool.ContainsKey(name))
             {
-                _pools.Add(sign, new Queue<object>());
-                return new T();
+                var pool = _pool[name];
+                while(pool.Count != 0)
+                {
+                    GameObject.Destroy(pool.Dequeue());
+                }
+                _pool.Remove(name);
             }
         }
 
-        public static void ClearSign(string sign)
+        static void ClearAll()
         {
-            if (_pools.ContainsKey(sign))
+            foreach (var item in _pool)
             {
-                _pools[sign].Clear();
-                _pools.Remove(sign);
+                var pool = item.Value;
+                while(pool.Count != 0) 
+                {
+                    GameObject.Destroy(pool.Dequeue());
+                }
             }
-        }
-
-        public static void Store(string sign, object value)
-        {
-            if (_pools.ContainsKey(sign))
-            {
-                _pools[sign].Enqueue(value);
-            }
-            else
-            {
-                var pool = new Queue<object>();
-                pool.Enqueue(value);
-                _pools.Add(sign, pool);
-            }
-        }
-
-        public static void ClearAll()
-        {
-            //清理所有的池子
-        }
-
-        public static GameObject GetItem(string sign)
-        {
-            if (_gameObjectPools.ContainsKey(sign))
-            {
-                return _gameObjectPools[sign].GetItem();
-            }
-            else
-            {
-                _gameObjectPools.Add(sign, new DefaultPool());
-            }
-            return null;
-        }
-
-        public static GameObject GetItemByFunc(string sign, Func<GameObject> func)
-        {
-            GameObject item = null;
-            if (_gameObjectPools.ContainsKey(sign))
-            {
-                item = _gameObjectPools[sign].GetItem();
-            }
-            else
-            {
-                _gameObjectPools.Add(sign, new DefaultPool());
-            }
-            return item == null ? func() : item;
-        }
-        
-        public static void Init()
-        {
-            _pools = new Dictionary<string, Queue<object>>();
-            _gameObjectPools = new Dictionary<string, IPool>();
+            _pool.Clear();
         }
     }
 }

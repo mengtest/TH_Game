@@ -153,7 +153,7 @@ namespace Util
         /// <summary>
         /// 读取一段文本的内容
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">要读取的文本的路径</param>
         /// <returns></returns>
         public static string Read(string path)
         {

@@ -4,12 +4,13 @@ using UnityEngine.UI;
 using XLua;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 using Button = UnityEngine.UI.Button;
 
 namespace Scene.MainScene
 {
     [LuaCallCSharp]
-    public class LobbyTalkScript : MonoBehaviour
+    public class LobbyTalkScript : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private ScrollRect scroll;
@@ -20,18 +21,23 @@ namespace Scene.MainScene
         [SerializeField]
         private Button send;
 
+        //当前鼠标是否悬浮在这个组件上方
+        private bool _isHonver = false;
+
+        private Vector3 _originPosition;
+
         public float speed;
 
         [Tooltip("每个频道显示的消息上限")]
         public int maxLines;
 
-        public float moveLength = 150;
+        public float moveLength = 250;
 
         private bool _show = false;
 
-        private RectTransform _rect;
-        private float _width;
-        private float _height;
+        // private RectTransform _rect;
+        // private float _width;
+        // private float _height;
 
         //所有频道的消息
         private Queue<string>[] _messages;
@@ -60,17 +66,17 @@ namespace Scene.MainScene
             channel.AddOptions(_channels);
             _messages = new Queue<string>[_channels.Count];
 
-            _rect = GetComponent<RectTransform>();
-            _width = _rect.rect.width;
-            _height = _rect.rect.height;
+            // _rect = GetComponent<RectTransform>();
+            // _width = _rect.rect.width;
+            // _height = _rect.rect.height;
 
             scroll.scrollSensitivity = speed;
 
             channel.onValueChanged.AddListener(ChannelChanged);
             send.onClick.AddListener(SendClick);
 
-            // var layout = this.scroll.content.GetComponent<VerticalLayoutGroup>();
-            // this.scroll.content.sizeDelta = new Vector2(layout.preferredWidth, layout.preferredHeight);
+            _originPosition = this.transform.position;
+
             ReDraw();
         }
 
@@ -119,8 +125,8 @@ namespace Scene.MainScene
                 return;
             }
 
-            var position = transform.position;
-            transform.DOMove(new Vector3(position.x, position.y - moveLength), 0.3f)
+            // var position = transform.position;
+            transform.DOMove(new Vector3(_originPosition.x, _originPosition.y), 0.3f)
                     .onComplete = HideComplete;
         }
 
@@ -131,28 +137,50 @@ namespace Scene.MainScene
             {
                 return;
             }
-            var position = transform.position;
-            transform.DOMove(new Vector3(position.x, position.y + moveLength), 0.3f)
+            // var position = transform.position;
+            transform.DOMove(new Vector3(_originPosition.x, _originPosition.y + moveLength), 0.3f)
                 .onComplete = ShowComplete;
         }
 
-        private void Update()
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            //点击聊天框后显示完整得聊天框，否则显示部分聊天框
-            if (Input.GetMouseButtonDown(0))
+            _isHonver = true;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _isHonver = false;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if(_isHonver)
             {
-                var r = new Rect(_rect.transform.position.x - _width / 2
-                    , _rect.transform.position.y - _height / 2
-                    , _width, _height);
-                if (r.Contains(Input.mousePosition))
-                {
-                    Show();
-                }
-                else
-                {
-                    Hide();
-                }
+                Show();
+            }
+            else
+            {
+                Hide();
             }
         }
+
+        // private void Update()
+        // {
+        //     //点击聊天框后显示完整得聊天框，否则显示部分聊天框
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        //         var r = new Rect(_rect.transform.position.x - _width / 2
+        //             , _rect.transform.position.y - _height / 2
+        //             , _width, _height);
+        //         if (r.Contains(Input.mousePosition))
+        //         {
+        //             Show();
+        //         }
+        //         else
+        //         {
+        //             Hide();
+        //         }
+        //     }
+        // }
     }
 }

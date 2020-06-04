@@ -35,7 +35,7 @@ namespace Net
                 {
                     await _client.ConnectAsync(host, port);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Listener.Instance.Event("cant_connect_server");
                     return;

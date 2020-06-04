@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using LuaFramework;
+﻿using LuaFramework;
 using UnityEngine;
 using Util;
 using Net;
@@ -24,12 +23,6 @@ public static class GameInit
     //     public string name2;
     // };
     
-    // [DllImport("CoreDll.dll", CallingConvention = CallingConvention.Cdecl)]
-    // static extern Core getData();
-    //
-    // [DllImport("CoreDll.dll", CallingConvention = CallingConvention.Cdecl)]
-    // static extern void releaseData(ref Core core);
-    
     /// <summary>
     /// 在游戏开始的时候自动加载这个方法，对一些单例类做出初始化，会在游戏开始的时候自动调用
     /// </summary>
@@ -48,7 +41,7 @@ public static class GameInit
         
         //加载lua脚本的入口文件
         LuaEngine.LoadLuaModule();
-        Pool.Init();
+        // Pool.Init();
         FileUtils.Init();
 
         // Physics.ray
