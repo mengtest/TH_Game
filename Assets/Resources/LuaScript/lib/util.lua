@@ -91,4 +91,20 @@ function util.idToType(index)
     return types[index]
 end
 
+---不要想了，做不到js中的异步的那个效果
+--function util.messageBox()
+	--local res = nil
+	--local co = coroutine.create(function()
+		--local dialog = CS.Util.ModelDialog("hello","是", "否", function()
+			--coroutine.resume(co)
+			--res = true
+		--end, function()
+			--coroutine.resume(co)
+			--res = false
+		--end)
+		--dialog:ShowDialog()
+		--coroutine.yield()
+	--end)
+--end
+
 return util

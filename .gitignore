@@ -90,6 +90,11 @@ Temp
 /Assets/XLua/Gen/XLuaGenAutoRegister.cs
 /.idea/.idea.THGame/.idea/dictionaries/yuki.xml
 /Assets/XLua/Gen
-
+/Assets/XLua/Gen.meta
 
 .idea
+/Assets/.lpproj
+LuaDebuggee.dll
+/ProjectSettings
+/Assets/ThirdParty
+/Assets/ThirdParty.meta
