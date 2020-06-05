@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Util
 {
-    public class FileUtils
+    public static class FileUtils
     {
         private static List<string> _searchPaths = new List<string>();
+        private static string _defaultPath;
         
         public static void Init()
         {
@@ -17,19 +18,34 @@ namespace Util
 #endif
         }
 
-        public void AddSearchPath(string path)
+        public static void AddSearchPath(string path)
         {
             _searchPaths.Add(path);
         }
 
-        public string[] GetFiles(string path)
+        public static string[] GetFiles(string path)
         {
-            var dir = Application.dataPath + "/" + path;
+            var dir = _defaultPath + "/" + path;
             if (Directory.Exists(dir))
             {
                 return Directory.GetFiles(dir);
             }
+
+            foreach (var str in _searchPaths)
+            {
+                dir = str + "/" + path;
+                if (Directory.Exists(dir))
+                {
+                    return Directory.GetFiles(dir);
+                }
+            }
+
             return null;
+        }
+
+        public static void SetDeaultPath(string path)
+        {
+            _defaultPath = path;
         }
         
         private static void InitByAndroid()
