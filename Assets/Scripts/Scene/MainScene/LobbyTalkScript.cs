@@ -20,7 +20,7 @@ namespace Scene.MainScene
     }
 
     [LuaCallCSharp]
-    public class LobbyTalkScript : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public class LobbyTalkScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Tooltip("滚动区控件")]
         [SerializeField]
@@ -92,7 +92,7 @@ namespace Scene.MainScene
             channel.onValueChanged.AddListener(ChannelChanged);
             send.onClick.AddListener(SendClick);
 
-            _originPosition = this.transform.position;
+            _originPosition = new Vector3(transform.localPosition.x, transform.localPosition.y);
 
             ReDraw();
         }
@@ -143,7 +143,7 @@ namespace Scene.MainScene
             }
 
             // var position = transform.position;
-            transform.DOMove(new Vector3(_originPosition.x, _originPosition.y), 0.3f)
+            transform.DOLocalMove(new Vector3(_originPosition.x, _originPosition.y), 0.3f)
                     .onComplete = HideComplete;
         }
 
@@ -155,7 +155,7 @@ namespace Scene.MainScene
                 return;
             }
             // var position = transform.position;
-            transform.DOMove(new Vector3(_originPosition.x, _originPosition.y + moveLength), 0.3f)
+            transform.DOLocalMove(new Vector3(_originPosition.x, _originPosition.y + moveLength), 0.3f)
                 .onComplete = ShowComplete;
         }
 
@@ -164,40 +164,25 @@ namespace Scene.MainScene
             _isHonver = true;
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        public void OnPointerExit(PointerEventData eventData)
         {
             _isHonver = false;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        private void Update()
         {
-            if(_isHonver)
+            //点击聊天框后显示完整得聊天框，否则显示部分聊天框
+            if (Input.GetMouseButtonDown(0))
             {
-                Show();
-            }
-            else
-            {
-                Hide();
+                if (_isHonver)
+                {
+                    Show();
+                }
+                else
+                {
+                    Hide();
+                }
             }
         }
-
-        // private void Update()
-        // {
-        //     //点击聊天框后显示完整得聊天框，否则显示部分聊天框
-        //     if (Input.GetMouseButtonDown(0))
-        //     {
-        //         var r = new Rect(_rect.transform.position.x - _width / 2
-        //             , _rect.transform.position.y - _height / 2
-        //             , _width, _height);
-        //         if (r.Contains(Input.mousePosition))
-        //         {
-        //             Show();
-        //         }
-        //         else
-        //         {
-        //             Hide();
-        //         }
-        //     }
-        // }
     }
 }
