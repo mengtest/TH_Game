@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using XLua;
 
@@ -11,9 +8,11 @@ namespace Scene.SettingScene
     [CSharpCallLua]
     [LuaCallCSharp]
     public delegate void UnityAction1(float f);
+    
     [CSharpCallLua]
     [LuaCallCSharp]
     public delegate void UnityAction2(bool b);
+
     [CSharpCallLua]
     [LuaCallCSharp]
     public delegate void UnityAction3(int b);

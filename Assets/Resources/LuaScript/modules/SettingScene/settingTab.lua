@@ -1,4 +1,6 @@
-﻿---@param this UnityEngine.Transform
+local M = {}
+
+---@param this UnityEngine.Transform
 local function SettingPage1(this)
     ---@type Scene.SettingScene.VoicePanel[]
     local components = this:GetComponentsInChildren(typeof(CS.Scene.SettingScene.VoicePanel))
@@ -28,25 +30,31 @@ local list = {
     OtherView = SettingPage3
 }
 
----@param luaManager LuaFramework.LuaManager
-function init(luaManager)
-    local transform = luaManager.transform
-    for i = 0, transform.childCount - 1 do
-        local child = transform:GetChild(i)
-        if list[child.name] ~= nil then
-            list[child.name](child)
-        end
-    end
+---@param this UnityEngine.Transform
+function M.init(this)
+	util.loadChild(this, list)
 end
 
 ---@param this Scene.SettingScene.VoicePanel
 function BGMPanel(this)
+	---是否打开这个音效
     this:AddCheckerChangeEvent(function(e)
         log(e)
     end)
+	---音效音量改变时的调用
+	this:AddSliderChangeEvent(function(value)
+		CS.Local.Settings.Instance.DefaultConfig.Configs.BgmVol = value
+	end)
 end
 
 ---@param this Scene.SettingScene.VoicePanel
 function EffectPanel(this)
-    
+	this:AddCheckerChangeEvent(function(e)
+		log(e)
+	end)
+	this:AddSliderChangeEvent(function(value)
+		log(value)
+	end)
 end
+
+return M

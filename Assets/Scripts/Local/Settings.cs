@@ -1,7 +1,9 @@
 using UnityEngine;
+using XLua;
 
 namespace Local
 {
+    [LuaCallCSharp]
     class Settings : Singleton<Settings>
     {
         //当前正在起效果的文件
@@ -49,7 +51,6 @@ namespace Local
         public void Apply()
         {
             Screen.SetResolution(_used.VideoConfig.Width, _used.VideoConfig.Height, _used.VideoConfig.FullScreen);
-
         }
     }
 }
