@@ -1,14 +1,14 @@
 local M = {}
 
-function M.ApplyBtn()
+function M.Apply()
     log("保存设置")
 end
 
-function M.ResetBtn()
+function M.Reset()
     log("恢复默认设置")
 end
 
-function M.ConfirmBtn()
+function M.Confirm()
     CS.Global.NavigateTo("StartScene", false)
 end
 

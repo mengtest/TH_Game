@@ -44,6 +44,25 @@ public static partial class Global
         }
         _methods.Call(method, param);
     }
+
+    public static void GetChineseEnglishNumber(string str, out int chinese, out int english)
+    {
+        int c = 0;
+        int e = 0;
+        foreach (var ch in str)
+        {
+            if (ch > 127)
+            {
+                c++;
+            }
+            else
+            {
+                e++;
+            }
+        }
+        chinese = c;
+        english = e;
+    }
     
     /// <summary>
     /// 打印消息日志，后续会添加将日志输出到任意位置的功能
