@@ -35,21 +35,26 @@ namespace Prefab
         //  点击棋子后再详细信息中有当前棋子的技能(或者，直接将当前棋子所有的技能显示在棋子的底部)
 
 
+        [Tooltip("棋子的血量")]
         public Text hp;
 
+        [Tooltip("棋子的魔法")]
         public Text mp;
+        
+        [Tooltip("棋子的攻击力")]
+        public Text atk;
 
         //点击这里时需要展示这个卡牌的相信信息
         [Tooltip("卡牌的内容")]
-        public Image content;
+        public SpriteRenderer content;
 
         [Tooltip("卡牌的外框")]
-        public Image boarder;
+        public SpriteRenderer boarder;
 
         //长按这个技能展示这个技能的详细信息
         //点击每个技能时，如果是主动技能则根据这个技能的实际情况判断是否需要释放这个技能
         //如果不满足技能的使用条件，需要显示为灰色，同时点击这个技能使用时提示不满足条件无法使用
-        [Tooltip("当前卡牌所拥有的所有技能")]
+        [Tooltip("当前卡牌所拥有的所有技能")] 
         public Image[] skill;
 
         private void Awake() 
