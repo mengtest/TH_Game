@@ -99,4 +99,5 @@ LuaDebuggee.dll
 /Assets/ThirdParty
 /Assets/ThirdParty.meta
 
-ProjectSettings
+/ProjectSettings/
+ProjectVersion.txt
