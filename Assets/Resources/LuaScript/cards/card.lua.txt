@@ -1,11 +1,9 @@
 ﻿---@class CardData
 local _data = {
-    id = 0, --固有属性
+    id = 0, 	--固有属性
     name = "",  --用于在界面中显示
     uniqueName = "这个会动态生成，最终的结构为    用户uid + 卡牌id + 随机生成一个字母", --程序所使用的id，实际上是一个字符串
-    skills = {
-    },
-    ---当前生命值
+    skills = {},---当前生命值
     hp = 0,
     ---最大生命值
     maxHp = 0,
@@ -34,8 +32,7 @@ local _data = {
 ---@class Card
 local Card = {
     ---@type CardData
-    data = {
-    }
+    data = {}
 }
 
 ---接收服务端的数据创建一个卡牌对象
