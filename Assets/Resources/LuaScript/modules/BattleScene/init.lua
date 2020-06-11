@@ -16,7 +16,6 @@ local list = {
     Setting = Setting
 }
 
-
 function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     
