@@ -100,7 +100,9 @@ namespace Util
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 var ray = Camera.main.ScreenPointToRay(point);
-                return Physics.Raycast(ray, out hit);
+                var res = Physics.Raycast(ray, out hit);
+                Debug.DrawLine(ray.origin, hit.point, Color.red);
+                return res;
             }
             hit = new RaycastHit();
             return false;

@@ -2,7 +2,6 @@
 using System.Linq;
 using Prefab;
 using UnityEngine;
-using UnityEngine.XR.WSA;
 
 namespace Util
 {
@@ -36,6 +35,16 @@ namespace Util
             }
         }
         private Queue<WindowScript> _windows = new Queue<WindowScript>();
+
+        public void SetCurHoverObject(GameObject obj)
+        {
+            
+        }
+
+        public GameObject GetCurHoverObject()
+        {
+            return null;
+        }
 
         public void ShowWindow(GameObject go)
         {

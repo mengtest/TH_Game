@@ -19,7 +19,7 @@ using UnityEngine.UI;
 
 namespace Prefab
 {
-    public class CombatSceneCombatCardScript: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+    public class CombatSceneCombatCardScript: MonoBehaviour
     {
         //先想想所有的卡牌控件有哪些信息
         //hp
@@ -68,30 +68,8 @@ namespace Prefab
             
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            Global.Log("asdasdasdasd");
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
+        private void OnMouseDown() {
+            Global.Log("2333333");
         }
     };
 }
