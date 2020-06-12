@@ -101,3 +101,5 @@ LuaDebuggee.dll
 
 /ProjectSettings/
 ProjectVersion.txt
+.vscode/launch.json
+ProjectSettings/ProjectVersion.txt

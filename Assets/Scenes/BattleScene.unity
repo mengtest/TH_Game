@@ -1547,6 +1547,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatPawn
       objectReference: {fileID: 0}
+    - target: {fileID: 1651469674720802772, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714202438478437684, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881197135445547411, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881197135784375813, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 378242448666925394, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800439218643015370, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469221314788775754, guid: c9fddcf55baef3245bc249f47ef225b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fddcf55baef3245bc249f47ef225b7, type: 3}
 --- !u!224 &392688104 stripped
@@ -2500,7 +2535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 726941682}
   - component: {fileID: 726941683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SelfCardSlots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3061,7 +3096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939747938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObjectLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,10 +4,7 @@ using UnityEngine.SceneManagement;
 using XLua;
 
 namespace Lib
-{
-    
-    using Function = YukiEventDelegate;
-    
+{    
     #region MyRegion
     /// <summary>
     /// keycode枚举值导出

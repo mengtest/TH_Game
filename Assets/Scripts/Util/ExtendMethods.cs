@@ -97,15 +97,15 @@ namespace Util
         /// <returns></returns>
         public static bool ExplicitRayHit(this Vector3 point, out RaycastHit hit)
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                var ray = Camera.main.ScreenPointToRay(point);
-                var res = Physics.Raycast(ray, out hit);
-                Debug.DrawLine(ray.origin, hit.point, Color.red);
-                return res;
-            }
-            hit = new RaycastHit();
-            return false;
+            // if (!EventSystem.current.IsPointerOverGameObject())
+            // {
+            var p = new Vector3(point.x, point.y, 0);
+            var ray = Camera.main.ScreenPointToRay(p);
+            var res = Physics.Raycast(ray, out hit, 10, 1 << 8);
+            return res;
+            // }
+            // hit = new RaycastHit();
+            // return false;
         }
 
         // /// <summary>

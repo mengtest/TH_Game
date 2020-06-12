@@ -18,11 +18,10 @@ local list = {
 
 function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
-    
     ---所有的卡牌的点击事件
     CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
         ---@type UnityEngine.RaycastHit
-        --local isHit, hit = a:ExplicitRayHit()
+        local isHit, hit = a:ExplicitRayHit()
             ---- log("123123123")
         if isHit then
             ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作

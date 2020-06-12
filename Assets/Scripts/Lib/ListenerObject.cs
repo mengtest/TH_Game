@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using XLua;
@@ -46,7 +47,7 @@ namespace Lib
         /// </summary>
         /// <param name="eventName"></param>
         /// <param name="e"></param>
-        public void On(string eventName, YukiEventDelegate e)
+        public void On(string eventName, YukiEventDelegate e, bool once = false)
         {
             if (_events.ContainsKey(eventName))
             {
