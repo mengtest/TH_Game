@@ -11,6 +11,8 @@ namespace Core
     /// </summary>
     public static class CppCore
     {
+	    public const string DllName = @"Core.dll";
+	    
 	    /// 运行流程		
 	    ///			csCoreInit
 	    ///			createCombatSystem
@@ -21,7 +23,7 @@ namespace Core
 		 * 这个对应流程图中的总的初始化
 		 * \return 
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool csCoreInit(Types.UpdatePlayerMsgEvent event1, Types.UpdatePawnMsgEvent event2,
             Types.UpdateCombatMsgEvent event3);
 
@@ -29,14 +31,14 @@ namespace Core
 		 * \brief 核心模块是否已经初始化
 		 * \return 
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool isCoreInit();
 
         /**
 		 * \brief 销毁核心模块，如果已被销毁，则没有任何效果
 		 * \return 是否销毁成功
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool coreDestroy();
 
         /**
@@ -46,7 +48,7 @@ namespace Core
 		 * \param newName 新的战斗系统的名称
 		 * \return 是否创建成功
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool createCombatSystem(string originName, string newName);
 
         /**
@@ -54,7 +56,7 @@ namespace Core
 		 * \param name 新的战斗系统的名称
 		 * \return 是否创建成功
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool createCombatSystemDefault(string name);
 
         /**
@@ -62,7 +64,7 @@ namespace Core
 		 * \param name 销毁的战斗系统的名称
 		 * \return 是否销毁成功
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool releaseCombatSystem(string name);
 
         /**
@@ -70,7 +72,7 @@ namespace Core
 		 * \param id 目标玩家的id
 		 * \return 
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern Player getPlayerById(int id);
         
         /**
@@ -78,29 +80,29 @@ namespace Core
 		 * 这里对应战斗开始的函数，这里需要的实际信息是，当前玩家的id、以及当前玩家所选择的卡牌
 		 * \return 是否操作成功
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool combatStart(Player player1, Player player2);
         
         /**
 		 * \brief 战斗结束
 		 * \return 操作的结果
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool combatEnd();
 
         //这里对应cs端传递消息给cpp端
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool cs2cpp(Types.Cmd cmd);
 
         //这里对应cpp端传递消息给cs端
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool cpp2cs(Types.Cmd cmd);
 
         /// <summary>
         ///好像没什么用
         /// </summary>
         /// <returns></returns>
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool end();
 
         /**
@@ -108,7 +110,10 @@ namespace Core
 		 * \param playerId 进入战斗的玩家的id
 		 * \return 
 		 */
-        [DllImport(@"123.dll")]
+        [DllImport(DllName)]
         public static extern bool battle(int playerId);
+
+        [DllImport(DllName)]
+        public static extern void testFunc();
     }
 }

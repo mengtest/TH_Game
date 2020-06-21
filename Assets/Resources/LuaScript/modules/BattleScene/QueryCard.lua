@@ -3,9 +3,11 @@ local M = {}
 
 ---当前是否正在展示玩家的所有卡牌信息
 M.queryCardState = false
+M.originQueryX = 0
 
 ---@param this UnityEngine.Transform
 function M.Head(this)
+    M.originQueryX = M.body.transform.localPosition.x
     ---@type Common.Clickable
     local click = this.gameObject:AddComponent(typeof(CS.Common.Clickable))
     click:clickEvent("+", function ()
@@ -14,9 +16,9 @@ function M.Head(this)
         if not M.queryCardState then
             M.body:SetActive(true)
             seq:Append(this:DORotate(CS.UnityEngine.Vector3(0, 0, 0), 0.3))
-            seq:Append(M.body.transform:DOLocalMoveX(-1096 + 275, 0.3))
+            seq:Append(M.body.transform:DOLocalMoveX(M.originQueryX + 275, 0.3))
         else
-            seq:Append(M.body.transform:DOLocalMoveX(-1096, 0.3))
+            seq:Append(M.body.transform:DOLocalMoveX(M.originQueryX, 0.3))
             seq:Append(this:DORotate(CS.UnityEngine.Vector3(0, 0, -90), 0.3))
         end
         ---这个是自己导出的扩展方法

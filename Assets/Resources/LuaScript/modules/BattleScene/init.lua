@@ -19,31 +19,19 @@ local list = {
 function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     ---所有的卡牌的点击事件
-    CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
-        ---@type UnityEngine.RaycastHit
-        local isHit, hit = a:ExplicitRayHit()
-            ---- log("123123123")
-        if isHit then
-            ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作
-            ---如果不是自己的卡牌，则没有任何提示
-            ---如果持续点击对应的卡牌，则会显示当前卡牌的详细信息
-            if hit then
-                log(hit.transform.name)
-            end
-        end
-			
-		-- local ray =  CS.UnityEngine.Camera.main:ScreenPointToRay(a)
-		-- local mask = 1 << 8
-		-- local isHit, p = CS.UnityEngine.Physics.Raycast(ray, 100, mask)
-		-- log(isHit)
-		-- log(p)
-		-- if isHit then
-		-- 	log(p)
-		-- end
-		--if  then
-			
-		--end
-    end, nil, CS.Lib.KeyCode.Mouse0, false)
+    --CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
+    --    ---@type UnityEngine.RaycastHit
+    --    local isHit, hit = a:ExplicitRayHit()
+    --        ---- log("123123123")
+    --    if isHit then
+    --        ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作
+    --        ---如果不是自己的卡牌，则没有任何提示
+    --        ---如果持续点击对应的卡牌，则会显示当前卡牌的详细信息
+    --        if hit then
+    --            log(hit.transform.name)
+    --        end
+    --    end
+    --end, nil, CS.Lib.KeyCode.Mouse0, false)
 end
 
 return M
