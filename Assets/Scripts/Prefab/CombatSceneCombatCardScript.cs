@@ -21,6 +21,8 @@ using Object = UnityEngine.Object;
 
 namespace Prefab
 {
+    //玩家抽取卡牌时，为对应的卡牌绑定数据
+    //这里实际上就是所有的逻辑，以及
     public class CombatSceneCombatCardScript: MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
         //先想想所有的卡牌控件有哪些信息
@@ -36,6 +38,9 @@ namespace Prefab
         //  点击自己或者敌方的棋子后可以显示其详细信息
         //  向前拖拽自己的棋子后可以对敌方的棋子(或玩家)发动攻击
         //  点击棋子后再详细信息中有当前棋子的技能(或者，直接将当前棋子所有的技能显示在棋子的底部)
+
+
+        //需要能够获取到当前战斗系统中所有的数据信息
 
         public static GameObject dragObject;
 
@@ -61,8 +66,6 @@ namespace Prefab
         [Tooltip("当前卡牌所拥有的所有技能")] 
         public Image[] skill;
 
-        private Timer _timer;
-
         private void Awake() 
         {
             
@@ -73,36 +76,33 @@ namespace Prefab
             
         }
 
-        private void OnMouseDown() {
-            Global.Log("2333333");
-        }
-
         //用户点击当前的卡牌0.5秒之后触发这个事件
         private void ShowDetail()
         {
-            Global.Log("show detail");
+            //感觉可能根据游戏实际运行的平台来调整具体的逻辑
+
+            //显示当前卡牌的详细信息
+            Global.Log("显示当前卡牌的详细信息");
         }
 
         //像按钮一样点击并弹起之后才会触发这个事件
         public void OnPointerClick(PointerEventData eventData)
         {
-            Global.Log(name);
-            _timer?.Cancel();
+            CancelInvoke(nameof(ShowDetail));
         }
 
         //点击到这个卡牌之后就会触发这个事件
         public void OnPointerDown(PointerEventData eventData)
         {
             //点击卡牌0.5秒之后显示这个卡牌的详细信息
-            _timer = Timer.Register(0.5f, ShowDetail);
+            Invoke(nameof(ShowDetail), 0.5f);
         }
 
         //点击到这个卡牌之后，再次弹起鼠标就会触发这个事件(不管是不是想点击按钮一样)
         public void OnPointerUp(PointerEventData eventData)
         {
             //弹起时关闭卡牌的详细信息的提示
-            Global.Log("取消点击");
-            _timer?.Cancel();
+            CancelInvoke(nameof(ShowDetail));
         }
 
         //点击后移动鼠标就会不停的触发这个事件
@@ -110,7 +110,7 @@ namespace Prefab
         {
             // transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
             dragObject.transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
-            _timer?.Cancel();
+            CancelInvoke(nameof(ShowDetail));
         }
 
         //玩家的拖拽事件结束的时候触发这个事件
