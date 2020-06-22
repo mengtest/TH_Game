@@ -2,10 +2,10 @@ namespace Mvc2
 {
     public class Mvc
     {
-        //ÏÖÔÚÐÞ¸ÄmvcÎªÍ¨¹ýController¹ØÁªËùÓÐµÄViewÒÔ¼°Model
-        //ÏÖÔÚ¸ü¼ÓÏ£ÍûModelÊÇÒ»¸ölua¶ÔÏó£¬
-        //view¾ÍÊÇÒ»¸öMono
-        //Controller¾ÍÊÇÒ»¸öÆÕÍ¨µÄÀà
+        //çŽ°åœ¨ä¿®æ”¹mvcä¸ºé€šè¿‡Controllerå…³è”æ‰€æœ‰çš„Viewä»¥åŠModel
+        //çŽ°åœ¨æ›´åŠ å¸Œæœ›Modelæ˜¯ä¸€ä¸ªluaå¯¹è±¡ï¼Œ
+        //viewå°±æ˜¯ä¸€ä¸ªMono
+        //Controllerå°±æ˜¯ä¸€ä¸ªæ™®é€šçš„ç±»
 
         
     }

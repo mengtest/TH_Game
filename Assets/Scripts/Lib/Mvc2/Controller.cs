@@ -5,24 +5,24 @@ namespace Mvc2
     {
         // private Dictionary<string, Global.Pair<IMvcModel, MvcView>> views = new Dictionary<string, Global.Pair<IMvcModel, MvcView>>();
 
-        public IMvcModel GetModel(string name);
+        IMvcModel GetModel(string name);
         // {
             
         //     return null;
         // }
 
-        public MvcView GetView(string name);
+        MvcView GetView(string name);
         // {
 
         //     return null;
         // }
 
-        public void Bind(string name, IMvcModel model);
+        void Bind(string name, IMvcModel model);
         // {
             
         // }
 
-        public void Bind(string name, MvcView view);
+        void Bind(string name, MvcView view);
         // {
             
         // }

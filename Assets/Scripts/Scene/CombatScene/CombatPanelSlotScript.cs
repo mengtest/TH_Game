@@ -1,3 +1,4 @@
+using System;
 using Prefab;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -81,6 +82,16 @@ namespace Scene.CombatScene
         public void OnBeginDrag(PointerEventData eventData)
         {
             // throw new System.NotImplementedException();
+        }
+
+        private void OnMouseEnter()
+        {
+            Global.Log("aaaaaaaaa");
+        }
+
+        private void OnMouseUp()
+        {
+            Global.Log("zzzzzzzzz");
         }
     }
 }
