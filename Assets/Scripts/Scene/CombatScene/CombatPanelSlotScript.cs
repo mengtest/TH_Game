@@ -1,15 +1,21 @@
 using System;
 using Prefab;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Scene.CombatScene
 {
     //需要检测是否有
-    public class CombatPanelSlotScript : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+    public class CombatPanelSlotScript : MonoBehaviour
     {
         [Tooltip("占有当前槽位的卡牌")]
         public CombatSceneCombatCardScript card;
+
+        private static CombatSceneCombatCardScript _curCard;
+
+        public static CombatSceneCombatCardScript GetCurCard()
+        {
+            return _curCard;
+        }
 
         /// <summary>
         /// 删除当前槽位中的卡牌
@@ -53,40 +59,14 @@ namespace Scene.CombatScene
             return card != null;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            Global.Log("123123123");
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            // throw new System.NotImplementedException();
-        }
-
         private void OnMouseEnter()
         {
-            Global.Log("aaaaaaaaa");
+            //设置当前选择的卡槽对象
+        }
+
+        private void OnMouseExit()
+        { 
+            //取消当前选择的卡槽对象
         }
 
         private void OnMouseUp()

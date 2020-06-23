@@ -29,7 +29,7 @@ namespace Prefab
         //当前想要显示但是由于正在显示的toast已经满了而无法显示的toast队列
         private static Queue<Action> _toasts;
 
-        private static bool _canShow = true;
+        // private static bool _canShow = true;
 
         private static Timer timer;
 
@@ -87,7 +87,7 @@ namespace Prefab
         private void Show(float sec)
         {
             gameObject.SetActive(true);
-            _canShow = false;
+            // _canShow = false;
             var seq = DOTween.Sequence();
             var move = transform.DOLocalMove(new Vector3(0, transform.localPosition.y + 300, 0), sec).SetEase(Ease.Linear);
             seq.Append(move);
