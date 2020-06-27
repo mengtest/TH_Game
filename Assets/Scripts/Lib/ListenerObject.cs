@@ -121,28 +121,28 @@ namespace Lib
         private void Update()
         {
             //这里处理所有的键鼠相关的事件
-            if (Input.anyKeyDown)
-            {
-                for (var index = 0; index < _keyEvents.Count;)
-                {
-                    var value = _keyEvents.ElementAt(index);
-                    if ( value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode) value.Key) )
-                    {
-                        value.Value?.Invoke();
-                    }
-                    index++;
-                }
-                
-                for (var index = 0; index < _mouseEvents.Count;)
-                {
-                    var value = _mouseEvents.ElementAt(index);
-                    if ( value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode) value.Key) )
-                    {
-                        value.Value?.Invoke(Input.mousePosition, Input.touchCount);
-                    }
-                    index++;
-                }
-            }
+            // if (Input.anyKeyDown)
+            // {
+            //     for (var index = 0; index < _keyEvents.Count;)
+            //     {
+            //         var value = _keyEvents.ElementAt(index);
+            //         if ( value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode) value.Key) )
+            //         {
+            //             value.Value?.Invoke();
+            //         }
+            //         index++;
+            //     }
+            //     
+            //     for (var index = 0; index < _mouseEvents.Count;)
+            //     {
+            //         var value = _mouseEvents.ElementAt(index);
+            //         if ( value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode) value.Key) )
+            //         {
+            //             value.Value?.Invoke(Input.mousePosition, Input.touchCount);
+            //         }
+            //         index++;
+            //     }
+            // }
         }
 
         private void OnDestroy()

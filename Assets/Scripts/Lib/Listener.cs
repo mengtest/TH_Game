@@ -1554,85 +1554,85 @@ namespace Lib.obsolete
                 //     i++;
                 // }
 
-                if (Input.anyKeyDown)
-                {
-                    for (var index = 0; index < _keyEvents.Count;)
-                    {
-                        var value = _keyEvents.ElementAt(index);
-                        if (value.Value.Count == 0)
-                        {
-                            _keyEvents.Remove(value.Key);
-                        }
-                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
-                        {
-                            for (int i = 0; i < value.Value.Count;)
-                            {
-                                var pair = value.Value[i];
-                                if (pair.First == null)
-                                {
-                                    value.Value.RemoveAt(i);
-                                    continue;
-                                }
-
-                                for (var j = 0; j < pair.Second.Count;)
-                                {
-                                    var fun = pair.Second.ElementAt(j);
-                                    fun.Invoke();
-                                    if (_onceList.ContainsKey(fun.GetHashCode()))
-                                    {
-                                        pair.Second.RemoveAt(j);
-                                    }
-                                    else
-                                    {
-                                        j++;
-                                    }
-                                }
-                                i++;
-                            }
-                            break;
-                        }
-                        index++;
-                    }
-
-                    for (var index = 0; index < _mouseEvents.Count;)
-                    {
-                        var value = _mouseEvents.ElementAt(index);
-                        if (value.Value.Count == 0)
-                        {
-                            _mouseEvents.Remove(value.Key);
-                        }
-                        if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
-                        {
-                            for (int i = 0; i < value.Value.Count;)
-                            {
-                                var pair = value.Value[i];
-                                if (pair.First == null)
-                                {
-                                    value.Value.RemoveAt(i);
-                                    continue;
-                                }
-
-                                for (var j = 0; j < pair.Second.Count;)
-                                {
-                                    var fun = pair.Second.ElementAt(j);
-                                    fun.Invoke(Input.mousePosition, Input.touchCount);
-                                    if (_onceList.ContainsKey(fun.GetHashCode()))
-                                    {
-                                        pair.Second.RemoveAt(j);
-                                    }
-                                    else
-                                    {
-                                        j++;
-                                    }
-                                }
-
-                                i++;
-                            }
-                            break;
-                        }
-                        index++;
-                    }
-                }
+                // if (Input.anyKeyDown)
+                // {
+                //     for (var index = 0; index < _keyEvents.Count;)
+                //     {
+                //         var value = _keyEvents.ElementAt(index);
+                //         if (value.Value.Count == 0)
+                //         {
+                //             _keyEvents.Remove(value.Key);
+                //         }
+                //         if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
+                //         {
+                //             for (int i = 0; i < value.Value.Count;)
+                //             {
+                //                 var pair = value.Value[i];
+                //                 if (pair.First == null)
+                //                 {
+                //                     value.Value.RemoveAt(i);
+                //                     continue;
+                //                 }
+                //
+                //                 for (var j = 0; j < pair.Second.Count;)
+                //                 {
+                //                     var fun = pair.Second.ElementAt(j);
+                //                     fun.Invoke();
+                //                     if (_onceList.ContainsKey(fun.GetHashCode()))
+                //                     {
+                //                         pair.Second.RemoveAt(j);
+                //                     }
+                //                     else
+                //                     {
+                //                         j++;
+                //                     }
+                //                 }
+                //                 i++;
+                //             }
+                //             break;
+                //         }
+                //         index++;
+                //     }
+                //
+                //     for (var index = 0; index < _mouseEvents.Count;)
+                //     {
+                //         var value = _mouseEvents.ElementAt(index);
+                //         if (value.Value.Count == 0)
+                //         {
+                //             _mouseEvents.Remove(value.Key);
+                //         }
+                //         if (value.Key == KeyCode.AnyKey || Input.GetKeyDown((UnityEngine.KeyCode)value.Key))
+                //         {
+                //             for (int i = 0; i < value.Value.Count;)
+                //             {
+                //                 var pair = value.Value[i];
+                //                 if (pair.First == null)
+                //                 {
+                //                     value.Value.RemoveAt(i);
+                //                     continue;
+                //                 }
+                //
+                //                 for (var j = 0; j < pair.Second.Count;)
+                //                 {
+                //                     var fun = pair.Second.ElementAt(j);
+                //                     fun.Invoke(Input.mousePosition, Input.touchCount);
+                //                     if (_onceList.ContainsKey(fun.GetHashCode()))
+                //                     {
+                //                         pair.Second.RemoveAt(j);
+                //                     }
+                //                     else
+                //                     {
+                //                         j++;
+                //                     }
+                //                 }
+                //
+                //                 i++;
+                //             }
+                //             break;
+                //         }
+                //         index++;
+                //     }
+                // }
             }
 
             private List<Action> GetKey(object n)

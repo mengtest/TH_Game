@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
+using Scene.CombatScene;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -41,8 +43,7 @@ namespace Prefab
 
 
         //需要能够获取到当前战斗系统中所有的数据信息
-
-        public static GameObject dragObject;
+        // public static RectTransform dragObjectTransform;
 
         [Tooltip("棋子的血量")]
         public Text hp;
@@ -64,7 +65,7 @@ namespace Prefab
         //点击每个技能时，如果是主动技能则根据这个技能的实际情况判断是否需要释放这个技能
         //如果不满足技能的使用条件，需要显示为灰色，同时点击这个技能使用时提示不满足条件无法使用
         [Tooltip("当前卡牌所拥有的所有技能")] 
-        public Image[] skill;
+        public List<Image> skill;
 
         private void Awake() 
         {
@@ -109,32 +110,36 @@ namespace Prefab
         public void OnDrag(PointerEventData eventData)
         {
             // transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
-            dragObject.transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
+            // dragObject.transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
+            
+            UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
             CancelInvoke(nameof(ShowDetail));
         }
 
         //玩家的拖拽事件结束的时候触发这个事件
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (dragObject != null)
-            {
-                DestroyImmediate(dragObject);
-                dragObject = null;
-            }
+            UserInputScript.GetCurUserInput().RemoveDragObject();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (dragObject != null)
-            {
-                DestroyImmediate(dragObject);
-                dragObject = null;
-            }
+            // if (UserInputScript.GetCurUserInput().dragCardTransform != null)
+            // {
+            //     DestroyImmediate(UserInputScript.GetCurUserInput().dragCardTransform);
+            //     UserInputScript.GetCurUserInput().dragCardTransform = null;
+            // }
+            
+            // UserInputScript.GetCurUserInput().dragCardTransform = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true).GetComponent<RectTransform>();
+            // UserInputScript.GetCurUserInput().dragCardTransform.name = "DragObject";
+            // UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
+            
             //将这个对象放置到对象层中
-
-            dragObject = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true);
-            dragObject.name = "DragObject";
-            dragObject.transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
+            var card = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true)
+                .GetComponent<RectTransform>();
+            card.name = "DragObject";
+            card.anchoredPosition += eventData.delta;
+            UserInputScript.GetCurUserInput().SetDragObject(card);
         }
     };
 }

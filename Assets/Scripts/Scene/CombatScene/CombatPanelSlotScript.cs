@@ -1,20 +1,30 @@
 using System;
 using Prefab;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Scene.CombatScene
 {
     //需要检测是否有
-    public class CombatPanelSlotScript : MonoBehaviour
+    public class CombatPanelSlotScript : MonoBehaviour/*, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler*/
     {
         [Tooltip("占有当前槽位的卡牌")]
         public CombatSceneCombatCardScript card;
 
-        private static CombatSceneCombatCardScript _curCard;
+        // private static CombatSceneCombatCardScript curCard;
+        //
+        // public static CombatSceneCombatCardScript GetCurCard()
+        // {
+        //     return curCard;
+        // }
 
-        public static CombatSceneCombatCardScript GetCurCard()
+        /// <summary>
+        /// 获取当前槽位的下标
+        /// </summary>
+        /// <returns></returns>
+        public int GetCurSlotIndex()
         {
-            return _curCard;
+            return CombatScenePanelScript.GetIndex(this);
         }
 
         /// <summary>
@@ -38,6 +48,7 @@ namespace Scene.CombatScene
         {
             if (card == null)
             {
+                card = newCard;
                 newCard.transform.SetParent(transform);
                 newCard.transform.localPosition = Vector3.zero;
                 newCard.transform.SetAsFirstSibling();
@@ -62,16 +73,49 @@ namespace Scene.CombatScene
         private void OnMouseEnter()
         {
             //设置当前选择的卡槽对象
+            Debug.Log("Enter" + this.name);
+            
+            UserInputScript.GetCurUserInput().SetCurSlot(this);
         }
 
         private void OnMouseExit()
         { 
             //取消当前选择的卡槽对象
+            Debug.Log( "Exit" + this.name);
+            UserInputScript.GetCurUserInput().SetCurSlot(this);
         }
 
         private void OnMouseUp()
         {
-            Global.Log("zzzzzzzzz");
+            Global.Log($"当前选择的卡槽的下标是{UserInputScript.GetCurUserInput().GetCurSlotIndex()}");
         }
+
+        // public void OnPointerClick(PointerEventData eventData)
+        // {
+        //     // throw new NotImplementedException();
+        // }
+        //
+        // public void OnPointerDown(PointerEventData eventData)
+        // {
+        //     // throw new NotImplementedException();
+        // }
+        //
+        // public void OnPointerUp(PointerEventData eventData)
+        // {
+        //     // throw new NotImplementedException();
+        //     Global.Log($"当前选择的卡槽的下标是{UserInputScript.GetCurUserInput().GetCurSlotIndex()}");
+        // }
+        //
+        // public void OnPointerEnter(PointerEventData eventData)
+        // {
+        //     // throw new NotImplementedException();
+        //     UserInputScript.GetCurUserInput().SetCurSlot(this);
+        // }
+        //
+        // public void OnPointerExit(PointerEventData eventData)
+        // {
+        //     // throw new NotImplementedException();
+        //     UserInputScript.GetCurUserInput().ResetCurSlot();
+        // }
     }
 }
