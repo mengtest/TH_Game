@@ -2351,9 +2351,9 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 1af92cf8-0071-4d2a-bd3b-24857231c364
-      m_Path: <Mouse>/press
-      m_Interactions: Press(behavior=1)
+      m_Id: 6de52e95-1a24-4119-ba18-74eae5208a5a
+      m_Path: <Keyboard>/anyKey
+      m_Interactions: Press
       m_Processors: 
       m_Groups: 
       m_Action: F Mouse Up
@@ -4478,6 +4478,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 723737030}
     m_Modifications:
+    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054488262775004435, guid: 80fa77028bdf2724e98e6173756b339e,
         type: 3}
       propertyPath: card
@@ -4592,11 +4597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slot1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80fa77028bdf2724e98e6173756b339e, type: 3}
@@ -14773,11 +14773,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 723737030}
     m_Modifications:
+    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_AutoTiling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054488262775004435, guid: 80fa77028bdf2724e98e6173756b339e,
         type: 3}
       propertyPath: card
       value: 
       objectReference: {fileID: 1362526750}
+    - target: {fileID: 8054488262775004437, guid: 80fa77028bdf2724e98e6173756b339e,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054488262775004438, guid: 80fa77028bdf2724e98e6173756b339e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14887,31 +14912,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slot0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_UsedByComposite
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641548923205845223, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_AutoTiling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8054488262775004437, guid: 80fa77028bdf2724e98e6173756b339e,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80fa77028bdf2724e98e6173756b339e, type: 3}
