@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using Scene.CombatScene;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
+using XLua;
 
 // https://blog.csdn.net/yzx5452830/article/details/80280864
 //这个是位图字体的参考文章
@@ -20,11 +18,11 @@ using Object = UnityEngine.Object;
 // https://zhuanlan.zhihu.com/p/78669458
 // skynet
 
-
 namespace Prefab
 {
     //玩家抽取卡牌时，为对应的卡牌绑定数据
     //这里实际上就是所有的逻辑，以及
+    [LuaCallCSharp]
     public class CombatSceneCombatCardScript: MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
         //先想想所有的卡牌控件有哪些信息
@@ -67,16 +65,6 @@ namespace Prefab
         [Tooltip("当前卡牌所拥有的所有技能")] 
         public List<Image> skill;
 
-        private void Awake() 
-        {
-            
-        }
-
-        private void Start() 
-        {
-            
-        }
-
         //用户点击当前的卡牌0.5秒之后触发这个事件
         private void ShowDetail()
         {
@@ -89,12 +77,15 @@ namespace Prefab
         //像按钮一样点击并弹起之后才会触发这个事件
         public void OnPointerClick(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Click_Pawn", this, eventData);
             CancelInvoke(nameof(ShowDetail));
         }
 
         //点击到这个卡牌之后就会触发这个事件
         public void OnPointerDown(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Click_Pawn_Down", this, eventData);
+            
             //点击卡牌0.5秒之后显示这个卡牌的详细信息
             Invoke(nameof(ShowDetail), 0.5f);
         }
@@ -102,6 +93,8 @@ namespace Prefab
         //点击到这个卡牌之后，再次弹起鼠标就会触发这个事件(不管是不是想点击按钮一样)
         public void OnPointerUp(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Click_Pawn_Up", this, eventData);
+            
             //弹起时关闭卡牌的详细信息的提示
             CancelInvoke(nameof(ShowDetail));
         }
@@ -109,9 +102,12 @@ namespace Prefab
         //点击后移动鼠标就会不停的触发这个事件
         public void OnDrag(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Draging_Pawn", this, eventData);
+            
             // transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
             // dragObject.transform.DOBlendableLocalMoveBy(eventData.delta, 0.1f);
             
+            //开始拖拽后就不再显示卡牌的详细信息
             UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
             CancelInvoke(nameof(ShowDetail));
         }
@@ -119,11 +115,17 @@ namespace Prefab
         //玩家的拖拽事件结束的时候触发这个事件
         public void OnEndDrag(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Drag_Pawn_End", this, eventData);
+            
+            //拖拽结束的时候销毁这个拖拽的对象
             UserInputScript.GetCurUserInput().RemoveDragObject();
+            this.content.color = Color.white;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            Lib.Listener.Instance.Event("Mouse_Drag_Pawn_Begin", this, eventData);
+            
             // if (UserInputScript.GetCurUserInput().dragCardTransform != null)
             // {
             //     DestroyImmediate(UserInputScript.GetCurUserInput().dragCardTransform);
@@ -134,12 +136,16 @@ namespace Prefab
             // UserInputScript.GetCurUserInput().dragCardTransform.name = "DragObject";
             // UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
             
-            //将这个对象放置到对象层中
+            //拖拽开始的时候创建一个当前选择的对象的拷贝，并将这个对象放置到对象层中
             var card = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true)
                 .GetComponent<RectTransform>();
             card.name = "DragObject";
             card.anchoredPosition += eventData.delta;
             UserInputScript.GetCurUserInput().SetDragObject(card);
+            //同时将当前的对象设置一定的透明度
+            var color = Color.white;
+            color.a = 0.2f;
+            this.content.color = color;
         }
     };
 }

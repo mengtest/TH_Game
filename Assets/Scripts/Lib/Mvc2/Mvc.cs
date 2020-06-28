@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Mvc2
 {
     public class Mvc
@@ -6,7 +8,12 @@ namespace Mvc2
         //现在更加希望Model是一个lua对象，
         //view就是一个Mono
         //Controller就是一个普通的类
-
         
+        //通过Controller、Model、GameObject创建一个View
+        public IMvcView Create(IMvcController controller, IMvcModel model, GameObject go)
+        {
+            
+            return null;
+        }
     }
 }

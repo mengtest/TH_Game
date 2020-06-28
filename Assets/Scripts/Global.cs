@@ -91,6 +91,11 @@ public static partial class Global
         }
     }
 
+    public static void Log(object msg, Level level = Level.Info)
+    {
+        Log(msg.ToString(), level);
+    }
+
     /// <summary>
     /// 获取当前正在运行的场景，主要是简化lua端代码
     /// </summary>

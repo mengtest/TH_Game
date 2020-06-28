@@ -26,6 +26,7 @@ function _yuki_init_list.cantConnectServer()
     CS.Lib.Listener.Instance:On("cant_connect_server"
     , function ()
         log("无法连接到服务器", LOG_ERROR)
+                ---这个api要改，最起码要改成只需要一个回调函数，
         local dialog = CS.Util.ModelDialog("无法连接到服务器，是否以离线模式启动？", "是", "退出游戏"
         , function ()
                     log("以离线模式启动游戏")
@@ -64,9 +65,7 @@ end
 
 function _yuki_init_list.sceneInit()
     local f = function(param)
-        --log("新的场景参数为:"..param)
-        --log("当前场景的名称是："..CS.Global.Scene.name)
-        log("111111111111111")
+        
     end
     CS.Lib.Listener.Instance:On("scene_changed", f)
 end

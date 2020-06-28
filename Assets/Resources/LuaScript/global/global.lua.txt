@@ -20,3 +20,4 @@ globalTb = globalTb or {}
 
 global = require"global.functions"
 
+class = util.class

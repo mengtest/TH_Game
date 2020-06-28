@@ -3,6 +3,10 @@ local M = {}
 local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
 
+---战斗场景应该具有的功能
+---     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景)
+---     
+
 ---@param this UnityEngine.Transform
 local function Setting(this)
     util.bindButtonCallback(this, function ()
@@ -18,6 +22,8 @@ local list = {
 
 function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
+    require"modules.BattleScene.userInputLayer".init()
+    ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件
     --CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
     --    ---@type UnityEngine.RaycastHit

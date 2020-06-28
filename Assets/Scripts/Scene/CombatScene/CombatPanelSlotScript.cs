@@ -2,21 +2,19 @@ using System;
 using Prefab;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using XLua;
 
 namespace Scene.CombatScene
 {
-    //需要检测是否有
-    public class CombatPanelSlotScript : MonoBehaviour/*, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler*/
+    //需要拥有通过view获取到其中所包含的数据相关的api
+    //可能需要可以获取
+    [LuaCallCSharp]
+    public class CombatPanelSlotScript : MonoBehaviour
     {
         [Tooltip("占有当前槽位的卡牌")]
         public CombatSceneCombatCardScript card;
 
-        // private static CombatSceneCombatCardScript curCard;
-        //
-        // public static CombatSceneCombatCardScript GetCurCard()
-        // {
-        //     return curCard;
-        // }
+        private bool _mouseDown;
 
         /// <summary>
         /// 获取当前槽位的下标
@@ -40,7 +38,7 @@ namespace Scene.CombatScene
         }
 
         /// <summary>
-        /// 向当前槽位中添加卡牌
+        /// 向当前槽位中添加卡牌，只有当前玩家手中的卡牌才可以通过拖动事件放置在场地上
         /// </summary>
         /// <param name="newCard"></param>
         /// <returns></returns>
@@ -70,52 +68,61 @@ namespace Scene.CombatScene
             return card != null;
         }
 
+        public int GetPlayer()
+        {
+            return transform.parent.GetComponent<CombatScenePanelScript>().PlayerId;
+        }
+
         private void OnMouseEnter()
         {
             //设置当前选择的卡槽对象
-            Debug.Log("Enter" + this.name);
-            
             UserInputScript.GetCurUserInput().SetCurSlot(this);
+            
+            Lib.Listener.Instance.Event("Mouse_In_Slot", this);
         }
 
         private void OnMouseExit()
         { 
             //取消当前选择的卡槽对象
-            Debug.Log( "Exit" + this.name);
-            UserInputScript.GetCurUserInput().SetCurSlot(this);
+            UserInputScript.GetCurUserInput().ResetCurSlot();
+            
+            Lib.Listener.Instance.Event("Mouse_Leave_Slot", this);
         }
 
         private void OnMouseUp()
         {
-            Global.Log($"当前选择的卡槽的下标是{UserInputScript.GetCurUserInput().GetCurSlotIndex()}");
-        }
+            //鼠标弹起的时候检测当前的槽位中是否存在卡牌，如果存在则不作任何响应
+            //或者给出提示，当前卡槽已被占用的提示
+            //如果当前的卡槽没有被占用，则将当前的卡牌放置在对应的位置上
 
-        // public void OnPointerClick(PointerEventData eventData)
-        // {
-        //     // throw new NotImplementedException();
-        // }
-        //
-        // public void OnPointerDown(PointerEventData eventData)
-        // {
-        //     // throw new NotImplementedException();
-        // }
-        //
-        // public void OnPointerUp(PointerEventData eventData)
-        // {
-        //     // throw new NotImplementedException();
-        //     Global.Log($"当前选择的卡槽的下标是{UserInputScript.GetCurUserInput().GetCurSlotIndex()}");
-        // }
-        //
-        // public void OnPointerEnter(PointerEventData eventData)
-        // {
-        //     // throw new NotImplementedException();
-        //     UserInputScript.GetCurUserInput().SetCurSlot(this);
-        // }
-        //
-        // public void OnPointerExit(PointerEventData eventData)
-        // {
-        //     // throw new NotImplementedException();
-        //     UserInputScript.GetCurUserInput().ResetCurSlot();
-        // }
+            Lib.Listener.Instance.Event("Release_Slot", this);
+            
+//            var input = UserInputScript.GetCurUserInput();
+//            var panel = input.GetPanel(input.GetCurSlotPlayerId());
+//            if (panel != null)
+//            {
+//                var slot = panel.GetSlot(input.GetCurSlotIndex());
+//                if (slot != null)
+//                {
+//                    if (slot.HasCard())
+//                    {
+//                        Global.MakeToast("当前卡槽已被占用!", Global.TOAST_LONG);
+//                    }
+//                    //要求当前槽位上有卡牌存在
+//                    else if(this.HasCard())
+//                    {
+//                        slot.AddCard(this.Remove());
+//                    }
+//                    else
+//                    {
+//                        
+//                    }
+//                }
+//                else
+//                {
+//                    throw new Exception("程序遇到了某些问题，尝试重启也许能解决这些问题");
+//                }
+//            }
+        }
     }
 }

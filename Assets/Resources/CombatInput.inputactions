@@ -1,0 +1,117 @@
+{
+    "name": "CombatInput",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "dec774d8-3322-45de-b1c5-624535d7c3e5",
+            "actions": [
+                {
+                    "name": "MouseDown",
+                    "type": "Value",
+                    "id": "767e59f7-cc86-4159-8ad3-9dfe4dbf63e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "MouseUp",
+                    "type": "Value",
+                    "id": "ab223241-acdb-4394-8865-9be3d3dc5df6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "MouseMove",
+                    "type": "Value",
+                    "id": "2206075a-0a0a-49bf-b2bf-a6a3fc4dfc60",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "KeyDown",
+                    "type": "Value",
+                    "id": "7329af84-9ac1-4747-957d-6e13d8a89d98",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ae603af7-c24d-4f1f-ab34-41c09f8820b9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "MouseUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f54ec8e1-5531-45c9-ab94-1a2f14585479",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "MouseMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75fe4208-c92b-4e32-8d6e-fc2138225364",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "KeyDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ec20882-84f5-4432-a67a-7f7304128aa2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "MouseDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Pointer>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
