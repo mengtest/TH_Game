@@ -29,9 +29,13 @@ namespace Prefab
         //当前想要显示但是由于正在显示的toast已经满了而无法显示的toast队列
         private static Queue<Action> _toasts;
 
+        private static Action _playingAction;
+
         // private static bool _canShow = true;
 
         private static Timer timer;
+
+        private static int count = 0;
 
         //两个toast的显示间隔为0.3秒
         // private static long _lastTime = DateTime.Now.ToFileTime();
@@ -46,35 +50,51 @@ namespace Prefab
         }
 
         private string[] colors = {
-            "",
-            "",
-            "",
-            "",
+            "#D2691E",
+            "#EE2C2C",
+            "#EE6363",
+            "#63B8FF",
             "#ffffff"
         };
 
         public void Make(string text, ToastType type, float sec)
         {
+            count++;
             content.text = $"<color='{colors[(int)type]}'>{text}</color>";
             Redraw();
             gameObject.SetActive(false);
             //将显示对应的toast的函数存起来，再等待调用
-            _toasts.Enqueue(()=>{
-                Show(sec);
-            });
+
+            // bool flag;
+            if (_playingAction == null)
+            {
+                _playingAction = () =>
+                {
+                    Show(sec);
+                };
+                _playingAction.Invoke();
+            }
+            else
+            {
+                _toasts.Enqueue(()=>{
+                    Show(sec);
+                });
+            }
+            
             //如果timer为空，则创建
             if(timer == null)
             {
                 //如果
                 timer = Timer.Register(0.5f, () => {
-                    // Global.Log("123123123123");
                     if (_toasts.Count != 0)
                     {
-                        _toasts.Dequeue().Invoke();
+                        _playingAction =  _toasts.Dequeue();
+                        _playingAction.Invoke();
                     }
                     else
                     {
                         timer.Pause();
+                        _playingAction = null;
                     }
                 }, null, true);
             }
@@ -87,9 +107,8 @@ namespace Prefab
         private void Show(float sec)
         {
             gameObject.SetActive(true);
-            // _canShow = false;
             var seq = DOTween.Sequence();
-            var move = transform.DOLocalMove(new Vector3(0, transform.localPosition.y + 300, 0), sec).SetEase(Ease.Linear);
+            var move = transform.DOLocalMove(new Vector3(0, transform.localPosition.y + 200, 0), sec).SetEase(Ease.Linear);
             seq.Append(move);
             seq.OnComplete(() =>
             {

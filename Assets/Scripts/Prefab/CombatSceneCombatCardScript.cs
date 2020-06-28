@@ -119,7 +119,11 @@ namespace Prefab
             
             //拖拽结束的时候销毁这个拖拽的对象
             UserInputScript.GetCurUserInput().RemoveDragObject();
-            this.content.color = Color.white;
+            content.color = Color.white;
+            foreach (var child in content.GetComponentsInChildren<Image>())
+            {
+                child.color = Color.white;
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -142,10 +146,15 @@ namespace Prefab
             card.name = "DragObject";
             card.anchoredPosition += eventData.delta;
             UserInputScript.GetCurUserInput().SetDragObject(card);
-            //同时将当前的对象设置一定的透明度
             var color = Color.white;
             color.a = 0.2f;
-            this.content.color = color;
+            //同时将当前的对象设置一定的透明度
+            foreach (var child in content.GetComponentsInChildren<Image>())
+            {
+                child.color = color;
+            }
+            content.color = color;
+            
         }
     };
 }

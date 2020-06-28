@@ -132,7 +132,7 @@ namespace Scene.CombatScene
             
             //射线检测不到目标物体
             //所以现在不再触发鼠标弹起的事件
-            // fMouseUp.performed += MouseUpEvent;
+            fMouseUp.performed += Click3;
         }
 
         public CombatScenePanelScript GetPanel(int uid)
@@ -226,8 +226,8 @@ namespace Scene.CombatScene
         
         public void Click3(InputAction.CallbackContext callback)
         {
-            
-            Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
+            // Keyboard.current.aKey.
+            // Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
             switch (callback.phase)
             {
                 case InputActionPhase.Disabled:
