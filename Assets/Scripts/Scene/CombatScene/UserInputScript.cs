@@ -52,6 +52,12 @@ namespace Scene.CombatScene
             dragCardTransform = null;
         }
 
+        public bool CurSlotIsSelfPlayer()
+        {
+            // return curSlot.
+            return true;
+        }
+
         public int GetCurSlotIndex()
         {
             if (curSlot != null)

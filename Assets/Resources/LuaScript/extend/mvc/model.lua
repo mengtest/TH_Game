@@ -1,8 +1,8 @@
----lua�˶�mvc Model�Ļ���ʵ�֣��൱�ڳ�����
+---lua端对mvc Model的基本实现，相当于抽象类
 ---@class mvc.Model
 local Model = class("Model")
 
----���캯��
+---构造函数
 function Model:ctor(data)
     -- body
 end

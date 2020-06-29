@@ -44,6 +44,8 @@ public static class GameInit
         LuaEngine.LoadLuaModule();
         // Pool.Init();
         FileUtils.Init();
+        
+        CloudBase.CloudBase.Init();
 
         // Physics.ray
 

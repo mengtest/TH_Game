@@ -1,24 +1,25 @@
 using System;
+using XLua;
 
 namespace Mvc2
 {
-    [XLua.LuaCallCSharp]
-    [XLua.CSharpCallLua]
+    [LuaCallCSharp]
+    [CSharpCallLua]
     public interface IMvcController
     {
-        //Ö´ÐÐÊÂ¼þ
+        //æ‰§è¡Œäº‹ä»¶
         void Execute(object data);
     
         IMvcView GetView();
     
         IMvcModel GetModel();
 
-        //×¢²áÄ£ÐÍ
+        //æ³¨å†Œæ¨¡åž‹
         void RegisterModel(IMvcModel model);
-        //×¢²áÊÓÍ¼
+        //æ³¨å†Œè§†å›¾
         void RegisterView(IMvcView view);
 
-        //×¢²á¿ØÖÆÆ÷
+        //æ³¨å†ŒæŽ§åˆ¶å™¨
         void RegisterController(string eventName,IMvcController controllerType);
     }
 }

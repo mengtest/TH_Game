@@ -1,11 +1,12 @@
----lua¶Ë¶Ômvc ViewµÄ»ù±¾ÊµÏÖ£¬Ïàµ±ÓÚ³éÏóÀà
+---luaç«¯å¯¹mvc Viewçš„åŸºæœ¬å®ç°ï¼Œç›¸å½“äºæŠ½è±¡ç±»
 ---@class mvc.View
 local View = class("View")
+---@type UnityEngine.GameObject
 View.go = nil
 View.mvcName = ""
 View.list = {}
 
----¹¹Ôìº¯Êı
+---æ„é€ å‡½æ•°
 function View:ctor(data)
     
 end
@@ -17,16 +18,16 @@ function View:BindGameObject(go)
     end
 end
 
----@param go UnityEngine.MonoBehaviour
+---@param mono UnityEngine.MonoBehaviour
 function View:BindMono(mono)
     if self.go == nil then
-        self.go = mono.gameobject
+        self.go = mono.gameObject
     end
 end
 
 ---@return boolean
 function View:Bind()
-    return self.go == nil
+    return self.go ~= nil
 end
 
 ---@return UnityEngine.GameObject
@@ -42,7 +43,7 @@ end
 ---@return mvc.Model
 function View:GetModel()
     -- return CS.Lib.Mvc2.Mvc.GetModel()
-
+    return CS.Mvc2.Mvc.GetModel()
 end
 
 ---@param name string
@@ -55,7 +56,7 @@ function View:RegisterAll()
 
 end
 
----ÊÇ·ñ°üº¬Ä³¸öÃû³ÆµÄÊÂ¼ş
+---æ˜¯å¦åŒ…å«æŸä¸ªåç§°çš„äº‹ä»¶
 ---@return boolean
 ---@param name string
 function View:Contain(name)
