@@ -20,42 +20,6 @@ namespace Lib
         //所有的点击事件
         private Dictionary<int, YukiEventDelegate> _mouseEvents = new Dictionary<int, YukiEventDelegate>();
 
-        [Tooltip("鼠标输入事件")]
-        public InputAction mAction;
-        [Tooltip("键盘输入事件")]
-        public InputAction kAction;
-
-        private void Awake()
-        {
-//            mAction = new InputAction();
-//            mAction.
-            
-//            mAction.performed += MouseEvents;
-//            kAction.performed += KeyBoardEvents;
-        }
-
-        private void OnEnable()
-        {
-//            mAction.Enable();
-//            kAction.Enable();
-        }
-        
-        private void OnDisable()
-        {
-//            mAction.Disable();
-//            kAction.Disable();
-        }
-
-        private void MouseEvents(InputAction.CallbackContext context)
-        {
-            
-        }
-        
-        private void KeyBoardEvents(InputAction.CallbackContext context)
-        {
-            
-        }
-
         /// <summary>
         /// 该组件是否包含有某个事件
         /// </summary>
@@ -119,6 +83,22 @@ namespace Lib
             if (_events.ContainsKey(eventName))
             {
                 _events[eventName] -= e;
+            }
+        }
+
+        public void EventKeyboard(int keyCode,int phase)
+        {
+            if (_keyEvents.ContainsKey(keyCode))
+            {
+                _keyEvents[keyCode].Invoke(phase);
+            }
+        }
+
+        public void EventMouse(int keyCode, int phase, Vector2 position)
+        {
+            if (_mouseEvents.ContainsKey(keyCode))
+            {
+                _mouseEvents[keyCode].Invoke(phase, position);
             }
         }
 

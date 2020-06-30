@@ -4,6 +4,7 @@ using XLua;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using Button = UnityEngine.UI.Button;
 
 namespace Scene.MainScene
@@ -172,7 +173,7 @@ namespace Scene.MainScene
         private void Update()
         {
             //点击聊天框后显示完整得聊天框，否则显示部分聊天框
-            if (Input.GetMouseButtonDown(0))
+            if (Mouse.current.leftButton.isPressed)
             {
                 if (_isHonver)
                 {

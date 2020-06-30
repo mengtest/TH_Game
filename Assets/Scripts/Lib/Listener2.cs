@@ -1320,10 +1320,28 @@ namespace Lib
              Joystick8Button19 = 509, // 0x000001FD
 
             //用于表示按下任意键
-            AnyKey = 2000;
+            AnyKey = 2000,
+        
+            AllEnter = 2001,
+             
+             AllAlt = 2002,
+             
+             AllCtrl = 2003,
+             AllShift = 2004;
+             
     }
 
     #endregion
+
+    [LuaCallCSharp]
+    public class Phase
+    {
+        public static int Press = 1;
+        public static int Hold = 2;
+        public static int Release = 3;
+        // public static int Press = 1;
+    }
+    
     
     /// <summary>
     /// 事件系统，这个类相当于是一个管理器，管理所有的ListenerObj
@@ -1553,6 +1571,40 @@ namespace Lib
                 foreach (var l in _allListenerObjects[eventName])
                 {
                     l.Event(eventName, objs);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 分发一个用户输入事件
+        /// </summary>
+        /// <param name="code">事件的code，参照KeyCode里面的值</param>
+        /// <param name="phase">事件的阶段，参照Phase里面的值</param>
+        /// <param name="position"></param>
+        public void DistributeMouse(int code, int phase, Vector2 position)
+        {
+            foreach (var listenerObject in _allListenerObjects)
+            {
+                foreach (ListenerObject o in listenerObject.Value)
+                {
+                    o.EventMouse(code, phase, position);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// 分发一个用户输入事件
+        /// </summary>
+        /// <param name="code">事件的code，参照KeyCode里面的值</param>
+        /// <param name="phase">事件的阶段，参照Phase里面的值</param>
+        public void DistributeKeyboard(int code, int phase)
+        {
+            foreach (var listenerObject in _allListenerObjects)
+            {
+                foreach (ListenerObject o in listenerObject.Value)
+                {
+                    o.EventKeyboard(code, phase);
                 }
             }
         }
