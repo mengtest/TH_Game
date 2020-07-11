@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+using FairyGUI;
 
 namespace Editor
 {
@@ -50,6 +51,42 @@ namespace Editor
             //dotween pro 的功能
             //typeof(DG.Tweening.DOTweenPath),
             //typeof(DG.Tweening.DOTweenVisualManager),
+            
+            (typeof(EventContext)),
+            (typeof(EventDispatcher)),
+            (typeof(EventListener)),
+            (typeof(InputEvent)),
+            (typeof(DisplayObject)),
+            (typeof(Container)),
+            (typeof(Stage)),
+            (typeof(Controller)),
+            (typeof(GObject)),
+            (typeof(GGraph)),
+            (typeof(GGroup)),
+            (typeof(GImage)),
+            (typeof(GLoader)),
+//            (typeof(PlayState)),
+            (typeof(GMovieClip)),
+            (typeof(TextFormat)),
+            (typeof(GTextField)),
+            (typeof(GRichTextField)),
+            (typeof(GTextInput)),
+            (typeof(GComponent)),
+            (typeof(GList)),
+            (typeof(GRoot)),
+            (typeof(GLabel)),
+            (typeof(GButton)),
+            (typeof(GComboBox)),
+            (typeof(GProgressBar)),
+            (typeof(GSlider)),
+            (typeof(PopupMenu)),
+            (typeof(ScrollPane)),
+            (typeof(Transition)),
+            (typeof(UIPackage)),
+            (typeof(Window)),
+            (typeof(GObjectPool)),
+            (typeof(Relations)),
+            (typeof(RelationType)),
         };
     }
 }

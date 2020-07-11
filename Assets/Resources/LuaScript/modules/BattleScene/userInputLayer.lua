@@ -12,7 +12,7 @@ function M.slotReleaseEvent(script)
     if (panel ~= nil) then
         ---这个是鼠标当前所在的slot
         local slot = panel:GetSlot(input:GetCurSlotIndex())
-        if (slot ~= null) then
+        if (slot ~= nil) then
             if (slot:HasCard()) then
                 --- CS.Global.MakeToast("当前卡槽已被占用!", CS.Global.TOAST_LONG);
                 ---要求当前槽位上有卡牌存在
@@ -22,10 +22,8 @@ function M.slotReleaseEvent(script)
                 if slot:GetPlayer() == input.myPanel.PlayerId and script:GetPlayer() == input.myPanel.PlayerId then
                     slot:AddCard(script:Remove())
                 else
-                    
                 end
             else
-                
             end
         end
     end
@@ -37,7 +35,6 @@ function M.init()
         M.inputLayer = go
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
     end
-    
 end
 
 return M

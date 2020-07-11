@@ -3,6 +3,7 @@ using LuaFramework;
 using UnityEngine;
 using Util;
 using Net;
+using UnityEngine.InputSystem;
 using DataCenter = Core.DataCenter;
 
 /// <summary>
@@ -10,6 +11,8 @@ using DataCenter = Core.DataCenter;
 /// </summary>
 public static class GameInit
 {
+    public static string imeString = "";
+    
     // [StructLayout(LayoutKind.Sequential)]
     // class Core
     // {
@@ -44,17 +47,6 @@ public static class GameInit
         LuaEngine.LoadLuaModule();
         // Pool.Init();
         FileUtils.Init();
-        
-        CloudBase.CloudBase.Init();
-
-        // Physics.ray
-
-        // Core c = getData();
-        // Debug.Log(c.name);
-        // Debug.Log(c.buffs);
-        // Debug.Log(c.buffs[19]);
-        // Debug.Log(c.id);
-        // releaseData(ref c);
     }
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]

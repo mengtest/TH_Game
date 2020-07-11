@@ -24,6 +24,31 @@ function M.init()
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     require"modules.BattleScene.userInputLayer".init()
+    
+    ---@type FairyGUI.UIPanel
+    local panel = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel))
+    local ui = panel.ui
+    --print(ui.numChildren)
+    --print(ui:GetChildAt(1).asCom.name)
+    --local c = ui:GetChild("display").asCom
+    local com = ui.asCom
+    --for i, v in ipairs(com:GetChildren()) do
+    --    print(v.name)
+    --end
+    local rBtn = com:GetChild("rightBtn").asImage
+    local lBtn = com:GetChild("leftBtn").asImage
+    local title = com:GetChild("titleText").asTextField
+    rBtn.onClick:Add(function ()
+        print("right")
+    end)
+
+    lBtn.onClick:Add(function ()
+        print("left")
+    end)
+    
+    title.text = "111111"
+    
+    
     ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件
     --CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
