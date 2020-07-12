@@ -30,10 +30,34 @@ function M.slotReleaseEvent(script)
 end
 
 function M.init()
+    ---@type CCard[]
+    global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
+    
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then
         M.inputLayer = go
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
+    end
+
+    ---@type Scene.CombatScene.UserInputScript
+    local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
+    for i = 0, #(yGlobal.myPanel) - 1 do
+        if yGlobal.myPanel[i + 1] ~= 0 then
+            local origin = CS.Util.Loader.Load("Prefab/CombatPawn")
+            ---@type UnityEngine.GameObject
+            local card = CS.UnityEngine.GameObject.Instantiate(origin)
+            --card.transform.localPosition = CS.UnityEngine.Vector3.zero
+            ---@type UnityEngine.RectTransform
+            local tr = card:GetComponent(typeof(CS.UnityEngine.RectTransform))
+            tr.localPosition = CS.UnityEngine.Vector3.zero
+            ---@type Prefab.CombatSceneCombatCardScript
+            local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+            s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[yGlobal.uids[yGlobal.myPanel[i + 1]]].img)
+            script.myPanel:GetSlot(i):AddCard(s)
+            tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
+        else
+            script.myPanel:GetSlot(i):Remove()
+        end
     end
 end
 

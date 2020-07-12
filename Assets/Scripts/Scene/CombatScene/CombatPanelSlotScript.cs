@@ -31,6 +31,7 @@ namespace Scene.CombatScene
         /// <returns></returns>
         public CombatSceneCombatCardScript Remove()
         {
+            if (card == null) return null;
             var c = card;
             c.transform.SetParent(null);
             card = null;

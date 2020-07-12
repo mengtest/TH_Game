@@ -29,5 +29,15 @@ namespace XLua.LuaDLL
         {
             return luaopen_gameplay(L);
         }
+        
+        
+        [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int luaopen_core(System.IntPtr L);
+        
+        [MonoPInvokeCallback(typeof(LuaDLL.lua_CSFunction))]
+        public static int LoadCore(System.IntPtr L)
+        {
+            return luaopen_core(L);
+        }
     }
 }

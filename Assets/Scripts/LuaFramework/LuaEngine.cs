@@ -44,6 +44,7 @@ namespace LuaFramework
         {
             _engine._env.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
             _engine._env.AddBuildin("gameplay", XLua.LuaDLL.Lua.LoadGamePlay);
+            _engine._env.AddBuildin("core", XLua.LuaDLL.Lua.LoadCore);
             
             _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
                 "global",
@@ -71,6 +72,7 @@ namespace LuaFramework
         private LuaEngine()
         {
             _env = new LuaEnv();
+            // _env.L
             _env.AddLoader(CustomLoaderMethod);
         } 
         

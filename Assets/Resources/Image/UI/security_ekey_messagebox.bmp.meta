@@ -1,9 +1,21 @@
 fileFormatVersion: 2
 guid: 5edb5a214a257f1418f451c7c59b1753
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2612221873038527280
+    second: security_ekey_messagebox_0
+  - first:
+      213: 438904105469566067
+    second: security_ekey_messagebox_1
+  - first:
+      213: 2876719240527366453
+    second: security_ekey_messagebox_2
+  - first:
+      213: 3405268986535046345
+    second: security_ekey_messagebox_3
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -57,6 +69,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -84,7 +97,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: security_ekey_messagebox_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 66
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b87f014f9704420800000000000000
+      internalID: 2612221873038527280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: security_ekey_messagebox_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 27
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c59f065fc471600800000000000000
+      internalID: 438904105469566067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: security_ekey_messagebox_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 95
+        width: 88
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5394a2268e82ce720800000000000000
+      internalID: 2876719240527366453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: security_ekey_messagebox_3
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 95
+        width: 88
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc6313f912f14f20800000000000000
+      internalID: 3405268986535046345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,172 +1,183 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lapi.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lapi.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lcode.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lcode.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lctype.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lctype.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ldebug.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldebug.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ldo.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldo.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ldump.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldump.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lfunc.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lfunc.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lgc.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lgc.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\llex.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\llex.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lmem.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lmem.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lobject.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lobject.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lopcodes.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lopcodes.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lparser.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lparser.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lstate.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstate.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lstring.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstring.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ltable.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltable.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ltm.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltm.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lundump.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lundump.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lvm.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lvm.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lzio.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lzio.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lauxlib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lauxlib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lbaselib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lbaselib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lbitlib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lbitlib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lcorolib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lcorolib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ldblib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldblib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\liolib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\liolib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lmathlib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lmathlib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\loslib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\loslib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lstrlib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstrlib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\ltablib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltablib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\linit.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\linit.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\lutf8lib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lutf8lib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-5.3.5\src\loadlib.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\loadlib.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\auxiliar.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\auxiliar.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\buffer.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\buffer.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\except.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\except.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\inet.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\inet.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\io.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\io.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\luasocket.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\luasocket.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\mime.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\mime.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\options.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\options.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\select.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\select.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\tcp.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\tcp.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\timeout.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\timeout.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\udp.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\udp.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\luasocket\wsocket.c">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\wsocket.c">
       <Filter>luasocket</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\i64lib.c" />
-    <ClCompile Include="D:\Game\THGame\build\xlua.c" />
-    <ClCompile Include="D:\Game\THGame\build\memory_leak_checker.c" />
-    <ClCompile Include="D:\Game\THGame\build\lua-rapidjson\source\rapidjson.cpp">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\i64lib.c" />
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\xlua.c" />
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\memory_leak_checker.c" />
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\source\rapidjson.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\GamePlay.cpp">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\GamePlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Game\THGame\build\lua-gameplay\source\Test.cpp">
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\sol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Game\THGame\build\CMakeLists.txt" />
+    <ClInclude Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include\sol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="D:\projects\unity\THGame3\THGame3\build\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C1B9A4E8-6A92-333A-A340-20B4C9EED3EE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{1A508465-1B59-32CF-BD8A-8E6ACAD3D5FB}</UniqueIdentifier>
+      <UniqueIdentifier>{CA5D61EE-CC8F-33BE-A8E8-03DEDE0BDAFE}</UniqueIdentifier>
     </Filter>
     <Filter Include="lua-5.3.5">
-      <UniqueIdentifier>{E0B82ADC-0E9A-3572-B9E8-A3411F555141}</UniqueIdentifier>
+      <UniqueIdentifier>{6606FCC9-A9E9-3422-84BA-5FFD99EF2C5E}</UniqueIdentifier>
     </Filter>
     <Filter Include="lua-5.3.5\src">
-      <UniqueIdentifier>{051C9F9A-96B7-3698-9E82-05ABE0550096}</UniqueIdentifier>
+      <UniqueIdentifier>{9EA14938-4DD4-389B-93DB-69147204734F}</UniqueIdentifier>
     </Filter>
     <Filter Include="luasocket">
-      <UniqueIdentifier>{5BAF5CE3-7614-3116-B14B-7FAD9EB78CAB}</UniqueIdentifier>
+      <UniqueIdentifier>{E09948C7-EC4E-3E30-9B70-EE5DB2188193}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

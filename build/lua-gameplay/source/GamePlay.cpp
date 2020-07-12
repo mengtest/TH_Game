@@ -4,6 +4,10 @@
 #include "lua.hpp"
 #include "i64lib.h"
 
+//#include "sol/sol.hpp"
+
+sol::state * GamePlay::_lua;
+
 GamePlay::GamePlay(/* args */)
 {
 
@@ -78,6 +82,23 @@ static const luaL_Reg methods[] = {
 	{ NULL, NULL }          //一定要这个，不然会无法运行
 };
 
+class T
+{
+public:
+	int id;
+
+	const char * str;
+
+	T(int i)
+	{
+		id = i;
+	}
+
+	T(const char * s)
+	{
+		str = s;
+	}
+};
 
 extern "C" {
 	LUALIB_API int luaopen_gameplay(lua_State* L)
@@ -95,7 +116,16 @@ extern "C" {
 		lua_getfield(L, -1, "null"); // [rapidjson, json.null]
 		null = luaL_ref(L, LUA_REGISTRYINDEX); // [rapidjson]
 
+		//这里设置
 		return 1;
 	}
 
+	LUALIB_API int luaopen_core(lua_State* L)
+	{
+		GamePlay::_lua = new sol::state(L);
+		GamePlay::_lua->new_usertype<T>("T", sol::constructors<void(int), void(const char *)>(),
+		        "id", &T::id,
+		        "str", &T::str);
+		return 1;
+	}
 }

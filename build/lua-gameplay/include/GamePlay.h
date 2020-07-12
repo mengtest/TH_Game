@@ -1,11 +1,13 @@
 #include <string>
-
+#include "sol/sol.hpp"
 
 class GamePlay
 {
 private:
     /* data */
 public:
+    static sol::state * _lua;
+
     GamePlay(/* args */);
     
     ~GamePlay();

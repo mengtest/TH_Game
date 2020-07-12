@@ -42,19 +42,19 @@ function BGMPanel(this)
         log(e)
     end)
 	---音效音量改变时的调用
-	this:AddSliderChangeEvent(function(value)
-		CS.Local.Settings.Instance.DefaultConfig.Configs.BgmVol = value
-	end)
+	--this:AddSliderChangeEvent(function(value)
+		--CS.Local.Settings.Instance.DefaultConfig.Configs.BgmVol = value
+	--end)
 end
 
 ---@param this Scene.SettingScene.VoicePanel
 function EffectPanel(this)
-	this:AddCheckerChangeEvent(function(e)
-		log(e)
-	end)
-	this:AddSliderChangeEvent(function(value)
-		log(value)
-	end)
+	--this:AddCheckerChangeEvent(function(e)
+	--	log(e)
+	--end)
+	--this:AddSliderChangeEvent(function(value)
+	--	log(value)
+	--end)
 end
 
 return M

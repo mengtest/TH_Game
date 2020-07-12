@@ -25,28 +25,48 @@ function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     require"modules.BattleScene.userInputLayer".init()
     
-    ---@type FairyGUI.UIPanel
-    local panel = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel))
-    local ui = panel.ui
-    --print(ui.numChildren)
-    --print(ui:GetChildAt(1).asCom.name)
-    --local c = ui:GetChild("display").asCom
-    local com = ui.asCom
-    --for i, v in ipairs(com:GetChildren()) do
-    --    print(v.name)
-    --end
-    local rBtn = com:GetChild("rightBtn").asImage
-    local lBtn = com:GetChild("leftBtn").asImage
-    local title = com:GetChild("titleText").asTextField
+    ---@type FairyGUI.GComponent
+    local com = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel)).ui.asCom
+    --local ui = panel.ui
+    --local com = ui.asCom
+    local rBtn = com:GetChild("rightBtn").asLoader
+    local lBtn = com:GetChild("leftBtn").asLoader
+    --local title = com:GetChild("titleText").asTextField
+    local arrow = com:GetChild("arrow").asLoader
     rBtn.onClick:Add(function ()
-        print("right")
+        log"切换到右边的视图"
     end)
 
     lBtn.onClick:Add(function ()
-        print("left")
+        log"切换到左边的视图"
     end)
     
-    title.text = "111111"
+    local body = com:GetChild("body").asCom
+    local displayList = body:GetChild("displayItemList").asList
+    --log(displayList.name)
+    displayList.itemRenderer = function (index, obj)
+        ---@type FairyGUI.GComponent
+        local item = obj
+        item:GetChild("num").asTextField.text = "x" .. math.random(1, 5)
+    end
+    displayList:SetVirtual()
+    displayList.numItems = 100
+    
+    local show = true
+    arrow.onClick:Add(function ()
+        if show then
+            com:TweenMoveX(-250, 0.5)
+        else
+            com:TweenMoveX(-4, 0.5)
+        end
+        show = not show
+    end)
+    
+    ----title.text = "11111111111111111111111111111111"
+    ----require"core"
+    --local x = T.new("11111111111")
+    --print(x.id)
+    --print(x.str)
     
     
     ---以前检测的到卡牌，现在检测不到，很难受

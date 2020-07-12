@@ -6,6 +6,13 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+
+set(VCPKG_ROOT "E:/pos/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE PATH "")
+set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT})
+
+set(CMAKE_CXX_STANDARD 17)
+
+
 if ( WIN32 AND NOT CYGWIN AND NOT ( CMAKE_SYSTEM_NAME STREQUAL "WindowsStore" ) AND NOT ANDROID)
 	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MT" CACHE STRING "")
 	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd" CACHE STRING "")
@@ -34,6 +41,13 @@ find_path(XLUA_PROJECT_DIR NAMES SConstruct
 MARK_AS_ADVANCED(XLUA_PROJECT_DIR)
 
 
+
+
+
+
+
+
+
 #begin lua-rapidjson
 set (RAPIDJSON_SRC lua-rapidjson/source/rapidjson.cpp)
 set_property(
@@ -47,7 +61,7 @@ set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
 #end lua-rapidjson
 
 #begin lua-gameplay
-set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp)
+set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp lua-gameplay/source/sol.cpp lua-gameplay/include/sol.h)
 set_property(
 	SOURCE ${GAMEPLAY_SRC}
 	APPEND
@@ -225,19 +239,26 @@ set_property(
 if(UINT_ESPECIALLY)
     ADD_DEFINITIONS(-DUINT_ESPECIALLY)
 endif()
-	
+
+find_package(sol2 CONFIG REQUIRED)
+#target_link_libraries(xlua PRIVATE sol2::sol2)
+
+
 if ( WIN32 AND NOT CYGWIN )
     if (USING_LUAJIT)
         target_link_libraries(xlua
             ${CMAKE_SOURCE_DIR}/${LUAJIT_SRC_PATH}/lua51.lib
             ws2_32
-            ${THIRDPART_LIB} 
+            ${THIRDPART_LIB}
         )
     else ()
         target_link_libraries(xlua
             ws2_32
-            ${THIRDPART_LIB} 
+            ${THIRDPART_LIB}
+				sol2::sol2
         )
+
+
     endif()
 else ( )
     if (USING_LUAJIT AND NOT APPLE)

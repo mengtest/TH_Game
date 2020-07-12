@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FairyGUI.Utils;
 using UnityEngine;
+using XLua;
 
 namespace FairyGUI
 {
@@ -10,13 +11,16 @@ namespace FairyGUI
     /// </summary>
     /// <param name="index">Item index.</param>
     /// <param name="item">Item object.</param>
+    [CSharpCallLua]
     public delegate void ListItemRenderer(int index, GObject item);
 
+    
     /// <summary>
     /// 
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
+    [CSharpCallLua]
     public delegate string ListItemProvider(int index);
 
     /// <summary>

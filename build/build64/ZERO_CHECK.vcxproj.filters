@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="D:\Game\THGame\build\build64\CMakeFiles\e0f0aa55292706a29660bc5fe16e93bc\generate.stamp.rule">
+    <CustomBuild Include="D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\a60c7581d53e9a5e2b73571e95587675\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{4877495D-FE7A-35E4-92FF-5787574BE94D}</UniqueIdentifier>
+      <UniqueIdentifier>{9C6FD8AA-71A0-3AA7-8207-FD7650C2BB37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
