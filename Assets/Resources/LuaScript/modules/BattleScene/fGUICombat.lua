@@ -4,3 +4,46 @@
 --- DateTime: 2020/7/12 19:32
 ---
 
+local M = {}
+
+function M.init()
+    ---@type FairyGUI.GComponent
+    local com = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel)).ui.asCom
+    --local ui = panel.ui
+    --local com = ui.asCom
+    local rBtn = com:GetChild("rightBtn").asLoader
+    local lBtn = com:GetChild("leftBtn").asLoader
+    --local title = com:GetChild("titleText").asTextField
+    local arrow = com:GetChild("arrow").asLoader
+    rBtn.onClick:Add(function ()
+        log"切换到右边的视图"
+    end)
+
+    lBtn.onClick:Add(function ()
+        log"切换到左边的视图"
+    end)
+
+    local body = com:GetChild("body").asCom
+    local displayList = body:GetChild("displayItemList").asList
+    ---log(displayList.name)
+    ---无法调用xlua提供的方法来增加回调
+    displayList.itemRenderer = function (index, obj)
+        ---@type FairyGUI.GComponent
+        local item = obj
+        item:GetChild("num").asTextField.text = "x" .. math.random(1, 5)
+    end
+    displayList:SetVirtual()
+    displayList.numItems = 100
+
+    local show = true
+    arrow.onClick:Add(function ()
+        if show then
+            com:TweenMoveX(-250, 0.5)
+        else
+            com:TweenMoveX(-4, 0.5)
+        end
+        show = not show
+    end)
+end
+
+return M
