@@ -7,11 +7,115 @@
 ---@class cpp.Pawn
 local Pawn = {}
 
+---@param player cpp.Player
+function Pawn:addTo(player) end
+
+---@return boolean
+function Pawn:alive() end
+
+---@return number
+function Pawn:atk() end
+
+---@param target Pawn
+function Pawn:attack(target) end
+
+---@param action number
+---@return boolean
+function Pawn:checkAction(action) end
+
+---@param id number
+---@return boolean
+function Pawn:containBuff(id) end
+
+---@param value number
+---@param type number
+---@return boolean
+function Pawn:check(value, type) end
+
+---@param value number
+---@param type number
+---@return boolean
+function Pawn:cost(value, type) end
+
+---@return number
+function Pawn:def() end
+
+---@param priority number default:100
+---@return number
+function Pawn:dead(priority) end
+
+---@return cpp.Player
+function Pawn:getOwner() end
+
+---@param id number
+---@return cpp.IBuff
+function Pawn:getBuffById(id) end
+
+---@return cpp.IBuff
+function Pawn:getBuffByIndex(index) end
+
+---@return cpp.IBuff
+function Pawn:getBuffByUid(uid) end
+
+---@return number
+function Pawn:getBuffSize() end
+
+---@return number
+function Pawn:hp() end
+
+---@return boolean
+function Pawn:hasSkill(id) end
+
+function Pawn:heal(number) end
+
+---@param source cpp.Pawn
+function Pawn:hit(source, damage, damageType) end
+
+function Pawn:id() end
+
+---@param buff cpp.IBuff
+function Pawn:mount(buff) end
+
+function Pawn:moveToDeck() end
+
+function Pawn:moveToHand() end
+
+---@param pos number
+function Pawn:moveToPanel(pos) end
+
+---@param type number
+function Pawn:minus(type, value) end
+
+---@param type number
+function Pawn:plus(type, value) end
+
+---@return number
+function Pawn:pos() end
+
+---@return number
+function Pawn:posType() end
+
+function Pawn:reset() end
+
+---@param source cpp.Pawn
+---@param skillId number
+function Pawn:sufferSkill(source, skillId) end
+
+function Pawn:unique_id() end
+
+---@param target cpp.Pawn
+---@param skillId number
+function Pawn:useSkill(target, skillId) end
+
+---@param id number buff的id
+function Pawn:unmount(id) end
+
+
 ---@class cpp.Player
 local Player = {}
 
----@class cpp.Buff
-local Buff = {}
+---@class cpp.IBuff
+local IBuff = {}
 
 ---@class cpp.BuffMachine
 local BuffMachine = {}
