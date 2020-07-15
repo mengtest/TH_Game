@@ -25,6 +25,7 @@ function M.init()
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     require"modules.BattleScene.userInputLayer".init()
     
+    require"modules.BattleScene.fGUICombat".init()
     ----title.text = "11111111111111111111111111111111"
     ----require"core"
     --local x = T.new("11111111111")

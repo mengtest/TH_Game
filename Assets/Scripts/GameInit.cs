@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System.Runtime.InteropServices;
+using Core;
 using LuaFramework;
 using UnityEngine;
 using Util;
@@ -48,10 +49,14 @@ public static class GameInit
         // Pool.Init();
         FileUtils.Init();
     }
+
+    // [DllImport(@"E:\Game\Test\cmake-build-debug\Test.dll", CallingConvention = CallingConvention.Cdecl)]
+    // public static extern int test_fun(int a);
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
+        // Debug.Log(test_fun(10));
         Lib.Listener.Instance.Event("after_app_init", Global.Scene.name);
     }
 }
