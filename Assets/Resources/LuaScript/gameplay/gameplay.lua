@@ -21,17 +21,3 @@ end
 function gameplay:End()
     
 end
-
-
------玩法类接口，这个是xlua中的玩法类，而不是cpp中的玩法类
------@class IGamePlay
---local M = class("IGamePlay")
---
------获取到当前的棋盘中棋子的信息(这里只有展示信息)
------@param id number 想要获取信息的玩家的id 
---function M:getPanelList(id) end
---
------获取当前玩家的卡池信息
---function M:getDeck() end
---
---function M:() end

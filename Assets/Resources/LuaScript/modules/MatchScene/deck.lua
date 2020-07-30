@@ -112,6 +112,7 @@ function M.Start(this)
     util.bindButtonCallback(this, function ()
         ---如果当前卡牌的数量满足给定的要求的话，则弹出对话框，询问是否以当前卡组开始游戏
         if M.checkCards() then
+            print(json.encode(M.selectedCardList))
             local dialog = CS.Util.ModelDialog("是否以当前所选择的牌组开始对战？", "是", "否", ConfirmBtnCallback)
             dialog:ShowDialog()
         else

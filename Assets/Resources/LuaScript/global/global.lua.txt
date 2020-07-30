@@ -28,4 +28,4 @@ math.random()
 math.random()
 math.random()
 
-yGlobal = require"gameplay.defaultCombat.init"
+DefaultGamePlay = require"gameplay.defaultCombat.init"

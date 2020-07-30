@@ -33,6 +33,9 @@ function M.init()
     ---@type CCard[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
     
+    ---@type DefaultGamePlay
+    M.data = DefaultGamePlay.new()
+    
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then
         M.inputLayer = go
@@ -43,8 +46,8 @@ function M.init()
     ---是一段测试代码
     ---@type Scene.CombatScene.UserInputScript
     local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
-    for i = 0, #(yGlobal.myPanel) - 1 do
-        local index = yGlobal.myPanel[i + 1]
+    for i = 0, #(M.data.myPanel) - 1 do
+        local index = M.data.myPanel[i + 1]
         if index and index ~= 0 then
             local origin = CS.Util.Loader.Load("Prefab/CombatPawn")
             ---@type UnityEngine.GameObject
@@ -55,7 +58,7 @@ function M.init()
             tr.localPosition = CS.UnityEngine.Vector3.zero
             ---@type Prefab.CombatSceneCombatCardScript
             local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
-            s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[yGlobal.uids[index]].img)
+            s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[M.data.uids[index]].img)
             script.myPanel:GetSlot(i):AddCard(s)
             ---在最后修改创建出来的卡牌的缩放
             tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)

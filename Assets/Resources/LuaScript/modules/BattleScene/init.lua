@@ -23,30 +23,33 @@ local list = {
 function M.init()
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
-    require"modules.BattleScene.userInputLayer".init()
     
+    ---注册一个事件，用于接收
+    
+    require"modules.BattleScene.userInputLayer".init()
     require"modules.BattleScene.fGUICombat".init()
+    
     ----title.text = "11111111111111111111111111111111"
     ----require"core"
-    --local x = T.new("11111111111")
-    --print(x.id)
-    --print(x.str)
+    ---local x = T.new("11111111111")
+    ---print(x.id)
+    ---print(x.str)
     
     ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件
-    --CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
-    --    ---@type UnityEngine.RaycastHit
-    --    local isHit, hit = a:ExplicitRayHit()
-    --        ---- log("123123123")
-    --    if isHit then
-    --        ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作
-    --        ---如果不是自己的卡牌，则没有任何提示
-    --        ---如果持续点击对应的卡牌，则会显示当前卡牌的详细信息
-    --        if hit then
-    --            log(hit.transform.name)
-    --        end
-    --    end
-    --end, nil, CS.Lib.KeyCode.Mouse0, false)
+    ---CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
+    ---    ---@type UnityEngine.RaycastHit
+    ---    local isHit, hit = a:ExplicitRayHit()
+    ---        ---- log("123123123")
+    ---    if isHit then
+    ---        ---判断当前点击的卡牌是否是自己的卡牌，如果是自己的卡牌，则会触发攻击相关的操作
+    ---        ---如果不是自己的卡牌，则没有任何提示
+    ---        ---如果持续点击对应的卡牌，则会显示当前卡牌的详细信息
+    ---        if hit then
+    ---            log(hit.transform.name)
+    ---        end
+    ---    end
+    ---end, nil, CS.Lib.KeyCode.Mouse0, false)
 end
 
 return M
