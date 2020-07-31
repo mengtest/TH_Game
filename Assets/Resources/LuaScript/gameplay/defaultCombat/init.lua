@@ -16,7 +16,7 @@ end
 function DefaultGamePlay:init()
 	---这里存放当前战斗中所有的数据
 	
-	self.myPlayer = 
+	--self.myPlayer = 
 end
 
 ---进入战斗系统的逻辑应该是

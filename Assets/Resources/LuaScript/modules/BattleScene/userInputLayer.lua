@@ -35,12 +35,17 @@ function M.slotReleaseEvent(script)
     end
 end
 
----@param card CS.Prefab.CombatSceneCombatCardScript
----@param data CS.UnityEngine.EventSystems.PointerEventData
-function M.mouseClickPawnUp(card, data)
-	---玩家触发卡牌的点击事件后的函数
-	---接下来将当前卡牌对位的卡牌设置为目标，如果没有，则将敌方玩家设置为目标对象
-	---并弹出是否确认发动攻击的按钮，如果玩家点击确认则发动攻击
+---@param card Prefab.CombatSceneCombatCardScript
+---@param data UnityEngine.EventSystems.PointerEventData
+function M.mouseClickPawnUp(card, data, long)
+    ---玩家触发卡牌的点击事件后的函数
+    ---接下来将当前卡牌对位的卡牌设置为目标，如果没有，则将敌方玩家设置为目标对象
+    ---并弹出是否确认发动攻击的按钮，如果玩家点击确认则发动攻击
+    if long then
+        log("长按的事件")
+    else
+        log("短按的事件")
+    end
 end
 
 function M.init()
@@ -54,37 +59,37 @@ function M.init()
     if go then
         M.inputLayer = go
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
-		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawn, go, 0, false)
+		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawnUp, go, 0, false)
     end
 
 	
 	
 	
-	---这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
-    ---这里就是通过本地数据来初始化战场中相关信息的
-    ---是一段测试代码
-    ---@type Scene.CombatScene.UserInputScript
-    local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
-    for i = 0, #(M.data.myPanel) - 1 do
-        local index = M.data.myPanel[i + 1]
-        if index and index ~= 0 then
-            local origin = CS.Util.Loader.Load("Prefab/CombatPawn")
-            ---@type UnityEngine.GameObject
-            local card = CS.UnityEngine.GameObject.Instantiate(origin)
-            --card.transform.localPosition = CS.UnityEngine.Vector3.zero
-            ---@type UnityEngine.RectTransform
-            local tr = card:GetComponent(typeof(CS.UnityEngine.RectTransform))
-            tr.localPosition = CS.UnityEngine.Vector3.zero
-            ---@type Prefab.CombatSceneCombatCardScript
-            local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
-            s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[M.data.uids[index]].img)
-            script.myPanel:GetSlot(i):AddCard(s)
-            ---在最后修改创建出来的卡牌的缩放
-            tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
-        else
-            script.myPanel:GetSlot(i):Remove()
-        end
-    end
+	-----这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
+    -----这里就是通过本地数据来初始化战场中相关信息的
+    -----是一段测试代码
+    -----@type Scene.CombatScene.UserInputScript
+    --local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
+    --for i = 0, #(M.data.myPanel) - 1 do
+    --    local index = M.data.myPanel[i + 1]
+    --    if index and index ~= 0 then
+    --        local origin = CS.Util.Loader.Load("Prefab/CombatPawn")
+    --        ---@type UnityEngine.GameObject
+    --        local card = CS.UnityEngine.GameObject.Instantiate(origin)
+    --        --card.transform.localPosition = CS.UnityEngine.Vector3.zero
+    --        ---@type UnityEngine.RectTransform
+    --        local tr = card:GetComponent(typeof(CS.UnityEngine.RectTransform))
+    --        tr.localPosition = CS.UnityEngine.Vector3.zero
+    --        ---@type Prefab.CombatSceneCombatCardScript
+    --        local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --        s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[M.data.uids[index]].img)
+    --        script.myPanel:GetSlot(i):AddCard(s)
+    --        ---在最后修改创建出来的卡牌的缩放
+    --        tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
+    --    else
+    --        script.myPanel:GetSlot(i):Remove()
+    --    end
+    --end
 end
 
 
