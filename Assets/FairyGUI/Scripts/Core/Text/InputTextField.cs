@@ -1084,8 +1084,11 @@ namespace FairyGUI
             else
             {
                 if (!disableIME && !_displayAsPassword)
+                {
+                    
+                }
 //                    Keyboard.current.imeSelected.isPressed = IMECompositionMode.On;
-                    ;
+                    // ;
                 else
 //                    Input.imeCompositionMode = IMECompositionMode.Off;
                 _composing = 0;

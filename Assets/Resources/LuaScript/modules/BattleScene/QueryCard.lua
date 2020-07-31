@@ -1,6 +1,9 @@
 ---@class QueryCard
 local M = {}
 
+
+---这个是原始的左侧展示卡池中所有卡牌的ui
+
 ---当前是否正在展示玩家的所有卡牌信息
 M.queryCardState = false
 M.originQueryX = 0

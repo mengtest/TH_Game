@@ -75,7 +75,7 @@ util.write = CS.Util.Loader.Write
 local f1 = xlua.get_generic_method(CS.Util.Loader, 'Load')
 local l = f1(CS.UnityEngine.Sprite)
 
----@type function
+-- ---@type function<CS.UnityEngine.Sprite(string)>
 util.loadSprite = l
 
 ---@param component UnityEngine.Transform
@@ -221,6 +221,15 @@ function util.class(classname, ...)
     end
 
     return cls
+end
+
+math.randomseed(os.time())
+math.random()
+math.random()
+math.random()
+math.random()
+function util.random(min, max)
+	return math.random(min, max)
 end
 
 return util

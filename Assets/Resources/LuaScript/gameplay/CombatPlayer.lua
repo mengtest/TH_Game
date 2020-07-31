@@ -1,0 +1,69 @@
+---------------------------------------------------------------------
+-- Project: THGame
+-- Created by: yuki@代壮
+-- Date: 2020-07-31 15:01:41
+---------------------------------------------------------------------
+
+---@class CombatPlayer
+CombatPlayer = util.class("CombatPlayer")
+
+---初始化当前的玩家对象
+function CombatPlayer:ctor(data)
+	CombatPlayer.hp = 0
+	CombatPlayer.energy = 0
+	CombatPlayer.maxEnergy = 0
+	CombatPlayer.gold = 0
+	---当前玩家手中的卡牌数据
+	---这里是卡牌的uid
+	---@type number[]
+	CombatPlayer.handCards = {}
+	---当前玩家在场地上的卡牌信息
+	---这里是卡牌的uid
+	---@type number[]
+	CombatPlayer.combatCards = {}
+	---当前玩家卡池中的卡牌数据
+	---用于显示的数据，可以按照不同的卡牌来存储其数量
+	---直接存储卡牌的id到其数量的映射
+	---如果没有的话，则显示为0
+	---@type table<number, number>
+	CombatPlayer.deckCards = {}
+	---这个是当前玩家所有的卡牌数据，这里存放的就是卡牌的uid到id的映射
+	---如果需要卡牌的原始信息的话，需要从global中去取出
+	---@type table<number, number>
+	CombatPlayer.allCards = {}
+end
+
+---获取到当前玩家的一个棋子的所有信息
+---@return DisplayPawn
+function CombatPlayer:getPawn(uid)
+	local id = CombatPlayer.allCards[uid]
+	if id then
+		return global.cardInfos[id]
+	end
+	return nil
+end
+
+---@return DisplayPawn
+function CombatPlayer:getCombatPawn(pos)
+	---lua里面数组的下标是从1开始
+	--if pos < 1 or pos > 8 then
+		--return nil
+	--end
+	local uid = CombatPlayer.combatCards[pos]
+	---uid小于等于0的话表示这个位置上没有卡牌
+	if not uid and uid <= 0 then
+		return nil
+	end
+	return CombatPlayer:getPawn(uid)
+end
+
+---@return DisplayPawn
+function CombatPlayer:getHandPawn(index)
+	local uid = CombatPlayer.handCards[pos]
+	---uid小于等于0的话表示这个位置上没有卡牌
+	if not uid and uid <= 0 then
+		return nil
+	end
+	return CombatPlayer:getPawn(uid)
+end
+

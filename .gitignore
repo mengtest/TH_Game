@@ -105,3 +105,11 @@ ProjectVersion.txt
 ProjectSettings/ProjectVersion.txt
 
 build/
+unity-chan!
+StreamingAssets
+_Terrain*
+StreamingAssets.meta
+unity-chan!.meta
+Packages
+
+

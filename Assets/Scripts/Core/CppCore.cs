@@ -11,14 +11,14 @@ namespace Core
     /// </summary>
     public static class CppCore
     {
-	    public const string DllName = @"Core.dll";
-	    
+        public const string DllName = @"Core.dll";
+
 	    /// 运行流程		
 	    ///			csCoreInit
 	    ///			createCombatSystem
 	    ///			combatStart			//如果满足游戏结束的条件的话，会自动结束战斗
 
-	    /**
+        /**
 		 * \brief cs核心的初始化，需要注册几个事件，以便于与core交互
 		 * 这个对应流程图中的总的初始化
 		 * \return 

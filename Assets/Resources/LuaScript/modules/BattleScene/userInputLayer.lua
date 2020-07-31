@@ -8,6 +8,10 @@ M.inputLayer = nil
 
 ---@param script Scene.CombatScene.CombatPanelSlotScript 这个是存放有卡牌的slot脚本
 function M.slotReleaseEvent(script)
+	---玩家的鼠标在slot上面释放的时候触发这个函数
+	---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
+	
+    ---@type CS.Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
     if (panel ~= nil) then
@@ -22,17 +26,27 @@ function M.slotReleaseEvent(script)
                 if slot:GetPlayer() == input.myPanel.PlayerId and script:GetPlayer() == input.myPanel.PlayerId then
                     slot:AddCard(script:Remove())
                 else
+
                 end
             else
+
             end
         end
     end
 end
 
+---@param card CS.Prefab.CombatSceneCombatCardScript
+---@param data CS.UnityEngine.EventSystems.PointerEventData
+function M.mouseClickPawnUp(card, data)
+	---玩家触发卡牌的点击事件后的函数
+	---接下来将当前卡牌对位的卡牌设置为目标，如果没有，则将敌方玩家设置为目标对象
+	---并弹出是否确认发动攻击的按钮，如果玩家点击确认则发动攻击
+end
+
 function M.init()
-    ---@type CCard[]
+    ---@type DisplayPawn[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
-    
+	
     ---@type DefaultGamePlay
     M.data = DefaultGamePlay.new()
     
@@ -40,8 +54,13 @@ function M.init()
     if go then
         M.inputLayer = go
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
+		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawn, go, 0, false)
     end
 
+	
+	
+	
+	---这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
     ---这里就是通过本地数据来初始化战场中相关信息的
     ---是一段测试代码
     ---@type Scene.CombatScene.UserInputScript
@@ -67,5 +86,9 @@ function M.init()
         end
     end
 end
+
+
+---还需要做的预制体有：卡牌的背面
+---		
 
 return M

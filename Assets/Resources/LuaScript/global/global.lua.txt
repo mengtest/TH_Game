@@ -22,10 +22,4 @@ global = require"global.functions"
 
 class = util.class
 
-math.randomseed(os.time())
-math.random()
-math.random()
-math.random()
-math.random()
-
 DefaultGamePlay = require"gameplay.defaultCombat.init"

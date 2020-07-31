@@ -7,6 +7,8 @@ local drawAndGold = require"modules.BattleScene.DrawAndGold"
 ---     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景)
 ---     
 
+---这个是玩家点击左上角的设置按钮后的逻辑
+---应该弹出一个ui，这个ui里面可以调整当前游戏里面的一些设置
 ---@param this UnityEngine.Transform
 local function Setting(this)
     util.bindButtonCallback(this, function ()
@@ -15,7 +17,7 @@ local function Setting(this)
 end
 
 local list = {
-    QueryCard = queryCard,
+    --QueryCard = queryCard,
     DrawAndGold = drawAndGold,
     Setting = Setting
 }
@@ -24,16 +26,11 @@ function M.init()
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     
-    ---注册一个事件，用于接收
-    
     require"modules.BattleScene.userInputLayer".init()
     require"modules.BattleScene.fGUICombat".init()
     
-    ----title.text = "11111111111111111111111111111111"
-    ----require"core"
-    ---local x = T.new("11111111111")
-    ---print(x.id)
-    ---print(x.str)
+	
+	
     
     ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件
