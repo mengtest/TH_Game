@@ -1,23 +1,28 @@
-﻿---@class GamePlay
+﻿---@class IGamePlay
 local gameplay = {}
 
----游戏玩法类
----@param player Player
----@param enemy Player
-function gameplay:Start(player, enemy)
-    self.player = player
-    self.enemy = enemy
-    ---获取当前双方玩家所选择的卡组数据
-    local deck1 = self.player.GetDeck()
-    local deck2 = self.enemy.GetDeck()
-    ---实例化
-end
+-----游戏玩法类
+-----@param player Player
+-----@param enemy Player
+--function gameplay:Start(player, enemy)
+    --self.player = player
+    --self.enemy = enemy
+    -----获取当前双方玩家所选择的卡组数据
+    --local deck1 = self.player.GetDeck()
+    --local deck2 = self.enemy.GetDeck()
+    -----实例化
+--end
 
-function gameplay:Next()
+--function gameplay:Next()
     
-end
+--end
 
----结束当前对局
-function gameplay:End()
+-----结束当前对局
+--function gameplay:End()
     
-end
+--end
+
+---@return IGamePlay
+function gameplay.new()end
+
+return gameplay
