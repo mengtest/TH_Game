@@ -23,14 +23,11 @@ local list = {
 }
 
 function M.init()
+	require"modules.BattleScene.userInputLayer".init()
+	require"modules.BattleScene.fGUICombat".init()
+	
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
-    
-    require"modules.BattleScene.userInputLayer".init()
-    require"modules.BattleScene.fGUICombat".init()
-    
-	
-	
     
     ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件

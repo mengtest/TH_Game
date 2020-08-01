@@ -1,10 +1,14 @@
 ﻿using System.Collections;
+using System.Text;
+using UnityEngine;
 using UnityEngine.Networking;
+using XLua;
 
 namespace Net
 {
     //从服务端上下载文件
-    public class Download
+    [LuaCallCSharp]
+    public class Download : MonoBehaviour
     {
         private UnityWebRequest request;
 
@@ -13,11 +17,24 @@ namespace Net
             return false;
         }
 
-        public IEnumerator DownLoad(string name)
+        public void Begin(string uri)
         {
-            request = UnityWebRequestAssetBundle.GetAssetBundle("123");
-            request.SendWebRequest();
+            StartCoroutine(DownLoad(uri));
+        }
+
+        public IEnumerator DownLoad(string uri)
+        {
+            request = UnityWebRequest.Get(name);
             yield return request.SendWebRequest();
+            if (request.isNetworkError)
+            {
+                Global.Log("error");
+            }
+            else
+            {
+                Debug.Log(request.downloadHandler.text);
+                Debug.Log(request.downloadedBytes);
+            }
         }
     }
 }

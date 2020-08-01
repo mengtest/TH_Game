@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using XLua;
 using Object = UnityEngine.Object;
+using UnityEngine.Windows;
 
 namespace Util
 {
@@ -27,32 +28,65 @@ namespace Util
 
         //写文件
         void Write(string path, string text);
+
+        // void AddSearchPath(string path);
     }
 
     class WinLoader : ILoader
     {
         private Dictionary<string, Pair> _resources;
+        // private List<string> _searchPath;
 
         public WinLoader()
         {
             _resources = new Dictionary<string, Pair>();
+            // _searchPath = new List<string>();
         }
-        
+
+        // public void AddSearchPath(string path)
+        // {
+        //     if (!_searchPath.Contains(path))
+        //     {
+        //         _searchPath.Add(path);
+        //     }
+        // }
+
         public Object Load(string path)
         {
             //先调用其他的加载方式去加载资源，例如ab
             
+            //资源加载的优先级为 searchPath -> ab -> res
+            // for (int i = 0; i < _searchPath.Count; i++)
+            // {
+            //     var p = _searchPath[i];
+            //     var str = $"{p}/{path}";
+
+            // }
+
+            // var ab = AssetBundle.LoadFromFile(path);
+            // ab.Contains(path);
+
+            
+
             //如果ab中没有这个资源，再从Resource中去加载这个资源
             return Resources.Load(path);
         }
 
+        public string LoadScript(string path)
+        {
+
+            return "";
+        }
+
         public Object Load(string path, Type type)
         {
+            
             return Resources.Load(path, type);
         }
 
         public void Unload(Object obj)
         {
+
             Resources.UnloadAsset(obj);
         }
 
@@ -63,7 +97,7 @@ namespace Util
 
         public void Unload()
         {
-            
+            Resources.UnloadUnusedAssets();
         }
 
         public void Write(string path, string text)

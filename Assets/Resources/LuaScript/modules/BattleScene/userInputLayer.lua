@@ -3,6 +3,8 @@ local M = {}
 
 ---@type UnityEngine.GameObject
 M.inputLayer = nil
+---@type Scene.CombatScene.CombatPanelSlotScript
+M.curHonverSlog = nil
 
 ---在这一层里面处理所有的用户输入与输出
 
@@ -11,13 +13,13 @@ function M.slotReleaseEvent(script)
 	---玩家的鼠标在slot上面释放的时候触发这个函数
 	---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
 	
-    ---@type CS.Scene.CombatScene.UserInputScript
+    ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
     if (panel ~= nil) then
         ---这个是鼠标当前所在的slot
         local slot = panel:GetSlot(input:GetCurSlotIndex())
-        if (slot ~= nil) then
+        if (slot) then
             if (slot:HasCard()) then ---目标槽位上不能有卡牌
                 CS.Global.MakeToast("当前卡槽已被占用!", CS.Global.TOAST_LONG);
             elseif(script:HasCard()) then   ---要求当前槽位上有卡牌存在
@@ -43,9 +45,50 @@ function M.mouseClickPawnUp(card, data, long)
     ---并弹出是否确认发动攻击的按钮，如果玩家点击确认则发动攻击
     if long then
         log("长按的事件")
+		---长按的后显示当前点击的卡牌的详细信息
+		if showDetail then
+			showDetail()
+		end
     else
-        log("短按的事件")
+		log("短按的事件")
+        ---短按的事件
+		---这里做玩家是否发动攻击指令的判定
+		---这里需要能够获取到卡牌的uid
+		M.attack(card)
     end
+    
+    M.mouseDragHandCardEnd()
+end
+
+function M.mouseDragHandCardEnd()
+    ---@type Scene.CombatScene.UserInputScript
+    local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
+    local panel = input:GetPanel(input:GetCurSlotPlayerId())
+    local slot = panel:GetSlot(input:GetCurSlotIndex())
+    if slot then
+        print(slot.name)    
+    end
+end
+
+function M.turnEnd()
+	log"玩家回合结束"
+end
+
+function M.drawNormal()
+    log"抽取一张普通卡牌"
+end
+
+function M.drawHigh()
+    log"抽取一张高级卡牌"
+end
+
+function M.summon()
+	--- 玩家拖拽手中的卡牌，释放鼠标的时候检测当前鼠标是否在某个卡槽的上方，如果在的话，则进行下一步逻辑
+	log"召唤一枚棋子"
+end
+
+function M.attack(uid)
+	log"棋子发动攻击"
 end
 
 function M.init()
@@ -58,13 +101,13 @@ function M.init()
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then
         M.inputLayer = go
+		--- 监听鼠标在卡牌的slot上释放的事件
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
+		--- 监听鼠标弹起的事件
 		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawnUp, go, 0, false)
     end
-
-	
-	
-	
+    
+    --region
 	-----这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
     -----这里就是通过本地数据来初始化战场中相关信息的
     -----是一段测试代码
@@ -90,8 +133,9 @@ function M.init()
     --        script.myPanel:GetSlot(i):Remove()
     --    end
     --end
+    --endregion
+    
 end
-
 
 ---还需要做的预制体有：卡牌的背面
 ---		

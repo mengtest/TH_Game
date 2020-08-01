@@ -8,17 +8,17 @@
 local m = {}
 
 local function init()
-    
+    ---这里就是两个场景跳转相关的事件
     CS.Lib.Listener.Instance:On("scene_changed", function (name)
         local scene = require(string.format("modules.%s.init", CS.Global.Scene.name))
-        if scene ~= nil then
+        if scene and scene.init then
             scene.init()
         end
     end)
     
     CS.Lib.Listener.Instance:On("after_app_init", function (name)
         local scene = require(string.format("modules.%s.init", CS.Global.Scene.name))
-        if scene ~= nil then
+        if scene and scene.init then
             scene.init()
         end
     end)
