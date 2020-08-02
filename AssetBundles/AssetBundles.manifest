@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 894120832
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui_res
+      Dependencies: {}
+    Info_1:
+      Name: scripts_res
+      Dependencies: {}

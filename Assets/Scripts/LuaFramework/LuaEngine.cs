@@ -84,11 +84,12 @@ namespace LuaFramework
             {
                 return File.ReadAllBytes(fileName);
             }
-            else
+            else if(File.Exists(fileName + ".txt"))
             {
-//                return File.ReadAllBytes(@"F:/Code/THGame/output/THGame_Data/Resources/LuaScript/" + fileName);
-                return null;
+                return File.ReadAllBytes(fileName + ".txt");
+                // return null;
             }
+            return null;
         }
 
         public LuaEnv Get()
