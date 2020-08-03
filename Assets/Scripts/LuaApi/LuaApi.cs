@@ -5,89 +5,89 @@ public class LuaApi
 {
     public struct AttrStruct
     {
-        public int combatId;   //Õ½¶·ÊµÀıµÄid           //Õâ¸ö²ÎÊıÖ÷ÒªÊÇÎªÁË£¬Èç¹ûºóÆÚÌí¼Ó·şÎñ¶ËµÄ»°£¬Õâ¸ö¿ÉÒÔ±êÊ¶Î¨Ò»µÄcombat
-        public int playerId;   //Ä¿±êÍæ¼ÒµÄid£¬Èç¹û·¢¸øµ±Ç°·¿¼äËùÓĞÍæ¼Ò£¬ÔòÉèÖÃÎª0
-        public int objectId;   //ÊôĞÔ¸Ä±äÁËµÄÄ¿±ê¶ÔÏóµÄid(±ÈÈçÆå×ÓµÄid£¬buffId£¬Èç¹ûÊÇÍæ¼Ò£¬¿ÉÒÔ²»´«)
-        public int value;      //ÊôĞÔ¸Ä±äºóµÄÖµ
-        public int type;       //¸Ä±äµÄÊÇÄÄÏîÊôĞÔ(¾ßÌå²Î¿¼constantÀïÃæÀı¾ÙµÄÖµ)
-        public int targetType; //ĞÂÔöÊôĞÔ£¬±íÊ¾µ±Ç°¶ÔÏó±íÊ¾ÊÇÄÄÖÖÀàĞÍµÄ£¬0¡¢ÎŞĞ§ 1¡¢Æå×Ó 2¡¢Íæ¼Ò 3¡¢buff 4¡¢Õ½¶·±¾Éí
+        public int combatId;   //æˆ˜æ–—å®ä¾‹çš„id           //è¿™ä¸ªå‚æ•°ä¸»è¦æ˜¯ä¸ºäº†ï¼Œå¦‚æœåæœŸæ·»åŠ æœåŠ¡ç«¯çš„è¯ï¼Œè¿™ä¸ªå¯ä»¥æ ‡è¯†å”¯ä¸€çš„combat
+        public int playerId;   //ç›®æ ‡ç©å®¶çš„idï¼Œå¦‚æœå‘ç»™å½“å‰æˆ¿é—´æ‰€æœ‰ç©å®¶ï¼Œåˆ™è®¾ç½®ä¸º0
+        public int objectId;   //å±æ€§æ”¹å˜äº†çš„ç›®æ ‡å¯¹è±¡çš„id(æ¯”å¦‚æ£‹å­çš„idï¼ŒbuffIdï¼Œå¦‚æœæ˜¯ç©å®¶ï¼Œå¯ä»¥ä¸ä¼ )
+        public int value;      //å±æ€§æ”¹å˜åçš„å€¼
+        public int type;       //æ”¹å˜çš„æ˜¯å“ªé¡¹å±æ€§(å…·ä½“å‚è€ƒconstanté‡Œé¢ä¾‹ä¸¾çš„å€¼)
+        public int targetType; //æ–°å¢å±æ€§ï¼Œè¡¨ç¤ºå½“å‰å¯¹è±¡è¡¨ç¤ºæ˜¯å“ªç§ç±»å‹çš„ï¼Œ0ã€æ— æ•ˆ 1ã€æ£‹å­ 2ã€ç©å®¶ 3ã€buff 4ã€æˆ˜æ–—æœ¬èº«
     };
 
     public struct BuffD
     {
         public int id;
-        public int restTime;               //buffµÄÊ£ÓàÊ±¼ä
-        public int unique_id;              //ÎªÕâ¸öbuff·ÖÅäµÄuid
+        public int restTime;               //buffçš„å‰©ä½™æ—¶é—´
+        public int unique_id;              //ä¸ºè¿™ä¸ªbuffåˆ†é…çš„uid
         public int overlay;
     };
 
     public struct PawnD
     {
-        //Æå×ÓÓµÓĞµÄ¼¼ÄÜÊÇÏà¶Ô¹Ì¶¨µÄ£¬Ö»ÒªÖªµÀÊÇÊ²Ã´Æå×Ó¾ÍÄÜÖªµÀÕâ¸öÆå×ÓÓĞÄÄĞ©¼¼ÄÜ£¬ËùÒÔ²»·µ»ØÆå×Ó¼¼ÄÜµÄĞÅÏ¢
+        //æ£‹å­æ‹¥æœ‰çš„æŠ€èƒ½æ˜¯ç›¸å¯¹å›ºå®šçš„ï¼Œåªè¦çŸ¥é“æ˜¯ä»€ä¹ˆæ£‹å­å°±èƒ½çŸ¥é“è¿™ä¸ªæ£‹å­æœ‰å“ªäº›æŠ€èƒ½ï¼Œæ‰€ä»¥ä¸è¿”å›æ£‹å­æŠ€èƒ½çš„ä¿¡æ¯
         public int id;
-        public int unique_id;          //µ¥´ÎÕ½¶·ÖĞ»á±»·ÖÅäµÄÎ¨Ò»id(Ã¿´ÎÕ½¶·¿ªÊ¼µÄÊ±ºò£¬»á»ñÈ¡ËùÓĞÍæ¼Òµ±Ç°µÄËùÓĞ¿¨ÅÆ£¬Í¬Ê±ÎªÕâĞ©¿¨ÅÆ·ÖÅäÎ¨Ò»µÄid)
-        public int hp;                 //ÉúÃüÖµ
-        public int mp;                 //Ä§·¨Öµ
-        public int matk;               //Ä§·¨¹¥»÷Á¦
-        public int atk;                //¹¥»÷Á¦
-        public int def;                //·ÀÓùÁ¦
-        public int mdef;               //Ä£·Â·ÀÓùÁ¦
-        public int playerId;           //³ÖÓĞÕâ¸öÆå×ÓµÄÍæ¼Òid
-        public int type;               //n¡¢r¡¢sr¡¢ssr
-        public int posType;            //µ±Ç°Æå×ÓËùÔÚµÄµØ·½µÄÀàĞÍ
-        public int pos;                //Æå×ÓËùÔÚµÄÏÂ±ê
+        public int unique_id;          //å•æ¬¡æˆ˜æ–—ä¸­ä¼šè¢«åˆ†é…çš„å”¯ä¸€id(æ¯æ¬¡æˆ˜æ–—å¼€å§‹çš„æ—¶å€™ï¼Œä¼šè·å–æ‰€æœ‰ç©å®¶å½“å‰çš„æ‰€æœ‰å¡ç‰Œï¼ŒåŒæ—¶ä¸ºè¿™äº›å¡ç‰Œåˆ†é…å”¯ä¸€çš„id)
+        public int hp;                 //ç”Ÿå‘½å€¼
+        public int mp;                 //é­”æ³•å€¼
+        public int matk;               //é­”æ³•æ”»å‡»åŠ›
+        public int atk;                //æ”»å‡»åŠ›
+        public int def;                //é˜²å¾¡åŠ›
+        public int mdef;               //æ¨¡ä»¿é˜²å¾¡åŠ›
+        public int playerId;           //æŒæœ‰è¿™ä¸ªæ£‹å­çš„ç©å®¶id
+        public int type;               //nã€rã€srã€ssr
+        public int posType;            //å½“å‰æ£‹å­æ‰€åœ¨çš„åœ°æ–¹çš„ç±»å‹
+        public int pos;                //æ£‹å­æ‰€åœ¨çš„ä¸‹æ ‡
     };
 
-    struct PlayerS
+    public struct PlayerS
     {
         public int uid;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
-        public int[] cards;                          //±¾´ÎÕ½¶·£¬¸ÃÍæ¼ÒËùÑ¡ÔñµÄ¿¨×éĞÅÏ¢       ÕâÀïÊÇid¶ø·Çunique_id
+        public int[] cards;                          //æœ¬æ¬¡æˆ˜æ–—ï¼Œè¯¥ç©å®¶æ‰€é€‰æ‹©çš„å¡ç»„ä¿¡æ¯       è¿™é‡Œæ˜¯idè€Œéunique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
-        public int[] pawns;                          //µ±Ç°Íæ¼Ò³ÖÓĞµÄËùÓĞ¿¨ÅÆµÄĞÅÏ¢           ÕâÀïÓ¦¸ÃÊÇunique_id
+        public int[] pawns;                          //å½“å‰ç©å®¶æŒæœ‰çš„æ‰€æœ‰å¡ç‰Œçš„ä¿¡æ¯           è¿™é‡Œåº”è¯¥æ˜¯unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 15)]
-        public int[] handCards;           //¸ÃÍæ¼ÒÊÖÉÏ³ÖÓĞµÄ¿¨ÅÆĞÅÏ¢              ÕâÀïÓ¦¸ÃÊÇunique_id
+        public int[] handCards;           //è¯¥ç©å®¶æ‰‹ä¸ŠæŒæœ‰çš„å¡ç‰Œä¿¡æ¯              è¿™é‡Œåº”è¯¥æ˜¯unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
-        public int[] combatCards;                     //¸ÃÍæ¼ÒÕıÔÚÕ½¶·µÄ¿¨ÅÆĞÅÏ¢              ÕâÀïÓ¦¸ÃÊÇunique_id
+        public int[] combatCards;                     //è¯¥ç©å®¶æ­£åœ¨æˆ˜æ–—çš„å¡ç‰Œä¿¡æ¯              è¿™é‡Œåº”è¯¥æ˜¯unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
-        public int[] deckCards;                      //¿¨³ØÖĞËùÓĞµÄ¿¨ÅÆĞÅÏ¢                  ÕâÀïÓ¦¸ÃÊÇunique_id
-        public int hp;                                 //Íæ¼ÒÊ£ÓàµÄÑªÁ¿
-        public int maxHp;                              //×î´óÑªÁ¿
-        public int energy;                             //Íæ¼Òµ±Ç°µÄÄÜÁ¿
-        public int maxEnergy;                          //Íæ¼ÒËùÄÜÓµÓĞµÄ×î´óÄÜÁ¿£¬Ö¸µÄÊÇÃ¿»ØºÏ¿ªÊ¼£¬Íæ¼ÒÓµÓĞµÄ³õÊ¼ÄÜÁ¿
-        public int gold;                               //Íæ¼Òµ±Ç°Ëù³ÖÓĞµÄ½ğ±ÒÊı
+        public int[] deckCards;                      //å¡æ± ä¸­æ‰€æœ‰çš„å¡ç‰Œä¿¡æ¯                  è¿™é‡Œåº”è¯¥æ˜¯unique_id
+        public int hp;                                 //ç©å®¶å‰©ä½™çš„è¡€é‡
+        public int maxHp;                              //æœ€å¤§è¡€é‡
+        public int energy;                             //ç©å®¶å½“å‰çš„èƒ½é‡
+        public int maxEnergy;                          //ç©å®¶æ‰€èƒ½æ‹¥æœ‰çš„æœ€å¤§èƒ½é‡ï¼ŒæŒ‡çš„æ˜¯æ¯å›åˆå¼€å§‹ï¼Œç©å®¶æ‹¥æœ‰çš„åˆå§‹èƒ½é‡
+        public int gold;                               //ç©å®¶å½“å‰æ‰€æŒæœ‰çš„é‡‘å¸æ•°
     };
 
     public delegate void UpdateAction(AttrStruct attr);
     public delegate void NoticeFunction(string str);
 
-    public const string DllName = @"THCore";
+    public const string DllName = @"THCore1";
 
-    //µ¼³ö¸øCSµÄÒ»Ğ©api
-	//»ñÈ¡µ½Ò»¸öbuffµÄÊµÀı¶ÔÏó(Õ¹Ê¾¶ÔÏó)
-    //Õâ¸öÕæÕıµÄ·µ»ØÖµÀàĞÍÊÇBuffS
+    //å¯¼å‡ºç»™CSçš„ä¸€äº›api
+	//è·å–åˆ°ä¸€ä¸ªbuffçš„å®ä¾‹å¯¹è±¡(å±•ç¤ºå¯¹è±¡)
+    //è¿™ä¸ªçœŸæ­£çš„è¿”å›å€¼ç±»å‹æ˜¯BuffS
     [DllImport(DllName)]
 	public static extern IntPtr get_buff(int combatId, int buffId);
 
-	//»ñÈ¡µ½Ò»¸öpawnµÄÊµÀı¶ÔÏó(Õ¹Ê¾¶ÔÏó)
-    //Õâ¸öÕæÕıµÄ·µ»ØÖµÀàĞÍÊÇPawnS
+	//è·å–åˆ°ä¸€ä¸ªpawnçš„å®ä¾‹å¯¹è±¡(å±•ç¤ºå¯¹è±¡)
+    //è¿™ä¸ªçœŸæ­£çš„è¿”å›å€¼ç±»å‹æ˜¯PawnS
     [DllImport(DllName)]
 	public static extern IntPtr get_pawn(int combatId, int pawnId);
 
-	//»ñÈ¡µ½Ò»¸öÍæ¼ÒµÄÊµÀı¶ÔÏó(Õ¹Ê¾¶ÔÏó)
-    //ÕâÀïµÄÊµ¼Ê·µ»ØÀàĞÍÎªPlayerD£¬Ã»ÓĞPlayerSÊı¾İ
+	//è·å–åˆ°ä¸€ä¸ªç©å®¶çš„å®ä¾‹å¯¹è±¡(å±•ç¤ºå¯¹è±¡)
+    //è¿™é‡Œçš„å®é™…è¿”å›ç±»å‹ä¸ºPlayerDï¼Œæ²¡æœ‰PlayerSæ•°æ®
     [DllImport(DllName)]
 	public static extern IntPtr get_player(int combatId, int uid);
 
-    //·½±ã»ñÈ¡coreÖĞµÄluaÕ»
+    //æ–¹ä¾¿è·å–coreä¸­çš„luaæ ˆ
     [DllImport(DllName)]
 	public static extern IntPtr get_lua_state();
 
-    //Õâ¸öº¯ÊıÓÃÓÚcs¶Ë»òÕßjs¶Ë»ñÈ¡ËùÓĞÕ½¶·ÖĞËùÓĞµÄÆå×ÓĞÅÏ¢¸üĞÂ
+    //è¿™ä¸ªå‡½æ•°ç”¨äºcsç«¯æˆ–è€…jsç«¯è·å–æ‰€æœ‰æˆ˜æ–—ä¸­æ‰€æœ‰çš„æ£‹å­ä¿¡æ¯æ›´æ–°
     [DllImport(DllName)]
 	public static extern void set_update_action(UpdateAction fun);
 
-    //Õâ¸öº¯ÊıÓÃÓÚcs¶Ë»òÕßjs¶Ë»ñÈ¡Õ½¶·ÖĞµÄ×Ô¶¨ÒåÏûÏ¢£¬½ÓÊÕµÄÏûÏ¢ÎªÒ»¸ö×Ö·û´®
+    //è¿™ä¸ªå‡½æ•°ç”¨äºcsç«¯æˆ–è€…jsç«¯è·å–æˆ˜æ–—ä¸­çš„è‡ªå®šä¹‰æ¶ˆæ¯ï¼Œæ¥æ”¶çš„æ¶ˆæ¯ä¸ºä¸€ä¸ªå­—ç¬¦ä¸²
 	[DllImport(DllName)]
 	public static extern void set_notice_action(NoticeFunction fun);
 }
