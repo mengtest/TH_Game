@@ -1,0 +1,8 @@
+---lib下所有库全部存放在全局的名称空间下面
+
+---@type Listener
+---这个是全局的事件监听器
+Listener = require("lib.listener").new()
+
+
+

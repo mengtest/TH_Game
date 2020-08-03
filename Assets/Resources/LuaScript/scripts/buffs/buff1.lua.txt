@@ -1,0 +1,49 @@
+---@class Dizzy
+local Dizzy = nn.class("Dizzy")
+
+Dizzy.id = 10001            ---必须属性
+Dizzy.name = "dizzy"        ---必须属性
+Dizzy.name_cn = "晕眩"        ---可选属性，如果没有则会使用name代替
+Dizzy.careTags = { 1, 2, 3, 4, 5}   ---可选、默认为空
+Dizzy.tags = { 1, 2, 3, 4, 5}   ---可选、默认为空
+Dizzy.maxTime = 3           ---这个就是buff给上目标之后的初始持续时间，也是buff重置后的最大时间
+Dizzy.buff = true           ---可选属性、默认为true
+Dizzy.damage = 2            ---可选属性、默认为0，如果这里不使用默认值，则一定要保证damageType有意义
+Dizzy.damageType = 2        ---可选属性、默认为0
+Dizzy.maxOverlay = 1        ---可选属性、默认为1，表示不可叠加
+Dizzy.primaryOverlay = 1    ---可选属性、默认为1
+Dizzy.icon = "default.png"  ---可选属性、默认为default.png
+
+
+-- ---以下所有函数均为可选函数
+
+-- ---构造函数
+function Dizzy:ctor()
+    nn.log("创建了一个dizzy buff")
+end
+
+function Dizzy:create()
+
+end
+
+function Dizzy:invoke()
+
+end
+
+function Dizzy:dispose()
+
+end
+
+function Dizzy:destroy()
+
+end
+
+function Dizzy:interactive()
+
+end
+
+function Dizzy:test()
+
+end
+
+return Dizzy

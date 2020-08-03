@@ -1,0 +1,27 @@
+--int id;
+--int buffs[SKILL_BUFF_LENGTH];               //该技能会产生的buff，最大为5个
+--int cost;                                   //使用技能所需要的消耗
+--int costType;                               //消耗的类型2   0、无消耗  1、HP 2、MP 3、能量(玩家拥有的一项属性)
+--int targetType;                             //目标类型      0、自己 1、单个队友 2、单个队友不包含自己 3、单个敌人 4、所有人 5、所有人不包含自己 6、自己玩家 7、敌方玩家 8、随机的单个敌方棋子 9、随机的单个友方棋子 10、随机的玩家 11、所有友军 12、所有敌军
+--int sourcePawn;                             //使用这个技能的棋子的id
+--int damage;                                 //技能产生的伤害
+--int damageType;                             //技能的伤害类型   0、无意义   1、物理伤害 2、魔法伤害 3、神圣伤害 4、治疗
+--int passive;                                //是否是被动，如果是被动的话则产生buff的同时不会添加到buff列表中   只有0、1两个值与bool的意义一样
+--int disperse;                               //是否驱散， 0、表示驱散所有debuff 1、表示驱散所有buff 2、表示驱散任意一个增益效果 3、表示驱散任意一个减益效果
+
+
+local userSkillList = {
+    {
+        id = 10001,
+        buffs = {1, 2, 3, 4, 5},
+        cost = 1,
+        costType = 1,
+        damage = 1,
+        damageType = 1,
+        passive = true,
+        disperse = false
+    }
+}
+
+
+return userSkillList

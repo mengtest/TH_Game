@@ -1,0 +1,132 @@
+---core部分lua脚本的入口文件，在此文件中做出全局的初始化相关动作
+
+---package.cpath = package.cpath..";./?.lua"
+
+-- ---@type NN
+-- nn = nn or {}
+
+
+-- print(TurnState.invalid)
+-- print(TurnState.start)
+
+
+-- nn.log("hello")
+
+-- ---@type Damage
+-- local damage = Damage.new(false, 1, 1, nil, nil)
+-- damage.isHeal = false
+-- damage.curDamageType = 1
+
+-- print(damage.curDamageType)
+-- print(damage.source)
+
+-- require"util.util"
+nn = nn or {}
+---cs端导出的全局表
+lua = lua or {}
+-- nn.class = class
+-- require"lib.init"
+
+-- action = {}
+
+-- ---战斗开始时调用
+-- function start()
+
+-- end
+
+-- ---战斗结束时调用
+-- function over()
+    
+-- end
+
+-- ---棋子发动攻击时调用
+-- ---@param source Pawn
+-- ---@param target Pawn
+-- local function attack_call(source, target)
+
+-- end
+
+-- ---棋子受到伤害时调用
+-- local hit_call = function()
+
+-- end
+
+-- ---血量回复时调用
+-- local heal_call = function()
+
+-- end
+
+-- ---使用技能时调用
+-- local use_skill_call = function()
+
+-- end
+
+-- ---棋子受到技能影响时调用
+-- local suffer_skill_call = function()
+
+-- end
+
+-- ---添加buff时调用
+-- local add_buff_call = function()
+
+-- end
+
+-- ---buff结束时调用
+-- local remove_buff_call = function()
+
+-- end
+
+-- ---棋子死亡的时候调用
+-- local pawn_dead_call = function()
+
+-- end
+
+-- ---召唤棋子的时候调用
+-- local summon_pawn_call = function()
+
+-- end
+
+-- ---玩家的生命值变化时调用
+-- local player_hp_call = function()
+
+-- end
+
+-- Listener:on("attack_call", attack_call)
+-- Listener:on("hit_call", hit_call)
+-- Listener:on("heal_call", heal_call)
+-- Listener:on("use_skill_call", use_skill_call)
+-- Listener:on("suffer_skill_call", suffer_skill_call)
+-- Listener:on("add_buff_call", add_buff_call)
+-- Listener:on("remove_buff_call", remove_buff_call)
+-- Listener:on("pawn_dead_call", pawn_dead_call)
+-- Listener:on("summon_pawn_call", summon_pawn_call)
+-- Listener:on("player_hp_call", player_hp_call)
+
+-- local f = function(a, b, c, d, e)
+--     print(a,b,c,d,e)
+-- end
+-- local f2 = function(...)
+--     print(...)
+-- end
+
+-- Listener:on("123", f)
+
+-- Listener:on("123", f2)
+
+-- Listener:on("123", f2)
+
+-- Listener:event("123", 1, 2, 3, 4, 5, 6)
+
+-- Listener:off("123", f)
+
+-- Listener:event("123", 1, 2, 3, 4, 5, 6)
+
+-- Listener:off("123", f2)
+
+-- Listener:off("123", f2)
+
+-- Listener:event("123", 1, 2, 3, 4, 5, 6)
+
+-- -- print(f == f2)
+
+-- print(Listener:size())

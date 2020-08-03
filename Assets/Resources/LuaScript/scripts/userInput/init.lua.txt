@@ -1,0 +1,17 @@
+---@class UserInputHandle
+---处理战斗系统中所有的玩家输入
+local M = {}
+
+---@type IUserInput
+M.handle = nil
+
+function M.init()
+    ---如果是在线模式
+    if lua.onlineMode then
+        M.handle = require"UserInputOnline"
+    else
+        M.handle = require"UserInputOffline"
+    end
+end
+
+return M

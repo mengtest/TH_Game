@@ -1,0 +1,34 @@
+--int id;
+--int unique_id;                          //单次战斗中会被分配的唯一id(每次战斗开始的时候，会获取所有玩家当前的所有卡牌，同时为这些卡牌分配唯一的id)
+--int hp;                                 //生命值
+--int mp;                                 //魔法值
+--int matk;                               //魔法攻击力
+--int atk;                                //攻击力
+--int def;                                //防御力
+--int mdef;                               //魔法防御力
+--int buffs[PAWN_BUFF_LENGTH];            //当前棋子身上所有的buff,最大为30个
+--int skills[PAWN_SKILL_LENGTH];          //棋子可以使用的技能，最大为5个
+--int playerId;                           //持有这个棋子的玩家id
+--int type;                               //n、r、sr、ssr
+--int posType;                            //当前棋子所在的位置类型 0、无效 1、卡池 2、手卡 3、棋盘中
+--int pos;                                //当前棋子所在的位置，这里对应当前所在的位置类型中数组的下标，-1表示无效
+
+local userPawnList = {
+    {
+        id = 10001,
+        name = "hello",
+        name_cn = "你好",
+        hp = 1,
+        mp = 1,
+        matk = 1,
+        atk = 1,
+        def = 1,
+        mdef = 1,
+        type = 1,
+        icon = "default.png",
+        img = "default.png",
+        skills = {1, 2, 3, 4, 5}
+    }
+}
+
+return userPawnList

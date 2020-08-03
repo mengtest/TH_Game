@@ -1,0 +1,77 @@
+print(nn.class)
+local Dizzy = nn.class("Dizzy2")
+
+-- ---@class Dizzy
+-- ---buff的模板，这个演示了如何完成晕眩的效果
+-- local Dizzy = nn.class("Dizzy")
+
+-- --int id;
+-- --int unique_id;                          //产生buff时，会被分配一个唯一的id
+-- --int careTags[BUFF_TAG_LENGTH];          //这个buff感兴趣的tag
+-- --int tags[BUFF_TAG_LENGTH];              //该buff自身带有的tag，用于与其他buff交互
+-- --int maxTime;                            //最大持续时间，-1表示永久
+-- --int restTime;                           //buff的剩余时间
+-- --//现在修改为buff为一个整体的类，而不是数据+单独的函数，所有这个字段移除
+-- --// int attachFunctionId;                   //真正调用buff的函数id，这个函数从lua、cs、js来，这是一个额外的扩展，专用于一些特殊的buff
+-- --
+-- --int targetId;                           //buff影响的目标的id
+-- --int sourcePawn;                         //谁给的这个buff
+-- --int damage;                             //buff的伤害
+-- --int damageType;                         //buff的伤害类型     0、无意义   1、物理伤害 2、魔法伤害 3、神圣伤害 4、治疗
+-- --int maxOverlay;                         //最大叠加层数       0、无意义 1、不可叠加(有这个buff就表示有一层)   2、最大两层 3、最大三层 。。。 -1、可无限叠加
+-- --int overlay;                            //当前叠加的层数
+-- --int primaryOverlay;                     //buff的初始叠加层数
+-- --
+-- --//与baseType搭配使用，表示影响的目标属性的具体数值
+-- --//正值表示增加(无论是否是增益效果)，复制表示减小
+-- --int value;                           //影响的属性         0、不影响任何属性 1、攻击力 2、防御力 3、魔法攻击力 4、魔法防御力
+-- --// buff的基础类型    0、表示特殊类型，需要做特殊处理，否则的话表示是基础类型，直接从预定好的处理方式中直接调用
+-- --// 预定义的意义参考Constant中的定义
+-- --int baseType;
+
+Dizzy.id = 10002            ---必须属性
+Dizzy.name = "dizzy"        ---必须属性
+Dizzy.name_cn = "晕眩"        ---可选属性，如果没有则会使用name代替
+Dizzy.careTags = { 1, 2, 3, 4, 5}   ---可选、默认为空
+Dizzy.tags = { 1, 2, 3, 4, 5}   ---可选、默认为空
+Dizzy.maxTime = 3           ---这个就是buff给上目标之后的初始持续时间，也是buff重置后的最大时间
+Dizzy.buff = true           ---可选属性、默认为true
+Dizzy.damage = 2            ---可选属性、默认为0，如果这里不使用默认值，则一定要保证damageType有意义
+Dizzy.damageType = 2        ---可选属性、默认为0
+Dizzy.maxOverlay = 1        ---可选属性、默认为1，表示不可叠加
+Dizzy.primaryOverlay = 1    ---可选属性、默认为1
+Dizzy.icon = "default.png"  ---可选属性、默认为default.png
+
+
+-- ---以下所有函数均为可选函数
+
+-- ---构造函数
+function Dizzy:ctor()
+    nn.log("创建了一个dizzy2 buff")
+end
+
+function Dizzy:create()
+
+end
+
+function Dizzy:invoke()
+
+end
+
+function Dizzy:dispose()
+
+end
+
+function Dizzy:destroy()
+
+end
+
+function Dizzy:interactive()
+
+end
+
+function Dizzy:test()
+
+end
+
+return Dizzy

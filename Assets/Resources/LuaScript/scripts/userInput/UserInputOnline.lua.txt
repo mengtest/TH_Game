@@ -1,0 +1,28 @@
+---在线模式下的处理函数，会将所有的消息都发送给服务端
+---@class UserInputOnline : IUserInput
+local M = {}
+
+---玩家选择棋子攻击
+---如何判定玩家想要触发攻击事件？
+---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
+---@param attacker number 要发动攻击的棋子的uid
+function M.attack(attacker)
+end
+
+---玩家点击结束当前回合
+function M.turnEnd()
+end
+
+---玩家选择棋子对目标使用技能
+function M.userSkill(pawnId, targetId, skillId)
+end
+
+---玩家点击抽取卡牌按钮
+function M.draw(number, high)
+end
+
+---玩家召唤棋子
+function M.summon(pawnId, pos)
+end
+
+return M

@@ -1,0 +1,44 @@
+---template for buff
+local M = nn.class("replace by your buff's name")
+
+---属性区
+M.id = 1
+---...
+
+---functions begin
+---
+function M:ctor()
+
+end
+
+---当前buff被添加到棋子上时触发
+function M:create()
+
+end
+
+---当前buff的倒计时归零时触发
+function M:destroy()
+
+end
+
+---含有这个buff的棋子所属的玩家行动时触发
+function M:invoke()
+
+end
+
+---该buff被驱散时触发
+function M:dispose()
+
+end
+
+---有buff添加到含有当前buff的棋子上时触发
+function M:interactive()
+
+end
+
+-----含有这个buff的棋子受到伤害时触发
+--function M:hit()
+--
+--end
+
+return M

@@ -1,0 +1,70 @@
+---@class Listener
+local M = nn.class("Listener")
+
+M._eventList = {
+
+}
+
+M._size = 0
+
+function M:ctor()
+end
+
+---监听事件
+---@param name string|number
+---@param func function
+function M:on(name, func)
+    if self._eventList[name] == nil then
+        self._eventList[name] = {}
+        self._size = self._size + 1
+    end
+    table.insert(self._eventList[name], func)
+end
+
+---@param name string|number|nil
+function M:size(name)
+    if name == nil then
+        return self._size
+    end
+    return #(self._eventList[name])
+end
+
+---@param name string|number
+---@return boolean
+function M:contain(name)
+    return self._eventList[name] ~= nil
+end
+
+---取消事件
+---@param name string|number
+---@param func function
+function M:off(name, func)
+    local events = self._eventList[name]
+    if events then
+        local index = 1
+        for index, value in ipairs(events) do
+            if value == func then
+                table.remove(events, index)
+                if #events == 0 then
+                    self._eventList[name] = nil
+                    self._size = self._size - 1
+                end
+                break
+            end
+            index = index + 1
+        end
+    end
+end
+
+---触发事件
+---@param name string|number
+function M:event(name, ...)
+    local events = self._eventList[name]
+    if events then
+        for key, value in pairs(events) do
+            value(...)
+        end
+    end
+end
+
+return M

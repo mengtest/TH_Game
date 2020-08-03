@@ -1,0 +1,57 @@
+nn.log("pawn2")
+
+---这个是用于自定义棋子的例子
+
+local M = {
+    id = 10001,
+    name = "",
+    name_cn = "",
+    hp = 20,
+    mp = 20,
+    atk = 20,
+    def = 20,
+    mdef = 20,
+    matk = 20,
+    skills = {
+        10001, 10002, 10003, 10004, 10005
+    },
+    type = 1,
+    icon = "",
+    img = "",
+    model = "",
+}
+
+local skill1 = {
+    id = 10001,
+    name = "",
+    name_cn = "",
+    icon = "",
+    cost = 1,
+    costType = 1,
+    damage = 1,
+    damageType = 1,
+    targetType = 1,
+}
+
+local skill2 = {}
+local skill3 = {}
+local skill4 = {}
+local skill5 = {}
+
+local buff1 = {
+    id = 1,
+    name = "",
+    name_cn = "",
+}
+local buff2 = {}
+local buff3 = {}
+
+nn.reg("pawn", M)
+nn.reg("skill",skill1)
+nn.reg("skill",skill2)
+nn.reg("skill",skill3)
+nn.reg("skill",skill4)
+nn.reg("skill",skill5)
+nn.reg("buff", buff1)
+nn.reg("buff", buff2)
+nn.reg("buff", buff3)
