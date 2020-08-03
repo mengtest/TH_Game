@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Util;
 
 namespace Net
@@ -71,6 +72,21 @@ namespace Net
 
         //抽卡
         public void DrawCard()
+        {
+            
+        }
+
+        //调用之后会创建一个
+        public void DownloadFile(string uri)
+        {
+            //download的功能是一整块，所以直接高内聚，再使用公共的begin函数来完成下载功能
+            var obj = Util.Loader.Load<GameObject>("Prefab/Download");
+            var go = GameObject.Instantiate(obj) as GameObject;
+            var download = go.GetComponent<Download>();
+            download.Begin(uri);
+        }
+
+        public void DownloadFiles(string[] uris)
         {
             
         }

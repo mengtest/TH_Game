@@ -7,7 +7,7 @@ M.handle = nil
 
 function M.init()
     ---如果是在线模式
-    if lua.onlineMode then
+    if lua and lua.onlineMode then
         M.handle = require"UserInputOnline"
     else
         M.handle = require"UserInputOffline"

@@ -24,18 +24,9 @@ local list = {
 
 function M.init()
     ---这里的代码充当临时的战斗系统代码
-    global.combat = {}
-    if nn then
-        global.combat.combatId = nn.create_combat()
-        ---@type Combat
-        global.combat.ins = nn.get_combat(global.combat.combatId)
-        ---@type Combat
-        local combat = global.combat.ins
-        ---这个是当前玩家的卡组信息
-        combat:addPlayer(1, global.deckCards)
-        ---这个是另一个玩家的卡组信息
-        combat:addPlayer(-1, global.deckCards)
-    end
+    
+    local input = require"scripts.userInput.init"
+    input.init()
     
 	require"modules.BattleScene.userInputLayer".init()
 	require"modules.BattleScene.fGUICombat".init()

@@ -74,7 +74,6 @@ namespace Manager
             //播放列表里头的所有音频文件时，不需要去停止
         }
         
-        
         private static void Play(string soundPath, float vol, bool loop, bool destroy = true,  SoundPlayCompleteCallback callback = null)
         {
             var clip = Util.Loader.Load<AudioClip>(soundPath);

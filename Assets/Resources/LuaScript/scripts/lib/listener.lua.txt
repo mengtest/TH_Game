@@ -1,3 +1,4 @@
+---这个是C++端与CS端事件交互的监听器
 ---@class Listener
 local M = nn.class("Listener")
 
