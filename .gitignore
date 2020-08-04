@@ -104,7 +104,6 @@ ProjectVersion.txt
 .vscode/launch.json
 ProjectSettings/ProjectVersion.txt
 
-build/
 unity-chan!
 StreamingAssets
 _Terrain*
