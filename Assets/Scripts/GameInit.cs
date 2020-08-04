@@ -56,9 +56,14 @@ public static class GameInit
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
-        var xlua = new XLua.LuaEnv(LuaApi.get_lua_state());
-        xlua.DoString("print'lua'");
+        var xlua = new XLua.LuaEnv(true);
+        xlua.DoString("local t = Damage.new() nn.log('11111')");
 
+        // var ptr = LuaApi.get_lua_state();
+        // var lua = new XLua.LuaEnv(ptr);
+        // Debug.Log(ptr.ToString());
+        
+        
         // Debug.Log(test_fun(10));
         Lib.Listener.Instance.Event("after_app_init", Global.Scene.name);
     }

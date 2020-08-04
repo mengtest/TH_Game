@@ -22,13 +22,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3F4B2B81-B63C-3EA6-A4AE-130364C9C11E}</ProjectGuid>
+    <ProjectGuid>{55A87198-BBED-3B93-B7AE-A13ABEC31B41}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>xlua</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
-    <VcpkgEnabled>false</VcpkgEnabled>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -55,30 +54,30 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\projects\unity\THGame3\THGame3\build\build64\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Code\THGame2\THGame\build\build64\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xlua.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xlua</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\projects\unity\THGame3\THGame3\build\build64\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Code\THGame2\THGame\build\build64\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xlua.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xlua</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\projects\unity\THGame3\THGame3\build\build64\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Code\THGame2\THGame\build\build64\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">xlua.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">xlua</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\projects\unity\THGame3\THGame3\build\build64\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Code\THGame2\THGame\build\build64\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">xlua.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">xlua</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
@@ -87,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -97,43 +96,31 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR="Debug";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="Debug";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"Debug\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"Debug\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message></Message>
-      <Command>setlocal
-powershell -noprofile -executionpolicy Bypass -file E:/pos/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/projects/unity/THGame3/THGame3/build/build64/Debug/xlua.dll -installedDir E:/pos/vcpkg/installed/x64-windows/debug/bin -OutVariable out
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
       <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/projects/unity/THGame3/THGame3/build/build64/Debug/xlua.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/projects/unity/THGame3/THGame3/build/build64/Debug/xlua.pdb</ProgramDataBaseFile>
+      <ImportLibrary>F:/Code/THGame2/THGame/build/build64/Debug/xlua.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/THGame2/THGame/build/build64/Debug/xlua.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -142,7 +129,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -152,43 +139,31 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR="Release";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="Release";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"Release\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"Release\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message></Message>
-      <Command>setlocal
-powershell -noprofile -executionpolicy Bypass -file E:/pos/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/projects/unity/THGame3/THGame3/build/build64/Release/xlua.dll -installedDir E:/pos/vcpkg/installed/x64-windows/bin -OutVariable out
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
       <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/projects/unity/THGame3/THGame3/build/build64/Release/xlua.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/projects/unity/THGame3/THGame3/build/build64/Release/xlua.pdb</ProgramDataBaseFile>
+      <ImportLibrary>F:/Code/THGame2/THGame/build/build64/Release/xlua.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/THGame2/THGame/build/build64/Release/xlua.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -197,7 +172,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -209,43 +184,31 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR="MinSizeRel";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="MinSizeRel";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"MinSizeRel\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"MinSizeRel\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message></Message>
-      <Command>setlocal
-powershell -noprofile -executionpolicy Bypass -file E:/pos/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/projects/unity/THGame3/THGame3/build/build64/MinSizeRel/xlua.dll -installedDir E:/pos/vcpkg/installed/x64-windows/bin -OutVariable out
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
       <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/projects/unity/THGame3/THGame3/build/build64/MinSizeRel/xlua.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/projects/unity/THGame3/THGame3/build/build64/MinSizeRel/xlua.pdb</ProgramDataBaseFile>
+      <ImportLibrary>F:/Code/THGame2/THGame/build/build64/MinSizeRel/xlua.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/THGame2/THGame/build/build64/MinSizeRel/xlua.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -254,7 +217,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -267,41 +230,29 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR="RelWithDebInfo";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="RelWithDebInfo";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;CMAKE_INTDIR=\"RelWithDebInfo\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LUA_BUILD_AS_DLL;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"RelWithDebInfo\";xlua_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\projects\unity\THGame3\THGame3\build;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src;D:\projects\unity\THGame3\THGame3\build\build64;D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\include;D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include;E:\pos\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Code\THGame2\THGame\build;F:\Code\THGame2\THGame\build\lua-5.3.5\src;F:\Code\THGame2\THGame\build\build64;F:\Code\THGame2\THGame\build\lua-rapidjson\include;F:\Code\THGame2\THGame\build\lua-third\include;F:\Code\THGame2\THGame\build\lua-gameplay\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message></Message>
-      <Command>setlocal
-powershell -noprofile -executionpolicy Bypass -file E:/pos/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/projects/unity/THGame3/THGame3/build/build64/RelWithDebInfo/xlua.dll -installedDir E:/pos/vcpkg/installed/x64-windows/bin -OutVariable out
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
       <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/projects/unity/THGame3/THGame3/build/build64/RelWithDebInfo/xlua.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/projects/unity/THGame3/THGame3/build/build64/RelWithDebInfo/xlua.pdb</ProgramDataBaseFile>
+      <ImportLibrary>F:/Code/THGame2/THGame/build/build64/RelWithDebInfo/xlua.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/THGame2/THGame/build/build64/RelWithDebInfo/xlua.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -309,10 +260,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\projects\unity\THGame3\THGame3\build\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/projects/unity/THGame3/THGame3/build/CMakeLists.txt</Message>
+    <CustomBuild Include="F:\Code\THGame2\THGame\build\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/Code/THGame2/THGame/build/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-E:\Env\Cmake\bin\cmake.exe -SD:/projects/unity/THGame3/THGame3/build -BD:/projects/unity/THGame3/THGame3/build/build64 --check-stamp-file D:/projects/unity/THGame3/THGame3/build/build64/CMakeFiles/generate.stamp
+F:\vcpkg\downloads\cmake-3.17.2-win32-x86\bin\cmake.exe -SF:/Code/THGame2/THGame/build -BF:/Code/THGame2/THGame/build/build64 --check-stamp-file F:/Code/THGame2/THGame/build/build64/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -320,12 +271,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCXXCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeRCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeSystem.cmake;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\luaconf.h.in;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeRCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config-version.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-targets.cmake;E:\pos\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCXXCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeRCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeSystem.cmake;F:\Code\THGame2\THGame\build\lua-5.3.5\src\luaconf.h.in;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeRCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/projects/unity/THGame3/THGame3/build/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/Code/THGame2/THGame/build/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-E:\Env\Cmake\bin\cmake.exe -SD:/projects/unity/THGame3/THGame3/build -BD:/projects/unity/THGame3/THGame3/build/build64 --check-stamp-file D:/projects/unity/THGame3/THGame3/build/build64/CMakeFiles/generate.stamp
+F:\vcpkg\downloads\cmake-3.17.2-win32-x86\bin\cmake.exe -SF:/Code/THGame2/THGame/build -BF:/Code/THGame2/THGame/build/build64 --check-stamp-file F:/Code/THGame2/THGame/build/build64/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -333,12 +284,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCXXCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeRCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeSystem.cmake;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\luaconf.h.in;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeRCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config-version.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-targets.cmake;E:\pos\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCXXCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeRCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeSystem.cmake;F:\Code\THGame2\THGame\build\lua-5.3.5\src\luaconf.h.in;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeRCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/projects/unity/THGame3/THGame3/build/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/Code/THGame2/THGame/build/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-E:\Env\Cmake\bin\cmake.exe -SD:/projects/unity/THGame3/THGame3/build -BD:/projects/unity/THGame3/THGame3/build/build64 --check-stamp-file D:/projects/unity/THGame3/THGame3/build/build64/CMakeFiles/generate.stamp
+F:\vcpkg\downloads\cmake-3.17.2-win32-x86\bin\cmake.exe -SF:/Code/THGame2/THGame/build -BF:/Code/THGame2/THGame/build/build64 --check-stamp-file F:/Code/THGame2/THGame/build/build64/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -346,12 +297,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCXXCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeRCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeSystem.cmake;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\luaconf.h.in;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeRCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config-version.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-targets.cmake;E:\pos\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCXXCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeRCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeSystem.cmake;F:\Code\THGame2\THGame\build\lua-5.3.5\src\luaconf.h.in;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeRCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/projects/unity/THGame3/THGame3/build/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/Code/THGame2/THGame/build/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-E:\Env\Cmake\bin\cmake.exe -SD:/projects/unity/THGame3/THGame3/build -BD:/projects/unity/THGame3/THGame3/build/build64 --check-stamp-file D:/projects/unity/THGame3/THGame3/build/build64/CMakeFiles/generate.stamp
+F:\vcpkg\downloads\cmake-3.17.2-win32-x86\bin\cmake.exe -SF:/Code/THGame2/THGame/build -BF:/Code/THGame2/THGame/build/build64 --check-stamp-file F:/Code/THGame2/THGame/build/build64/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -359,221 +310,211 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeCXXCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeRCCompiler.cmake;D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\3.16.0-rc3\CMakeSystem.cmake;D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\luaconf.h.in;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeRCInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\Windows.cmake;E:\Env\Cmake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config-version.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-config.cmake;E:\pos\vcpkg\installed\x64-windows\share\sol2\sol2-targets.cmake;E:\pos\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\projects\unity\THGame3\THGame3\build\build64\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeCXXCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeRCCompiler.cmake;F:\Code\THGame2\THGame\build\build64\CMakeFiles\3.17.2\CMakeSystem.cmake;F:\Code\THGame2\THGame\build\lua-5.3.5\src\luaconf.h.in;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeRCInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\Windows.cmake;F:\vcpkg\downloads\cmake-3.17.2-win32-x86\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Code\THGame2\THGame\build\build64\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lapi.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lapi.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lcode.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lcode.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lctype.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lctype.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldebug.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ldebug.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldo.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ldo.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldump.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ldump.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lfunc.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lfunc.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lgc.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lgc.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\llex.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\llex.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lmem.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lmem.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lobject.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lobject.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lopcodes.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lopcodes.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lparser.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lparser.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstate.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lstate.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstring.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lstring.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltable.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ltable.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltm.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ltm.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lundump.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lundump.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lvm.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lvm.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lzio.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lzio.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lauxlib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lauxlib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lbaselib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lbaselib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lbitlib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lbitlib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lcorolib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lcorolib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ldblib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ldblib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\liolib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\liolib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lmathlib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lmathlib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\loslib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\loslib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lstrlib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lstrlib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\ltablib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\ltablib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\linit.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\linit.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\lutf8lib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\lutf8lib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-5.3.5\src\loadlib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-5.3.5\src\loadlib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\auxiliar.c">
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\buffer.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\auxiliar.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -583,7 +524,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\except.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\buffer.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -593,7 +534,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\inet.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\except.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -603,7 +544,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\io.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\inet.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -613,7 +554,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\luasocket.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\io.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -623,7 +564,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\mime.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\luasocket.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -633,7 +574,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\options.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\mime.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -643,7 +584,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\select.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\options.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -653,7 +594,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\tcp.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\select.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -663,7 +604,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\timeout.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\tcp.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -673,7 +614,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\udp.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\timeout.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -683,7 +624,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\luasocket\wsocket.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\udp.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
@@ -693,53 +634,128 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\i64lib.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\luasocket\wsocket.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_COMPAT_APIINTCASTS;LUA_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\i64lib.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\xlua.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\xlua.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\memory_leak_checker.c">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\memory_leak_checker.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-rapidjson\source\rapidjson.cpp">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-rapidjson\source\rapidjson.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\GamePlay.cpp">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\cfg.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\Test.cpp">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\async.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\source\sol.cpp">
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\color_sinks.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClInclude Include="D:\projects\unity\THGame3\THGame3\build\lua-gameplay\include\sol.h" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\file_sinks.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\fmt.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\spdlog.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-third\src\stdout_sinks.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\source\GamePlay.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\source\Test.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\source\sol.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LUA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClInclude Include="F:\Code\THGame2\THGame\build\lua-gameplay\include\sol.h" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Agent.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Buff.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\BuffMachine.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Combat.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\CombatMgr.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Constant.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Delegate.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Export.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Export2CS.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Export2Lua.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Helper.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Loader.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Logger.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\LuaBuff.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\LuaFramework.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Pawn.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\PawnMgr.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Player.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Singleton.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\Skill.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\SkillMgr.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\ToString.cpp" />
+    <ClCompile Include="F:\Code\THGame2\THGame\build\lua-gameplay\src\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\projects\unity\THGame3\THGame3\build\build64\ZERO_CHECK.vcxproj">
-      <Project>{7B94225B-85C0-383E-BD21-3E63EE3B7CAF}</Project>
+    <ProjectReference Include="F:\Code\THGame2\THGame\build\build64\ZERO_CHECK.vcxproj">
+      <Project>{33FEF0C3-8F20-3D7A-AD32-1CC58ED35366}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

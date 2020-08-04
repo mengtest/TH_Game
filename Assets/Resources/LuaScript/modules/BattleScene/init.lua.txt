@@ -25,9 +25,9 @@ local list = {
 function M.init()
     ---这里的代码充当临时的战斗系统代码
     
-    local input = require"scripts.userInput.init"
-    input.init()
-    
+    -- local input = require"scripts.userInput.init"
+    -- input.init()
+    print(nn or 1)
 	require"modules.BattleScene.userInputLayer".init()
 	require"modules.BattleScene.fGUICombat".init()
     

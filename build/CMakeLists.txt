@@ -6,9 +6,14 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+#应该将fmt、lua等都生成为一个dll
+#设置vcpkg的根目录
+#set(VCPKG_ROOT "F:/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE PATH "")
+#set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT})
 
-set(VCPKG_ROOT "E:/pos/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE PATH "")
-set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT})
+
+#现在已经在xlua中集成了所有需要的第三方库，在编译的时候将vcpkg的引用全部删除就可以编译成功了
+#vcpkg integrate remove
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -19,6 +24,8 @@ if ( WIN32 AND NOT CYGWIN AND NOT ( CMAKE_SYSTEM_NAME STREQUAL "WindowsStore" ) 
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT" CACHE STRING "")
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd" CACHE STRING "")
 endif ()
+
+
 
 project(XLua)
 
@@ -60,7 +67,36 @@ list(APPEND THIRDPART_INC  lua-rapidjson/include)
 set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
 #end lua-rapidjson
 
+#begin fmt
+
+# lua-third/src/format.cc lua-third/src/os.cc
+set (THIRD_SRC  lua-third/src/cfg.cpp lua-third/src/async.cpp lua-third/src/color_sinks.cpp lua-third/src/file_sinks.cpp lua-third/src/fmt.cpp
+        lua-third/src/spdlog.cpp lua-third/src/stdout_sinks.cpp)
+set_property(
+	SOURCE ${THIRD_SRC}
+	APPEND
+	PROPERTY COMPILE_DEFINITIONS
+	LUA_LIB
+)
+list(APPEND THIRDPART_INC  lua-third/include)
+set (THIRDPART_SRC ${THIRDPART_SRC} ${THIRD_SRC})
+#end fmt
+
+#begin lua-rapidjson
+set (RAPIDJSON_SRC lua-rapidjson/source/rapidjson.cpp)
+set_property(
+	SOURCE ${RAPIDJSON_SRC}
+	APPEND
+	PROPERTY COMPILE_DEFINITIONS
+	LUA_LIB
+)
+list(APPEND THIRDPART_INC  lua-rapidjson/include)
+set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
+#end lua-rapidjson
+
 #begin lua-gameplay
+aux_source_directory(./lua-gameplay/src/ THCORE_SRC)
+#aux_source_directory(THCORE_SRC lua-gameplay/src/)
 set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp lua-gameplay/source/sol.cpp lua-gameplay/include/sol.h)
 set_property(
 	SOURCE ${GAMEPLAY_SRC}
@@ -68,8 +104,10 @@ set_property(
 	PROPERTY COMPILE_DEFINITIONS
 	LUA_LIB
 )
+
 list(APPEND THIRDPART_INC  lua-gameplay/include)
-set (THIRDPART_SRC ${THIRDPART_SRC} ${GAMEPLAY_SRC})
+
+set (THIRDPART_SRC ${THIRDPART_SRC} ${GAMEPLAY_SRC} ${THCORE_SRC} ${THIRD_SRC})
 #end lua-gameplay
 
 set(LUA_SRC_PATH lua-5.3.5/src)
@@ -240,9 +278,6 @@ if(UINT_ESPECIALLY)
     ADD_DEFINITIONS(-DUINT_ESPECIALLY)
 endif()
 
-find_package(sol2 CONFIG REQUIRED)
-#target_link_libraries(xlua PRIVATE sol2::sol2)
-
 
 if ( WIN32 AND NOT CYGWIN )
     if (USING_LUAJIT)
@@ -255,7 +290,7 @@ if ( WIN32 AND NOT CYGWIN )
         target_link_libraries(xlua
             ws2_32
             ${THIRDPART_LIB}
-				sol2::sol2
+            # sol2::sol2
         )
 
 
@@ -274,3 +309,8 @@ else ( )
         )
     endif()
 endif ( )
+
+
+#find_package(sol2 CONFIG REQUIRED)
+#target_link_libraries(xlua PRIVATE sol2::sol2)
+target_compile_definitions(xlua PUBLIC SPDLOG_COMPILED_LIB)

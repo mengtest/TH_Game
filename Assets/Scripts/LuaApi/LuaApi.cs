@@ -61,7 +61,7 @@ public class LuaApi
     public delegate void UpdateAction(AttrStruct attr);
     public delegate void NoticeFunction(string str);
 
-    public const string DllName = @"THCore1";
+    public const string DllName = @"xlua";
 
     //导出给CS的一些api
 	//获取到一个buff的实例对象(展示对象)

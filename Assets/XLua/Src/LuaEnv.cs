@@ -61,7 +61,7 @@ namespace XLua
 
         const int LIB_VERSION_EXPECT = 105;
 
-        public LuaEnv(RealStatePtr ptr)
+        public LuaEnv(bool useSol2)
         {
             if (LuaAPI.xlua_get_lib_version() != LIB_VERSION_EXPECT)
             {
@@ -78,8 +78,7 @@ namespace XLua
                 LuaAPI.xlua_set_csharp_wrapper_caller(InternalGlobals.CSharpWrapperCallerPtr);
 #endif
                 // Create State
-                // rawL = LuaAPI.luaL_newstate();
-                rawL = ptr;
+                rawL = LuaApi.get_lua_state();
 
                 //Init Base Libs
                 LuaAPI.luaopen_xlua(rawL);

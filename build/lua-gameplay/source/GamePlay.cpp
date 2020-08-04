@@ -122,10 +122,10 @@ extern "C" {
 
 	LUALIB_API int luaopen_core(lua_State* L)
 	{
-		GamePlay::_lua = new sol::state(L);
-		GamePlay::_lua->new_usertype<T>("T", sol::constructors<void(int), void(const char *)>(),
-		        "id", &T::id,
-		        "str", &T::str);
+		// GamePlay::_lua = new sol::state(L);
+		// GamePlay::_lua->new_usertype<T>("T", sol::constructors<void(int), void(const char *)>(),
+		//         "id", &T::id,
+		//         "str", &T::str);
 		return 1;
 	}
 }
