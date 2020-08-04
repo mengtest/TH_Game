@@ -100,5 +100,24 @@ namespace Core
             _instance._msgs = new Dictionary<int, Delegate>();
             _instance._msgs2 = new Dictionary<int, Delegate2>();
         }
+
+        public static void InitAll()
+        {
+            //只有在离线模式下才会使用这里的逻辑
+            LuaApi.set_notice_action(NoticeFunction);
+            LuaApi.set_update_action(UpdateFunction);
+        }
+
+        private static void NoticeFunction(string msg)
+        {
+            //这个事件要分发给lua吗？
+
+        }
+
+        private static void UpdateFunction(LuaApi.AttrStruct attr)
+        {
+            //这个与界面的更新息息相关，直接在cs端完成
+            //实际上离线模式与在线模式对ui的处理应该是大同小异的
+        }
     }
 }
