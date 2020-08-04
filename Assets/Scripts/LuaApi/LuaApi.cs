@@ -3,6 +3,9 @@ using System;
 
 public class LuaApi
 {
+    /// <summary>
+    /// 现在先完成C#端的基本功能，然后出一个包，接下来就直接在生成的包中开发
+    /// </summary>
     public struct AttrStruct
     {
         public int combatId;   //战斗实例的id           //这个参数主要是为了，如果后期添加服务端的话，这个可以标识唯一的combat

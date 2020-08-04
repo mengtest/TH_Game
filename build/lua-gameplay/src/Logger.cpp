@@ -26,6 +26,8 @@ Logger* Logger::instance()
 void Logger::log(const char* fmt)
 {
 	_logger->info(fmt);
+	_logger->flush();
+	_logger->flush_on(spdlog::level::info);
 }
 
 void Logger::log(int id, const char* fmt)
@@ -36,12 +38,16 @@ void Logger::log(int id, const char* fmt)
 		if (!_combatLogger)
 		{
 			_combatLogger = spdlog::basic_logger_mt("Combat", fmt::format("logs/combat_{0}.txt", this->_curCombatId));
+			_combatLogger->flush();
+			_combatLogger->flush_on(spdlog::level::info);
 		}
 	}
 	
 	if (this->_curCombatId > 0)
 	{
 		_combatLogger->info(fmt);
+		_combatLogger->flush();
+		_combatLogger->flush_on(spdlog::level::info);
 	}
 }
 

@@ -72,7 +72,8 @@ namespace LuaFramework
         private LuaEngine()
         {
             _env = new LuaEnv();
-            // _env.L
+            // LuaApi.init("./");
+            
             _env.AddLoader(CustomLoaderMethod);
         } 
         

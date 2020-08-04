@@ -37,6 +37,8 @@ private:
 	//根据combat的id来存放所有的buff
 	//每个房间中的buff的id是唯一的，所以直接存其uid，每次要取出时根据uid来合成其真正的id
 	// std::map<int, std::set<std::string_view>> _instanceBuffList;
+
+	static int id;
 	
     static LuaFramework* _instance;
 public:

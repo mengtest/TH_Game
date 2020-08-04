@@ -45,6 +45,8 @@ extern "C"
 
 	public void CSDLL lua_init();
 
+	public void CSDLL release_dll();
+
 	// public void CSDLL get_combat(int cid);
 
 	//向战斗系统中的某个房间添加玩家

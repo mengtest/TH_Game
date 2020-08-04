@@ -16,6 +16,8 @@
 
 //std::shared_ptr<LuaFramework> LuaFramework::_instance = std::shared_ptr<LuaFramework>(new LuaFramework);
 
+int LuaFramework::id = 0;
+
 LuaFramework* LuaFramework::_instance = nullptr;
 
 //简化sol中函数的注册
@@ -53,6 +55,8 @@ LuaFramework* LuaFramework::instance()
 	if (_instance == nullptr)
 	{
         _instance = new LuaFramework();
+        // nn::nlog(u8"生成了一个新的实例对象");
+        nn::nlogI(1);
         Singleton::instance()->store(_instance);
         Singleton::instance()->store(BuffMachine::clearAllScriptBuff);
 	}
@@ -197,6 +201,9 @@ void LuaFramework::exportAll() {
     //所有的静态的create函数都存放到这里
     //sol::table create = _lua["create"].get_or_create<sol::table>();
 
+    
+    nn::nlogI(++id);
+	
 #pragma region nn名称空间下面所有的全局函数
     //region nn名称空间下面所有函数的声明
     sol::table nn = _lua["nn"].get_or_create<sol::table>();
