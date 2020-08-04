@@ -55,20 +55,24 @@ namespace Export
     void init(std::string_view root)
     {
         AgentMgr::instance()->curAgent()->setRoot(root);
-        
 
+    	//启动的时候就读取所有的配置表
         std::string scriptRoot = root.data();
         Loader::loadConfig(scriptRoot + "/jsons/global.json");
         Loader::loadAllPawns(scriptRoot + "/jsons/cards.json");
         Loader::loadAllSkills(scriptRoot + "/jsons/skills.json");
-    	
-        export_lua();
-        lua_init();
+        Loader::loadAllBuffs(scriptRoot + "/jsons/buffs.json");
+
+    	//再导出所有的lua导出api
+        Export::export_lua();
+
+    	//这个是加载所有的用户自定义lua脚本
+        Export::lua_init();
     }
 
     void load_export()
     {
-//        LuaFramework::instance()->exportAll();
+    	
     }
 
     void release_export()

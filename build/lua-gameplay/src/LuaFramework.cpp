@@ -1,7 +1,6 @@
 #include <filesystem>
 #include <set>
 #include "LuaFramework.h"
-
 #include "Agent.h"
 #include "Pawn.h"
 #include "Player.h"
@@ -13,6 +12,7 @@
 #include "fmt/format.h"
 #include "Singleton.h"
 #include "Export.h"
+#include "3rd.h"
 
 //std::shared_ptr<LuaFramework> LuaFramework::_instance = std::shared_ptr<LuaFramework>(new LuaFramework);
 
@@ -203,6 +203,7 @@ void LuaFramework::exportAll() {
     nn.set_function("log", sol::overload(nn::nlog, nn::nlogS, nn::nlogF, nn::nlogI));
     nn.set_function("create_combat", Export::create_combat);
     nn.set_function("get_combat", Export::get_combat);
+	//战斗结束后自动销毁所有相关的内存，所以不需要手动去销毁
     nn.set_function("create_combat", Export::create_combat);
     nn.set_function("release_export", Export::release_export);
 	

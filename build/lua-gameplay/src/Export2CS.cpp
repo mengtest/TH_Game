@@ -21,7 +21,7 @@ int create_combat()
 	return Export::create_combat();
 }
 
-void init(const char * root)
+void init(string root)
 {
 	Export::init(root);
 }

@@ -79,6 +79,9 @@ public class LuaApi
     [DllImport(DllName)]
 	public static extern IntPtr get_player(int combatId, int uid);
 
+    [DllImport(DllName)]
+	public static extern void init(string root);
+
     //方便获取core中的lua栈
     [DllImport(DllName)]
 	public static extern IntPtr get_lua_state();
@@ -90,4 +93,34 @@ public class LuaApi
     //这个函数用于cs端或者js端获取战斗中的自定义消息，接收的消息为一个字符串
 	[DllImport(DllName)]
 	public static extern void set_notice_action(NoticeFunction fun);
+
+    public static PawnD GetPawn(int combatId, int pawnId)
+    {
+        var ptr = LuaApi.get_pawn(combatId, pawnId);
+        if(ptr != IntPtr.Zero)
+        {
+            return Marshal.PtrToStructure<PawnD>(ptr);
+        }
+        return default;
+    }
+
+    public static PlayerS GetPlayer(int combatId, int uid)
+    {
+        var ptr = LuaApi.get_player(combatId, uid);
+        if(ptr != IntPtr.Zero)
+        {
+            return Marshal.PtrToStructure<PlayerS>(ptr);
+        }
+        return default;
+    }
+
+    public static BuffD GetBuff(int combatId, int buffId)
+    {
+        var ptr = LuaApi.get_buff(combatId, buffId);
+        if(ptr != IntPtr.Zero)
+        {
+            return Marshal.PtrToStructure<BuffD>(ptr);
+        }
+        return default;
+    }
 }

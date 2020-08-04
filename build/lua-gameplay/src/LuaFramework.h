@@ -48,6 +48,7 @@ public:
 
 	sol::state& lua();
 
+	//加载所有的用户自定义脚本文件
 	void loadAll(const std::string& root);
 
 	void exportAll();

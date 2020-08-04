@@ -4,14 +4,10 @@
 #include "SkillMgr.h"
 #include "BuffMachine.h"
 #include "Agent.h"
-// #include "3rd.h"
-#include "Logger.h"
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/document.h"
 #include "fmt/format.h"
-// #include "rapidjson/istreamwrapper.h"
-
-//如果源文件的编码是utf8以及json文件的编码也是utf8的话，可以使用C++这边的读写来直接完成
+#include <filesystem>
 
 void Loader::loadAllPawns(const std::string & text)
 {
@@ -24,8 +20,14 @@ void Loader::loadAllPawns(const std::string & text)
 	// LOG(INFO) << "";
 	// google::FlushLogFiles(google::GLOG_INFO);
 
-	fmt::format("111111111111");
-	
+	// fmt::format("111111111111");
+
+	if (!std::filesystem::exists(text))
+	{
+		return;
+	}
+
+	//直接使用rapidjson的文件读取方式来加载文件
     FILE* f = nullptr;
     f = fopen(text.c_str(), "r");
     fseek(f, 0, SEEK_END);
@@ -75,7 +77,7 @@ void Loader::loadAllPawns(const std::string & text)
 			//预定义ai的id为-1，所以这里给出默认值为0
 			pawn->playerId = 0;
 			pawns[id - 1] = pawn;
-            ylog(u8"%s", element.HasMember("name_cn") ? element["name_cn"].GetString() : "");
+            // ylog(u8"%s", element.HasMember("name_cn") ? element["name_cn"].GetString() : "");
 		}
 		PawnMgr::loadAll(pawns);
 	}
@@ -84,6 +86,10 @@ void Loader::loadAllPawns(const std::string & text)
 
 void Loader::loadConfig(const std::string & text)
 {
+	if (!std::filesystem::exists(text))
+	{
+		return;
+	}
     FILE* f = nullptr;
     f = fopen(text.c_str(), "r");
     fseek(f, 0, SEEK_END);
@@ -130,6 +136,10 @@ void Loader::loadConfig(const std::string & text)
 
 void Loader::loadAllSkills(const std::string & text)
 {
+	if (!std::filesystem::exists(text))
+	{
+		return;
+	}
     FILE* f = nullptr;
     f = fopen(text.c_str(), "r");
     fseek(f, 0, SEEK_END);
@@ -179,6 +189,10 @@ void Loader::loadAllSkills(const std::string & text)
 
 void Loader::loadAllBuffs(const std::string & text)
 {
+	if (!std::filesystem::exists(text))
+	{
+		return;
+	}
     FILE* f = nullptr;
     f = fopen(text.c_str(), "r");
     fseek(f, 0, SEEK_END);

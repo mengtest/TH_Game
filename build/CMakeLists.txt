@@ -98,6 +98,33 @@ set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
 aux_source_directory(./lua-gameplay/src/ THCORE_SRC)
 #aux_source_directory(THCORE_SRC lua-gameplay/src/)
 set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp lua-gameplay/source/sol.cpp lua-gameplay/include/sol.h)
+set (CORE_HEAD lua-gameplay/src/3rd.h
+lua-gameplay/src/Actions.h
+lua-gameplay/src/Agent.h
+lua-gameplay/src/Base.h
+lua-gameplay/src/Buff.h
+lua-gameplay/src/BuffMachine.h
+lua-gameplay/src/Combat.h
+lua-gameplay/src/CombatMgr.h
+lua-gameplay/src/Constant.h
+lua-gameplay/src/Data.h
+lua-gameplay/src/Delegate.h
+lua-gameplay/src/Export.h
+lua-gameplay/src/Export2CS.h
+lua-gameplay/src/Export2Lua.h
+lua-gameplay/src/Helper.h
+lua-gameplay/src/Interfaces.h
+lua-gameplay/src/Loader.h
+lua-gameplay/src/Logger.h
+lua-gameplay/src/LuaBuff.h
+lua-gameplay/src/LuaFramework.h
+lua-gameplay/src/Pawn.h
+lua-gameplay/src/PawnMgr.h
+lua-gameplay/src/Player.h
+lua-gameplay/src/Singleton.h
+lua-gameplay/src/Skill.h
+lua-gameplay/src/SkillMgr.h
+)
 set_property(
 	SOURCE ${GAMEPLAY_SRC}
 	APPEND
@@ -106,8 +133,7 @@ set_property(
 )
 
 list(APPEND THIRDPART_INC  lua-gameplay/include)
-
-set (THIRDPART_SRC ${THIRDPART_SRC} ${GAMEPLAY_SRC} ${THCORE_SRC} ${THIRD_SRC})
+set (THIRDPART_SRC ${THIRDPART_SRC} ${GAMEPLAY_SRC} ${THCORE_SRC} ${THIRD_SRC} ${CORE_HEAD})
 #end lua-gameplay
 
 set(LUA_SRC_PATH lua-5.3.5/src)
