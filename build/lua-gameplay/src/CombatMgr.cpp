@@ -1,6 +1,8 @@
 ﻿#include "CombatMgr.h"
 #include "Combat.h"
+#include "Logger.h"
 #include "Singleton.h"
+#include "fmt/format.h"
 
 CombatMgr* CombatMgr::_instance;
 
@@ -36,19 +38,23 @@ Combat* CombatMgr::create()
 	if (_allCombats.find(combat->id()) == _allCombats.end())
 	{
 		_allCombats.insert({ combat->id(), combat });
+		ylog(u8"创建了一个新的战斗系统实例，id为{0}，当前正在进行的比赛数量为", combat->id(), this->_allCombats.size());
 	}
 	else
 	{
 		//出现重复的id了，可以抛出异常
+		ylog(u8"重复id{0}的战斗系统，程序异常", combat->id());
 	}
 	return combat;
 }
 
 void CombatMgr::release(Combat* combat)
 {
+	auto id = combat->id();
 	combat->release();
 	_allCombats.erase(combat->id());
 	delete combat;
+	ylog(u8"销毁了一个战斗系统实例，id为{0}，当前正在进行的比赛数量为", id, this->_allCombats.size());
 }
 
 void CombatMgr::release(int id)
@@ -59,7 +65,14 @@ void CombatMgr::release(int id)
 		it->second->release();
 		delete (it->second);
 		_allCombats.erase(id);
+		ylog(u8"销毁了一个战斗系统实例，id为{0}，当前正在进行的比赛数量为", id, this->_allCombats.size());
 	}
+}
+
+void CombatMgr::free()
+{
+	delete _instance;
+	_instance = nullptr;
 }
 
 Combat* CombatMgr::getCombat(int id)

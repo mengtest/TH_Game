@@ -1,12 +1,13 @@
 ﻿#pragma once
 
 #include <map>
+#include "Interfaces.h"
 #include "Player.h"
 
 class Combat;
 
 //现在就不给出多个玩法算了，只有一种玩法
-class CombatMgr
+class CombatMgr: IRelease
 {
 private:
 	int _maxId = 0;
@@ -34,6 +35,8 @@ public:
 	void release(Combat* combat);
 
 	void release(int id);
+
+	void free() override;
 
 	Combat* getCombat(int id);
 

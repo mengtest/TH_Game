@@ -4,7 +4,8 @@
 #include <vector>
 #include <functional>
 
-typedef void(*NormalFunction)(void);
+class IRelease;
+typedef void(*NormalFunction)();
 
 class Singleton
 {
@@ -12,6 +13,10 @@ private:
     static std::shared_ptr<Singleton> _instance;
 
     std::vector<std::function<void()>> v;
+
+	//这里存储所有的单例对象，当调用release的时候释放所有的单例对象的内存
+	//所有的IRelease对象都有free函数，free函数里面会释放内存，并且将对象设置为nullptr
+    std::vector<IRelease*> _handles;
 public:
     Singleton() = default;
 
@@ -19,8 +24,15 @@ public:
 
     void store(NormalFunction f);
 
+    void store(IRelease* handle);
+
+    void release();
+
     template <class T>
-    typename std::enable_if<std::is_pointer_v<T> && (!std::is_function_v<T>), void>::type
+    typename std::enable_if<
+        std::is_pointer_v<T>
+		&& (!std::is_function_v<T>)
+		&& (!std::is_convertible_v<T, IRelease*>), void>::type
     store(T t);
 
     static std::shared_ptr<Singleton> instance();
@@ -29,14 +41,17 @@ public:
 };
 
 template<class T>
-typename std::enable_if<std::is_pointer_v<T> && (!std::is_function_v<T>), void>::type
+typename std::enable_if<
+	std::is_pointer_v<T>
+	&& (!std::is_function_v<T>)
+    && (!std::is_convertible_v<T, IRelease*>), void>::type
 Singleton::store(T t)
 {
-    v.emplace_back([t](){
-        if (t != nullptr)
-        {
-            delete(t);
-        	//这里去对这个t再赋值为空指针的话有用吗？
-        }
-    });
+    v.emplace_back(
+        [t]() {
+            if (t != nullptr)
+            {
+                delete(t);
+            }
+        });
 }

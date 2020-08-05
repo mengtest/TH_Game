@@ -29,9 +29,18 @@ extern "C"
 	//同时初始化后不会释放，直到游戏结束的时候才会释放dll的内存
 	public void CSDLL init(string root);
 
+	//cpp端的lua栈肯定是唯一的
+	public IntPtr get_lua_state();
+
 	public void CSDLL set_update_action(UpdateAction fun);
 
 	public void CSDLL set_notice_action(NoticeFunction fun);
+
+	// //考虑到在unity editor模式下面，无法去卸载dll，所以提供两个函数来完成初始化与释放的工作
+	// //public void CSDLL alloc_all();
+
+	//这里释放所有的THCore里面的内存
+	public void CSDLL release_all();
 
 	//这个应该修改为释放整个dll中的内存
 	//而不是释放某个combat的内存
@@ -40,12 +49,7 @@ extern "C"
 	//还需要导出两个api给cs去释放以及加载core导出部分的内存
 	public void CSDLL load_export();
 
-	//cpp端的lua栈肯定是唯一的
-	public IntPtr get_lua_state();
-
 	public void CSDLL lua_init();
-
-	public void CSDLL release_dll();
 
 	// public void CSDLL get_combat(int cid);
 

@@ -55,3 +55,13 @@ void set_notice_action(NoticeFunction fun)
 {
 	Export::set_notice_fun(fun);
 }
+
+void alloc_all()
+{
+	
+}
+
+void release_all()
+{
+	Export::release_all();
+}

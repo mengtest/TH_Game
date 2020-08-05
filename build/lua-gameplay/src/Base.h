@@ -8,7 +8,7 @@
 
 //一些预定义的部分，例如宏、编译期常量、导出函数等
 
-#define CLIENT_EXTEND
+// #define CLIENT_EXTEND
 
 //这个是可选项
 #define TYPE_LUA 1

@@ -6,8 +6,6 @@
 #include "Helper.h"
 #include "Singleton.h"
 
-//#include "Logger.h"
-
 SkillMgr* SkillMgr::_instance;
 
 SkillMgr* SkillMgr::instance()
@@ -22,6 +20,12 @@ SkillMgr* SkillMgr::instance()
 
 void SkillMgr::loadAll(SkillList& skills)
 {
+	//释放当前整个列表里面的元素，并且将清理列表
+	for (auto skill : skills)
+	{
+        delete skill;
+	}
+    _skills.clear();
 	_skills.swap(skills);
 }
 

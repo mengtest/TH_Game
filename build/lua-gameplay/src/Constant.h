@@ -27,6 +27,7 @@ constexpr auto PLAYER_COST_BEGIN = COST_BEGIN + 1000;
 constexpr auto PAWN_COST_BEGIN = COST_BEGIN + 2000;
 
 //这一部分在敲定之后，直接写入到lua文件中
+//这一个不需要释放，永远都只可能有一份，且不会有任何冲突
 class Constant
 {
 private:

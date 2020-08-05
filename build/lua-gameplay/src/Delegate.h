@@ -6,7 +6,7 @@
 #include <map>
 #include <vector>
 
-#if __CPP_17__
+#if _HAS_CXX17
 #include <any>
 using object = std::any;
 //如果没有开启CXX17的话，需要使用我自定义的any来作为object
@@ -66,7 +66,7 @@ template <class T>
 T Delegate::cast(object obj)
 {
 	//这里会抛出异常，需要在调用cast的时候去捕获异常
-#if __CPP_17__
+#if _HAS_CXX17
 	return std::any_cast<T>(obj);
 #else
 	return my_cast<T>(obj);

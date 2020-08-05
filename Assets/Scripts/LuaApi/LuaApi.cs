@@ -89,6 +89,10 @@ public class LuaApi
     [DllImport(DllName)]
 	public static extern IntPtr get_lua_state();
 
+    //方便获取core中的lua栈
+    [DllImport(DllName)]
+	public static extern void release_all();
+
     //这个函数用于cs端或者js端获取所有战斗中所有的棋子信息更新
     [DllImport(DllName)]
 	public static extern void set_update_action(UpdateAction fun);

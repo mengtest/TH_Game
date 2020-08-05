@@ -83,15 +83,15 @@ set (THIRDPART_SRC ${THIRDPART_SRC} ${THIRD_SRC})
 #end fmt
 
 #begin lua-rapidjson
-set (RAPIDJSON_SRC lua-rapidjson/source/rapidjson.cpp)
-set_property(
-	SOURCE ${RAPIDJSON_SRC}
-	APPEND
-	PROPERTY COMPILE_DEFINITIONS
-	LUA_LIB
-)
-list(APPEND THIRDPART_INC  lua-rapidjson/include)
-set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
+# set (RAPIDJSON_SRC lua-rapidjson/source/rapidjson.cpp)
+# set_property(
+# 	SOURCE ${RAPIDJSON_SRC}
+# 	APPEND
+# 	PROPERTY COMPILE_DEFINITIONS
+# 	LUA_LIB
+# )
+# list(APPEND THIRDPART_INC  lua-rapidjson/include)
+# set (THIRDPART_SRC ${THIRDPART_SRC} ${RAPIDJSON_SRC})
 #end lua-rapidjson
 
 #begin lua-gameplay
@@ -99,31 +99,31 @@ aux_source_directory(./lua-gameplay/src/ THCORE_SRC)
 #aux_source_directory(THCORE_SRC lua-gameplay/src/)
 set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp lua-gameplay/source/sol.cpp lua-gameplay/include/sol.h)
 set (CORE_HEAD lua-gameplay/src/3rd.h
-lua-gameplay/src/Actions.h
-lua-gameplay/src/Agent.h
-lua-gameplay/src/Base.h
-lua-gameplay/src/Buff.h
-lua-gameplay/src/BuffMachine.h
-lua-gameplay/src/Combat.h
-lua-gameplay/src/CombatMgr.h
-lua-gameplay/src/Constant.h
-lua-gameplay/src/Data.h
-lua-gameplay/src/Delegate.h
-lua-gameplay/src/Export.h
-lua-gameplay/src/Export2CS.h
-lua-gameplay/src/Export2Lua.h
-lua-gameplay/src/Helper.h
-lua-gameplay/src/Interfaces.h
-lua-gameplay/src/Loader.h
-lua-gameplay/src/Logger.h
-lua-gameplay/src/LuaBuff.h
-lua-gameplay/src/LuaFramework.h
-lua-gameplay/src/Pawn.h
-lua-gameplay/src/PawnMgr.h
-lua-gameplay/src/Player.h
-lua-gameplay/src/Singleton.h
-lua-gameplay/src/Skill.h
-lua-gameplay/src/SkillMgr.h
+    lua-gameplay/src/Actions.h
+    lua-gameplay/src/Agent.h
+    lua-gameplay/src/Base.h
+    lua-gameplay/src/Buff.h
+    lua-gameplay/src/BuffMachine.h
+    lua-gameplay/src/Combat.h
+    lua-gameplay/src/CombatMgr.h
+    lua-gameplay/src/Constant.h
+    lua-gameplay/src/Data.h
+    lua-gameplay/src/Delegate.h
+    lua-gameplay/src/Export.h
+    lua-gameplay/src/Export2CS.h
+    lua-gameplay/src/Export2Lua.h
+    lua-gameplay/src/Helper.h
+    lua-gameplay/src/Interfaces.h
+    lua-gameplay/src/Loader.h
+    lua-gameplay/src/Logger.h
+    lua-gameplay/src/LuaBuff.h
+    lua-gameplay/src/LuaFramework.h
+    lua-gameplay/src/Pawn.h
+    lua-gameplay/src/PawnMgr.h
+    lua-gameplay/src/Player.h
+    lua-gameplay/src/Singleton.h
+    lua-gameplay/src/Skill.h
+    lua-gameplay/src/SkillMgr.h
 )
 set_property(
 	SOURCE ${GAMEPLAY_SRC}
@@ -237,6 +237,8 @@ source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} LUA_SOCKET)
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} LUA_CORE)
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} LUA_LIB)
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} XLUA_CORE)
+source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} THIRD_SRC)
+source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} THCORE_SRC)
 
 if (APPLE)
     if (IOS)
@@ -340,3 +342,4 @@ endif ( )
 #find_package(sol2 CONFIG REQUIRED)
 #target_link_libraries(xlua PRIVATE sol2::sol2)
 target_compile_definitions(xlua PUBLIC SPDLOG_COMPILED_LIB)
+target_compile_definitions(xlua PUBLIC CLIENT_EXTEND)

@@ -1,5 +1,3 @@
-#include <filesystem>
-#include <set>
 #include "LuaFramework.h"
 #include "Agent.h"
 #include "Pawn.h"
@@ -12,9 +10,9 @@
 #include "fmt/format.h"
 #include "Singleton.h"
 #include "Export.h"
-#include "3rd.h"
-
-//std::shared_ptr<LuaFramework> LuaFramework::_instance = std::shared_ptr<LuaFramework>(new LuaFramework);
+//#include "3rd.h"
+#include <filesystem>
+#include <set>
 
 int LuaFramework::id = 0;
 
@@ -23,6 +21,13 @@ LuaFramework* LuaFramework::_instance = nullptr;
 //简化sol中函数的注册
 #define SOL_FUN(_CLASS_, _FUN_)\
     #_FUN_, &_CLASS_::_FUN_
+
+void LuaFramework::free()
+{
+	//这种写法可以正常运行吗？
+    delete _instance;
+    _instance = nullptr;
+}
 
 LuaFramework::LuaFramework()
 {
@@ -43,11 +48,7 @@ LuaFramework::LuaFramework()
 
 LuaFramework::~LuaFramework()
 {
-	// for (auto script_buff : _scriptBuffList)
-	// {
- //        delete script_buff.second;
-	// }
- //    _scriptBuffList.clear();
+    BuffMachine::clearAllScriptBuff();
 }
 
 LuaFramework* LuaFramework::instance()
@@ -55,10 +56,8 @@ LuaFramework* LuaFramework::instance()
 	if (_instance == nullptr)
 	{
         _instance = new LuaFramework();
-        // nn::nlog(u8"生成了一个新的实例对象");
-        nn::nlogI(1);
+        ylog(u8"a new luaframework object");
         Singleton::instance()->store(_instance);
-        Singleton::instance()->store(BuffMachine::clearAllScriptBuff);
 	}
     return _instance;
 }
@@ -69,7 +68,12 @@ sol::state& LuaFramework::lua()
 }
 
 void LuaFramework::loadAll(const std::string& path)
-{	
+{
+	//目前版本的思路应该是，每个脚本文件代表一个棋子
+	//脚本当中应当包含当前棋子的各种属性，以及技能的属性、buff的属性
+	//以及各个buff的特殊处理函数
+	//
+	//而不是以前的，棋子、技能、buff分别存放在不同的脚本中
     std::string root = path + "/script/";
     ylog("%s", root.c_str());
     std::filesystem::path dir(root);
@@ -578,7 +582,7 @@ void LuaFramework::entry()
 {
     std::string root = AgentMgr::instance()->curAgent()->getRoot().data();
     root += "/script/entry.lua";
-    std::filesystem::path dir(root);
+    std::filesystem::path dir{ root };
     if (exists(dir))
     {
         (void)_lua.script_file(dir.generic_string());

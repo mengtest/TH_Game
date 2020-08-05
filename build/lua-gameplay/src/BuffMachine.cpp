@@ -28,15 +28,6 @@ bool BuffMachine::addBuff(LuaBuff* buff)
 	}
 }
 
-void BuffMachine::clearScriptBuff()
-{
-	for (auto i : _scriptBuffs)
-	{
-		delete(i.second);
-	}
-	_scriptBuffs.clear();
-}
-
 bool BuffMachine::addBuff(sol::table tb)
 {
 	// luabuff实际上就是一个lua表
@@ -76,30 +67,32 @@ void BuffMachine::release()
 {
 	//只有当前房间销毁的时候才会去调用这个release函数
 	//删除当前房间中所有剩余的buff对象
-    for (auto p : _buffs) {
+    for (auto p : _buffs) 
+	{
         p.second->release();
         delete(p.second);
     }
     _buffs.clear();
 }
 
-// void BuffMachine::release(Pawn* pawn)
-// {
-//     //	auto size = pawn->getBuffSize();
-//     // 意义不明，不太用得上
-//
-// }
-
 void BuffMachine::loadAll(BuffList& buffs)
 {
+	ylog(u8"加载buff，当前的buff数量为{0}", 1);
+	//每次调用loadAll的时候都会销毁当前所有的buff内存
+	for (auto buff : _originBuffs)
+	{
+		delete buff;
+	}
+	_originBuffs.clear();
 	_originBuffs.swap(buffs);
-	Singleton::instance()->store([]{
-		for (auto i : _originBuffs)
-		{
-			delete(i);
-		}
-		_originBuffs.clear();
-	});
+	Singleton::instance()->store(
+		[] {
+			for (auto i : _originBuffs)
+			{
+				delete(i);
+			}
+			_originBuffs.clear();
+		});
 }
 
 IBuff* BuffMachine::create(Pawn* pawn, int id)
@@ -157,7 +150,7 @@ void BuffMachine::executeAll(Player* player)
             this->buffExecute(pawn->getBuffByIndex(j));
         }
     }
-    clog(1 ,u8"玩家%d身上所有的buff执行完成", player->uid());
+    clog(1 ,u8"玩家{0}身上所有的buff执行完成", player->uid());
 }
 
 BuffMachine::BuffMachine(Combat* combat)

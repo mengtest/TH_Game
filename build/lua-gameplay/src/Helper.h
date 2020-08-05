@@ -2,8 +2,6 @@
 
 #include <random>
 #include <string>
-#include <memory>
-#include "Data.h"
 
 /**
  * \brief 获取传入的参数的名称
@@ -23,37 +21,37 @@
    */
 #define MEMSET(__ARG__) Helper::memset( (__ARG__) , ( ARYSIZE(__ARG__) ) )
 
-class StringBuilder
-{
-private:
-	static StringBuilder* _instance;
-
-	std::string _view;
-
-	int _max;
-
-	bool _call;
-
-	StringBuilder() = default;
-public:
-	static StringBuilder& instance();
-
-	const std::string& build();
-
-	StringBuilder* push(const std::string& key, const std::string& value);
-
-	template<class T>
-	StringBuilder* push(const std::string& key, const T& value)
-	{
-		return push(key, std::to_string(value));
-	}
-
-	//棋子添加buff的字符串格式
-	StringBuilder* push(const std::string& key, int pawnId, int buffId);
-
-	//这里是hp回复或者收到伤害
-	// StringBuilder* push(const std::string& key, int type, int from, int to);
-};
+// class StringBuilder
+// {
+// private:
+// 	static StringBuilder* _instance;
+//
+// 	std::string _view;
+//
+// 	int _max;
+//
+// 	bool _call;
+//
+// 	StringBuilder() = default;
+// public:
+// 	static StringBuilder& instance();
+//
+// 	const std::string& build();
+//
+// 	StringBuilder* push(const std::string& key, const std::string& value);
+//
+// 	template<class T>
+// 	StringBuilder* push(const std::string& key, const T& value)
+// 	{
+// 		return push(key, std::to_string(value));
+// 	}
+//
+// 	//棋子添加buff的字符串格式
+// 	StringBuilder* push(const std::string& key, int pawnId, int buffId);
+//
+// 	//这里是hp回复或者收到伤害
+// 	// StringBuilder* push(const std::string& key, int type, int from, int to);
+// };
 
 // class LogImpl;
 

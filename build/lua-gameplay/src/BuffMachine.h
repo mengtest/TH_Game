@@ -20,18 +20,18 @@ using UserBuffList = std::map<int, LuaBuff*>;
 class BuffMachine
 {
 private:
+	//这个是原始buff，初始化的时候去加载的内容
 	static BuffList _originBuffs;
 
-	//这个就是原始的脚本buff，是一个lua表
+	//这个就是原始的脚本buff，是一个lua表，在lua块初始化的时候加载
 	static UserBuffList _scriptBuffs;
 
 public:
 	static void loadAll(BuffList& buffs);
 
 	//这里主要就是添加自定义的buff例如LuaBuff
+	//这里会无视掉所有的重复id的buff，所以可以不用管这里
 	static bool addBuff(LuaBuff* buff);
-
-	static void clearScriptBuff();
 	
 	static bool addBuff(sol::table tb);
 

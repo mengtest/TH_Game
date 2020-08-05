@@ -1,7 +1,5 @@
 ﻿#include "Helper.h"
-#include <functional>
 #include "Base.h"
-#include "Singleton.h"
 // #include "spdlog/sinks/daily_file_sink.h"
 
 // class LogImpl
@@ -21,7 +19,7 @@
 // 	};
 // };
 
-StringBuilder* StringBuilder::_instance = nullptr;
+// StringBuilder* StringBuilder::_instance = nullptr;
 
 std::random_device Helper::r;
 std::default_random_engine Helper::e(r());
@@ -30,90 +28,90 @@ bool Helper::_useFrame = false;
 // LogImpl* Helper::_logger = new LogImpl;
 // FileSystemReader Helper::_callback = nullptr;
 
-StringBuilder& StringBuilder::instance()
-{
-	if (_instance == nullptr)
-	{
-		_instance = new StringBuilder;
-		Singleton::instance()->store(_instance);
-		//设置缓存最大为10k
-		_instance->_max = 1024 * 10;
-		_instance->_call = false;
-	}
-	return *_instance;
-}
-
-const std::string& StringBuilder::build()
-{
-	//调用build之后，会清除缓存
-	_call = true;
-	return _view;
-}
-
-StringBuilder* StringBuilder::push(const std::string& key, const std::string& value)
-{
-	//清空当前的缓存
-	if (_call)
-	{
-		_view.clear();
-		_call = false;
-	}
-	char buff[1024] = { '\0' };
-	//为空则在要格式化的字符串前面添加;，否则的话不添加
-	//最后可以在其他端通过;与&对字符串做切割
-	if (_view.empty())
-	{
-		// sprintf();
-		snprintf(buff, sizeof(buff) ,"%s&%s", key.c_str(), value.c_str());
-	}
-	else
-	{
-		snprintf(buff, sizeof(buff), ";%s&%s", key.c_str(), value.c_str());
-	}
-	//最大长度不能超过1024
-	//超过了的话，则返回空指针
-	if (_view.size() + strlen(buff) < this->_max)
-	{
-		_view += buff;
-	}
-	else
-	{
-		return nullptr;
-	}
-	return _instance;
-}
-
-StringBuilder* StringBuilder::push(const std::string& key, int pawnId, int buffId)
-{
-	//清空当前的缓存
-	if (_call)
-	{
-		_view.clear();
-		_call = false;
-	}
-	char buff[1024] = { '\0' };
-	//为空则在要格式化的字符串前面添加;，否则的话不添加
-	//最后可以在其他端通过;与&对字符串做切割
-	if (_view.empty())
-	{
-		snprintf(buff, sizeof(buff), "%s&%d->%d", key.c_str(), pawnId, buffId);
-	}
-	else
-	{
-		snprintf(buff, sizeof(buff), ";%s&%d->%d", key.c_str(), pawnId, buffId);
-	}
-	//最大长度不能超过1024
-	//超过了的话，则返回空指针
-	if (_view.size() + strlen(buff) < this->_max)
-	{
-		_view += buff;
-	}
-	else
-	{
-		return nullptr;
-	}
-	return _instance;
-}
+// StringBuilder& StringBuilder::instance()
+// {
+// 	if (_instance == nullptr)
+// 	{
+// 		_instance = new StringBuilder;
+// 		Singleton::instance()->store(_instance);
+// 		//设置缓存最大为10k
+// 		_instance->_max = 1024 * 10;
+// 		_instance->_call = false;
+// 	}
+// 	return *_instance;
+// }
+//
+// const std::string& StringBuilder::build()
+// {
+// 	//调用build之后，会清除缓存
+// 	_call = true;
+// 	return _view;
+// }
+//
+// StringBuilder* StringBuilder::push(const std::string& key, const std::string& value)
+// {
+// 	//清空当前的缓存
+// 	if (_call)
+// 	{
+// 		_view.clear();
+// 		_call = false;
+// 	}
+// 	char buff[1024] = { '\0' };
+// 	//为空则在要格式化的字符串前面添加;，否则的话不添加
+// 	//最后可以在其他端通过;与&对字符串做切割
+// 	if (_view.empty())
+// 	{
+// 		// sprintf();
+// 		snprintf(buff, sizeof(buff) ,"%s&%s", key.c_str(), value.c_str());
+// 	}
+// 	else
+// 	{
+// 		snprintf(buff, sizeof(buff), ";%s&%s", key.c_str(), value.c_str());
+// 	}
+// 	//最大长度不能超过1024
+// 	//超过了的话，则返回空指针
+// 	if (_view.size() + strlen(buff) < this->_max)
+// 	{
+// 		_view += buff;
+// 	}
+// 	else
+// 	{
+// 		return nullptr;
+// 	}
+// 	return _instance;
+// }
+//
+// StringBuilder* StringBuilder::push(const std::string& key, int pawnId, int buffId)
+// {
+// 	//清空当前的缓存
+// 	if (_call)
+// 	{
+// 		_view.clear();
+// 		_call = false;
+// 	}
+// 	char buff[1024] = { '\0' };
+// 	//为空则在要格式化的字符串前面添加;，否则的话不添加
+// 	//最后可以在其他端通过;与&对字符串做切割
+// 	if (_view.empty())
+// 	{
+// 		snprintf(buff, sizeof(buff), "%s&%d->%d", key.c_str(), pawnId, buffId);
+// 	}
+// 	else
+// 	{
+// 		snprintf(buff, sizeof(buff), ";%s&%d->%d", key.c_str(), pawnId, buffId);
+// 	}
+// 	//最大长度不能超过1024
+// 	//超过了的话，则返回空指针
+// 	if (_view.size() + strlen(buff) < this->_max)
+// 	{
+// 		_view += buff;
+// 	}
+// 	else
+// 	{
+// 		return nullptr;
+// 	}
+// 	return _instance;
+// }
 
 void Helper::seed(float s)
 {
@@ -195,7 +193,6 @@ void Helper::init()
 {
 
 }
-
 
 int costTypeTranslate(bool player, int type)
 {

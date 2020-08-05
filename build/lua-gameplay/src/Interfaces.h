@@ -181,3 +181,18 @@ public:
 
 	friend class BuffMachine;
 };
+
+//释放当前对象的内存
+class IRelease
+{
+public:
+	virtual ~IRelease()
+	{
+		
+	}
+
+	virtual void free()
+	{
+		
+	}
+};

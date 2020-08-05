@@ -8,20 +8,14 @@
 #include "rapidjson/document.h"
 #include "fmt/format.h"
 #include <filesystem>
+#include "Logger.h"
 
 void Loader::loadAllPawns(const std::string & text)
 {
-//    boost::property_tree::ptree t;
-//    boost::property_tree::read_json("./../jsons/cards.json", t);
-//    ylog("%d", t.size());
-//    std::stringstream ss;
-//    boost::property_tree::write_json(ss, t);
-	// google::InitGoogleLogging("THCore");
-	// LOG(INFO) << "";
-	// google::FlushLogFiles(google::GLOG_INFO);
-
-	// fmt::format("111111111111");
-
+	//这里输出当前加载的文件路径，后续会删除
+	std::filesystem::path dir(text);
+	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	
 	if (!std::filesystem::exists(text))
 	{
 		return;
@@ -86,6 +80,11 @@ void Loader::loadAllPawns(const std::string & text)
 
 void Loader::loadConfig(const std::string & text)
 {
+	//这里输出当前加载的文件路径，后续会删除
+	std::filesystem::path dir(text);
+	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+
+	
 	if (!std::filesystem::exists(text))
 	{
 		return;
@@ -136,6 +135,10 @@ void Loader::loadConfig(const std::string & text)
 
 void Loader::loadAllSkills(const std::string & text)
 {
+	//这里输出当前加载的文件路径，后续会删除
+	std::filesystem::path dir(text);
+	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	
 	if (!std::filesystem::exists(text))
 	{
 		return;
@@ -189,6 +192,10 @@ void Loader::loadAllSkills(const std::string & text)
 
 void Loader::loadAllBuffs(const std::string & text)
 {
+	//这里输出当前加载的文件路径，后续会删除
+	std::filesystem::path dir(text);
+	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	
 	if (!std::filesystem::exists(text))
 	{
 		return;

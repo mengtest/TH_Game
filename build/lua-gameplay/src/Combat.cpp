@@ -234,7 +234,7 @@ BuffMachine* Combat::getMachine()
 
 void Combat::nextFlow()
 {
-    clog(this->id(), u8"当前阶段是%d进入下一阶段", int(this->_turnState));
+    clog(this->id(), u8"当前阶段是{0}进入下一阶段", int(this->_turnState));
 	switch (this->_turnState) 
 	{ 
 	case TurnState::invalid: 
@@ -285,8 +285,8 @@ void Combat::processInvalid()
 	{
 		_workPlayer = _player2;
 	}
-    clog(1, u8"产生的随机数是%d", first);
-	clog(1, u8"先攻的玩家是%d", _workPlayer->uid());
+    clog(1, u8"产生的随机数是{0}", first);
+	clog(1, u8"先攻的玩家是{0}", _workPlayer->uid());
 	// 通知客户端先攻的玩家的id是_workPlayer
 	// AgentMgr::instance()->curAgent()->msg(fmt::format("first&{0}", _workPlayer->uid()));
     // TODO
@@ -404,7 +404,7 @@ void Combat::turnEnd(int id)
 	if (id == this->_workPlayer->uid() 
 		&& _turnState == TurnState::battle)
 	{
-		ylog(u8"玩家%d点击了结束回合按钮", _workPlayer->uid());
+		ylog(u8"玩家{0}点击了结束回合按钮", _workPlayer->uid());
 		//如果操作这个api的是当前正在工作的玩家
 		//则可以结束当前的回合
 		this->_turnState = TurnState::over;

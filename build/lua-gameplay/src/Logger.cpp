@@ -18,6 +18,7 @@ Logger* Logger::instance()
 	if (_instance == nullptr)
 	{
 		_instance = new Logger;
+		//这个也是free中调用删除，避免出现文件一直被占用的情况
 		Singleton::instance()->store(_instance);
 	}
 	return _instance;
@@ -27,7 +28,6 @@ void Logger::log(const char* fmt)
 {
 	_logger->info(fmt);
 	_logger->flush();
-	_logger->flush_on(spdlog::level::info);
 }
 
 void Logger::log(int id, const char* fmt)
@@ -39,7 +39,6 @@ void Logger::log(int id, const char* fmt)
 		{
 			_combatLogger = spdlog::basic_logger_mt("Combat", fmt::format("logs/combat_{0}.txt", this->_curCombatId));
 			_combatLogger->flush();
-			_combatLogger->flush_on(spdlog::level::info);
 		}
 	}
 	
@@ -47,8 +46,13 @@ void Logger::log(int id, const char* fmt)
 	{
 		_combatLogger->info(fmt);
 		_combatLogger->flush();
-		_combatLogger->flush_on(spdlog::level::info);
 	}
+}
+
+void Logger::free()
+{
+	delete _instance;
+	_instance = nullptr;
 }
 
 void nn::nlog(const char *str) {

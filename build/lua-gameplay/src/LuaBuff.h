@@ -1,8 +1,6 @@
 #pragma once
 
-// #include "Base.h"
 #include "Interfaces.h"
-// #include "3rd.h"
 
 class LuaBuff: IBuff
 {

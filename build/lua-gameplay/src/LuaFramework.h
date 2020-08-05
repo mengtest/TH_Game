@@ -1,6 +1,7 @@
 #pragma once
 
 #include "3rd.h"
+#include "Interfaces.h"
 
 class Pawn;
 struct Damage;
@@ -23,7 +24,9 @@ struct Damage;
 // 	std::string_view name;
 // };
 
-class LuaFramework
+//保存有当前的lua栈的对象，这个lua栈与xlua中的栈为同一个，所以xlua侧不释放lua栈，而是由这个来释放
+// new sol::state ----> new xlua.LuaEnv ---> free xlua.LuaEnv ---> free sol::state 
+class LuaFramework : IRelease
 {
 private:
 	sol::state _lua;
@@ -42,6 +45,8 @@ private:
 	
     static LuaFramework* _instance;
 public:
+	void free() override;
+	
     LuaFramework();
 
 	~LuaFramework();
@@ -56,6 +61,7 @@ public:
 	void exportAll();
 
 	//执行entry.lua文件
+	//这个就是用于测试的函数
 	void entry();
 
 	enum class ActionType

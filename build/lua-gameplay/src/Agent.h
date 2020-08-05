@@ -2,8 +2,8 @@
 
 #include "Data.h"
 #include <string>
-#include <string_view>
 #include "Actions.h"
+#include "Interfaces.h"
 
 class Buff;
 class Player;
@@ -13,7 +13,8 @@ class IAgent;
 class JsAgent;
 class CsAgent;
 
-class AgentMgr
+//与客户端交互信息的模块，这是一个独立的功能，没有逻辑上的先后关系
+class AgentMgr : IRelease
 {
 private:
 	static AgentMgr* _instance;
@@ -26,6 +27,8 @@ public:
 
 	IAgent* curAgent();
 
+	void free() override;
+	
 	~AgentMgr();
 };
 
@@ -85,7 +88,6 @@ public:
 class CsAgent : public IAgent
 {
 public:
-	
 	/**
 	 * \brief 
 	 * \param combatId 

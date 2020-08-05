@@ -46,8 +46,8 @@ namespace Core
                 {
                     var str = Encoding.UTF8.GetString(msg);
                     // Global.Log(Encoding.UTF8.GetString(msg));
-                    Global.Log("--------------------------");
-                    Global.Log(str.Length.ToString());
+                    // Global.Log("--------------------------");
+                    // Global.Log(str.Length.ToString());
                     _instance._msgs2[code].Invoke(Encoding.UTF8.GetString(msg));
                 }
                 return;

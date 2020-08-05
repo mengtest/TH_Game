@@ -1,7 +1,6 @@
-﻿#include "Agent.h"
-//#include "Base.h"
-#include "Pawn.h"
+﻿#include "Pawn.h"
 #include "Buff.h"
+#include "Agent.h"
 #include "Player.h"
 #include "Combat.h"
 #include "Singleton.h"
@@ -17,8 +16,10 @@ AgentMgr* AgentMgr::instance()
 		_instance->_agent = new CsAgent;
 #elif defined(SERVER_EXTEND)
 		_instance->_agent = new JsAgent;
+#else	//客户端与服务端的宏都没有定义
+		
 #endif
-        Singleton::instance()->store(_instance);
+        Singleton::instance()->store(_instance); 
 	}
 	return _instance;
 }
@@ -28,6 +29,12 @@ IAgent* AgentMgr::curAgent()
 	return _agent;
 }
 
+void AgentMgr::free()
+{
+	delete _instance;
+	_instance = nullptr;
+}
+
 AgentMgr::~AgentMgr()
 {
 	delete _agent;
@@ -35,6 +42,8 @@ AgentMgr::~AgentMgr()
 
 void IAgent::setConfig(Config* config)
 {
+	//每次修改配置对象的时候都会释放上一个对象的内存
+	delete _config;
 	_config = config;
 }
 
@@ -78,7 +87,6 @@ std::string_view IAgent::getRoot()
 
 void CsAgent::update(int combatId, int playerId, int value, int type, int objectId, int targetType)
 {
-	
 	//这种可以做成注册两个不同的函数，一个函数会返回结构体，另一个返回所有的值
 	AttrStruct msg{
         combatId,

@@ -32,6 +32,8 @@ namespace Export
 	//释放内存
 	void release_export();
 
+	void release_all();
+
 	void export_lua();
 
 	//cpp端的lua栈肯定是唯一的

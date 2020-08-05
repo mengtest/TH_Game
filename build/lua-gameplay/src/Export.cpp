@@ -4,10 +4,10 @@
 #include "CombatMgr.h"
 #include "Combat.h"
 #include "Pawn.h"
-#include "Buff.h"
 #include "BuffMachine.h"
 #include "Loader.h"
 #include "Agent.h"
+#include "Singleton.h"
 #include <filesystem>
 
 namespace Export
@@ -78,6 +78,11 @@ namespace Export
     void release_export()
     {
         CombatMgr::instance()->release(1);
+    }
+
+    void release_all()
+    {
+        Singleton::instance()->release();
     }
 
     void export_lua()

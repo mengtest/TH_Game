@@ -9,6 +9,11 @@ PawnList PawnMgr::_pawns;
 void PawnMgr::loadAll(PawnList& list)
 {
     ylog(u8"list的长度为%d",list.size());
+    for (auto pawn : _pawns)
+    {
+		delete pawn;
+    }
+	_pawns.clear();
 	_pawns.swap(list);
 	Singleton::instance()->store([](){
 		for (auto p : _pawns)

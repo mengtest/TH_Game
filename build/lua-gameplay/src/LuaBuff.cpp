@@ -150,7 +150,6 @@ void LuaBuff::onCreate(Pawn* source, Pawn* target)
     else
     {
         // ylog(u8"无法调用buff:%d的创建函数", this->unique_id());
-
     }
 }
 
@@ -173,7 +172,6 @@ void LuaBuff::onInvoke(Pawn* source, Pawn* target)
     else
     {
         // ylog(u8"无法调用buff:%d的执行函数", this->unique_id());
-
     }
 }
 

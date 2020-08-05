@@ -2,13 +2,14 @@
 
 #include <memory>
 #include <string>
+#include "Interfaces.h"
 
 namespace spdlog
 {
     class logger;
 }
 
-class Logger
+class Logger: IRelease
 {
 private:
 	std::shared_ptr<spdlog::logger> _logger;
@@ -25,11 +26,11 @@ private:
 public:
 	static Logger* instance();
 
-	// template<class... Args>
 	void log(const char* fmt);
 
-    // template<class... Args>
 	void log(int id, const char* fmt);
+
+	void free() override;
 };
 
 namespace nn
@@ -42,19 +43,15 @@ namespace nn
 
     void nlogI(int i);
 
-
-	// template<class... Args>
     void log(const char* fmt);
 
-	// template<class... Args>
     void log(const char* file, int line, const char* fmt);
 
-    // template<class... Args>
     void log(int id, const char* file, int line, const char* fmt);
 }
 
 #define ylog(__fmt__, ...) \
-nn::log(__FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
+	nn::log(__FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
 #define clog(__id__, __fmt__, ...) \
-nn::log(__id__, __FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
+	nn::log(__id__, __FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
 #define yerror()
