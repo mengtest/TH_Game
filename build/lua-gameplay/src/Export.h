@@ -2,6 +2,7 @@
 
 #include <string_view>
 #include "Actions.h"
+#include "lua.hpp"
 
 struct PlayerS;
 struct PawnD;
@@ -24,7 +25,7 @@ namespace Export
 	int create_combat();
 
 	//初始化核心类库
-	void init(std::string_view root);
+	void init(std::string_view root,lua_State* L);
 
 	//还需要导出两个api给cs去释放以及加载core导出部分的内存
 	void load_export();
@@ -34,7 +35,7 @@ namespace Export
 
 	void release_all();
 
-	void export_lua();
+	void export_lua(lua_State* L);
 
 	//cpp端的lua栈肯定是唯一的
 	void* get_lua_state();

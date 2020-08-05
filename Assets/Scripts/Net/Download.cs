@@ -40,7 +40,7 @@ namespace Net
         //所有下载的文件资源都会随机
         private void Save(string path, byte[] bytes)
         {
-            File.WriteAllBytes(path, bytes);
+            // File.WriteAllBytes(path, bytes);
         }
 
         public IEnumerator DownLoad(string uri)

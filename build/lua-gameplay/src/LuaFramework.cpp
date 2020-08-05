@@ -29,7 +29,8 @@ void LuaFramework::free()
     _instance = nullptr;
 }
 
-LuaFramework::LuaFramework()
+LuaFramework::LuaFramework(lua_State* L)
+    : _lua(L)
 {
     //打开所有的基础库s
     // _lua.open_libraries(sol::lib::base 
@@ -51,14 +52,20 @@ LuaFramework::~LuaFramework()
     BuffMachine::clearAllScriptBuff();
 }
 
-LuaFramework* LuaFramework::instance()
+LuaFramework* LuaFramework::instance(lua_State* L)
 {
 	if (_instance == nullptr)
 	{
-        _instance = new LuaFramework();
+        _instance = new LuaFramework(L);
         ylog(u8"a new luaframework object");
         Singleton::instance()->store(_instance);
 	}
+    return _instance;
+}
+
+LuaFramework* LuaFramework::instance()
+{
+	//如果没有的话，不会构造新的对象
     return _instance;
 }
 
@@ -75,7 +82,7 @@ void LuaFramework::loadAll(const std::string& path)
 	//
 	//而不是以前的，棋子、技能、buff分别存放在不同的脚本中
     std::string root = path + "/script/";
-    ylog("%s", root.c_str());
+    ylog("root : {0}", root.c_str());
     std::filesystem::path dir(root);
 
     if (exists(dir))
@@ -206,7 +213,7 @@ void LuaFramework::exportAll() {
     //sol::table create = _lua["create"].get_or_create<sol::table>();
 
     
-    nn::nlogI(++id);
+    // nn::nlogI(++id);
 	
 #pragma region nn名称空间下面所有的全局函数
     //region nn名称空间下面所有函数的声明

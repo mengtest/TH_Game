@@ -47,9 +47,11 @@ private:
 public:
 	void free() override;
 	
-    LuaFramework();
+    LuaFramework(lua_State* L);
 
 	~LuaFramework();
+
+	static LuaFramework* instance(lua_State* L);
 
 	static LuaFramework* instance();
 

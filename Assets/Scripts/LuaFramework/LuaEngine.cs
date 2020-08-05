@@ -43,8 +43,8 @@ namespace LuaFramework
         private static void LoadLuaLib()
         {
             _engine._env.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
-            _engine._env.AddBuildin("gameplay", XLua.LuaDLL.Lua.LoadGamePlay);
-            _engine._env.AddBuildin("core", XLua.LuaDLL.Lua.LoadCore);
+            // _engine._env.AddBuildin("gameplay", XLua.LuaDLL.Lua.LoadGamePlay);
+            // _engine._env.AddBuildin("core", XLua.LuaDLL.Lua.LoadCore);
             
             _engine._env.DoString(Util.Loader.Load<TextAsset>("LuaScript/global/global.lua").text, 
                 "global",
@@ -72,9 +72,12 @@ namespace LuaFramework
         private LuaEngine()
         {
             _env = new LuaEnv();
-            // LuaApi.init("./");
+            LuaApi.init("./", _env.L);
             
             _env.AddLoader(CustomLoaderMethod);
+            _env.DoString(@"local t = Damage.new() 
+                                   nn.log(t.value)
+");
         } 
         
         private byte[] CustomLoaderMethod(ref string fileName)

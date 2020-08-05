@@ -53,6 +53,7 @@ public static class GameInit
     // [DllImport(@"E:\Game\Test\cmake-build-debug\Test.dll", CallingConvention = CallingConvention.Cdecl)]
     // public static extern int test_fun(int a);
     
+    
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
@@ -65,7 +66,11 @@ public static class GameInit
         // var lua = new XLua.LuaEnv(ptr);
         // Debug.Log(ptr.ToString());
         // Debug.Log(test_fun(10));
-        
+
+        // Application.quitting += () =>
+        // {
+        //     LuaFramework.LuaEngine.Instance.Dispose();
+        // };
         Lib.Listener.Instance.Event("after_app_init", Global.Scene.name);
     }
 }

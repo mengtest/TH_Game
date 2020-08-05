@@ -25169,33 +25169,68 @@ namespace sol {
 
 namespace sol {
 
-	class state : private std::unique_ptr<lua_State, detail::state_deleter>, public state_view {
+	// class state : private std::unique_ptr<lua_State, detail::state_deleter>, public state_view {
+	// private:
+	// 	typedef std::unique_ptr<lua_State, detail::state_deleter> unique_base;
+
+	// public:
+	// 	state(lua_CFunction panic = default_at_panic)
+	// 	: unique_base(luaL_newstate()), state_view(unique_base::get()) {
+	// 		set_default_state(unique_base::get(), panic);
+	// 	}
+
+	// 	state(lua_CFunction panic, lua_Alloc alfunc, void* alpointer = nullptr)
+	// 	: unique_base(lua_newstate(alfunc, alpointer)), state_view(unique_base::get()) {
+	// 		set_default_state(unique_base::get(), panic);
+	// 	}
+
+	// 	state(const state&) = delete;
+	// 	state(state&&) = default;
+	// 	state& operator=(const state&) = delete;
+	// 	state& operator=(state&& that) {
+	// 		state_view::operator=(std::move(that));
+	// 		unique_base::operator=(std::move(that));
+	// 		return *this;
+	// 	}
+
+	// 	using state_view::get;
+
+	// 	~state() {
+	// 	}
+	// };
+
+
+	class state : public state_view {
 	private:
-		typedef std::unique_ptr<lua_State, detail::state_deleter> unique_base;
+		// typedef std::unique_ptr<lua_State, detail::state_deleter> unique_base;
+		lua_State* _L = nullptr;
 
 	public:
-		state(lua_CFunction panic = default_at_panic)
-		: unique_base(luaL_newstate()), state_view(unique_base::get()) {
-			set_default_state(unique_base::get(), panic);
+		state(lua_State* L, lua_CFunction panic = default_at_panic)
+		: 
+			_L(L),
+			state_view(L) {
+			set_default_state(L, panic);
 		}
 
-		state(lua_CFunction panic, lua_Alloc alfunc, void* alpointer = nullptr)
-		: unique_base(lua_newstate(alfunc, alpointer)), state_view(unique_base::get()) {
-			set_default_state(unique_base::get(), panic);
-		}
+		// state(lua_CFunction panic, lua_Alloc alfunc, void* alpointer = nullptr)
+		// : unique_base(lua_newstate(alfunc, alpointer)), state_view(unique_base::get()) {
+		// 	set_default_state(unique_base::get(), panic);
+		// }
 
 		state(const state&) = delete;
 		state(state&&) = default;
 		state& operator=(const state&) = delete;
 		state& operator=(state&& that) {
 			state_view::operator=(std::move(that));
-			unique_base::operator=(std::move(that));
+			// unique_base::operator=(std::move(that));
 			return *this;
 		}
 
 		using state_view::get;
 
 		~state() {
+			// lua_close(_L);
 		}
 	};
 } // namespace sol

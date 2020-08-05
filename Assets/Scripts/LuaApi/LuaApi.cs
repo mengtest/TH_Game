@@ -83,7 +83,7 @@ public class LuaApi
 	public static extern IntPtr get_player(int combatId, int uid);
 
     [DllImport(DllName)]
-	public static extern void init(string root);
+	public static extern void init(string root, IntPtr L);
 
     //方便获取core中的lua栈
     [DllImport(DllName)]

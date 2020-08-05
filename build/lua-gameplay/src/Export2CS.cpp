@@ -21,9 +21,9 @@ int create_combat()
 	return Export::create_combat();
 }
 
-void init(string root)
+void init(string root, lua_State* L)
 {
-	Export::init(root);
+	Export::init(root, L);
 }
 
 void load_export()

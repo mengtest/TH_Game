@@ -82,7 +82,7 @@ void Loader::loadConfig(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
 	std::filesystem::path dir(text);
-	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
 
 	
 	if (!std::filesystem::exists(text))

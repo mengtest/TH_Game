@@ -393,7 +393,8 @@ namespace XLua
             FullGc();
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
-
+            
+            LuaApi.release_all();
             Dispose(true);
 
             System.GC.Collect();

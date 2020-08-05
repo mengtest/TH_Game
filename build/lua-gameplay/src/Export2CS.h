@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "lua.hpp"
+
 #include "Base.h"
 #include "Actions.h"
 
@@ -27,7 +29,8 @@ extern "C"
 	//由于现在的项目结构变成了cs以及cpp使用同一个lua栈，所以
 	//这里应该放置的是整个dll的初始化
 	//同时初始化后不会释放，直到游戏结束的时候才会释放dll的内存
-	public void CSDLL init(string root);
+	//现在必须先调用init函数
+	public void CSDLL init(string root, lua_State* L);
 
 	//cpp端的lua栈肯定是唯一的
 	public IntPtr get_lua_state();

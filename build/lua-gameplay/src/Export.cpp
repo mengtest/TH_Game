@@ -52,7 +52,7 @@ namespace Export
         return combat->id();
     }
 
-    void init(std::string_view root)
+    void init(std::string_view root, lua_State* L)
     {
         AgentMgr::instance()->curAgent()->setRoot(root);
 
@@ -64,7 +64,7 @@ namespace Export
         Loader::loadAllBuffs(scriptRoot + "/jsons/buffs.json");
 
     	//再导出所有的lua导出api
-        Export::export_lua();
+        Export::export_lua(L);
 
     	//这个是加载所有的用户自定义lua脚本
         Export::lua_init();
@@ -85,10 +85,10 @@ namespace Export
         Singleton::instance()->release();
     }
 
-    void export_lua()
+    void export_lua(lua_State* L)
     {
         //这个是导出所有的luaapi
-        LuaFramework::instance()->exportAll();
+        LuaFramework::instance(L)->exportAll();
     }
 
     void* get_lua_state()
