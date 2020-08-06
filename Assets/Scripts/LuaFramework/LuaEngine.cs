@@ -71,6 +71,7 @@ namespace LuaFramework
 
         private LuaEngine()
         {
+            //现在的写法中应该是没什么太大的问题了，接下来就可以正式开始完成战斗系统了
             _env = new LuaEnv();
             LuaApi.init("./", _env.L);
             

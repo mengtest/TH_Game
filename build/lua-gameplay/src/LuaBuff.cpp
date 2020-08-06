@@ -9,7 +9,7 @@ LuaBuff::LuaBuff(BuffMachine* machine, Pawn* source)
 	, _uid(0)
 	, _overlay(0)
 {
-	ylog(u8"new LuaBuff");
+	ylog("new LuaBuff");
 }
 
 LuaBuff::LuaBuff()
@@ -18,12 +18,12 @@ LuaBuff::LuaBuff()
     , _uid(0)
     , _overlay(0)
 {
-	ylog(u8"new LuaBuff");
+	ylog("new LuaBuff");
 }
 
 LuaBuff::~LuaBuff()
 {
-    // ylog(u8"free LuaBuff");
+    // ylog("free LuaBuff");
 	// _table.clear();
 }
 
@@ -136,7 +136,7 @@ void LuaBuff::onDestroy(Pawn* source, Pawn* target)
     }
     else
     {
-        // ylog(u8"无法调用buff:%d的销毁函数", this->unique_id());
+        // ylog("无法调用buff:%d的销毁函数", this->unique_id());
     }
 }
 
@@ -149,7 +149,7 @@ void LuaBuff::onCreate(Pawn* source, Pawn* target)
     }
     else
     {
-        // ylog(u8"无法调用buff:%d的创建函数", this->unique_id());
+        // ylog("无法调用buff:%d的创建函数", this->unique_id());
     }
 }
 
@@ -171,7 +171,7 @@ void LuaBuff::onInvoke(Pawn* source, Pawn* target)
     }
     else
     {
-        // ylog(u8"无法调用buff:%d的执行函数", this->unique_id());
+        // ylog("无法调用buff:%d的执行函数", this->unique_id());
     }
 }
 
@@ -184,7 +184,7 @@ void LuaBuff::onDispose(Pawn* source, Pawn* target)
     }
     else
     {
-        // ylog(u8"无法调用buff:%d的驱散函数", this->unique_id());
+        // ylog("无法调用buff:%d的驱散函数", this->unique_id());
     }
 }
 
@@ -197,7 +197,7 @@ bool LuaBuff::onInteractive(Pawn* source, Pawn* target, IBuff* buff, int type)
     }
     else
     {
-        // ylog(u8"无法调用buff:%d的交互函数", this->unique_id());
+        // ylog("无法调用buff:%d的交互函数", this->unique_id());
     }
 	return true;
 }

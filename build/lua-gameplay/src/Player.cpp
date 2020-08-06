@@ -15,7 +15,7 @@ Player::Player(CombatRequirePlayer* info, Combat* combat)
 	memset(_data, 0, sizeof(PlayerS));
 	//通过赋值的方式设置uid，uid设置之后无法修改
 	_data->uid = info->uid;
-	ylog(u8"new player %d", info->uid);
+	ylog("new player %d", info->uid);
 	for (int i = 0; i < ARYSIZE(info->cards); ++i)
 	{
 		_data->cards[i] = info->cards[i];
@@ -28,7 +28,7 @@ Player::Player(int uid, const std::vector<int>& v, Combat* combat)
 	_data = new PlayerS;
 	memset(_data, 0, sizeof(PlayerS));
 	_data->uid = uid;
-    ylog(u8"new player %d", uid);
+    ylog("new player %d", uid);
 	for (int i = 0; i < ARYSIZE(_data->cards) && i < v.size(); ++i)
 	{
 		_data->cards[i] = v[i];
@@ -39,13 +39,13 @@ Player::~Player()
 {
 	if (_data)
 	{
-        // ylog(u8"free player %d", this->_data->uid);
+        // ylog("free player %d", this->_data->uid);
 		delete _data;
 		_data = nullptr;
 	}
 	else
     {
-        // ylog(u8"free player");
+        // ylog("free player");
     }
 }
 
@@ -194,22 +194,22 @@ bool Player::draw(int number, bool high)
 		// 		if (!(it->second->moveToHand() && removeIt(value, type)))
 		// 		{
 		// 			//移动失败
-		// 			ylog(u8"将棋子%d移动到手牌中出错", *value);
+		// 			ylog("将棋子%d移动到手牌中出错", *value);
 		// 		}
 		// 		//将数据添加到手牌的数组中
 		// 		// _handPawns.emplace_back(id1);
-  //               ylog(u8"玩家%d抽取到了棋子%d", this->uid() , id1);
+  //               ylog("玩家%d抽取到了棋子%d", this->uid() , id1);
 		// 	}
 		// 	else
 		// 	{
-		// 		ylog(u8"获取到错误的棋子id");
+		// 		ylog("获取到错误的棋子id");
 		// 		continue;
 		// 	}
 		// 	--number;
 		// }
 		// else
 		// {
-		// 	ylog(u8"遇到了某些未知的错误");
+		// 	ylog("遇到了某些未知的错误");
 		// 	// return false;
 		// }
 
@@ -221,16 +221,16 @@ bool Player::draw(int number, bool high)
 			{
 				if (!it->second->moveToHand())
 				{
-					ylog(u8"将棋子%d移动到手牌中出错", uid);
+					ylog("将棋子%d移动到手牌中出错", uid);
 				}
 				else
 				{
-					ylog(u8"玩家%d抽取到了棋子%d", this->uid(), uid);
+					ylog("玩家%d抽取到了棋子%d", this->uid(), uid);
 				}
 			}
 			else
 			{
-				ylog(u8"获取到错误的棋子id");
+				ylog("获取到错误的棋子id");
 				continue;
 			}
 			--number;
@@ -261,7 +261,7 @@ bool Player::draw(int number, bool high)
 			}
 			else
 			{
-				ylog(u8"遇到了某些未知的错误");
+				ylog("遇到了某些未知的错误");
 			}
 		}
 	}
@@ -446,7 +446,7 @@ void Player::summon(int pawnUid, int pos)
 	else
 	{
 		//位置参数错误
-		ylog(u8"错误的位置参数");
+		ylog("错误的位置参数");
 		return;
 	}
 
@@ -458,7 +458,7 @@ void Player::summon(int pawnUid, int pos)
 
 	if (it == this->_handPawns.end())
 	{
-		ylog(u8"当前玩家没持有%d的卡牌", pawnUid);
+		ylog("当前玩家没持有%d的卡牌", pawnUid);
 		return;
 	}
 
@@ -471,7 +471,7 @@ void Player::summon(int pawnUid, int pos)
 void Player::recover(int pawnUid)
 {
 	//收回一个棋子
-	ylog(u8"暂时没有实现的函数recover");
+	ylog("暂时没有实现的函数recover");
 }
 
 void Player::hit(int damage)
@@ -486,7 +486,7 @@ void Player::hit(int damage)
 	}
 	// ylog("玩家%d受到%d点伤害,hp剩余", this->_data->uid, this->_data->hp);
 	this->_data->hp -= damage;
-	clog(1, u8"玩家%d受到%d点伤害，hp:%d->%d", this->_data->uid, damage, this->_data->hp + damage, this->_data->hp);
+	clog(1, "玩家%d受到%d点伤害，hp:%d->%d", this->_data->uid, damage, this->_data->hp + damage, this->_data->hp);
 	AgentMgr::instance()->curAgent()->update(this, yGlobal.EventPlayerAttrHp, damage);
 	if (this->_data->hp <= 0)
 	{
@@ -842,7 +842,7 @@ bool Player::hasPawnUid(int uid)
 
 void Player::release()
 {
-    ylog(u8"释放了玩家%d的棋子", this->uid());
+    ylog("释放了玩家%d的棋子", this->uid());
 	//需要先释放所有的棋子的内存
 	for (auto p : _allPawns)
 	{
@@ -861,7 +861,7 @@ int Player::combatId()
 void Player::addPawn(Pawn* pawn)
 {
 	this->_allPawns.insert({ pawn->unique_id(), pawn });
-	// ylog(u8"为玩家%d添加一枚棋子%d", this->uid(), pawn->unique_id());
+	// ylog("为玩家%d添加一枚棋子%d", this->uid(), pawn->unique_id());
 	pawn->addTo(this);
 	// TODO
 	// 这里还需要根据棋子的id来判断这个棋子的类型，并添加到对应的列表中
@@ -1073,11 +1073,11 @@ void Player::createAllPawn()
 		{
 			//创建失败，这里应该返回一个错误消息，并销毁当前的战斗实例对象
 			//简化操作，不做这个步骤
-			ylog(u8"初始化玩家:%d的棋子时遇到了一个致命的错误", uid());
+			ylog("初始化玩家:%d的棋子时遇到了一个致命的错误", uid());
 			throw std::exception{"发生了一个致命的错误"};
 		}
 	}
-	ylog(u8"玩家%d的棋子数量分布为1:%d, 2:%d, 3:%d, 4:%d", this->uid(), this->_nPawns.size(), this->_rPawns.size(), this->_srPawns.size(), this->_ssrPawns.size());
+	ylog("玩家%d的棋子数量分布为1:%d, 2:%d, 3:%d, 4:%d", this->uid(), this->_nPawns.size(), this->_rPawns.size(), this->_srPawns.size(), this->_ssrPawns.size());
 }
 
 void Player::opGold(int value)

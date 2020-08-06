@@ -14,7 +14,7 @@ void Loader::loadAllPawns(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
 	std::filesystem::path dir(text);
-	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
 	
 	if (!std::filesystem::exists(text))
 	{
@@ -71,7 +71,7 @@ void Loader::loadAllPawns(const std::string & text)
 			//预定义ai的id为-1，所以这里给出默认值为0
 			pawn->playerId = 0;
 			pawns[id - 1] = pawn;
-            // ylog(u8"%s", element.HasMember("name_cn") ? element["name_cn"].GetString() : "");
+            // ylog("%s", element.HasMember("name_cn") ? element["name_cn"].GetString() : "");
 		}
 		PawnMgr::loadAll(pawns);
 	}
@@ -137,7 +137,7 @@ void Loader::loadAllSkills(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
 	std::filesystem::path dir(text);
-	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
 	
 	if (!std::filesystem::exists(text))
 	{
@@ -194,7 +194,7 @@ void Loader::loadAllBuffs(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
 	std::filesystem::path dir(text);
-	ylog(u8"正在加载文件{0}", absolute(dir).generic_string().c_str());
+	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
 	
 	if (!std::filesystem::exists(text))
 	{

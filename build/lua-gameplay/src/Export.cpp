@@ -88,7 +88,7 @@ namespace Export
     void export_lua(lua_State* L)
     {
         //这个是导出所有的luaapi
-        LuaFramework::instance(L)->exportAll();
+        LuaFramework::constructor(L)->exportAll();
     }
 
     void* get_lua_state()
