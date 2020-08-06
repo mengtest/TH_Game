@@ -37,7 +37,7 @@ combatId = combatId or 1
 ---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
 ---@param attacker number 要发动攻击的棋子的uid
 function M.attack(attacker)
-    if M._list[attackPawn:unique_id()] then
+    if M._list[attacker] then
         ---该棋子已经发动过攻击了，无法攻击
         ---这里应该提示无法再次攻击
         CS.Global.MakeToast("该回合此棋子不能再次攻击", CS.Global.TOAST_SHORT);

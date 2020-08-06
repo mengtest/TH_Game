@@ -4,6 +4,7 @@ local gameplay = {}
 ---@return IGamePlay
 function gameplay.new()end
 
-
+---@return IUserInput
+function gameplay:getHandle() end
 
 return gameplay

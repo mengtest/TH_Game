@@ -74,22 +74,22 @@ end
 
 function M.turnEnd()
     -- log"玩家回合结束"
-    if M.inputImpl then
-        M.inputImpl.handle.turnEnd()
+    if GamePlay and GamePlay.cur() then
+        GamePlay.cur():getHandle().turnEnd()
     end
 end
 
 function M.drawNormal()
     -- log"抽取一张普通卡牌"
-    if M.inputImpl then
-        M.inputImpl.handle.draw(1, false)
+    if GamePlay and GamePlay.cur() then
+        GamePlay.cur():getHandle().draw(1, false)
     end
 end
 
 function M.drawHigh()
     -- log"抽取一张高级卡牌"
-    if M.inputImpl then
-        M.inputImpl.handle.draw(1, true)
+    if GamePlay and GamePlay.cur() then
+        GamePlay.cur():getHandle().draw(1, true)
     end
 end
 
@@ -97,26 +97,21 @@ end
 function M.summon(pawnId, pos)
 	--- 玩家拖拽手中的卡牌，释放鼠标的时候检测当前鼠标是否在某个卡槽的上方，如果在的话，则进行下一步逻辑
     -- log"召唤一枚棋子"
-    if M.inputImpl then
-        M.inputImpl.handle.summon(pawnId, pos)
+    if GamePlay and GamePlay.cur() then
+        GamePlay.cur():getHandle().summon(pawnId, pos)
     end
 end
 
 function M.attack(uid)
     -- log"棋子发动攻击"
-    if M.inputImpl then
-        M.inputImpl.handle.attack(uid)
+    if GamePlay and GamePlay.cur() then
+        GamePlay.cur():getHandle().attack(uid)
     end
 end
 
 function M.init()
     ---@type DisplayPawn[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
-    M.inputImpl = require"scripts.userInput.init"
-    M.inputImpl.init()
-	
-    ---@type DefaultGamePlay
-    M.data = DefaultGamePlay.new()
     
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then

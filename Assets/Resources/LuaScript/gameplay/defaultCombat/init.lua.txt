@@ -15,7 +15,13 @@ end
 ---初始化
 function DefaultGamePlay:init()
     ---这里存放当前战斗中所有的数据
-    
+    DefaultGamePlay.impl = require"scripts.userInput.init"
+    DefaultGamePlay.impl.init()
+end
+
+---@return IUserInput
+function DefaultGamePlay:getHandle()
+    return self.impl.handle
 end
 
 ---进入战斗系统的逻辑应该是

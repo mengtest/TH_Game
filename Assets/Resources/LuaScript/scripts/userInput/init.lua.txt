@@ -1,3 +1,5 @@
+--package.cpath = package.cpath .. ";./?.lua.txt" 
+
 ---@class UserInputHandle
 ---处理战斗系统中所有的玩家输入
 local M = {}
@@ -8,9 +10,9 @@ M.handle = nil
 function M.init()
     ---如果是在线模式
     if lua and lua.onlineMode then
-        M.handle = require"UserInputOnline"
+        M.handle = require"scripts.userInput.UserInputOnline"
     else
-        M.handle = require"UserInputOffline"
+        M.handle = require"scripts.userInput.UserInputOffline"
     end
 end
 
