@@ -1,4 +1,4 @@
-﻿---@class Listener
+---@class Listener
 local _listener = {}
 
 ---@type table 这个是一个Map

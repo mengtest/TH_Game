@@ -22,4 +22,4 @@ global = require"global.functions"
 
 class = util.class
 
-DefaultGamePlay = require"gameplay.defaultCombat.init"
+GamePlay = require"gameplay.init"

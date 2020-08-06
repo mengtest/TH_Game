@@ -15,7 +15,7 @@ function Node:addChild(node)
     node:setParent(self)
 end
 
----Õâ¸öÓ¦¸ÃÊÇ±»¶¯µ÷ÓÃº¯Êı£¬µ÷ÓÃaddChildµÄÊ±ºòµ÷ÓÃÕâ¸ö
+---è¿™ä¸ªåº”è¯¥æ˜¯è¢«åŠ¨è°ƒç”¨å‡½æ•°ï¼Œè°ƒç”¨addChildçš„æ—¶å€™è°ƒç”¨è¿™ä¸ª
 ---@param node Node
 function Node:setParent(node)
     self._parent = node
@@ -26,7 +26,7 @@ function Node:removeChild(index)
 
 end
 
----ĞèÒªÄÜ¹»Ö±½ÓÊ¹ÓÃµ½Õâ¸öĞĞÎªÊıËù°ó¶¨µÄ¶ÔÏó£¬¿ÉÒÔ¸ù¾İ°ó¶¨µÄ¶ÔÏóÅĞ¶¨Ìõ¼ş
+---éœ€è¦èƒ½å¤Ÿç›´æ¥ä½¿ç”¨åˆ°è¿™ä¸ªè¡Œä¸ºæ•°æ‰€ç»‘å®šçš„å¯¹è±¡ï¼Œå¯ä»¥æ ¹æ®ç»‘å®šçš„å¯¹è±¡åˆ¤å®šæ¡ä»¶
 function Node:exec(obj)
 
 end

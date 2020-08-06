@@ -1,4 +1,5 @@
-﻿local M = {
+---@class GamePlay
+local M = {
     
 }
 
@@ -7,9 +8,11 @@ M.default = nil
 M._cur = nil
 M._list = {}
 
+---通过这里的调用来注册所有玩法类
 ---@param clazz IGamePlay
 function M.reg(name, clazz)
-    if not M._list[name] then
+	if not M._list[name] and clazz then
+		log(string.format("注册一个新的玩法类%s", name))
 		M._list[name] = clazz
     end
 end
@@ -25,6 +28,18 @@ function M.create(name)
 		M._cur = M._list[name].new()
 	end
 	return M._cur
+end
+
+---这里应该有一个限制，如果当前有玩法正在进行中的话，是不能销毁的
+function M.destroy()
+	if M._cur then
+		M._cur = nil
+	end
+end
+
+local list = util.readCfgFile(CS.Util.Loader.Read("LuaScript/config/gameplay"))
+for key, value in pairs(list) do
+	M.reg(key, require(value))
 end
 
 return M

@@ -1,4 +1,4 @@
-﻿_luaExtend = {}
+_luaExtend = {}
 
 function _luaExtend:Call(name, ...)
     if self.methods[name] ~= nil then

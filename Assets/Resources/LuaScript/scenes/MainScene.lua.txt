@@ -1,4 +1,4 @@
-﻿function ExpBar(this)
+function ExpBar(this)
     --@RefType [luaIde#CS.UnityEngine.GameObject]
     local go = this
     local exp = go:GetComponent(typeof(CS.UnityEngine.UI.Slider))

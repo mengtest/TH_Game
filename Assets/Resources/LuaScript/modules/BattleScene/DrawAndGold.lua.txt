@@ -1,3 +1,4 @@
+---这里是战斗场景中右侧的所有按钮功能区
 local M = {}
 
 local input = require"modules.BattleScene.userInputLayer"

@@ -41,7 +41,7 @@ function M.attack(attacker)
         ---该棋子已经发动过攻击了，无法攻击
         ---这里应该提示无法再次攻击
         CS.Global.MakeToast("该回合此棋子不能再次攻击", CS.Global.TOAST_SHORT);
-        return
+        return 
     end
     ---@type Combat
     local combat = nn.get_combat(combatId)

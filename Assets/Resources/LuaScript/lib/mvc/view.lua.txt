@@ -1,0 +1,6 @@
+---@class View
+View = util.class("View")
+
+function View:ctor(name)
+    self.name = name
+end

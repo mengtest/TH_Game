@@ -1,0 +1,8 @@
+---model֪ͨview
+
+---@class Model
+Model = util.class("Model")
+
+function Model:ctor(name)
+    self.name = name
+end

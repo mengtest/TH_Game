@@ -1,14 +1,10 @@
----这个是C++端与CS端事件交互的监听器
+---注册并生成一个监听器，主要是为了方便在C++端触发lua端监听的事件
 ---@class Listener
 local M = nn.class("Listener")
 
-M._eventList = {
-
-}
-
-M._size = 0
-
 function M:ctor()
+    M._eventList = {}
+    M._size = 0
 end
 
 ---监听事件

@@ -1,8 +1,10 @@
 ---lib下所有库全部存放在全局的名称空间下面
 
+-- package.cpath = package.cpath .. ";/scripts/lib/?.lua.txt"
+
 ---@type Listener
 ---这个是全局的事件监听器
-Listener = require("lib.listener").new()
+Listener = require("scripts.lib.listener").new()
 
 
 

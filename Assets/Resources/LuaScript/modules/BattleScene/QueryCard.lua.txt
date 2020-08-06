@@ -1,3 +1,4 @@
+---已经被舍弃的代码
 ---@class QueryCard
 local M = {}
 

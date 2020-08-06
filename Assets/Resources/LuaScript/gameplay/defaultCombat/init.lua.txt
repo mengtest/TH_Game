@@ -9,14 +9,13 @@ local DefaultGamePlay = util.class("DefaultGamePlay")
 
 ---构造函数
 function DefaultGamePlay:ctor()
-    self:init()
+    DefaultGamePlay:init()
 end
 
 ---初始化
 function DefaultGamePlay:init()
-	---这里存放当前战斗中所有的数据
-	
-	--self.myPlayer = 
+    ---这里存放当前战斗中所有的数据
+    
 end
 
 ---进入战斗系统的逻辑应该是
@@ -27,4 +26,9 @@ function DefaultGamePlay:getCurPawnList()
 	
 end
 
+
 return DefaultGamePlay
+
+-- ---@type GamePlay
+-- GamePlay = GamePlay or require"gameplay.init"
+-- GamePlay.reg("default", DefaultGamePlay)

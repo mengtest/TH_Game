@@ -1,0 +1,23 @@
+---@class Mvc
+Mvc = util.class("Mvc")
+
+function Mvc:ctor()
+    self._views = {}
+    self._models = {}
+    self._ctrls = {}
+end
+
+---@param view View
+function Mvc:bindView(view)
+
+end
+
+---@param model Model 
+function Mvc:bindModel(model)
+
+end
+
+---@param ctrl Ctrl
+function Mvc:bindCtrl(ctrl)
+
+end

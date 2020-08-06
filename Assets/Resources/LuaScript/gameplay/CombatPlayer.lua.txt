@@ -4,6 +4,7 @@
 -- Date: 2020-07-31 15:01:41
 ---------------------------------------------------------------------
 
+---战斗系统中的玩家对象类，保存有玩家的所有数据
 ---@class CombatPlayer
 CombatPlayer = util.class("CombatPlayer")
 
@@ -66,4 +67,3 @@ function CombatPlayer:getHandPawn(index)
 	end
 	return CombatPlayer:getPawn(uid)
 end
-

@@ -75,15 +75,16 @@ namespace LuaFramework
             LuaApi.init("./", _env.L);
             
             _env.AddLoader(CustomLoaderMethod);
-            _env.DoString(@"local t = Damage.new() 
-                                   nn.log(t.value)
-");
+            // _env.DoString(@"local t = Damage.new() 
+            //                 nn.log(t.value)
+            // ");
         } 
         
         private byte[] CustomLoaderMethod(ref string fileName)
         {
             //找到指定文件  
             fileName = Application.dataPath + "/Resources/LuaScript/" + fileName.Replace('.', '/') + ".lua";
+            //如果对应的*.lua文件不存在的话，会去读*.lua.txt文件
             if (File.Exists(fileName))
             {
                 return File.ReadAllBytes(fileName);
@@ -91,7 +92,6 @@ namespace LuaFramework
             else if(File.Exists(fileName + ".txt"))
             {
                 return File.ReadAllBytes(fileName + ".txt");
-                // return null;
             }
             return null;
         }

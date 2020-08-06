@@ -1,4 +1,4 @@
-﻿-----@type UnityEngine.Rect
+-----@type UnityEngine.Rect
 --local rect 
 --local lobby 
 

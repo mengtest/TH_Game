@@ -1,4 +1,4 @@
-﻿-----@class aPlayer
+-----@class aPlayer
 --local player = {}
 --
 -----获取当前玩家的uid

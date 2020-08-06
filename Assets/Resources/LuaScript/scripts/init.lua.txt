@@ -2,131 +2,65 @@
 
 ---package.cpath = package.cpath..";./?.lua"
 
--- ---@type NN
--- nn = nn or {}
+---棋子发动攻击时调用
+---@param source Pawn
+---@param target Pawn
+local function attack_call(source, target)
 
+end
 
--- print(TurnState.invalid)
--- print(TurnState.start)
+---棋子受到伤害时调用
+local function hit_call()
 
+end
 
--- nn.log("hello")
+---血量回复时调用
+local function heal_call()
 
--- ---@type Damage
--- local damage = Damage.new(false, 1, 1, nil, nil)
--- damage.isHeal = false
--- damage.curDamageType = 1
+end
 
--- print(damage.curDamageType)
--- print(damage.source)
+---使用技能时调用
+local function use_skill_call()
 
--- require"util.util"
-nn = nn or {}
----cs端导出的全局表
-lua = lua or {}
--- nn.class = class
--- require"lib.init"
+end
 
--- action = {}
+---棋子受到技能影响时调用
+local function suffer_skill_call()
 
--- ---战斗开始时调用
--- function start()
+end
 
--- end
+---添加buff时调用
+local function add_buff_call()
 
--- ---战斗结束时调用
--- function over()
-    
--- end
+end
 
--- ---棋子发动攻击时调用
--- ---@param source Pawn
--- ---@param target Pawn
--- local function attack_call(source, target)
+---buff结束时调用
+local function remove_buff_call()
 
--- end
+end
 
--- ---棋子受到伤害时调用
--- local hit_call = function()
+---棋子死亡的时候调用
+local function pawn_dead_call()
 
--- end
+end
 
--- ---血量回复时调用
--- local heal_call = function()
+---召唤棋子的时候调用
+local function summon_pawn_call()
 
--- end
+end
 
--- ---使用技能时调用
--- local use_skill_call = function()
+---玩家的生命值变化时调用
+local function player_hp_call()
 
--- end
+end
 
--- ---棋子受到技能影响时调用
--- local suffer_skill_call = function()
-
--- end
-
--- ---添加buff时调用
--- local add_buff_call = function()
-
--- end
-
--- ---buff结束时调用
--- local remove_buff_call = function()
-
--- end
-
--- ---棋子死亡的时候调用
--- local pawn_dead_call = function()
-
--- end
-
--- ---召唤棋子的时候调用
--- local summon_pawn_call = function()
-
--- end
-
--- ---玩家的生命值变化时调用
--- local player_hp_call = function()
-
--- end
-
--- Listener:on("attack_call", attack_call)
--- Listener:on("hit_call", hit_call)
--- Listener:on("heal_call", heal_call)
--- Listener:on("use_skill_call", use_skill_call)
--- Listener:on("suffer_skill_call", suffer_skill_call)
--- Listener:on("add_buff_call", add_buff_call)
--- Listener:on("remove_buff_call", remove_buff_call)
--- Listener:on("pawn_dead_call", pawn_dead_call)
--- Listener:on("summon_pawn_call", summon_pawn_call)
--- Listener:on("player_hp_call", player_hp_call)
-
--- local f = function(a, b, c, d, e)
---     print(a,b,c,d,e)
--- end
--- local f2 = function(...)
---     print(...)
--- end
-
--- Listener:on("123", f)
-
--- Listener:on("123", f2)
-
--- Listener:on("123", f2)
-
--- Listener:event("123", 1, 2, 3, 4, 5, 6)
-
--- Listener:off("123", f)
-
--- Listener:event("123", 1, 2, 3, 4, 5, 6)
-
--- Listener:off("123", f2)
-
--- Listener:off("123", f2)
-
--- Listener:event("123", 1, 2, 3, 4, 5, 6)
-
--- -- print(f == f2)
-
--- print(Listener:size())
+Listener:on("attack_call", attack_call)
+Listener:on("hit_call", hit_call)
+Listener:on("heal_call", heal_call)
+Listener:on("use_skill_call", use_skill_call)
+Listener:on("suffer_skill_call", suffer_skill_call)
+Listener:on("add_buff_call", add_buff_call)
+Listener:on("remove_buff_call", remove_buff_call)
+Listener:on("pawn_dead_call", pawn_dead_call)
+Listener:on("summon_pawn_call", summon_pawn_call)
+Listener:on("player_hp_call", player_hp_call)

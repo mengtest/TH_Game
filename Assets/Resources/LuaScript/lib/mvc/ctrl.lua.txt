@@ -1,0 +1,19 @@
+---@class Ctrl
+Ctrl = util.class("Ctrl")
+
+function Ctrl:ctor(name)
+    self.name = name
+end
+
+function Ctrl:getMvcName()
+    return self.name
+end
+
+function Ctrl:notify()
+
+end
+
+function Ctrl:trigger()
+    
+end
+
