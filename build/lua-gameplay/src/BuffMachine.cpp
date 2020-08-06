@@ -77,7 +77,7 @@ void BuffMachine::release()
 
 void BuffMachine::loadAll(BuffList& buffs)
 {
-	ylog(u8"加载buff，当前的buff数量为{0}", 1);
+	ylog("加载buff，当前的buff数量为{0}", 1);
 	//每次调用loadAll的时候都会销毁当前所有的buff内存
 	for (auto buff : _originBuffs)
 	{
@@ -134,7 +134,7 @@ IBuff* BuffMachine::create(Pawn* pawn, int id)
 
 void BuffMachine::executeAll(Player* player)
 {
-    clog(1 ,u8"执行玩家%d身上所有的buff", player->uid());
+    clog(1 ,"执行玩家%d身上所有的buff", player->uid());
 	//执行一个玩家身上所有的buff
     auto count = player->getMaxCombatPawnNumber();
     for (int i = 0; i < count; ++i)
@@ -150,7 +150,7 @@ void BuffMachine::executeAll(Player* player)
             this->buffExecute(pawn->getBuffByIndex(j));
         }
     }
-    clog(1 ,u8"玩家{0}身上所有的buff执行完成", player->uid());
+    clog(1 ,"玩家{0}身上所有的buff执行完成", player->uid());
 }
 
 BuffMachine::BuffMachine(Combat* combat)

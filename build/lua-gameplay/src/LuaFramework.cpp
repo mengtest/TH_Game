@@ -52,20 +52,33 @@ LuaFramework::~LuaFramework()
     BuffMachine::clearAllScriptBuff();
 }
 
-LuaFramework* LuaFramework::instance(lua_State* L)
+LuaFramework* LuaFramework::constructor(lua_State* L)
 {
 	if (_instance == nullptr)
 	{
         _instance = new LuaFramework(L);
-        ylog(u8"a new luaframework object");
-        Singleton::instance()->store(_instance);
+        ylog("a new luaframework object");
+        // Singleton::instance()->store(_instance);
 	}
+    else
+    {
+        // Singleton::instance()->release();
+        delete _instance;
+        _instance = nullptr;
+        _instance = new LuaFramework(L);
+        ylog("a new luaframework object");
+        // Singleton::instance()->store(_instance);
+    }
     return _instance;
 }
 
 LuaFramework* LuaFramework::instance()
 {
 	//如果没有的话，不会构造新的对象
+	if (!_instance)
+	{
+        throw std::exception("must call constructor method before this");
+	}
     return _instance;
 }
 

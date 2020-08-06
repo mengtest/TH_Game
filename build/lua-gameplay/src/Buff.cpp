@@ -378,7 +378,7 @@ Buff::~Buff()
 {
     if (_data != nullptr)
     {
-        // ylog(u8"free buff id %d", this->_data->unique_id);
+        // ylog("free buff id %d", this->_data->unique_id);
         delete _data;
         _data = nullptr;
     }

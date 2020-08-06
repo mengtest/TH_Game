@@ -51,7 +51,7 @@ public:
 
 	~LuaFramework();
 
-	static LuaFramework* instance(lua_State* L);
+	static LuaFramework* constructor(lua_State* L);
 
 	static LuaFramework* instance();
 

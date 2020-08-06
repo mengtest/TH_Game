@@ -10,7 +10,7 @@
 
 Pawn::~Pawn()
 {
-	// ylog(u8"free pawn %d", _data->unique_id);
+	// ylog("free pawn %d", _data->unique_id);
     delete(_data);
     delete(_display);
 }
@@ -45,7 +45,7 @@ Pawn* Pawn::create(PawnS* data, int uid)
 	pawn->_display = nullptr;
 	pawn->_player = nullptr;
 	pawn->_data->unique_id = uid;
-	ylog(u8"new pawn %d", uid);
+	ylog("new pawn %d", uid);
 	return pawn;
 }
 
@@ -386,11 +386,11 @@ bool Pawn::moveToPanel(int pos)
 	// }
 	// else
 	// {
-	//     ylog(u8"战斗中的棋子无法交换位置");
+	//     ylog("战斗中的棋子无法交换位置");
 	// 	return false;
 	// }
 	// this->_data->posType = 3;
-	// clog(1, u8"玩家召唤了棋子%d", unique_id());
+	// clog(1, "玩家召唤了棋子%d", unique_id());
 	// return true;
 }
 
@@ -502,7 +502,7 @@ int Pawn::unmount(int buffId)
 
 bool Pawn::hit(Damage* damage)
 {
-    clog(1, u8"id为%d的棋子受到了id为%d的棋子的伤害", this->unique_id(), damage->source->unique_id());
+    clog(1, "id为%d的棋子受到了id为%d的棋子的伤害", this->unique_id(), damage->source->unique_id());
 	//可能会有各种特殊buff的触发
 	//需要在脚本中进行一些特殊处理
 	//触发一个特殊事件
@@ -517,7 +517,7 @@ bool Pawn::hit(Damage* damage)
 
 bool Pawn::attack(Pawn* target)
 {
-    clog(1, u8"id为%d的棋子攻击了uid为%d的玩家", this->unique_id(), target->unique_id());
+    clog(1, "id为%d的棋子攻击了uid为%d的玩家", this->unique_id(), target->unique_id());
     //由于这里其实是会产生各种触发的，所以需要调用一个lua脚本中的函数
     Damage damage{false, this->atk(), 1, this, target};
     for (auto buff: this->_buffs)
@@ -531,7 +531,7 @@ bool Pawn::attack(Pawn* target)
 
 bool Pawn::attack(Player* player)
 {
-    clog(1 ,u8"id为%d的棋子攻击了uid为%d的玩家", this->unique_id(), player->uid());
+    clog(1 ,"id为%d的棋子攻击了uid为%d的玩家", this->unique_id(), player->uid());
     //攻击玩家的时候不会触发任何特殊函数
     player->hit(this->atk());
 	return true;
@@ -544,14 +544,14 @@ bool Pawn::useSkill(Pawn* target, int skillId)
         //当self的不满足技能的使用条件时，则返回false，但是这里一定会返回true
         if(!SkillMgr::instance()->executeWithoutCost(skillId, this, target))
         {
-            ylog(u8"棋子%d执行技能%d失败", this->_data->unique_id, skillId);
+            ylog("棋子%d执行技能%d失败", this->_data->unique_id, skillId);
             return false;
         }
-        clog(this->_player->getCombat()->id(), u8"棋子%d对棋子%d使用技能%d", this->_data->unique_id, target->unique_id(), skillId);
+        clog(this->_player->getCombat()->id(), "棋子%d对棋子%d使用技能%d", this->_data->unique_id, target->unique_id(), skillId);
     }
     else
     {
-        ylog(u8"技能%d不存在", skillId);
+        ylog("技能%d不存在", skillId);
         return false;
     }
 
@@ -569,14 +569,14 @@ bool Pawn::useSkillWithCost(Pawn *target, int skillId)
     {
         if(!SkillMgr::instance()->execute(skillId, this, target))
         {
-            ylog(u8"棋子%d执行技能%d失败", this->_data->unique_id, skillId);
+            ylog("棋子%d执行技能%d失败", this->_data->unique_id, skillId);
             return false;
         }
-        clog(this->_player->getCombat()->id(), u8"棋子%d对棋子%d使用技能%d", this->_data->unique_id, target->unique_id(), skillId);
+        clog(this->_player->getCombat()->id(), "棋子%d对棋子%d使用技能%d", this->_data->unique_id, target->unique_id(), skillId);
     }
     else
     {
-        ylog(u8"技能%d不存在", skillId);
+        ylog("技能%d不存在", skillId);
         return false;
     }
 
