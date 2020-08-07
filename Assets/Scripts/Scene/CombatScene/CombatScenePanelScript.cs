@@ -12,7 +12,7 @@ namespace Scene.CombatScene
         [SerializeField]
         private List<CombatPanelSlotScript> slots;
 
-        [Tooltip("当前Panel所属的玩家id，这个字段在跳转到战斗场景的时候就需要初始化" +
+        [Tooltip("当前Panel所属的玩家id，这个字段在跳转到战斗场景的时候就需要初始化\n" +
                  "0表示没有初始化，或者错误；正数表示正常值，负数表示机器人")]
         [SerializeField]
         private int playerId;
@@ -27,6 +27,7 @@ namespace Scene.CombatScene
             {
                 child.name = $"Slot{index}";
                 slots[index] = child.GetComponent<CombatPanelSlotScript>();
+                slots[index].Pos = index;
                 index++;
             }
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Windows;
 using XLua;
 
 namespace Net
@@ -40,7 +40,7 @@ namespace Net
         //所有下载的文件资源都会随机
         private void Save(string path, byte[] bytes)
         {
-            // File.WriteAllBytes(path, bytes);
+            File.WriteAllBytes(path, bytes);
         }
 
         public IEnumerator DownLoad(string uri)
@@ -69,7 +69,7 @@ namespace Net
                 }
 
                 // char[] delm = {"AssetBundles/"};
-                //所有放在资源服务器上的资源文件，全部都在AssetBundles路径下面，直接根据这个来切割
+                //所有放在资源服务器上的资源文件，全部都在AssetBundles路径下面，直接根据这个来切割，选择最后一个对象作为文件名来存储
                 string delm = "AssetBundles/";
                 var s = uri.Split(delm.ToCharArray());
                 Save(s[s.Length - 1], request.downloadHandler.data);

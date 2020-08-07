@@ -64,6 +64,7 @@ public class LuaApi
     public delegate void UpdateAction(AttrStruct attr);
     public delegate void NoticeFunction(string str);
 
+    //合并thcore到xlua的dll中，所以这里直接使用xlua作为dllName
     public const string DllName = @"xlua";
 
     //导出给CS的一些api

@@ -103,6 +103,9 @@ local function ConfirmBtnCallback()
             table.insert(global.deckCards, v[1])
         end
     end
+    ---这个数组里面存放的就是当前战斗中所选择的卡牌信息
+    ---[11,11,8,7,6,2,1,1,27,24,24,23,23,23,22,22,22,18,56,56,56,56,58,58,58,58,57,57,57,57,83,83,83,83,83,83,83,83,83,83,82,82,82,82,82,82,82,82,82,82]
+    --log(json.encode(global.deckCards))
     CS.Global.NavigateTo("BattleScene", true)
 end
 

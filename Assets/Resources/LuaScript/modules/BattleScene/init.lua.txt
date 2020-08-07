@@ -22,7 +22,8 @@ local list = {
     Setting = Setting
 }
 
-function M.init()
+---@param data number[]
+function M.init(data)
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")

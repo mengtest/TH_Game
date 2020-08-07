@@ -1,23 +1,28 @@
 ---处理用户输入的层，主要事件的监听，与事件的分发
----这里采用的是mvc模式，但是data部分都存放在dll中，所以是取不到的，这里
+---完整的data全部都存放在dll中
 ---@class UserInputLayer
 local M = {}
 
 ---@type UnityEngine.GameObject
 M.inputLayer = nil
 ---@type Scene.CombatScene.CombatPanelSlotScript
-M.curHonverSlog = nil
+M.curHonverSlot = nil
 
 ---在这一层里面处理所有的用户输入与输出
 
 ---@param script Scene.CombatScene.CombatPanelSlotScript 这个是存放有卡牌的slot脚本
 function M.slotReleaseEvent(script)
-	---玩家的鼠标在slot上面释放的时候触发这个函数
-	---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
-	
+    ---玩家的鼠标在slot上面释放的时候触发这个函数
+    ---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
+    
     ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
+    ---@type Prefab.CombatSceneCombatCardScript
+    local curCard = input.dragCardTransform:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    if curCard then
+        return
+    end
     if (panel ~= nil) then
         ---这个是鼠标当前所在的slot
         local slot = panel:GetSlot(input:GetCurSlotIndex())
@@ -27,7 +32,7 @@ function M.slotReleaseEvent(script)
             elseif(script:HasCard()) then   ---要求当前槽位上有卡牌存在
                 ---玩家只能卡牌放置到自己的槽位上
                 ---感觉需要从战斗场景的数据中取得玩家的id
-                if slot:GetPlayer() == input.myPanel.PlayerId and script:GetPlayer() == input.myPanel.PlayerId then
+                if slot:GetPlayer() == input.myPanel.PlayerId then
                     slot:AddCard(script:Remove())
                 else
 
@@ -56,10 +61,18 @@ function M.mouseClickPawnUp(card, data, long)
         ---短按的事件
 		---这里做玩家是否发动攻击指令的判定
 		---这里需要能够获取到卡牌的uid
-		M.attack(card)
     end
     
     M.mouseDragHandCardEnd()
+end
+
+---@param this Prefab.CombatSceneCombatCardScript
+function M.mouseClickPawn(this, data)
+    ---只有在棋盘中的卡牌才能发动攻击
+    ---其他的判定都交给自己去做
+    if this:InCombat() then
+        M.attack(this.uid)
+    end
 end
 
 function M.mouseDragHandCardEnd()
@@ -68,7 +81,7 @@ function M.mouseDragHandCardEnd()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
     local slot = panel:GetSlot(input:GetCurSlotIndex())
     if slot then
-        print(slot.name)    
+        log(slot.name)    
     end
 end
 
@@ -91,6 +104,10 @@ function M.drawHigh()
     if GamePlay and GamePlay.cur() then
         GamePlay.cur():getHandle().draw(1, true)
     end
+end
+
+function M.useSkill(pawn, target, skillId)
+    
 end
 
 ---从当前玩家的手牌中将一枚棋子拖动到自己的棋盘上时触发
@@ -120,6 +137,8 @@ function M.init()
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
 		--- 监听鼠标弹起的事件
 		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawnUp, go, 0, false)
+        --- 快速点击目标棋子后，该棋子做出攻击的动作
+        CS.Lib.Listener.Instance:On("Mouse_Click_Pawn", M.mouseClickPawn, go , 0, false)
     end
     
     --region

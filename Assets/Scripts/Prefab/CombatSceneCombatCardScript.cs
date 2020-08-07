@@ -6,9 +6,9 @@ using UnityEngine.UI;
 using XLua;
 
 // https://blog.csdn.net/yzx5452830/article/details/80280864
-//这个是位图字体的参考文章
+// 这个是位图字体的参考文章
 // https://blog.csdn.net/u014230923/article/details/51352284?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase
-//这个是拖拽效果的参考文章
+// 这个是拖拽效果的参考文章
 // https://www.cnblogs.com/MrZivChu/p/hotupdate.html
 // 资源热更新的文件下载参考文章
 // https://zhuanlan.zhihu.com/p/66582899
@@ -21,7 +21,6 @@ using XLua;
 namespace Prefab
 {
     //玩家抽取卡牌时，为对应的卡牌绑定数据
-    //这里实际上就是所有的逻辑，以及
     [LuaCallCSharp]
     public class CombatSceneCombatCardScript: MonoBehaviour,
         IPointerClickHandler, IPointerDownHandler, IPointerUpHandler,
@@ -85,6 +84,17 @@ namespace Prefab
             CancelInvoke(nameof(DistributeEvent));
         }
 
+        //获取当前卡牌所在的slot，如果没有则返回空
+        public CombatPanelSlotScript GetSlot()
+        {
+            return transform.parent.GetComponent<CombatPanelSlotScript>();
+        }
+        
+        public bool InCombat()
+        {
+            return transform.parent.GetComponent<CombatPanelSlotScript>() != null;
+        }
+
         // public void ClickPawnEventLong()
         // {
         //     Lib.Listener.Instance.Event("Mouse_Click_Pawn_Long", this);
@@ -123,7 +133,6 @@ namespace Prefab
         public void OnDrag(PointerEventData eventData)
         {
             Lib.Listener.Instance.Event("Mouse_Draging_Pawn", this, eventData);
-            
             //开始拖拽后就不再显示卡牌的详细信息
             UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
         }
@@ -147,17 +156,7 @@ namespace Prefab
             Lib.Listener.Instance.Event("Mouse_Drag_Pawn_Begin", this, eventData);
             //只要转变为drag事件，则不再响应长按或者短按的事件
             CancelInvoke(nameof(DistributeEvent));
-            
-            // if (UserInputScript.GetCurUserInput().dragCardTransform != null)
-            // {
-            //     DestroyImmediate(UserInputScript.GetCurUserInput().dragCardTransform);
-            //     UserInputScript.GetCurUserInput().dragCardTransform = null;
-            // }
-            
-            // UserInputScript.GetCurUserInput().dragCardTransform = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true).GetComponent<RectTransform>();
-            // UserInputScript.GetCurUserInput().dragCardTransform.name = "DragObject";
-            // UserInputScript.GetCurUserInput().dragCardTransform.anchoredPosition += eventData.delta;
-            
+
             //拖拽开始的时候创建一个当前选择的对象的拷贝，并将这个对象放置到对象层中
             var card = Instantiate(gameObject, GameObject.FindGameObjectWithTag("ObjectLayer").transform, true)
                 .GetComponent<RectTransform>();

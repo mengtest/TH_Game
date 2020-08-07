@@ -1,0 +1,6 @@
+[2020-08-07 11:22:08.086] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\Loader.cpp	LINE:85] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/global.json]
+[2020-08-07 11:22:08.086] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\Loader.cpp	LINE:17] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/cards.json]
+[2020-08-07 11:22:08.086] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\Loader.cpp	LINE:140] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/skills.json]
+[2020-08-07 11:22:08.086] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\Loader.cpp	LINE:197] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/buffs.json]
+[2020-08-07 11:22:08.091] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\LuaFramework.cpp	LINE:60] [MSG:a new luaframework object]
+[2020-08-07 11:22:08.119] [YUKI_LOG] [info] [FILE:D:\projects\unity\THGame3\THGame3\build\lua-gameplay\src\LuaFramework.cpp	LINE:98] [MSG:root : .//script/]

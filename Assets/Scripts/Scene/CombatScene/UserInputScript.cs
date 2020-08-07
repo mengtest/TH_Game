@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using Prefab;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using XLua;
 
 
@@ -36,10 +31,10 @@ namespace Scene.CombatScene
 
         private static UserInputScript _instance;
 
-        public InputAction fMouseUp;
+//        public InputAction fMouseUp;
         
-        public EventSystem eventSystem;
-        public GraphicRaycaster graphic;
+//        public EventSystem eventSystem;
+//        public GraphicRaycaster graphic;
         
         public static UserInputScript GetCurUserInput()
         {
@@ -54,7 +49,6 @@ namespace Scene.CombatScene
 
         public bool CurSlotIsSelfPlayer()
         {
-            // return curSlot.
             return true;
         }
 
@@ -117,16 +111,6 @@ namespace Scene.CombatScene
             curSlot = script;
         }
 
-        private void OnEnable()
-        {
-            fMouseUp.Enable();
-        }
-
-        private void OnDisable()
-        {
-            fMouseUp.Disable();
-        }
-
         private void Awake()
         {
             if (_instance != null)
@@ -138,7 +122,7 @@ namespace Scene.CombatScene
             
             //射线检测不到目标物体
             //所以现在不再触发鼠标弹起的事件
-            fMouseUp.performed += Click3;
+//            fMouseUp.performed += Click3;
         }
 
         public CombatScenePanelScript GetPanel(int uid)
@@ -157,103 +141,103 @@ namespace Scene.CombatScene
             }
         }
 
-        public void MouseUpEvent(InputAction.CallbackContext context)
-        {
-            // //用户鼠标弹起的时候，发出一条射线，检测是否与slot层发生碰撞
-//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//            RaycastHit hit;
-//            if (Physics.Raycast(ray, out hit))
+//        public void MouseUpEvent(InputAction.CallbackContext context)
+//        {
+//            // //用户鼠标弹起的时候，发出一条射线，检测是否与slot层发生碰撞
+////            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+////            RaycastHit hit;
+////            if (Physics.Raycast(ray, out hit))
+////            {
+////                Global.Log(hit.collider.transform.name);
+////            }
+//        }
+        
+//        private List<RaycastResult> GraphicRaycaster(Vector2 pos)
+//        {
+//            var mPointerEventData = new PointerEventData(eventSystem) {position = pos};
+//            var results = new List<RaycastResult>();
+// 
+//            graphic.Raycast(mPointerEventData, results);
+//            return results;
+//        }
+//
+//        public void Click(InputAction.CallbackContext callback)
+//        {
+//            Global.Log(Mouse.current.leftButton.isPressed);
+//            Global.Log(Mouse.current.rightButton.isPressed);
+//            
+//            Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
+//            switch (callback.phase)
 //            {
-//                Global.Log(hit.collider.transform.name);
+//                case InputActionPhase.Disabled:
+//                    Debug.Log("new input system1");
+//                    break;
+//                case InputActionPhase.Waiting:
+//                    Debug.Log("new input system2");
+//                    break;
+//                case InputActionPhase.Started:
+//                    Debug.Log("new input system3");
+//                    break;
+//                case InputActionPhase.Performed:
+//                    Debug.Log("new input system4");
+//                    break;
+//                case InputActionPhase.Canceled:
+//                    Debug.Log("new input system5");
+//                    break;
+//                default:
+//                    throw new ArgumentOutOfRangeException();
 //            }
-        }
-        
-        private List<RaycastResult> GraphicRaycaster(Vector2 pos)
-        {
-            var mPointerEventData = new PointerEventData(eventSystem) {position = pos};
-            var results = new List<RaycastResult>();
- 
-            graphic.Raycast(mPointerEventData, results);
-            return results;
-        }
-
-        public void Click(InputAction.CallbackContext callback)
-        {
-            Global.Log(Mouse.current.leftButton.isPressed);
-            Global.Log(Mouse.current.rightButton.isPressed);
-            
-            Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
-            switch (callback.phase)
-            {
-                case InputActionPhase.Disabled:
-                    Debug.Log("new input system1");
-                    break;
-                case InputActionPhase.Waiting:
-                    Debug.Log("new input system2");
-                    break;
-                case InputActionPhase.Started:
-                    Debug.Log("new input system3");
-                    break;
-                case InputActionPhase.Performed:
-                    Debug.Log("new input system4");
-                    break;
-                case InputActionPhase.Canceled:
-                    Debug.Log("new input system5");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        
-        public void Click2(InputAction.CallbackContext callback)
-        {
-            Global.Log(callback.ReadValue<Vector2>().ToString());
-            switch (callback.phase)
-            {
-                case InputActionPhase.Disabled:
-                    Debug.Log("new input system1");
-                    break;
-                case InputActionPhase.Waiting:
-                    Debug.Log("new input system2");
-                    break;
-                case InputActionPhase.Started:
-                    Debug.Log("new input system3");
-                    break;
-                case InputActionPhase.Performed:
-                    Debug.Log("new input system4");
-                    break;
-                case InputActionPhase.Canceled:
-                    Debug.Log("new input system5");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        
-        public void Click3(InputAction.CallbackContext callback)
-        {
-            // Keyboard.current.aKey.
-            // Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
-            switch (callback.phase)
-            {
-                case InputActionPhase.Disabled:
-                    Debug.Log("new input system1");
-                    break;
-                case InputActionPhase.Waiting:
-                    Debug.Log("new input system2");
-                    break;
-                case InputActionPhase.Started:
-                    Debug.Log("new input system3");
-                    break;
-                case InputActionPhase.Performed:
-                    Debug.Log("new input system4");
-                    break;
-                case InputActionPhase.Canceled:
-                    Debug.Log("new input system5");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+//        }
+//        
+//        public void Click2(InputAction.CallbackContext callback)
+//        {
+//            Global.Log(callback.ReadValue<Vector2>().ToString());
+//            switch (callback.phase)
+//            {
+//                case InputActionPhase.Disabled:
+//                    Debug.Log("new input system1");
+//                    break;
+//                case InputActionPhase.Waiting:
+//                    Debug.Log("new input system2");
+//                    break;
+//                case InputActionPhase.Started:
+//                    Debug.Log("new input system3");
+//                    break;
+//                case InputActionPhase.Performed:
+//                    Debug.Log("new input system4");
+//                    break;
+//                case InputActionPhase.Canceled:
+//                    Debug.Log("new input system5");
+//                    break;
+//                default:
+//                    throw new ArgumentOutOfRangeException();
+//            }
+//        }
+//        
+//        public void Click3(InputAction.CallbackContext callback)
+//        {
+//            // Keyboard.current.aKey.
+//            // Global.Log(callback.ReadValue<float>().ToString(CultureInfo.InvariantCulture));
+//            switch (callback.phase)
+//            {
+//                case InputActionPhase.Disabled:
+//                    Debug.Log("new input system1");
+//                    break;
+//                case InputActionPhase.Waiting:
+//                    Debug.Log("new input system2");
+//                    break;
+//                case InputActionPhase.Started:
+//                    Debug.Log("new input system3");
+//                    break;
+//                case InputActionPhase.Performed:
+//                    Debug.Log("new input system4");
+//                    break;
+//                case InputActionPhase.Canceled:
+//                    Debug.Log("new input system5");
+//                    break;
+//                default:
+//                    throw new ArgumentOutOfRangeException();
+//            }
+//        }
     }
 }

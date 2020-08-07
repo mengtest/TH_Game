@@ -9,6 +9,7 @@ local M = {}
 ---每个回合会重置这个
 M._list = {}
 ---全局的当前玩家的id
+---在玩家登入游戏时这个就应该已经存在了
 playerId = playerId or 1
 ---全局的房间id
 combatId = combatId or 1
@@ -83,7 +84,7 @@ end
 ---玩家点击抽取卡牌按钮
 ---玩家的抽卡其实只会抽一张卡，所以这里的数量其实默认为1
 function M.draw(number, high)
-    local gold = nil
+    local gold
     if high then
         gold = config.highPrice * number
     else
@@ -118,6 +119,28 @@ function M.summon(pawnId, pos)
         ---能量不足，无法召唤棋子
         CS.Global.MakeToast("能量不足，无法召唤", CS.Global.TOAST_SHORT);
     end 
+end
+
+function M.init(myCards)
+    combatId = nil
+    local cid = nn.create_combat()
+    if cid == -1 then
+        --- 创建失败 
+    else
+        --- combatId直接存放到全局的表中
+        combatId = cid
+    end
+    --- 只要id不为0，基本一定能够取出combat对象
+    local combat = nn.get_combat(combatId)
+    if combat then
+        --- 添加当前玩家的数据
+        if combat:addPlayer(playerId, myCards)
+            --- 添加机器人的数据
+            --- 这里的卡牌数据应该从配置文件中来
+            and combat:addPlayer(-1, {}) then
+            
+        end
+    end
 end
 
 return M

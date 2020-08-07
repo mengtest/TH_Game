@@ -262,7 +262,7 @@ local function player_fold()
     ---@return Pawn
     function player:getCombatPawnByIndex(index) end
 
-    ---@param inded  number
+    ---@param index  number
     ---@return Pawn
     function player:getHandPawnByIndex(index) end
 
@@ -294,6 +294,7 @@ local function player_fold()
     ---@param damage number
     function player:hit(damage) end
 
+    --region
     -- ---@param type number
     -- ---@param value number
     -- function player:plus(type, value) end
@@ -305,7 +306,8 @@ local function player_fold()
     -- ---@param type number
     -- ---@param value number
     -- function player:to(type, value) end
-
+    --endregion
+    
     function player:opHp(value) end
 
     function player:opEnergy(value) end
@@ -362,6 +364,9 @@ local function combat_fold()
 
     ---@return BuffMachine
     function combat:getMachine() end
+    
+    ---@param cards number[]
+    function combat:addPlayer(uid, cards) end
 end
 
 ---BuffMachine的声明
@@ -399,10 +404,6 @@ local function buff_machine_fold()
     function buffMachine:getBuffLengthByType(type) end
 end
 
-local function damage_fold()
-
-end
-
 local function buff_fold()
     function iBuff:reset() end
 
@@ -435,7 +436,7 @@ local function buff_fold()
 
     ---@return number
     function iBuff:maxOverlay() end
-
+    
     function iBuff:callOverlay() end
 
     ---@return number

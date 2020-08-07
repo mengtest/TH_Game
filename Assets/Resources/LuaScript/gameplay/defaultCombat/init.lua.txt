@@ -3,21 +3,17 @@
 ---@class DefaultGamePlay : IGamePlay
 local DefaultGamePlay = util.class("DefaultGamePlay")
 
---local uids = {
-    --1,1,1,1,1,2,2,3,3,3,4,4,4,5,6,7,8,9,10,12,14,15,16,16,16,18,20,20
---}
 
 ---构造函数
 function DefaultGamePlay:ctor()
-    DefaultGamePlay:init()
+    --self:init()
 end
 
----初始化
-function DefaultGamePlay:init()
-    ---这里存放当前战斗中所有的数据
-    DefaultGamePlay.impl = require"scripts.userInput.init"
-    DefaultGamePlay.impl.init()
-end
+-----初始化
+--function DefaultGamePlay:init()
+--    ---这里存放当前战斗中所有的数据
+--
+--end
 
 ---@return IUserInput
 function DefaultGamePlay:getHandle()
@@ -27,11 +23,28 @@ end
 ---进入战斗系统的逻辑应该是
 ---玩家选择所有的卡牌之后，点击确认按钮，如果当前的卡牌满足要求，则会进入战斗系统，
 
----获取当前玩家
+---获取当前玩家的卡组列表
 function DefaultGamePlay:getCurPawnList()
 	
 end
 
+---@param myCards number[]
+function DefaultGamePlay:start(myCards)
+    self.impl = require"scripts.userInput.init"
+    self.impl.init(myCards)
+    ---当前的房间号，未初始化时为-1
+    self.combatId = -1
+    ---当前玩家的id
+    self.myId = 0
+    ---敌方玩家的id，0表示未初始化，-1表示机器人
+    self.tid = 0
+end
+
+---@param this boolean 是否是当前玩家
+---@return CombatPlayer
+function DefaultGamePlay:getPlayer(this)
+    
+end
 
 return DefaultGamePlay
 

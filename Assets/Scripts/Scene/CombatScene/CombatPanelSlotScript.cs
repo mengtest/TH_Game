@@ -1,7 +1,5 @@
-using System;
 using Prefab;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using XLua;
 
 namespace Scene.CombatScene
@@ -14,7 +12,22 @@ namespace Scene.CombatScene
         [Tooltip("占有当前槽位的卡牌")]
         public CombatSceneCombatCardScript card;
 
+        private int _pos = -1;
+        
         private bool _mouseDown;
+
+        public int Pos
+        {
+            get => _pos;
+            set
+            {
+                //只有值未初始化的情况下才能设置这个值
+                if (_pos == -1)
+                {
+                    _pos = value;
+                }
+            }
+        }
 
         /// <summary>
         /// 获取当前槽位的下标
@@ -78,7 +91,6 @@ namespace Scene.CombatScene
         {
             //设置当前选择的卡槽对象
             UserInputScript.GetCurUserInput().SetCurSlot(this);
-            
             Lib.Listener.Instance.Event("Mouse_In_Slot", this);
         }
 
@@ -86,7 +98,6 @@ namespace Scene.CombatScene
         { 
             //取消当前选择的卡槽对象
             UserInputScript.GetCurUserInput().ResetCurSlot();
-            
             Lib.Listener.Instance.Event("Mouse_Leave_Slot", this);
         }
 
