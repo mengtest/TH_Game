@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 // constexpr int PAWN_ATTR_BEGIN = 100;
 // constexpr int BUFF_ATTR_BEGIN = 200;

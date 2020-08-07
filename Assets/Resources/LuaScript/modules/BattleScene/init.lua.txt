@@ -27,6 +27,15 @@ function M.init(data)
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")
+    
+    ---@type DefaultGamePlay
+    local gamePlay = GamePlay.cur()
+    if global.deckCards then
+        gamePlay:start(global.deckCards)
+    else
+        error"无效的卡牌数据"
+    end
+    
 
 	require"modules.BattleScene.userInputLayer".init()
 	require"modules.BattleScene.fGUICombat".init()

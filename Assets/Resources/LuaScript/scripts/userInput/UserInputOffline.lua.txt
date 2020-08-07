@@ -12,7 +12,7 @@ M._list = {}
 ---在玩家登入游戏时这个就应该已经存在了
 playerId = playerId or 1
 ---全局的房间id
-combatId = combatId or 1
+combatId = combatId or -1
 
 ---在cpp端应该有各个流程的导出
 
@@ -122,22 +122,32 @@ function M.summon(pawnId, pos)
 end
 
 function M.init(myCards)
+    print(json.encode(myCards))
     combatId = nil
     local cid = nn.create_combat()
     if cid == -1 then
         --- 创建失败 
+        log"创建战斗系统失败"
     else
         --- combatId直接存放到全局的表中
         combatId = cid
+        log(tostring(combatId))
     end
     --- 只要id不为0，基本一定能够取出combat对象
     local combat = nn.get_combat(combatId)
+    log(tostring(combat:id()))
     if combat then
+        print(combat.addPlayer)
         --- 添加当前玩家的数据
         if combat:addPlayer(playerId, myCards)
             --- 添加机器人的数据
             --- 这里的卡牌数据应该从配置文件中来
-            and combat:addPlayer(-1, {}) then
+            and combat:addPlayer(-1, {
+                14,14,4,8,7,2,1,1,22,22,23,23,23,23,24,20,19,18,55,56,56,57,57,58,58,54,
+                54,54,53,52,86,85,84,84,84,84,84,84,84,83,83,83,83,83,83,82,82,82,82,82
+            }) then
+            
+            
             
         end
     end

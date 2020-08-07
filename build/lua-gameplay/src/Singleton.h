@@ -14,8 +14,8 @@ private:
 
     std::vector<std::function<void()>> v;
 
-	//ÕâÀï´æ´¢ËùÓÐµÄµ¥Àý¶ÔÏó£¬µ±µ÷ÓÃreleaseµÄÊ±ºòÊÍ·ÅËùÓÐµÄµ¥Àý¶ÔÏóµÄÄÚ´æ
-	//ËùÓÐµÄIRelease¶ÔÏó¶¼ÓÐfreeº¯Êý£¬freeº¯ÊýÀïÃæ»áÊÍ·ÅÄÚ´æ£¬²¢ÇÒ½«¶ÔÏóÉèÖÃÎªnullptr
+	//è¿™é‡Œå­˜å‚¨æ‰€æœ‰çš„å•ä¾‹å¯¹è±¡ï¼Œå½“è°ƒç”¨releaseçš„æ—¶å€™é‡Šæ”¾æ‰€æœ‰çš„å•ä¾‹å¯¹è±¡çš„å†…å­˜
+	//æ‰€æœ‰çš„IReleaseå¯¹è±¡éƒ½æœ‰freeå‡½æ•°ï¼Œfreeå‡½æ•°é‡Œé¢ä¼šé‡Šæ”¾å†…å­˜ï¼Œå¹¶ä¸”å°†å¯¹è±¡è®¾ç½®ä¸ºnullptr
     std::vector<IRelease*> _handles;
 public:
     Singleton() = default;

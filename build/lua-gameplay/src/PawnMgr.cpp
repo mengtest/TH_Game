@@ -1,4 +1,4 @@
-﻿#include "PawnMgr.h"
+#include "PawnMgr.h"
 #include "Pawn.h"
 #include "Singleton.h"
 #include "Logger.h"

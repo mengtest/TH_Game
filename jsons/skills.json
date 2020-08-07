@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "fire ball",
+        "name_cn": "火球术",
+        "cost": 2,
+        "costType": 2,
+        "targetType": 3,
+        "damage": 3,
+        "damageType": 2,
+        "passive": 0,
+        "disperse": 0,
+        "buff1": 0,
+        "buff2": 0,
+        "buff3": 0,
+        "buff4": 0,
+        "buff5": 0
+    },
+    {
+        "id": 2,
+        "name": "ice ball",
+        "name_cn": "冰球术",
+        "cost": 2,
+        "costType": 2,
+        "targetType": 3,
+        "damage": 1,
+        "damageType": 2,
+        "passive": 0,
+        "disperse": 0,
+        "buff1": 0,
+        "buff2": 0,
+        "buff3": 0,
+        "buff4": 0,
+        "buff5": 0
+    }
+]

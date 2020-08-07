@@ -1,4 +1,4 @@
-﻿#include "Constant.h"
+#include "Constant.h"
 #include "Singleton.h"
 
 Constant* Constant::_instance = nullptr;

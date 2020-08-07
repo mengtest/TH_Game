@@ -5,10 +5,10 @@ std::shared_ptr<Singleton> Singleton::_instance = nullptr;
 
 Singleton::~Singleton()
 {
-    //ÓÅÏÈÊÍ·ÅËùÓĞµÄhandle
+    //ä¼˜å…ˆé‡Šæ”¾æ‰€æœ‰çš„handle
     release();
 	
-	//ÏÈ³õÊ¼»¯µÄºóÊÍ·Å£¬ËùÒÔÕâÀïÊÇÄæĞòµÄ
+	//å…ˆåˆå§‹åŒ–çš„åé‡Šæ”¾ï¼Œæ‰€ä»¥è¿™é‡Œæ˜¯é€†åºçš„
     auto begin = v.rbegin();
     for (;begin != v.rend(); ++begin)
     {

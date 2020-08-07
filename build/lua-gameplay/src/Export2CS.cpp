@@ -1,4 +1,4 @@
-﻿#include "Export2CS.h"
+#include "Export2CS.h"
 #include "Export.h"
 
 void* get_buff(int combatId, int buffId)

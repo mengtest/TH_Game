@@ -1,4 +1,4 @@
-﻿#include "Helper.h"
+#include "Helper.h"
 #include "Base.h"
 // #include "spdlog/sinks/daily_file_sink.h"
 

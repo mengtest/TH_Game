@@ -1,4 +1,4 @@
-﻿#include "Delegate.h"
+#include "Delegate.h"
 #include <variant>
 
 Delegate::Delegate(Callback callback, const std::string& name, int line)

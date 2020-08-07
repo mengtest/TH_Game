@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #define __SOL_LIB_3RD__
 #define __SPDLOG_LIB_3RD__

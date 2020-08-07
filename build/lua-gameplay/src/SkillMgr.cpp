@@ -1,4 +1,4 @@
-﻿#include "SkillMgr.h"
+#include "SkillMgr.h"
 #include "Pawn.h"
 #include "Player.h"
 #include "BuffMachine.h"
@@ -21,7 +21,7 @@ SkillMgr* SkillMgr::instance()
 void SkillMgr::loadAll(SkillList& skills)
 {
 	//释放当前整个列表里面的元素，并且将清理列表
-	for (auto skill : skills)
+	for (auto skill : _skills)
 	{
         delete skill;
 	}

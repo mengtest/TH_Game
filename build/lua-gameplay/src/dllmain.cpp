@@ -1,4 +1,4 @@
-﻿////#include "Logger.h"
+////#include "Logger.h"
 //#include "boost/thread.hpp"
 //#include "lua.hpp"
 //#include <iostream>

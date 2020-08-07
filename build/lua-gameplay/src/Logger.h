@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <memory>
 #include <string>
@@ -51,7 +51,7 @@ namespace nn
 }
 
 #define ylog(__fmt__, ...) \
-	nn::log(__FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
+	nn::log(__FILE__, __LINE__, fmt::format(__fmt__,__VA_ARGS__).c_str())
 #define clog(__id__, __fmt__, ...) \
-	nn::log(__id__, __FILE__, __LINE__, fmt::format(__fmt__, __VA_ARGS__).c_str())
+	nn::log(__id__, __FILE__, __LINE__, fmt::format(__fmt__,__VA_ARGS__).c_str())
 #define yerror()

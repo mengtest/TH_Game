@@ -1,4 +1,4 @@
-﻿#include "Pawn.h"
+#include "Pawn.h"
 #include "Buff.h"
 #include "Agent.h"
 #include "Player.h"

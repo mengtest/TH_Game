@@ -1,0 +1,22 @@
+{
+    "normalDrawPrice": 2,
+    "highDrawPrice": 10,
+    "normal_nPercent": 200,
+    "normal_rPercent": 780,
+    "normal_srPercent": 20,
+    "normal_ssrPercent": 0,
+    "high_nPercent": 0,
+    "high_rPercent": 800,
+    "high_srPercent": 150,
+    "high_ssrPercent": 50,
+    "primaryGold": 5,
+    "salary": 2,
+    "roundCard": 1,
+    "primaryCard": 3,
+    "maxRound": 40,
+    "primaryEnergy": 2,
+    "energyGrow": 1,
+    "maxEnergy": 8,
+    "maxHp" : 100,
+    "primaryHp": 100
+}

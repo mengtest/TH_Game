@@ -1,4 +1,4 @@
-﻿#include "Export2Lua.h"
+#include "Export2Lua.h"
 
 void export2Lua()
 {

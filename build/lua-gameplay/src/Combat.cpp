@@ -1,4 +1,4 @@
-﻿#include "Combat.h"
+#include "Combat.h"
 #include "BuffMachine.h"
 #include "Player.h"
 #include "Helper.h"
@@ -90,6 +90,7 @@ bool Combat::addPlayer(CombatRequirePlayer* info)
 
 bool Combat::addPlayer(int uid, std::vector<int> v)
 {
+	ylog("call combat's addplayer method");
 	auto player = new Player(uid, v, this);
 	if (this->addPlayer(player))
 	{
@@ -162,10 +163,10 @@ bool Combat::start()
     //双方有一个玩家不存在，则无法开始战斗
     if (!_player1 || !_player2)
     {
-        clog(this->_id, "当前玩家数量不足，战斗开始失败");
+        clog(this->_id, "not enough number of players,cant start combat");
         return false;
     }
-    clog(this->_id, "战斗开始");
+    clog(this->_id, "combat start");
     //还需要通知当前战斗中所有的玩家，战斗正式开始了
     // TODO
 	//后续还是要看，怎么让战斗流程可以正确进行

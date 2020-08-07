@@ -1,4 +1,4 @@
-﻿#include "Player.h"
+#include "Player.h"
 #include "Combat.h"
 #include "Pawn.h"
 #include "Agent.h"
@@ -25,8 +25,11 @@ Player::Player(CombatRequirePlayer* info, Combat* combat)
 Player::Player(int uid, const std::vector<int>& v, Combat* combat)
 	: _combat(combat)
 {
+	ylog("");
 	_data = new PlayerS;
+	ylog("");
 	memset(_data, 0, sizeof(PlayerS));
+	ylog("");
 	_data->uid = uid;
     ylog("new player %d", uid);
 	for (int i = 0; i < ARYSIZE(_data->cards) && i < v.size(); ++i)
@@ -458,7 +461,7 @@ void Player::summon(int pawnUid, int pos)
 
 	if (it == this->_handPawns.end())
 	{
-		ylog("当前玩家没持有%d的卡牌", pawnUid);
+		ylog("当前玩家没持有{0}的卡牌", pawnUid);
 		return;
 	}
 
@@ -842,7 +845,7 @@ bool Player::hasPawnUid(int uid)
 
 void Player::release()
 {
-    ylog("释放了玩家%d的棋子", this->uid());
+    ylog("释放了玩家{0}的棋子", this->uid());
 	//需要先释放所有的棋子的内存
 	for (auto p : _allPawns)
 	{
@@ -1073,11 +1076,11 @@ void Player::createAllPawn()
 		{
 			//创建失败，这里应该返回一个错误消息，并销毁当前的战斗实例对象
 			//简化操作，不做这个步骤
-			ylog("初始化玩家:%d的棋子时遇到了一个致命的错误", uid());
+			ylog("初始化玩家:{0}的棋子时遇到了一个致命的错误", uid());
 			throw std::exception{"发生了一个致命的错误"};
 		}
 	}
-	ylog("玩家%d的棋子数量分布为1:%d, 2:%d, 3:%d, 4:%d", this->uid(), this->_nPawns.size(), this->_rPawns.size(), this->_srPawns.size(), this->_ssrPawns.size());
+	ylog("玩家{0}的棋子数量分布为1:{1}, 2:{2}, 3:{3}, 4:{4}", this->uid(), this->_nPawns.size(), this->_rPawns.size(), this->_srPawns.size(), this->_ssrPawns.size());
 }
 
 void Player::opGold(int value)
