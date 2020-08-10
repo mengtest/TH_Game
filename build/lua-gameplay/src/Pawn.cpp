@@ -517,7 +517,7 @@ bool Pawn::hit(Damage* damage)
 
 bool Pawn::attack(Pawn* target)
 {
-    clog(1, "id为{0}的棋子攻击了uid为{1}的玩家", this->unique_id(), target->unique_id());
+    ylog("pawn {0} attack pawn {1}", this->unique_id(), target->unique_id());
     //由于这里其实是会产生各种触发的，所以需要调用一个lua脚本中的函数
     Damage damage{false, this->atk(), 1, this, target};
     for (auto buff: this->_buffs)
@@ -531,7 +531,7 @@ bool Pawn::attack(Pawn* target)
 
 bool Pawn::attack(Player* player)
 {
-    clog(1 ,"id为{0}的棋子攻击了uid为{1}的玩家", this->unique_id(), player->uid());
+    ylog("pawn {0} attack player {1}", this->unique_id(), player->uid());
     //攻击玩家的时候不会触发任何特殊函数
     player->hit(this->atk());
 	return true;
@@ -551,7 +551,7 @@ bool Pawn::useSkill(Pawn* target, int skillId)
     }
     else
     {
-        ylog("技能{0}不存在", skillId);
+        ylog("skill {0} not exist", skillId);
         return false;
     }
 
@@ -576,7 +576,7 @@ bool Pawn::useSkillWithCost(Pawn *target, int skillId)
     }
     else
     {
-        ylog("技能{0}不存在", skillId);
+        ylog("skill {0} not exist", skillId);
         return false;
     }
 

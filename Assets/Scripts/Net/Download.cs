@@ -34,7 +34,6 @@ namespace Net
         private void RefreshProgress(double value)
         {
             //
-
         }
 
         //所有下载的文件资源都会随机

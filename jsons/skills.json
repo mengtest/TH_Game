@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "fire ball",
-        "name_cn": "火球术",
+        "name_cn": "???",
         "cost": 2,
         "costType": 2,
         "targetType": 3,
@@ -19,7 +19,7 @@
     {
         "id": 2,
         "name": "ice ball",
-        "name_cn": "冰球术",
+        "name_cn": "???",
         "cost": 2,
         "costType": 2,
         "targetType": 3,

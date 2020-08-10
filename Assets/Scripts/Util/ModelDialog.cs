@@ -1,4 +1,5 @@
-﻿using Prefab;
+﻿using System;
+using Prefab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -86,6 +87,48 @@ namespace Util
                     go.enabled = true;
                 }
             }
+        }
+
+        public void ShowDialog(Action<bool> f)
+        {
+            DisableAllCanvas();
+
+            //创建canvas
+            var layer = new GameObject("ModelDialogLayer");
+            var canvas = layer.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            layer.AddComponent<CanvasScaler>();
+            layer.AddComponent<GraphicRaycaster>();
+
+            //通过这个API向Scene中添加对象
+            SceneManager.MoveGameObjectToScene(canvas.gameObject, SceneManager.GetActiveScene());
+
+            //dialog的创建与加载
+            var gameObj = Loader.Load("Prefab/Dialog");
+            var obj = (GameObject) Object.Instantiate(gameObj);
+            obj.GetComponent<RectTransform>().SetParent(canvas.GetComponent<Transform>());
+            obj.GetComponent<RectTransform>().localPosition = new Vector3(0, 0);
+            _dialog = obj.GetComponent<DialogScript>();
+            _dialog.MainText = _mainText;
+            _dialog.OkText = _okText;
+            _dialog.CancelText = _cancelText;
+            _dialog.CancelButtonCallback += () =>
+            {
+                RecoverAllCanvas();
+
+                CancelBtnCallback?.Invoke();
+                f(false);
+                Object.Destroy(layer);
+            };
+
+            _dialog.OkButtonCallback += () =>
+            {
+                RecoverAllCanvas();
+                
+                OkBtnCallback?.Invoke();
+                f(true);
+                Object.Destroy(layer);
+            };
         }
 
         public void ShowDialog()

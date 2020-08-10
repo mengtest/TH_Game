@@ -9,12 +9,6 @@ function DefaultGamePlay:ctor()
     --self:init()
 end
 
------初始化
---function DefaultGamePlay:init()
---    ---这里存放当前战斗中所有的数据
---
---end
-
 ---@return IUserInput
 function DefaultGamePlay:getHandle()
     return self.impl.handle
@@ -28,6 +22,7 @@ function DefaultGamePlay:getCurPawnList()
 	
 end
 
+---现在的问题是客户端要如何存储玩家相关的数据，还是说就做成帧同步，然后从dll中获取数据？
 ---@param myCards number[]
 function DefaultGamePlay:start(myCards)
     self.impl = require"scripts.userInput.init"
@@ -38,6 +33,9 @@ function DefaultGamePlay:start(myCards)
     self.myId = 0
     ---敌方玩家的id，0表示未初始化，-1表示机器人
     self.tid = 0
+
+    ---调用这个之后通知服务端，当前客户端已经加载完成，等待所有客户端加载完成
+    ---当所有的客户端都加载完毕之后进入战斗场景
 end
 
 ---@param this boolean 是否是当前玩家

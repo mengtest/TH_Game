@@ -25,13 +25,10 @@ Player::Player(CombatRequirePlayer* info, Combat* combat)
 Player::Player(int uid, const std::vector<int>& v, Combat* combat)
 	: _combat(combat)
 {
-	ylog("");
 	_data = new PlayerS;
-	ylog("");
 	memset(_data, 0, sizeof(PlayerS));
-	ylog("");
 	_data->uid = uid;
-    ylog("new player %d", uid);
+    ylog("new player {0}", uid);
 	for (int i = 0; i < ARYSIZE(_data->cards) && i < v.size(); ++i)
 	{
 		_data->cards[i] = v[i];
@@ -224,11 +221,11 @@ bool Player::draw(int number, bool high)
 			{
 				if (!it->second->moveToHand())
 				{
-					ylog("将棋子%d移动到手牌中出错", uid);
+					ylog("将棋子{0}移动到手牌中出错", uid);
 				}
 				else
 				{
-					ylog("玩家%d抽取到了棋子%d", this->uid(), uid);
+					ylog("玩家{0}抽取到了棋子{0}", this->uid(), uid);
 				}
 			}
 			else
@@ -449,7 +446,7 @@ void Player::summon(int pawnUid, int pos)
 	else
 	{
 		//位置参数错误
-		ylog("错误的位置参数");
+		ylog("error pos param");
 		return;
 	}
 
@@ -461,7 +458,7 @@ void Player::summon(int pawnUid, int pos)
 
 	if (it == this->_handPawns.end())
 	{
-		ylog("当前玩家没持有{0}的卡牌", pawnUid);
+		ylog("this player don't contain {0} card", pawnUid);
 		return;
 	}
 
@@ -845,7 +842,7 @@ bool Player::hasPawnUid(int uid)
 
 void Player::release()
 {
-    ylog("释放了玩家{0}的棋子", this->uid());
+    ylog("release player {0} 's pawn", this->uid());
 	//需要先释放所有的棋子的内存
 	for (auto p : _allPawns)
 	{
@@ -864,6 +861,7 @@ int Player::combatId()
 void Player::addPawn(Pawn* pawn)
 {
 	this->_allPawns.insert({ pawn->unique_id(), pawn });
+	
 	// ylog("为玩家%d添加一枚棋子%d", this->uid(), pawn->unique_id());
 	pawn->addTo(this);
 	// TODO
@@ -985,7 +983,7 @@ int Player::getDeckPawnRandom(int type)
 std::optional<Player::DeckPawnList::iterator> Player::getDeckPawnItRandom(int type)
 {
 	DeckPawnList* list;
-	ylog("type:%d", type);
+	ylog("type:{0}", type);
 	switch (type)
 	{
 	case 1:
@@ -1071,6 +1069,9 @@ void Player::createAllPawn()
 		if (nullptr != pawn)
 		{
 			this->addPawn(pawn);
+			this->_data->pawns[index] = pawn->unique_id();
+			this->_data->deckCards[index] = pawn->unique_id();
+			// this->_data.
 		}
 		else
 		{
@@ -1079,6 +1080,7 @@ void Player::createAllPawn()
 			ylog("初始化玩家:{0}的棋子时遇到了一个致命的错误", uid());
 			throw std::exception{"发生了一个致命的错误"};
 		}
+		index++;
 	}
 	ylog("玩家{0}的棋子数量分布为1:{1}, 2:{2}, 3:{3}, 4:{4}", this->uid(), this->_nPawns.size(), this->_rPawns.size(), this->_srPawns.size(), this->_ssrPawns.size());
 }
@@ -1149,6 +1151,11 @@ void Player::opHp(int value)
 
 PlayerS* Player::data()
 {
+	//如果当前玩家的第一个棋子的uid为0的话，表示还没有拷贝这里的数据
+	if (_data->pawns[0] == 0)
+	{
+		
+	}
 	return _data;
 }
 

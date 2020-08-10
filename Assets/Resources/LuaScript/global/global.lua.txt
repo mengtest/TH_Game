@@ -15,11 +15,14 @@ cache = require"lib.cache"
 ---@type Common.Player
 player = CS.Common.Player
 
+xutil = require"xlua.util"
+
 ---全局数据表
-globalTb = globalTb or {}
+global = global or {}
 
-global = require"global.functions"
+globalFunc = require"global.functions"
 
+---有三个个注册类的函数，一个是class,一个是util.class,另一个是nn.class
 class = util.class
 
 GamePlay = require"gameplay.init"

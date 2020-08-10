@@ -1,4 +1,0 @@
-[2020-08-07 17:34:49.663] [YUKI_LOG] [info] [FILE:F:\Code\THGame2\THGame\build\lua-gameplay\src\Loader.cpp	LINE:85] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/global.json]
-[2020-08-07 17:34:49.674] [YUKI_LOG] [info] [FILE:F:\Code\THGame2\THGame\build\lua-gameplay\src\Loader.cpp	LINE:17] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/cards.json]
-[2020-08-07 17:34:49.675] [YUKI_LOG] [info] [FILE:F:\Code\THGame2\THGame\build\lua-gameplay\src\PawnMgr.cpp	LINE:11] [MSG:list�ĳ���Ϊ%d]
-[2020-08-07 17:34:49.675] [YUKI_LOG] [info] [FILE:F:\Code\THGame2\THGame\build\lua-gameplay\src\Loader.cpp	LINE:140] [MSG:正在加载文件F:/Code/THGame2/THGame/jsons/skills.json]

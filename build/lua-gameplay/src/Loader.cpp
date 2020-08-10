@@ -13,22 +13,24 @@
 void Loader::loadAllPawns(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
-	std::filesystem::path dir(text);
-	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
+	auto dir = absolute(std::filesystem::path(text));
+	ylog("正在加载文件{0}", dir.generic_string().c_str());
 	
-	if (!std::filesystem::exists(text))
+	if (!exists(dir))
 	{
 		return;
 	}
 
 	//直接使用rapidjson的文件读取方式来加载文件
     FILE* f = nullptr;
-    f = fopen(text.c_str(), "r");
+    // f = fopen(dir.generic_string().c_str(), "r");
+	fopen_s(&f, dir.generic_string().c_str(), "r");
     fseek(f, 0, SEEK_END);
     auto size = ftell(f);
+	ylog("文件长度为{0}", size);
     rewind(f);
     char *buf = new char[size];
-    rapidjson::FileReadStream fs{f, buf, strlen(buf)};
+	rapidjson::FileReadStream fs{ f, buf, sizeof buf };
 	// rapidjson::IStreamWrapper isw{};
 	rapidjson::Document doc;
 	//目前还没有确定这里的text到底是文本内容还是文本路径
@@ -81,21 +83,24 @@ void Loader::loadAllPawns(const std::string & text)
 void Loader::loadConfig(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
-	std::filesystem::path dir(text);
-	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
+	auto dir = absolute(std::filesystem::path(text));
+	ylog("正在加载文件{0}", dir.generic_string().c_str());
 
-	
-	if (!std::filesystem::exists(text))
+	if (!exists(dir))
 	{
 		return;
 	}
-    FILE* f = nullptr;
-    f = fopen(text.c_str(), "r");
-    fseek(f, 0, SEEK_END);
-    auto size = ftell(f);
+
+	//直接使用rapidjson的文件读取方式来加载文件
+	FILE* f = nullptr;
+	// f = fopen(dir.generic_string().c_str(), "r");
+	fopen_s(&f, dir.generic_string().c_str(), "r");
+	fseek(f, 0, SEEK_END);
+	auto size = ftell(f);
+	ylog("文件长度为{0}", size);
     rewind(f);
     char *buf = new char[size];
-    rapidjson::FileReadStream fs{f, buf, strlen(buf)};
+	rapidjson::FileReadStream fs{ f, buf, sizeof buf };
     rapidjson::Document doc;
     //目前还没有确定这里的text到底是文本内容还是文本路径
     doc.ParseStream(fs);
@@ -136,20 +141,24 @@ void Loader::loadConfig(const std::string & text)
 void Loader::loadAllSkills(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
-	std::filesystem::path dir(text);
-	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
-	
-	if (!std::filesystem::exists(text))
+	auto dir = absolute(std::filesystem::path(text));
+	ylog("正在加载文件{0}", dir.generic_string().c_str());
+
+	if (!exists(dir))
 	{
 		return;
 	}
-    FILE* f = nullptr;
-    f = fopen(text.c_str(), "r");
-    fseek(f, 0, SEEK_END);
-    auto size = ftell(f);
+
+	//直接使用rapidjson的文件读取方式来加载文件
+	FILE* f = nullptr;
+	// f = fopen(dir.generic_string().c_str(), "r");
+	fopen_s(&f, dir.generic_string().c_str(), "r");
+	fseek(f, 0, SEEK_END);
+	auto size = ftell(f);
+	ylog("文件长度为{0}", size);
     rewind(f);
     char *buf = new char[size];
-    rapidjson::FileReadStream fs{f, buf, strlen(buf)};
+    rapidjson::FileReadStream fs{f, buf, sizeof buf};
     rapidjson::Document doc;
     //目前还没有确定这里的text到底是文本内容还是文本路径
     doc.ParseStream(fs);
@@ -193,20 +202,24 @@ void Loader::loadAllSkills(const std::string & text)
 void Loader::loadAllBuffs(const std::string & text)
 {
 	//这里输出当前加载的文件路径，后续会删除
-	std::filesystem::path dir(text);
-	ylog("正在加载文件{0}", absolute(dir).generic_string().c_str());
-	
-	if (!std::filesystem::exists(text))
+	auto dir = absolute(std::filesystem::path(text));
+	ylog("正在加载文件{0}", dir.generic_string().c_str());
+
+	if (!exists(dir))
 	{
 		return;
 	}
-    FILE* f = nullptr;
-    f = fopen(text.c_str(), "r");
-    fseek(f, 0, SEEK_END);
-    auto size = ftell(f);
+
+	//直接使用rapidjson的文件读取方式来加载文件
+	FILE* f = nullptr;
+	// f = fopen(dir.generic_string().c_str(), "r");
+	fopen_s(&f, dir.generic_string().c_str(), "r");
+	fseek(f, 0, SEEK_END);
+	auto size = ftell(f);
+	ylog("文件长度为{0}", size);
     rewind(f);
     char *buf = new char[size];
-    rapidjson::FileReadStream fs{f, buf, sizeof(buf)};
+	rapidjson::FileReadStream fs{ f, buf, sizeof buf };
     rapidjson::Document doc;
     //目前还没有确定这里的text到底是文本内容还是文本路径
     doc.ParseStream(fs);

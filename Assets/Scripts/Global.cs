@@ -1,7 +1,9 @@
 ﻿using System;
+using Lib;
 using LuaFramework;
 using Prefab;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using Util;
 using XLua;
@@ -89,6 +91,18 @@ public static partial class Global
                 Debug.Log(msg);
                 break;
         }
+    }
+
+    public static void AsyncTest()
+    {
+        
+    }
+
+    private static async void AsyncTestImpl(YukiEventDelegate callback)
+    {
+        // var request = UnityWebRequest.Get("http://localhost:9635/res/th_res/v1_0_0/AssetBundles/img.zip");
+        // request.SendWebRequest();
+        
     }
 
     public static void Log(object msg, Level level = Level.Info)

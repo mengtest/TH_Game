@@ -31,10 +31,20 @@ function M.init(data)
     ---@type DefaultGamePlay
     local gamePlay = GamePlay.cur()
     if global.deckCards then
+        ---加载当前玩家所有的卡牌、资源等
         gamePlay:start(global.deckCards)
+        ---加载完毕后显示等待其他玩家中  x/x的字样
+        ---所有玩家都加载完之后就移除掉
+
+        local t = CS.LuaApi.GetPlayer(1, 1)
+        print(t.uid)
+        for i = 0, 49 do
+            print(t.pawns[i])
+        end
     else
-        error"无效的卡牌数据"
+        --error"无效的卡牌数据"
     end
+    
     
 
 	require"modules.BattleScene.userInputLayer".init()

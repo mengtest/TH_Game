@@ -88,16 +88,19 @@ function M.Cancel(this)
 end
 
 function M.checkCards()
-    return M.counts.SSR == M.regular.SSR
+    local res = globalFunc.checkCards(M.selectedCardList)
+    return  res 
+            and M.counts.SSR == M.regular.SSR
             and  M.counts.SR == M.regular.SR
             and  M.counts.R == M.regular.R
             and  M.counts.N == M.regular.N
-            and global.checkCards(M.selectedCardList)
 end
 
 local function ConfirmBtnCallback()
     ---先保存当前的牌组，然后向服务端发送一条消息，开始对战
     global.combatCards = M.selectedCardList
+    ---当前玩家所选择的卡牌的完整数据都在这里
+    global.deckCards = {}
     for _, v in ipairs(global.combatCards) do
         for _ = 1, v[2] do
             table.insert(global.deckCards, v[1])

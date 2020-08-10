@@ -23,19 +23,40 @@ end
 
 ---无法连接到服务器触发的事件
 function _yuki_init_list.cantConnectServer()
+    --CS.Lib.Listener.Instance:On("Cloud_Base_User_Login", function(res, name)
+    --    if res then
+    --        log(string.format("玩家%s登入到tcb服务器中", name))
+    --    end
+    --end, nil, 0, true)
+
     CS.Lib.Listener.Instance:On("cant_connect_server"
     , function ()
-        log("无法连接到服务器", LOG_ERROR)
-                ---这个api要改，最起码要改成只需要一个回调函数，
-        local dialog = CS.Util.ModelDialog("无法连接到服务器，是否以离线模式启动？", "是", "退出游戏"
-        , function ()
-                    log("以离线模式启动游戏")
-                end
-        , function ()
-                    log("退出游戏")
-                    CS.UnityEngine.Application.Quit(0)
-                end)
-        dialog:ShowDialog()
+        --print(a, b)
+        --CS.Lib.Listener.Instance:Event("Cloud_Base_User_Login", true, data.Data["name"]);
+        --log("无法连接到服务器", LOG_ERROR)
+        --        ---这个api要改，最起码要改成只需要一个回调函数，
+        local dialog = CS.Util.ModelDialog("无法连接到服务器，是否以离线模式启动？", "是", "退出游戏")
+        local show = function()
+            local res = xutil.async_to_sync(xutil.bind(dialog.ShowDialog, dialog))()
+            if res then
+                --log("以离线模式启动游戏")
+            else
+                log("退出游戏")
+                CS.UnityEngine.Application.Quit(0)
+            end
+        end
+        xutil.coroutine_call(show)()
+                
+        --dialog:ShowDialog()
+                
+        --local net = CS.Net.CloudHelper()
+        --local f = xutil.async_to_sync(net.Login2)
+        --local f2 = function()
+        --    local a,b = f(net, "root", "123456")
+        --    print(a, b)
+        --end
+        --local f3 = xutil.coroutine_call(f2)
+        --f3()
     end, nil, 0, true)
 end
 
@@ -46,7 +67,7 @@ function _yuki_init_list.test()
         log("-----------------")
         log(str)
         log(json.encode(json.decode(str)))
-        globalTb.myCards = json.decode(str)
+        global.myCards = json.decode(str)
         --log(#globalTb.myCards)
     end)
 

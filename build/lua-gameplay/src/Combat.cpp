@@ -405,7 +405,7 @@ void Combat::turnEnd(int id)
 	if (id == this->_workPlayer->uid() 
 		&& _turnState == TurnState::battle)
 	{
-		ylog("玩家{0}点击了结束回合按钮", _workPlayer->uid());
+		ylog("player {0} click turn end button", _workPlayer->uid());
 		//如果操作这个api的是当前正在工作的玩家
 		//则可以结束当前的回合
 		this->_turnState = TurnState::over;

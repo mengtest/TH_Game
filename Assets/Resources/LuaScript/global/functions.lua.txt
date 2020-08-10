@@ -4,12 +4,12 @@
 --- DateTime: 2020/5/11 16:12
 ---
 
-local global = {}
+local M = {}
 
 ---检测当前玩家拥有的卡牌中，是否包含有足够多的目标卡牌
 ---@param id number
 ---@param num number
-function global.checkCardAndNumber(id, num)
+function M.checkCardAndNumber(id, num)
     if not global.myCards or type(global.myCards) ~= "table" then
         return false
     end
@@ -25,16 +25,16 @@ function global.checkCardAndNumber(id, num)
 end
 
 ---@param cards table[]
-function global.checkCards(cards)
+function M.checkCards(cards)
     if not global.myCards or type(global.myCards) ~= "table" then
         return false
     end
     for i, v in ipairs(cards) do
-        if not global.checkCardAndNumber(v[1], v[2]) then
+        if not M.checkCardAndNumber(v[1], v[2]) then
             return false
         end
     end
     return true
 end
 
-return global
+return M

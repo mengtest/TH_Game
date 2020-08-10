@@ -135,7 +135,7 @@ partial class Global
         Listener.Instance.Event("scene_refresh");
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex).completed += operation =>
         {
-            Listener.Instance.Event("scene_refreshd");
+            Listener.Instance.Event("scene_refreshed");
         };
     }
     

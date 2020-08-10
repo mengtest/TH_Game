@@ -1,11 +1,14 @@
 using System.Runtime.InteropServices;
 using System;
+using XLua;
 
+[LuaCallCSharp]
 public class LuaApi
 {
     /// <summary>
     /// 现在先完成C#端的基本功能，然后出一个包，接下来就直接在生成的包中开发
     /// </summary>
+    [LuaCallCSharp]
     public struct AttrStruct
     {
         public int combatId;   //战斗实例的id           //这个参数主要是为了，如果后期添加服务端的话，这个可以标识唯一的combat
@@ -16,6 +19,7 @@ public class LuaApi
         public int targetType; //新增属性，表示当前对象表示是哪种类型的，0、无效 1、棋子 2、玩家 3、buff 4、战斗本身
     };
 
+    [LuaCallCSharp]
     public struct BuffD
     {
         public int id;
@@ -24,6 +28,7 @@ public class LuaApi
         public int overlay;
     };
 
+    [LuaCallCSharp]
     public struct PawnD
     {
         //棋子拥有的技能是相对固定的，只要知道是什么棋子就能知道这个棋子有哪些技能，所以不返回棋子技能的信息
@@ -40,19 +45,20 @@ public class LuaApi
         public int posType;            //当前棋子所在的地方的类型
         public int pos;                //棋子所在的下标
     };
-
+    
+    [LuaCallCSharp]
     public struct PlayerS
     {
         public int uid;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
         public int[] cards;                          //本次战斗，该玩家所选择的卡组信息       这里是id而非unique_id
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
         public int[] pawns;                          //当前玩家持有的所有卡牌的信息           这里应该是unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 15)]
         public int[] handCards;           //该玩家手上持有的卡牌信息              这里应该是unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public int[] combatCards;                     //该玩家正在战斗的卡牌信息              这里应该是unique_id
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
         public int[] deckCards;                      //卡池中所有的卡牌信息                  这里应该是unique_id
         public int hp;                                 //玩家剩余的血量
         public int maxHp;                              //最大血量
