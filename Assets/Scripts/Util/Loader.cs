@@ -9,6 +9,14 @@ using UnityEngine.Windows;
 namespace Util
 {
     using Pair = Global.Pair<Object, int>;
+
+    [CSharpCallLua]
+    [LuaCallCSharp]
+    public delegate void LoadAsyncCallback(bool res, UnityEngine.Object obj);
+
+    [CSharpCallLua]
+    [LuaCallCSharp]
+    public delegate void LoadAsyncsCallback(bool res, UnityEngine.Object[] obj);
     
     [CSharpCallLua]
     [LuaCallCSharp]
@@ -28,6 +36,10 @@ namespace Util
 
         //写文件
         void Write(string path, string text);
+
+        void LoadAsync(string file, LoadAsyncCallback callback);
+
+        void LoadAsync(string[] files, LoadAsyncsCallback callback);
 
         // void AddSearchPath(string path);
     }
@@ -60,33 +72,37 @@ namespace Util
             // {
             //     var p = _searchPath[i];
             //     var str = $"{p}/{path}";
-
             // }
 
             // var ab = AssetBundle.LoadFromFile(path);
             // ab.Contains(path);
 
-            
-
             //如果ab中没有这个资源，再从Resource中去加载这个资源
             return Resources.Load(path);
         }
 
+        public void LoadAsync(string file, LoadAsyncCallback callback)
+        {
+            LoaderObject.GetLoader().LoadAsync(file, callback);
+        }
+
+        public void LoadAsync(string[] files, LoadAsyncsCallback callback)
+        {
+            LoaderObject.GetLoader().LoadAsync(files, callback);
+        }
+
         public string LoadScript(string path)
         {
-
             return "";
         }
 
         public Object Load(string path, Type type)
         {
-            
             return Resources.Load(path, type);
         }
 
         public void Unload(Object obj)
         {
-
             Resources.UnloadAsset(obj);
         }
 
@@ -192,6 +208,18 @@ namespace Util
         public static string Read(string path)
         {
             return Load<TextAsset>(path).text;
+        }
+        
+        public static void LoadAsync(string file, LoadAsyncCallback callback)
+        {
+//            LoaderObject.GetLoader().LoadAsync(file, callback);
+            _loader.LoadAsync(file, callback);
+        }
+
+        public static void LoadAsync(string[] files, LoadAsyncsCallback callback)
+        {
+//            LoaderObject.GetLoader().LoadAsync(files, callback);
+            _loader.LoadAsync(files, callback);
         }
     }
 }

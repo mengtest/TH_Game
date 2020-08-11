@@ -3,7 +3,6 @@
 ---@class DefaultGamePlay : IGamePlay
 local DefaultGamePlay = util.class("DefaultGamePlay")
 
-
 ---构造函数
 function DefaultGamePlay:ctor()
     --self:init()
@@ -25,14 +24,15 @@ end
 ---现在的问题是客户端要如何存储玩家相关的数据，还是说就做成帧同步，然后从dll中获取数据？
 ---@param myCards number[]
 function DefaultGamePlay:start(myCards)
-    self.impl = require"scripts.userInput.init"
-    self.impl.init(myCards)
     ---当前的房间号，未初始化时为-1
     self.combatId = -1
     ---当前玩家的id
     self.myId = 0
     ---敌方玩家的id，0表示未初始化，-1表示机器人
     self.tid = 0
+    
+    self.impl = require"scripts.userInput.init"
+    self.impl.init(myCards)
 
     ---调用这个之后通知服务端，当前客户端已经加载完成，等待所有客户端加载完成
     ---当所有的客户端都加载完毕之后进入战斗场景

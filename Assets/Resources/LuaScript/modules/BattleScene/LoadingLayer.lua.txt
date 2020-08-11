@@ -4,12 +4,46 @@
 --- DateTime: 2020/8/10 23:20
 ---
 
+---这里可以从指定的配置文件中来
+local words = {
+	"正在清扫神社中。。。",
+    "少女祈祷中。。。",
+    "小贴士：XXXXXXXXXXX",
+}
 
 local M = {}
 
 ---@param loadingLayer UnityEngine.Transform
 function M.init(loadingLayer)
-    
+    ---这里获取到loading层中的文字，不断地更改文字中显示的内容
+	---@type UnityEngine.UI.Text
+    local txt = loadingLayer:GetComponent(typeof(CS.UnityEngine.UI.Text))
+    ---如果当前玩家的所有卡牌数据全部加载完毕，则变更为等待其他玩家中x/x
+	CS.Timer.Register(5000, 
+	function ()
+		
+	end, 
+	function ()
+		local index = math.random(1, #words)
+        txt.text = words[index]
+	end, true)
+    ---当前玩家所有要加载的内容全部加载完毕之后
+
+    ---有玩家加载完成时调用
+    CS.Lib.Listener.Instance:On("Combat_Res_Load_Complete", function(complete, curNum, totalNum)
+        ---只有当自己加载完成时，才会显示这里的字样
+        if complete then
+            txt.text = string.format("等待其他玩家中 %d/%d", curNum, totalNum)
+        end
+    end, loadingLayer, 0, true)
+
+    ---所有的玩家都加载完成之后调用
+    CS.Lib.Listener.Instance:On("Combat_All_Player_Load_Complete", function()
+        ---删除当前层
+        CS.UnityEngine.Object.Destroy(loadingLayer)
+    end, loadingLayer, 0, true)
+
+    -- CS.Util.Loader.LoadAsync()
 end
 
 return M

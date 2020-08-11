@@ -24,6 +24,8 @@ local list = {
 
 ---@param data number[]
 function M.init(data)
+	require"modules.BattleScene.LoadingLayer".init()
+	
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")
@@ -33,20 +35,46 @@ function M.init(data)
     if global.deckCards then
         ---加载当前玩家所有的卡牌、资源等
         gamePlay:start(global.deckCards)
-        ---加载完毕后显示等待其他玩家中  x/x的字样
-        ---所有玩家都加载完之后就移除掉
-
+        
+        -- -通过这个获取到当前玩家的数据
         local t = CS.LuaApi.GetPlayer(1, 1)
-        print(t.uid)
+        ---@type CCard[]
+        global.combatCardInfos = {}
+        --for i = 0, 49 do
+        --    ---在lua端组合出完整的卡牌数据
+        ---   ---这里的两个数组里面的信息是一一对应的，
+        --    print(t.pawns[i])
+        --    print(t.cards[i])
+        --end
+        ---需要能够获取到当前玩家所有的卡牌数据
+        ---需要加载的资源应该有卡牌的图片资源、icon资源、技能的icon资源、如果有模型的话还需要加载模型等
+        local imgs = {}
+        -- local icons = {}
         for i = 0, 49 do
-            print(t.pawns[i])
+            local t = global.cardInfos[i]
+            table.insert(imgs, t.img)
+            table.insert(imgs, t.icon)
         end
+        local function load()
+            ---@type UnityEngine.Object
+            local objs
+            local res
+            res, objs = xutil.async_to_sync(CS.Util.Loader.LoadAsync)()
+            if res then
+                for i = 0, 99 do
+                    ---实例化卡牌，并存入到pool中
+                    -- CS.Util.Pool.
+                end
+            end
+        end
+        xutil.coroutine_call(load)(imgs)
+        
+        --CS.Util.Loader.LoadAsync({"", ""}, function (res, objs) end)
     else
         --error"无效的卡牌数据"
+		log"无效的卡牌数据"
     end
     
-    
-
 	require"modules.BattleScene.userInputLayer".init()
 	require"modules.BattleScene.fGUICombat".init()
     
@@ -57,6 +85,7 @@ function M.init(data)
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)
     
+	--region
     ---以前检测的到卡牌，现在检测不到，很难受
     ---所有的卡牌的点击事件
     ---CS.Lib.Listener.Instance:On(CS.Lib.Listener.MOUSE_EVENT, function (a, b, c)
@@ -72,6 +101,7 @@ function M.init(data)
     ---        end
     ---    end
     ---end, nil, CS.Lib.KeyCode.Mouse0, false)
+	--endregion
 end
 
 return M

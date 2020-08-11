@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "byakuren",
-        "name_cn": "Ê¥°×Á«",
+        "name_cn": "åœ£ç™½è²",
         "icon": "byakuren_big_png",
         "img": "byakuren_big_png",
         "hp": 10,
@@ -21,7 +21,7 @@
     {
         "id": 2,
         "name": "daiyousei",
-        "name_cn": "´óÑı¾«",
+        "name_cn": "å¤§å¦–ç²¾",
         "icon": "daiyousei_big_png",
         "img": "daiyousei_big_png",
         "hp": 10,
@@ -40,7 +40,7 @@
     {
         "id": 3,
         "name": "eirin",
-        "name_cn": "°ËÒâÓÀÁÕ",
+        "name_cn": "å…«æ„æ°¸ç³",
         "icon": "eirin_big_png",
         "img": "eirin_big_png",
         "hp": 10,
@@ -59,7 +59,7 @@
     {
         "id": 4,
         "name": "flandre",
-        "name_cn": "Ü½À¼¶äÂ¶",
+        "name_cn": "èŠ™å…°æœµéœ²",
         "icon": "flandre_big_png",
         "img": "flandre_big_png",
         "hp": 10,
@@ -78,7 +78,7 @@
     {
         "id": 5,
         "name": "junko",
-        "name_cn": "·á´Ï¶úÉñ×Ó",
+        "name_cn": "ä¸°èªè€³ç¥å­",
         "icon": "junko_big_png",
         "img": "junko_big_png",
         "hp": 10,
@@ -97,7 +97,7 @@
     {
         "id": 6,
         "name": "kanako",
-        "name_cn": "°ËÛàÉñÄÎ×Ó",
+        "name_cn": "å…«å‚ç¥å¥ˆå­",
         "icon": "kanako_big_png",
         "img": "kanako_big_png",
         "hp": 10,
@@ -116,7 +116,7 @@
     {
         "id": 7,
         "name": "koishi",
-        "name_cn": "¹ÅÃ÷µØÁµ",
+        "name_cn": "å¤æ˜åœ°æ‹",
         "icon": "koishi_big_png",
         "img": "koishi_big_png",
         "hp": 10,
@@ -191,7 +191,7 @@
     {
         "id": 11,
         "name": "reimu",
-        "name_cn": "ÁéÃÎ",
+        "name_cn": "çµæ¢¦",
         "icon": "reimu_big_png",
         "img": "reimu_big_png",
         "hp": 10,
@@ -210,7 +210,7 @@
     {
         "id": 12,
         "name": "remilia",
-        "name_cn": "ÀÙÃ×ÀòÑÇ",
+        "name_cn": "è•¾ç±³è‰äºš",
         "icon": "remilia_big_png",
         "img": "remilia_big_png",
         "hp": 10,
@@ -248,7 +248,7 @@
     {
         "id": 14,
         "name": "shinki",
-        "name_cn": "Éñç²",
+        "name_cn": "ç¥ç»®",
         "icon": "shinki_big_png",
         "img": "shinki_big_png",
         "hp": 10,
@@ -267,7 +267,7 @@
     {
         "id": 15,
         "name": "yukari",
-        "name_cn": "°ËÔÆ×Ï",
+        "name_cn": "å…«äº‘ç´«",
         "icon": "yukari_big_png",
         "img": "yukari_big_png",
         "hp": 10,
@@ -304,7 +304,7 @@
     {
         "id": 17,
         "name": "yuuka",
-        "name_cn": "·ç¼ûÓÄÏã",
+        "name_cn": "é£è§å¹½é¦™",
         "icon": "yuuka_big_png",
         "img": "yuuka_big_png",
         "hp": 10,
@@ -323,7 +323,7 @@
     {
         "id": 18,
         "name": "alice",
-        "name_cn": "°®ÀöË¿",
+        "name_cn": "çˆ±ä¸½ä¸",
         "icon": "alice_big_png",
         "img": "alice_big_png",
         "hp": 7,
@@ -342,7 +342,7 @@
     {
         "id": 19,
         "name": "aya",
-        "name_cn": "ÉäÃüÍèÎÄ",
+        "name_cn": "å°„å‘½ä¸¸æ–‡",
         "icon": "aya_big_png",
         "img": "aya_big_png",
         "hp": 7,
@@ -418,7 +418,7 @@
     {
         "id": 23,
         "name": "kaguya",
-        "name_cn": "ÅîÀ³É½»ÔÒ¹",
+        "name_cn": "è“¬è±å±±è¾‰å¤œ",
         "icon": "kaguya_big_png",
         "img": "kaguya_big_png",
         "hp": 7,
@@ -437,7 +437,7 @@
     {
         "id": 24,
         "name": "keine",
-        "name_cn": "ÉÏ°×Ôó»ÛÒô",
+        "name_cn": "ä¸Šç™½æ³½æ…§éŸ³",
         "icon": "keine_big_png",
         "img": "keine_big_png",
         "hp": 7,
@@ -475,7 +475,7 @@
     {
         "id": 26,
         "name": "kokoro",
-        "name_cn": "ÇØĞÄ",
+        "name_cn": "ç§¦å¿ƒ",
         "icon": "kokoro_big_png",
         "img": "kokoro_big_png",
         "hp": 7,
@@ -512,7 +512,7 @@
     {
         "id": 28,
         "name": "marisa",
-        "name_cn": "Ä§ÀíÉ³",
+        "name_cn": "é­”ç†æ²™",
         "icon": "marisa_big_png",
         "img": "marisa_big_png",
         "hp": 7,
@@ -550,7 +550,7 @@
     {
         "id": 30,
         "name": "minamitsu",
-        "name_cn": "´åÉ´Ë®ÃÛ",
+        "name_cn": "æ‘çº±æ°´èœœ",
         "icon": "minamitsu_big_png",
         "img": "minamitsu_big_png",
         "hp": 7,
@@ -569,7 +569,7 @@
     {
         "id": 31,
         "name": "mokou",
-        "name_cn": "ÌÙÔ­ÃÃºì",
+        "name_cn": "è—¤åŸå¦¹çº¢",
         "icon": "mokou_big_png",
         "img": "mokou_big_png",
         "hp": 7,
@@ -607,7 +607,7 @@
     {
         "id": 33,
         "name": "patchouli",
-        "name_cn": "ÅÁÇïÀò",
+        "name_cn": "å¸•ç§‹è‰",
         "icon": "patchouli_big_png",
         "img": "patchouli_big_png",
         "hp": 7,
@@ -626,7 +626,7 @@
     {
         "id": 34,
         "name": "ran",
-        "name_cn": "°ËÔÆÀ¶",
+        "name_cn": "å…«äº‘è“",
         "icon": "ran_big_png",
         "img": "ran_big_png",
         "hp": 7,
@@ -683,7 +683,7 @@
     {
         "id": 37,
         "name": "sakuya",
-        "name_cn": "Ê®ÁùÒ¹†DÒ¹",
+        "name_cn": "åå…­å¤œå’²å¤œ",
         "icon": "sakuya_big_png",
         "img": "sakuya_big_png",
         "hp": 7,
@@ -702,7 +702,7 @@
     {
         "id": 38,
         "name": "sanae",
-        "name_cn": "¶«·ç¹ÈÔçÃç",
+        "name_cn": "ä¸œé£è°·æ—©è‹—",
         "icon": "sanae_big_png",
         "img": "sanae_big_png",
         "hp": 7,
@@ -816,7 +816,7 @@
     {
         "id": 44,
         "name": "suika",
-        "name_cn": "ÒÁ´µİÍÏã",
+        "name_cn": "ä¼Šå¹èƒé¦™",
         "icon": "suika_big_png",
         "img": "suika_big_png",
         "hp": 7,
@@ -873,7 +873,7 @@
     {
         "id": 47,
         "name": "tenshi",
-        "name_cn": "±ÈÄÇÃû¾ÓÌì×Ó",
+        "name_cn": "æ¯”é‚£åå±…å¤©å­",
         "icon": "tenshi_big_png",
         "img": "tenshi_big_png",
         "hp": 7,
@@ -911,7 +911,7 @@
     {
         "id": 49,
         "name": "youmu",
-        "name_cn": "»êÆÇÑıÃÎ",
+        "name_cn": "é­‚é­„å¦–æ¢¦",
         "icon": "youmu_big_png",
         "img": "youmu_big_png",
         "hp": 7,
@@ -930,7 +930,7 @@
     {
         "id": 50,
         "name": "yuugi",
-        "name_cn": "ĞÇĞÜÓÂÒÇ",
+        "name_cn": "æ˜Ÿç†Šå‹‡ä»ª",
         "icon": "yuugi_big_png",
         "img": "yuugi_big_png",
         "hp": 7,
@@ -949,7 +949,7 @@
     {
         "id": 51,
         "name": "yuyuko",
-        "name_cn": "ÓÄÓÄ×Ó",
+        "name_cn": "å¹½å¹½å­",
         "icon": "yuyuko_big_png",
         "img": "yuyuko_big_png",
         "hp": 7,
@@ -968,7 +968,7 @@
     {
         "id": 52,
         "name": "chen",
-        "name_cn": "³È",
+        "name_cn": "æ©™",
         "icon": "chen_big_png",
         "img": "chen_big_png",
         "hp": 4,
@@ -987,7 +987,7 @@
     {
         "id": 53,
         "name": "cirno",
-        "name_cn": "ç÷Â¶Åµ",
+        "name_cn": "çªéœ²è¯º",
         "icon": "cirno_big_png",
         "img": "cirno_big_png",
         "hp": 4,
@@ -1044,7 +1044,7 @@
     {
         "id": 56,
         "name": "hina",
-        "name_cn": "¼üÉ½³û",
+        "name_cn": "é”®å±±é›",
         "icon": "hina_big_png",
         "img": "hina_big_png",
         "hp": 4,
@@ -1063,7 +1063,7 @@
     {
         "id": 57,
         "name": "koakuma",
-        "name_cn": "Ğ¡¶ñÄ§",
+        "name_cn": "å°æ¶é­”",
         "icon": "koakuma_big_png",
         "img": "koakuma_big_png",
         "hp": 4,
@@ -1082,7 +1082,7 @@
     {
         "id": 58,
         "name": "kogasa",
-        "name_cn": "¶à¶àÁ¼Ğ¡É¡",
+        "name_cn": "å¤šå¤šè‰¯å°ä¼",
         "icon": "kogasa_big_png",
         "img": "kogasa_big_png",
         "hp": 4,
@@ -1101,7 +1101,7 @@
     {
         "id": 59,
         "name": "letty",
-        "name_cn": "ÀÙµÙ",
+        "name_cn": "è•¾è’‚",
         "icon": "letty_big_png",
         "img": "letty_big_png",
         "hp": 4,
@@ -1120,7 +1120,7 @@
     {
         "id": 60,
         "name": "lily",
-        "name_cn": "ÀòÀò°×",
+        "name_cn": "è‰è‰ç™½",
         "icon": "lily_big_png",
         "img": "lily_big_png",
         "hp": 4,
@@ -1158,7 +1158,7 @@
     {
         "id": 62,
         "name": "luna",
-        "name_cn": "Â¶ÄÈ",
+        "name_cn": "éœ²å¨œ",
         "icon": "luna_big_png",
         "img": "luna_big_png",
         "hp": 4,
@@ -1253,7 +1253,7 @@
     {
         "id": 67,
         "name": "merlin",
-        "name_cn": "ºìÃÀÁá",
+        "name_cn": "çº¢ç¾ç²",
         "icon": "merlin_big_png",
         "img": "merlin_big_png",
         "hp": 4,
@@ -1310,7 +1310,7 @@
     {
         "id": 70,
         "name": "mystia",
-        "name_cn": "Ã×Ë¹µÙæ«",
+        "name_cn": "ç±³æ–¯è’‚å¨…",
         "icon": "mystia_big_png",
         "img": "mystia_big_png",
         "hp": 4,
@@ -1329,7 +1329,7 @@
     {
         "id": 71,
         "name": "nazrin",
-        "name_cn": "ÄÉ×ÈÁÕ",
+        "name_cn": "çº³å…¹ç³",
         "icon": "nazrin_big_png",
         "img": "nazrin_big_png",
         "hp": 4,
@@ -1386,7 +1386,7 @@
     {
         "id": 74,
         "name": "rumia",
-        "name_cn": "Â¶Ã×æ«",
+        "name_cn": "éœ²ç±³å¨…",
         "icon": "rumia_big_png",
         "img": "rumia_big_png",
         "hp": 4,
@@ -1538,7 +1538,7 @@
     {
         "id": 82,
         "name": "hanadayousei",
-        "name_cn": "»¨ÌïÑı¾«",
+        "name_cn": "èŠ±ç”°å¦–ç²¾",
         "icon": "hanadayousei_big_png",
         "img": "hanadayousei_big_png",
         "hp": 2,
@@ -1576,7 +1576,7 @@
     {
         "id": 84,
         "name": "maidyousei",
-        "name_cn": "Å®ÆÍÑı¾«",
+        "name_cn": "å¥³ä»†å¦–ç²¾",
         "icon": "maidyousei_big_png",
         "img": "maidyousei_big_png",
         "hp": 2,
@@ -1595,7 +1595,7 @@
     {
         "id": 85,
         "name": "mujiyousei",
-        "name_cn": "Ä¹µØÑı¾«",
+        "name_cn": "å¢“åœ°å¦–ç²¾",
         "icon": "mujiyousei_big_png",
         "img": "mujiyousei_big_png",
         "hp": 2,
@@ -1614,7 +1614,7 @@
     {
         "id": 86,
         "name": "shanghainingyou",
-        "name_cn": "ÉÏº£ÈËĞÎ",
+        "name_cn": "ä¸Šæµ·äººå½¢",
         "icon": "shanghainingyou_big_png",
         "img": "shanghainingyou_big_png",
         "hp": 2,

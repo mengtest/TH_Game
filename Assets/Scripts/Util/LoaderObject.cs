@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Util
 {
-    //异步加载资源时要用到挂载了这个脚本的对象
     public class LoaderObject : MonoBehaviour 
     {
         // private bool _mutil = false;
@@ -64,13 +63,11 @@ namespace Util
 
 
 
-        //其实所有的棋子相关的信息已经加载的差不多了
         public void LoadAllPawns(int combatId, int playerId)
         {
             var player = LuaApi.GetPlayer(combatId, playerId);
             for (int i = 0; i < player.pawns.Length; i++)
             {
-                //我觉得应该是通过某个api获取到uid与卡牌id的键值对
                 var p = player.pawns[i];
                 var c = player.cards[i];
             }

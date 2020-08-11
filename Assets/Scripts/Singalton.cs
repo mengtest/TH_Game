@@ -16,7 +16,7 @@
 
     private Singleton()
     {
-
+        
     }
 
     private static Singleton _instance;

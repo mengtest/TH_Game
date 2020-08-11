@@ -8,11 +8,12 @@ local M = {}
 ---当前回合中已经发动攻击了的棋子列表
 ---每个回合会重置这个
 M._list = {}
----全局的当前玩家的id
----在玩家登入游戏时这个就应该已经存在了
-playerId = playerId or 1
----全局的房间id
-combatId = combatId or -1
+
+-- ---全局的当前玩家的id
+-- ---在玩家登入游戏时这个就应该已经存在了
+-- playerId = playerId or 1
+-- ---全局的房间id
+-- combatId = combatId or -1
 
 ---在cpp端应该有各个流程的导出
 
@@ -37,7 +38,7 @@ combatId = combatId or -1
 ---如何判定玩家想要触发攻击事件？
 ---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
 ---@param attacker number 要发动攻击的棋子的uid
-function M.attack(attacker)
+function M.attack(combatId, playerId, attacker)
     if M._list[attacker] then
         ---该棋子已经发动过攻击了，无法攻击
         ---这里应该提示无法再次攻击
@@ -59,7 +60,7 @@ function M.attack(attacker)
 end
 
 ---玩家点击结束当前回合
-function M.turnEnd()
+function M.turnEnd(combatId, playerId)
     local combat = nn.get_combat(combatId)
     local curPlayer = combat:getWorkPlayer()
     -- nn.get_combat(combatId):turnEnd(playerId)
@@ -71,7 +72,7 @@ function M.turnEnd()
 end
 
 ---玩家选择棋子对目标使用技能
-function M.userSkill(pawnId, targetId, skillId)
+function M.userSkill(combatId, playerId, pawnId, targetId, skillId)
     local combat = nn.get_combat(combatId)
     local pawn = combat:getPawnByUid(pawnId)
     local target = combat:getPawnByUid(targetId)
@@ -83,7 +84,7 @@ end
 
 ---玩家点击抽取卡牌按钮
 ---玩家的抽卡其实只会抽一张卡，所以这里的数量其实默认为1
-function M.draw(number, high)
+function M.draw(combatId, playerId,number, high)
     local gold
     if high then
         gold = config.highPrice * number
@@ -101,7 +102,7 @@ function M.draw(number, high)
 end
 
 ---玩家召唤棋子
-function M.summon(pawnId, pos)
+function M.summon(combatId, playerId, pawnId, pos)
     local combat = nn.get_combat(combatId)
     local player = combat:getPlayer(playerId)
     ---召唤棋子需要能量，
@@ -121,8 +122,10 @@ function M.summon(pawnId, pos)
     end 
 end
 
+---@param myCards number[]
+---@return number , number, number  当前战斗系统的id、当前玩家id、敌方玩家id
 function M.init(myCards)
-    print(json.encode(myCards))
+    -- print(json.encode(myCards))
     combatId = nil
     local cid = nn.create_combat()
     if cid == -1 then
@@ -131,13 +134,13 @@ function M.init(myCards)
     else
         --- combatId直接存放到全局的表中
         combatId = cid
-        log(tostring(combatId))
+        log(string.format("新建一个战斗系统，战斗系统的id是%d", combatId))
     end
     --- 只要id不为0，基本一定能够取出combat对象
     local combat = nn.get_combat(combatId)
-    log(tostring(combat:id()))
+    -- log(tostring(combat:id()))
     if combat then
-        print(combat.addPlayer)
+        -- print(combat.addPlayer)
         --- 添加当前玩家的数据
         if combat:addPlayer(playerId, myCards)
             --- 添加机器人的数据
@@ -147,10 +150,14 @@ function M.init(myCards)
                 54,54,53,52,86,85,84,84,84,84,84,84,84,83,83,83,83,83,83,82,82,82,82,82
             }) then
             
-            
-            
         end
     end
+    return combatId, playerId, -1
+end
+
+---当前玩家的战斗准备完成时调用这个
+function M.prepareComplete()
+    -- CS.Lib.Listener.Instance:On("")
 end
 
 return M

@@ -14,7 +14,7 @@ namespace Util
 
         public delegate GameObject CreateFun();
 
-        static GameObject Get(string name)
+        public static GameObject Get(string name)
         {
             if(!_pool.ContainsKey(name))
             {
@@ -31,12 +31,13 @@ namespace Util
                 }
                 else
                 {
+                    //从poo中取出的对象是未激活状态的，需要调用激活函数去触发
                     return pool.Dequeue();
                 }
             }
         }
 
-        static void Store(string name,GameObject go)
+        public static void Store(string name,GameObject go)
         {
             go.SetActive(false);
             go.transform.SetParent(null);
@@ -53,7 +54,7 @@ namespace Util
             }
         }
 
-        static GameObject GetByCreateFun(string name, CreateFun func)
+        public static GameObject GetByCreateFun(string name, CreateFun func)
         {
             if(!_pool.ContainsKey(name))
             {
@@ -75,7 +76,7 @@ namespace Util
             }
         }
 
-        static void Clear(string name)
+        public static void Clear(string name)
         {
             if(_pool.ContainsKey(name))
             {
@@ -88,7 +89,7 @@ namespace Util
             }
         }
 
-        static void ClearAll()
+        public static void ClearAll()
         {
             foreach (var item in _pool)
             {

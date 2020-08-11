@@ -1,0 +1,18 @@
+---@class CombatUtil
+local M = {}
+
+---构造出一个棋子对象
+---@param uid number 棋子的uid
+---@param id number 棋子的uid
+---@param data table 所有需要的资源信息
+function M.createCardObject(uid, id, data)
+    ---加载棋子的预制资源
+    -- local card = CS.Util.Loader.Load("")
+    -- CS.Util.Pool.GetByCreateFunc()
+
+    ---双方棋盘中的棋子数量最大一共为16、当前玩家持有卡牌数量最大为15
+    ---所以池子中的对象数量大约为35都足够了
+    
+end
+
+return M

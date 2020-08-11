@@ -100,6 +100,7 @@ public static partial class Global
 
     private static async void AsyncTestImpl(YukiEventDelegate callback)
     {
+        //本地的nginx资源服务器路径，
         // var request = UnityWebRequest.Get("http://localhost:9635/res/th_res/v1_0_0/AssetBundles/img.zip");
         // request.SendWebRequest();
         
