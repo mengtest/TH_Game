@@ -123,7 +123,8 @@ public class LuaApi
         var ptr = LuaApi.get_player(combatId, uid);
         if(ptr != IntPtr.Zero)
         {
-            return Marshal.PtrToStructure<PlayerS>(ptr);
+            var data = Marshal.PtrToStructure<PlayerS>(ptr);
+            return data;
         }
         return default;
     }
@@ -133,7 +134,8 @@ public class LuaApi
         var ptr = LuaApi.get_buff(combatId, buffId);
         if(ptr != IntPtr.Zero)
         {
-            return Marshal.PtrToStructure<BuffD>(ptr);
+            var data = Marshal.PtrToStructure<BuffD>(ptr);
+            return data;
         }
         return default;
     }

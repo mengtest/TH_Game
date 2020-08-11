@@ -15,6 +15,9 @@ local M = {}
 
 ---@param loadingLayer UnityEngine.Transform
 function M.init(loadingLayer)
+    if not loadingLayer then
+        return
+    end
     ---这里获取到loading层中的文字，不断地更改文字中显示的内容
 	---@type UnityEngine.UI.Text
     local txt = loadingLayer:GetComponent(typeof(CS.UnityEngine.UI.Text))
@@ -40,10 +43,58 @@ function M.init(loadingLayer)
     ---所有的玩家都加载完成之后调用
     CS.Lib.Listener.Instance:On("Combat_All_Player_Load_Complete", function()
         ---删除当前层
+        CS.Timer.
         CS.UnityEngine.Object.Destroy(loadingLayer)
     end, loadingLayer, 0, true)
 
     -- CS.Util.Loader.LoadAsync()
 end
+
+--char queryFirst(const std::string& str)
+--{
+--if (str.empty())
+--{
+--return -1;
+--}
+--
+--if (str.size() == 1)
+--{
+--return str[0];
+--}
+--
+--int table[128] = { 0 };
+--for (auto c : str)
+--{
+--table[c]++;
+--}
+--
+--for (auto s : str)
+--{
+--if (table[s] == 1)
+--{
+--return s;
+--}
+--}
+--return -1;
+--}
+--
+--
+--bool checkSymmetry(const std::string& str)
+--{
+--if (str.empty() || 1 == str.size())
+--{
+--return true;
+--}
+--
+--for (auto index = 0; index < str.size() / 2; ++index)
+--{
+--if (str[index] != str[str.size() - index - 1])
+--{
+--return false;
+--}
+--}
+--return true;
+--}
+--//4次
 
 return M
