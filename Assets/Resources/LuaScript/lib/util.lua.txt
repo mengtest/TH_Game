@@ -75,8 +75,12 @@ util.write = CS.Util.Loader.Write
 local f1 = xlua.get_generic_method(CS.Util.Loader, 'Load')
 local l = f1(CS.UnityEngine.Sprite)
 
+local f2 = xlua.get_generic_method(CS.Util.Loader, 'Load')
+local l2 = f2(CS.UnityEngine.GameObject)
+
 -- ---@type function<CS.UnityEngine.Sprite(string)>
 util.loadSprite = l
+util.loadGameObject = l2
 
 ---@param component UnityEngine.Transform
 ---@param func function
@@ -228,8 +232,10 @@ math.random()
 math.random()
 math.random()
 math.random()
-function util.random(min, max)
-	return math.random(min, max)
-end
+
+
+--function util.random(min, max)
+--	return math.random(min, max)
+--end
 
 return util

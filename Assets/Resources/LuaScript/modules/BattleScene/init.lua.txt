@@ -1,6 +1,6 @@
 local M = {}
 
-local queryCard = require"modules.BattleScene.QueryCard"
+--local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
 
 ---战斗场景应该具有的功能
@@ -37,16 +37,33 @@ function M.init(data)
         gamePlay:start(global.deckCards)
         print(CS.LuaApi.GetPlayer)
         -- -通过这个获取到当前玩家的数据
+
+        ---现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
+        ---这个是通过某种手段获取到的当前玩家的卡牌数组
         
-        --local t = CS.LuaApi.GetPlayer(1, 1)
+        --region
+        ---这里随机给出1到50作为卡牌的id，
+        local t = {}
+        for i = 1, 50 do
+            table.insert(t, i)
+        end
+        --endregion
+        
         ---@type CCard[]
-        --global.combatCardInfos = {}
+        global.combatCardInfos = {}
+        local imgs = {}
         for i = 0, 49 do
             ---在lua端组合出完整的卡牌数据
             ---这里的两个数组里面的信息是一一对应的，
             --print(t.pawns[i])
             --print(t.cards[i])
+            ---这里需要做一个转换，因为cs、cpp的数组下标都是从0开始
+            local e = t[i + 1]
+            table.insert(imgs, string.format("Image/Card/%s",global.cardInfos[e].img))
+            table.insert(imgs, string.format("Image/Card/%s",global.cardInfos[e].icon))
         end
+        
+        --region
         ---需要能够获取到当前玩家所有的卡牌数据
         ---需要加载的资源应该有卡牌的图片资源、icon资源、技能的icon资源、如果有模型的话还需要加载模型等
         --local imgs = {}
@@ -57,22 +74,37 @@ function M.init(data)
         --    table.insert(imgs, obj.img)
         --    table.insert(imgs, obj.icon)
         --end
-        --log(json.encode(imgs))
-        --local function load()
-        --    ---@type UnityEngine.Object
-        --    local objs
-        --    local res
-        --    res, objs = xutil.async_to_sync(CS.Util.Loader.LoadAsync)()
-        --    if res then
-        --        for i = 0, 99 do
-        --            ---实例化卡牌，并存入到pool中
-        --            -- CS.Util.Pool.
-        --        end
-        --    end
-        --end
-        --xutil.coroutine_call(load)(imgs)
+        --endregion
         
-        --CS.Util.Loader.LoadAsync({"", ""}, function (res, objs) end)
+        log(json.encode(imgs))
+        ---@type UnityEngine.GameObject
+        local go = util.loadGameObject("Prefab/CombatPawn")
+        ---这个接口还没有实现，先不管
+        --CS.Util.Pool.SetMaxSize("CardImgs", 40)
+        local function load()
+            ---@type UnityEngine.Object
+            local objs
+            local res
+            res, objs = xutil.async_to_sync(xutil.bind(CS.Util.Loader.LoadAsync, imgs))()
+            if res then
+                ---数组长度为100
+                ---偶数为卡牌的大图、奇数为卡牌的小图
+                for i = 0, 99 do
+                    ---实例化卡牌，并存入到pool中
+                    if i % 2 == 0 then
+                        ---应该提供一个专门的函数来生成不同的卡牌对象
+                        ---对象池应该有可以设置最大值的接口
+                        local card = CS.UnityEngine.GameObject.Instantiate(go)
+                        ---这里加载的是大图
+                        CS.Util.Pool.Store("CardImgs", card)
+                    else
+                        ---这里加载的是小图
+                        ---CS.Util.Pool.Store("CardIcons")
+                    end
+                end
+            end
+        end
+        xutil.coroutine_call(load)()
     else
         --error"无效的卡牌数据"
 		log"无效的卡牌数据"
@@ -80,10 +112,6 @@ function M.init(data)
     
 	require"modules.BattleScene.userInputLayer".init()
 	require"modules.BattleScene.fGUICombat".init()
-    
-    --if nn then
-    --    nn.create_combat()
-    --end
 	
     ---离开场景的时候界面中要用到的数据会保留下来，但是ui会被销毁，下次再使用的时候再创建出来
     util.loadChild(CS.Global.GetCurCanvas().transform, list)

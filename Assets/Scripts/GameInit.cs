@@ -48,6 +48,7 @@ public static class GameInit
         LuaEngine.LoadLuaModule();
         // Pool.Init();
         FileUtils.Init();
+        Pool.Init();
     }
 
     // [DllImport(@"E:\Game\Test\cmake-build-debug\Test.dll", CallingConvention = CallingConvention.Cdecl)]

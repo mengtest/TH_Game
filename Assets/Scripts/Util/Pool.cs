@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+using Object = UnityEngine.Object;
 
 namespace Util
 {
@@ -11,6 +13,13 @@ namespace Util
     public static class Pool
     {
         private static Dictionary<string, Queue<GameObject>> _pool = new Dictionary<string, Queue<GameObject>>();
+        private static GameObject _poolObj;
+
+        public static void Init()
+        {
+            _poolObj = new GameObject("Pool");
+            Object.DontDestroyOnLoad(_poolObj);
+        }
 
         public delegate GameObject CreateFun();
 
@@ -36,6 +45,12 @@ namespace Util
                 }
             }
         }
+        
+        //设置池子的元素最大数量
+        public static void SetMaxSize(string name, int size)
+        {
+            throw new NotImplementedException();
+        }
 
         public static void Store(string name,GameObject go)
         {
@@ -44,14 +59,19 @@ namespace Util
             if(!_pool.ContainsKey(name))
             {
                 var pool = new Queue<GameObject>();
+                var g = new GameObject(name);
+                g.transform.SetParent(_poolObj.transform);
                 pool.Enqueue(go);
                 _pool.Add(name, pool);
+                go.transform.SetParent(g.transform);
             }
             else
             {
                 var pool = _pool[name];
                 pool.Enqueue(go);
+                go.transform.SetParent(_poolObj.transform.GetChildByName(name));
             }
+            
         }
 
         public static GameObject GetByCreateFun(string name, CreateFun func)
@@ -83,7 +103,7 @@ namespace Util
                 var pool = _pool[name];
                 while(pool.Count != 0)
                 {
-                    GameObject.Destroy(pool.Dequeue());
+                    Object.Destroy(pool.Dequeue());
                 }
                 _pool.Remove(name);
             }
@@ -96,7 +116,7 @@ namespace Util
                 var pool = item.Value;
                 while(pool.Count != 0) 
                 {
-                    GameObject.Destroy(pool.Dequeue());
+                    Object.Destroy(pool.Dequeue());
                 }
             }
             _pool.Clear();

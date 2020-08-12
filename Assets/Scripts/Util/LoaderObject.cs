@@ -24,15 +24,13 @@ namespace Util
 
         public void LoadAsync(string[] files, LoadAsyncsCallback callback)
         {
-            _objs = new Object[files.Length];
-            StartCoroutine(LoadAsyncImpl(files));
-            callback?.Invoke(true, _objs);
-            _objs = null;
+            StartCoroutine(LoadAsyncImpl(files, callback));
         }
 
-        private IEnumerator LoadAsyncImpl(string[] files)
+        private IEnumerator LoadAsyncImpl(string[] files, LoadAsyncsCallback callback)
         {
             // var objs = new Object[files.Length];
+            _objs = new Object[files.Length];
             for (int i = 0; i < files.Length; i++)
             {
                 var request = Resources.LoadAsync(files[i]);
@@ -42,23 +40,25 @@ namespace Util
                 }
                 _objs[i] = request.asset;
             }
+            callback?.Invoke(true, _objs);
+            _objs = null;
         }
 
         public void LoadAsync(string file, LoadAsyncCallback callback)
         {
-            _objs = new Object[1];
-            StartCoroutine(LoadAsyncImpl(file));
-            callback?.Invoke(true, _objs[0]);
-            _objs = null;
+            StartCoroutine(LoadAsyncImpl(file, callback));
         }
 
-        public IEnumerator LoadAsyncImpl(string file)
+        public IEnumerator LoadAsyncImpl(string file, LoadAsyncCallback callback)
         {
+            _objs = new Object[1];
             var request = Resources.LoadAsync(file);
             while(!request.isDone)
             {
                 yield return 1;
             }
+            callback?.Invoke(true, _objs[0]);
+            _objs = null;
         }
 
 
