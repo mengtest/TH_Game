@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using System;
+using UnityEngine;
 using XLua;
 
 [LuaCallCSharp]
@@ -17,6 +18,11 @@ public class LuaApi
         public int value;      //属性改变后的值
         public int type;       //改变的是哪项属性(具体参考constant里面例举的值)
         public int targetType; //新增属性，表示当前对象表示是哪种类型的，0、无效 1、棋子 2、玩家 3、buff 4、战斗本身
+
+        public override string ToString()
+        {
+            return $"{nameof(combatId)}: {combatId}, {nameof(playerId)}: {playerId}, {nameof(objectId)}: {objectId}, {nameof(value)}: {value}, {nameof(type)}: {type}, {nameof(targetType)}: {targetType}";
+        }
     };
 
     [LuaCallCSharp]
@@ -107,6 +113,32 @@ public class LuaApi
     //这个函数用于cs端或者js端获取战斗中的自定义消息，接收的消息为一个字符串
 	[DllImport(DllName)]
 	public static extern void set_notice_action(NoticeFunction fun);
+
+    public static void Init()
+    {
+        set_update_action(UpdateActionEvent);
+        set_notice_action(NoticeFunctionEvent);
+    }
+
+    private static void UpdateActionEvent(AttrStruct attr)
+    {
+        // Debug.LogFormat("attr的type是{0}",attr.type);
+        // Debug.LogFormat("attr的value是{0}",attr.value);
+        // Debug.LogFormat("attr的combatId是{0}",attr.combatId);
+        // Debug.LogFormat("attr的objectId是{0}",attr.objectId);
+        // Debug.LogFormat("attr的playerId是{0}",attr.playerId);
+        // Debug.LogFormat("attr的targetType是{0}",attr.targetType);
+        // Debug.Log(attr.type);
+        // Debug.Log(attr.type);
+        // Debug.Log(attr.type);
+        // Debug.Log(attr.type);
+        Debug.Log(attr.ToString());
+    }
+
+    private static void NoticeFunctionEvent(string str)
+    {
+        Debug.Log(str);
+    }
 
     public static PawnD GetPawn(int combatId, int pawnId)
     {

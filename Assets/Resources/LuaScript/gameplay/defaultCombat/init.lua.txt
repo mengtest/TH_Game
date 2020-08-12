@@ -174,17 +174,28 @@ function DefaultGamePlay:init(myCards, enemyCards)
             ---运行到这里，说明战斗系统的初始化已经完成了
             local this = CS.LuaApi.GetPlayer(self._combatId, self._player)
             local target = CS.LuaApi.GetPlayer(self._combatId, enemyId)
-            for index, value in ipairs(this.pawns) do
-                self._map[value] = this.cards[index]
+            for i = 0, #myCards - 1 do
+                self._map[this.pawns[i]] = this.cards[i]
+                self._map[target.pawns[i]] = target.cards[i]
             end
-            for index, value in ipairs(target.pawns) do
-                self._map[value] = target.cards[index]
-            end
+            --for index, value in pairs(this.pawns) do
+            --    self._map[value] = this.cards[index]
+            --end
+            --for index, value in pairs(target.pawns) do
+            --    self._map[value] = target.cards[index]
+            --end
             self._pawnSize = #myCards + #enemyCards
         end
     end
 
     return self._combatId, self._player, enemyId
+end
+
+function DefaultGamePlay:combatStart()
+    local combat = nn.get_combat(self._combatId)
+    if combat then
+        combat:start()
+    end
 end
 
 ---当前玩家的战斗准备完成时调用这个
@@ -216,6 +227,10 @@ end
 ---获取当前玩家的卡组列表
 function DefaultGamePlay:getCurPawnList()
 	
+end
+
+function DefaultGamePlay:getCombatId()
+    return self._combatId
 end
 
 ---现在的问题是客户端要如何存储玩家相关的数据，还是说就做成帧同步，然后从dll中获取数据？

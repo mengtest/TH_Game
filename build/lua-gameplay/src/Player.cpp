@@ -225,7 +225,7 @@ bool Player::draw(int number, bool high)
 				}
 				else
 				{
-					ylog("玩家{0}抽取到了棋子{0}", this->uid(), uid);
+					ylog("玩家{0}抽取到了棋子{1}", this->uid(), uid);
 				}
 			}
 			else

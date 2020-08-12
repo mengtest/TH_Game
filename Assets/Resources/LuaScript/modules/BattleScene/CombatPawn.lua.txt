@@ -1,21 +1,21 @@
 ---@class CombatPawn
 local CombatPawn = {}
 
----@param pawn CS.UnityEngine.GameObject
+---@param pawn UnityEngine.GameObject
 function CombatPawn.init(pawn, uid)
     local cardId = GamePlay.cur():getIdByUid(uid)
     local info = global.cardInfos[cardId]
     
-    ---ÍüÁËcombatcardµÄ½á¹¹ÁË¡£¡£
-    ---´Ó³Ø×ÓÖĞÈ¡³öÒ»¸ö¿¨ÅÆ
-    pawn.uid = uid
+    ---@type Prefab.CombatSceneCombatCardScript
     local card = pawn:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
-    ---ĞŞ¸Ä¿¨ÅÆÀïÃæËùÏÔÊ¾µÄÄÚÈİ
+    card.uid = uid
+    ---ä¿®æ”¹å¡ç‰Œé‡Œé¢æ‰€æ˜¾ç¤ºçš„å†…å®¹
     card.content.sprite = util.loadSprite("Image/Card/"..info.img)
     card.hp.text = info.hp
     card.mp.text = info.mp
     card.atk.text = info.atk
-    ---»¹ÓĞ¿¨ÅÆµÄ¼¼ÄÜµÄÍ¼±êĞèÒªĞŞ¸Ä
+    
+    ---è¿˜æœ‰å¡ç‰Œçš„æŠ€èƒ½çš„å›¾æ ‡éœ€è¦ä¿®æ”¹
 
     -- card.skill[0].sprite = util.loadSprite("Image/Card/"..info.img)
 
@@ -35,7 +35,7 @@ function CombatPawn.init(pawn, uid)
     --        local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
     --        s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[M.data.uids[index]].img)
     --        script.myPanel:GetSlot(i):AddCard(s)
-    --        ---ÔÚ×îºóĞŞ¸Ä´´½¨³öÀ´µÄ¿¨ÅÆµÄËõ·Å
+    --        ---åœ¨æœ€åä¿®æ”¹åˆ›å»ºå‡ºæ¥çš„å¡ç‰Œçš„ç¼©æ”¾
     --        tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
     --    else
     --        script.myPanel:GetSlot(i):Remove()

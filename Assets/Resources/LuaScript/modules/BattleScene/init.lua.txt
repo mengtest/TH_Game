@@ -2,6 +2,7 @@ local M = {}
 
 --local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
+local helper = require"modules.BattleScene.CombatPawn"
 
 ---战斗场景应该具有的功能
 ---     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景)
@@ -35,24 +36,21 @@ function M.init(data)
     if global.deckCards then
         ---加载当前玩家所有的卡牌、资源等
         gamePlay:start(global.deckCards)
-        print(CS.LuaApi.GetPlayer)
         -- -通过这个获取到当前玩家的数据
 
         ---现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
         ---这个是通过某种手段获取到的当前玩家的卡牌数组
-        local t = CS.LuaApi.GetPlayer(1, 1)
-        
+        ---这里获取到当前玩家的卡牌数据
+        local t = CS.LuaApi.GetPlayer(GamePlay.cur():getCombatId(), GamePlay.cur():getPlayer())
         ---@type CCard[]
         global.combatCardInfos = {}
         local imgs = {}
         for i = 0, 49 do
             ---在lua端组合出完整的卡牌数据
             ---这里的两个数组里面的信息是一一对应的，
-            --print(t.pawns[i])
-            --print(t.cards[i])
             
             ---这里需要做一个转换，因为cs、cpp的数组下标都是从0开始
-            local e = t.cards[i + 1]
+            local e = t.cards[i]
             table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].img))
             table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].icon))
         end
@@ -89,6 +87,7 @@ function M.init(data)
                         ---应该提供一个专门的函数来生成不同的卡牌对象
                         ---对象池应该有可以设置最大值的接口
                         local card = CS.UnityEngine.GameObject.Instantiate(go)
+                        
                         ---这里加载的是大图
                         CS.Util.Pool.Store("CardImgs", card)
                     else
@@ -96,6 +95,7 @@ function M.init(data)
                         ---CS.Util.Pool.Store("CardIcons")
                     end
                 end
+                GamePlay.cur():combatStart()
             end
         end
         xutil.coroutine_call(load)()
