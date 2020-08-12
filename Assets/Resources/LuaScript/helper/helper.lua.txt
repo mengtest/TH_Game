@@ -1,0 +1,9 @@
+-- ---@class Helper
+-- local Helper = {}
+
+-- ---根据卡牌的id、以及属性信息来初始化卡牌
+-- function Helper.combatCardInit()
+    
+-- end
+
+-- return Helper

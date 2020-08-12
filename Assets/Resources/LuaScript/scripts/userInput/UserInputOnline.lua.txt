@@ -1,5 +1,5 @@
 ---在线模式下的处理函数，会将所有的消息都发送给服务端
----@class UserInputOnline : IUserInput
+---@class UserInputOnline
 local M = {}
 
 ---玩家选择棋子攻击

@@ -1,3 +1,6 @@
-local None = util.class("None")
+local Node = require"ai.tree.node"
+
+---空节点，作用类似于占位符，没有实际意义
+local None = util.class("None", Node)
 
 return None

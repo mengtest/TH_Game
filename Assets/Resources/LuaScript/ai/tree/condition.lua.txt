@@ -1,5 +1,39 @@
-local Condition = util.class("Condition")
+local Node = require"ai.tree.node"
 
+local Condition = class("Condition", Node)
 
+function Condition:ctor(name, value)
+    
+end
+
+-- ---大于
+-- function Condition.Greater()
+    
+-- end
+
+-- ---小于
+-- function Condition.Less()
+    
+-- end
+
+-- ---等于
+-- function Condition.Equal()
+
+-- end
+
+---直接子节点中所有子节点的条件都要满足
+function Condition.And()
+    
+end
+
+---直接子节点中有一个满足条件
+function Condition.Or()
+    
+end
+
+-- ---直接子节点的结果取反
+-- function Condition.Not()
+    
+-- end
 
 return Condition

@@ -1,5 +1,14 @@
 ---@class Node
-local Node = util.class("Node")
+local Node = class("Node")
+
+-- ExecuteRes = {
+
+-- }
+TreeState = {
+    success = 1,
+    failure = 2,
+    running = 3,
+}
 
 function Node:ctor()
     self.name = ""
@@ -21,12 +30,18 @@ function Node:setParent(node)
     self._parent = node
 end
 
+---@return Node
+function Node:getChildByName(name)
+
+end
+
 ---@param index number
 function Node:removeChild(index)
 
 end
 
----需要能够直接使用到这个行为数所绑定的对象，可以根据绑定的对象判定条件
+---这里的obj应该包含了当前战斗系统中所有ai可以利用的资源，或者说可见的资源
+---@return number 各个值的意义：1、
 function Node:exec(obj)
 
 end

@@ -87,42 +87,86 @@ end
 
 function M.turnEnd()
     -- log"玩家回合结束"
-    if GamePlay and GamePlay.cur() then
-        GamePlay.cur():getHandle().turnEnd()
+    -- if GamePlay and GamePlay.cur() then
+    --     GamePlay.cur():getHandle().turnEnd()
+    -- end
+
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            -- gameplay:getHandle().turnEnd(gameplay:getHandle().getPlayer())
+
+            gameplay:turnEnd(gameplay:getPlayer())
+        end
     end
 end
 
 function M.drawNormal()
     -- log"抽取一张普通卡牌"
-    if GamePlay and GamePlay.cur() then
-        GamePlay.cur():getHandle().draw(1, false)
+    -- if GamePlay and GamePlay.cur() then
+    --     GamePlay.cur():getHandle().draw(1, false)
+    -- end
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            -- gameplay:getHandle().draw(gameplay:getHandle().getPlayer(), 1, false)
+            gameplay:draw(gameplay:getPlayer(), 1, false)
+        end
     end
 end
 
 function M.drawHigh()
     -- log"抽取一张高级卡牌"
-    if GamePlay and GamePlay.cur() then
-        GamePlay.cur():getHandle().draw(1, true)
+    -- if GamePlay and GamePlay.cur() then
+        -- GamePlay.cur():getHandle().draw(1, true)
+    -- end
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            -- gameplay:getHandle().draw(gameplay:getHandle().getPlayer(), 1, true)
+            gameplay:draw(gameplay:getPlayer(), 1, true)
+        end
     end
 end
 
 function M.useSkill(pawn, target, skillId)
-    
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            -- gameplay:getHandle().userSkill(gameplay:getHandle().getPlayer(), pawn, target, skillId)
+            gameplay:useSkill(gameplay:getPlayer(), pawn, target, skillId)
+        end
+    end
 end
 
 ---从当前玩家的手牌中将一枚棋子拖动到自己的棋盘上时触发
 function M.summon(pawnId, pos)
 	--- 玩家拖拽手中的卡牌，释放鼠标的时候检测当前鼠标是否在某个卡槽的上方，如果在的话，则进行下一步逻辑
     -- log"召唤一枚棋子"
-    if GamePlay and GamePlay.cur() then
-        GamePlay.cur():getHandle().summon(pawnId, pos)
+    -- if GamePlay and GamePlay.cur() then
+    --     GamePlay.cur():getHandle().summon(pawnId, pos)
+    -- end
+
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            -- gameplay:getHandle().summon(gameplay:getHandle().getPlayer(), pawnId, pos)
+            gameplay:userSkill(gameplay:getPlayer(), pawnId, pos)
+        end
     end
 end
 
 function M.attack(uid)
     -- log"棋子发动攻击"
-    if GamePlay and GamePlay.cur() then
-        GamePlay.cur():getHandle().attack(uid)
+    -- if GamePlay and GamePlay.cur() then
+    --     GamePlay.cur():getHandle().attack(uid)
+    -- end
+
+    if GamePlay then
+        local gameplay = GamePlay.cur()
+        if gameplay then
+            gameplay:attack(gameplay:getPlayer(), uid)
+        end
     end
 end
 
@@ -168,10 +212,10 @@ function M.init()
     --    end
     --end
     --endregion
-    
+
 end
 
 ---还需要做的预制体有：卡牌的背面
----		
+---
 
 return M

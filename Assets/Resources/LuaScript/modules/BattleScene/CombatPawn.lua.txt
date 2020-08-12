@@ -1,0 +1,47 @@
+---@class CombatPawn
+local CombatPawn = {}
+
+---@param pawn CS.UnityEngine.GameObject
+function CombatPawn.init(pawn, uid)
+    local cardId = GamePlay.cur():getIdByUid(uid)
+    local info = global.cardInfos[cardId]
+    
+    ---忘了combatcard的结构了。。
+    ---从池子中取出一个卡牌
+    pawn.uid = uid
+    local card = pawn:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    ---修改卡牌里面所显示的内容
+    card.content.sprite = util.loadSprite("Image/Card/"..info.img)
+    card.hp.text = info.hp
+    card.mp.text = info.mp
+    card.atk.text = info.atk
+    ---还有卡牌的技能的图标需要修改
+
+    -- card.skill[0].sprite = util.loadSprite("Image/Card/"..info.img)
+
+    --region
+    --local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
+    --for i = 0, #(M.data.myPanel) - 1 do
+    --    local index = M.data.myPanel[i + 1]
+    --    if index and index ~= 0 then
+    --        local origin = CS.Util.Loader.Load("Prefab/CombatPawn")
+    --        ---@type UnityEngine.GameObject
+    --        local card = CS.UnityEngine.GameObject.Instantiate(origin)
+    --        --card.transform.localPosition = CS.UnityEngine.Vector3.zero
+    --        ---@type UnityEngine.RectTransform
+    --        local tr = card:GetComponent(typeof(CS.UnityEngine.RectTransform))
+    --        tr.localPosition = CS.UnityEngine.Vector3.zero
+    --        ---@type Prefab.CombatSceneCombatCardScript
+    --        local s = card:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --        s.content.sprite = util.loadSprite("Image/Card/"..global.cardInfos[M.data.uids[index]].img)
+    --        script.myPanel:GetSlot(i):AddCard(s)
+    --        ---在最后修改创建出来的卡牌的缩放
+    --        tr.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
+    --    else
+    --        script.myPanel:GetSlot(i):Remove()
+    --    end
+    --end
+    --endregion
+end
+
+return CombatPawn

@@ -3,13 +3,13 @@ local M = {
     
 }
 
----@type IGamePlay
+---@type DefaultGamePlay
 M.default = nil
 M._cur = nil
 M._list = {}
 
 ---通过这里的调用来注册所有玩法类
----@param clazz IGamePlay
+---@param clazz DefaultGamePlay
 function M.reg(name, clazz)
 	if not M._list[name] and clazz then
 		log(string.format("注册一个新的玩法类%s", name))
@@ -17,12 +17,12 @@ function M.reg(name, clazz)
     end
 end
 
----@return IGamePlay
+---@return DefaultGamePlay
 function M.cur()
 	return M._cur
 end
 
----@return IGamePlay
+---@return DefaultGamePlay
 function M.create(name)
 	if M._list[name] then
 		M._cur = M._list[name].new()
@@ -37,6 +37,7 @@ function M.destroy()
 	end
 end
 
+---读取配置文件中所有注册的玩法类
 local list = util.readCfgFile(CS.Util.Loader.Read("LuaScript/config/gameplay"))
 for key, value in pairs(list) do
 	M.reg(key, require(value))

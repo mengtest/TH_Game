@@ -1,5 +1,21 @@
-local Composite = util.class("Composite")
+local Node = require"ai.tree.node"
 
+---复合节点
+local Composite = class("Composite", Node)
 
+---顺序执行所有的子节点，有任意一个返回失败则停止执行并返回失败
+function Composite.Sequence()
+    -- body
+end
+
+---一直执行直到有任意一个子节点返回成功，或者全部执行失败时返回失败
+function Composite.Select()
+    -- body
+end
+
+---暂时不管这个
+function Composite.Parallel()
+    -- body
+end
 
 return Composite

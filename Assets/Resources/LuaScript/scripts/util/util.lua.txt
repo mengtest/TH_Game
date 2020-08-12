@@ -109,12 +109,11 @@ local function readOnly(t)
     return proxy
 end
 
----
-nn.const = readOnly({
-    
-})
-
 ---@type NN
 nn = nn or {}
 nn.class = class
 nn.readOnly = readOnly
+---
+nn.const = readOnly({
+    
+})

@@ -40,14 +40,7 @@ function M.init(data)
 
         ---现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
         ---这个是通过某种手段获取到的当前玩家的卡牌数组
-        
-        --region
-        ---这里随机给出1到50作为卡牌的id，
-        local t = {}
-        for i = 1, 50 do
-            table.insert(t, i)
-        end
-        --endregion
+        local t = CS.LuaApi.GetPlayer(1, 1)
         
         ---@type CCard[]
         global.combatCardInfos = {}
@@ -57,10 +50,11 @@ function M.init(data)
             ---这里的两个数组里面的信息是一一对应的，
             --print(t.pawns[i])
             --print(t.cards[i])
+            
             ---这里需要做一个转换，因为cs、cpp的数组下标都是从0开始
-            local e = t[i + 1]
-            table.insert(imgs, string.format("Image/Card/%s",global.cardInfos[e].img))
-            table.insert(imgs, string.format("Image/Card/%s",global.cardInfos[e].icon))
+            local e = t.cards[i + 1]
+            table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].img))
+            table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].icon))
         end
         
         --region
@@ -76,7 +70,7 @@ function M.init(data)
         --end
         --endregion
         
-        log(json.encode(imgs))
+        -- log(json.encode(imgs))
         ---@type UnityEngine.GameObject
         local go = util.loadGameObject("Prefab/CombatPawn")
         ---这个接口还没有实现，先不管
