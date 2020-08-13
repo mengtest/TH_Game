@@ -140,6 +140,7 @@ end
 ---@param enemyCards number[]
 ---@return number , number, number  当前战斗系统的id、当前玩家id、敌方玩家id
 function DefaultGamePlay:init(myCards, enemyCards)
+    require"gameplay.defaultCombat.action"
     enemyCards = enemyCards or {
         14,14,4,8,7,2,1,1,22,22,23,23,23,23,24,20,19,18,55,56,56,57,57,58,58,54,
         54,54,53,52,86,85,84,84,84,84,84,84,84,83,83,83,83,83,83,82,82,82,82,82
