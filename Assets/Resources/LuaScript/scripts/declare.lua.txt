@@ -107,11 +107,11 @@ local BuffD = {
 ---@field public energy number
 ---@field public maxEnergy number
 ---@field public gold number[]
----@field public cards number[]
----@field public pawns number[]
----@field public handCards number[]
----@field public combatCards number[]
----@field public deckCards number[]
+---@field public cards number[] 当前玩家持有的卡牌的id集合
+---@field public pawns number[] 当前玩家持有的卡牌的uid集合
+---@field public handCards number[] 当前玩家手牌中的卡牌uid集合
+---@field public combatCards number[] 当前玩家战场中卡牌的uid集合，这个是固定长度
+---@field public deckCards number[] 当前玩家卡池中剩余卡牌的uid集合
 ---@class PlayerS
 local PlayerS = {
 

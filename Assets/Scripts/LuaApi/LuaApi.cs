@@ -121,7 +121,7 @@ public class LuaApi
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public int[] combatCards;                     //该玩家正在战斗的卡牌信息              这里应该是unique_id
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
-        public int[] deckCards;                      //卡池中所有的卡牌信息                  这里应该是unique_id
+        public int[] deckCards;                        //卡池中所有的卡牌信息                  这里应该是unique_id
         public int hp;                                 //玩家剩余的血量
         public int maxHp;                              //最大血量
         public int energy;                             //玩家当前的能量

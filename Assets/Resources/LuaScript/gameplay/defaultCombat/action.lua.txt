@@ -1,9 +1,15 @@
-local s = {}
+---@class GamePlayEventHandle
+local M = {}
 
+M.update = nil
+M.notice = nil
 
 ---@param str string
 function NoticeFun(str)
     log(str)
+    if M.notice then
+        M.notice(str)
+    end
 end
 
 --region
@@ -59,9 +65,20 @@ end
 ---每次有对象的属性更新时，调用此函数
 ---@param attr AttrStruct
 function UpdateFun(attr)
-    ---这个是有卡牌从卡池中移动到手牌中的事件
-    if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
-        ---这里直接更新ui？
-        
+    ---更新ui的逻辑放在了
+    if M.update then
+        M.update(attr)
     end
 end
+
+---@param updateFunc function<AttrStruct>
+function M.regUpdate(updateFunc)
+    M.update = updateFunc
+end
+
+---@param noticeFunc function<string>
+function M.regNotice(noticeFunc)
+    M.notice = noticeFunc
+end
+
+return M

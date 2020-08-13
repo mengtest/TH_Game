@@ -9,7 +9,6 @@ function M.init()
     ---@type FairyGUI.GComponent
     local com = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel)).ui.asCom
 	
-	
     local rBtn = com:GetChild("rightBtn").asLoader
     local lBtn = com:GetChild("leftBtn").asLoader
 	
@@ -24,15 +23,23 @@ function M.init()
 
     local body = com:GetChild("body").asCom
     local displayList = body:GetChild("displayItemList").asList
+    ---@type FairyGUI.GList
+    M._display = displayList
     ---无法调用xlua提供的方法来增加回调
     displayList.itemRenderer = function (index, obj)
+        
         ---@type FairyGUI.GComponent
         local item = obj
-        item:GetChild("num").asTextField.text = "x" .. math.random(1, 5)
+        item:GetChild("num").asTextField.text = "x" .. GamePlay.cur():getLeftUiList()[index + 1].num
+        ---这个可以用来修改
+        --item:GetChild("icon").asLoader.url = ""
     end
     displayList:SetVirtual()
-    displayList.numItems = 100
-
+    displayList.numItems = #(GamePlay.cur()._cardsBuildForLeftUi)
+    CS.Lib.Listener.Instance:On("player_deck_card_update", function ()
+        displayList:RefreshVirtualList()
+    end, CS.Lib.Listener.Instance:SceneUniqueObject())
+    
     local show = true
     arrow.onClick:Add(function ()
         if show then
@@ -43,5 +50,16 @@ function M.init()
         show = not show
     end)
 end
+
+--function M.update()
+--    if M._display then
+--        M._display:RefreshVirtualList() 
+--    end
+--end
+
+--function M.bindData(list)
+--    ---@type UIDeckCardItem[]
+--    M._data = list
+--end
 
 return M

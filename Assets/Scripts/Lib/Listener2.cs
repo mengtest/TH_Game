@@ -1354,7 +1354,9 @@ namespace Lib
             new Dictionary<string, LinkedList<ListenerObject>>();
 
         private static Listener _instance;
-        
+
+        private GameObject _uniqueObj;
+
         public const string KEY_EVENT = "key_board";
         public const string MOUSE_EVENT = "mouse";
         
@@ -1408,6 +1410,18 @@ namespace Lib
             }
         }
 
+        //获取到每个场景中唯一的游戏对象
+        //方便场景切换时销毁监听器
+        public GameObject SceneUniqueObject()
+        {
+            if (_uniqueObj == null)
+            {
+                _uniqueObj = new GameObject("SceneUniqueListener");
+                _uniqueObj.AddComponent<ListenerObject>();
+            }
+            return _uniqueObj;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -1430,7 +1444,7 @@ namespace Lib
             }
             
         }
-        
+
         /// <summary>
         /// 
         /// </summary>

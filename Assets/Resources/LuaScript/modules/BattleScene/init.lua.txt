@@ -2,7 +2,7 @@ local M = {}
 
 --local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
-local helper = require"modules.BattleScene.CombatPawn"
+--local helper = require"modules.BattleScene.CombatPawn"
 
 ---战斗场景应该具有的功能
 ---     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景)
@@ -26,10 +26,11 @@ local list = {
 ---@param data number[]
 function M.init(data)
 	require"modules.BattleScene.LoadingLayer".init()
-	
+	local handle = require"modules.BattleScene.MsgHandle"
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")
+    GamePlay.cur().bindUpdate(handle.distribute)
     
     ---@type DefaultGamePlay
     local gamePlay = GamePlay.cur()

@@ -1,7 +1,7 @@
 -- ---@class Helper
 -- local Helper = {}
 
--- ---¸ù¾İ¿¨ÅÆµÄid¡¢ÒÔ¼°ÊôĞÔĞÅÏ¢À´³õÊ¼»¯¿¨ÅÆ
+-- ---æ ¹æ®å¡ç‰Œçš„idã€ä»¥åŠå±æ€§ä¿¡æ¯æ¥åˆå§‹åŒ–å¡ç‰Œ
 -- function Helper.combatCardInit()
     
 -- end

@@ -146,7 +146,7 @@ function M.summon(pawnId, pos)
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().summon(gameplay:getHandle().getPlayer(), pawnId, pos)
-            gameplay:userSkill(gameplay:getPlayer(), pawnId, pos)
+            gameplay:summon(gameplay:getPlayer(), pawnId, pos)
         end
     end
 end

@@ -1,6 +1,7 @@
 using System;
 using Prefab;
 using UnityEngine;
+using UnityEngine.UI;
 using XLua;
 
 
@@ -34,6 +35,16 @@ namespace Scene.CombatScene
         
         [Tooltip("敌方的卡牌列表，这里存放的是卡牌的背面")]
         public RectTransform enemyHandList;
+
+//        public Button highDrawBtn;
+//        
+//        public Button normalDrawBtn;
+//        
+//        public Text gold;
+//        
+//        public Text gold;
+//        
+//        public Text gold;
 
         private static UserInputScript _instance;
 

@@ -92,6 +92,11 @@ namespace Util
                     pool.Enqueue(go);
                     go.transform.SetParent(_poolObj.transform.GetChildByName(name));                    
                 }
+                else
+                {
+                    //如果无法添加的话则直接删除，否则会被添加到场景的根对象列表中
+                    Object.DestroyImmediate(go);
+                }
             }
             
         }

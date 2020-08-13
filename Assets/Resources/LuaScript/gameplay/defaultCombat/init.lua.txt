@@ -3,6 +3,8 @@
 ---@class DefaultGamePlay : IGamePlay
 local DefaultGamePlay = util.class("DefaultGamePlay")
 
+local action = require"gameplay.defaultCombat.action"
+
 ---要如何才能实现ai相关的功能？
 ---感觉ai不能直接复用这边的逻辑
 
@@ -31,6 +33,11 @@ local DefaultGamePlay = util.class("DefaultGamePlay")
 --         玩家拖动手中的棋子到棋盘中将其召唤到对应的位置上，如果目标位置上已经存在棋子了，则失败，另外，玩家召唤棋子是需要一定的能量的
 --endregion
 
+---@field public id number
+---@field public num number
+---@class UIDeckCardItem
+local _ = {}
+
 ---构造函数
 function DefaultGamePlay:ctor()
     --self:init()
@@ -46,6 +53,45 @@ function DefaultGamePlay:ctor()
     ---当前对局中所有卡牌的uid到其id的映射
     self._map = {}
     self._pawnSize = 0
+    ---这个是卡牌的原始id到卡牌的
+    ---@type UIDeckCardItem[]
+    self._cardsBuildForLeftUi = {}
+
+    ---当玩家抽卡或者其他修改了这个卡组的时候触发这个事件
+    CS.Lib.Listener.Instance:On("player_deck_card_update", function (plus, uid)
+        local id = self._map[uid]
+        if id then
+            local item = self:getLeftDeckCardItemById(uid)
+            if item then
+                if plus then
+                    item.num = item.num + 1 
+                else
+                    item.num = item.num - 1
+                end
+            end
+        end
+    end, CS.Lib.Listener.Instance:SceneUniqueObject())
+end
+
+function DefaultGamePlay:getLeftDeckCardItemById(id)
+    for i, v in pairs(self._cardsBuildForLeftUi) do
+        if v.id == id then
+            return v
+        end
+    end
+    return nil
+end
+
+function DefaultGamePlay:getLeftUiList()
+    return self._cardsBuildForLeftUi
+end
+
+function DefaultGamePlay.bindUpdate(func)
+    action.regUpdate(func)
+end
+
+function DefaultGamePlay.bindNotice(func)
+    action.regNotice(func)
 end
 
 ---玩家选择棋子攻击
@@ -179,15 +225,23 @@ function DefaultGamePlay:init(myCards, enemyCards)
             -- local target = CS.LuaApi.GetPlayer(self._combatId, enemyId)
             local this = combat:getPlayer(playerId):data()
             local target = combat:getPlayer(enemyId):data()
-            print("uid:"..this.uid)
+            --print("uid:"..this.uid)
+            local tempList = {}
             for i = 1, #myCards do
                 self._map[this.pawns[i]] = this.cards[i]
+                if not tempList[this.cards[i]] then
+                    tempList[this.cards[i]] = 1
+                else
+                    tempList[this.cards[i]] = tempList[this.cards[i]] + 1
+                end
                 self._map[target.pawns[i]] = target.cards[i]
+            end
+            for i, v in pairs(tempList) do
+                table.insert(self._cardsBuildForLeftUi, {id = i, num = v})
             end
             self._pawnSize = #myCards + #enemyCards
         end
     end
-
     return self._combatId, self._player, enemyId
 end
 
@@ -211,7 +265,7 @@ end
 
 ---是否获取敌方玩家
 function DefaultGamePlay:getPlayer(this)
-    if this then
+    if not this then
         return self._player
     end
     return self._players[2]
