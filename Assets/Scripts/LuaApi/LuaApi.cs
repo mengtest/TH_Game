@@ -7,7 +7,7 @@ using XLua;
 public class LuaApi
 {
     public const int NN_EVENT_BEGIN = 10000;
-    public     const int ATTR_BEGIN = 20000;
+    public const int ATTR_BEGIN = 20000;
     public const int PLAYER_ATTR_BEGIN = ATTR_BEGIN + 1000;
     public const int PAWN_ATTR_BEGIN = ATTR_BEGIN + 2000;
     public const int BUFF_ATTR_BEGIN = ATTR_BEGIN + 3000;
@@ -16,7 +16,7 @@ public class LuaApi
     public const int PLAYER_COST_BEGIN = COST_BEGIN + 1000;
     public const int PAWN_COST_BEGIN = COST_BEGIN + 2000;
 
-    public 	const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
+    public const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
     public const int EventPawnAttrMp = PAWN_ATTR_BEGIN + 2;
     public const int EventPawnAttrMatk = PAWN_ATTR_BEGIN + 3;
     public const int EventPawnAttrAtk = PAWN_ATTR_BEGIN + 4;

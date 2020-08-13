@@ -101,9 +101,10 @@ namespace Core
             _instance._msgs2 = new Dictionary<int, Delegate2>();
         }
 
+        //如果是离线模式的话，应该是cpp端的消息返回后直接来到这里，由这里分发后再处理
         public static void InitAll()
         {
-            //只有在离线模式下才会使用这里的逻辑
+            //只有在离线模式下才会启用这里的逻辑
             LuaApi.set_notice_action(NoticeFunction);
             LuaApi.set_update_action(UpdateFunction);
         }
@@ -113,12 +114,14 @@ namespace Core
             //这里的数据再本质上就相当于一条一条的命令
             //这里的两个函数就有以下几种做法
             //第一种是直接在CS端处理掉所有的数据
+
         }
 
         private static void UpdateFunction(LuaApi.AttrStruct attr)
         {
             //这个与界面的更新息息相关，直接在cs端完成
             //实际上离线模式与在线模式对ui的处理应该是大同小异的
+
         }
     }
 }

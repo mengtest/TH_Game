@@ -28,6 +28,12 @@ namespace Scene.CombatScene
 
         [Tooltip("当前鼠标所在的卡槽")]
         public CombatPanelSlotScript curSlot;
+        
+        [Tooltip("自己的卡牌列表，这里存放的是卡牌")]
+        public RectTransform myHandList;
+        
+        [Tooltip("敌方的卡牌列表，这里存放的是卡牌的背面")]
+        public RectTransform enemyHandList;
 
         private static UserInputScript _instance;
 

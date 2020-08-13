@@ -41,18 +41,18 @@ function M.init(data)
         ---现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
         ---这个是通过某种手段获取到的当前玩家的卡牌数组
         ---这里获取到当前玩家的卡牌数据
-        local t = CS.LuaApi.GetPlayer(GamePlay.cur():getCombatId(), GamePlay.cur():getPlayer())
-
+        --local t = CS.LuaApi.GetPlayer(GamePlay.cur():getCombatId(), GamePlay.cur():getPlayer())
+        local t = GamePlay.cur():getPawnList()
         -- nn.get_combat()
         ---@type CCard[]
         global.combatCardInfos = {}
         local imgs = {}
-        for i = 0, 49 do
+        for i = 1, 100 do
             ---在lua端组合出完整的卡牌数据
             ---这里的两个数组里面的信息是一一对应的，
             
             ---这里需要做一个转换，因为cs、cpp的数组下标都是从0开始
-            local e = t.cards[i]
+            local e = t[i]
             table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].img))
             table.insert(imgs, string.format("Image/Card/%s", global.cardInfos[e].icon))
         end
@@ -81,6 +81,7 @@ function M.init(data)
             local res
             res, objs = xutil.async_to_sync(xutil.bind(CS.Util.Loader.LoadAsync, imgs))()
             if res then
+                CS.Util.Pool.SetMaxSize("CardImgs", 40)
                 ---数组长度为100
                 ---偶数为卡牌的大图、奇数为卡牌的小图
                 for i = 0, 99 do
@@ -89,7 +90,6 @@ function M.init(data)
                         ---应该提供一个专门的函数来生成不同的卡牌对象
                         ---对象池应该有可以设置最大值的接口
                         local card = CS.UnityEngine.GameObject.Instantiate(go)
-                        
                         ---这里加载的是大图
                         CS.Util.Pool.Store("CardImgs", card)
                     else
@@ -97,6 +97,7 @@ function M.init(data)
                         ---CS.Util.Pool.Store("CardIcons")
                     end
                 end
+                ---游戏正式开始的时候再去调用这个函数，但是目前的情况来看的话，当前客户端所需的资源全部加载完成之后就可以调用这个函数了
                 GamePlay.cur():combatStart()
             end
         end

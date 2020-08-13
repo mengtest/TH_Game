@@ -710,12 +710,12 @@ void LuaFramework::script(AttrStruct* attr)
 {
     // nn.set_function("set_notice_fun", Export::set_notice_fun);
     // nn.set_function("set_update_fun", Export::set_update_fun);
-    _lua["UpdateFun"].get<sol::function>().call(attr);
+    _lua["UpdateFun"].get_or_create<sol::function>().call(attr);
 }
 
 void LuaFramework::script(const std::string& str)
 {
-    _lua["NoticeFun"].get<sol::function>().call(str);
+    _lua["NoticeFun"].get_or_create<sol::function>().call(str);
 }
 
 // void LuaFramework::script(int combatId, int uid, LuaFunctionName name)

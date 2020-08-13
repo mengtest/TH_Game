@@ -125,11 +125,11 @@ namespace Core
             
             public void Init(int uid, int id2)
             {
-                if (!CppCore.isCoreInit())
-                {
-                    //start会先控制客户端进入战斗场景
-                    CppCore.csCoreInit(UpdatePlayerMsgCallback, UpdatePawnMsgCallback, UpdateCombatMsgCallback);
-                }
+                // if (!CppCore.isCoreInit())
+                // {
+                //     //start会先控制客户端进入战斗场景
+                //     CppCore.csCoreInit(UpdatePlayerMsgCallback, UpdatePawnMsgCallback, UpdateCombatMsgCallback);
+                // }
             }
 
             public void Start()

@@ -12,8 +12,10 @@ namespace Util
     [LuaCallCSharp]
     public static class Pool
     {
+        public const int MAX_SIZE = 20;
         private static Dictionary<string, Queue<GameObject>> _pool = new Dictionary<string, Queue<GameObject>>();
         private static GameObject _poolObj;
+        private static Dictionary<string, int> _poolSize = new Dictionary<string, int>();
 
         public static void Init()
         {
@@ -49,16 +51,33 @@ namespace Util
         //设置池子的元素最大数量
         public static void SetMaxSize(string name, int size)
         {
-            throw new NotImplementedException();
+//            throw new NotImplementedException();
+            //目前阶段只允许扩容，不允许缩小
+            if (_poolSize.ContainsKey(name))
+            {
+                if (_poolSize[name] >= size)
+                {
+                    //不处理
+                }
+                else
+                {
+                    _poolSize[name] = size;
+                }
+            }
+            else
+            {
+                _poolSize.Add(name, size);
+            }
         }
 
-        public static void Store(string name,GameObject go)
+        public static void Store(string name, GameObject go)
         {
             go.SetActive(false);
             go.transform.SetParent(null);
             if(!_pool.ContainsKey(name))
             {
                 var pool = new Queue<GameObject>();
+                SetMaxSize(name, MAX_SIZE);
                 var g = new GameObject(name);
                 g.transform.SetParent(_poolObj.transform);
                 pool.Enqueue(go);
@@ -68,8 +87,11 @@ namespace Util
             else
             {
                 var pool = _pool[name];
-                pool.Enqueue(go);
-                go.transform.SetParent(_poolObj.transform.GetChildByName(name));
+                if (pool.Count < _poolSize[name])
+                {
+                    pool.Enqueue(go);
+                    go.transform.SetParent(_poolObj.transform.GetChildByName(name));                    
+                }
             }
             
         }

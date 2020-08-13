@@ -1,0 +1,79 @@
+---这个文件中处理所有的消息，并更新ui
+---@class MsgHandle
+local MsgHandle = {}
+
+---@type Scene.CombatScene.UserInputScript
+local input = require"modules.BattleScene.userInputLayer".inputLayer
+
+---消息的分发
+---@param attr AttrStruct
+function MsgHandle.distribute(attr)
+    
+end
+
+---玩家抽卡成功后的更新
+---这里的逻辑有点复杂，主要包括有：1、从卡组中添加一个棋子到手中 2、初始化该棋子所有的属性 3、左侧的卡池中的数据也会有响应的更新
+---@param pawnUid number 玩家抽到的棋子的uid
+function MsgHandle.playerDrawCard(playerId, pawnUid)
+    ---@type UnityEngine.GameObject
+    local go = CS.Util.Pool.Get("CardImgs")
+    go:SetActive(true)
+    ---需要能将卡牌从卡组的位置移动到当前玩家的手牌列表中
+    ---最好可以播放一段动画
+    -- TODO
+    go.transform:SetParent(input.myHandList)
+    
+    local cardId = GamePlay.cur():getIdByUid(uid)
+    local info = global.cardInfos[cardId]
+
+    ---@type Prefab.CombatSceneCombatCardScript
+    local card = go:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    card.uid = uid
+    ---修改卡牌里面所显示的内容
+    local s = util.loadSprite("Image/Card/"..info.img)
+    card.content.sprite = CS.UnityEngine.GameObject.Instantiate(s)
+    card.hp.text = info.hp
+    card.mp.text = info.mp
+    card.atk.text = info.atk
+    
+    ---@type UnityEngine.RectTransform
+    local t = go.transform:GetComponent(typeof(CS.UnityEngine.RectTransform))
+    t.localPosition = CS.UnityEngine.Vector3.zero
+    ---放置到场地上的所有卡牌的scale都会被设置为0.5、0.5、1
+    t.localScale = CS.UnityEngine.Vector3(0.5, 0.5, 1)
+end
+
+---玩家点击结束回合的按钮后的更新
+function MsgHandle.playerTurnEnd(playerId)
+    
+end
+
+---玩家的属性变化后的更新
+---这里主要包括，金币、hp、能量等的更新，
+---@param ty number 枚举值，1、金币 2、hp 3、能量
+function MsgHandle.playerAttrChange(playerId, ty, value)
+    
+end
+
+---这个应该主要指的是战斗中的棋子的属性发生变化
+---@param ty number 枚举值，具体意义以后再说
+function MsgHandle.pawnAttrChange(playerId, pawnUid, ty, value)
+
+end
+
+---这个应该主要指的是战斗中的buff的属性发生变化
+---@param ty number 枚举值，具体意义以后再说
+function MsgHandle.buffAttrChange(playerId, buffId, ty, value)
+
+end
+
+---棋子死亡
+function MsgHandle.pawnDead(playerId, pawnUid)
+
+end
+
+function MsgHandle.playerDrawCard(playerId, pawnUid)
+    
+end
+
+return MsgHandle

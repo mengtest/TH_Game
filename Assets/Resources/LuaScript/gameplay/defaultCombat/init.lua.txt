@@ -195,6 +195,7 @@ function DefaultGamePlay:combatStart()
     local combat = nn.get_combat(self._combatId)
     if combat then
         combat:start()
+        nn.log(string.format("战斗正式开始，当前的战斗系统的id是%d", combat:id()))
     end
 end
 
@@ -233,7 +234,11 @@ function DefaultGamePlay:getCurPawnList()
 end
 
 function DefaultGamePlay:getPawnList()
-    
+    local t = {}
+    for i, v in pairs(self._map) do
+        table.insert(t, v)
+    end
+    return t
 end
 
 function DefaultGamePlay:getCombatId()

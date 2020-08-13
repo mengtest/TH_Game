@@ -1,5 +1,6 @@
 local Node = require"ai.tree.node"
 
+---@class Condition
 local Condition = class("Condition", Node)
 
 function Condition:ctor(name, value)
@@ -21,12 +22,15 @@ end
 
 -- end
 
+
 ---直接子节点中所有子节点的条件都要满足
+---@return Condition
 function Condition.And()
     
 end
 
 ---直接子节点中有一个满足条件
+---@return Condition
 function Condition.Or()
     
 end

@@ -5,7 +5,7 @@ local CombatPawn = {}
 function CombatPawn.init(pawn, uid)
     local cardId = GamePlay.cur():getIdByUid(uid)
     local info = global.cardInfos[cardId]
-    
+
     ---@type Prefab.CombatSceneCombatCardScript
     local card = pawn:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
     card.uid = uid
@@ -14,7 +14,7 @@ function CombatPawn.init(pawn, uid)
     card.hp.text = info.hp
     card.mp.text = info.mp
     card.atk.text = info.atk
-    
+
     ---还有卡牌的技能的图标需要修改
 
     -- card.skill[0].sprite = util.loadSprite("Image/Card/"..info.img)

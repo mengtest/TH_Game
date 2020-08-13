@@ -1505,6 +1505,8 @@ MonoBehaviour:
   enemyPanel: {fileID: 2033888032}
   dragCardTransform: {fileID: 0}
   curSlot: {fileID: 0}
+  myHandList: {fileID: 1745243996}
+  enemyHandList: {fileID: 603725698}
 --- !u!114 &307216572
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,24 +1,30 @@
 local Node = require"ai.tree.node"
 
 ---动作节点结束后将会结束本次操作
+---@class Action
 local Action = class("Action", Node)
 
+---@return Action
 function Action.Attack()
     
 end
 
+---@return Action
 function Action.TurnEnd()
     
 end
 
+---@return Action
 function Action.UseSkill()
     
 end
 
+---@return Action
 function Action.Draw()
     
 end
 
+---@return Action
 function Action.Wait()
     -- body
 end

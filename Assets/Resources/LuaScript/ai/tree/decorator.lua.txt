@@ -1,11 +1,14 @@
 local Node = require"ai.tree.node"
 
+---@class Decorator
 local Decorator = class("Decorator", Node)
 
+---@return Decorator
 function Decorator.Loop()
     
 end
 
+---@return Decorator
 function Decorator.LoopUntil()
     
 end

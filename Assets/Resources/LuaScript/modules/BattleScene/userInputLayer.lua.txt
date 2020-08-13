@@ -3,11 +3,6 @@
 ---@class UserInputLayer
 local M = {}
 
----@type UnityEngine.GameObject
-M.inputLayer = nil
----@type Scene.CombatScene.CombatPanelSlotScript
-M.curHonverSlot = nil
-
 ---在这一层里面处理所有的用户输入与输出
 
 ---@param script Scene.CombatScene.CombatPanelSlotScript 这个是存放有卡牌的slot脚本
@@ -171,12 +166,17 @@ function M.attack(uid)
 end
 
 function M.init()
+    ---@type Scene.CombatScene.UserInputScript
+    M.inputLayer = nil
+    ---@type Scene.CombatScene.CombatPanelSlotScript
+    M.curHonverSlot = nil
+    
     ---@type DisplayPawn[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
     
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then
-        M.inputLayer = go
+        M.inputLayer = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
 		--- 监听鼠标在卡牌的slot上释放的事件
         CS.Lib.Listener.Instance:On("Release_Slot", M.slotReleaseEvent, go, 0, false)
 		--- 监听鼠标弹起的事件
