@@ -169,7 +169,7 @@ function M.CardList(this)
         local card = M.selectedCardList[index + 1]
         local data = global.cardInfos[card[1]]
         node.data = index
-        node.label.text = string.format("【%s】%s", util.idToType(data.type), data.name)
+        node.label.text = string.format("【%s】%s", util.idToType(data.type), data.name_cn or data.name)
         node.count.text = string.format("x%d", card[2])
     end)
 

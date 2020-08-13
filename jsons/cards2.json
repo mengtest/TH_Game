@@ -78,7 +78,7 @@
     {
         "id": 5,
         "name": "junko",
-        "name_cn": "纯狐",
+        "name_cn": "丰聪耳神子",
         "icon": "junko_big_png",
         "img": "junko_big_png",
         "hp": 10,
@@ -135,7 +135,6 @@
     {
         "id": 8,
         "name": "mamizou",
-        "name_cn": "二岩瑞脏",
         "icon": "mamizou_big_png",
         "img": "mamizou_big_png",
         "hp": 10,
@@ -154,7 +153,7 @@
     {
         "id": 9,
         "name": "matara",
-        "name_cn": "摩多罗隐岐奈",
+        "name_cn": "",
         "icon": "matara_big_png",
         "img": "matara_big_png",
         "hp": 10,
@@ -173,7 +172,7 @@
     {
         "id": 10,
         "name": "miko",
-        "name_cn": "丰聪耳神子",
+        "name_cn": "",
         "icon": "miko_big_png",
         "img": "miko_big_png",
         "hp": 10,
@@ -192,7 +191,7 @@
     {
         "id": 11,
         "name": "reimu",
-        "name_cn": "博丽灵梦",
+        "name_cn": "灵梦",
         "icon": "reimu_big_png",
         "img": "reimu_big_png",
         "hp": 10,
@@ -230,7 +229,7 @@
     {
         "id": 13,
         "name": "sariel",
-        "name_cn": "萨丽爱尔",
+        "name_cn": "",
         "icon": "sariel_big_png",
         "img": "sariel_big_png",
         "hp": 10,
@@ -287,7 +286,6 @@
     {
         "id": 16,
         "name": "yumemi",
-        "name_cn": "冈崎梦美",
         "icon": "yumemi_big_png",
         "img": "yumemi_big_png",
         "hp": 10,
@@ -363,7 +361,7 @@
     {
         "id": 20,
         "name": "clownpiece",
-        "name_cn": "克劳恩皮斯",
+        "name_cn": "",
         "icon": "clownpiece_big_png",
         "img": "clownpiece_big_png",
         "hp": 7,
@@ -382,7 +380,7 @@
     {
         "id": 21,
         "name": "futo",
-        "name_cn": "步都",
+        "name_cn": "",
         "icon": "futo_big_png",
         "img": "futo_big_png",
         "hp": 7,
@@ -401,7 +399,7 @@
     {
         "id": 22,
         "name": "gengetu",
-        "name_cn": "幻月",
+        "name_cn": "",
         "icon": "gengetu_big_png",
         "img": "gengetu_big_png",
         "hp": 7,
@@ -458,7 +456,7 @@
     {
         "id": 25,
         "name": "kishin",
-        "name_cn": "稀神探女",
+        "name_cn": "",
         "icon": "kishin_big_png",
         "img": "kishin_big_png",
         "hp": 7,
@@ -496,7 +494,6 @@
     {
         "id": 27,
         "name": "kyouko",
-        "name_cn": "幽谷响子",
         "icon": "kyouko_big_png",
         "img": "kyouko_big_png",
         "hp": 7,
@@ -515,7 +512,7 @@
     {
         "id": 28,
         "name": "marisa",
-        "name_cn": "雾雨魔理沙",
+        "name_cn": "魔理沙",
         "icon": "marisa_big_png",
         "img": "marisa_big_png",
         "hp": 7,
@@ -534,7 +531,7 @@
     {
         "id": 29,
         "name": "mima",
-        "name_cn": "魅魔",
+        "name_cn": "",
         "icon": "mima_big_png",
         "img": "mima_big_png",
         "hp": 7,
@@ -591,7 +588,7 @@
     {
         "id": 32,
         "name": "nue",
-        "name_cn": "封兽鵺",
+        "name_cn": "",
         "icon": "nue_big_png",
         "img": "nue_big_png",
         "hp": 7,
@@ -648,7 +645,7 @@
     {
         "id": 35,
         "name": "reisen",
-        "name_cn": "琳仙",
+        "name_cn": "",
         "icon": "reisen_big_png",
         "img": "reisen_big_png",
         "hp": 7,
@@ -667,7 +664,7 @@
     {
         "id": 36,
         "name": "rin",
-        "name_cn": "火焰猫磷",
+        "name_cn": "",
         "icon": "rin_big_png",
         "img": "rin_big_png",
         "hp": 7,
@@ -724,7 +721,7 @@
     {
         "id": 39,
         "name": "seiga",
-        "name_cn": "霍青娥",
+        "name_cn": "",
         "icon": "seiga_big_png",
         "img": "seiga_big_png",
         "hp": 7,
@@ -743,7 +740,7 @@
     {
         "id": 40,
         "name": "seija",
-        "name_cn": "鬼人正邪",
+        "name_cn": "",
         "icon": "seija_big_png",
         "img": "seija_big_png",
         "hp": 7,
@@ -762,7 +759,7 @@
     {
         "id": 41,
         "name": "shikieiki",
-        "name_cn": "四季映歌",
+        "name_cn": "",
         "icon": "shikieiki_big_png",
         "img": "shikieiki_big_png",
         "hp": 7,
@@ -781,7 +778,7 @@
     {
         "id": 42,
         "name": "shinmyoumaru",
-        "name_cn": "少名针妙丸",
+        "name_cn": "",
         "icon": "shinmyoumaru_big_png",
         "img": "shinmyoumaru_big_png",
         "hp": 7,
@@ -800,7 +797,7 @@
     {
         "id": 43,
         "name": "soga",
-        "name_cn": "苏我屠自古",
+        "name_cn": "",
         "icon": "soga_big_png",
         "img": "soga_big_png",
         "hp": 7,
@@ -838,7 +835,7 @@
     {
         "id": 45,
         "name": "sumireko",
-        "name_cn": "宇佐见堇子",
+        "name_cn": "",
         "icon": "sumireko_big_png",
         "img": "sumireko_big_png",
         "hp": 7,
@@ -857,7 +854,7 @@
     {
         "id": 46,
         "name": "suwako",
-        "name_cn": "诹访子",
+        "name_cn": "",
         "icon": "suwako_big_png",
         "img": "suwako_big_png",
         "hp": 7,
@@ -895,7 +892,7 @@
     {
         "id": 48,
         "name": "utsuho",
-        "name_cn": "灵乌路空",
+        "name_cn": "",
         "icon": "utsuho_big_png",
         "img": "utsuho_big_png",
         "hp": 7,
@@ -1009,7 +1006,7 @@
     {
         "id": 54,
         "name": "elly",
-        "name_cn": "艾丽",
+        "name_cn": "",
         "icon": "elly_big_png",
         "img": "elly_big_png",
         "hp": 4,
@@ -1028,7 +1025,7 @@
     {
         "id": 55,
         "name": "hatate",
-        "name_cn": "姬海棠果",
+        "name_cn": "",
         "icon": "hatate_big_png",
         "img": "hatate_big_png",
         "hp": 4,
@@ -1142,7 +1139,7 @@
     {
         "id": 61,
         "name": "lunasa",
-        "name_cn": "露娜萨",
+        "name_cn": "",
         "icon": "lunasa_big_png",
         "img": "lunasa_big_png",
         "hp": 4,
@@ -1180,7 +1177,7 @@
     {
         "id": 63,
         "name": "lyrica",
-        "name_cn": "莉莉卡",
+        "name_cn": "",
         "icon": "lyrica_big_png",
         "img": "lyrica_big_png",
         "hp": 4,
@@ -1199,7 +1196,7 @@
     {
         "id": 64,
         "name": "maribel",
-        "name_cn": "玛艾露贝莉",
+        "name_cn": "",
         "icon": "maribel_big_png",
         "img": "maribel_big_png",
         "hp": 4,
@@ -1218,7 +1215,7 @@
     {
         "id": 65,
         "name": "medicine",
-        "name_cn": "梅蒂欣",
+        "name_cn": "",
         "icon": "medicine_big_png",
         "img": "medicine_big_png",
         "hp": 4,
@@ -1237,7 +1234,7 @@
     {
         "id": 66,
         "name": "meirin",
-        "name_cn": "红美玲",
+        "name_cn": "",
         "icon": "meirin_big_png",
         "img": "meirin_big_png",
         "hp": 4,
@@ -1256,7 +1253,7 @@
     {
         "id": 67,
         "name": "merlin",
-        "name_cn": "梅露兰",
+        "name_cn": "红美玲",
         "icon": "merlin_big_png",
         "img": "merlin_big_png",
         "hp": 4,
@@ -1275,7 +1272,7 @@
     {
         "id": 68,
         "name": "minoriko",
-        "name_cn": "秋穰子",
+        "name_cn": "",
         "icon": "minoriko_big_png",
         "img": "minoriko_big_png",
         "hp": 4,
@@ -1294,7 +1291,7 @@
     {
         "id": 69,
         "name": "momiji",
-        "name_cn": "犬走椛",
+        "name_cn": "",
         "icon": "momiji_big_png",
         "img": "momiji_big_png",
         "hp": 4,
@@ -1351,7 +1348,7 @@
     {
         "id": 72,
         "name": "nitori",
-        "name_cn": "nitori",
+        "name_cn": "",
         "icon": "nitori_big_png",
         "img": "nitori_big_png",
         "hp": 4,
@@ -1370,7 +1367,7 @@
     {
         "id": 73,
         "name": "renko",
-        "name_cn": "宇佐见莲子",
+        "name_cn": "",
         "icon": "renko_big_png",
         "img": "renko_big_png",
         "hp": 4,
@@ -1408,7 +1405,7 @@
     {
         "id": 75,
         "name": "satori",
-        "name_cn": "觉",
+        "name_cn": "",
         "icon": "satori_big_png",
         "img": "satori_big_png",
         "hp": 4,
@@ -1427,7 +1424,7 @@
     {
         "id": 76,
         "name": "sizuha",
-        "name_cn": "秋静叶",
+        "name_cn": "",
         "icon": "sizuha_big_png",
         "img": "sizuha_big_png",
         "hp": 4,
@@ -1446,7 +1443,7 @@
     {
         "id": 77,
         "name": "star",
-        "name_cn": "斯塔",
+        "name_cn": "",
         "icon": "star_big_png",
         "img": "star_big_png",
         "hp": 4,
@@ -1465,7 +1462,7 @@
     {
         "id": 78,
         "name": "sunny",
-        "name_cn": "桑尼",
+        "name_cn": "",
         "icon": "sunny_big_png",
         "img": "sunny_big_png",
         "hp": 4,
@@ -1484,7 +1481,7 @@
     {
         "id": 79,
         "name": "toramaru",
-        "name_cn": "寅丸星",
+        "name_cn": "",
         "icon": "toramaru_big_png",
         "img": "toramaru_big_png",
         "hp": 4,
@@ -1503,7 +1500,7 @@
     {
         "id": 80,
         "name": "wriggle",
-        "name_cn": "莉格露",
+        "name_cn": "",
         "icon": "wriggle_big_png",
         "img": "wriggle_big_png",
         "hp": 4,
@@ -1522,7 +1519,7 @@
     {
         "id": 81,
         "name": "yoshika",
-        "name_cn": "宫古芳香",
+        "name_cn": "",
         "icon": "yoshika_big_png",
         "img": "yoshika_big_png",
         "hp": 4,
@@ -1560,7 +1557,7 @@
     {
         "id": 83,
         "name": "hourainingyou",
-        "name_cn": "蓬莱人形",
+        "name_cn": "",
         "icon": "hourainingyou_big_png",
         "img": "hourainingyou_big_png",
         "hp": 2,

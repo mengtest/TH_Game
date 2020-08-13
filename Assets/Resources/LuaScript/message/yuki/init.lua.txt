@@ -45,7 +45,7 @@ function _yuki_init_list.cantConnectServer()
                 CS.UnityEngine.Application.Quit(0)
             end
         end
-        xutil.coroutine_call(show)()
+        --xutil.coroutine_call(show)()
                 
         --dialog:ShowDialog()
                 

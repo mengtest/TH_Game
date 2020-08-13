@@ -147,9 +147,9 @@ end
 function DefaultGamePlay:draw(playerId, number, high)
     local gold
     if high then
-        gold = config.highPrice * number
+        gold = global.config.highDrawPrice * number
     else
-        gold = config.normalPrice * number
+        gold = global.config.normalDrawPrice * number
     end
     local combat = nn.get_combat(self._combatId)
     local player = combat:getPlayer(playerId)
