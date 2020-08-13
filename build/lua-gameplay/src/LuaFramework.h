@@ -2,6 +2,7 @@
 
 #include "3rd.h"
 #include "Interfaces.h"
+#include "Data.h"
 
 class Pawn;
 struct Damage;
@@ -68,11 +69,11 @@ public:
 
 	enum class ActionType
     {
-	    attack = 1,
-	    hit = 1 << 1,
-	    useSkill = 1 << 2,
-	    sufferSkill = 1 << 3,
-	    heal = 1 << 4,
+		attack = 1,
+		hit = 1 << 1,
+		useSkill = 1 << 2,
+		sufferSkill = 1 << 3,
+		heal = 1 << 4,
 		playerHit = 1 << 5,
     };
 
@@ -91,6 +92,10 @@ public:
 
     //这个就是调用脚本函数的接口，但是个人感觉应该是一个房间一个，这样的话可以做到在多线程的环境中调用
     void script(int combatId, int buffId, ActionType type, Damage* damage, int uid);
+
+	void script(AttrStruct* attr);
+
+	void script(const std::string& attr);
 
 	// /**
 	//  * \brief 创建一个新的luabuff，

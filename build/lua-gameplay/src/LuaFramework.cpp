@@ -22,6 +22,9 @@ LuaFramework* LuaFramework::_instance = nullptr;
 #define SOL_FUN(_CLASS_, _FUN_)\
     #_FUN_, &_CLASS_::_FUN_
 
+#define SOL_READONLY(_CLASS_, _PROPERTY_)\
+	#_PROPERTY_, sol::readonly(&_CLASS_::_PROPERTY_)
+
 void LuaFramework::free()
 {
 	//这种写法可以正常运行吗？
@@ -224,8 +227,6 @@ void LuaFramework::exportAll() {
 
     //所有的静态的create函数都存放到这里
     //sol::table create = _lua["create"].get_or_create<sol::table>();
-
-    
     // nn::nlogI(++id);
 	
 #pragma region nn名称空间下面所有的全局函数
@@ -237,10 +238,92 @@ void LuaFramework::exportAll() {
 	//战斗结束后自动销毁所有相关的内存，所以不需要手动去销毁
     nn.set_function("create_combat", Export::create_combat);
     nn.set_function("release_export", Export::release_export);
+    // nn.set_function("set_notice_fun", Export::set_notice_fun);
+    // nn.set_function("set_update_fun", Export::set_update_fun);
+    
 	
     //endregion
-#pragma endregion 
+#pragma endregion
 
+#pragma region PawnD、BuffD、PlayerS
+    //     //棋子拥有的技能是相对固定的，只要知道是什么棋子就能知道这个棋子有哪些技能，所以不返回棋子技能的信息
+    // int id;
+    // int unique_id;          //单次战斗中会被分配的唯一id(每次战斗开始的时候，会获取所有玩家当前的所有卡牌，同时为这些卡牌分配唯一的id)
+    // int hp;                 //生命值
+    // int mp;                 //魔法值
+    // int matk;               //魔法攻击力
+    // int atk;                //攻击力
+    // int def;                //防御力
+    // int mdef;               //模仿防御力
+    // int playerId;           //持有这个棋子的玩家id
+    // int type;               //n、r、sr、ssr
+    // int posType;            //当前棋子所在的地方的类型
+    // int pos;                //棋子所在的下标
+    _lua.new_usertype<PawnD>("PawnD", sol::no_constructor
+        , SOL_READONLY(PawnD, id)
+        , SOL_READONLY(PawnD, unique_id)
+        , SOL_READONLY(PawnD, hp)
+        , SOL_READONLY(PawnD, mp)
+        , SOL_READONLY(PawnD, matk)
+        , SOL_READONLY(PawnD, atk)
+        , SOL_READONLY(PawnD, def)
+        , SOL_READONLY(PawnD, mdef)
+        , SOL_READONLY(PawnD, playerId)
+        , SOL_READONLY(PawnD, type)
+        , SOL_READONLY(PawnD, posType)
+        , SOL_READONLY(PawnD, pos)
+        );
+
+    // int id;
+    // int restTime;               //buff的剩余时间
+    // int unique_id;              //为这个buff分配的uid
+    // int overlay;
+    _lua.new_usertype<BuffD>("BuffD", sol::no_constructor
+        , SOL_READONLY(BuffD, id)
+        , SOL_READONLY(BuffD, restTime)
+        , SOL_READONLY(BuffD, unique_id)
+        , SOL_READONLY(BuffD, overlay)
+        );
+
+    // int uid;
+    // int cards[DECK_CARD_NUM];                          //本次战斗，该玩家所选择的卡组信息       这里是id而非unique_id
+    // int pawns[DECK_CARD_NUM];                          //当前玩家持有的所有卡牌的信息           这里应该是unique_id
+    // int handCards[HAND_CARD_NUM];           //该玩家手上持有的卡牌信息              这里应该是unique_id
+    // int combatCards[8];                     //该玩家正在战斗的卡牌信息              这里应该是unique_id
+    // int deckCards[DECK_CARD_NUM];                      //卡池中所有的卡牌信息                  这里应该是unique_id
+    // int hp;                                 //玩家剩余的血量
+    // int maxHp;                              //最大血量
+    // int energy;                             //玩家当前的能量
+    // int maxEnergy;                          //玩家所能拥有的最大能量，指的是每回合开始，玩家拥有的初始能量
+    // int gold;                               //玩家当前所持有的金币数
+    _lua.new_usertype<PlayerS>("PlayerS", sol::no_constructor
+        , SOL_READONLY(PlayerS, uid)
+        , SOL_READONLY(PlayerS, hp)
+        , SOL_READONLY(PlayerS, maxHp)
+        , SOL_READONLY(PlayerS, energy)
+        , SOL_READONLY(PlayerS, maxEnergy)
+        , SOL_READONLY(PlayerS, gold)
+        , "cards", sol::readonly_property([](PlayerS& player) {return std::ref(player.cards); })
+        , "pawns", sol::readonly_property([](PlayerS& player) {return std::ref(player.pawns); })
+		, "handCards", sol::readonly_property([](PlayerS& player) {return std::ref(player.handCards); })
+		, "combatCards", sol::readonly_property([](PlayerS& player) {return std::ref(player.combatCards); })
+		, "deckCards", sol::readonly_property([](PlayerS& player) {return std::ref(player.deckCards); })
+        );
+	
+    //     int combatId;   //战斗实例的id
+    // int playerId;   //目标玩家的id，如果发给当前房间所有玩家，则设置为0
+    // int objectId;   //属性改变了的目标对象的id(比如棋子的id，buffId，如果是玩家，可以不传)
+    // int value;      //属性改变后的值
+    // int type;       //改变的是哪项属性(具体参考constant里面例举的值)
+    // int targetType; //新增属性，表示当前对象表示是哪种类型的，0、无效 1、棋子 2、玩家 3、buff 4、战斗本身
+    _lua.new_usertype<AttrStruct>("AttrStruct", sol::no_constructor
+        , SOL_READONLY(AttrStruct, combatId)
+        , SOL_READONLY(AttrStruct, playerId)
+        , SOL_READONLY(AttrStruct, objectId)
+        , SOL_READONLY(AttrStruct, value)
+        , SOL_READONLY(AttrStruct, type)
+        , SOL_READONLY(AttrStruct, targetType));
+#pragma endregion 
 	
     //region Pawn的声明
 #pragma region Pawn的声明
@@ -299,6 +382,7 @@ void LuaFramework::exportAll() {
     (void)_lua.new_usertype<Pawn>("Pawn", sol::no_constructor
         // PawnS * data();
 		// PawnD * toDisplay();
+        , SOL_FUN(Pawn, toDisplay)
         , SOL_FUN(Pawn, id)
         , SOL_FUN(Pawn, unique_id)
         , SOL_FUN(Pawn, hp)
@@ -420,9 +504,10 @@ void LuaFramework::exportAll() {
         // , SOL_FUN(Player, plus)
         // , SOL_FUN(Player, minus)
         // , SOL_FUN(Player, to)
-        //                , SOL_FUN(Player, toDisplay)
+        // , SOL_FUN(Player, toDisplay)
         , SOL_FUN(Player, getCombat)
         // PlayerS* data();
+        , SOL_FUN(Player, data)
         );
 #pragma endregion 
 
@@ -481,7 +566,7 @@ void LuaFramework::exportAll() {
         // , SOL_FUN(IBuff, sourcePawn)
         , SOL_FUN(IBuff, getOwner)
         , SOL_FUN(IBuff, getSource)
-        // , SOL_FUN(IBuff, toDisplay)
+        , SOL_FUN(IBuff, toDisplay)
         );
 #pragma endregion 
     //endregion
@@ -621,11 +706,22 @@ void LuaFramework::script(int combatId, int buffId, ActionType type, Damage* dam
 	
 }
 
+void LuaFramework::script(AttrStruct* attr)
+{
+    // nn.set_function("set_notice_fun", Export::set_notice_fun);
+    // nn.set_function("set_update_fun", Export::set_update_fun);
+    _lua["UpdateFun"].get<sol::function>().call(attr);
+}
+
+void LuaFramework::script(const std::string& str)
+{
+    _lua["NoticeFun"].get<sol::function>().call(str);
+}
+
 // void LuaFramework::script(int combatId, int uid, LuaFunctionName name)
 // {
 // 	
 // }
-
 // bool LuaFramework::newLuaBuff(int combatId, int buffId, int uid)
 // {
 // 	return true;

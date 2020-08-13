@@ -1,0 +1,12 @@
+---@param str string
+function NoticeFun(str)
+    log(str)
+end
+
+---@param attr AttrStruct
+function UpdateFun(attr)
+    print(attr.combatId)
+    print(attr.objectId)
+    print(attr.playerId)
+    print(attr.value)
+end

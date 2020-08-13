@@ -46,7 +46,7 @@ public static class GameInit
         
         //加载lua脚本的入口文件
         LuaEngine.LoadLuaModule();
-        LuaApi.Init();
+        // LuaApi.Init();
         // Pool.Init();
         FileUtils.Init();
         Pool.Init();

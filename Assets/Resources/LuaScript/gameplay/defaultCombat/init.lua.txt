@@ -145,7 +145,9 @@ function DefaultGamePlay:init(myCards, enemyCards)
         54,54,53,52,86,85,84,84,84,84,84,84,84,83,83,83,83,83,83,82,82,82,82,82
     }
     -- print(json.encode(myCards))
-    local playerId = player.Uid or 1
+    --限制player的Id为1
+    -- local playerId = player.Uid or 1
+    local playerId = 1
     ---离线模式下敌人为ai，id为-1
     local enemyId = -1
     -- local combatId = nil
@@ -172,18 +174,14 @@ function DefaultGamePlay:init(myCards, enemyCards)
             --- 这里的卡牌数据应该从配置文件中来
             and combat:addPlayer(enemyId, enemyCards) then
             ---运行到这里，说明战斗系统的初始化已经完成了
-            local this = CS.LuaApi.GetPlayer(self._combatId, self._player)
-            local target = CS.LuaApi.GetPlayer(self._combatId, enemyId)
+            -- local this = CS.LuaApi.GetPlayer(self._combatId, self._player)
+            -- local target = CS.LuaApi.GetPlayer(self._combatId, enemyId)
+            local this = combat:getPlayer(playerId):data()
+            local target = combat:getPlayer(enemyId):data()
             for i = 0, #myCards - 1 do
                 self._map[this.pawns[i]] = this.cards[i]
                 self._map[target.pawns[i]] = target.cards[i]
             end
-            --for index, value in pairs(this.pawns) do
-            --    self._map[value] = this.cards[index]
-            --end
-            --for index, value in pairs(target.pawns) do
-            --    self._map[value] = target.cards[index]
-            --end
             self._pawnSize = #myCards + #enemyCards
         end
     end
@@ -226,7 +224,14 @@ end
 
 ---获取当前玩家的卡组列表
 function DefaultGamePlay:getCurPawnList()
-	
+    local combat = nn.get_combat(self._combatId)
+    if combat then
+        
+    end
+end
+
+function DefaultGamePlay:getPawnList()
+    
 end
 
 function DefaultGamePlay:getCombatId()
@@ -235,7 +240,7 @@ end
 
 ---现在的问题是客户端要如何存储玩家相关的数据，还是说就做成帧同步，然后从dll中获取数据？
 ---@param myCards number[]
-function DefaultGamePlay:start(myCards)
+function DefaultGamePlay:start(myCards, enemyCards)
     ---当前的房间号，未初始化时为-1
     -- self.combatId = -1
     ---当前玩家的id
@@ -245,7 +250,7 @@ function DefaultGamePlay:start(myCards)
     
     -- self.impl = require"scripts.userInput.init"
     -- self.impl.init(myCards)
-    self:init(myCards)
+    self:init(myCards, enemyCards)
     ---调用这个之后通知服务端，当前客户端已经加载完成，等待所有客户端加载完成
     ---当所有的客户端都加载完毕之后进入战斗场景
 end

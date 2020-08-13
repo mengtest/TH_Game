@@ -110,8 +110,9 @@ namespace Core
 
         private static void NoticeFunction(string msg)
         {
-            //这个事件要分发给lua吗？
-
+            //这里的数据再本质上就相当于一条一条的命令
+            //这里的两个函数就有以下几种做法
+            //第一种是直接在CS端处理掉所有的数据
         }
 
         private static void UpdateFunction(LuaApi.AttrStruct attr)

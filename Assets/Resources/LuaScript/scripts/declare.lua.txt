@@ -75,386 +75,453 @@ local combat = {
 
 }
 
----Pawn的声明
-local function pawn_fold()
-    ---@return number
-    function pawn:id() end
+---@field public id number
+---@field public unique_id number
+---@field public hp number
+---@field public mp number
+---@field public matk number
+---@field public atk number
+---@field public def number
+---@field public mdef number
+---@field public playerId number
+---@field public type number
+---@field public posType number
+---@field public pos number
+---@class PawnD
+local PawnS = {
+
+}
+
+---@field public id number
+---@field public restTime number
+---@field public unique_id number
+---@field public overlay number
+---@class BuffD
+local BuffD = {
+
+}
+
+---@field public uid number
+---@field public hp number
+---@field public maxHp number
+---@field public energy number
+---@field public maxEnergy number
+---@field public gold number[]
+---@field public cards number[]
+---@field public pawns number[]
+---@field public handCards number[]
+---@field public combatCards number[]
+---@field public deckCards number[]
+---@class PlayerS
+local PlayerS = {
+
+}
+
+-- struct AttrStruct
+-- {
+--     int combatId;   //战斗实例的id
+--     int playerId;   //目标玩家的id，如果发给当前房间所有玩家，则设置为0
+--     int objectId;   //属性改变了的目标对象的id(比如棋子的id，buffId，如果是玩家，可以不传)
+--     int value;      //属性改变后的值
+--     int type;       //改变的是哪项属性(具体参考constant里面例举的值)
+--     int targetType; //新增属性，表示当前对象表示是哪种类型的，0、无效 1、棋子 2、玩家 3、buff 4、战斗本身
+
+---@field combatId number
+---@field playerId number
+---@field objectId number
+---@field value number
+---@field type number
+---@field targetType number
+---@class AttrStruct
+local AttrStruct = {
+
+}
+
+--region Pawn
+---@return number
+function pawn:id() end
+
+---@return number
+function pawn:unique_id() end
+
+---@return number
+function pawn:hp() end
+
+---@return number
+function pawn:mp() end
+
+---@return number
+function pawn:matk() end
+
+---@return number
+function pawn:atk() end
+
+---@return number
+function pawn:def() end
+
+---@return number
+function pawn:mdef() end
+
+---@return number
+function pawn:getBuffSize() end
+
+---@return IBuff
+---@param index number
+function pawn:getBuffByIndex(index) end
+
+---@return IBuff
+---@param uid number
+function pawn:getBuffByUid(uid) end
+
+---@return number
+---@param id number
+function pawn:getBuffById(id) end
 
-    ---@return number
-    function pawn:unique_id() end
+---@return boolean
+---@param uid number
+function pawn:containBuff(uid) end
 
-    ---@return number
-    function pawn:hp() end
+---@return boolean
+---@param id number
+function pawn:hasSkill(id) end
 
-    ---@return number
-    function pawn:mp() end
+---@return Player
+function pawn:getOwner() end
 
-    ---@return number
-    function pawn:matk() end
+-- -@param player Player
+-- function pawn:addTo(player) end
 
-    ---@return number
-    function pawn:atk() end
+---@return number
+function pawn:posType() end
 
-    ---@return number
-    function pawn:def() end
+---@return number
+function pawn:pos() end
 
-    ---@return number
-    function pawn:mdef() end
+---@return boolean
+function pawn:moveToHand() end
 
-    ---@return number
-    function pawn:getBuffSize() end
+---@return boolean
+function pawn:moveToDeck() end
 
-    ---@return IBuff
-    ---@param index number
-    function pawn:getBuffByIndex(index) end
+---@param pos number
+---@return boolean
+function pawn:moveToPanel(pos) end
 
-    ---@return IBuff
-    ---@param uid number
-    function pawn:getBuffByUid(uid) end
+---@param buf IBuff
+---@return number
+function pawn:mount(buf) end
 
-    ---@return number
-    ---@param id number
-    function pawn:getBuffById(id) end
+---@param uid number
+---@return number
+function pawn:unmount(uid) end
 
-    ---@return boolean
-    ---@param uid number
-    function pawn:containBuff(uid) end
+---@return number
+---@param damage Damage
+function pawn:hit(damage) end
 
-    ---@return boolean
-    ---@param id number
-    function pawn:hasSkill(id) end
+---@return number
+---@param player Player
+---@return boolean
+function pawn:attack(player) end
 
-    ---@return Player
-    function pawn:getOwner() end
+---@return number
+---@param pawn Pawn
+---@return boolean
+function pawn:attack(pawn) end
 
-    -- -@param player Player
-    -- function pawn:addTo(player) end
+---@return boolean
+---@param target Pawn
+---@param skillId number
+function pawn:useSkill(target, skillId) end
 
-    ---@return number
-    function pawn:posType() end
+---@return boolean
+---@param target Pawn
+---@param skillId number
+function pawn:useSkillWithCost(target, skillId) end
 
-    ---@return number
-    function pawn:pos() end
+---@return number
+---@param damage Damage
+function pawn:heal(damage) end
 
-    ---@return boolean
-    function pawn:moveToHand() end
+function pawn:reset() end
 
-    ---@return boolean
-    function pawn:moveToDeck() end
+---@return boolean
+---@param priority number 默认为100
+function pawn:dead(priority) end
 
-    ---@param pos number
-    ---@return boolean
-    function pawn:moveToPanel(pos) end
+---@param type number 消耗的类型
+---@param value number 消耗的值
+function pawn:cost(type, value) end
 
-    ---@param buf IBuff
-    ---@return number
-    function pawn:mount(buf) end
+---@param type number 消耗的类型
+---@param value number 消耗的值
+---@return boolean
+function pawn:check(type, value) end
 
-    ---@param uid number
-    ---@return number
-    function pawn:unmount(uid) end
+---@return boolean
+function pawn:alive() end
 
-    ---@return number
-    ---@param damage Damage
-    function pawn:hit(damage) end
+---@param actionType number 操作的类型
+---@return boolean
+function pawn:checkAction(actionType) end
 
-    ---@return number
-    ---@param player Player
-    ---@return boolean
-    function pawn:attack(player) end
+---@return PawnD
+function pawn:toDisplay() end
 
-    ---@return number
-    ---@param pawn Pawn
-    ---@return boolean
-    function pawn:attack(pawn) end
+-- function pawn:plus(type, value) end
 
-    ---@return boolean
-    ---@param target Pawn
-    ---@param skillId number
-    function pawn:useSkill(target, skillId) end
+-- function pawn:minus(type, value) end
 
-    ---@return boolean
-    ---@param target Pawn
-    ---@param skillId number
-    function pawn:useSkillWithCost(target, skillId) end
+-- function pawn:to(type, value) end
 
-    ---@return number
-    ---@param damage Damage
-    function pawn:heal(damage) end
+function pawn:opHp(value) end
 
-    function pawn:reset() end
+function pawn:opMp(value) end
 
-    ---@return boolean
-    ---@param priority number 默认为100
-    function pawn:dead(priority) end
+function pawn:opAtk(value) end
 
-    ---@param type number 消耗的类型
-    ---@param value number 消耗的值
-    function pawn:cost(type, value) end
+function pawn:opMatk(value) end
 
-    ---@param type number 消耗的类型
-    ---@param value number 消耗的值
-    ---@return boolean
-    function pawn:check(type, value) end
+function pawn:opDef(value) end
 
-    ---@return boolean
-    function pawn:alive() end
+function pawn:opMdef(value) end
 
-    ---@param actionType number 操作的类型
-    ---@return boolean
-    function pawn:checkAction(actionType) end
+---当前棋子触发了攻击的动作
+---还没有实现的api，需要实现后并导出这个api
+function pawn:attack() end
+--endregion
 
-    -- function pawn:plus(type, value) end
+--region Player
+---@return number
+function player:uid() end
 
-    -- function pawn:minus(type, value) end
+---@return PlayerS
+function player:data() end
 
-    -- function pawn:to(type, value) end
+---@return number
+function player:gold() end
 
-    function pawn:opHp(value) end
+---@return number
+function player:maxEnergy() end
 
-    function pawn:opMp(value) end
+---@return number
+function player:energy() end
 
-    function pawn:opAtk(value) end
+---@return number
+function player:hp() end
 
-    function pawn:opMatk(value) end
+---@return number
+function player:getMaxCombatPawnNumber() end
 
-    function pawn:opDef(value) end
+---@return number
+function player:getHandPawnNumber() end
 
-    function pawn:opMdef(value) end
+---@return number
+function player:getDeckPawnNumber() end
 
-    ---当前棋子触发了攻击的动作
-    ---还没有实现的api，需要实现后并导出这个api
-    function pawn:attack() end
-end
+---@param type number
+---@param value number
+---@return boolean
+function player:check(type, value) end
 
----Player的声明
-local function player_fold()
-    ---@return number
-    function player:uid() end
+---@param index number
+---@return Pawn
+function player:getCombatPawnByIndex(index) end
 
-    ---@return number
-    function player:gold() end
+---@param index  number
+---@return Pawn
+function player:getHandPawnByIndex(index) end
 
-    ---@return number
-    function player:maxEnergy() end
+---@param id number
+---@return boolean
+function player:hasPawn(id) end
 
-    ---@return number
-    function player:energy() end
+---@param uid number
+---@return boolean
+function player:hasPawnUid(uid) end
 
-    ---@return number
-    function player:hp() end
+---@return number
+function player:combatId() end
 
-    ---@return number
-    function player:getMaxCombatPawnNumber() end
+---@param num number
+---@param high boolean
+---@return boolean
+function player:draw(num, high) end
 
-    ---@return number
-    function player:getHandPawnNumber() end
+function player:turnEnd() end
 
-    ---@return number
-    function player:getDeckPawnNumber() end
+---@param pawnUid number
+---@param pos number
+function player:summon(pawnUid, pos) end
 
-    ---@param type number
-    ---@param value number
-    ---@return boolean
-    function player:check(type, value) end
+---@return boolean
+function player:recover(pawnUid) end
 
-    ---@param index number
-    ---@return Pawn
-    function player:getCombatPawnByIndex(index) end
+---@param damage number
+function player:hit(damage) end
 
-    ---@param index  number
-    ---@return Pawn
-    function player:getHandPawnByIndex(index) end
+--region
+-- ---@param type number
+-- ---@param value number
+-- function player:plus(type, value) end
 
-    ---@param id number
-    ---@return boolean
-    function player:hasPawn(id) end
+-- ---@param type number
+-- ---@param value number
+-- function player:minus(type, value) end
 
-    ---@param uid number
-    ---@return boolean
-    function player:hasPawnUid(uid) end
+-- ---@param type number
+-- ---@param value number
+-- function player:to(type, value) end
+--endregion
 
-    ---@return number
-    function player:combatId() end
+function player:opHp(value) end
 
-    ---@param num number
-    ---@param high boolean
-    ---@return boolean
-    function player:draw(num, high) end
+function player:opEnergy(value) end
 
-    function player:turnEnd() end
+function player:opMaxEnergy(value) end
 
-    ---@param pawnUid number
-    ---@param pos number
-    function player:summon(pawnUid, pos) end
+function player:opGold(value) end
 
-    ---@return boolean
-    function player:recover(pawnUid) end
+---@return Combat
+function player:getCombat() end
+--endregion
 
-    ---@param damage number
-    function player:hit(damage) end
+--region Combat
+---@return number
+function combat:id() end
 
-    --region
-    -- ---@param type number
-    -- ---@param value number
-    -- function player:plus(type, value) end
+---@param uid number
+---@return boolean
+function combat:hasPlayer(uid) end
 
-    -- ---@param type number
-    -- ---@param value number
-    -- function player:minus(type, value) end
+---@param uid number
+---@return Player
+function combat:getPlayer(uid) end
 
-    -- ---@param type number
-    -- ---@param value number
-    -- function player:to(type, value) end
-    --endregion
-    
-    function player:opHp(value) end
+---@param uid number
+---@return Pawn
+function combat:getPawnByUid(uid) end
 
-    function player:opEnergy(value) end
+---@param id number 点击结束回合按钮的玩家id
+function combat:turnEnd(id) end
 
-    function player:opMaxEnergy(value) end
+---@return boolean
+function combat:start() end
 
-    function player:opGold(value) end
+---@return boolean
+function combat:over() end
 
-    ---@return Combat
-    function player:getCombat() end
-end
+---@param player Player
+---@return Player
+function combat:getEnemy(player) end
 
----Combat的声明
-local function combat_fold()
-    ---@return number
-    function combat:id() end
+---@return Player
+function combat:getWorkPlayer() end
 
-    ---@param uid number
-    ---@return boolean
-    function combat:hasPlayer(uid) end
+---@return Player
+function combat:getNextPlayer() end
 
-    ---@param uid number
-    ---@return Player
-    function combat:getPlayer(uid) end
+---@return TurnState
+function combat:getCurState() end
 
-    ---@param uid number
-    ---@return Pawn
-    function combat:getPawnByUid(uid) end
+---@return number
+function combat:getCurTurn() end
 
-    ---@param id number 点击结束回合按钮的玩家id
-    function combat:turnEnd(id) end
+---@return BuffMachine
+function combat:getMachine() end
 
-    ---@return boolean
-    function combat:start() end
+---@param cards number[]
+function combat:addPlayer(uid, cards) end
+--endregion
 
-    ---@return boolean
-    function combat:over() end
+--region BuffMachine
+---@param pawn Pawn
+---@param id number
+---@return IBuff
+function buffMachine:create(pawn, id) end
 
-    ---@param player Player
-    ---@return Player
-    function combat:getEnemy(player) end
+---@param player Player
+function buffMachine:executeAll(player) end
 
-    ---@return Player
-    function combat:getWorkPlayer() end
+---@return number
+function buffMachine:getRoomId() end
 
-    ---@return Player
-    function combat:getNextPlayer() end
+---@return Combat
+function buffMachine:getBindRoom() end
 
-    ---@return TurnState
-    function combat:getCurState() end
+---@param uid number
+---@return IBuff
+function buffMachine:getBuffByUid(uid) end
 
-    ---@return number
-    function combat:getCurTurn() end
+---@param ibuff IBuff
+function buffMachine:buffExecute(ibuff) end
 
-    ---@return BuffMachine
-    function combat:getMachine() end
-    
-    ---@param cards number[]
-    function combat:addPlayer(uid, cards) end
-end
+---@param buffId number
+function buffMachine:buffExecute(buffId) end
 
----BuffMachine的声明
-local function buff_machine_fold()
-    ---@param pawn Pawn
-    ---@param id number
-    ---@return IBuff
-    function buffMachine:create(pawn, id) end
+---@param pawnId number
+---@return number
+function buffMachine:getBuffLength(pawnId) end
 
-    ---@param player Player
-    function buffMachine:executeAll(player) end
+---@param type number
+---@return number
+function buffMachine:getBuffLengthByType(type) end
+--endregion
 
-    ---@return number
-    function buffMachine:getRoomId() end
+--region buff
+function iBuff:reset() end
 
-    ---@return Combat
-    function buffMachine:getBindRoom() end
+---@return BuffD
+function iBuff:toDisplay() end
 
-    ---@param uid number
-    ---@return IBuff
-    function buffMachine:getBuffByUid(uid) end
+---@return BuffMachine
+function iBuff:getMachine() end
 
-    ---@param ibuff IBuff
-    function buffMachine:buffExecute(ibuff) end
+---@return number
+function iBuff:id() end
 
-    ---@param buffId number
-    function buffMachine:buffExecute(buffId) end
+---@return number
+function iBuff:unique_id() end
 
-    ---@param pawnId number
-    ---@return number
-    function buffMachine:getBuffLength(pawnId) end
+---@return number
+function iBuff:maxTime() end
 
-    ---@param type number
-    ---@return number
-    function buffMachine:getBuffLengthByType(type) end
-end
+---@return number
+function iBuff:restTime() end
 
-local function buff_fold()
-    function iBuff:reset() end
+---@return number
+function iBuff:targetId() end
 
-    ---@return BuffMachine
-    function iBuff:getMachine() end
+---@return number
+function iBuff:sourcePawn() end
 
-    ---@return number
-    function iBuff:id() end
+---@return number
+function iBuff:damage() end
 
-    ---@return number
-    function iBuff:unique_id() end
+---@return number
+function iBuff:damageType() end
 
-    ---@return number
-    function iBuff:maxTime() end
+---@return number
+function iBuff:maxOverlay() end
 
-    ---@return number
-    function iBuff:restTime() end
+function iBuff:callOverlay() end
 
-    ---@return number
-    function iBuff:targetId() end
+---@return number
+function iBuff:baseType() end
 
-    ---@return number
-    function iBuff:sourcePawn() end
+---@return boolean
+---@param ibuff IBuff
+function iBuff:test(ibuff) end
 
-    ---@return number
-    function iBuff:damage() end
+---@return number
+function iBuff:overlay() end
 
-    ---@return number
-    function iBuff:damageType() end
+---@return Pawn
+function iBuff:getOwner() end
 
-    ---@return number
-    function iBuff:maxOverlay() end
-    
-    function iBuff:callOverlay() end
-
-    ---@return number
-    function iBuff:baseType() end
-
-    ---@return boolean
-    ---@param ibuff IBuff
-    function iBuff:test(ibuff) end
-
-    ---@return number
-    function iBuff:overlay() end
-
-    ---@return Pawn
-    function iBuff:getOwner() end
-
-    ---@return Pawn
-    function iBuff:getSource() end
-end
+---@return Pawn
+function iBuff:getSource() end
+--endregion
 
 ---@type Pawn
 Pawn = Pawn or pawn

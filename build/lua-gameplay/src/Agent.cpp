@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Combat.h"
 #include "Singleton.h"
+#include "LuaFramework.h"
 
 AgentMgr* AgentMgr::_instance;
 
@@ -68,6 +69,7 @@ void IAgent::msg(const std::string & str)
     {
         _notice(str.c_str());
     }
+	LuaFramework::instance()->script(str);
 }
 
 IAgent::~IAgent()
@@ -121,10 +123,13 @@ void CsAgent::update(Buff* buff, int type, int value)
 
 void CsAgent::update(AttrStruct* msg)
 {
+	// nn.set_function("set_notice_fun", Export::set_notice_fun);
+    // nn.set_function("set_update_fun", Export::set_update_fun);
 	if (_update != nullptr)
 	{
 		_update(msg);
 	}
+	LuaFramework::instance()->script(msg);
 }
 
 void JsAgent::update(int combatId, int playerId, int value, int type, int objectId, int objType)

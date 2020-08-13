@@ -53,7 +53,11 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "xmemory": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "xtr1common": "cpp",
+        "future": "cpp",
+        "ratio": "cpp",
+        "utility": "cpp"
     },
     "cmake.configureOnOpen": true
 }

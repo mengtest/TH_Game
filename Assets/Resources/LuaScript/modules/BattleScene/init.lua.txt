@@ -42,6 +42,8 @@ function M.init(data)
         ---这个是通过某种手段获取到的当前玩家的卡牌数组
         ---这里获取到当前玩家的卡牌数据
         local t = CS.LuaApi.GetPlayer(GamePlay.cur():getCombatId(), GamePlay.cur():getPlayer())
+
+        -- nn.get_combat()
         ---@type CCard[]
         global.combatCardInfos = {}
         local imgs = {}
