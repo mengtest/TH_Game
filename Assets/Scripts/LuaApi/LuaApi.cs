@@ -6,59 +6,59 @@ using XLua;
 [LuaCallCSharp]
 public class LuaApi
 {
-    const int NN_EVENT_BEGIN = 10000;
-    const int ATTR_BEGIN = 20000;
-    const int PLAYER_ATTR_BEGIN = ATTR_BEGIN + 1000;
-    const int PAWN_ATTR_BEGIN = ATTR_BEGIN + 2000;
-    const int BUFF_ATTR_BEGIN = ATTR_BEGIN + 3000;
-    const int PAWN_MOVE_BEGIN = ATTR_BEGIN + 4000;
-    const int COST_BEGIN = 30000;
-    const int PLAYER_COST_BEGIN = COST_BEGIN + 1000;
-    const int PAWN_COST_BEGIN = COST_BEGIN + 2000;
+    public const int NN_EVENT_BEGIN = 10000;
+    public     const int ATTR_BEGIN = 20000;
+    public const int PLAYER_ATTR_BEGIN = ATTR_BEGIN + 1000;
+    public const int PAWN_ATTR_BEGIN = ATTR_BEGIN + 2000;
+    public const int BUFF_ATTR_BEGIN = ATTR_BEGIN + 3000;
+    public const int PAWN_MOVE_BEGIN = ATTR_BEGIN + 4000;
+    public const int COST_BEGIN = 30000;
+    public const int PLAYER_COST_BEGIN = COST_BEGIN + 1000;
+    public const int PAWN_COST_BEGIN = COST_BEGIN + 2000;
 
-	const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
-	const int EventPawnAttrMp = PAWN_ATTR_BEGIN + 2;
-	const int EventPawnAttrMatk = PAWN_ATTR_BEGIN + 3;
-	const int EventPawnAttrAtk = PAWN_ATTR_BEGIN + 4;
-	const int EventPawnAttrDef = PAWN_ATTR_BEGIN + 5;
-	const int EventPawnAttrMdef = PAWN_ATTR_BEGIN + 6;
-	const int EventPawnAttrBuff = PAWN_ATTR_BEGIN + 7;
-	const int EventPawnAttrSkill = PAWN_ATTR_BEGIN + 8;
-	const int EventPawnAttrPosType = PAWN_ATTR_BEGIN + 9;
-	const int EventPawnAttrPos = PAWN_ATTR_BEGIN + 10;
-	const int EventPawnAttrDead = PAWN_ATTR_BEGIN + 11;
+    public 	const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
+    public const int EventPawnAttrMp = PAWN_ATTR_BEGIN + 2;
+    public const int EventPawnAttrMatk = PAWN_ATTR_BEGIN + 3;
+    public const int EventPawnAttrAtk = PAWN_ATTR_BEGIN + 4;
+    public const int EventPawnAttrDef = PAWN_ATTR_BEGIN + 5;
+    public const int EventPawnAttrMdef = PAWN_ATTR_BEGIN + 6;
+    public const int EventPawnAttrBuff = PAWN_ATTR_BEGIN + 7;
+    public const int EventPawnAttrSkill = PAWN_ATTR_BEGIN + 8;
+    public const int EventPawnAttrPosType = PAWN_ATTR_BEGIN + 9;
+    public const int EventPawnAttrPos = PAWN_ATTR_BEGIN + 10;
+    public const int EventPawnAttrDead = PAWN_ATTR_BEGIN + 11;
 
-	const int EventBuffAttrRestTime = BUFF_ATTR_BEGIN + 1;
-	const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
-	const int EventBuffAttrOverlay = BUFF_ATTR_BEGIN + 3;
-	const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
+    public const int EventBuffAttrRestTime = BUFF_ATTR_BEGIN + 1;
+    public const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
+    public const int EventBuffAttrOverlay = BUFF_ATTR_BEGIN + 3;
+    public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
 
-	const int EventPlayerAttrHp = PLAYER_ATTR_BEGIN + 1;
-	const int EventPlayerAttrEnergy = PLAYER_ATTR_BEGIN + 2;
-	const int EventPlayerAttrMaxEnergy = PLAYER_ATTR_BEGIN + 3;
-	const int EventPlayerAttrGold = PLAYER_ATTR_BEGIN + 4;
+    public const int EventPlayerAttrHp = PLAYER_ATTR_BEGIN + 1;
+    public const int EventPlayerAttrEnergy = PLAYER_ATTR_BEGIN + 2;
+    public const int EventPlayerAttrMaxEnergy = PLAYER_ATTR_BEGIN + 3;
+    public const int EventPlayerAttrGold = PLAYER_ATTR_BEGIN + 4;
 
 	//以下为一些移动棋子的事件
-	const int PlayerAttrHandCardsToDeck = PAWN_MOVE_BEGIN + 1;
-	const int PlayerAttrCombatCardToDeck = PAWN_MOVE_BEGIN + 2;
-	const int PlayerAttrDeckCardsToCombat = PAWN_MOVE_BEGIN + 3;
-	const int PlayerAttrDeckCardsToHand = PAWN_MOVE_BEGIN + 4;
-	const int PlayerAttrHandCardsToCombat = PAWN_MOVE_BEGIN + 5;
-	const int PlayerAttrCombatCardsToHand = PAWN_MOVE_BEGIN + 6;
+	public const int PlayerAttrHandCardsToDeck = PAWN_MOVE_BEGIN + 1;
+	public const int PlayerAttrCombatCardToDeck = PAWN_MOVE_BEGIN + 2;
+	public const int PlayerAttrDeckCardsToCombat = PAWN_MOVE_BEGIN + 3;
+	public const int PlayerAttrDeckCardsToHand = PAWN_MOVE_BEGIN + 4;
+	public const int PlayerAttrHandCardsToCombat = PAWN_MOVE_BEGIN + 5;
+	public const int PlayerAttrCombatCardsToHand = PAWN_MOVE_BEGIN + 6;
 
-	const int CostPawnHp = 1 + PAWN_COST_BEGIN;
-	const int CostPawnMp = 2 + PAWN_COST_BEGIN;
-	const int CostPawnAtk = 3 + PAWN_COST_BEGIN;
-	const int CostPawnDef = 4 + PAWN_COST_BEGIN;
+	public const int CostPawnHp = 1 + PAWN_COST_BEGIN;
+	public const int CostPawnMp = 2 + PAWN_COST_BEGIN;
+	public const int CostPawnAtk = 3 + PAWN_COST_BEGIN;
+	public const int CostPawnDef = 4 + PAWN_COST_BEGIN;
 	//无视这个就行了
 	// const int CostPawnMp2 = 5 + PAWN_COST_BEGIN;
-	const int CostPawnMatk = 6 + PAWN_COST_BEGIN;
-	const int CostPawnMdef = 7 + PAWN_COST_BEGIN;
+	public const int CostPawnMatk = 6 + PAWN_COST_BEGIN;
+	public const int CostPawnMdef = 7 + PAWN_COST_BEGIN;
 
-	const int CostPlayerHp = 1 + PLAYER_COST_BEGIN;
-	const int CostPlayerEnergy = 2 + PLAYER_COST_BEGIN;
-	const int CostPlayerMaxEnergy = 3 + PLAYER_COST_BEGIN;
-	const int CostPlayerGold = 4 + PLAYER_COST_BEGIN;
+	public const int CostPlayerHp = 1 + PLAYER_COST_BEGIN;
+	public const int CostPlayerEnergy = 2 + PLAYER_COST_BEGIN;
+	public const int CostPlayerMaxEnergy = 3 + PLAYER_COST_BEGIN;
+	public const int CostPlayerGold = 4 + PLAYER_COST_BEGIN;
 
 
 

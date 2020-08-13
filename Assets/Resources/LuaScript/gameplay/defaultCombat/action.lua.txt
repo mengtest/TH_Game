@@ -5,6 +5,7 @@ end
 
 ---@param attr AttrStruct
 function UpdateFun(attr)
+    log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     print(attr.combatId)
     print(attr.objectId)
     print(attr.playerId)

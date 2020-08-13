@@ -179,7 +179,8 @@ function DefaultGamePlay:init(myCards, enemyCards)
             -- local target = CS.LuaApi.GetPlayer(self._combatId, enemyId)
             local this = combat:getPlayer(playerId):data()
             local target = combat:getPlayer(enemyId):data()
-            for i = 0, #myCards - 1 do
+            print("uid:"..this.uid)
+            for i = 1, #myCards do
                 self._map[this.pawns[i]] = this.cards[i]
                 self._map[target.pawns[i]] = target.cards[i]
             end
