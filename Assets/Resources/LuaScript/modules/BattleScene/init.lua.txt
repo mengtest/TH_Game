@@ -31,7 +31,9 @@ function M.init(data)
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")
+    ---绑定两个函数，处理cpp core回传的数据
     GamePlay.cur().bindUpdate(handle.distribute)
+    GamePlay.cur().bindNotice(handle.notice)
     
     ---@type DefaultGamePlay
     local gamePlay = GamePlay.cur()

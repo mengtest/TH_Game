@@ -154,6 +154,7 @@ function DefaultGamePlay:draw(playerId, number, high)
     local combat = nn.get_combat(self._combatId)
     local player = combat:getPlayer(playerId)
     if player:gold() >= gold then
+        player:opGold(-gold)
         player:draw(number, high)
     else
         ---金币不足，无法抽取新的棋子

@@ -178,4 +178,22 @@ function MsgHandle.distribute(attr)
     end
 end
 
+local list = {}
+
+function list.curPlayer(data)
+    log(string.format("当前的玩家id是%d",data)) 
+end
+
+function list.playerChange(data)
+    local cur, tar = util.splice(data, "&")
+    log(string.format("当前可以行动的玩家由%d转换到%d",cur, tar))
+end
+
+function MsgHandle.notice(str)
+    local head, body = string.match(str, "(%w+)&&(.+)")
+    if list[head] then
+        list[head](body)
+    end
+end
+
 return MsgHandle
