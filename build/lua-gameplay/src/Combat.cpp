@@ -272,6 +272,14 @@ void Combat::nextFlow()
 	}
 }
 
+void Combat::playerChange()
+{
+	this->_workPlayer = getNextPlayer();
+
+	//需要将这个消息发送到客户端
+	AgentMgr::instance()->curAgent()->msg(fmt::format("&{0}"));
+}
+
 //start的时候直接调用这个函数，开始战斗
 void Combat::processInvalid()
 {
@@ -312,7 +320,7 @@ void Combat::processInvalid()
 		player->opEnergy(config.primaryEnergy);
 		player->opMaxEnergy(config.primaryEnergy);
 		player->opGold(config.primaryGold);
-
+		
 		//发放玩家初始的卡牌
 		player->draw(config.primaryCard, false);
 	}
@@ -327,6 +335,7 @@ void Combat::processInvalid()
 void Combat::processPrepare()
 {
 	auto* worker = getWorkPlayer();
+	AgentMgr::instance()->curAgent()->msg(fmt::format("curPlayer&&{0}", _workPlayer->uid()));
 	const auto& config = AgentMgr::instance()->curAgent()->config();
 
 	//第一回合不会增长能量上限
@@ -394,7 +403,11 @@ void Combat::processOver()
 	}
 	
 	this->_curTurn++;
+	auto curId = _workPlayer->uid();
 	_workPlayer = this->getNextPlayer();
+	//行动中的玩家改变，即意味着上一个玩家的回合结束，轮到新的玩家开始战斗
+	AgentMgr::instance()->curAgent()->msg(fmt::format("playerChange&&{0}&{1}", curId, _workPlayer->uid()));
+	// this->playerChange();
 	this->_turnState = TurnState::prepare;
 	nextFlow();
 }

@@ -125,6 +125,8 @@ public:
 	//当前的战斗系统进入到下一个回合
 	void nextFlow();
 private:
+	void playerChange();
+	
 	//当前处于非开启阶段的处理
 	void processInvalid();
 
