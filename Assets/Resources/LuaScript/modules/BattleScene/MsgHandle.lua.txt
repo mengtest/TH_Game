@@ -102,7 +102,8 @@ end
 
 ---玩家点击结束回合的按钮后的更新
 local function playerTurnEnd(playerId)
-
+    --GamePlay.cur():turnEnd(playerId)
+    
 end
 
 ---玩家的属性变化后的更新
@@ -134,9 +135,11 @@ local function playerAttrChange(playerId, ty, value)
     end
 end
 
+---@param ty number 枚举值 1、hp更新 2、mp更新 3、matk更新 4、atk更新 5、def更新 6、mdef更新
 ---这个应该主要指的是战斗中的棋子的属性发生变化
 ---@param ty number 枚举值，具体意义以后再说
 local function pawnAttrChange(playerId, pawnUid, ty, value)
+    --region
     --public const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
     --public const int EventPawnAttrMp = PAWN_ATTR_BEGIN + 2;
     --public const int EventPawnAttrMatk = PAWN_ATTR_BEGIN + 3;
@@ -148,8 +151,25 @@ local function pawnAttrChange(playerId, pawnUid, ty, value)
     --public const int EventPawnAttrPosType = PAWN_ATTR_BEGIN + 9;
     --public const int EventPawnAttrPos = PAWN_ATTR_BEGIN + 10;
     --public const int EventPawnAttrDead = PAWN_ATTR_BEGIN + 11;
-    
-    
+    --endregion
+
+    ---需要能够取到战斗中pawnUid棋子
+    ---假定这个就是获取到的棋子对象
+    -- TODO
+    local pawn
+    if ty == 1 then
+        pawn.hp.text = value
+    elseif ty == 2 then
+        pawn.mp.text = value
+    elseif ty == 3 then
+
+    elseif ty == 4 then
+        pawn.atk.text = value
+    elseif ty == 5 then
+
+    elseif ty == 6 then
+        
+    end
 end
 
 ---这个应该主要指的是战斗中的buff的属性发生变化
@@ -159,6 +179,8 @@ local function buffAttrChange(playerId, buffId, ty, value)
     --public const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
     --public const int EventBuffAttrOverlay = BUFF_ATTR_BEGIN + 3;
     --public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
+    
+    ---目前还没有想好该如何表现出buff
 end
 
 ---棋子死亡
@@ -216,6 +238,10 @@ function list.playerChange(data)
     ---这个主要是玩家回合结束，进入到写一个玩家的回合时调用
 end
 
+function list.gameover(data)
+    ---战斗结束，应该要进入结算的界面，比如说：战斗的胜负、获得的奖励、最好加上战斗中的数据统计等功能
+end
+
 function MsgHandle.notice(str)
     --region
     ---所有通过notice发送的消息的结构均为   head&&body  的形式
@@ -238,10 +264,10 @@ local function solveOne()
     if #MsgHandle.queue == 0 then
         return
     end
-    local item = table[1]
+    local item = MsgHandle.queue[1]
     if item[1] == 1 then
         local attr = item[2]
-        if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
+            if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
             playerDrawCard(attr.playerId, attr.value)
         elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
 
