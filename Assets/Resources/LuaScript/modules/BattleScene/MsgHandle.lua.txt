@@ -2,6 +2,8 @@
 ---@class MsgHandle
 local MsgHandle = {}
 
+MsgHandle.queue = {}
+
 --region
 --public const int NN_EVENT_BEGIN = 10000;
 --public const int ATTR_BEGIN = 20000;
@@ -135,65 +137,142 @@ end
 ---这个应该主要指的是战斗中的棋子的属性发生变化
 ---@param ty number 枚举值，具体意义以后再说
 local function pawnAttrChange(playerId, pawnUid, ty, value)
-
+    --public const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
+    --public const int EventPawnAttrMp = PAWN_ATTR_BEGIN + 2;
+    --public const int EventPawnAttrMatk = PAWN_ATTR_BEGIN + 3;
+    --public const int EventPawnAttrAtk = PAWN_ATTR_BEGIN + 4;
+    --public const int EventPawnAttrDef = PAWN_ATTR_BEGIN + 5;
+    --public const int EventPawnAttrMdef = PAWN_ATTR_BEGIN + 6;
+    --public const int EventPawnAttrBuff = PAWN_ATTR_BEGIN + 7;
+    --public const int EventPawnAttrSkill = PAWN_ATTR_BEGIN + 8;
+    --public const int EventPawnAttrPosType = PAWN_ATTR_BEGIN + 9;
+    --public const int EventPawnAttrPos = PAWN_ATTR_BEGIN + 10;
+    --public const int EventPawnAttrDead = PAWN_ATTR_BEGIN + 11;
+    
+    
 end
 
 ---这个应该主要指的是战斗中的buff的属性发生变化
 ---@param ty number 枚举值，具体意义以后再说
 local function buffAttrChange(playerId, buffId, ty, value)
-
+    --public const int EventBuffAttrRestTime = BUFF_ATTR_BEGIN + 1;
+    --public const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
+    --public const int EventBuffAttrOverlay = BUFF_ATTR_BEGIN + 3;
+    --public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
 end
 
 ---棋子死亡
 local function pawnDead(playerId, pawnUid)
-
+    
 end
 
---local function playerDrawCard(playerId, pawnUid)
---
---end
+-- function MsgHandle.saveAttr(attr)
+--     table.insert(MsgHandle.queue, {1, attr})
+-- end
 
--- local fList = {}
--- fList[tostring(CS.LuaApi.PlayerAttrDeckCardsToHand)] = playerDrawCard
+-- function MsgHandle.saveMsg(msg)
+--     table.insert(MsgHandle.queue, {2, msg})
+-- end
 
 ---消息的分发
 ---@param attr AttrStruct
 function MsgHandle.distribute(attr)
-    if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
-        playerDrawCard(attr.playerId, attr.value)
-    elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
+    --region
+    -- if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
+    --     playerDrawCard(attr.playerId, attr.value)
+    -- elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
 
-    elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
+    -- elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
         
-        
-        
-    elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
-        playerAttrChange(attr.playerId, 1, attr.value)
-    elseif attr.type == CS.LuaApi.EventPlayerAttrHp then
-        playerAttrChange(attr.playerId, 2, attr.value)
-    elseif attr.type == CS.LuaApi.EventPlayerAttrMaxEnergy then
-        playerAttrChange(attr.playerId, 4, attr.value)
-    elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
-        playerAttrChange(attr.playerId, 3, attr.value)
+    -- elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
+    --     playerAttrChange(attr.playerId, 1, attr.value)
+    -- elseif attr.type == CS.LuaApi.EventPlayerAttrHp then
+    --     playerAttrChange(attr.playerId, 2, attr.value)
+    -- elseif attr.type == CS.LuaApi.EventPlayerAttrMaxEnergy then
+    --     playerAttrChange(attr.playerId, 4, attr.value)
+    -- elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
+    --     playerAttrChange(attr.playerId, 3, attr.value)
+    -- end
+    --endregion
+    
+    -- MsgHandle.saveAttr(attr)
+    table.insert(MsgHandle.queue, {1, attr})
+    ---如果只有一个指令，则直接执行
+    if #MsgHandle.queue == 1 then
+        CS.Lib.Listener.Instance:Event("execute_next_command")
     end
 end
 
 local list = {}
 
 function list.curPlayer(data)
-    log(string.format("当前的玩家id是%d",data)) 
+    log(string.format("当前的玩家id是%d", data)) 
+    ---这个主要是在游戏开始时，随机给出一个先攻的玩家时发送这条消息
 end
 
 function list.playerChange(data)
     local cur, tar = util.splice(data, "&")
-    log(string.format("当前可以行动的玩家由%d转换到%d",cur, tar))
+    log(string.format("当前可以行动的玩家由%d转换到%d", cur, tar))
+    ---这个主要是玩家回合结束，进入到写一个玩家的回合时调用
 end
 
 function MsgHandle.notice(str)
-    local head, body = string.match(str, "(%w+)&&(.+)")
-    if list[head] then
-        list[head](body)
+    --region
+    ---所有通过notice发送的消息的结构均为   head&&body  的形式
+    -- local head, body = string.match(str, "(%w+)&&(.+)")
+    -- if list[head] then
+    --     list[head](body)
+    -- end
+    --endregion
+
+    table.insert(MsgHandle.queue, {2, msg})
+    ---如果当前队列中只有一条消息，则直接执行
+    if #MsgHandle.queue == 1 then
+        CS.Lib.Listener.Instance:Event("execute_next_command")
     end
+end
+
+local function solveOne()
+    --local item = table.remove(MsgHandle.queue, 1)
+    ---如果队列中没有未处理的消息了，则不再继续执行
+    if #MsgHandle.queue == 0 then
+        return
+    end
+    local item = table[1]
+    if item[1] == 1 then
+        local attr = item[2]
+        if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
+            playerDrawCard(attr.playerId, attr.value)
+        elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
+
+        elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
+            
+        elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
+            playerAttrChange(attr.playerId, 1, attr.value)
+        elseif attr.type == CS.LuaApi.EventPlayerAttrHp then
+            playerAttrChange(attr.playerId, 2, attr.value)
+        elseif attr.type == CS.LuaApi.EventPlayerAttrMaxEnergy then
+            playerAttrChange(attr.playerId, 4, attr.value)
+        elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
+            playerAttrChange(attr.playerId, 3, attr.value)
+        end     
+        
+    elseif item[1] == 2 then
+
+        local head, body = string.match(str, "(%w+)&&(.+)")
+        if list[head] then
+            list[head](body)
+        end
+
+    end
+    ---执行完毕之后则移除队列中的第一条指令
+    table.remove(MsgHandle.queue, 1)
+    CS.Lib.Listener.Instance:Event("execute_next_command")
+end
+
+function MsgHandle.init()
+    ---注册一个事件，每次更新动作完成的时候执行，开始调用下一个动作
+    CS.Lib.Listener.Instance:On("execute_next_command", solveOne, CS.Lib.Listener.Instance:SceneUniqueObject())
 end
 
 return MsgHandle

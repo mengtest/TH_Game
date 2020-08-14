@@ -1,0 +1,7 @@
+-- ---对单个战斗系统的封装，包含有
+-- ---@class CombatBox
+-- local M = {}
+
+
+
+-- return M
