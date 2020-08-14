@@ -28,6 +28,7 @@ function M.init(data)
     global.config = json.decode(util.read("LuaScript/json/global"))
 	require"modules.BattleScene.LoadingLayer".init()
 	local handle = require"modules.BattleScene.MsgHandle"
+    handle.init()
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
     GamePlay.create("default")
