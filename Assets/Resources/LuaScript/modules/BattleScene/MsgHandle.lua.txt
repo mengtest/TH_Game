@@ -264,7 +264,7 @@ function MsgHandle.notice(str)
     -- end
     --endregion
 
-    table.insert(MsgHandle.queue, {2, msg})
+    table.insert(MsgHandle.queue, {2, str})
     ---如果当前队列中只有一条消息，则直接执行
     if #MsgHandle.queue == 1 then
         CS.Lib.Listener.Instance:Event("execute_next_command")
@@ -297,8 +297,8 @@ local function solveOne()
         end     
         
     elseif item[1] == 2 then
-
-        local head, body = string.match(str, "(%w+)&&(.+)")
+        log(item[2])
+        local head, body = string.match(item[2], "(%w+)&&(.+)")
         if list[head] then
             list[head](body)
         end
