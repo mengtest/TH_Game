@@ -1,6 +1,6 @@
 local Node = require"ai.tree.node"
 
----¿Õ½Úµã£¬×÷ÓÃÀàËÆÓÚÕ¼Î»·û£¬Ã»ÓĞÊµ¼ÊÒâÒå
+---ç©ºèŠ‚ç‚¹ï¼Œä½œç”¨ç±»ä¼¼äºå ä½ç¬¦ï¼Œæ²¡æœ‰å®é™…æ„ä¹‰
 local None = util.class("None", Node)
 
 return None

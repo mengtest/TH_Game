@@ -1,5 +1,5 @@
----Õâ¸ö¾ÍÊÇÐÐÎªÊýÖ´ÐÐµÄÊ±ºòËùÒÀÀµµÄÊý¾Ý±í
----ÐÐÎªÊ÷Ö´ÐÐµÄÊ±ºòÍ¨¹ý¶ÔÕâ¸ö±íÀïÃæµÄÖµ×ö³öÅÐ¶¨À´¾ö¶¨×ÔÉíµÄÐÐÎª
+---è¿™ä¸ªå°±æ˜¯è¡Œä¸ºæ•°æ‰§è¡Œçš„æ—¶å€™æ‰€ä¾èµ–çš„æ•°æ®è¡¨
+---è¡Œä¸ºæ ‘æ‰§è¡Œçš„æ—¶å€™é€šè¿‡å¯¹è¿™ä¸ªè¡¨é‡Œé¢çš„å€¼åšå‡ºåˆ¤å®šæ¥å†³å®šè‡ªèº«çš„è¡Œä¸º
 ---@class BlackBoard
 local BlackBoard = class("BlackBoard")
 

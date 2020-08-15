@@ -30,4 +30,3 @@ local CMyCard = {
 
 ---@type fun(this: UnityEngine.Transform): any
 local initFun
-

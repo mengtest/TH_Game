@@ -95,8 +95,7 @@ local function playerDrawCard(playerId, pawnUid)
         CS.Lib.Listener.Instance:Event("player_deck_card_update", false, pawnUid)
     else
         ---如果是敌方玩家的卡牌，则需要在敌方的卡牌列表中添加一个卡牌背面
-
-
+        
     end
 end
 
@@ -110,34 +109,39 @@ end
 ---这里主要包括，金币、hp、能量等的更新，
 ---@param ty number 枚举值，1、金币 2、hp 3、能量、4 最大能量
 local function playerAttrChange(playerId, ty, value)
-    local uiLayer = CS.Global.GetRootObject("UILayer")
-    local drawAndGold = uiLayer.transform:Find("DrawAndGold")
-    if ty == 1 then
-        ---@type UnityEngine.UI.Text
-        local txt = drawAndGold:Find("Gold"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-        txt.text = value
-    elseif ty == 2 then
-        ---@type UnityEngine.UI.Text
-        local txt = drawAndGold:Find("LifePoint"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-        txt.text = value
-    elseif ty == 3 then
-        ---@type UnityEngine.UI.Text
-        local txt = drawAndGold:Find("Energy"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-        local energy = txt.text
-        local cur, max = string.match(energy, "(.)/(.)")
-        txt.text = string.format("%d/%s", value, max)
-    elseif ty == 4 then
-        ---@type UnityEngine.UI.Text
-        local txt = drawAndGold:Find("Energy"):GetComponent(typeof(CS.UnityEngine.UI.Text))
-        local energy = txt.text
-        local cur, max = string.match(energy, "(.)/(.)")
-        txt.text = string.format("%s/%d", cur, value)
+    if playerId == GamePlay.cur():getPlayer() then
+        ---这里的处理都是处理的当前玩家数据信息，还没有处理敌方玩家的数据信息的功能
+        local uiLayer = CS.Global.GetRootObject("UILayer")
+        local drawAndGold = uiLayer.transform:Find("DrawAndGold")
+        if ty == 1 then
+            ---@type UnityEngine.UI.Text
+            local txt = drawAndGold:Find("Gold"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+            txt.text = value
+        elseif ty == 2 then
+            ---@type UnityEngine.UI.Text
+            local txt = drawAndGold:Find("LifePoint"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+            txt.text = value
+        elseif ty == 3 then
+            ---@type UnityEngine.UI.Text
+            local txt = drawAndGold:Find("Energy"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+            local energy = txt.text
+            local cur, max = string.match(energy, "(.)/(.)")
+            txt.text = string.format("%d/%s", value, max)
+        elseif ty == 4 then
+            ---@type UnityEngine.UI.Text
+            local txt = drawAndGold:Find("Energy"):GetComponent(typeof(CS.UnityEngine.UI.Text))
+            local energy = txt.text
+            local cur, max = string.match(energy, "(.)/(.)")
+            txt.text = string.format("%s/%d", cur, value)
+        end
+    else
+        ---这里是处理敌方玩家的数据信息更新的代码块
     end
 end
 
+---这里的处理都是处理的当前玩家数据信息，还没有处理敌方玩家的数据信息的功能
+---个人觉得这里处理的是所有玩家的卡牌信息更新的，如果是敌方玩家手牌或者卡池中的数据更新的话，应该在服务端就过滤掉了，不会发到这个玩家中
 ---@param ty number 枚举值 1、hp更新 2、mp更新 3、matk更新 4、atk更新 5、def更新 6、mdef更新
----这个应该主要指的是战斗中的棋子的属性发生变化
----@param ty number 枚举值，具体意义以后再说
 local function pawnAttrChange(playerId, pawnUid, ty, value)
     --region
     --public const int EventPawnAttrHp = PAWN_ATTR_BEGIN + 1;
@@ -156,7 +160,9 @@ local function pawnAttrChange(playerId, pawnUid, ty, value)
     ---需要能够取到战斗中pawnUid棋子
     ---假定这个就是获取到的棋子对象
     -- TODO
-    local pawn
+    
+    ---因为敌方的卡牌是不可见的
+    local pawn = require"modules.BattleScene.util".getViewCardByUid(pawnUid)
     if ty == 1 then
         pawn.hp.text = value
     elseif ty == 2 then
@@ -179,13 +185,20 @@ local function buffAttrChange(playerId, buffId, ty, value)
     --public const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
     --public const int EventBuffAttrOverlay = BUFF_ATTR_BEGIN + 3;
     --public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
-    
-    ---目前还没有想好该如何表现出buff
+    -- TODO 目前还没有想好buff该如何表现
 end
 
 ---棋子死亡
 local function pawnDead(playerId, pawnUid)
-    
+    local pawn = require"modules.BattleScene.util".getViewCardByUid(pawnUid)
+    -- TODO 卡牌死亡的时候应该会播放一段动画，卡牌移动到卡池中
+
+    ---其实只有战场中的棋子才会死亡，所以一定是可见的
+    if pawn then
+        ---@type Scene.CombatScene.CombatPanelSlotScript
+        local slot = pawn:GetComponentInParent(typeof(CS.Scene.CombatScene.CombatPanelSlotScript))
+        slot:Remove()
+    end
 end
 
 -- function MsgHandle.saveAttr(attr)

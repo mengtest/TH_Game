@@ -1,41 +1,29 @@
 local Node = require"ai.tree.node"
 
----@class Condition
-local Condition = class("Condition", Node)
+---@class Condition æ¡ä»¶èŠ‚ç‚¹ï¼Œå°±ç›¸å½“äºnodeæ–‡ä»¶ä¸­çš„BTPreconditionèŠ‚ç‚¹ï¼Œè¿™ä¸ªä¸ç»§æ‰¿äºNodeï¼Œç”±Nodeç›´æ¥ç»„åˆæ¬¡èŠ‚ç‚¹
+local Condition = class("Condition")
 
-function Condition:ctor(name, value)
-    
+function Condition:ctor()
+    self._name = "default"
 end
 
--- ---´óÓÚ
--- function Condition.Greater()
-    
--- end
+function Condition:execute()
+    return true
+end
 
--- ---Ğ¡ÓÚ
--- function Condition.Less()
-    
--- end
-
--- ---µÈÓÚ
--- function Condition.Equal()
-
--- end
-
-
----Ö±½Ó×Ó½ÚµãÖĞËùÓĞ×Ó½ÚµãµÄÌõ¼ş¶¼ÒªÂú×ã
+---ç›´æ¥å­èŠ‚ç‚¹ä¸­æ‰€æœ‰å­èŠ‚ç‚¹çš„æ¡ä»¶éƒ½è¦æ»¡è¶³
 ---@return Condition
 function Condition.And()
     
 end
 
----Ö±½Ó×Ó½ÚµãÖĞÓĞÒ»¸öÂú×ãÌõ¼ş
+---ç›´æ¥å­èŠ‚ç‚¹ä¸­æœ‰ä¸€ä¸ªæ»¡è¶³æ¡ä»¶
 ---@return Condition
 function Condition.Or()
     
 end
 
--- ---Ö±½Ó×Ó½ÚµãµÄ½á¹ûÈ¡·´
+-- ---ç›´æ¥å­èŠ‚ç‚¹çš„ç»“æœå–å
 -- function Condition.Not()
     
 -- end

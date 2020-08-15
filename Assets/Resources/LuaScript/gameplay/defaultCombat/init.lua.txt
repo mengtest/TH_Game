@@ -1,6 +1,6 @@
 ---默认游戏玩法(战斗系统)的入口
 ---当前战斗系统中所有的数据保存，以及数据的更新都在这里
----@class DefaultGamePlay : IGamePlay
+---@class DefaultGamePlay
 local DefaultGamePlay = util.class("DefaultGamePlay")
 
 local action = require"gameplay.defaultCombat.action"
@@ -99,6 +99,7 @@ end
 ---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
 ---@param attacker number 要发动攻击的棋子的uid
 function DefaultGamePlay:attack(playerId, attacker)
+    --region
     -- if self._list[attacker] then
     --     ---该棋子已经发动过攻击了，无法攻击
     --     ---这里应该提示无法再次攻击
@@ -117,6 +118,7 @@ function DefaultGamePlay:attack(playerId, attacker)
     --     --- opHp与hit相比较区别在于hit会走受伤的逻辑，而ophp是单纯的增减血量
     --     attackPawn:hit(damage);
     -- end
+    --endregion
 
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.attack(self._combatId, playerId, attacker) then
@@ -126,6 +128,7 @@ end
 
 ---玩家点击结束当前回合
 function DefaultGamePlay:turnEnd(playerId)
+    --region
     -- local combat = nn.get_combat(self._combatId)
     -- local curPlayer = combat:getWorkPlayer()
     -- -- nn.get_combat(combatId):turnEnd(playerId)
@@ -134,15 +137,17 @@ function DefaultGamePlay:turnEnd(playerId)
     -- else
     --     CS.Global.MakeToast("不是你的回合", CS.Global.TOAST_SHORT);
     -- end
+    --endregion
 
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.turnEnd(self._combatId, playerId) then
-        log"无法结束当前的回合"
+        log"当前不是您的回合"
     end
 end
 
 ---玩家选择棋子对目标使用技能
 function DefaultGamePlay:useSkill(playerId, pawnId, targetId, skillId)
+    --region
     -- local combat = nn.get_combat(self._combatId)
     -- local pawn = combat:getPawnByUid(pawnId)
     -- local target = combat:getPawnByUid(targetId)
@@ -150,6 +155,7 @@ function DefaultGamePlay:useSkill(playerId, pawnId, targetId, skillId)
     --     ---条件不足，无法使用该技能
     --     CS.Global.MakeToast("条件不足，无法使用该技能", CS.Global.TOAST_SHORT);
     -- end
+    --endregion
 
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.useSkill(self._combatId, playerId, pawnId, targetId, skillId) then
@@ -160,6 +166,7 @@ end
 ---玩家点击抽取卡牌按钮
 ---玩家的抽卡其实只会抽一张卡，所以这里的数量其实默认为1
 function DefaultGamePlay:draw(playerId, number, high)
+    --region
     -- local gold
     -- if high then
     --     gold = global.config.highDrawPrice * number
@@ -175,6 +182,8 @@ function DefaultGamePlay:draw(playerId, number, high)
     --     ---金币不足，无法抽取新的棋子
     --     CS.Global.MakeToast("金币不足", CS.Global.TOAST_SHORT);
     -- end
+    --endregion
+    
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.draw(self._combatId, playerId, number, high) then
         log"抽卡失败"
@@ -183,6 +192,7 @@ end
 
 ---玩家召唤棋子
 function DefaultGamePlay:summon(playerId, pawnId, pos)
+    --region
     -- local combat = nn.get_combat(self._combatId)
     -- local player = combat:getPlayer(playerId)
     -- ---召唤棋子需要能量，
@@ -200,7 +210,8 @@ function DefaultGamePlay:summon(playerId, pawnId, pos)
     --     ---能量不足，无法召唤棋子
     --     CS.Global.MakeToast("能量不足，无法召唤", CS.Global.TOAST_SHORT);
     -- end 
-
+    --endregion
+    
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.summon(self._combatId, playerId, pawnId, pos) then
         log"召唤失败"

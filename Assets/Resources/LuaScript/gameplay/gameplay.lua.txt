@@ -1,12 +1,12 @@
----@class IGamePlay
-local gameplay = {}
-
----@return IGamePlay
-function gameplay.new()end
-
----@return UserInputOffline | UserInputOnline
-function gameplay:getHandle() end
-
-function gameplay:start(cards) end
-
-return gameplay
+-----@class IGamePlay
+--local gameplay = {}
+--
+-----@return IGamePlay
+--function gameplay.new()end
+--
+-----@return UserInputOffline | UserInputOnline
+--function gameplay:getHandle() end
+--
+--function gameplay:start(cards) end
+--
+--return gameplay

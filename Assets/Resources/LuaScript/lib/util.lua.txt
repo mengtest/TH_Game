@@ -95,31 +95,16 @@ function util.idToType(index)
     return types[index]
 end
 
----不要想了，做不到js中的异步的那个效果
---function util.messageBox()
-	--local res = nil
-	--local co = coroutine.create(function()
-		--local dialog = CS.Util.ModelDialog("hello","是", "否", function()
-			--coroutine.resume(co)
-			--res = true
-		--end, function()
-			--coroutine.resume(co)
-			--res = false
-		--end)
-		--dialog:ShowDialog()
-		--coroutine.yield()
-	--end)
---end
-
 local setmetatableindex_
 setmetatableindex_ = function(t, index)
     if type(t) == "userdata" then
-        local peer = tolua.getpeer(t)
-        if not peer then
-            peer = {}
-            tolua.setpeer(t, peer)
-        end
-        setmetatableindex_(peer, index)
+        assert"生成新的类型时遇到了一些错误"
+        --local peer = tolua.getpeer(t)
+        --if not peer then
+        --    peer = {}
+        --    tolua.setpeer(t, peer)
+        --end
+        --setmetatableindex_(peer, index)
     else
         local mt = getmetatable(t)
         if not mt then mt = {} end

@@ -15,4 +15,18 @@ function M.createCardObject(uid, id, data)
     
 end
 
+---@param uid number
+---@return Prefab.CombatSceneCombatCardScript
+function M.getViewCardByUid(uid)
+    ---@type UnityEngine.GameObject
+    local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
+    ---@type Prefab.CombatSceneCombatCardScript[]
+    local cards = go:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    for i, v in pairs(cards) do
+        if v.uid == uid then
+            return v
+        end
+    end
+end
+
 return M

@@ -58,6 +58,8 @@ namespace Scene.CombatScene
             return _instance;
         }
 
+        //在当前玩家所有可见的卡牌中通过uid查找目标卡牌
+
         public void RemoveDragObject()
         {
             DestroyImmediate(dragCardTransform.gameObject);

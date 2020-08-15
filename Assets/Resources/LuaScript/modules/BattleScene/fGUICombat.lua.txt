@@ -6,6 +6,7 @@ local M = {}
 ---比如说当前战斗中棋子造成的伤害统计
 ---		玩家执行了什么操作的列表
 function M.init()
+    ---这边的关键问题是，卡牌的小图从哪里弄到手?
     ---@type FairyGUI.GComponent
     local com = CS.Global.GetRootObject("UIPanel"):GetComponent(typeof(CS.FairyGUI.UIPanel)).ui.asCom
 	
@@ -51,15 +52,16 @@ function M.init()
     end)
 end
 
+--region
 --function M.update()
 --    if M._display then
 --        M._display:RefreshVirtualList() 
 --    end
 --end
-
 --function M.bindData(list)
 --    ---@type UIDeckCardItem[]
 --    M._data = list
 --end
+--endregion
 
 return M

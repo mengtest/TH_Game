@@ -6,8 +6,7 @@ local Decorator = require"ai.tree.decorator"
 local BlackBoard = require"ai.tree.blackboard"
 
 ---@class BehaviourTree
-local BehaviourTree = util.class("BehaviourTree")
-
+local BehaviourTree = class("BehaviourTree")
 
 ---棋子的行为需要
 function BehaviourTree:ctor()

@@ -1,27 +1,42 @@
 local Node = require"ai.tree.node"
 
----�����ڵ�����󽫻�������β���
+---动作节点结束后将会结束本次操作
 ---@class Action
 local Action = class("Action", Node)
 
+ActionState = {
+    ready = 1,
+    running = 2,
+}
+
+---ai控制自己的棋子发动攻击的行为
 ---@return Action
 function Action.Attack()
     
 end
 
+---ai结束回合的行为
 ---@return Action
 function Action.TurnEnd()
     
 end
 
+---ai使用技能的行为
 ---@return Action
 function Action.UseSkill()
     
 end
 
+---ai抽卡的行为
 ---@return Action
 function Action.Draw()
     
+end
+
+---ai召唤一枚棋子的行为
+---@return Action
+function Action.Summon()
+
 end
 
 ---@return Action

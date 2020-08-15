@@ -23,13 +23,14 @@ local list = {
     Setting = Setting
 }
 
----@param data number[]
+---@param data number[] 当前玩家所选择的卡牌
 function M.init(data)
     global.config = json.decode(util.read("LuaScript/json/global"))
 	require"modules.BattleScene.LoadingLayer".init()
 	local handle = require"modules.BattleScene.MsgHandle"
     ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
+    ---感觉这个可以
     GamePlay.create("default")
     ---绑定两个函数，处理cpp core回传的数据
     GamePlay.cur().bindUpdate(handle.distribute)

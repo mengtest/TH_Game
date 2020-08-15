@@ -90,7 +90,6 @@ function M.turnEnd()
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().turnEnd(gameplay:getHandle().getPlayer())
-
             gameplay:turnEnd(gameplay:getPlayer())
         end
     end
@@ -173,7 +172,6 @@ function M.init()
     
     ---@type DisplayPawn[]
     global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
-    
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     if go then
         M.inputLayer = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))

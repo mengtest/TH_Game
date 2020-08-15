@@ -1,3 +1,4 @@
+---这个脚本单独拿出来丹服务端或者客户端都能够直接使用
 ---@class GamePlayEventHandle
 local M = {}
 
