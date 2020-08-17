@@ -1,13 +1,33 @@
 local Node = require"ai.tree.node"
 
+---目前修改为行为树从BlackBoard接收所有的输入数据，会有对应的输出值
+---应该是以字符串你的形式返回，然后不断地解析这个字符串
+
 ---动作节点结束后将会结束本次操作
----@class Action
+---@class Action: Node
 local Action = class("Action", Node)
 
 ActionState = {
     ready = 1,
     running = 2,
 }
+
+function Action:enter()
+    
+end
+
+function Action:exit()
+    
+end
+
+function Action:addChild()
+    error"动作节点不能拥有子节点"
+end
+
+function Action:removeChild()
+    error"动作节点没有子节点"
+end
+
 
 ---ai控制自己的棋子发动攻击的行为
 ---@return Action

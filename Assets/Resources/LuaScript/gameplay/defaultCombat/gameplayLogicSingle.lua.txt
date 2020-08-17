@@ -3,8 +3,8 @@
 ---@class GamePlaySingle
 local M = {}
 
----要如何才能实现ai相关的功能？
----感觉ai不能直接复用这边的逻辑
+--要如何才能实现ai相关的功能？
+--感觉ai不能直接复用这边的逻辑
 
 -- ---全局的当前玩家的id
 -- ---在玩家登入游戏时这个就应该已经存在了
@@ -43,10 +43,11 @@ function M.attack(combatId, playerId, attacker)
     ---@type Combat
     local combat = nn.get_combat(combatId)
     local worker = combat:getWorkPlayer() 
-    ---非当前工作玩家的回合，无法发动攻击
+    ---非当前工作玩家的回合，无法发动攻击Damage
     if worker:uid() ~= playerId then
         return false
     end
+    
     ---这个是发动攻击的棋子对象
     local attackPawn = combat:getPawnByUid(attacker)
     local enemy = combat:getEnemy(worker)
@@ -68,7 +69,6 @@ function M.attack(combatId, playerId, attacker)
         ---敌方玩家是没有反击
         attackPawn:attack(enemy)
     end
-
     return false
 end
 

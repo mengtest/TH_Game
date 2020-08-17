@@ -1,9 +1,9 @@
 local Node = require"ai.tree.node"
-local Action = require"ai.tree.action"
-local Composite = require"ai.tree.composite"
-local Condition = require"ai.tree.condition"
-local Decorator = require"ai.tree.decorator"
-local BlackBoard = require"ai.tree.blackboard"
+--local Action = require"ai.tree.action"
+--local Composite = require"ai.tree.composite"
+--local Condition = require"ai.tree.condition"
+--local Decorator = require"ai.tree.decorator"
+--local BlackBoard = require"ai.tree.blackboard"
 
 ---@class BehaviourTree
 local BehaviourTree = class("BehaviourTree")

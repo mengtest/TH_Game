@@ -1,3 +1,4 @@
+--region
 --BTNode：所有节点的base class。定义了一些节点的基本功能，并提供一些可继承的函数。
 --
 --BTAction：行为节点，继承于BTNode。具体的游戏逻辑应该放在这个节点里面。
@@ -11,19 +12,33 @@
 --BTParallel：Parallel逻辑节点，继承于BTNode。同时执行各个子结点。每当任一子结点的准入条件失败，它就不会执行。
 --
 --BTParallelFlexible：Parallel的一个变异，继承于BTNode。同时执行各个子节点。当所有子结点的准入条件都失败，它就不会执行。
+--endregion
 
 ---@class Node
 local Node = class("Node")
 
+
+---这里的行为树所需要的变量有 
+--- 1、血量的判断、能量的判断、金币的判断
+--- 2、从手牌中召唤一个卡牌到指定的位置          卡牌uid 位置
+--- 3、抽取一张卡牌                            高级还是低级的
+--- 4、攻击                                   棋子参数
+--- 5、使用技能                               目标棋子uid 技能id
+
 ---@class TreeState
 TreeState = {
+    ---成功
     success = 1,
+    ---失败
     failure = 2,
+    ---运行中
     running = 3,
+    ---无效的节点
+    none = 4
 }
 
 function Node:ctor()
-    self.name = ""
+    self.name = "node"
     ---@type Node[]
     self._childs = {}
     ---@type Node
@@ -41,22 +56,49 @@ end
 ---这个应该是被动调用函数，调用addChild的时候调用这个
 ---@param node Node
 function Node:setParent(node)
+    if self._parent ~= nil then
+        self:removeSelf()
+    end
     self._parent = node
 end
 
----@return Node
-function Node:getChildByName(name)
+function Node:clear()
+    for index, value in ipairs(self._childs) do
+        value:clear()
+    end
+end
 
+---@param name string
+function Node:removeChildByName(name)
+    for index, value in ipairs(self._childs) do
+        if value.name == name then
+            table.remove(self._childs, index)
+            value._parent = nil
+        end
+    end
+end
+
+function Node:removeSelf()
+    self._parent:removeChildByName(self.name)
 end
 
 ---@param index number
 function Node:removeChild(index)
+    local item = table.remove(self._childs, index)
+    item._parent = nil
+end
 
+---@return TreeState
+---准入条件要如何判断?
+function Node:tick()
+    return TreeState.success
 end
 
 function Node:check()
     if not self._precondition then
         return true
+    else
+        return self._precondition()
     end
 end
 

@@ -20,12 +20,7 @@ end
 ---直接子节点中有一个满足条件
 ---@return Condition
 function Condition.Or()
-    
+     
 end
-
--- ---直接子节点的结果取反
--- function Condition.Not()
-    
--- end
 
 return Condition

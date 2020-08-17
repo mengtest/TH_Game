@@ -5,28 +5,28 @@ local Node = require"ai.tree.node"
 ---@class Composite
 local Composite = class("Composite", Node)
 
----顺序执行所有的子节点，有任意一个返回失败则停止执行并返回失败
----@return Composite
-function Composite.Sequence()
-    -- body
-end
+-- 
+-- ---@return Composite
+-- function Composite.Sequence()
+--     -- body
+-- end
 
----一直执行直到有任意一个子节点返回成功，或者全部执行失败时返回失败
----@return Composite
-function Composite.Select()
-    -- body
-end
+-- ---一直执行直到有任意一个子节点返回成功，或者全部执行失败时返回失败
+-- ---@return Composite
+-- function Composite.Select()
+--     -- body
+-- end
 
----根据指定的优先级来依次执行子节点
----@return Composite
-function Composite.PrioritySelect()
-    -- body
-end
+-- ---根据指定的优先级来依次执行子节点
+-- ---@return Composite
+-- function Composite.PrioritySelect()
+--     -- body
+-- end
 
----暂时不管这个
----@return Composite
-function Composite.Parallel()
-    -- body
-end
+-- ---暂时不管这个
+-- ---@return Composite
+-- function Composite.Parallel()
+--     -- body
+-- end
 
 return Composite

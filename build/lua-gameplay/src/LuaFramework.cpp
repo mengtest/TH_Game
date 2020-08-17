@@ -14,6 +14,12 @@
 #include <filesystem>
 #include <set>
 
+// template<class T>
+// void add(T a, T b)
+// {
+//     return a + b;
+// }
+
 int LuaFramework::id = 0;
 
 LuaFramework* LuaFramework::_instance = nullptr;
@@ -26,7 +32,7 @@ LuaFramework* LuaFramework::_instance = nullptr;
 	#_PROPERTY_, sol::readonly(&_CLASS_::_PROPERTY_)
 
 void LuaFramework::free()
-{
+{    
 	//这种写法可以正常运行吗？
     delete _instance;
     _instance = nullptr;

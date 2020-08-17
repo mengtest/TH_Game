@@ -1,0 +1,42 @@
+local Node = require"ai.tree.node"
+
+---@class Select : Node
+local Select = class("Select", Node)
+
+function Select:ctor()
+    Select.super.ctor(self)
+    ---@type Node
+    self._activeChild = nil
+    self._activeIndex = -1
+end
+
+function Select:tick()
+    if #self._childs == 0 then
+        return TreeState.failure
+    end
+    if self._activeChild == nil then
+        self._activeIndex = 1
+        self._activeChild = self._childs[index]
+    end
+    ---如果是running、或者success的话，会直接返回
+    ---只有遇到了失败才会继续执行下一个节点
+    local res = self._activeChild:tick()
+    while res == TreeState.failure do
+        self._activeIndex = self._activeIndex + 1
+        self._activeChild = self._childs[self._activeIndex]
+        if self._activeChild then
+            res = self._activeChild:tick()
+        else
+            res = TreeState.failure
+        end
+    end
+    return res
+end
+
+function Select:clear()
+    self._activeChild = nil
+    self._activeIndex = -1
+    Select.super.clear(self)
+end
+
+return Select

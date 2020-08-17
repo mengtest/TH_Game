@@ -1,0 +1,55 @@
+local Node = require"ai.tree.node"
+
+---次序、并行、选择等就是组合节点
+---顺序执行所有的子节点，有任意一个返回失败则停止执行并返回失败
+---@class Sequence : Node
+local Sequence = class("Sequence", Node)
+
+function Sequence:ctor()
+    ---不会自动构造父类对象
+    Sequence.super.ctor(self)
+    ---当前正在运行的节点
+    ---@type Node
+    self._activeChild = nil
+    ---未初始状态为-1
+    self._activeIndex = -1
+end
+
+---我这边要做成每帧调用的形式吗？
+---如果做成每帧调用的话，则不用循环
+---@return TreeState
+function Sequence:tick()
+    ---没有子节点则返回失败1
+    if #self._childs == 0 then
+        return TreeState.failure
+    end
+    if self._activeChild == nil then
+        self._activeChild = self._childs[1]
+        self._activeIndex = 1
+    end
+    local res = self._activeChild:tick()
+    ---顺序节点会顺序执行所有子节点
+    ---无论成功还是失败都会继续执行下一个节点
+    ---只有返回成功才会继续
+    if res == TreeState.success then
+        self._activeIndex = self._activeIndex + 1
+        local node = self._childs[self._activeIndex]
+        if node then
+            self._activeChild = self.children[self._activeIndex]
+            res = TreeState.running
+        else
+            ---遍历完了
+            self._activeChild = nil
+            self._activeIndex = -1
+        end
+    end
+    return res
+end
+
+function Sequence:clear()
+    self._activeChild = nil
+    self._activeIndex = -1
+    Sequence.super.clear(self)
+end
+
+return Sequence

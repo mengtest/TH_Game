@@ -7,7 +7,6 @@ local M = {}
 
 ---@param script Scene.CombatScene.CombatPanelSlotScript 这个是存放有卡牌的slot脚本
 function M.slotReleaseEvent(script)
-    ---玩家的鼠标在slot上面释放的时候触发这个函数
     ---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
     
     ---@type Scene.CombatScene.UserInputScript
@@ -21,7 +20,7 @@ function M.slotReleaseEvent(script)
     if (panel ~= nil) then
         ---这个是鼠标当前所在的slot
         local slot = panel:GetSlot(input:GetCurSlotIndex())
-        if (slot) then
+        if slot then
             if (slot:HasCard()) then ---目标槽位上不能有卡牌
                 CS.Global.MakeToast("当前卡槽已被占用!", CS.Global.TOAST_LONG);
             elseif(script:HasCard()) then   ---要求当前槽位上有卡牌存在
@@ -30,7 +29,7 @@ function M.slotReleaseEvent(script)
                 if slot:GetPlayer() == input.myPanel.PlayerId then
                     slot:AddCard(script:Remove())
                 else
-
+                    
                 end
             else
 
@@ -58,7 +57,7 @@ function M.mouseClickPawnUp(card, data, long)
 		---这里需要能够获取到卡牌的uid
     end
     
-    M.mouseDragHandCardEnd()
+    --M.mouseDragHandCardEnd()
 end
 
 ---@param this Prefab.CombatSceneCombatCardScript
@@ -70,14 +69,24 @@ function M.mouseClickPawn(this, data)
     end
 end
 
-function M.mouseDragHandCardEnd()
+---@param this Prefab.CombatSceneCombatCardScript
+function M.mouseDragEnd(this)
+    M.mouseDragHandCardEnd(this)
+end
+
+---@param this Prefab.CombatSceneCombatCardScript
+function M.mouseDragHandCardEnd(this)
     ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
     local slot = panel:GetSlot(input:GetCurSlotIndex())
-    if slot then
-        log(slot.name)    
+    ---这里获取的是拷贝出来的卡牌对象，需要获取原对象，将原对象设置到目标卡槽上
+    
+    
+    if slot and this and not slot:HasCard() then
+        print(slot:AddCard(this))
     end
+    log("当前选择的卡牌对象的父对象名称为:".. this.transform.parent.name)
 end
 
 function M.turnEnd()
@@ -181,13 +190,15 @@ function M.init()
 		CS.Lib.Listener.Instance:On("Mouse_Click_Pawn_Up", M.mouseClickPawnUp, go, 0, false)
         --- 快速点击目标棋子后，该棋子做出攻击的动作
         CS.Lib.Listener.Instance:On("Mouse_Click_Pawn", M.mouseClickPawn, go , 0, false)
+        --- 
+        CS.Lib.Listener.Instance:On("Mouse_Drag_Pawn_End", M.mouseDragEnd, go, 0, false)
     end
     
     --region
-	-----这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
-    -----这里就是通过本地数据来初始化战场中相关信息的
-    -----是一段测试代码
-    -----@type Scene.CombatScene.UserInputScript
+	--这一段代码就是进入战斗场景之后，初始化场地上所有的卡牌的代码
+    --这里就是通过本地数据来初始化战场中相关信息的
+    --是一段测试代码
+    -- ---@type Scene.CombatScene.UserInputScript
     --local script = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
     --for i = 0, #(M.data.myPanel) - 1 do
     --    local index = M.data.myPanel[i + 1]

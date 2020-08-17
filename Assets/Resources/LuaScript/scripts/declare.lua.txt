@@ -56,12 +56,12 @@ local turnState = {}
 
 ---@class Damage
 ---@field isHeal boolean 是否是治疗
----@field value number  治疗或者伤害的数值
----@field curValue number   当前治疗或者伤害的数值
+---@field value number 治疗或者伤害的数值
+---@field curValue number 当前治疗或者伤害的数值
 ---@field damageType number 伤害的类型
 ---@field curDamageType number 当前的伤害类型
----@field source Pawn   伤害的来源
----@field target Pawn   伤害的目标
+---@field source Pawn 伤害的来源
+---@field target Pawn 伤害的目标
 local damage = {
     new = function(isHeal, value, damageType, source, target)
         ---@type Damage
