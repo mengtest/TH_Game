@@ -99,6 +99,12 @@ local function playerDrawCard(playerId, pawnUid)
     end
 end
 
+local function playerSummonPawn(playerId, pawnUid, pos)
+    log(tostring(playerId))
+    log(tostring(pawnUid))
+    log(tostring(pos))
+end
+
 ---玩家点击结束回合的按钮后的更新
 local function playerTurnEnd(playerId)
     --GamePlay.cur():turnEnd(playerId)
@@ -285,12 +291,19 @@ local function solveOne()
     end
     local item = MsgHandle.queue[1]
     if item[1] == 1 then
+        ---@type AttrStruct
         local attr = item[2]
             if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
             playerDrawCard(attr.playerId, attr.value)
         elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
             
         elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
+
+        elseif attr.type == CS.LuaApi.PlayerAttrDeckCardsToCombat then
+
+        elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToCombat then
+            playerSummonPawn(attr.playerId, attr.value, attr.objectId)
+        elseif attr.type == CS.LuaApi.PlayerAttrCombatCardsToHand then
             
         elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
             playerAttrChange(attr.playerId, 1, attr.value)

@@ -80,11 +80,9 @@ function M.mouseDragHandCardEnd(this)
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
     local slot = panel:GetSlot(input:GetCurSlotIndex())
-    ---这里获取的是拷贝出来的卡牌对象，需要获取原对象，将原对象设置到目标卡槽上
-    
-    
     if slot and this and not slot:HasCard() then
-        print(slot:AddCard(this))
+        --print(slot:AddCard(this))
+        GamePlay.cur():summon(GamePlay.cur():getPlayer(), this.uid, tonumber(string.match(slot.name, "%w+(%d)")))
     end
     log("当前选择的卡牌对象的父对象名称为:".. this.transform.parent.name)
 end

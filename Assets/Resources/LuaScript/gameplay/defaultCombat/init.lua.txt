@@ -211,7 +211,9 @@ function DefaultGamePlay:summon(playerId, pawnId, pos)
     --     CS.Global.MakeToast("能量不足，无法召唤", CS.Global.TOAST_SHORT);
     -- end 
     --endregion
-    
+    log(tostring(pos))
+    log(tostring(pawnId))
+    log(tostring(playerId))
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.summon(self._combatId, playerId, pawnId, pos) then
         log"召唤失败"

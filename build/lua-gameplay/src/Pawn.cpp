@@ -337,9 +337,11 @@ bool Pawn::moveToPanel(int pos)
 			else if (curType == 2)
 			{
 				// return false;
-				AgentMgr::instance()->curAgent()->update(
-					_player, yGlobal.PlayerAttrHandCardsToCombat, unique_id()
-				);
+				// AgentMgr::instance()->curAgent()->update(
+				// 	_player, yGlobal.PlayerAttrHandCardsToCombat, unique_id()
+				// );
+				AgentMgr::instance()->curAgent()->update(_player->combatId(), _player->uid(), unique_id(), yGlobal.PlayerAttrHandCardsToCombat
+					, unique_id(), 1);
 				return true;
 			}
 			else if (curType == 3)
