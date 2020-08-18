@@ -111,10 +111,10 @@ function M.draw(combatId, playerId, number, high)
     if high then
         -- gold = config.highPrice * number
         --这个应该从配置表中来，如果不想再读表的话，应该直接导出配置
-        gold = nn.Config.highDrawPrice
+        gold = nn.getConfig().highDrawPrice
     else
         -- gold = config.normalPrice * number
-        gold = nn.Config.normalDrawPrice
+        gold = nn.getConfig().normalDrawPrice
     end
     local combat = nn.get_combat(combatId)
     local worker = combat:getWorkPlayer()

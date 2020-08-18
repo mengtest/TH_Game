@@ -91,6 +91,11 @@ namespace Export
         LuaFramework::constructor(L)->exportAll();
     }
 
+    Config* get_config()
+    {
+        return AgentMgr::instance()->curAgent()->getConfig();
+    }
+
     void* get_lua_state()
     {
         return LuaFramework::instance()->getLuaStack();

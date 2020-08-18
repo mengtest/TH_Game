@@ -247,6 +247,7 @@ void LuaFramework::exportAll() {
 	//战斗结束后自动销毁所有相关的内存，所以不需要手动去销毁
     nn.set_function("create_combat", Export::create_combat);
     nn.set_function("release_export", Export::release_export);
+    nn.set_function("getConfig", Export::get_config);
     // nn.set_function("set_notice_fun", Export::set_notice_fun);
     // nn.set_function("set_update_fun", Export::set_update_fun);
     
@@ -254,7 +255,30 @@ void LuaFramework::exportAll() {
     //endregion
 #pragma endregion
 
-#pragma region PawnD、BuffD、PlayerS
+#pragma region PawnD,BuffD,PlayerS
+
+    _lua.new_usertype<Config>("Config", sol::no_constructor
+        , SOL_READONLY(Config, normalDrawPrice)
+        , SOL_READONLY(Config, highDrawPrice)
+        , SOL_READONLY(Config, normal_nPercent)
+        , SOL_READONLY(Config, normal_rPercent)
+        , SOL_READONLY(Config, normal_srPercent)
+        , SOL_READONLY(Config, normal_ssrPercent)
+        , SOL_READONLY(Config, high_nPercent)
+        , SOL_READONLY(Config, high_rPercent)
+        , SOL_READONLY(Config, high_srPercent)
+        , SOL_READONLY(Config, high_ssrPercent)
+        , SOL_READONLY(Config, primaryGold)
+        , SOL_READONLY(Config, salary)
+        , SOL_READONLY(Config, roundCard)
+        , SOL_READONLY(Config, maxRound)
+        , SOL_READONLY(Config, primaryEnergy)
+        , SOL_READONLY(Config, energyGrow)
+        , SOL_READONLY(Config, maxEnergy)
+        , SOL_READONLY(Config, primaryHp)
+        , SOL_READONLY(Config, maxHp));
+
+	
     //     //棋子拥有的技能是相对固定的，只要知道是什么棋子就能知道这个棋子有哪些技能，所以不返回棋子技能的信息
     // int id;
     // int unique_id;          //单次战斗中会被分配的唯一id(每次战斗开始的时候，会获取所有玩家当前的所有卡牌，同时为这些卡牌分配唯一的id)
@@ -712,32 +736,55 @@ void LuaFramework::exportAll() {
     // int primaryHp;              //初始血量
     // int maxHp;                  //血量上限
 
-    // auto config = nn["Config"].get_or_create<sol::table>();
-    // config.set()
+
 #pragma endregion
 	
 }
 
 void LuaFramework::exportConfig(Config * config)
 {
-    auto nn = _lua["nn"].get_or_create<sol::table>();
-    auto conf = _lua["Config"].get_or_create<sol::table>();
-    conf.set("normalDrawPrice", config->normalDrawPrice);
-    conf.set("highDrawPrice", config->highDrawPrice);
-    conf.set("normal_nPercent", config->normal_nPercent);
-    conf.set("normal_rPercent", config->normal_rPercent);
-    conf.set("normal_srPercent", config->normal_srPercent);
-    conf.set("high_ssrPercent", config->high_ssrPercent);
-    conf.set("primaryGold", config->primaryGold);
-    conf.set("salary", config->salary);
-    conf.set("roundCard", config->roundCard);
-    conf.set("primaryCard", config->primaryCard);
-    conf.set("maxRound", config->maxRound);
-    conf.set("primaryEnergy", config->primaryEnergy);
-    conf.set("energyGrow", config->energyGrow);
-    conf.set("maxEnergy", config->maxEnergy);
-    conf.set("primaryHp", config->primaryHp);
-    conf.set("maxHp", config->maxHp);
+    // sol::table nn = _lua["nn"].get_or_create<sol::table>();
+    // nn.set_function("getConfig", []()
+    // {
+    //     return AgentMgr::instance()->curAgent()->getConfig();
+    // });
+	
+    // auto nn = _lua["nn"].get_or_create<sol::table>();
+    // sol::table conf = _lua["Config"].get_or_create<sol::table>();
+    // conf["normalDrawPrice"] = config->normalDrawPrice;
+    // conf["highDrawPrice"] = config->highDrawPrice;
+    // conf["normal_nPercent"] = config->normal_nPercent;
+    // conf["normal_rPercent"] = config->normal_rPercent;
+    // conf["normal_srPercent"] = config->normal_srPercent;
+    // conf["high_ssrPercent"] = config->high_ssrPercent;
+    // conf["primaryGold"] = config->primaryGold;
+    // conf["salary"] = config->salary;
+    // conf["roundCard"] = config->roundCard;
+    // conf["primaryCard"] = config->primaryCard;
+    // conf["maxRound"] = config->maxRound;
+    // conf["primaryEnergy"] = config->primaryEnergy;
+    // conf["energyGrow"] = config->energyGrow;
+    // conf["maxEnergy"] = config->maxEnergy;
+    // conf["primaryHp"] = config->primaryHp;
+    // conf["maxHp"] = config->maxHp;
+	
+	
+	
+    // conf.set("highDrawPrice", config->highDrawPrice);
+    // conf.set("normal_nPercent", config->normal_nPercent);
+    // conf.set("normal_rPercent", config->normal_rPercent);
+    // conf.set("normal_srPercent", config->normal_srPercent);
+    // conf.set("high_ssrPercent", config->high_ssrPercent);
+    // conf.set("primaryGold", config->primaryGold);
+    // conf.set("salary", config->salary);
+    // conf.set("roundCard", config->roundCard);
+    // conf.set("primaryCard", config->primaryCard);
+    // conf.set("maxRound", config->maxRound);
+    // conf.set("primaryEnergy", config->primaryEnergy);
+    // conf.set("energyGrow", config->energyGrow);
+    // conf.set("maxEnergy", config->maxEnergy);
+    // conf.set("primaryHp", config->primaryHp);
+    // conf.set("maxHp", config->maxHp);
 }
 
 void LuaFramework::entry()

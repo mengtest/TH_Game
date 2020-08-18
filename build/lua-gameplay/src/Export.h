@@ -37,6 +37,8 @@ namespace Export
 
 	void export_lua(lua_State* L);
 
+	Config* get_config();
+
 	//cpp端的lua栈肯定是唯一的
 	void* get_lua_state();
 

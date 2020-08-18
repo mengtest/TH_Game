@@ -50,6 +50,8 @@ public:
 
 	const Config& config();
 
+	Config* getConfig();
+
 	void setRoot(std::string_view str);
 
 	std::string_view getRoot();

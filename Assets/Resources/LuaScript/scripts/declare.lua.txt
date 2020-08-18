@@ -49,8 +49,11 @@ local Config = {}
 ---@class NN
 local projNN = {}
 
----@type Config
-projNN.Config = Config
+-----@type Config
+--projNN.Config = Config
+
+---@return Config
+function projNN.getConfig() end
 
 ---日志文件输出
 ---@param str string
