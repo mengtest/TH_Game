@@ -47,6 +47,9 @@ private:
     static LuaFramework* _instance;
 public:
 	void free() override;
+
+	//只有在lua、config文件都加载完之后才会导出config对象
+	void exportConfig(Config * config);
 	
     LuaFramework(lua_State* L);
 

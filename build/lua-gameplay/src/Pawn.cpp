@@ -340,7 +340,7 @@ bool Pawn::moveToPanel(int pos)
 				// AgentMgr::instance()->curAgent()->update(
 				// 	_player, yGlobal.PlayerAttrHandCardsToCombat, unique_id()
 				// );
-				AgentMgr::instance()->curAgent()->update(_player->combatId(), _player->uid(), unique_id(), yGlobal.PlayerAttrHandCardsToCombat
+				AgentMgr::instance()->curAgent()->update(_player->combatId(), _player->uid(), pos, yGlobal.PlayerAttrHandCardsToCombat
 					, unique_id(), 1);
 				return true;
 			}

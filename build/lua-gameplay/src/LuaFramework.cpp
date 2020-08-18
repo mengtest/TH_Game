@@ -31,6 +31,9 @@ LuaFramework* LuaFramework::_instance = nullptr;
 #define SOL_READONLY(_CLASS_, _PROPERTY_)\
 	#_PROPERTY_, sol::readonly(&_CLASS_::_PROPERTY_)
 
+// #define SOL_READONLY_PROPERTY(_PROPERTY_)\
+//     #_PROPERTY_ , _PROPERTY_
+
 void LuaFramework::free()
 {    
 	//这种写法可以正常运行吗？
@@ -686,7 +689,55 @@ void LuaFramework::exportAll() {
         , "target", &Damage::target
         );
 #pragma endregion 
+
+#pragma region Config
+    //     int normalDrawPrice;        //抽一次普通卡牌所需要的钱
+    // int highDrawPrice;          //抽一次高级卡牌所需要的钱
+    // int normal_nPercent;        //普通卡牌出n的概率  所有的概率都是万分比
+    // int normal_rPercent;        //普通卡牌出r的概率
+    // int normal_srPercent;       //         sr的概率
+    // int normal_ssrPercent;      //         ssr的概率
+    // int high_nPercent;          //高级卡牌出n的概率
+    // int high_rPercent;          //         r的概率
+    // int high_srPercent;         //         sr的概率
+    // int high_ssrPercent;        //         ssr的概率
+    // int primaryGold;            //初始金钱
+    // int salary;                 //每回合发放的金币
+    // int roundCard;              //每回合给的卡牌数量（普通）
+    // int primaryCard;            //初始的卡牌数量
+    // int maxRound;               //最大回合数
+    // int primaryEnergy;          //初始能量
+    // int energyGrow;             //每回合能量成长
+    // int maxEnergy;              //最大能量
+    // int primaryHp;              //初始血量
+    // int maxHp;                  //血量上限
+
+    // auto config = nn["Config"].get_or_create<sol::table>();
+    // config.set()
+#pragma endregion
 	
+}
+
+void LuaFramework::exportConfig(Config * config)
+{
+    auto nn = _lua["nn"].get_or_create<sol::table>();
+    auto conf = _lua["Config"].get_or_create<sol::table>();
+    conf.set("normalDrawPrice", config->normalDrawPrice);
+    conf.set("highDrawPrice", config->highDrawPrice);
+    conf.set("normal_nPercent", config->normal_nPercent);
+    conf.set("normal_rPercent", config->normal_rPercent);
+    conf.set("normal_srPercent", config->normal_srPercent);
+    conf.set("high_ssrPercent", config->high_ssrPercent);
+    conf.set("primaryGold", config->primaryGold);
+    conf.set("salary", config->salary);
+    conf.set("roundCard", config->roundCard);
+    conf.set("primaryCard", config->primaryCard);
+    conf.set("maxRound", config->maxRound);
+    conf.set("primaryEnergy", config->primaryEnergy);
+    conf.set("energyGrow", config->energyGrow);
+    conf.set("maxEnergy", config->maxEnergy);
+    conf.set("primaryHp", config->primaryHp);
+    conf.set("maxHp", config->maxHp);
 }
 
 void LuaFramework::entry()

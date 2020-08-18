@@ -1,15 +1,12 @@
 local M = {}
 
---local queryCard = require"modules.BattleScene.QueryCard"
 local drawAndGold = require"modules.BattleScene.DrawAndGold"
---local helper = require"modules.BattleScene.CombatPawn"
 
----战斗场景应该具有的功能
----     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景)
----     
+--战斗场景应该具有的功能
+--     异步加载(当场景中所有需要的数据全部加载完成的时候，发送消息给服务端，然后等待所有的客户端都加载完成之后，服务端发送消息，所有的客户端进入战斗场景) 
 
----这个是玩家点击左上角的设置按钮后的逻辑
----应该弹出一个ui，这个ui里面可以调整当前游戏里面的一些设置
+--这个是玩家点击左上角的设置按钮后的逻辑
+--应该弹出一个ui，这个ui里面可以调整当前游戏里面的一些设置
 ---@param this UnityEngine.Transform
 local function Setting(this)
     util.bindButtonCallback(this, function ()
@@ -26,29 +23,41 @@ local list = {
 ---@param data number[] 当前玩家所选择的卡牌
 function M.init(data)
     global.config = json.decode(util.read("LuaScript/json/global"))
+    ---@type CCard[]
+    global.cardInfos = global.cardInfos or json.decode(CS.Util.Loader.Read("LuaScript/json/cards"))
 	require"modules.BattleScene.LoadingLayer".init()
 	local handle = require"modules.BattleScene.MsgHandle"
     handle.init()
-    ---这一块只做视图相关的处理，以及玩家输入后对combat的调用
+    --这一块只做视图相关的处理，以及玩家输入后对combat的调用
     GamePlay = GamePlay or require"gameplay.init"
-    ---感觉这个可以
-    GamePlay.create("default")
-    ---绑定两个函数，处理cpp core回传的数据
-    GamePlay.cur().bindUpdate(handle.distribute)
-    GamePlay.cur().bindNotice(handle.notice)
-    
-    ---@type DefaultGamePlay
-    local gamePlay = GamePlay.cur()
-    if global.deckCards then
-        ---加载当前玩家所有的卡牌、资源等
-        gamePlay:start(global.deckCards)
-        -- -通过这个获取到当前玩家的数据
+    --如果是离线模式的话，则直接在本地创建战斗系统
+    --如果是在线模式的话，则需要在客户端以及服务端均创建战斗系统
+    --(目前基本确定使用帧同步来完成同步，所以客户端服务端要求能够独立完成整套逻辑) 
+    local gameplay = GamePlay.create("default")
 
-        ---现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
-        ---这个是通过某种手段获取到的当前玩家的卡牌数组
-        ---这里获取到当前玩家的卡牌数据
+    ---无法创建出新的战斗系统，可以直接报错，最终要确定的就是要如何
+    if not gameplay then
+        error"无法创建新的战斗系统"
+    end
+    
+    --绑定两个函数，处理cpp core回传的数据
+    gameplay.bindUpdate(handle.distribute)
+    gameplay.bindNotice(handle.notice)
+    
+    global.deckCards = global.deckCards or {
+        14, 14, 4, 8, 7, 2, 1, 1, 22, 22, 23, 23, 23, 23, 24, 20, 19, 18, 55, 56, 56, 57, 57, 58, 58, 54,
+        54, 54, 53, 52, 86, 85, 84, 84, 84, 84, 84, 84, 84, 83, 83, 83, 83, 83, 83, 82, 82, 82, 82, 82
+    }
+    if global.deckCards then
+        --加载当前玩家所有的卡牌、资源等
+        gameplay:start(global.deckCards)
+        --通过这个获取到当前玩家的数据
+
+        --现在 CS.LuaApi.GetPlayer(1, 1) 这个api有问题，不知道为什么之前可以运行，后来就会导致游戏崩溃
+        --这个是通过某种手段获取到的当前玩家的卡牌数组
+        --这里获取到当前玩家的卡牌数据
         --local t = CS.LuaApi.GetPlayer(GamePlay.cur():getCombatId(), GamePlay.cur():getPlayer())
-        local t = GamePlay.cur():getPawnList()
+        local t = gameplay:getPawnList()
         -- nn.get_combat()
         ---@type CCard[]
         global.combatCardInfos = {}
@@ -76,20 +85,18 @@ function M.init(data)
         --end
         --endregion
         
-        -- log(json.encode(imgs))
         ---@type UnityEngine.GameObject
         local go = util.loadGameObject("Prefab/CombatPawn")
-        ---这个接口还没有实现，先不管
-        --CS.Util.Pool.SetMaxSize("CardImgs", 40)
         local function load()
             ---@type UnityEngine.Object
             local objs
             local res
             res, objs = xutil.async_to_sync(xutil.bind(CS.Util.Loader.LoadAsync, imgs))()
             if res then
+                --设置对象池最大大小为40
                 CS.Util.Pool.SetMaxSize("CardImgs", 40)
-                ---数组长度为100
-                ---偶数为卡牌的大图、奇数为卡牌的小图
+                --数组长度为100
+                --偶数为卡牌的大图、奇数为卡牌的小图
                 for i = 0, 99 do
                     ---实例化卡牌，并存入到pool中
                     if i % 2 == 0 then
@@ -104,12 +111,11 @@ function M.init(data)
                     end
                 end
                 ---游戏正式开始的时候再去调用这个函数，但是目前的情况来看的话，当前客户端所需的资源全部加载完成之后就可以调用这个函数了
-                GamePlay.cur():combatStart()
+                gameplay:combatStart()
             end
         end
         xutil.coroutine_call(load)()
     else
-        --error"无效的卡牌数据"
 		log"无效的卡牌数据"
     end
     

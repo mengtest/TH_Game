@@ -99,6 +99,7 @@ end
 ---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
 ---@param attacker number 要发动攻击的棋子的uid
 function DefaultGamePlay:attack(playerId, attacker)
+    
     --region
     -- if self._list[attacker] then
     --     ---该棋子已经发动过攻击了，无法攻击
@@ -128,6 +129,7 @@ end
 
 ---玩家点击结束当前回合
 function DefaultGamePlay:turnEnd(playerId)
+    
     --region
     -- local combat = nn.get_combat(self._combatId)
     -- local curPlayer = combat:getWorkPlayer()
@@ -211,9 +213,7 @@ function DefaultGamePlay:summon(playerId, pawnId, pos)
     --     CS.Global.MakeToast("能量不足，无法召唤", CS.Global.TOAST_SHORT);
     -- end 
     --endregion
-    log(tostring(pos))
-    log(tostring(pawnId))
-    log(tostring(playerId))
+    
     local t = require"gameplay.defaultCombat.gameplayLogicSingle"
     if not t.summon(self._combatId, playerId, pawnId, pos) then
         log"召唤失败"

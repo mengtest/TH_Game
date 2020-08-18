@@ -9,6 +9,11 @@ local M = {}
 function M.slotReleaseEvent(script)
     ---主要针对点击卡牌后移动鼠标，将卡牌放置到当前的位置上的事件
     
+    --好像这个函数已经没有使用了，直接
+    if true then
+        return
+    end
+    
     ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
@@ -79,7 +84,13 @@ function M.mouseDragHandCardEnd(this)
     ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
     local panel = input:GetPanel(input:GetCurSlotPlayerId())
+    ---没有获取到panel的话直接退出，或者报错
+    if not panel then
+        return
+    end
     local slot = panel:GetSlot(input:GetCurSlotIndex())
+    ---原来的位置上没有卡牌才可以放置新的卡牌
+    ---目前的设定是不允许交换正在战斗中的卡牌的位置的
     if slot and this and not slot:HasCard() then
         --print(slot:AddCard(this))
         GamePlay.cur():summon(GamePlay.cur():getPlayer(), this.uid, tonumber(string.match(slot.name, "%w+(%d)")))
@@ -93,7 +104,7 @@ function M.turnEnd()
     --     GamePlay.cur():getHandle().turnEnd()
     -- end
 
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().turnEnd(gameplay:getHandle().getPlayer())
@@ -107,7 +118,7 @@ function M.drawNormal()
     -- if GamePlay and GamePlay.cur() then
     --     GamePlay.cur():getHandle().draw(1, false)
     -- end
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().draw(gameplay:getHandle().getPlayer(), 1, false)
@@ -121,7 +132,7 @@ function M.drawHigh()
     -- if GamePlay and GamePlay.cur() then
         -- GamePlay.cur():getHandle().draw(1, true)
     -- end
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().draw(gameplay:getHandle().getPlayer(), 1, true)
@@ -130,8 +141,14 @@ function M.drawHigh()
     end
 end
 
+---点击技能按钮之后，会触发点击事件，每个技能对象可以获取到当前玩家点击的技能在当前的棋子当中所在的下标
+---然后获取到这个棋子对应下标的技能的uid，然后这里一定要给出一个接口---即根据技能的目标类型值来判断当前需要选择的目标
+---另外，在选择技能的过程当中需要有一个取消的按钮提示，如果玩家点击这个提示按钮的话则取消当前技能的使用
+---如果玩家选择的目标合法，并且满足使用条件，则使用这个技能
+---如果目标不合法的话，则提示当前所选择的目标是不合法的，如果条件不足则提示条件不足
+---如果技能会对目标对象产生buff的话，则会给目标对象添加一个buff
 function M.useSkill(pawn, target, skillId)
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().userSkill(gameplay:getHandle().getPlayer(), pawn, target, skillId)
@@ -148,7 +165,7 @@ function M.summon(pawnId, pos)
     --     GamePlay.cur():getHandle().summon(pawnId, pos)
     -- end
 
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             -- gameplay:getHandle().summon(gameplay:getHandle().getPlayer(), pawnId, pos)
@@ -163,7 +180,7 @@ function M.attack(uid)
     --     GamePlay.cur():getHandle().attack(uid)
     -- end
 
-    if GamePlay then
+    if GamePlay and GamePlay.cur() then
         local gameplay = GamePlay.cur()
         if gameplay then
             gameplay:attack(gameplay:getPlayer(), uid)

@@ -9,6 +9,7 @@
 #include "fmt/format.h"
 #include <filesystem>
 #include "Logger.h"
+#include "LuaFramework.h"
 
 void Loader::loadAllPawns(const std::string & text)
 {
@@ -135,7 +136,6 @@ void Loader::loadConfig(const std::string & text)
 		config->salary = doc["salary"].GetInt();
 	}
 	AgentMgr::instance()->curAgent()->setConfig(config);
-
 }
 
 void Loader::loadAllSkills(const std::string & text)

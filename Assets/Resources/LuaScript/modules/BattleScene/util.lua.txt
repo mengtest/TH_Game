@@ -1,6 +1,8 @@
 ---@class CombatUtil
 local M = {}
 
+--还需要做的项 卡牌上面的技能要修改为按钮，或者使用split button，然后要绑定点击事件
+
 ---构造出一个棋子对象
 ---@param uid number 棋子的uid
 ---@param id number 棋子的uid
@@ -22,11 +24,44 @@ function M.getViewCardByUid(uid)
     local go = CS.UnityEngine.GameObject.FindGameObjectWithTag("UserInput")
     ---@type Prefab.CombatSceneCombatCardScript[]
     local cards = go:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
-    for i, v in pairs(cards) do
-        if v.uid == uid then
-            return v
+    for i = 0, (cards.Count or cards.Length) - 1 do
+        if cards[i].uid == uid then
+            return cards[i]
         end
     end
+
+    --region
+    -----@type Scene.CombatScene.UserInputScript
+    --local userInput = go:GetComponent(typeof(CS.Scene.CombatScene.UserInputScript))
+    --
+    --local cards = userInput.myPanel:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --for i = 0, (cards.Count or cards.Length) - 1 do
+    --    if cards[i].uid == uid then
+    --        return cards[i]
+    --    end
+    --end
+    --
+    --cards = userInput.enemyPanel:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --for i = 0, (cards.Count or cards.Length) - 1 do
+    --    if cards[i].uid == uid then
+    --        return cards[i]
+    --    end
+    --end
+    --
+    --cards = userInput.myHandList:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --for i = 0, (cards.Count or cards.Length) - 1 do
+    --    if cards[i].uid == uid then
+    --        return cards[i]
+    --    end
+    --end
+    --
+    --cards = userInput.enemyHandList:GetComponentsInChildren(typeof(CS.Prefab.CombatSceneCombatCardScript))
+    --for i = 0, (cards.Count or cards.Length) - 1 do
+    --    if cards[i].uid == uid then
+    --        return cards[i]
+    --    end
+    --end
+    --endregion
 end
 
 return M

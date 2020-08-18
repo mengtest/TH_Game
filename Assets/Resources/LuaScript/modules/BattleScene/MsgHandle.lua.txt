@@ -54,23 +54,23 @@ MsgHandle.queue = {}
 --public const int CostPlayerGold = 4 + PLAYER_COST_BEGIN;
 --endregion
 
----玩家抽卡成功后的更新
----这里的逻辑有点复杂，主要包括有：1、从卡组中添加一个棋子到手中 2、初始化该棋子所有的属性 3、左侧的卡池中的数据也会有响应的更新
+--玩家抽卡成功后的更新
+--这里的逻辑有点复杂，主要包括有：1、从卡组中添加一个棋子到手中 2、初始化该棋子所有的属性 3、左侧的卡池中的数据也会有响应的更新
 ---@param pawnUid number 玩家抽到的棋子的uid
 local function playerDrawCard(playerId, pawnUid)
     ---@type Scene.CombatScene.UserInputScript
     local input = require"modules.BattleScene.userInputLayer".inputLayer
     
     if playerId == GamePlay.cur():getPlayer() then  
-        ---如果是当前玩家抽取到卡牌，则需要从对象池中获取一个卡牌对象，并添加到手牌的数组中
+        --如果是当前玩家抽取到卡牌，则需要从对象池中获取一个卡牌对象，并添加到手牌的数组中
 
         ---@type UnityEngine.GameObject
         local go = CS.Util.Pool.Get("CardImgs")
-        ---从对象池中取出的物品默认是没有激活的
+        --从对象池中取出的物品默认是没有激活的
         go:SetActive(true)
-        ---需要能将卡牌从卡组的位置移动到当前玩家的手牌列表中
-        ---最好可以播放一段动画
-        -- TODO
+        --需要能将卡牌从卡组的位置移动到当前玩家的手牌列表中
+        --最好可以播放一段动画
+        --TODO
         go.transform:SetParent(input.myHandList.transform)
 
         local cardId = GamePlay.cur():getIdByUid(pawnUid)
@@ -99,16 +99,28 @@ local function playerDrawCard(playerId, pawnUid)
     end
 end
 
+---能够通过uid取到对应的棋子
+---能够通过pos取到对应的卡槽
 local function playerSummonPawn(playerId, pawnUid, pos)
-    log(tostring(playerId))
-    log(tostring(pawnUid))
-    log(tostring(pos))
+    ---@type Scene.CombatScene.UserInputScript
+    local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()
+    --TODO 这里还有一个东西，panel的id与玩家的id其实应该是一致的，但是目前还不是一致的，所以需要修改
+    local panel = input:GetPanel(input:GetCurSlotPlayerId())    ---这里实际应该填入的参数是playerId
+    local slot = panel:GetSlot(pos)
+    local this = require"modules.BattleScene.util".getViewCardByUid(pawnUid)
+    
+    ---原来的位置上没有卡牌才可以放置新的卡牌
+    ---目前的设定是不允许交换正在战斗中的卡牌的位置的
+    if slot and this and not slot:HasCard() then
+        slot:AddCard(this)
+    end
 end
 
 ---玩家点击结束回合的按钮后的更新
 local function playerTurnEnd(playerId)
-    --GamePlay.cur():turnEnd(playerId)
-    
+    if GamePlay.cur() then
+        GamePlay.cur():turnEnd(playerId)
+    end
 end
 
 ---玩家的属性变化后的更新
@@ -163,11 +175,11 @@ local function pawnAttrChange(playerId, pawnUid, ty, value)
     --public const int EventPawnAttrDead = PAWN_ATTR_BEGIN + 11;
     --endregion
 
-    ---需要能够取到战斗中pawnUid棋子
-    ---假定这个就是获取到的棋子对象
-    -- TODO
+    --需要能够取到战斗中pawnUid棋子
+    --假定这个就是获取到的棋子对象
+    --TODO
     
-    ---因为敌方的卡牌是不可见的
+    --因为敌方的卡牌是不可见的
     local pawn = require"modules.BattleScene.util".getViewCardByUid(pawnUid)
     if ty == 1 then
         pawn.hp.text = value
@@ -195,7 +207,8 @@ local function buffAttrChange(playerId, buffId, ty, value)
     --public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
     --endregion
     -- TODO 目前还没有想好buff该如何表现
-
+    
+    
 end
 
 ---棋子死亡
@@ -208,6 +221,9 @@ local function pawnDead(playerId, pawnUid)
         ---@type Scene.CombatScene.CombatPanelSlotScript
         local slot = pawn:GetComponentInParent(typeof(CS.Scene.CombatScene.CombatPanelSlotScript))
         slot:Remove()
+        --播放一段动画，然后将这个对象回收到卡池中，
+        --只有播放动画、以及回收到对象池中这两个动作需要在这里做
+        CS.Util.Pool.Store("CardImgs", slot.gameObject)
     end
 end
 
@@ -251,15 +267,20 @@ end
 local list = {}
 
 function list.curPlayer(data)
-    log(string.format("当前的玩家id是%d", data)) 
-    ---这个主要是在游戏开始时，随机给出一个先攻的玩家时发送这条消息
+    log(string.format("当前行动的玩家id是%d", data))
+    --这个主要是在游戏开始时，随机给出一个先攻的玩家时发送这条消息
+    
+    --产生这个之后会播放一段动画，动画播放完之后再进行下一步操作
     
 end
 
 function list.playerChange(data)
-    local cur, tar = util.splice(data, "&")
-    log(string.format("当前可以行动的玩家由%d转换到%d", cur, tar))
-    ---这个主要是玩家回合结束，进入到写一个玩家的回合时调用
+    ---@type number[]
+    local objs = util.splice(data, "&")
+    log(string.format("当前可以行动的玩家由%s转换到%s", objs[1], objs[2]))
+    ---这个主要是玩家回合结束，进入到另一个玩家的回合时触发
+    
+    --这里也应该是播放一段动画之后再进入下一步操作
     
 end
 
@@ -285,7 +306,7 @@ end
 
 local function solveOne()
     --local item = table.remove(MsgHandle.queue, 1)
-    ---如果队列中没有未处理的消息了，则不再继续执行
+    --如果队列中没有未处理的消息了，则不再继续执行
     if #MsgHandle.queue == 0 then
         return
     end
@@ -296,15 +317,16 @@ local function solveOne()
             if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
             playerDrawCard(attr.playerId, attr.value)
         elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
-            
+            --这个是手牌中的卡牌回到卡池中的事件，实际上是不会触发的
         elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
-
+            --这个是战斗中的卡牌回到卡池，实际上就是死亡，或者类似的动作
+            pawnDead(attr.playerId, attr.objectId)
         elseif attr.type == CS.LuaApi.PlayerAttrDeckCardsToCombat then
-
+            --这个就是卡池中的卡牌直接召唤到战场中，类似于游戏王中的特殊召唤，目前的版本不用管这个
         elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToCombat then
-            playerSummonPawn(attr.playerId, attr.value, attr.objectId)
+            playerSummonPawn(attr.playerId, attr.objectId, attr.value)
         elseif attr.type == CS.LuaApi.PlayerAttrCombatCardsToHand then
-            
+            --这个是战斗中的卡牌回到手中，实际上只有特殊效果才能够触发这个动作，目前阶段可以不用管这个
         elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
             playerAttrChange(attr.playerId, 1, attr.value)
         elseif attr.type == CS.LuaApi.EventPlayerAttrHp then
@@ -313,7 +335,7 @@ local function solveOne()
             playerAttrChange(attr.playerId, 4, attr.value)
         elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
             playerAttrChange(attr.playerId, 3, attr.value)
-        end     
+        end
         
     elseif item[1] == 2 then
         log(item[2])

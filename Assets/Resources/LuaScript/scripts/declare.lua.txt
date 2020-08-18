@@ -1,9 +1,56 @@
 --- 注意，这个文件是声明文件，不要使用任何方式来加载这个文件
 
+--//     int normalDrawPrice;        //抽一次普通卡牌所需要的钱
+--// int highDrawPrice;          //抽一次高级卡牌所需要的钱
+--// int normal_nPercent;        //普通卡牌出n的概率  所有的概率都是万分比
+--// int normal_rPercent;        //普通卡牌出r的概率
+--// int normal_srPercent;       //         sr的概率
+--// int normal_ssrPercent;      //         ssr的概率
+--// int high_nPercent;          //高级卡牌出n的概率
+--// int high_rPercent;          //         r的概率
+--// int high_srPercent;         //         sr的概率
+--// int high_ssrPercent;        //         ssr的概率
+--// int primaryGold;            //初始金钱
+--// int salary;                 //每回合发放的金币
+--// int roundCard;              //每回合给的卡牌数量（普通）
+--// int primaryCard;            //初始的卡牌数量
+--// int maxRound;               //最大回合数
+--// int primaryEnergy;          //初始能量
+--// int energyGrow;             //每回合能量成长
+--// int maxEnergy;              //最大能量
+--// int primaryHp;              //初始血量
+--// int maxHp;                  //血量上限
+
+
+---@field public normalDrawPrice number
+---@field public highDrawPrice number
+---@field public normal_nPercent number
+---@field public normal_rPercent number
+---@field public normal_srPercent number
+---@field public normal_ssrPercent number
+---@field public high_nPercent number
+---@field public high_rPercent number
+---@field public high_srPercent number
+---@field public high_ssrPercent number
+---@field public primaryGold number
+---@field public salary number
+---@field public roundCard number
+---@field public primaryCard number
+---@field public maxRound number
+---@field public primaryEnergy number
+---@field public energyGrow number
+---@field public maxEnergy number
+---@field public primaryHp number
+---@field public maxHp number
+---@class Config
+local Config = {}
 
 ---project no name名称空间，这里存放所有C++导出lua的全局函数，所有的导出类都不受这个影响
 ---@class NN
 local projNN = {}
+
+---@type Config
+projNN.Config = Config
 
 ---日志文件输出
 ---@param str string

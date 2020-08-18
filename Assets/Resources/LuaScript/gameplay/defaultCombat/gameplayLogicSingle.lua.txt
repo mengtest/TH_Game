@@ -80,6 +80,7 @@ function M.turnEnd(combatId, playerId)
     -- nn.get_combat(combatId):turnEnd(playerId)
     if curPlayer:uid() == playerId then
         combat:turnEnd(playerId)
+        return true
     else
         -- CS.Global.MakeToast("不是你的回合", CS.Global.TOAST_SHORT);
         return false
@@ -109,10 +110,11 @@ function M.draw(combatId, playerId, number, high)
     local gold
     if high then
         -- gold = config.highPrice * number
-        gold = 2
+        --这个应该从配置表中来，如果不想再读表的话，应该直接导出配置
+        gold = nn.Config.highDrawPrice
     else
         -- gold = config.normalPrice * number
-        gold = 5
+        gold = nn.Config.normalDrawPrice
     end
     local combat = nn.get_combat(combatId)
     local worker = combat:getWorkPlayer()
@@ -146,13 +148,17 @@ function M.summon(combatId, playerId, pawnId, pos)
     local energy = player:energy()
     if player:getCombatPawnByIndex(pos) then
         ---目标位置上已经存在棋子了
-        -- CS.Global.MakeToast("不能放置多枚棋子", CS.Global.TOAST_SHORT);
+        ---方便测试的一段提示信息
+        --CS.Global.MakeToast("不能放置多枚棋子", CS.Global.TOAST_SHORT);
         return false
     end
     ---这里的这个2应该是从配置文件中来
     if energy >= 2 then
+        ---方便测试的一段提示信息
+        --CS.Global.MakeToast("11111111111111111111", CS.Global.TOAST_SHORT);
         player:opEnergy(-2)
         player:summon(pawnId, pos)
+        return true
     else
         ---能量不足，无法召唤棋子
         -- CS.Global.MakeToast("能量不足，无法召唤", CS.Global.TOAST_SHORT);
@@ -175,12 +181,12 @@ function M.init(playerId, enemyId, myCards, enemyCards)
     }
     local cid = nn.create_combat()
     if cid == -1 then
-        --- 创建失败 
-        log("创建战斗系统失败")
+        --- 创建失败
+        nn.log("创建战斗系统失败")
     else
         --- combatId直接存放到全局的表中
-        -- M._combatId = cid
-        log(string.format("新建一个战斗系统，战斗系统的id是%d", cid))
+        --- M._combatId = cid
+        nn.log(string.format("新建一个战斗系统，战斗系统的id是%d", cid))
     end
     --- 只要id不为0，基本一定能够取出combat对象
     local combat = nn.get_combat(cid)

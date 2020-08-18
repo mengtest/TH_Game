@@ -46,6 +46,7 @@ void IAgent::setConfig(Config* config)
 	//每次修改配置对象的时候都会释放上一个对象的内存
 	delete _config;
 	_config = config;
+	LuaFramework::instance()->exportConfig(_config);
 }
 
 const Config& IAgent::config()

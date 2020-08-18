@@ -27,6 +27,8 @@ function M.create(name)
 	if M._list[name] then
 		M._cur = M._list[name].new()
 	end
+	---服务端将战斗系统创建完毕之后会向客户端发送一条消息
+	CS.Lib.Listener.Instance:Event("Server_Combat_Create_Complete")
 	return M._cur
 end
 
