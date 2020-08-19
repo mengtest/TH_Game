@@ -4,6 +4,13 @@ local MsgHandle = {}
 
 MsgHandle.queue = {}
 
+local function commandExecuteComplete()
+    --id = id + 1
+    --print("执行下个命令"..id)
+    table.remove(MsgHandle.queue, 1)
+    CS.Lib.Listener.Instance:Event("execute_next_command")
+end
+
 --region
 --public const int NN_EVENT_BEGIN = 10000;
 --public const int ATTR_BEGIN = 20000;
@@ -72,10 +79,8 @@ local function playerDrawCard(playerId, pawnUid)
         --最好可以播放一段动画
         --TODO
         go.transform:SetParent(input.myHandList.transform)
-
         local cardId = GamePlay.cur():getIdByUid(pawnUid)
         local info = global.cardInfos[cardId]
-
         ---获取战斗场景中的卡牌脚本，初始化脚本中的各种属性
         ---@type Prefab.CombatSceneCombatCardScript
         local card = go:GetComponent(typeof(CS.Prefab.CombatSceneCombatCardScript))
@@ -97,6 +102,7 @@ local function playerDrawCard(playerId, pawnUid)
         ---如果是敌方玩家的卡牌，则需要在敌方的卡牌列表中添加一个卡牌背面
         
     end
+    commandExecuteComplete()
 end
 
 ---能够通过uid取到对应的棋子
@@ -114,13 +120,16 @@ local function playerSummonPawn(playerId, pawnUid, pos)
     if slot and this and not slot:HasCard() then
         slot:AddCard(this)
     end
+
+    commandExecuteComplete()
 end
 
 ---玩家点击结束回合的按钮后的更新
 local function playerTurnEnd(playerId)
-    if GamePlay.cur() then
+    if GamePlay and GamePlay.cur() then
         GamePlay.cur():turnEnd(playerId)
     end
+    commandExecuteComplete()
 end
 
 ---玩家的属性变化后的更新
@@ -155,6 +164,7 @@ local function playerAttrChange(playerId, ty, value)
     else
         ---这里是处理敌方玩家的数据信息更新的代码块
     end
+    commandExecuteComplete()
 end
 
 ---这里的处理都是处理的当前玩家数据信息，还没有处理敌方玩家的数据信息的功能
@@ -194,12 +204,12 @@ local function pawnAttrChange(playerId, pawnUid, ty, value)
     elseif ty == 6 then
         
     end
+    commandExecuteComplete()
 end
 
 ---这个应该主要指的是战斗中的buff的属性发生变化
 ---@param ty number 枚举值，具体意义以后再说
 local function buffAttrChange(playerId, buffId, ty, value)
-
     --region
     --public const int EventBuffAttrRestTime = BUFF_ATTR_BEGIN + 1;
     --public const int EventBuffAttrDispose = BUFF_ATTR_BEGIN + 2;
@@ -207,8 +217,8 @@ local function buffAttrChange(playerId, buffId, ty, value)
     --public const int EventBuffAttrDestroy = BUFF_ATTR_BEGIN + 4;
     --endregion
     -- TODO 目前还没有想好buff该如何表现
-    
-    
+
+    commandExecuteComplete()
 end
 
 ---棋子死亡
@@ -225,39 +235,18 @@ local function pawnDead(playerId, pawnUid)
         --只有播放动画、以及回收到对象池中这两个动作需要在这里做
         CS.Util.Pool.Store("CardImgs", slot.gameObject)
     end
+
+    commandExecuteComplete()
 end
-
--- function MsgHandle.saveAttr(attr)
---     table.insert(MsgHandle.queue, {1, attr})
--- end
-
--- function MsgHandle.saveMsg(msg)
---     table.insert(MsgHandle.queue, {2, msg})
--- end
 
 ---消息的分发
 ---@param attr AttrStruct
 function MsgHandle.distribute(attr)
-    --region
-    -- if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
-    --     playerDrawCard(attr.playerId, attr.value)
-    -- elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
-
-    -- elseif attr.type == CS.LuaApi.PlayerAttrCombatCardToDeck then
-        
-    -- elseif attr.type == CS.LuaApi.EventPlayerAttrGold then
-    --     playerAttrChange(attr.playerId, 1, attr.value)
-    -- elseif attr.type == CS.LuaApi.EventPlayerAttrHp then
-    --     playerAttrChange(attr.playerId, 2, attr.value)
-    -- elseif attr.type == CS.LuaApi.EventPlayerAttrMaxEnergy then
-    --     playerAttrChange(attr.playerId, 4, attr.value)
-    -- elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
-    --     playerAttrChange(attr.playerId, 3, attr.value)
-    -- end
-    --endregion
-    
     -- MsgHandle.saveAttr(attr)
+    -- 所有的消息对象都是栈对象，在这里转存成lua的对象
+    --@type AttrStruct
     table.insert(MsgHandle.queue, {1, attr})
+    --print("指令的长度为"..#MsgHandle.queue)
     ---如果只有一个指令，则直接执行
     if #MsgHandle.queue == 1 then
         CS.Lib.Listener.Instance:Event("execute_next_command")
@@ -267,28 +256,50 @@ end
 local list = {}
 
 function list.curPlayer(data)
-    log(string.format("当前行动的玩家id是%d", data))
+    --随机出先攻的玩家的事件，现在直接在这里整合一个战斗开始的特效
+    --log(string.format("当前行动的玩家id是%d", data))
     --这个主要是在游戏开始时，随机给出一个先攻的玩家时发送这条消息
-    
     --产生这个之后会播放一段动画，动画播放完之后再进行下一步操作
-    
+    local obj = CS.Util.Loader.Load("Prefab/StartGameAni")
+    ---@type UnityEngine.GameObject
+    local go = CS.UnityEngine.GameObject.Instantiate(obj)
+    go.transform:SetParent(CS.Global.GetCurCanvas().transform, true)
+    go.transform.localPosition = CS.UnityEngine.Vector3.zero
+    go.transform.localScale = CS.UnityEngine.Vector3(1, 1, 1)
+    ---@type UnityEngine.Playables.PlayableDirector
+    local dire = go:GetComponent(typeof(CS.UnityEngine.Playables.PlayableDirector))
+    if dire then
+        dire.playOnAwake = false
+        dire:Play()
+        dire:stopped("+", function (d)
+            CS.UnityEngine.GameObject.Destroy(go)
+            --CS.Lib.Listener.Instance:Event("execute_next_command")
+            commandExecuteComplete()
+        end)
+    end
 end
 
 function list.playerChange(data)
     ---@type number[]
     local objs = util.splice(data, "&")
     log(string.format("当前可以行动的玩家由%s转换到%s", objs[1], objs[2]))
-    ---这个主要是玩家回合结束，进入到另一个玩家的回合时触发
-    
+    --这个主要是玩家回合结束，进入到另一个玩家的回合时触发
     --这里也应该是播放一段动画之后再进入下一步操作
     
+    --如果是当前玩家的回合应当有一个轮到你了这样的提示
+    --如果是敌方玩家的回合应当有一个地方的回合这样的提示
+
+    commandExecuteComplete()
 end
 
 function list.gameover(data)
     ---战斗结束，应该要进入结算的界面，比如说：战斗的胜负、获得的奖励、最好加上战斗中的数据统计等功能
+    
+    commandExecuteComplete()
 end
 
 function MsgHandle.notice(str)
+    
     --region
     ---所有通过notice发送的消息的结构均为   head&&body  的形式
     -- local head, body = string.match(str, "(%w+)&&(.+)")
@@ -296,8 +307,9 @@ function MsgHandle.notice(str)
     --     list[head](body)
     -- end
     --endregion
-
+    
     table.insert(MsgHandle.queue, {2, str})
+    --print("指令的长度为"..#MsgHandle.queue)
     ---如果当前队列中只有一条消息，则直接执行
     if #MsgHandle.queue == 1 then
         CS.Lib.Listener.Instance:Event("execute_next_command")
@@ -308,12 +320,14 @@ local function solveOne()
     --local item = table.remove(MsgHandle.queue, 1)
     --如果队列中没有未处理的消息了，则不再继续执行
     if #MsgHandle.queue == 0 then
+        --print("hello")
         return
     end
     local item = MsgHandle.queue[1]
     if item[1] == 1 then
         ---@type AttrStruct
         local attr = item[2]
+        --log(json.encode(attr))
             if attr.type == CS.LuaApi.PlayerAttrDeckCardsToHand then
             playerDrawCard(attr.playerId, attr.value)
         elseif attr.type == CS.LuaApi.PlayerAttrHandCardsToDeck then
@@ -335,19 +349,22 @@ local function solveOne()
             playerAttrChange(attr.playerId, 4, attr.value)
         elseif attr.type == CS.LuaApi.EventPlayerAttrEnergy then
             playerAttrChange(attr.playerId, 3, attr.value)
+        else
+            commandExecuteComplete()
         end
-        
+        ---这里是不用处理的消息
     elseif item[1] == 2 then
-        log(item[2])
         local head, body = string.match(item[2], "(%w+)&&(.+)")
+        log(item[2] or "")
         if list[head] then
             list[head](body)
+        else
+            commandExecuteComplete()
         end
 
     end
-    ---执行完毕之后则移除队列中的第一条指令
-    table.remove(MsgHandle.queue, 1)
-    CS.Lib.Listener.Instance:Event("execute_next_command")
+    -----执行完毕之后则移除队列中的第一条指令
+    --commandExecuteComplete()
 end
 
 function MsgHandle.init()

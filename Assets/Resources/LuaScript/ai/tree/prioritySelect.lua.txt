@@ -9,12 +9,13 @@ function PrioritySelect:ctor()
     ---从最高优先级到最低优先级顺序执行节点
     ---@type Node
     self._activeChild = nil
-    ---@type number[] 当前的子节点数组中子对象的优先级序列，与子对象的顺序一一对应
+    ---@type number[] 当前的子节点数组中子对象的优先级序列，与子对象的顺序一一对应，创建这个数组的主要目的是为了不破坏原本的结构
     self._priorityAry = {}
 end
 
 ---在添加子节点的时候就设置了优先级
 function PrioritySelect:addChild(node, priority)
+    --默认的优先级为1
     priority = priority or 1
     for i, v in ipairs(self._priorityAry) do
         if v >= priority then

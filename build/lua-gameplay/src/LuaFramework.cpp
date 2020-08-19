@@ -814,6 +814,13 @@ void LuaFramework::script(AttrStruct* attr)
 {
     // nn.set_function("set_notice_fun", Export::set_notice_fun);
     // nn.set_function("set_update_fun", Export::set_update_fun);
+    ylog(fmt::format("attr: combatId {0}, objectId {1}, playerId {2}, targetType {3}, type {4}, value {5}"
+        , attr->combatId
+        , attr->objectId
+        , attr->playerId
+        , attr->targetType
+        , attr->type
+        , attr->value ));
     _lua["UpdateFun"].get_or_create<sol::function>().call(attr);
 }
 

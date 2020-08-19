@@ -5,6 +5,8 @@
 #include "Combat.h"
 #include "Singleton.h"
 #include "LuaFramework.h"
+#include "Logger.h"
+#include "fmt/format.h"
 
 AgentMgr* AgentMgr::_instance;
 
@@ -133,6 +135,14 @@ void CsAgent::update(AttrStruct* msg)
     // nn.set_function("set_update_fun", Export::set_update_fun);
 	if (_update != nullptr)
 	{
+		// nn::log(fmt::format("attr: {0}, {1}, {2}, {3}, {4}, {5}"));
+		ylog(fmt::format("attr: combatId {0}, objectId {1}, playerId {2}, targetType {3}, type {4}, value {5}"
+			, msg->combatId
+			, msg->objectId
+			, msg->playerId
+			, msg->targetType
+			, msg->type
+			, msg->value ));
 		_update(msg);
 	}
 	LuaFramework::instance()->script(msg);

@@ -46,6 +46,13 @@ public static partial class Global
         }
         _methods.Call(method, param);
     }
+    
+    
+    public static void CommandExecuteComplete()
+    {
+        Lib.Listener.Instance.Event("temp_remove_one_oject");
+        Lib.Listener.Instance.Event("execute_next_command");
+    }
 
     public static void GetChineseEnglishNumber(string str, out int chinese, out int english)
     {

@@ -1,26 +1,36 @@
 local Node = require"ai.tree.node"
 
----@class Condition 条件节点，就相当于node文件中的BTPrecondition节点，这个不继承于Node，由Node直接组合次节点
-local Condition = class("Condition")
+---@class Condition : Node
+local Condition = class("Condition", Node)
 
-function Condition:ctor()
-    self._name = "default"
+---条件节点也是叶子节点
+function Condition:ctor(data)
+    self._name = "condition"
+    ---这里的data是从行为树的配置文件中读取的
+    ---cond为条件名
+    ---op为比较符号 有 > 、 < 、= 、 ! 四种情况
+    ---func为想要调用的函数
+    ---value为目标值
+    if data.cond and data.op and data.value then
+        self._cond = data.cond
+        self._op = data.op
+        self._value = data.value
+    else
+        assert("无法创建条件节点")
+    end
 end
 
-function Condition:execute()
-    return true
+function Condition:addChild(node)
+    assert("条件节点不能拥有子节点")
 end
 
----直接子节点中所有子节点的条件都要满足
----@return Condition
-function Condition.And()
-    
-end
-
----直接子节点中有一个满足条件
----@return Condition
-function Condition.Or()
-     
+function Condition:tick()
+    ---直接从黑板中取出对应的属性，并判断是否满足条件
+    local i = math.random(1, 2)
+    if i == 1 then
+        return TreeState.success
+    end
+    return TreeState.none
 end
 
 return Condition

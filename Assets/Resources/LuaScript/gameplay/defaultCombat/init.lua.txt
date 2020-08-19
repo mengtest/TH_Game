@@ -145,6 +145,8 @@ function DefaultGamePlay:turnEnd(playerId)
     if not t.turnEnd(self._combatId, playerId) then
         log"当前不是您的回合"
     end
+    --table.remove()
+    
 end
 
 ---玩家选择棋子对目标使用技能

@@ -7,7 +7,7 @@ M.notice = nil
 
 ---@param str string
 function NoticeFun(str)
-    log(str)
+    --log(str)
     if M.notice then
         M.notice(str)
     end
@@ -18,16 +18,24 @@ end
 function UpdateFun(attr)
     ---更新ui的逻辑放在了
     if M.update then
-        M.update(attr)
+        ---@type AttrStruct
+        local item = {}
+        item.type = attr.type
+        item.objectId = attr.objectId
+        item.value = attr.value
+        item.playerId = attr.playerId
+        item.combatId = attr.combatId
+        item.targetType = attr.targetType
+        M.update(item)
     end
 end
 
----@param updateFunc function<AttrStruct>
+---@param updateFunc fun(a:AttrStruct):void
 function M.regUpdate(updateFunc)
     M.update = updateFunc
 end
 
----@param noticeFunc function<string>
+---@param noticeFunc fun(a:string):void
 function M.regNotice(noticeFunc)
     M.notice = noticeFunc
 end

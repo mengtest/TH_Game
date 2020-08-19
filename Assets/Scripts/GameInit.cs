@@ -5,6 +5,7 @@ using UnityEngine;
 using Util;
 using Net;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using DataCenter = Core.DataCenter;
 
 /// <summary>
@@ -59,6 +60,12 @@ public static class GameInit
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
+//        var go = new GameObject();
+//        var dire = go.AddComponent<PlayableDirector>();
+//        dire.stopped += director =>
+//        {
+//            director.
+//        };
         // var xlua = new XLua.LuaEnv(true);
         // LuaApi.init("./");
         // xlua.DoString("local t = Damage.new() " +

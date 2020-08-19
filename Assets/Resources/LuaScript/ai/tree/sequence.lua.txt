@@ -27,23 +27,30 @@ function Sequence:tick()
         self._activeChild = self._childs[1]
         self._activeIndex = 1
     end
-    local res = self._activeChild:tick()
-    ---顺序节点会顺序执行所有子节点
-    ---无论成功还是失败都会继续执行下一个节点
-    ---只有返回成功才会继续
-    if res == TreeState.success then
-        self._activeIndex = self._activeIndex + 1
-        local node = self._childs[self._activeIndex]
-        if node then
-            self._activeChild = self.children[self._activeIndex]
-            res = TreeState.running
-        else
-            ---遍历完了
-            self._activeChild = nil
-            self._activeIndex = -1
+    --local res = self._activeChild:tick()
+    ----顺序节点会顺序执行所有子节点
+    ----遇到失败时返回失败，否则一直执行到全部结束
+    ----只有返回成功才会继续
+    ----假如说修改为每帧执行的话，那么某次tick会一直执行到遇到running状态停止，等待下一帧的时候继续tick
+    --if res == TreeState.success then
+    --    while self._activeChild and res == TreeState.success do
+    --        self._activeIndex = self._activeIndex + 1
+    --        self._activeChild = self._childs[self._activeChild]
+    --        res = self._activeChild:tick()
+    --    end
+    --end
+    while self._activeChild do
+        local res = self._activeChild:tick()
+        ---无论是失败还是运行中状态都直接返回
+        if res ~= TreeState.success then
+            return res
         end
+        self._activeIndex = self._activeIndex + 1 
+        self._activeChild = self._childs[self._activeIndex]
     end
-    return res
+    return TreeState.success
+    ---如果是失败或者运行中都直接返回
+    --return res
 end
 
 function Sequence:clear()

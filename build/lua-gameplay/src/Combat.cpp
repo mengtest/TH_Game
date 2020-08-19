@@ -274,10 +274,10 @@ void Combat::nextFlow()
 
 void Combat::playerChange()
 {
-	this->_workPlayer = getNextPlayer();
+	// this->_workPlayer = getNextPlayer();
 
 	//需要将这个消息发送到客户端
-	AgentMgr::instance()->curAgent()->msg(fmt::format("&{0}"));
+	// AgentMgr::instance()->curAgent()->msg(fmt::format("&{0}"));
 }
 
 //start的时候直接调用这个函数，开始战斗
@@ -294,6 +294,7 @@ void Combat::processInvalid()
 	{
 		_workPlayer = _player2;
 	}
+	AgentMgr::instance()->curAgent()->msg(fmt::format("curPlayer&&{0}", _workPlayer->uid()));
     clog(1, "产生的随机数是{0}", first);
 	clog(1, "先攻的玩家是{0}", _workPlayer->uid());
 	// 通知客户端先攻的玩家的id是_workPlayer
@@ -335,7 +336,7 @@ void Combat::processInvalid()
 void Combat::processPrepare()
 {
 	auto* worker = getWorkPlayer();
-	AgentMgr::instance()->curAgent()->msg(fmt::format("curPlayer&&{0}", _workPlayer->uid()));
+	
 	const auto& config = AgentMgr::instance()->curAgent()->config();
 
 	//第一回合不会增长能量上限

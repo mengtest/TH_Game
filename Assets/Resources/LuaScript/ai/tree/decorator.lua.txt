@@ -1,24 +1,66 @@
 local Node = require"ai.tree.node"
 
----@class Decorator
+---@class Decorator : Node
 local Decorator = class("Decorator", Node)
 
+---实际上装饰器只能有一个子节点
+function Decorator:ctor()
+    Decorator.super.ctor(self)
+end
+
+---重载添加子节点的函数，限制装饰器只能有一个子节点
+function Decorator:addChild(node)
+    if #(self._childs) >= 1 then
+        assert("装饰节点不能拥有多个子对象")
+    else
+        Decorator.super.addChild(self, node)
+    end
+end
+
+function Decorator:tick()
+    if self._callfun then
+       return self._callfun() 
+    end
+    return TreeState.success
+end
+
+---这个本质上就是一个静态函数，可以直接调用然后创建一个对象出来
 ---@return Decorator
 ---循环指定的次数
-function Decorator.Loop()
-    
+function Decorator.Loop(data)
+    ---@type Decorator
+    local decorator = Decorator.new()
+    if data and data.loop then
+        decorator._data = data
+        ---约定无限循环是-1
+        ---0表示一次都不执行，其他值表示确定的次数
+        decorator._loop = -2
+    else
+        assert("loop节点必须设置loop属性")
+    end
+    decorator._callfun = function()
+        
+    end
 end
 
 ---@return Decorator
 ---一直循环，知道满足条件后结束
 function Decorator.LoopUntil()
-    
+    ---@type Decorator
+    local decorator = Decorator.new()
+    decorator._callfun = function()
+
+    end
 end
 
 ---@return Decorator
 ---对返回的结果取反，如果返回成功，则最后返回失败
 function Decorator.Inverter()
-    
+    ---@type Decorator
+    local decorator = Decorator.new()
+    decorator._callfun = function()
+        
+    end
 end
 
 return Decorator

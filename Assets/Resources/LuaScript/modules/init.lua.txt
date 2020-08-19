@@ -18,6 +18,11 @@ local yuki_init_list = require"message.yuki.init"
 --local dbg = require('emmy_core')
 --dbg.tcpListen('localhost', 9966)
 
+package.cpath = package.cpath .. ';C:/Users/jauok/.Rider2019.2/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
+local dbg = require('emmy_core')
+dbg.tcpListen('localhost', 9966)
+
+
 ---加载全局lua的模块
 local function luaInit()
     require"global.app".init()
