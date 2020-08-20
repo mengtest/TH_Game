@@ -37,14 +37,14 @@ function BehaviourTree:isRunning()
 	return self._runningNode ~= nil
 end
 
---获取到当前正在运行中的节点
-function BehaviourTree:getRunningNode()
-	
-end
+----获取到当前正在运行中的节点
+--function BehaviourTree:getRunningNode()
+--	
+--end
 
 --设置当前正在运行的节点、应该是只有动作节点才能处于运行中的状态
 function BehaviourTree:setRunningNode(act)
-	
+	self._runningNode = act	
 end
 
 --根据配置文件来初始化整个行为树
@@ -52,6 +52,28 @@ function BehaviourTree:parse(str)
 	---加载一个json文件，根据json文件构造一颗行为树
 	local t = json.decode(str)
 	--具体的格式约束可以等有空再来做
+
+	---根节点的类型只能是Node，
+	if t[1].type == "Node" then
+		self.root.name = t[1].name
+	else
+		assert("无效的根节点")
+	end
+	
+	local function createNode(items, index)
+		local item = items[index + 1]
+		local node = tree.builder:create(item.type, item)
+		--node.name = item.name
+		--node.id = item.id
+		if item.children then
+			for i, v in ipairs(item.children) do
+				node:addChild(createNode(items, v))
+			end
+		end
+		return node
+	end
+	
+	self.root:addChild(createNode(t, t[1].children[1]))
 end
 
 return BehaviourTree

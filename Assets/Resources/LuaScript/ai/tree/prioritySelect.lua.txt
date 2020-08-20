@@ -21,9 +21,12 @@ function PrioritySelect:addChild(node, priority)
         if v >= priority then
             table.insert(self._priorityAry, i, priority)
             table.insert(self._childs, i, node)
-            break
+            node:setParent(self)
+            return
         end
     end
+    table.insert(self._priorityAry, priority)
+    table.insert(self._childs, node)
     node:setParent(self)
 end
 

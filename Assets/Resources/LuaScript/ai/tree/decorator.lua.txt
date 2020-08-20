@@ -26,7 +26,7 @@ local Loop = class("Loop", Decorator)
 function Loop:ctor(data)
     Loop.super.ctor(self, data)
     if data and data.loop then
-        self._data = data
+        --self._data = data
         ---约定无限循环是-1
         ---0表示一次都不执行，其他值表示确定的次数
         self._loop = data.loop

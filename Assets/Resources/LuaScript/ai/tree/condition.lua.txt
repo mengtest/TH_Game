@@ -15,20 +15,20 @@ function Condition:ctor(data)
     ---value为目标值，可以为布尔值
     if data.cond and data.op and data.value then
         ---这个就是用于直接从黑板中取对应的数值，例如 blackboard[self._cond] > self._value
-        --self._cond = data.cond
-        --self._op = data.op
-        --self._value = data.value
-        self._data = data
+        self._cond = data.cond
+        self._op = data.op
+        self._value = data.value
+        --self._data = data
         self._method = 1
     elseif data.func and data.param then
         ---这里假定t表中存放一些可以供行为树做条件判断的函数，在实际情况下的应用就应该是, t[self._func](self._param)
         ---然后再判断这个所返回的结果
-        --self._func = data.func
-        --self._param = data.param
-        self._data = data
+        self._func = data.func
+        self._param = data.param
+        --self._data = data
         self._method = 2
     else
-        assert("无法创建条件节点")
+        assert("无法创建条件节点" .. data.id or data.name or "")
     end
 end
 
@@ -43,17 +43,17 @@ function Condition:tick()
     
     ---直接从黑板中取出对应的属性，并判断是否满足条件
     if self._method == 1 then
-        if self._data.op == ">" then
+        if self.op == ">" then
             if blackBoard[self._cond] and blackBoard[self._cond] > self._value then
                 return TreeState.success
             end
             return TreeState.none
-        elseif self._data.op == "<" then
+        elseif self.op == "<" then
             if blackBoard[self._cond] and blackBoard[self._cond] < self._value then
                 return TreeState.success
             end
             return TreeState.none
-        elseif self._data.op == "=" then
+        elseif self.op == "=" then
             if blackBoard[self._cond] and blackBoard[self._cond] == self._value then
                 return TreeState.success
             end

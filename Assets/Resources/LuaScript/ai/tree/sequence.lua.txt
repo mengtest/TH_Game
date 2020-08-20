@@ -27,6 +27,7 @@ function Sequence:tick()
         self._activeChild = self._childs[1]
         self._activeIndex = 1
     end
+    
     --region
     --local res = self._activeChild:tick()
     ----顺序节点会顺序执行所有子节点
@@ -41,6 +42,7 @@ function Sequence:tick()
     --    end
     --end
     --endregion
+    
     while self._activeChild do
         local res = self._activeChild:tick()
         ---无论是失败还是运行中状态都直接返回
@@ -50,9 +52,8 @@ function Sequence:tick()
         self._activeIndex = self._activeIndex + 1 
         self._activeChild = self._childs[self._activeIndex]
     end
+    
     return TreeState.success
-    ---如果是失败或者运行中都直接返回
-    --return res
 end
 
 function Sequence:clear()

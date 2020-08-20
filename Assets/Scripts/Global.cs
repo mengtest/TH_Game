@@ -46,13 +46,6 @@ public static partial class Global
         }
         _methods.Call(method, param);
     }
-    
-    
-    public static void CommandExecuteComplete()
-    {
-        Lib.Listener.Instance.Event("temp_remove_one_oject");
-        Lib.Listener.Instance.Event("execute_next_command");
-    }
 
     public static void GetChineseEnglishNumber(string str, out int chinese, out int english)
     {
@@ -102,7 +95,8 @@ public static partial class Global
 
     public static void AsyncTest()
     {
-        
+//        var x = Application.streamingAssetsPath + "";
+//        var y = Application.persistentDataPath + "";
     }
 
     private static async void AsyncTestImpl(YukiEventDelegate callback)
@@ -110,7 +104,6 @@ public static partial class Global
         //本地的nginx资源服务器路径，
         // var request = UnityWebRequest.Get("http://localhost:9635/res/th_res/v1_0_0/AssetBundles/img.zip");
         // request.SendWebRequest();
-        
     }
 
     public static void Log(object msg, Level level = Level.Info)
