@@ -68,19 +68,19 @@ function util.loadChild(parent, fun)
  end
 end
 
--- util.load = CS.Util.Loader.load
--- util.read = CS.Util.Loader.Read
--- util.write = CS.Util.Loader.Write
+ util.load = CS.Util.Loader.load
+ util.read = CS.Util.Loader.Read
+ util.write = CS.Util.Loader.Write
 
--- local f1 = xlua.get_generic_method(CS.Util.Loader, 'Load')
--- local l = f1(CS.UnityEngine.Sprite)
+ local f1 = xlua.get_generic_method(CS.Util.Loader, 'Load')
+ local l = f1(CS.UnityEngine.Sprite)
 
--- local f2 = xlua.get_generic_method(CS.Util.Loader, 'Load')
--- local l2 = f2(CS.UnityEngine.GameObject)
+ local f2 = xlua.get_generic_method(CS.Util.Loader, 'Load')
+ local l2 = f2(CS.UnityEngine.GameObject)
 
--- -- ---@type function<CS.UnityEngine.Sprite(string)>
--- util.loadSprite = l
--- util.loadGameObject = l2
+ -- ---@type function<CS.UnityEngine.Sprite(string)>
+ util.loadSprite = l
+ util.loadGameObject = l2
 
 ---@param component UnityEngine.Transform
 ---@param func function
