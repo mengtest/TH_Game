@@ -1,24 +1,11 @@
 local Node = require"ai.tree.node"
 
----目前修改为行为树从BlackBoard接收所有的输入数据，会有对应的输出值
----应该是以字符串你的形式返回，然后不断地解析这个字符串
-
----动作节点结束后将会结束本次操作
+--只有动作节点会出现running状态？
+--目前修改为行为树从BlackBoard接收所有的输入数据，会有对应的输出值
+--应该是以字符串你的形式返回，然后不断地解析这个字符串
+--现在修改为所有的动作节点都是输出一段信息，由其他部件来接收这个输出
 ---@class Action: Node
 local Action = class("Action", Node)
-
-ActionState = {
-    ready = 1,
-    running = 2,
-}
-
-function Action:enter()
-    
-end
-
-function Action:exit()
-    
-end
 
 function Action:addChild()
     error"动作节点不能拥有子节点"
@@ -28,40 +15,41 @@ function Action:removeChild()
     error"动作节点没有子节点"
 end
 
-
----ai控制自己的棋子发动攻击的行为
----@return Action
-function Action.Attack()
-    
-end
-
----ai结束回合的行为
----@return Action
-function Action.TurnEnd()
-    
-end
-
----ai使用技能的行为
----@return Action
-function Action.UseSkill()
-    
-end
-
----ai抽卡的行为
----@return Action
-function Action.Draw()
-    
-end
-
----ai召唤一枚棋子的行为
----@return Action
-function Action.Summon()
-
-end
-
----@return Action
-function Action.Wait()
-    -- body
-end
+--region
+-----ai控制自己的棋子发动攻击的行为
+-----@return Action
+--function Action.Attack()
+--    
+--end
+--
+-----ai结束回合的行为
+-----@return Action
+--function Action.TurnEnd()
+--    
+--end
+--
+-----ai使用技能的行为
+-----@return Action
+--function Action.UseSkill()
+--    
+--end
+--
+-----ai抽卡的行为
+-----@return Action
+--function Action.Draw()
+--    
+--end
+--
+-----ai召唤一枚棋子的行为
+-----@return Action
+--function Action.Summon()
+--
+--end
+--
+-----@return Action
+--function Action.Wait()
+--    -- body
+--end
+--endregion
 
 return Action

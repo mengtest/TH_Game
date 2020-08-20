@@ -1,21 +1,57 @@
+require"ai.tree.builder"
 local Node = require"ai.tree.node"
---local Action = require"ai.tree.action"
---local Composite = require"ai.tree.composite"
---local Condition = require"ai.tree.condition"
---local Decorator = require"ai.tree.decorator"
---local BlackBoard = require"ai.tree.blackboard"
+local Action = require"ai.tree.action"
+local Condition = require"ai.tree.condition"
+local Decorator = require"ai.tree.decorator"
+local BlackBoard = require"ai.tree.blackboard"
+local Sequence = require"ai.tree.sequence"
+local Select = require"ai.tree.select"
+local PrioritySelect = require"ai.tree.prioritySelect"
+local json = json or require"lib.json"
 
 ---@class BehaviourTree
 local BehaviourTree = class("BehaviourTree")
 
----棋子的行为需要
+--棋子的行为需要
 function BehaviourTree:ctor()
+	--有唯一的root节点、且root节点只有一个子节点
+	---@type Node
 	self.root = Node.new()
+	---@type Node
+	self._runningNode = nil
 end
 
----根据配置文件来初始化整个行为树
-function BehaviourTree:parse(str)
+--每帧运行都调用这个函数
+--每次tick直到运行到整个树全部执行完毕，或者返回running节点后终止本次tick
+--下次tick时，直接从处于running状态下的节点开始运行
+function BehaviourTree:tick()
+	if not self:isRunning() then
+		self.root:tick()
+	else
+		self._runningNode:tick()		
+	end
+end
 
+--当前行为树是否处于正在运行的状态
+function BehaviourTree:isRunning()
+	return self._runningNode ~= nil
+end
+
+--获取到当前正在运行中的节点
+function BehaviourTree:getRunningNode()
+	
+end
+
+--设置当前正在运行的节点、应该是只有动作节点才能处于运行中的状态
+function BehaviourTree:setRunningNode(act)
+	
+end
+
+--根据配置文件来初始化整个行为树
+function BehaviourTree:parse(str)
+	---加载一个json文件，根据json文件构造一颗行为树
+	local t = json.decode(str)
+	--具体的格式约束可以等有空再来做
 end
 
 return BehaviourTree

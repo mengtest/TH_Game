@@ -5,8 +5,8 @@ local Node = require"ai.tree.node"
 ---@class Select : Node
 local Select = class("Select", Node)
 
-function Select:ctor()
-    Select.super.ctor(self)
+function Select:ctor(data)
+    Select.super.ctor(self, data)
     ---@type Node
     self._activeChild = nil
     self._activeIndex = -1
@@ -43,5 +43,7 @@ function Select:clear()
     self._activeIndex = -1
     Select.super.clear(self)
 end
+
+tree.builder:reg("Select", Select)
 
 return Select

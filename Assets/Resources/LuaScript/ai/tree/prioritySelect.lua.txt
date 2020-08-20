@@ -4,8 +4,8 @@ local Select = require"ai.tree.select"
 ---@class PrioritySelect : Node
 local PrioritySelect = class("PrioritySelect", Select)
 
-function PrioritySelect:ctor()
-    PrioritySelect.super.ctor(self)
+function PrioritySelect:ctor(data)
+    PrioritySelect.super.ctor(self, data)
     ---从最高优先级到最低优先级顺序执行节点
     ---@type Node
     self._activeChild = nil
@@ -47,5 +47,7 @@ function PrioritySelect:removeChildByName(name)
         end
     end
 end
+
+tree.builder:reg("PrioritySelect", PrioritySelect)
 
 return PrioritySelect

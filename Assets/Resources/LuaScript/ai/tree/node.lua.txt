@@ -30,8 +30,12 @@ TreeState = {
     none = 4
 }
 
-function Node:ctor()
-    self.name = "node"
+function Node:ctor(data)
+    if data and data.name then
+        self.name = data.name
+    else
+        self.name = "node"
+    end
     ---@type Node[]
     self._childs = {}
     ---@type Node
@@ -54,6 +58,11 @@ function Node:setParent(node)
         assert("该节点已经存在父节点了")
     end
     self._parent = node
+end
+
+---@return Node
+function Node:getParent()
+    return self._parent
 end
 
 function Node:clear()
@@ -104,5 +113,8 @@ function Node:exec(obj)
     end
     return TreeState.success
 end
+
+---注册节点对象
+tree.builder:reg("Node", Node)
 
 return Node

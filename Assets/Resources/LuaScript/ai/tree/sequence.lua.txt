@@ -5,9 +5,9 @@ local Node = require"ai.tree.node"
 ---@class Sequence : Node
 local Sequence = class("Sequence", Node)
 
-function Sequence:ctor()
+function Sequence:ctor(data)
     ---不会自动构造父类对象
-    Sequence.super.ctor(self)
+    Sequence.super.ctor(self, data)
     ---当前正在运行的节点
     ---@type Node
     self._activeChild = nil
@@ -27,6 +27,7 @@ function Sequence:tick()
         self._activeChild = self._childs[1]
         self._activeIndex = 1
     end
+    --region
     --local res = self._activeChild:tick()
     ----顺序节点会顺序执行所有子节点
     ----遇到失败时返回失败，否则一直执行到全部结束
@@ -39,6 +40,7 @@ function Sequence:tick()
     --        res = self._activeChild:tick()
     --    end
     --end
+    --endregion
     while self._activeChild do
         local res = self._activeChild:tick()
         ---无论是失败还是运行中状态都直接返回
@@ -58,5 +60,7 @@ function Sequence:clear()
     self._activeIndex = -1
     Sequence.super.clear(self)
 end
+
+tree.builder:reg("Sequence", Sequence)
 
 return Sequence
