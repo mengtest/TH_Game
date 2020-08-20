@@ -8,6 +8,7 @@
 --BTParallelFlexible：Parallel的一个变异，继承于BTNode。同时执行各个子节点。当所有子结点的准入条件都失败，它就不会执行。
 --endregion
 
+---@field super Node
 ---@field new fun(data: any):Node
 ---@class Node
 local Node = class("Node")
@@ -36,6 +37,9 @@ function Node:ctor(data)
         self.name = data.name
     else
         self.name = "node"
+    end
+    if not data.id then
+        assert("节点必须具有id")
     end
     ---@type number
     self.id = data.id

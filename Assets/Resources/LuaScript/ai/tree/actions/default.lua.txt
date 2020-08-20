@@ -1,0 +1,64 @@
+﻿local Action = require("ai.tree.action")
+
+---@class Attack : Action
+local Attack = class("Attack", Action)
+
+function Attack:ctor(data)
+    Attack.super.ctor(self, data)
+end
+
+function Attack:tick()
+    --local item = self._data
+    --if item.random_target ~= nil and item.random_target then
+    --    ---选择随机的目标
+    --end
+    --
+    --if item.random_self ~= nil and item.random_self then
+    --    
+    --end
+    
+end
+
+---@class UseSkill : Action
+local UseSkill = class("UseSkill", Action)
+
+function UseSkill:ctor(data)
+
+end
+
+function UseSkill:tick()
+
+end
+
+---@class Draw : Action
+local Draw = class("Draw", Action)
+
+function Draw:ctor(data)
+
+end
+
+function Draw:tick()
+
+end
+
+---@class TurnEnd : Action
+local TurnEnd = class("TurnEnd", Action)
+
+function TurnEnd:ctor(data)
+
+end
+
+function TurnEnd:tick()
+
+end
+
+---@class Summon : Action
+local Summon = class("Summon", Action)
+
+function Summon:ctor(data)
+
+end
+
+function Summon:tick()
+
+end

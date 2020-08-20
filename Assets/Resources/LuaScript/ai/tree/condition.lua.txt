@@ -23,6 +23,9 @@ function Condition:ctor(data)
     elseif data.func and data.param then
         ---这里假定t表中存放一些可以供行为树做条件判断的函数，在实际情况下的应用就应该是, t[self._func](self._param)
         ---然后再判断这个所返回的结果
+        ---
+
+        ---这种情况下就可以方便去做成，例如 has_pawn_can_attack(有棋子没有攻击)，这种也可以做成一个庞大的条件节点库
         self._func = data.func
         self._param = data.param
         --self._data = data
@@ -37,10 +40,8 @@ function Condition:addChild(node)
 end
 
 function Condition:tick()
-    
     ---这里假定有一个blackBoard表
     local blackBoard = {}
-    
     ---直接从黑板中取出对应的属性，并判断是否满足条件
     if self._method == 1 then
         if self.op == ">" then

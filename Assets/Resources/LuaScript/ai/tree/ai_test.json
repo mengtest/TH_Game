@@ -124,6 +124,10 @@
   },
   {
     "id": 14,
-    "type": "Inverter"
+    "type" : "Action",
+	"name" : "attack",
+	"action": {
+		"name" : "attack"
+	}
   }
 ]
