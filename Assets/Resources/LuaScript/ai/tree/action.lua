@@ -23,7 +23,7 @@ function Action:tick()
     
     ---比如说可能会有一个派生的动作节点 random_pawn_attack(随机选择一个棋子发动攻击)
     ---也可能会有一个动作节点          pawn_use_skill(棋子使用一个技能) 如果有这样的动作的话，那么同时还需要
-    ---                             拥有 get_pawn_can_use_skill get_XXXX_target 这类api辅助选择棋子
+    ---                              拥有get_pawn_can_use_skill get_XXXX_target这类api辅助选择棋子
     
     
 end

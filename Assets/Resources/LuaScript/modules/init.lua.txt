@@ -1,34 +1,9 @@
 local yuki_init_list = require"message.yuki.init"
 
---global = global or require"lib.functions"
-
---package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
---dbg = require('emmy_core')
---dbg.tcpConnect('localhost', 9966)
-
--- package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
--- local dbg = require('emmy_core')
--- dbg.tcpConnect('localhost', 9966)
-
---package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
---local dbg = require('emmy_core')
---dbg.tcpConnect('localhost', 9966)
-
---package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
+-----要看看能不能想办法做个封装
+--package.cpath = package.cpath .. ';C:/Users/jauok/.Rider2019.2/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
 --local dbg = require('emmy_core')
 --dbg.tcpListen('localhost', 9966)
-
-
-package.cpath = package.cpath .. ';C:/Users/yuki/.Rider2019.3/config/plugins/intellij-emmylua/classes/debugger/emmy/windows/x64/?.dll'
-dbg = require('emmy_core')
-dbg.tcpConnect('localhost', 9966)
-
---require('mobdebug').listen()
---require("mobdebug").start()
---local socket = require("socket")
---for i, v in pairs(socket) do
---    print(i)
---end
 
 ---加载全局lua的模块
 local function luaInit()
@@ -44,11 +19,6 @@ local function luaInit()
         CS.UnityEngine.Application.Quit(0)
         return
     end
-
-    --print(lua)
-    ----for i, v in pairs(lua) do
-    ----    print(i, v)
-    ----end
 end
 
 log("开始加载lua模块")

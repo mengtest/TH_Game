@@ -3,6 +3,14 @@ local Node = require"ai.tree.node"
 ---@class Condition : Node
 local Condition = class("Condition", Node)
 
+
+--需要完成的api应该有
+--  获取当前玩家可以发动攻击的棋子
+--  获取当前玩家可以使用技能的棋子
+--  获取还可以放置卡牌的位置
+--  选择技能的最优目标           这个就直接给出最高级的api
+--  结束回合                    啊
+
 ---条件节点也是叶子节点
 function Condition:ctor(data)
     Condition.super.ctor(self, data)
@@ -23,8 +31,6 @@ function Condition:ctor(data)
     elseif data.func and data.param then
         ---这里假定t表中存放一些可以供行为树做条件判断的函数，在实际情况下的应用就应该是, t[self._func](self._param)
         ---然后再判断这个所返回的结果
-        ---
-
         ---这种情况下就可以方便去做成，例如 has_pawn_can_attack(有棋子没有攻击)，这种也可以做成一个庞大的条件节点库
         self._func = data.func
         self._param = data.param
@@ -64,6 +70,7 @@ function Condition:tick()
                 return TreeState.success
             end
             return TreeState.none
+            --region
         --elseif self._data.op == "t" then
         --    if blackBoard[self._cond] and blackBoard[self._cond] > self._value then
         --        return TreeState.success
@@ -74,6 +81,7 @@ function Condition:tick()
         --        return TreeState.success
         --    end
         --    return TreeState.none
+            --endregion
         end
     elseif self._method == 2 then
         if blackBoard[self._func] then

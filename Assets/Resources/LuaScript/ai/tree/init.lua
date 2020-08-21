@@ -1,13 +1,22 @@
 require"ai.tree.builder"
-local Node = require"ai.tree.node"
-local Action = require"ai.tree.action"
-local Condition = require"ai.tree.condition"
-local Decorator = require"ai.tree.decorator"
-local BlackBoard = require"ai.tree.blackboard"
-local Sequence = require"ai.tree.sequence"
-local Select = require"ai.tree.select"
-local PrioritySelect = require"ai.tree.prioritySelect"
-local json = json or require"lib.json"
+
+require"ai.tree.node"
+require"ai.tree.select"
+require"ai.tree.action"
+require"ai.tree.sequence"
+require"ai.tree.condition"
+require"ai.tree.decorator"
+require"ai.tree.blackboard"
+require"ai.tree.prioritySelect"
+
+require"ai.tree.actions.draw"
+require"ai.tree.actions.attack"
+require"ai.tree.actions.summon"
+require"ai.tree.actions.turnEnd"
+require"ai.tree.actions.useSkill"
+
+local json = json or require"ai.tree.lib.json"
+class = class or require"ai.tree.lib.util".class
 
 ---@class BehaviourTree
 local BehaviourTree = class("BehaviourTree")
@@ -16,7 +25,7 @@ local BehaviourTree = class("BehaviourTree")
 function BehaviourTree:ctor()
 	--有唯一的root节点、且root节点只有一个子节点
 	---@type Node
-	self.root = Node.new()
+	self.root =  tree.builder:create("Node")
 	---@type Node
 	self._runningNode = nil
 end

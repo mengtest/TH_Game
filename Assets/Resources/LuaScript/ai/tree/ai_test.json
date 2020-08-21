@@ -3,9 +3,10 @@
     "name" : "root",
     "type": "Node",
     "id" : 0,
-    "desc": "所有节点必须含有id、type字段，name为可选字段，节点所包含的类型有Condition, Loop, LoopUntil, Inverter, Action, Select, PrioritySelect, Sequence",
+    "desc": "所有节点必须含有id、type字段，name为可选字段,除了根节点外，不允许出现Node类型",
     "desc1": "构建行为树的时候，为了避免如果树的层数太深，会导致树很难看的情况，可以使用childs:[1, 2, 3]这类似的来标识子节点的id",
     "desc2": "目前的情况中，所有的子节点的id与其在数组中的下标相同，",
+    "desc3": "节点所包含的类型有Condition, Loop, LoopUntil, Inverter, Action, Select, PrioritySelect, Sequence",
     "children" :[
       1
     ]
@@ -21,6 +22,7 @@
   {
     "id" : 2,
     "name" : "branch1",
+    "type" : "Sequence",
     "priority" : 10,
     "children" : [
       6, 10
@@ -30,6 +32,7 @@
     "id" : 3,
     "name" : "branch2",
     "priority" : 9,
+    "type" : "Sequence",
     "children" : [
       7, 11
     ]
@@ -38,6 +41,7 @@
     "id" : 4,
     "name" : "branch3",
     "priority" : 8,
+    "type" : "Sequence",
     "children" : [
       8, 12
     ]
@@ -46,6 +50,7 @@
     "id" : 5,
     "name" : "branch4",
     "priority" : 7,
+    "type" : "Sequence",
     "children" : [
       9, 13
     ]
@@ -54,7 +59,6 @@
     "id" : 6,
     "name" : "ai hp greater 59",
     "type": "Condition",
-    "priority": 10,
     "op": ">",
     "value": 59,
     "cond": "ai_hp"
@@ -63,7 +67,6 @@
     "id" : 7,
     "name" : "ai hp greater than 39",
     "type": "Condition",
-    "priority": 8,
     "op": ">",
     "value": 39,
     "cond": "ai_hp"
@@ -72,7 +75,6 @@
     "id" : 8,
     "name" : "ai hp greater than 19",
     "type": "Condition",
-    "priority": 6,
     "op": ">",
     "value": 19,
     "cond": "ai_hp"
@@ -81,7 +83,6 @@
     "id" : 9,
     "name" : "ai hp greater than 0",
     "type": "Condition",
-    "priority": 1,
     "op": ">",
     "value": 0,
     "cond": "ai_hp"
@@ -90,7 +91,6 @@
     "id" : 10,
     "name" : "ai hp greater than 0",
     "type": "Condition",
-    "priority": 1,
     "op": ">",
     "value": 0,
     "cond": "ai_hp"
@@ -99,7 +99,6 @@
     "id" : 11,
     "name" : "ai hp greater than 0",
     "type": "Condition",
-    "priority": 1,
     "op": ">",
     "value": 0,
     "cond": "ai_hp"
@@ -108,7 +107,6 @@
     "id" : 12,
     "name" : "ai hp greater than 0",
     "type": "Condition",
-    "priority": 1,
     "op": ">",
     "value": 0,
     "cond": "ai_hp"
@@ -117,7 +115,6 @@
     "id" : 13,
     "name" : "ai hp greater than 0",
     "type": "Condition",
-    "priority": 1,
     "op": ">",
     "value": 0,
     "cond": "ai_hp"
@@ -125,9 +122,18 @@
   {
     "id": 14,
     "type" : "Action",
-	"name" : "attack",
+	"name" : "pawn attack",
 	"action": {
-		"name" : "attack"
+      "name" : "attack",
+      "this" : "random"
 	}
+  },
+  {
+    "id" : 15,
+    "type" : "Action",
+    "name" : "pawn use skill",
+    "action" : {
+      
+    }
   }
 ]
