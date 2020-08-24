@@ -374,7 +374,7 @@ function player:getDeckPawnNumber() end
 ---@return boolean
 function player:check(type, value) end
 
----@param index number
+---@param index number 棋子的下标，也是所在的位置
 ---@return Pawn
 function player:getCombatPawnByIndex(index) end
 

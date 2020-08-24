@@ -80,6 +80,7 @@ end
 
 ---@param this Prefab.CombatSceneCombatCardScript
 function M.mouseDragHandCardEnd(this)
+    ydbg.stopCount(10)
     -- dbg.breakHere()
     ---@type Scene.CombatScene.UserInputScript
     local input = CS.Scene.CombatScene.UserInputScript.GetCurUserInput()

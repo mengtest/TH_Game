@@ -3,6 +3,15 @@
 ---@class BlackBoard
 local BlackBoard = class("BlackBoard")
 
+--要如何为黑板绑定数据？
+function BlackBoard:ctor(data)
+    ---@type table<string, any>
+    self._data = {}
+end
 
+---@return any
+function BlackBoard:get(name)
+    return self._data[name]
+end
 
 return BlackBoard

@@ -20,6 +20,8 @@ xutil = require"xlua.util"
 ---全局数据表
 global = global or {}
 
+ydbg = require("lib.debug") 
+
 globalFunc = require"global.functions"
 
 ---有三个个注册类的函数，一个是class,一个是util.class,另一个是nn.class

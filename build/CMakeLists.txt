@@ -99,6 +99,7 @@ aux_source_directory(./lua-gameplay/src/ THCORE_SRC)
 #aux_source_directory(THCORE_SRC lua-gameplay/src/)
 set (GAMEPLAY_SRC lua-gameplay/source/GamePlay.cpp lua-gameplay/source/Test.cpp lua-gameplay/source/sol.cpp lua-gameplay/include/sol.h)
 set (CORE_HEAD lua-gameplay/src/3rd.h
+    lua-gameplay/src/AI.h
     lua-gameplay/src/Actions.h
     lua-gameplay/src/Agent.h
     lua-gameplay/src/Base.h

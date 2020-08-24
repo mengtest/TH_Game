@@ -25,7 +25,6 @@ function Action:tick()
     ---也可能会有一个动作节点          pawn_use_skill(棋子使用一个技能) 如果有这样的动作的话，那么同时还需要
     ---                              拥有get_pawn_can_use_skill get_XXXX_target这类api辅助选择棋子
     
-    
 end
 
 function Action:addChild()
