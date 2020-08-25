@@ -2,12 +2,14 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using XLua;
 
 namespace EX
 {
+    [LuaCallCSharp]
     //会对给定的图片自动做出切割
-    [RequireComponent(typeof(Image))]
-    public class SpliceButtonEx : Button
+    [RequireComponent(typeof(Button))]
+    public class SpliceButtonEx : MonoBehaviour
     {
         [System.Serializable]
         public enum Direction
@@ -29,14 +31,15 @@ namespace EX
         [SerializeField]
         [Tooltip("按钮最原始的图片")]
         private Sprite oriSprite;
-        
-        protected override void Awake()
-        {
-            base.Awake();
 
+        // private Button _btn; 
+        
+        private void Awake()
+        {
+            // _btn = GetComponent<Button>();
             if (!spliced)
             {
-                this.Splice();
+                Splice();
             }
         }
 
@@ -46,8 +49,9 @@ namespace EX
             {
                 return;
             }
-            
-            transition = Transition.SpriteSwap;
+
+            var btn = this.GetComponent<Button>();
+            btn.transition = Selectable.Transition.SpriteSwap;
             var sp = GetComponent<Image>().sprite;
             if (oriSprite == null)
             {
@@ -113,7 +117,7 @@ namespace EX
                     new Vector2(1, 1));
             }
 
-            spriteState = sps;
+            btn.spriteState = sps;
             spliced = true;
             GetComponent<Image>().SetNativeSize();
         }

@@ -78,7 +78,8 @@ namespace LuaFramework
             //这个路径在后续的版本中需要修改
 
             Global.Log("当前的脚本跟目录是:" + FileUtils.ScriptRoot);
-            LuaApi.init(FileUtils.ScriptRoot, _env.L);
+            // LuaApi.init(FileUtils.ScriptRoot, _env.L);
+            LuaApi.init("./", _env.L);
             
             _env.AddLoader(CustomLoaderMethod);
         } 

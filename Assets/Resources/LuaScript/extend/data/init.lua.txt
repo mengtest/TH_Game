@@ -1,4 +1,4 @@
-﻿---主要是当前客户端中需要用到的棋子、技能、buff等的原始信息，可以通过id在这边查询到所有的数据
+---主要是当前客户端中需要用到的棋子、技能、buff等的原始信息，可以通过id在这边查询到所有的数据
 ---这个其实应该是游戏加载的时候也会加载的数据
 ---@class ClientData
 local ClientData = {}
@@ -7,6 +7,9 @@ local ClientData = {}
 ---修改所有的取到棋子等的操作，这里可能会被修改为直接从cpp dll中取出数据
 ---这段数据应该在玩家正式进入游戏的时候就已经加载完成了
 function ClientData.init()
+    if true then
+        return
+    end
     if not ClientData.skills then
         local skills = json.decode(util.read("LuaScript/json/Skills.json"))
         ---@type SkillS[]

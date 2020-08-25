@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EX;
 using Scene.CombatScene;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -67,7 +68,7 @@ namespace Prefab
         //点击每个技能时，如果是主动技能则根据这个技能的实际情况判断是否需要释放这个技能
         //如果不满足技能的使用条件，需要显示为灰色，同时点击这个技能使用时提示不满足条件无法使用
         [Tooltip("当前卡牌所拥有的所有技能")] 
-        public List<Image> skill;
+        public List<SpliceButtonEx> skill;
 
         //用户点击当前的卡牌0.5秒之后触发这个事件
         private void ShowDetail()
