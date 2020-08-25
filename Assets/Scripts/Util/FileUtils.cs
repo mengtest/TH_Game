@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Util
 {
+    //这个类在后面肯定会利用起来的
     public static class FileUtils
     {
         private static List<string> _searchPaths = new List<string>();
@@ -11,7 +12,7 @@ namespace Util
         
         public static void Init()
         {
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN || PLATFORM_STANDALONE_WIN
             InitByWin32();
 #elif UNITY_ANDROID
             InitByAndroid();
@@ -56,6 +57,18 @@ namespace Util
         private static void InitByWin32()
         {
             
+        }
+
+        public static string ScriptRoot
+        {
+            get
+            {
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_64
+                return Directory.GetCurrentDirectory() + "/common/lua/";
+#elif UNITY_ANDROID
+                return Application.persistentDataPath + "/common/lua/";
+#endif
+            }
         }
     }
 }

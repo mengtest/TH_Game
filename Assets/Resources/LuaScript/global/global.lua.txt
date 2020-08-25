@@ -20,6 +20,12 @@ xutil = require"xlua.util"
 ---全局数据表
 global = global or {}
 
+---程序启动时就完成初始化
+client = {}
+---client下的conf可以获取到客户端所需要的用到的各种必要的信息
+client.conf = require"extend.data.init"
+client.conf.init()
+
 ydbg = require("lib.debug") 
 
 globalFunc = require"global.functions"

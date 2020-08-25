@@ -80,6 +80,8 @@ public:
 	//这个只有在这个棋子在棋盘当中的时候才有意义，在卡池或者手牌中的时候，这个字段是没有意义的
     int pos();
 
+	
+
     //将棋子移动到手牌中
     bool moveToHand();
 
@@ -156,6 +158,12 @@ public:
     //这里的action包含有攻击、使用技能、
     //action的意义是0、无意义 1、攻击 2、使用技能
     bool checkAction(int action);
+
+    std::vector<int> getSkillVec();
+
+    int* getSkillList();
+
+    int getSkillByIndex(int index);
 
   //   /*
   //    * 任何属性上的变化都会反映到客户端当中

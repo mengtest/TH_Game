@@ -25,7 +25,7 @@ local BehaviourTree = class("BehaviourTree")
 function BehaviourTree:ctor()
 	--有唯一的root节点、且root节点只有一个子节点
 	---@type Node
-	self.root =  tree.builder:create("Node")
+	self.root =  tree.builder:create("Node", nil, self)
 	---@type Node
 	self._runningNode = nil
 end
@@ -71,7 +71,7 @@ function BehaviourTree:parse(str)
 	
 	local function createNode(items, index)
 		local item = items[index + 1]
-		local node = tree.builder:create(item.type, item)
+		local node = tree.builder:create(item.type, item, self)
 		--node.name = item.name
 		--node.id = item.id
 		if item.children then

@@ -5,10 +5,11 @@ using XLua;
 namespace LuaFramework
 {
     /// <summary>
-    /// 
+    /// 这个脚本的作用是加载指定的脚本
     /// </summary>
     public class LuaBehavior : MonoBehaviour, IDisposable
     {
+        public TextAsset script;
         private LuaTable _table;
         // private LuaFunction _onAwake;
         private LuaFunction _onStart;
@@ -21,13 +22,13 @@ namespace LuaFramework
         private void Awake()
         {
             var table = LuaEngine.Instance.LoadString(
-            Util.Loader.Read($"LuaScript/scripts/{Global.Scene.name}/{name}.lua"), name);
+                script.text, name);
             var onAwake = table.Get<LuaFunction>("awake");
             _onStart = table.Get<LuaFunction>("start");
             _onEnable = table.Get<LuaFunction>("enable");
             _onDestroy = table.Get<LuaFunction>("destroy");
             _onUpdate = table.Get<LuaFunction>("update");
-            _onFixUpdate = table.Get<LuaFunction>("fixUpdate");
+            _onFixUpdate = table.Get<LuaFunction>("fixedUpdate");
             _onDisable = table.Get<LuaFunction>("disable");
             table.Set("self", this);
             
@@ -73,8 +74,7 @@ namespace LuaFramework
                 fun = null;
             }   
         }
-
-
+        
         /// <summary>
         /// 
         /// </summary>

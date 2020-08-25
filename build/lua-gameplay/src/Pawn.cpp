@@ -744,6 +744,25 @@ bool Pawn::checkAction(int action)
 	return true;
 }
 
+std::vector<int> Pawn::getSkillVec()
+{
+	return{ this->_data->skills, this->_data->skills + PAWN_SKILL_LENGTH };
+}
+
+int* Pawn::getSkillList()
+{
+	return this->_data->skills;
+}
+
+int Pawn::getSkillByIndex(int index)
+{
+	if (index >=0 && index < PAWN_SKILL_LENGTH)
+	{
+		return this->_data->skills[index];
+	}
+	return 0;
+}
+
 // void Pawn::plus(int type, int value)
 // {
 // 	if (type == yGlobal.EventPawnAttrHp)

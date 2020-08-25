@@ -10,7 +10,6 @@
 #include "fmt/format.h"
 #include "Singleton.h"
 #include "Export.h"
-//#include "3rd.h"
 #include <filesystem>
 #include <set>
 
@@ -194,7 +193,7 @@ void LuaFramework::loadAll(const std::string& path)
                     }
                 	//必须有id、name、new函数，有任意一个不存在的话都不加载这个文件
                     if (tab["name"].get_type() != sol::type::string
-                     || tab["new"].get_type() != sol::type::function)
+                        || tab["new"].get_type() != sol::type::function)
                     {
 	                    //无法加载这个buff
                         continue;
@@ -233,7 +232,6 @@ void LuaFramework::loadAll(const std::string& path)
 void LuaFramework::exportAll() {
     //所有的导出类都存放到yuki这个表下面，充当名称空间的作用
     //sol::table yuki = _lua["yuki"].get_or_create<sol::table>();
-
     //所有的静态的create函数都存放到这里
     //sol::table create = _lua["create"].get_or_create<sol::table>();
     // nn::nlogI(++id);
@@ -429,6 +427,9 @@ void LuaFramework::exportAll() {
         , SOL_FUN(Pawn, getBuffByIndex)
         , SOL_FUN(Pawn, getBuffById)
         , SOL_FUN(Pawn, getBuffByUid)
+        , SOL_FUN(Pawn, getSkillVec)
+        , SOL_FUN(Pawn, getSkillList)
+        , SOL_FUN(Pawn, getSkillByIndex)
         , SOL_FUN(Pawn, containBuff)
         , SOL_FUN(Pawn, hasSkill)
         , SOL_FUN(Pawn, getOwner)
@@ -743,48 +744,7 @@ void LuaFramework::exportAll() {
 
 void LuaFramework::exportConfig(Config * config)
 {
-    // sol::table nn = _lua["nn"].get_or_create<sol::table>();
-    // nn.set_function("getConfig", []()
-    // {
-    //     return AgentMgr::instance()->curAgent()->getConfig();
-    // });
-	
-    // auto nn = _lua["nn"].get_or_create<sol::table>();
-    // sol::table conf = _lua["Config"].get_or_create<sol::table>();
-    // conf["normalDrawPrice"] = config->normalDrawPrice;
-    // conf["highDrawPrice"] = config->highDrawPrice;
-    // conf["normal_nPercent"] = config->normal_nPercent;
-    // conf["normal_rPercent"] = config->normal_rPercent;
-    // conf["normal_srPercent"] = config->normal_srPercent;
-    // conf["high_ssrPercent"] = config->high_ssrPercent;
-    // conf["primaryGold"] = config->primaryGold;
-    // conf["salary"] = config->salary;
-    // conf["roundCard"] = config->roundCard;
-    // conf["primaryCard"] = config->primaryCard;
-    // conf["maxRound"] = config->maxRound;
-    // conf["primaryEnergy"] = config->primaryEnergy;
-    // conf["energyGrow"] = config->energyGrow;
-    // conf["maxEnergy"] = config->maxEnergy;
-    // conf["primaryHp"] = config->primaryHp;
-    // conf["maxHp"] = config->maxHp;
-	
-	
-	
-    // conf.set("highDrawPrice", config->highDrawPrice);
-    // conf.set("normal_nPercent", config->normal_nPercent);
-    // conf.set("normal_rPercent", config->normal_rPercent);
-    // conf.set("normal_srPercent", config->normal_srPercent);
-    // conf.set("high_ssrPercent", config->high_ssrPercent);
-    // conf.set("primaryGold", config->primaryGold);
-    // conf.set("salary", config->salary);
-    // conf.set("roundCard", config->roundCard);
-    // conf.set("primaryCard", config->primaryCard);
-    // conf.set("maxRound", config->maxRound);
-    // conf.set("primaryEnergy", config->primaryEnergy);
-    // conf.set("energyGrow", config->energyGrow);
-    // conf.set("maxEnergy", config->maxEnergy);
-    // conf.set("primaryHp", config->primaryHp);
-    // conf.set("maxHp", config->maxHp);
+    
 }
 
 void LuaFramework::entry()

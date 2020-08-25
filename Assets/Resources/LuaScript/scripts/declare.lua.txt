@@ -1,6 +1,6 @@
 --- 注意，这个文件是声明文件，不要使用任何方式来加载这个文件
 
---//     int normalDrawPrice;        //抽一次普通卡牌所需要的钱
+--// int normalDrawPrice;        //抽一次普通卡牌所需要的钱
 --// int highDrawPrice;          //抽一次高级卡牌所需要的钱
 --// int normal_nPercent;        //普通卡牌出n的概率  所有的概率都是万分比
 --// int normal_rPercent;        //普通卡牌出r的概率
@@ -44,6 +44,97 @@
 ---@field public maxHp number
 ---@class Config
 local Config = {}
+
+--int id;
+--int buffs[SKILL_BUFF_LENGTH];               //该技能会产生的buff，最大为5个
+--int cost;                                   //使用技能所需要的消耗
+--int costType;                               //消耗的类型2   0、无消耗  1、HP 2、MP 3、能量(玩家拥有的一项属性)
+--int targetType;                             //目标类型      0、自己 1、单个队友 2、单个队友不包含自己 3、单个敌人 4、所有人 5、所有人不包含自己 6、自己玩家 7、敌方玩家 8、随机的单个敌方棋子 9、随机的单个友方棋子 10、随机的玩家 11、所有友军 12、所有敌军
+--int sourcePawn;                             //使用这个技能的棋子的id
+--int damage;                                 //技能产生的伤害
+--int damageType;                             //技能的伤害类型   0、无意义   1、物理伤害 2、魔法伤害 3、神圣伤害 4、治疗
+--int passive;                                //是否是被动，如果是被动的话则产生buff的同时不会添加到buff列表中   只有0、1两个值与bool的意义一样
+--int disperse;                               //是否驱散， 0、表示驱散所有debuff 1、表示驱散所有buff 2、表示驱散任意一个增益效果 3、表示驱散任意一个减益效果
+
+--id	name	name_cn	voice	effect	desc	cost	costType	
+--targetType	damage	damageType	passive	disperse	icon	buff1	buff2	buff3	buff4	buff5
+---@field id number
+---@field name string
+---@field name_cn string
+---@field voice string
+---@field effect string
+---@field desc string
+---@field cost number
+---@field costType number
+---@field targetType number
+---@field damage number
+---@field damageType number
+---@field passive number
+---@field disperse number
+---@field icon string
+---@field buff2 string
+---@field buff1 string
+---@field buff3 string
+---@field buff4 string
+---@field buff5 string
+---@field buffs number[]
+---@class SkillS
+local skillS = {}
+
+
+--id	name	name_cn	icon	img	hp	mp	atk	type	grow_hp	grow_mp	grow_atk
+--skill1	skill2	skill3	skill4	skill5	desc	model
+---@field id number
+---@field name string
+---@field name_cn string
+---@field icon string
+---@field img string
+---@field mp number
+---@field atk number
+---@field type number
+---@field grow_hp number
+---@field grow_mp number
+---@field grow_atk number
+---@field skill1 number
+---@field skill2 number
+---@field skill3 number
+---@field skill4 number
+---@field skill5 number
+---@field skills number[]
+---@field desc string
+---@field model number
+---@class PawnS
+local pawnS = {}
+
+
+--id	name	name_cn	desc	maxTime	damage	damageType	maxOverlay
+--baseType	careTags1	careTags2	careTags3	careTags4	careTags5	
+--tags1	tags2	tags3	tags4	tags5	property	attachFunctionId
+---@field id number
+---@field name string
+---@field name_cn string
+---@field desc string
+---@field maxTime number
+---@field damage number
+---@field damageType number
+---@field maxOverlay number
+---@field baseType number
+---@field careTags1 number
+---@field careTags2 number
+---@field careTags3 number
+---@field careTags4 number
+---@field careTags5 number
+---@field tags1 number
+---@field tags2 number
+---@field tags3 number
+---@field tags4 number
+---@field tags5 number
+---@field careTags number[]
+---@field tags number[]
+---@field property number
+---@field attachFunctionId number
+---@class BuffS
+local buffS = {}
 
 ---project no name名称空间，这里存放所有C++导出lua的全局函数，所有的导出类都不受这个影响
 ---@class NN
@@ -190,6 +281,15 @@ local AttrStruct = {
 --region Pawn
 ---@return number
 function pawn:id() end
+
+---@return number[]
+function pawn:getSkillVec() end
+
+---@return number[] 这里返回的实际上就是一个数组指针，但是目前还不清楚C++返回数组的指针给lua会有什么后果
+function pawn:getSkillList() end
+
+---@return number 根据下标获取到技能的id
+function pawn:getSkillByIndex(index) end
 
 ---@return number
 function pawn:unique_id() end

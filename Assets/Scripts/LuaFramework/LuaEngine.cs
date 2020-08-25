@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using Util;
 using XLua;
 
 namespace LuaFramework
@@ -73,12 +75,12 @@ namespace LuaFramework
         {
             //现在的写法中应该是没什么太大的问题了，接下来就可以正式开始完成战斗系统了
             _env = new LuaEnv();
-            LuaApi.init("./", _env.L);
+            //这个路径在后续的版本中需要修改
+
+            Global.Log("当前的脚本跟目录是:" + FileUtils.ScriptRoot);
+            LuaApi.init(FileUtils.ScriptRoot, _env.L);
             
             _env.AddLoader(CustomLoaderMethod);
-            // _env.DoString(@"local t = Damage.new() 
-            //                 nn.log(t.value)
-            // ");
         } 
         
         private byte[] CustomLoaderMethod(ref string fileName)

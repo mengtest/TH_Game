@@ -49,6 +49,8 @@ function Node:ctor(data)
     self._parent = nil
     ---@type Condition
     self._precondition = nil
+    ---@type BehaviourTree
+    self._tree = tree
 end
 
 ---@param node Node
@@ -61,7 +63,6 @@ end
 ---@param node Node
 function Node:setParent(node)
     if self._parent ~= nil then
-        --self:removeSelf()
         assert("该节点已经存在父节点了")
     end
     self._parent = node
@@ -86,6 +87,17 @@ function Node:removeChildByName(name)
             value._parent = nil
         end
     end
+end
+
+function Node:setTree(tree)
+    if self._tree then
+        return
+    end
+    self._tree = tree
+end
+
+function Node:getRoot()
+    return self._tree
 end
 
 function Node:removeSelf()

@@ -20,9 +20,11 @@ end
 ---使用data作为参数构造一个name的节点
 ---@param name string
 ---@param data any
-function Builder:create(name, data)
+function Builder:create(name, data, tree)
     if self._regList[name] then
-        return self._regList[name].new(data)
+        local node = self._regList[name].new(data)
+        node:setTree(tree)
+        return node
     else
         assert("没有注册类" .. name)
     end

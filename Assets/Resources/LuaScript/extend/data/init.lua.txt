@@ -1,0 +1,75 @@
+﻿---主要是当前客户端中需要用到的棋子、技能、buff等的原始信息，可以通过id在这边查询到所有的数据
+---这个其实应该是游戏加载的时候也会加载的数据
+---@class ClientData
+local ClientData = {}
+
+---自定义的buff、技能、棋子等要如何在客户端表现出来呢？     
+---修改所有的取到棋子等的操作，这里可能会被修改为直接从cpp dll中取出数据
+---这段数据应该在玩家正式进入游戏的时候就已经加载完成了
+function ClientData.init()
+    if not ClientData.skills then
+        local skills = json.decode(util.read("LuaScript/json/Skills.json"))
+        ---@type SkillS[]
+        ClientData.skills = {}
+        ClientData.skillLength = skills[#skills].id
+        for i, v in ipairs(skills) do
+            v.buffs = {v.buff1, v.buff2, v.buff3, v.buff4, v.buff5}
+            ClientData.skills[v.id] = v
+        end
+    end
+
+    if not ClientData.buffs then
+        local buffs = json.decode(util.read("LuaScript/json/Buffs.json"))
+        ---@type BuffS[]
+        ClientData.buffs = {}
+        ClientData.buffLength = buffs[#buffs].id
+        for i, v in ipairs(buffs) do
+            v.careTags = { v.careTags1, v.careTags2, v.careTags3, v.careTags4, v.careTags5}
+            v.tags = {v.tags1, v.tags2, v.tags3, v.tags4, v.tags5}
+            ClientData.buffs[v.id] = v
+        end
+    end
+
+    if not ClientData.pawns then
+        local pawns = json.decode(util.read("LuaScript/json/Cards.json"))
+        ---@type PawnS[]
+        ClientData.pawns = {}
+        ClientData.pawnLength = pawns[#pawns].id
+        for i, v in ipairs(pawns) do
+            v.skills = {v.skill1, v.skill2, v.skill3, v.skill4, v.skill5}
+            ClientData.pawns[v.id] = v
+        end
+    end
+end
+
+---@return BuffS
+function ClientData.getBuff(index)
+    return ClientData.buffs[index]
+end
+
+---@return number
+function ClientData.getBuffLength()
+    return ClientData.buffLength
+end
+
+---@return SkillS
+function ClientData.getSkill(index)
+    return ClientData.skills[index]
+end
+
+---@return number
+function ClientData.getSkillLength()
+    return ClientData.skillLength
+end
+
+---@return PawnS
+function ClientData.getPawn(index)
+    return ClientData.pawns[index]
+end
+
+---@return number
+function ClientData.getPawnLength()
+    return ClientData.pawnLength
+end
+
+return ClientData
