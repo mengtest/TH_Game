@@ -102,7 +102,12 @@ end
 function M.getPawnCanAttack(combatId, playerId)
     local player = nn.get_combat(combatId):getPlayer(playerId)
     --棋子有可能处于被缴械的状态
-    
+    for i = 0, player:getMaxCombatPawnNumber() - 1 do
+        local pawn = player:getCombatPawnByIndex(i)
+        if pawn then
+            
+        end
+    end
 end
 
 --当前玩家所有能够发动攻击的棋子，均发动一次攻击
