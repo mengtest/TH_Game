@@ -19,10 +19,10 @@ function Attack:tick()
     --先能够获取到自己的一个能够发动攻击的棋子
     local combat = nn.get_combat(combatId or 1)
     local player = combat:getPlayer(-1)
-    for i = 0, player:getMaxCombatPawnNumber() do
-        local pawn = player:getCombatPawnByIndex(i)
-        
-    end
+    --for i = 0, player:getMaxCombatPawnNumber() do
+    --    local pawn = player:getCombatPawnByIndex(i)
+    --    
+    --end
     --判断当前的棋子是否能够杀死敌方棋子且，自己不会死
     
     --发动攻击

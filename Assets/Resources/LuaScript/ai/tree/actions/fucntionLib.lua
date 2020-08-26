@@ -104,8 +104,8 @@ function M.getPawnCanAttack(combatId, playerId)
     --棋子有可能处于被缴械的状态
     for i = 0, player:getMaxCombatPawnNumber() - 1 do
         local pawn = player:getCombatPawnByIndex(i)
-        if pawn then
-            
+        if pawn and not GamePlay.cur().records:pawnAttackCount(pawn:unique_id()) then
+            return pawn:unique_id()
         end
     end
 end
