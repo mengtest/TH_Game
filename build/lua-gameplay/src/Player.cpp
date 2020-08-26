@@ -74,6 +74,18 @@ int Player::hp()
 	return _data->hp;
 }
 
+bool Player::hasPawnInCombat()
+{
+	for (auto p : this->_panel)
+	{
+		if (p != 0)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 int Player::getMaxCombatPawnNumber()
 {
 	return PANEL_LENGTH;

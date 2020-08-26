@@ -20,8 +20,6 @@ private:
 public:
     Singleton() = default;
 
-    // void store(std::function<void(void)> f);
-
     void store(NormalFunction f);
 
     void store(IRelease* handle);

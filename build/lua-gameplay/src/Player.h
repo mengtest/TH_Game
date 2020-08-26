@@ -101,6 +101,8 @@ public:
 
 	int hp();
 
+	bool hasPawnInCombat();
+
 	int getMaxCombatPawnNumber();
 
 	int getHandPawnNumber();

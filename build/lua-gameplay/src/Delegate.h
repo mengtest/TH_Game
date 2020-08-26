@@ -14,8 +14,16 @@ using object = std::any;
 using object = void*;
 #endif
 
+//最好这三个宏一起定义，一起取消定义
+#if !defined(CREATE_DELEGATE)
+#define DELEGATE_PARAM2 __FUNCSIG__
+#define DELEGATE_PARAM3 __LINE__
+//这个宏第一个参数就是一个lambda表达式，第二参数为当前函数签名的宏，第三个参数为当前所在行号的宏
+//用后面两个宏来区分委托
+//所有的委托都是同样的参数，std::any组成的向量
 #define CREATE_DELEGATE(__name__, __sentence)\
 		Delegate __name__([](const std::vector<object> & objects) __sentence, __FUNCSIG__, __LINE__)
+#endif
 
 class Delegate
 {
@@ -25,6 +33,7 @@ public:
 private:
 	//主要是为了解决std::function无法求hash的问题
 	std::map<size_t, Delegate> _callList;
+	//自身必须含有一个可以执行的方法
 	Callback _callback;
 	size_t _hashCode{};
 
@@ -45,16 +54,25 @@ public:
 
 	bool invoke(const std::vector<object>& objects);
 
-	Delegate& operator +=(Delegate& cast);
+	Delegate& operator +=(const Delegate& cast);
 
-	Delegate& operator -=(Delegate cast);
+	Delegate& operator -=(const Delegate& cast);
 
 	bool operator==(const Delegate& cast);
 
 	bool compare(const Delegate& cast);
 
+	//简单的封装，
 	template<class T>
-	T cast(object obj);
+	static T cast(object obj);
+
+	//生成一个默认的委托对象
+	static Delegate none();
+
+	[[nodiscard]] std::size_t hash_code() const
+	{
+		return _hashCode;
+	}
 
 	std::size_t hash_code()
 	{
@@ -74,6 +92,7 @@ T Delegate::cast(object obj)
 }
 
 //需要完善这里的Listener以及上面的Delegate
+//特化版本的委托，全部需要房间id作为参数
 class Listener
 {
 private:

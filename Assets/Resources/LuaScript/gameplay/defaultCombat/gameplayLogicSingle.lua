@@ -29,6 +29,8 @@ local M = {}
 --         玩家拖动手中的棋子到棋盘中将其召唤到对应的位置上，如果目标位置上已经存在棋子了，则失败，另外，玩家召唤棋子是需要一定的能量的
 --endregion
 
+
+
 ---玩家选择棋子攻击
 ---如何判定玩家想要触发攻击事件？
 ---玩家点击自己棋盘上本回合没有攻击过的棋子，向上滑动指定个像素后，向目标位置上发动攻击，如果目标位置上没有棋子，则直接对目标玩家发动攻击
@@ -60,14 +62,18 @@ function M.attack(combatId, playerId, attacker)
             --- M._list[attackPawn:unique_id()] = true
             --- attackPawn:opHp()
             --- 当前发动攻击的棋子也受到目标棋子的攻击力的伤害
-            local damage = Damage.new(false, enemy:atk(), 1, enemy, attackPawn)
+            --- 这里模拟的反击的动作，此时可能两枚棋子中有一个已经死亡，回到卡池中了，但是本游戏中棋子即使回到卡池中也不会
+            local damage = Damage.new(false, enemyPawn:atk(), 1, enemyPawn, attackPawn)
             --- opHp与hit相比较区别在于hit会走受伤的逻辑，而ophp是单纯的增减血量
             attackPawn:hit(damage)
+            GamePlay.cur().records:pawnAttack(attacker)
             return true
         end
     else
-        ---敌方玩家是没有反击
+        ---直接攻击玩家是不会有反击的动作的
         attackPawn:attack(enemy)
+        GamePlay.cur().records:pawnAttack(attacker)
+        return true
     end
     return false
 end

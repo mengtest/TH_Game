@@ -62,30 +62,53 @@ bool Delegate::invoke(const std::vector<object>& objects)
 	return true;
 }
 
-Delegate& Delegate::operator+=(Delegate& cast)
-{
+Delegate& Delegate::operator+=(const Delegate& cast)
+{	
 	//如果已经存在，则不再添加
 	if (_callList.find(cast.hash_code()) == _callList.end())
 	{
 		_callList.insert({ cast.hash_code(), cast });
 	}
-	for (auto&& callable : cast._callList)
+
+	auto callable = cast._callList.begin();
+	for (;callable != cast._callList.end();)
 	{
-		if (_callList.find(callable.first) == _callList.end())
+		if (_callList.find(callable->first) == _callList.end())
 		{
-			_callList.insert({ callable.first, callable.second });
+			_callList.insert({ callable->first, callable->second });
 		}
 	}
-	cast._callList.clear();
 	return *this;
 }
 
-Delegate& Delegate::operator-=(Delegate cast)
+Delegate& Delegate::operator-=(const Delegate& cast)
 {
-	//这个还可以完善，需要遍历整个的树
+	//如果-=的时候刚好就是自身的话，要怎么处理？
+	if (_hashCode == cast.hash_code() && _hashCode != 0)
+	{
+		this->_callback = [](auto) {return true;};
+		this->_hashCode = 0;
+	}
 	if (_callList.find(cast.hash_code()) != _callList.end())
 	{
 		_callList.erase(cast.hash_code());
+	}
+
+	auto call = cast._callList.begin();
+	for (;call != cast._callList.end();)
+	{
+		if (call->second.hash_code() == _hashCode && _hashCode != 0)
+		{
+			this->_hashCode = 0;
+			this->_callback = [](auto) {return true; };
+			break;
+		}
+
+		if (_callList.find(call->second.hash_code()) != _callList.end())
+		{
+			_callList.erase(call->second.hash_code());
+		}
+		++call;
 	}
 	return *this;
 }
@@ -100,7 +123,13 @@ bool Delegate::compare(const Delegate& cast)
 	return _hashCode == cast._hashCode;
 }
 
-
+Delegate Delegate::none()
+{
+	Delegate d;
+	//如果_hashCode为0的话表示是空的委托对象，可以拷贝新的委托对象
+	d._hashCode = 0;
+	return d;
+}
 
 bool Listener::event(const std::string& name, int roomId, const std::vector<object>& objects)
 {

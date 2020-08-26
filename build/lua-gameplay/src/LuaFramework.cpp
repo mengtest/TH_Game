@@ -522,6 +522,7 @@ void LuaFramework::exportAll() {
         , SOL_FUN(Player, getPawnByUid)
         , SOL_FUN(Player, hasPawn)
         , SOL_FUN(Player, hasPawnUid)
+        , SOL_FUN(Player, hasPawnInCombat)
         , SOL_FUN(Player, getHandPawnSize)
         // void release();
         , SOL_FUN(Player, combatId)

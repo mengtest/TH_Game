@@ -56,6 +56,8 @@ function DefaultGamePlay:ctor()
     ---这个是卡牌的原始id到卡牌的
     ---@type UIDeckCardItem[]
     self._cardsBuildForLeftUi = {}
+    ---@type Records
+    self.records = require("gameplay.defaultCombat.records").new()
 
     ---当玩家抽卡或者其他修改了这个卡组的时候触发这个事件
     CS.Lib.Listener.Instance:On("player_deck_card_update", function (plus, uid)

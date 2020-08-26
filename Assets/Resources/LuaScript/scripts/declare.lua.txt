@@ -1,5 +1,10 @@
 --- 注意，这个文件是声明文件，不要使用任何方式来加载这个文件
 
+
+---@field public new: fun(any)
+---@class Clazz
+local _
+
 --// int normalDrawPrice;        //抽一次普通卡牌所需要的钱
 --// int highDrawPrice;          //抽一次高级卡牌所需要的钱
 --// int normal_nPercent;        //普通卡牌出n的概率  所有的概率都是万分比
@@ -489,6 +494,9 @@ function player:hasPawn(id) end
 ---@param uid number
 ---@return boolean
 function player:hasPawnUid(uid) end
+
+---@return boolean
+function player:hasPawnInCombat() end
 
 ---@return number
 function player:combatId() end

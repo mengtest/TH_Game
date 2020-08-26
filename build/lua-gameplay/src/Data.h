@@ -35,7 +35,6 @@ struct BuffS
     int restTime;                           //buff的剩余时间
     //现在修改为buff为一个整体的类，而不是数据+单独的函数，所有这个字段移除
     // int attachFunctionId;                   //真正调用buff的函数id，这个函数从lua、cs、js来，这是一个额外的扩展，专用于一些特殊的buff
-
     int targetId;                           //buff影响的目标的id
     int sourcePawn;                         //谁给的这个buff
     int damage;                             //buff的伤害
@@ -43,7 +42,6 @@ struct BuffS
     int maxOverlay;                         //最大叠加层数       0、无意义 1、不可叠加(有这个buff就表示有一层)   2、最大两层 3、最大三层 。。。 -1、可无限叠加
     int overlay;                            //当前叠加的层数
     int primaryOverlay;                     //buff的初始叠加层数
-
     //与baseType搭配使用，表示影响的目标属性的具体数值
     //正值表示增加(无论是否是增益效果)，复制表示减小
     int value;                           //影响的属性         0、不影响任何属性 1、攻击力 2、防御力 3、魔法攻击力 4、魔法防御力
@@ -89,7 +87,7 @@ struct SkillS
     int damage;                                 //技能产生的伤害
     int damageType;                             //技能的伤害类型   0、无意义   1、物理伤害 2、魔法伤害 3、神圣伤害 4、治疗
     int passive;                                //是否是被动，如果是被动的话则产生buff的同时不会添加到buff列表中   只有0、1两个值与bool的意义一样
-    int disperse;                               //是否驱散， 0、表示驱散所有debuff 1、表示驱散所有buff 2、表示驱散任意一个增益效果 3、表示驱散任意一个减益效果
+    int disperse;                               //是否驱散， 0、表示不驱散 1、表示驱散所有debuff 2、表示驱散所有buff 3、表示驱散任意一个增益效果 4、表示驱散任意一个减益效果 5、表示驱散全部
 
     friend std::ostream &operator<<(std::ostream &os, const SkillS &s);
 };

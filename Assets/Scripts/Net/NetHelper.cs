@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Util;
+using Object = UnityEngine.Object;
 
 namespace Net
 {
@@ -81,7 +81,7 @@ namespace Net
         {
             //download的功能是一整块，所以直接高内聚，再使用公共的begin函数来完成下载功能
             var obj = Util.Loader.Load<GameObject>("Prefab/Download");
-            var go = GameObject.Instantiate(obj) as GameObject;
+            var go = Object.Instantiate(obj) as GameObject;
             var download = go.GetComponent<Download>();
             download.Begin(uri);
         }
